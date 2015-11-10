@@ -44,9 +44,12 @@ extension EditorViewController: ShareControllerDelegate {
 		
 		switch op {
 		case .Insert(let location, let string):
+			let length = string.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
 			if Int(location) < selection.location {
 				selection.location += string.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
 			}
+			
+			selection.length += NSIntersectionRange(selection, NSRange(location: Int(location), length: length)).length
 			
 			let index = text.startIndex.advancedBy(Int(location))
 			let range = Range<String.Index>(start: index, end: index)
@@ -55,6 +58,8 @@ extension EditorViewController: ShareControllerDelegate {
 			if Int(location) < selection.location {
 				selection.location -= Int(length)
 			}
+			
+			selection.length -= NSIntersectionRange(selection, NSRange(location: Int(location), length: Int(length))).length
 			
 			let index = text.startIndex.advancedBy(Int(location))
 			let range = Range<String.Index>(start: index, end: index.advancedBy(Int(length)))
