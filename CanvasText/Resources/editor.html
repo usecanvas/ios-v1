@@ -104,9 +104,9 @@ Canvas.connect = function(host, collectionID, canvasID) {
       "snapshot": Canvas._doc.snapshot
     });
 
-    const context = this.createContext();
-    context.onInsert = onInsert;
-    context.onRemove = onDelete;
+    Canvas._context = this.createContext();
+    Canvas._context.onInsert = onInsert;
+    Canvas._context.onRemove = onDelete;
   }
 
   function onInsert(position, text) {
@@ -122,7 +122,7 @@ Canvas.connect = function(host, collectionID, canvasID) {
   function onDelete(position, length) {
     Canvas._sendMessage({
       "op": {
-        "type": "delete",
+        "type": "remove",
         "location": position,
         "length": length
       }
@@ -132,12 +132,12 @@ Canvas.connect = function(host, collectionID, canvasID) {
 
 Canvas.insert = function(location, string) {
   console.log("Insert:", {"location": location, "string": string});
-  Canvas._doc.insert(location, string);
+  Canvas._context.insert(location, string);
 };
 
-Canvas.delete = function(location, length) {
-  console.log("Delete:", {"location": location, "length": length});
-  Canvas._doc.del(location, length);
+Canvas.remove = function(location, length) {
+  console.log("Remove:", {"location": location, "length": length});
+  Canvas._context.remove(location, length);
 };
 
 Canvas._sendMessage = function(message) {
