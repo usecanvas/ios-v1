@@ -88,18 +88,20 @@ k=n(a);a=k[0];for(var k=k[1],g=0;g<b.length;g++){var m=b[g],p;switch(typeof m){c
 b[k],m;switch(typeof g){case "number":for(;0<g;)m=h(g,"d"),f(m),"object"!==typeof m&&(g-="number"===typeof m?m:m.length||m.d);break;case "string":f(g);break;case "object":for(g=g.d;0<g;)switch(m=h(g,"d"),typeof m){case "number":f({d:m});g-=m;break;case "string":g-=m.length;break;case "object":f(m)}}}for(;g=h(-1);)f(g);return d(c)};var f=function(a,b){for(var c=0,d=0;d<b.length;d++){var f=b[d];if(a<=c)break;switch(typeof f){case "number":if(a<=c+f)return a;c+=f;break;case "string":c+=f.length;a+=f.length;
 break;case "object":a-=Math.min(f.d,a-c)}}return a};g.transformSelection=function(a,b,c){var d=0;if(c){for(a=0;a<b.length;a++)switch(c=b[a],typeof c){case "number":d+=c;break;case "string":d+=c.length}return d}return"number"===typeof a?f(a,b):[f(a[0],b),f(a[1],b)]};g.selectionEq=function(a,b){null!=a[0]&&a[0]===a[1]&&(a=a[0]);null!=b[0]&&b[0]===b[1]&&(b=b[0]);return a===b||null!=a[0]&&null!=b[0]&&a[0]===b[0]&&a[1]==b[1]}},{}]},{},[4])(4)});
 
-window.connectToCanvas = function(collectionID, canvasID) {
-  const origin = 'ws://localhost:5001/realtime';
-  const socket = new WebSocket(origin);
-  const connection = new sharejs.Connection(socket);
-  window.doc = connection.get(collectionID, canvasID);
+var Canvas = {};
+window.Canvas = Canvas;
 
-  doc.subscribe();
-  doc.whenReady(onDocReady);
+Canvas.connect = function(host, collectionID, canvasID) {
+  this._socket = new WebSocket(host);
+  this._connection = new sharejs.Connection(this._socket);
+  this._doc = this._connection.get(collectionID, canvasID);
+
+  this._doc.subscribe();
+  this._doc.whenReady(onDocReady);
 
   function onDocReady() {
-    sendMessage({
-      "snapshot": doc.snapshot
+    Canvas._sendMessage({
+      "snapshot": Canvas._doc.snapshot
     });
 
     const context = this.createContext();
@@ -108,7 +110,7 @@ window.connectToCanvas = function(collectionID, canvasID) {
   }
 
   function onInsert(position, text) {
-    sendMessage({
+    Canvas._sendMessage({
       "op": {
         "type": "insert",
         "location": position,
@@ -118,7 +120,7 @@ window.connectToCanvas = function(collectionID, canvasID) {
   }
 
   function onDelete(position, length) {
-    sendMessage({
+    Canvas._sendMessage({
       "op": {
         "type": "delete",
         "location": position,
@@ -126,12 +128,22 @@ window.connectToCanvas = function(collectionID, canvasID) {
       }
     });
   }
+};
 
-  function sendMessage(message) {
-    console.log(message);
-    if (typeof window.webkit != "undefined" && typeof window.webkit.messageHandlers != "undefined") {
-      window.webkit.messageHandlers.share.postMessage(message);
-    }
+Canvas.insert = function(location, string) {
+  console.log("Insert:", {"location": location, "string": string});
+  Canvas._doc.insert(location, string);
+};
+
+Canvas.delete = function(location, length) {
+  console.log("Delete:", {"location": location, "length": length});
+  Canvas._doc.del(location, length);
+};
+
+Canvas._sendMessage = function(message) {
+  console.log(message);
+  if (typeof window.webkit != "undefined" && typeof window.webkit.messageHandlers != "undefined") {
+    window.webkit.messageHandlers.share.postMessage(message);
   }
-}
+};
 </script></body></html>

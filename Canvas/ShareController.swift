@@ -69,7 +69,8 @@ class ShareController: NSObject {
 		userContentController.addScriptMessageHandler(self, name: "share")
 		
 		// Connect
-		let js = "window.connectToCanvas('\(collectionID)', '\(canvasID)');"
+		let URL = "ws://localhost:5001/realtime"
+		let js = "Canvas.connect('\(URL)', '\(collectionID)', '\(canvasID)');"
 		userContentController.addUserScript(WKUserScript(source: js, injectionTime: .AtDocumentEnd, forMainFrameOnly: true))
 		configuration.userContentController = userContentController
 		
@@ -77,6 +78,18 @@ class ShareController: NSObject {
 		webView = WKWebView(frame: .zero, configuration: configuration)
 		let fileURL = NSBundle.mainBundle().URLForResource("editor", withExtension: "html")!
 		webView.loadFileURL(fileURL, allowingReadAccessToURL: fileURL)
+	}
+	
+	
+	// MARK: - Operations
+	
+	func insert(location location: UInt, string: String) {
+		let escapedString = string.stringByReplacingOccurrencesOfString("'", withString: "\\'")
+		webView.evaluateJavaScript("Canvas.insert(\(location), '\(escapedString)');", completionHandler: nil)
+	}
+	
+	func delete(location location: UInt, length: UInt) {
+		webView.evaluateJavaScript("Canvas.delete(\(location), \(length));", completionHandler: nil)
 	}
 }
 

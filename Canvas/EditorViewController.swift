@@ -12,7 +12,7 @@ class EditorViewController: UIViewController {
 	
 	// MARK: - Properties
 	
-	let shareController = ShareController(collectionID: "10ef574f-7a70-4b21-8fb1-fec3c49f941b", canvasID: "8ba16638-3ce8-4f14-a1b6-6d16bf0bcc18")
+	let shareController = ShareController(collectionID: "10ef574f-7a70-4b21-8fb1-fec3c49f941b", canvasID: "20284ecb-751a-48c5-b0a0-3e5f850a5092")
 	
 	let textView: UITextView = {
 		let view = UITextView()
@@ -29,6 +29,7 @@ class EditorViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		textView.delegate = self
 		shareController.delegate = self
 
 		textView.frame = view.bounds
@@ -44,34 +45,58 @@ extension EditorViewController: ShareControllerDelegate {
 		
 		switch op {
 		case .Insert(let location, let string):
+			// Shift selection
 			let length = string.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
 			if Int(location) < selection.location {
 				selection.location += string.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
 			}
 			
+			// Extend selection
 			selection.length += NSIntersectionRange(selection, NSRange(location: Int(location), length: length)).length
 			
+			// Update text
 			let index = text.startIndex.advancedBy(Int(location))
 			let range = Range<String.Index>(start: index, end: index)
 			text = text.stringByReplacingCharactersInRange(range, withString: string)
 		case .Delete(let location, let length):
+			// Shift selection
 			if Int(location) < selection.location {
 				selection.location -= Int(length)
 			}
 			
+			// Extend selection
 			selection.length -= NSIntersectionRange(selection, NSRange(location: Int(location), length: Int(length))).length
 			
+			// Update text
 			let index = text.startIndex.advancedBy(Int(location))
 			let range = Range<String.Index>(start: index, end: index.advancedBy(Int(length)))
 			text = text.stringByReplacingCharactersInRange(range, withString: "")
 		}
 
+		// Apply changes
 		textView.text = text
 		textView.selectedRange = selection
 	}
 	
 	func shareController(controller: ShareController, didReceiveSnapshot text: String) {
-		// Assume we don't have a selection yet
 		textView.text = text
+		textView.editable = true
+	}
+}
+
+
+extension EditorViewController: UITextViewDelegate {
+	func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+		// Insert
+		if range.length == 0 {
+			shareController.insert(location: UInt(range.location), string: text)
+		}
+		
+		// Delete
+		else {
+			shareController.delete(location: UInt(range.location), length: UInt(range.length))
+		}
+		
+		return true
 	}
 }
