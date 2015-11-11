@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CanvasText
 
 class EditorViewController: UIViewController {
 	
@@ -34,5 +35,26 @@ class EditorViewController: UIViewController {
 			textView.topAnchor.constraintEqualToAnchor(topLayoutGuide.bottomAnchor),
 			textView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor)
 		])
+		
+		let textController = TextController(backingText: "⧙doc-heading⧘A Lovely Document\nThis is a paragraph.\n⧙blockquote⧘> Here’s to the crazy ones…", delegate: nil)
+		
+		let text = NSMutableAttributedString(string: textController.displayText, attributes: [
+			NSFontAttributeName: UIFont.systemFontOfSize(16)
+		])
+		
+		for line in textController.lines {
+			let range = textController.backingRangeToDisplayRange(line.content)
+			
+			switch line.kind {
+			case .DocHeading:
+				text.addAttribute(NSFontAttributeName, value: UIFont.boldSystemFontOfSize(18), range: range)
+			case .Paragraph:
+				text.addAttribute(NSForegroundColorAttributeName, value: UIColor.darkGrayColor(), range: range)
+			default:
+				text.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor(), range: range)
+			}
+		}
+		
+		textView.attributedText = text
 	}
 }

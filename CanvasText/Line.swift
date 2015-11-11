@@ -36,8 +36,8 @@ public struct Line: Equatable {
 	// MARK: - Properties
 	
 	public let kind: Kind
-	public var delimiter: Range<String.Index>?
-	public var content: Range<String.Index>
+	public var delimiter: NSRange?
+	public var content: NSRange
 	
 	static let leadingDelimiter = "⧙"
 	static let trailingDelimiter = "⧘"
@@ -46,7 +46,7 @@ public struct Line: Equatable {
 	
 	// MARK: - Initializers
 	
-	public init(kind: Kind, delimiter: Range<String.Index>? = nil, content: Range<String.Index>) {
+	public init(kind: Kind, delimiter: NSRange? = nil, content: NSRange) {
 		self.kind = kind
 		self.delimiter = delimiter
 		self.content = content
@@ -55,8 +55,8 @@ public struct Line: Equatable {
 	
 	// MARK: - Text
 	
-	public func contentWithString(string: String) -> String {
-		return string.substringWithRange(content)
+	public func contentInString(string: String) -> String {
+		return (string as NSString).substringWithRange(content)
 	}
 }
 

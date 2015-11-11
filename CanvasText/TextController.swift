@@ -9,9 +9,9 @@
 import Foundation
 
 public protocol TextControllerDelegate: class {
-//	func textController(textController: TextController, textDidChange text: String)
-//	func textController(textController: TextController, displayTextDidChange displayText: String)
+	func textControllerDidChangeText(textController: TextController)
 }
+
 
 // TODO: Handle selection
 // TODO: Hook up OT
@@ -20,9 +20,9 @@ public class TextController {
 	
 	// MARK: - Properties
 	
-	public var text: String {
+	public var backingText: String {
 		didSet {
-			textDidChange()
+			backingTextDidChange()
 		}
 	}
 	
@@ -35,22 +35,39 @@ public class TextController {
 	
 	// MARK: - Initializers
 	
-	public init(text: String = "", delegate: TextControllerDelegate? = nil) {
-		self.text = text
+	public init(backingText: String = "", delegate: TextControllerDelegate? = nil) {
+		self.backingText = backingText
 		self.delegate = delegate
 
 		displayText = ""
-		textDidChange()
+		backingTextDidChange()
+	}
+	
+	
+	// MARK: - Ranges
+	
+	public func backingRangeToDisplayRange(backingRange: NSRange) -> NSRange {
+		var displayRange = backingRange
+		
+		for delimiter in lines.flatMap({ $0.delimiter }) {
+			if delimiter.location > backingRange.location {
+				break
+			}
+			
+			displayRange.location -= delimiter.length
+		}
+		
+		return displayRange
 	}
 	
 	
 	// MARK: - Private
 	
-	private func textDidChange() {
+	private func backingTextDidChange() {
 		var lines = [Line]()
 		
-		let textRange = Range<String.Index>(start: text.startIndex, end: text.endIndex)
-		text.enumerateSubstringsInRange(textRange, options: [.ByLines]) { substring, substringRange, enclosingRange, _ in
+		let text = backingText as NSString
+		text.enumerateSubstringsInRange(NSRange(location: 0, length: text.length), options: [.ByLines]) { substring, substringRange, _, _ in
 			guard let substring = substring else { return }
 			
 			let scanner = NSScanner(string: substring)
@@ -73,13 +90,15 @@ public class TextController {
 				return
 			}
 			
-			let start = substringRange.startIndex
-			let delimiter = Range<String.Index>(start: start, end: start.advancedBy(scanner.scanLocation))
-			let content = Range<String.Index>(start: delimiter.endIndex, end: substringRange.endIndex)
+			let offset = substringRange.location
+			let delimiter = NSRange(location: offset, length: scanner.scanLocation)			
+			let content = NSRange(location: offset + delimiter.length, length: substringRange.length - delimiter.length)
 			lines.append(Line(kind: kind, delimiter: delimiter, content: content))
 		}
 		
 		self.lines = lines
-		displayText = lines.map { $0.contentWithString(text) }.joinWithSeparator("\n")
+		displayText = lines.map { $0.contentInString(backingText) }.joinWithSeparator("\n")
+		
+		delegate?.textControllerDidChangeText(self)
 	}
 }

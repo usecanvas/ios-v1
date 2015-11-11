@@ -22,6 +22,7 @@
 		21F8F1CB1BF2978B0096D2AF /* TextController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F8F1CA1BF2978B0096D2AF /* TextController.swift */; };
 		21F8F1CC1BF29E800096D2AF /* BlockTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F8F1B71BF296810096D2AF /* BlockTest.swift */; };
 		21F8F1CE1BF2A0560096D2AF /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F8F1CD1BF2A0560096D2AF /* Line.swift */; };
+		21F8F1D41BF2B9130096D2AF /* NSRange+CanvasText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F8F1D31BF2B9130096D2AF /* NSRange+CanvasText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		21F8F1C61BF296CC0096D2AF /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		21F8F1CA1BF2978B0096D2AF /* TextController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextController.swift; sourceTree = "<group>"; };
 		21F8F1CD1BF2A0560096D2AF /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		21F8F1D31BF2B9130096D2AF /* NSRange+CanvasText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSRange+CanvasText.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 				21F8F19A1BF296480096D2AF /* CanvasText.h */,
 				21F8F1C81BF2971F0096D2AF /* Controllers */,
 				21F8F1C91BF297260096D2AF /* Models */,
+				21F8F1D21BF2B9060096D2AF /* Extensions */,
 				21F8F1BB1BF296910096D2AF /* Resources */,
 				21F8F1B61BF296810096D2AF /* Tests */,
 			);
@@ -196,6 +199,14 @@
 				21F8F1CD1BF2A0560096D2AF /* Line.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		21F8F1D21BF2B9060096D2AF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				21F8F1D31BF2B9130096D2AF /* NSRange+CanvasText.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,6 +367,7 @@
 				21F8F1CE1BF2A0560096D2AF /* Line.swift in Sources */,
 				21F8F1CB1BF2978B0096D2AF /* TextController.swift in Sources */,
 				21F8F1C71BF296CC0096D2AF /* Operation.swift in Sources */,
+				21F8F1D41BF2B9130096D2AF /* NSRange+CanvasText.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
