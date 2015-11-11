@@ -16,6 +16,8 @@ class EditorViewController: UIViewController {
 	let textView: UITextView = {
 		let view = UITextView()
 		view.translatesAutoresizingMaskIntoConstraints = false
+		view.textContainerInset = UIEdgeInsets(top: 16, left: 16, bottom: 32, right: 16)
+		view.alwaysBounceVertical = true
 		view.editable = false
 		return view
 	}()
@@ -46,6 +48,11 @@ class EditorViewController: UIViewController {
 
 
 extension EditorViewController: UITextViewDelegate {
+	func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+		textController.change(range: range, replacementText: text)
+		return true
+	}
+	
 	func textViewDidChangeSelection(textView: UITextView) {
 		textController.backingSelection = textController.displayRangeToBackingRange(textView.selectedRange)
 	}
@@ -56,21 +63,12 @@ extension EditorViewController: TextControllerDelegate {
 	func textControllerDidChangeText(textController: TextController) {
 		textView.editable = true
 		
-		let text = NSMutableAttributedString(string: textController.displayText, attributes: [
-			NSFontAttributeName: UIFont.systemFontOfSize(16)
-			])
+		let text = NSMutableAttributedString(string: textController.displayText, attributes: Theme.baseAttributes)
 		
 		for line in textController.lines {
+			let attributes = Theme.attributesForLine(line)
 			let range = textController.backingRangeToDisplayRange(line.content)
-			
-			switch line.kind {
-			case .DocHeading:
-				text.addAttribute(NSFontAttributeName, value: UIFont.boldSystemFontOfSize(18), range: range)
-			case .Paragraph:
-				text.addAttribute(NSForegroundColorAttributeName, value: UIColor.darkGrayColor(), range: range)
-			default:
-				text.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor(), range: range)
-			}
+			text.addAttributes(attributes, range: range)
 		}
 		
 		textView.attributedText = text

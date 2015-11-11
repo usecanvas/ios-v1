@@ -22,6 +22,8 @@
 		21F8F1CC1BF29E800096D2AF /* BlockTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F8F1B71BF296810096D2AF /* BlockTest.swift */; };
 		21F8F1CE1BF2A0560096D2AF /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F8F1CD1BF2A0560096D2AF /* Line.swift */; };
 		21F8F1D41BF2B9130096D2AF /* NSRange+CanvasText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F8F1D31BF2B9130096D2AF /* NSRange+CanvasText.swift */; };
+		21F8F1D61BF3BC650096D2AF /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F8F1D51BF3BC650096D2AF /* Theme.swift */; };
+		21F8F1D81BF3BDAE0096D2AF /* UIColor+X.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F8F1D71BF3BDAE0096D2AF /* UIColor+X.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		21F8F1CA1BF2978B0096D2AF /* TextController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextController.swift; sourceTree = "<group>"; };
 		21F8F1CD1BF2A0560096D2AF /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		21F8F1D31BF2B9130096D2AF /* NSRange+CanvasText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSRange+CanvasText.swift"; sourceTree = "<group>"; };
+		21F8F1D51BF3BC650096D2AF /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		21F8F1D71BF3BDAE0096D2AF /* UIColor+X.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+X.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,8 @@
 			children = (
 				21F10F4D1BF138750035057D /* AppDelegate.swift */,
 				21F10F4F1BF138750035057D /* EditorViewController.swift */,
+				21F8F1D51BF3BC650096D2AF /* Theme.swift */,
+				21F8F1D71BF3BDAE0096D2AF /* UIColor+X.swift */,
 				21F10F5F1BF13D720035057D /* Resources */,
 			);
 			path = Canvas;
@@ -351,7 +357,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				21F10F501BF138750035057D /* EditorViewController.swift in Sources */,
+				21F8F1D81BF3BDAE0096D2AF /* UIColor+X.swift in Sources */,
 				21F10F4E1BF138750035057D /* AppDelegate.swift in Sources */,
+				21F8F1D61BF3BC650096D2AF /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

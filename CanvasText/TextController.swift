@@ -66,6 +66,23 @@ public class TextController {
 	}
 	
 	
+	// MARK: - Editing
+	
+	public func change(range range: NSRange, replacementText text: String) {
+		let backingRange = displayRangeToBackingRange(range)
+		
+		// Insert
+		if range.length == 0 {
+			otController?.submitOperation(.Insert(location: UInt(backingRange.location), string: text))
+		}
+			
+		// Remove
+		else {
+			otController?.submitOperation(.Remove(location: UInt(backingRange.location), length: UInt(backingRange.length)))
+		}
+	}
+	
+	
 	// MARK: - Ranges
 	
 	public func backingRangeToDisplayRange(backingRange: NSRange) -> NSRange {
