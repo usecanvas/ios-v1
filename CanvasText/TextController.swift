@@ -14,9 +14,6 @@ public protocol TextControllerDelegate: class {
 }
 
 
-// TODO: Handle selection
-// TODO: Hook up OT
-// TODO: Hooks for UITextView
 public class TextController {
 	
 	// MARK: - Properties
