@@ -10,6 +10,7 @@ import Foundation
 
 public protocol TextControllerDelegate: class {
 	func textControllerDidChangeText(textController: TextController)
+	func textControllerDidUpdateSelection(textController: TextController)
 }
 
 
@@ -26,11 +27,22 @@ public class TextController {
 		}
 	}
 	
+	public var backingSelection: NSRange {
+		didSet {
+			displaySelection = backingRangeToDisplayRange(backingSelection)
+			delegate?.textControllerDidUpdateSelection(self)
+		}
+	}
+	
 	public private(set) var displayText: String
+	
+	public private(set) var displaySelection: NSRange
 	
 	public private(set) var lines = [Line]()
 	
 	public weak var delegate: TextControllerDelegate?
+	
+	private var otController: OTController?
 	
 	
 	// MARK: - Initializers
@@ -39,8 +51,18 @@ public class TextController {
 		self.backingText = backingText
 		self.delegate = delegate
 
+		backingSelection = .zero
 		displayText = ""
+		displaySelection = .zero
 		backingTextDidChange()
+	}
+	
+	
+	// MARK: - Realtime
+	
+	public func connect(collectionID collectionID: String, canvasID: String) {
+		otController = OTController(collectionID: collectionID, canvasID: canvasID)
+		otController?.delegate = self
 	}
 	
 	
@@ -58,6 +80,20 @@ public class TextController {
 		}
 		
 		return displayRange
+	}
+	
+	public func displayRangeToBackingRange(displayRange: NSRange) -> NSRange {
+		var backingRange = displayRange
+		
+		for delimiter in lines.flatMap({ $0.delimiter }) {
+			if delimiter.location > backingRange.location {
+				break
+			}
+			
+			backingRange.location += delimiter.length
+		}
+		
+		return backingRange
 	}
 	
 	
@@ -100,5 +136,51 @@ public class TextController {
 		displayText = lines.map { $0.contentInString(backingText) }.joinWithSeparator("\n")
 		
 		delegate?.textControllerDidChangeText(self)
+	}
+}
+
+
+extension TextController: OTControllerDelegate {
+	func otController(controller: OTController, didReceiveSnapshot text: String) {
+		backingText = text
+	}
+	
+	func otController(controller: OTController, didReceiveOperation operation: Operation) {
+		var backingText = self.backingText
+		var backingSelection = self.backingSelection
+		
+		switch operation {
+		case .Insert(let location, let string):
+			// Shift selection
+			let length = string.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
+			if Int(location) < backingSelection.location {
+				backingSelection.location += string.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
+			}
+			
+			// Extend selection
+			backingSelection.length += NSIntersectionRange(backingSelection, NSRange(location: location, length: length)).length
+			
+			// Update text
+			let index = backingText.startIndex.advancedBy(Int(location))
+			let range = Range<String.Index>(start: index, end: index)
+			backingText = backingText.stringByReplacingCharactersInRange(range, withString: string)
+		case .Remove(let location, let length):
+			// Shift selection
+			if Int(location) < backingSelection.location {
+				backingSelection.location -= Int(length)
+			}
+			
+			// Extend selection
+			backingSelection.length -= NSIntersectionRange(backingSelection, NSRange(location: location, length: length)).length
+			
+			// Update text
+			let index = backingText.startIndex.advancedBy(Int(location))
+			let range = Range<String.Index>(start: index, end: index.advancedBy(Int(length)))
+			backingText = backingText.stringByReplacingCharactersInRange(range, withString: "")
+		}
+		
+		// Apply changes
+		self.backingText = backingText
+		self.backingSelection = backingSelection
 	}
 }

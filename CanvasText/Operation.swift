@@ -19,9 +19,9 @@ enum Operation {
 	var NSRange: Foundation.NSRange {
 		switch self {
 		case .Insert(let location, _):
-			return Foundation.NSRange(location: Int(location), length: 0)
+			return Foundation.NSRange(location: location, length: 0)
 		case .Remove(let location, let length):
-			return Foundation.NSRange(location: Int(location), length: Int(length))
+			return Foundation.NSRange(location: location, length: length)
 		}
 	}
 	
@@ -44,19 +44,5 @@ enum Operation {
 		}
 		
 		return nil
-	}
-	
-	
-	// MARK: - Range
-	
-	func rangeWithString(string: String) -> Range<String.Index> {
-		switch self {
-		case .Insert(let location, _):
-			let start = string.startIndex.advancedBy(Int(location))
-			return Range<String.Index>(start: start, end: start)
-		case .Remove(let location, let length):
-			let start = string.startIndex.advancedBy(Int(location))
-			return Range<String.Index>(start: start, end: start.advancedBy(Int(length)))
-		}
 	}
 }

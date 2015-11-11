@@ -13,13 +13,14 @@ class EditorViewController: UIViewController {
 	
 	// MARK: - Properties
 	
-	let textView: EditorView = {
-		let view = EditorView() //collectionID: "10ef574f-7a70-4b21-8fb1-fec3c49f941b", canvasID: "1323fedf-4fda-4463-93d8-56f574f5d06a")
+	let textView: UITextView = {
+		let view = UITextView()
 		view.translatesAutoresizingMaskIntoConstraints = false
 		view.editable = false
 		return view
 	}()
 	
+	private let textController = TextController()
 	
 	// MARK: - UIViewController
 	
@@ -27,6 +28,8 @@ class EditorViewController: UIViewController {
 		super.viewDidLoad()
 		
 		view.backgroundColor = .whiteColor()
+		
+		textView.delegate = self
 		view.addSubview(textView)
 		
 		NSLayoutConstraint.activateConstraints([
@@ -36,11 +39,26 @@ class EditorViewController: UIViewController {
 			textView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor)
 		])
 		
-		let textController = TextController(backingText: "⧙doc-heading⧘A Lovely Document\nThis is a paragraph.\n⧙blockquote⧘> Here’s to the crazy ones…", delegate: nil)
+		textController.delegate = self
+		textController.connect(collectionID: "10ef574f-7a70-4b21-8fb1-fec3c49f941b", canvasID: "1323fedf-4fda-4463-93d8-56f574f5d06a")
+	}
+}
+
+
+extension EditorViewController: UITextViewDelegate {
+	func textViewDidChangeSelection(textView: UITextView) {
+		textController.backingSelection = textController.displayRangeToBackingRange(textView.selectedRange)
+	}
+}
+
+
+extension EditorViewController: TextControllerDelegate {
+	func textControllerDidChangeText(textController: TextController) {
+		textView.editable = true
 		
 		let text = NSMutableAttributedString(string: textController.displayText, attributes: [
 			NSFontAttributeName: UIFont.systemFontOfSize(16)
-		])
+			])
 		
 		for line in textController.lines {
 			let range = textController.backingRangeToDisplayRange(line.content)
@@ -56,5 +74,9 @@ class EditorViewController: UIViewController {
 		}
 		
 		textView.attributedText = text
+	}
+	
+	func textControllerDidUpdateSelection(textController: TextController) {
+		textView.selectedRange = textController.displaySelection
 	}
 }

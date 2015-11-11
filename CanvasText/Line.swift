@@ -16,7 +16,7 @@ public struct Line: Equatable {
 		case Checklist = "checklist"
 		case Comment = "comment"
 		case Blockquote = "blockquote"
-		case FencedCode = "fenced-code"
+		case Code = "code"
 		case DocHeading = "doc-heading"
 		case Heading1 = "heading-1"
 		case Heading2 = "heading-2"
@@ -41,7 +41,6 @@ public struct Line: Equatable {
 	
 	static let leadingDelimiter = "⧙"
 	static let trailingDelimiter = "⧘"
-	static let parseOrder: [Kind] = [.Checklist, .Comment, .Blockquote, .FencedCode, .DocHeading, .Heading1, .Heading2, .Heading3, .Heading4, .Heading5, .Heading6, .HorizontalRule, .Image, .LinkDefinition, .OrderedList, .UnorderedList, .Paragraph]
 	
 	
 	// MARK: - Initializers

@@ -11,7 +11,6 @@
 		21F10F501BF138750035057D /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F10F4F1BF138750035057D /* EditorViewController.swift */; };
 		21F10F651BF13D720035057D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21F10F601BF13D720035057D /* Assets.xcassets */; };
 		21F10F661BF13D720035057D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21F10F611BF13D720035057D /* LaunchScreen.storyboard */; };
-		21F8F1921BF27A9B0096D2AF /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F8F1911BF27A9B0096D2AF /* EditorView.swift */; };
 		21F8F19B1BF296480096D2AF /* CanvasText.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F8F19A1BF296480096D2AF /* CanvasText.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21F8F1A21BF296480096D2AF /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F8F1981BF296480096D2AF /* CanvasText.framework */; };
 		21F8F1AD1BF296480096D2AF /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F8F1981BF296480096D2AF /* CanvasText.framework */; };
@@ -70,7 +69,6 @@
 		21F10F601BF13D720035057D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21F10F621BF13D720035057D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21F10F631BF13D720035057D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		21F8F1911BF27A9B0096D2AF /* EditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
 		21F8F1981BF296480096D2AF /* CanvasText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CanvasText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F8F19A1BF296480096D2AF /* CanvasText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CanvasText.h; sourceTree = "<group>"; };
 		21F8F1A11BF296480096D2AF /* CanvasTextTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CanvasTextTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,7 +134,6 @@
 			children = (
 				21F10F4D1BF138750035057D /* AppDelegate.swift */,
 				21F10F4F1BF138750035057D /* EditorViewController.swift */,
-				21F8F1911BF27A9B0096D2AF /* EditorView.swift */,
 				21F10F5F1BF13D720035057D /* Resources */,
 			);
 			path = Canvas;
@@ -353,7 +350,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21F8F1921BF27A9B0096D2AF /* EditorView.swift in Sources */,
 				21F10F501BF138750035057D /* EditorViewController.swift in Sources */,
 				21F10F4E1BF138750035057D /* AppDelegate.swift in Sources */,
 			);
