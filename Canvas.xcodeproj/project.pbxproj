@@ -564,7 +564,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = CanvasText/Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.usecanvas.CanvasTextTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -576,7 +575,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = CanvasText/Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.usecanvas.CanvasTextTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -612,6 +610,7 @@
 				21F8F1B11BF296480096D2AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		21F8F1B31BF296480096D2AF /* Build configuration list for PBXNativeTarget "CanvasTextTests" */ = {
 			isa = XCConfigurationList;
@@ -620,6 +619,7 @@
 				21F8F1B51BF296480096D2AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

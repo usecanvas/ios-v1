@@ -85,12 +85,20 @@ public class TextController {
 	public func backingRangeToDisplayRange(backingRange: NSRange) -> NSRange {
 		var displayRange = backingRange
 		
-		for delimiter in lines.flatMap({ $0.delimiter }) {
+		for delimiter in lines.flatMap({ $0.delimiterRange }) {
 			if delimiter.location > backingRange.location {
 				break
 			}
 			
 			displayRange.location -= delimiter.length
+		}
+
+		for prefix in lines.flatMap({ $0.prefixRange }) {
+			if prefix.location > backingRange.location {
+				break
+			}
+
+			displayRange.location -= prefix.length
 		}
 		
 		return displayRange
@@ -99,12 +107,20 @@ public class TextController {
 	public func displayRangeToBackingRange(displayRange: NSRange) -> NSRange {
 		var backingRange = displayRange
 		
-		for delimiter in lines.flatMap({ $0.delimiter }) {
+		for delimiter in lines.flatMap({ $0.delimiterRange }) {
 			if delimiter.location > backingRange.location {
 				break
 			}
 			
 			backingRange.location += delimiter.length
+		}
+
+		for prefix in lines.flatMap({ $0.prefixRange }) {
+			if prefix.location > backingRange.location {
+				break
+			}
+
+			backingRange.location += prefix.length
 		}
 		
 		return backingRange
@@ -114,42 +130,76 @@ public class TextController {
 	// MARK: - Private
 	
 	private func backingTextDidChange() {
+		// Convert to Foundation string so we can work with `NSRange` instead of `Range` since the TextKit APIs take
+		// `NSRange` instead `Range`. Bummer.
+		let text = backingText as NSString
+		
+		// We're going to rebuild `lines` and `displayText` from the new `backingText`.
 		var lines = [Line]()
 		
-		let text = backingText as NSString
-		text.enumerateSubstringsInRange(NSRange(location: 0, length: text.length), options: [.ByLines]) { substring, substringRange, _, _ in
+		// Enumerate the string lines of the `backingText`.
+		text.enumerateSubstringsInRange(NSRange(location: 0, length: text.length), options: [.ByLines]) { [weak self] substring, substringRange, _, _ in
+			// Ensure we have a substring to work with
 			guard let substring = substring else { return }
+			let offset = substringRange.location
 			
+			// Setup a scanner
 			let scanner = NSScanner(string: substring)
 			scanner.charactersToBeSkipped = nil
-			if !scanner.scanString(Line.leadingDelimiter, intoString: nil) {
-				lines.append(Line(kind: .Paragraph, content: substringRange))
-				return
+
+			var line = Line(kind: .Paragraph, contentRange: substringRange)
+
+			// Look for a delimiter
+			if scanner.scanString(Line.leadingDelimiter, intoString: nil) {
+				var blockName: NSString?
+				scanner.scanUpToString(Line.trailingDelimiter, intoString: &blockName)
+			
+				if let blockName = blockName as? String, k = Line.Kind(rawValue: blockName) where scanner.scanString(Line.trailingDelimiter, intoString: nil) {
+					line.kind = k
+					line.delimiterRange = NSRange(location: offset, length: scanner.scanLocation)
+				}
 			}
-			
-			var blockName: NSString?
-			scanner.scanUpToString(Line.trailingDelimiter, intoString: &blockName)
-			
-			if !scanner.scanString(Line.trailingDelimiter, intoString: nil) {
-				lines.append(Line(kind: .Paragraph, content: substringRange))
-				return
+
+			// TODO: Look for a prefix
+
+			// Look for headers
+			if line.kind == .Paragraph, let heading = self?.parseHeadings(scanner: scanner, offset: offset, line: line) {
+				line = heading
 			}
-			
-			guard let name = blockName as? String, kind = Line.Kind(rawValue: name) else {
-				lines.append(Line(kind: .Paragraph, content: substringRange))
-				return
+
+			if line.kind != .Paragraph {
+				let delimiter = line.delimiterRange ?? .zero
+				let prefix = line.prefixRange ?? .zero
+				line.contentRange = NSRange(location: offset + delimiter.length + prefix.length, length: substringRange.length - delimiter.length - prefix.length)
 			}
-			
-			let offset = substringRange.location
-			let delimiter = NSRange(location: offset, length: scanner.scanLocation)			
-			let content = NSRange(location: offset + delimiter.length, length: substringRange.length - delimiter.length)
-			lines.append(Line(kind: kind, delimiter: delimiter, content: content))
+
+			lines.append(line)
 		}
 		
 		self.lines = lines
 		displayText = lines.map { $0.contentInString(backingText) }.joinWithSeparator("\n")
 		
 		delegate?.textControllerDidChangeText(self)
+	}
+
+	private func parseHeadings(scanner scanner: NSScanner, offset: Int, line: Line) -> Line? {
+		let location = scanner.scanLocation
+		var hashes: NSString?
+
+		guard scanner.scanCharactersFromSet(NSCharacterSet(charactersInString: "#"), intoString: &hashes) && scanner.scanString(" ", intoString: nil) else {
+			scanner.scanLocation = location
+			return nil
+		}
+
+		guard let h = hashes, k = Line.Kind(headingLevel: UInt(h.length)) else {
+			scanner.scanLocation = location
+			return nil
+		}
+
+		var heading = line
+		heading.kind = k
+		heading.prefixRange = NSRange(location: offset + location, length: scanner.scanLocation - location)
+		return heading
 	}
 }
 

@@ -23,6 +23,20 @@ class EditorViewController: UIViewController {
 	}()
 	
 	private let textController = TextController()
+
+
+	// MARK: - UIResponder
+
+	override func canBecomeFirstResponder() -> Bool {
+		return true
+	}
+
+	override var keyCommands: [UIKeyCommand] {
+		return [
+			UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: "dismissKeyboard:")
+		]
+	}
+
 	
 	// MARK: - UIViewController
 	
@@ -43,6 +57,13 @@ class EditorViewController: UIViewController {
 		
 		textController.delegate = self
 		textController.connect(collectionID: "10ef574f-7a70-4b21-8fb1-fec3c49f941b", canvasID: "1323fedf-4fda-4463-93d8-56f574f5d06a")
+	}
+
+
+	// MARK: - Actions
+
+	@objc private func dismissKeyboard(sender: AnyObject?) {
+		textView.resignFirstResponder()
 	}
 }
 
@@ -67,7 +88,7 @@ extension EditorViewController: TextControllerDelegate {
 		
 		for line in textController.lines {
 			let attributes = Theme.attributesForLine(line)
-			let range = textController.backingRangeToDisplayRange(line.content)
+			let range = textController.backingRangeToDisplayRange(line.contentRange)
 			text.addAttributes(attributes, range: range)
 		}
 		
