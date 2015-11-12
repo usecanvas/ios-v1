@@ -160,7 +160,10 @@ public class TextController {
 				}
 			}
 
-			// TODO: Look for a prefix
+			// Look for a prefix
+			if let delimiter = line.delimiterRange, prefix = line.kind.prefix where scanner.scanString(prefix, intoString: nil) {
+				line.prefixRange = NSRange(location: delimiter.max, length: prefix.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
+			}
 
 			// Look for headers
 			if line.kind == .Paragraph, let heading = self?.parseHeadings(scanner: scanner, offset: offset, line: line) {

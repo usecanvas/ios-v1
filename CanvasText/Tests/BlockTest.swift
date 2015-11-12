@@ -26,10 +26,10 @@ class BlockTest: XCTestCase {
 		XCTAssertEqual([
 			Line(kind: .DocHeading, delimiterRange: NSRange(location: 0, length: 13), contentRange: NSRange(location: 13, length: 17)),
 			Line(kind: .Paragraph, contentRange: NSRange(location: 31, length: 20)),
-			Line(kind: .Blockquote, delimiterRange: NSRange(location: 52, length: 12), contentRange: NSRange(location: 64, length: 27))
+			Line(kind: .Blockquote, delimiterRange: NSRange(location: 52, length: 12), prefixRange: NSRange(location: 64, length: 2), contentRange: NSRange(location: 66, length: 25))
 		], controller.lines)
 
-		XCTAssertEqual("A Lovely Document\nThis is a paragraph.\n> Here’s to the crazy ones…", controller.displayText)
+		XCTAssertEqual("A Lovely Document\nThis is a paragraph.\nHere’s to the crazy ones…", controller.displayText)
 	}
 
 	func testHeading() {
