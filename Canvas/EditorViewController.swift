@@ -59,6 +59,8 @@ class EditorViewController: UIViewController {
 		super.viewDidLoad()
 		
 		view.backgroundColor = .whiteColor()
+
+		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Open", style: .Plain, target: self, action: "openInSafari:")
 		
 		textView.delegate = self
 		view.addSubview(textView)
@@ -79,6 +81,11 @@ class EditorViewController: UIViewController {
 
 	@objc private func dismissKeyboard(sender: AnyObject?) {
 		textView.resignFirstResponder()
+	}
+
+	@objc private func openInSafari(sender: AnyObject?) {
+		guard let URL = NSURL(string: "https://usecanvas.com/\(canvas.collectionID)/-/\(canvas.shortID)") else { return }
+		UIApplication.sharedApplication().openURL(URL)
 	}
 }
 

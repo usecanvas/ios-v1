@@ -68,6 +68,7 @@ class RootViewController: UIViewController {
 		}
 
 		APIClient.sharedClient.accessToken = account.accessToken
+		print("accessToken: \(account.accessToken)")
 
 		if var viewController = viewController as? Accountable {
 			// TODO: Handle containers

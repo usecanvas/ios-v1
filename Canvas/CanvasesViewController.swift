@@ -17,6 +17,16 @@ class CanvasesViewController: TableViewController, Accountable {
 	var account: Account
 	let collection: Collection
 
+	var canvases = [Canvas]() {
+		didSet {
+			let rows = canvases.map {
+				Row(text: $0.shortID, accessory: .DisclosureIndicator, selection: showCanvas($0))
+			}
+
+			dataSource.sections = [Section(rows: rows)]
+		}
+	}
+
 
 	// MARK: - Initializers
 
@@ -29,5 +39,34 @@ class CanvasesViewController: TableViewController, Accountable {
 
 	required init?(coder aDecoder: NSCoder) {
 	    fatalError("init(coder:) has not been implemented")
+	}
+
+
+	// MARK: - UIViewController
+
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		refresh()
+	}
+
+
+	// MARK: - Private
+
+	private func refresh() {
+		APIClient.sharedClient.listCanvases(collection) { [weak self] result in
+			switch result {
+			case .Success(let canvases):
+				dispatch_async(dispatch_get_main_queue()) {
+					self?.canvases = canvases
+				}
+			case .Failure(let message):
+				print("Failed to get canvases: \(message)")
+			}
+		}
+	}
+
+	private func showCanvas(canvas: Canvas)() {
+		let viewController = EditorViewController(canvas: canvas)
+		navigationController?.pushViewController(viewController, animated: true)
 	}
 }
