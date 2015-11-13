@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2129D3001BF55BB10018F255 /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2129D2FA1BF55BB10018F255 /* CanvasKit.framework */; };
+		2129D3021BF55BB10018F255 /* SSKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2129D2FC1BF55BB10018F255 /* SSKeychain.framework */; };
+		2129D3041BF55BB10018F255 /* Static.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2129D2FE1BF55BB10018F255 /* Static.framework */; };
+		2129D3061BF55BBB0018F255 /* CanvasKit.framework.dSYM in Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = 2129D2FB1BF55BB10018F255 /* CanvasKit.framework.dSYM */; };
+		2129D3071BF55BBB0018F255 /* SSKeychain.framework.dSYM in Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = 2129D2FD1BF55BB10018F255 /* SSKeychain.framework.dSYM */; };
+		2129D3081BF55BBB0018F255 /* Static.framework.dSYM in Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = 2129D2FF1BF55BB10018F255 /* Static.framework.dSYM */; };
+		2129D30A1BF55C340018F255 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D3091BF55C340018F255 /* SignInViewController.swift */; };
+		2129D30C1BF560810018F255 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D30B1BF560810018F255 /* Color.swift */; };
+		2129D30E1BF561400018F255 /* CollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D30D1BF561400018F255 /* CollectionsViewController.swift */; };
+		2129D3101BF5634A0018F255 /* Accountable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D30F1BF5634A0018F255 /* Accountable.swift */; };
 		21F10F4E1BF138750035057D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F10F4D1BF138750035057D /* AppDelegate.swift */; };
 		21F10F501BF138750035057D /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F10F4F1BF138750035057D /* EditorViewController.swift */; };
 		21F10F651BF13D720035057D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21F10F601BF13D720035057D /* Assets.xcassets */; };
@@ -24,6 +34,7 @@
 		21F8F1D41BF2B9130096D2AF /* NSRange+CanvasText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F8F1D31BF2B9130096D2AF /* NSRange+CanvasText.swift */; };
 		21F8F1D61BF3BC650096D2AF /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F8F1D51BF3BC650096D2AF /* Theme.swift */; };
 		21F8F1D81BF3BDAE0096D2AF /* UIColor+X.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F8F1D71BF3BDAE0096D2AF /* UIColor+X.swift */; };
+		21FB6AB01BF53B8E003C82BB /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FB6AAF1BF53B8E003C82BB /* RootViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +62,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		2129D2F91BF55B970018F255 /* Copy dSYM Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				2129D3061BF55BBB0018F255 /* CanvasKit.framework.dSYM in Copy dSYM Files */,
+				2129D3071BF55BBB0018F255 /* SSKeychain.framework.dSYM in Copy dSYM Files */,
+				2129D3081BF55BBB0018F255 /* Static.framework.dSYM in Copy dSYM Files */,
+			);
+			name = "Copy dSYM Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		21F8F1B21BF296480096D2AF /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -65,6 +89,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2129D2FA1BF55BB10018F255 /* CanvasKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CanvasKit.framework; path = Carthage/Build/iOS/CanvasKit.framework; sourceTree = "<group>"; };
+		2129D2FB1BF55BB10018F255 /* CanvasKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = CanvasKit.framework.dSYM; path = Carthage/Build/iOS/CanvasKit.framework.dSYM; sourceTree = "<group>"; };
+		2129D2FC1BF55BB10018F255 /* SSKeychain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SSKeychain.framework; path = Carthage/Build/iOS/SSKeychain.framework; sourceTree = "<group>"; };
+		2129D2FD1BF55BB10018F255 /* SSKeychain.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SSKeychain.framework.dSYM; path = Carthage/Build/iOS/SSKeychain.framework.dSYM; sourceTree = "<group>"; };
+		2129D2FE1BF55BB10018F255 /* Static.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Static.framework; path = Carthage/Build/iOS/Static.framework; sourceTree = "<group>"; };
+		2129D2FF1BF55BB10018F255 /* Static.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Static.framework.dSYM; path = Carthage/Build/iOS/Static.framework.dSYM; sourceTree = "<group>"; };
+		2129D3091BF55C340018F255 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		2129D30B1BF560810018F255 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		2129D30D1BF561400018F255 /* CollectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionsViewController.swift; sourceTree = "<group>"; };
+		2129D30F1BF5634A0018F255 /* Accountable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accountable.swift; sourceTree = "<group>"; };
 		21F10F4A1BF138750035057D /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F10F4D1BF138750035057D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21F10F4F1BF138750035057D /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +119,7 @@
 		21F8F1D31BF2B9130096D2AF /* NSRange+CanvasText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSRange+CanvasText.swift"; sourceTree = "<group>"; };
 		21F8F1D51BF3BC650096D2AF /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		21F8F1D71BF3BDAE0096D2AF /* UIColor+X.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+X.swift"; sourceTree = "<group>"; };
+		21FB6AAF1BF53B8E003C82BB /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +127,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2129D3041BF55BB10018F255 /* Static.framework in Frameworks */,
 				21F8F1AD1BF296480096D2AF /* CanvasText.framework in Frameworks */,
+				2129D3021BF55BB10018F255 /* SSKeychain.framework in Frameworks */,
+				2129D3001BF55BB10018F255 /* CanvasKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,11 +152,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2129D2F71BF55B540018F255 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2129D2FA1BF55BB10018F255 /* CanvasKit.framework */,
+				2129D2FB1BF55BB10018F255 /* CanvasKit.framework.dSYM */,
+				2129D2FC1BF55BB10018F255 /* SSKeychain.framework */,
+				2129D2FD1BF55BB10018F255 /* SSKeychain.framework.dSYM */,
+				2129D2FE1BF55BB10018F255 /* Static.framework */,
+				2129D2FF1BF55BB10018F255 /* Static.framework.dSYM */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		21F10F411BF138750035057D = {
 			isa = PBXGroup;
 			children = (
 				21F10F4C1BF138750035057D /* Canvas */,
 				21F8F1991BF296480096D2AF /* CanvasText */,
+				2129D2F71BF55B540018F255 /* Frameworks */,
 				21F10F4B1BF138750035057D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -136,11 +188,12 @@
 		21F10F4C1BF138750035057D /* Canvas */ = {
 			isa = PBXGroup;
 			children = (
-				21F10F4D1BF138750035057D /* AppDelegate.swift */,
-				21F10F4F1BF138750035057D /* EditorViewController.swift */,
-				21F8F1D51BF3BC650096D2AF /* Theme.swift */,
-				21F8F1D71BF3BDAE0096D2AF /* UIColor+X.swift */,
+				21FB6AAE1BF53B35003C82BB /* Application */,
+				21FB6AAD1BF53B2F003C82BB /* View Controllers */,
+				21FB6AAC1BF53B2C003C82BB /* Models */,
+				21FB6AAB1BF53AD3003C82BB /* Extensions */,
 				21F10F5F1BF13D720035057D /* Resources */,
+				2129D30F1BF5634A0018F255 /* Accountable.swift */,
 			);
 			path = Canvas;
 			sourceTree = "<group>";
@@ -212,6 +265,42 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		21FB6AAB1BF53AD3003C82BB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				21F8F1D71BF3BDAE0096D2AF /* UIColor+X.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		21FB6AAC1BF53B2C003C82BB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				21F8F1D51BF3BC650096D2AF /* Theme.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		21FB6AAD1BF53B2F003C82BB /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				21FB6AAF1BF53B8E003C82BB /* RootViewController.swift */,
+				2129D3091BF55C340018F255 /* SignInViewController.swift */,
+				2129D30D1BF561400018F255 /* CollectionsViewController.swift */,
+				21F10F4F1BF138750035057D /* EditorViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		21FB6AAE1BF53B35003C82BB /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				21F10F4D1BF138750035057D /* AppDelegate.swift */,
+				2129D30B1BF560810018F255 /* Color.swift */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -234,6 +323,8 @@
 				21F10F471BF138750035057D /* Frameworks */,
 				21F10F481BF138750035057D /* Resources */,
 				21F8F1B21BF296480096D2AF /* Embed Frameworks */,
+				2129D2F81BF55B6A0018F255 /* Embed Carthage Frameworks */,
+				2129D2F91BF55B970018F255 /* Copy dSYM Files */,
 			);
 			buildRules = (
 			);
@@ -294,6 +385,7 @@
 				TargetAttributes = {
 					21F10F491BF138750035057D = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = UP9C8XM22A;
 					};
 					21F8F1971BF296480096D2AF = {
 						CreatedOnToolsVersion = 7.2;
@@ -351,12 +443,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2129D2F81BF55B6A0018F255 /* Embed Carthage Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/CanvasKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SSKeychain.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Static.framework",
+			);
+			name = "Embed Carthage Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		21F10F461BF138750035057D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2129D30E1BF561400018F255 /* CollectionsViewController.swift in Sources */,
+				21FB6AB01BF53B8E003C82BB /* RootViewController.swift in Sources */,
 				21F10F501BF138750035057D /* EditorViewController.swift in Sources */,
+				2129D30C1BF560810018F255 /* Color.swift in Sources */,
+				2129D3101BF5634A0018F255 /* Accountable.swift in Sources */,
+				2129D30A1BF55C340018F255 /* SignInViewController.swift in Sources */,
 				21F8F1D81BF3BDAE0096D2AF /* UIColor+X.swift in Sources */,
 				21F10F4E1BF138750035057D /* AppDelegate.swift in Sources */,
 				21F8F1D61BF3BC650096D2AF /* Theme.swift in Sources */,
@@ -502,7 +619,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Canvas/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.usecanvas.canvas-ios";
@@ -514,7 +636,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Canvas/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.usecanvas.canvas-ios";

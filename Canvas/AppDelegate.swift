@@ -13,7 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow? = {
 		let window = UIWindow()
-		window.rootViewController = EditorViewController()
+		window.tintColor = Color.brand
+		window.rootViewController = RootViewController()
 		return window
 	}()
 
