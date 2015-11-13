@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import CanvasKit
 import CanvasText
 
 class EditorViewController: UIViewController {
 	
 	// MARK: - Properties
+
+	let canvas: Canvas
 	
 	let textView: UITextView = {
 		let view = UITextView()
@@ -23,6 +26,18 @@ class EditorViewController: UIViewController {
 	}()
 	
 	private let textController = TextController()
+
+
+	// MARK: - Initializers
+
+	init(canvas: Canvas) {
+		self.canvas = canvas
+		super.init(nibName: nil, bundle: nil)
+	}
+
+	required init?(coder aDecoder: NSCoder) {
+	    fatalError("init(coder:) has not been implemented")
+	}
 
 
 	// MARK: - UIResponder
@@ -56,7 +71,7 @@ class EditorViewController: UIViewController {
 		])
 		
 		textController.delegate = self
-		textController.connect(collectionID: "10ef574f-7a70-4b21-8fb1-fec3c49f941b", canvasID: "1323fedf-4fda-4463-93d8-56f574f5d06a")
+		textController.connect(collectionID: canvas.collectionID, canvasID: canvas.ID)
 	}
 
 

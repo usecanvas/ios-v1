@@ -17,6 +17,7 @@
 		2129D30C1BF560810018F255 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D30B1BF560810018F255 /* Color.swift */; };
 		2129D30E1BF561400018F255 /* CollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D30D1BF561400018F255 /* CollectionsViewController.swift */; };
 		2129D3101BF5634A0018F255 /* Accountable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D30F1BF5634A0018F255 /* Accountable.swift */; };
+		2129D3121BF568AB0018F255 /* CanvasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D3111BF568AB0018F255 /* CanvasesViewController.swift */; };
 		21F10F4E1BF138750035057D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F10F4D1BF138750035057D /* AppDelegate.swift */; };
 		21F10F501BF138750035057D /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F10F4F1BF138750035057D /* EditorViewController.swift */; };
 		21F10F651BF13D720035057D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21F10F601BF13D720035057D /* Assets.xcassets */; };
@@ -99,6 +100,7 @@
 		2129D30B1BF560810018F255 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		2129D30D1BF561400018F255 /* CollectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionsViewController.swift; sourceTree = "<group>"; };
 		2129D30F1BF5634A0018F255 /* Accountable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accountable.swift; sourceTree = "<group>"; };
+		2129D3111BF568AB0018F255 /* CanvasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasesViewController.swift; sourceTree = "<group>"; };
 		21F10F4A1BF138750035057D /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F10F4D1BF138750035057D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21F10F4F1BF138750035057D /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				21FB6AAF1BF53B8E003C82BB /* RootViewController.swift */,
 				2129D3091BF55C340018F255 /* SignInViewController.swift */,
 				2129D30D1BF561400018F255 /* CollectionsViewController.swift */,
+				2129D3111BF568AB0018F255 /* CanvasesViewController.swift */,
 				21F10F4F1BF138750035057D /* EditorViewController.swift */,
 			);
 			name = "View Controllers";
@@ -476,6 +479,7 @@
 				2129D30A1BF55C340018F255 /* SignInViewController.swift in Sources */,
 				21F8F1D81BF3BDAE0096D2AF /* UIColor+X.swift in Sources */,
 				21F10F4E1BF138750035057D /* AppDelegate.swift in Sources */,
+				2129D3121BF568AB0018F255 /* CanvasesViewController.swift in Sources */,
 				21F8F1D61BF3BC650096D2AF /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
