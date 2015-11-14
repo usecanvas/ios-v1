@@ -11,21 +11,22 @@ import WebKit
 class OTController: NSObject {
 	
 	// MARK: - Properties
-	
+
+	let serverURL: NSURL
+	private let accessToken: String
 	let collectionID: String
 	let canvasID: String
-	let serverURL: NSURL
 	weak var delegate: OTControllerDelegate?
-	
 	private var webView: WKWebView!
 	
 	
 	// MARK: - Initializers
 	
-	init(collectionID: String, canvasID: String, serverURL: NSURL = NSURL(string: "ws://localhost:5001/realtime")!) {
+	init(serverURL: NSURL, accessToken: String, collectionID: String, canvasID: String) {
+		self.serverURL = serverURL
+		self.accessToken = accessToken
 		self.collectionID = collectionID
 		self.canvasID = canvasID
-		self.serverURL = serverURL
 		
 		super.init()
 		
@@ -39,7 +40,7 @@ class OTController: NSObject {
 		userContentController.addScriptMessageHandler(self, name: "share")
 		
 		// Connect
-		let js = "Canvas.connect('\(serverURL.absoluteString)', '\(collectionID)', '\(canvasID)');"
+		let js = "Canvas.connect('\(serverURL.absoluteString)', '\(accessToken)', '\(collectionID)', '\(canvasID)');"
 		userContentController.addUserScript(WKUserScript(source: js, injectionTime: .AtDocumentEnd, forMainFrameOnly: true))
 		configuration.userContentController = userContentController
 		

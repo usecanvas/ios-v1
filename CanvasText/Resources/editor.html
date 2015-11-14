@@ -91,8 +91,15 @@ break;case "object":a-=Math.min(f.d,a-c)}}return a};g.transformSelection=functio
 var Canvas = {};
 window.Canvas = Canvas;
 
-Canvas.connect = function(host, collectionID, canvasID) {
-  this._socket = new WebSocket(host);
+Canvas.connect = function(host, accessToken, collectionID, canvasID) {
+  const socket = new WebSocket(host);
+  socket._onopen = socket.onopen;
+  socket.onopen = function() {
+    socket.send('auth-token:' + accessToken);
+    socket._onopen.apply(socket, arguments);
+  };
+  this._socket = socket;
+
   this._connection = new sharejs.Connection(this._socket);
   this._doc = this._connection.get(collectionID, canvasID);
 

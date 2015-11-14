@@ -61,7 +61,7 @@ class CollectionsViewController: TableViewController, Accountable {
 	// MARK: - Private
 
 	private func refresh() {
-		APIClient.sharedClient.listCollections { [weak self] result in
+		APIClient(accessToken: account.accessToken).listCollections { [weak self] result in
 			switch result {
 			case .Success(let collections):
 				dispatch_async(dispatch_get_main_queue()) {

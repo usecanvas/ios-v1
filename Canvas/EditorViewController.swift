@@ -10,10 +10,11 @@ import UIKit
 import CanvasKit
 import CanvasText
 
-class EditorViewController: UIViewController {
+class EditorViewController: UIViewController, Accountable {
 	
 	// MARK: - Properties
 
+	var account: Account
 	let canvas: Canvas
 	
 	let textView: UITextView = {
@@ -25,13 +26,15 @@ class EditorViewController: UIViewController {
 		return view
 	}()
 	
-	private let textController = TextController()
+	private let textController: TextController
 
 
 	// MARK: - Initializers
 
-	init(canvas: Canvas) {
+	init(account: Account, canvas: Canvas) {
+		self.account = account
 		self.canvas = canvas
+		self.textController = TextController()
 		super.init(nibName: nil, bundle: nil)
 	}
 
@@ -73,7 +76,7 @@ class EditorViewController: UIViewController {
 		])
 		
 		textController.delegate = self
-		textController.connect(collectionID: canvas.collectionID, canvasID: canvas.ID)
+		textController.connect(accessToken: account.accessToken, collectionID: canvas.collectionID, canvasID: canvas.ID)
 	}
 
 

@@ -17,7 +17,7 @@ public protocol TextControllerDelegate: class {
 public class TextController {
 	
 	// MARK: - Properties
-	
+
 	public var backingText: String {
 		didSet {
 			backingTextDidChange()
@@ -57,8 +57,8 @@ public class TextController {
 	
 	// MARK: - Realtime
 	
-	public func connect(collectionID collectionID: String, canvasID: String) {
-		otController = OTController(collectionID: collectionID, canvasID: canvasID)
+	public func connect(accessToken accessToken: String, collectionID: String, canvasID: String) {
+		otController = OTController(serverURL: NSURL(string: "wss://api.usecanvas.com/realtime")!, accessToken: accessToken, collectionID: collectionID, canvasID: canvasID)
 		otController?.delegate = self
 	}
 	

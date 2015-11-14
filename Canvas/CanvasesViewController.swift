@@ -53,7 +53,7 @@ class CanvasesViewController: TableViewController, Accountable {
 	// MARK: - Private
 
 	private func refresh() {
-		APIClient.sharedClient.listCanvases(collection) { [weak self] result in
+		APIClient(accessToken: account.accessToken).listCanvases(collection) { [weak self] result in
 			switch result {
 			case .Success(let canvases):
 				dispatch_async(dispatch_get_main_queue()) {
@@ -66,7 +66,7 @@ class CanvasesViewController: TableViewController, Accountable {
 	}
 
 	private func showCanvas(canvas: Canvas)() {
-		let viewController = EditorViewController(canvas: canvas)
+		let viewController = EditorViewController(account: account, canvas: canvas)
 		navigationController?.pushViewController(viewController, animated: true)
 	}
 }

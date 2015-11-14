@@ -90,7 +90,7 @@ class SignInViewController: TableViewController {
 
 		loading = true
 
-		APIClient.sharedClient.signIn(username, password: password) { [weak self] in
+		AuthorizationClient().signIn(username: username, password: password) { [weak self] in
 			switch $0 {
 			case .Success(let account):
 				dispatch_async(dispatch_get_main_queue()) {
