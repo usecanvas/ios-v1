@@ -20,7 +20,7 @@ class CanvasesViewController: TableViewController, Accountable {
 	var canvases = [Canvas]() {
 		didSet {
 			let rows = canvases.map {
-				Row(text: $0.shortID, accessory: .DisclosureIndicator, selection: showCanvas($0))
+				Row(text: $0.title ?? "Untitled", accessory: .DisclosureIndicator, selection: showCanvas($0))
 			}
 
 			dataSource.sections = [Section(rows: rows)]
