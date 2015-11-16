@@ -9,6 +9,7 @@
 import UIKit
 import Static
 import CanvasKit
+import OnePasswordExtension
 
 class SignInViewController: TableViewController {
 
@@ -27,23 +28,11 @@ class SignInViewController: TableViewController {
 		return field
 	}()
 
-	let activityIndicator: UIActivityIndicatorView = {
-		let view = UIActivityIndicatorView()
-		view.activityIndicatorViewStyle = .Gray
-		view.hidesWhenStopped = true
-		return view
-	}()
-
 	private var loading = false {
 		didSet {
 			usernameTextField.enabled = !loading
 			passwordTextField.enabled = !loading
-
-			if loading {
-				activityIndicator.startAnimating()
-			} else {
-				activityIndicator.stopAnimating()
-			}
+			UIApplication.sharedApplication().networkActivityIndicatorVisible = loading
 		}
 	}
 
@@ -61,7 +50,9 @@ class SignInViewController: TableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		navigationItem.rightBarButtonItem = UIBarButtonItem(customView: activityIndicator)
+		if OnePasswordExtension.sharedExtension().isAppExtensionAvailable() {
+			navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "OnePassword-NavigationBar"), landscapeImagePhone: nil, style: .Plain, target: self, action: "onePassword:")
+		}
 
 		usernameTextField.delegate = self
 		passwordTextField.delegate = self
@@ -83,7 +74,21 @@ class SignInViewController: TableViewController {
 	}
 
 
-	// MARK: - Private
+	// MARK: - Actions
+
+	@objc private func onePassword(sender: AnyObject?) {
+		OnePasswordExtension.sharedExtension().findLoginForURLString("https://usecanvas.com", forViewController: self, sender: sender) { [weak self] loginDictionary, _ in
+			if let username = loginDictionary?[AppExtensionUsernameKey] as? String {
+				self?.usernameTextField.text = username
+			}
+
+			if let password = loginDictionary?[AppExtensionPasswordKey] as? String {
+				self?.passwordTextField.text = password
+			}
+
+			self?.signIn()
+		}
+	}
 
 	private func signIn() {
 		guard let username = usernameTextField.text, password = passwordTextField.text else { return }

@@ -18,6 +18,8 @@
 		2129D30E1BF561400018F255 /* CollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D30D1BF561400018F255 /* CollectionsViewController.swift */; };
 		2129D3101BF5634A0018F255 /* Accountable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D30F1BF5634A0018F255 /* Accountable.swift */; };
 		2129D3121BF568AB0018F255 /* CanvasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D3111BF568AB0018F255 /* CanvasesViewController.swift */; };
+		21E81C901BFA6FDD00FD55F9 /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E81C8E1BFA6FDD00FD55F9 /* OnePasswordExtension.framework */; };
+		21E81C921BFA6FE800FD55F9 /* OnePasswordExtension.framework.dSYM in Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = 21E81C8F1BFA6FDD00FD55F9 /* OnePasswordExtension.framework.dSYM */; };
 		21F10F4E1BF138750035057D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F10F4D1BF138750035057D /* AppDelegate.swift */; };
 		21F10F501BF138750035057D /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F10F4F1BF138750035057D /* EditorViewController.swift */; };
 		21F10F651BF13D720035057D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21F10F601BF13D720035057D /* Assets.xcassets */; };
@@ -69,6 +71,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				21E81C921BFA6FE800FD55F9 /* OnePasswordExtension.framework.dSYM in Copy dSYM Files */,
 				2129D3061BF55BBB0018F255 /* CanvasKit.framework.dSYM in Copy dSYM Files */,
 				2129D3071BF55BBB0018F255 /* SSKeychain.framework.dSYM in Copy dSYM Files */,
 				2129D3081BF55BBB0018F255 /* Static.framework.dSYM in Copy dSYM Files */,
@@ -101,6 +104,8 @@
 		2129D30D1BF561400018F255 /* CollectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionsViewController.swift; sourceTree = "<group>"; };
 		2129D30F1BF5634A0018F255 /* Accountable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accountable.swift; sourceTree = "<group>"; };
 		2129D3111BF568AB0018F255 /* CanvasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasesViewController.swift; sourceTree = "<group>"; };
+		21E81C8E1BFA6FDD00FD55F9 /* OnePasswordExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OnePasswordExtension.framework; path = Carthage/Build/iOS/OnePasswordExtension.framework; sourceTree = "<group>"; };
+		21E81C8F1BFA6FDD00FD55F9 /* OnePasswordExtension.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = OnePasswordExtension.framework.dSYM; path = Carthage/Build/iOS/OnePasswordExtension.framework.dSYM; sourceTree = "<group>"; };
 		21F10F4A1BF138750035057D /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F10F4D1BF138750035057D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21F10F4F1BF138750035057D /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21E81C901BFA6FDD00FD55F9 /* OnePasswordExtension.framework in Frameworks */,
 				2129D3041BF55BB10018F255 /* Static.framework in Frameworks */,
 				21F8F1AD1BF296480096D2AF /* CanvasText.framework in Frameworks */,
 				2129D3021BF55BB10018F255 /* SSKeychain.framework in Frameworks */,
@@ -157,6 +163,8 @@
 		2129D2F71BF55B540018F255 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				21E81C8E1BFA6FDD00FD55F9 /* OnePasswordExtension.framework */,
+				21E81C8F1BFA6FDD00FD55F9 /* OnePasswordExtension.framework.dSYM */,
 				2129D2FA1BF55BB10018F255 /* CanvasKit.framework */,
 				2129D2FB1BF55BB10018F255 /* CanvasKit.framework.dSYM */,
 				2129D2FC1BF55BB10018F255 /* SSKeychain.framework */,
@@ -456,6 +464,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/CanvasKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SSKeychain.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Static.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/OnePasswordExtension.framework",
 			);
 			name = "Embed Carthage Frameworks";
 			outputPaths = (
