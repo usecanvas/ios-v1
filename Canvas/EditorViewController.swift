@@ -90,12 +90,10 @@ class EditorViewController: UIViewController, Accountable {
 	}
 
 	@objc private func share(sender: AnyObject?) {
-
-	}
-
-	@objc private func openInSafari(sender: AnyObject?) {
 		guard let URL = NSURL(string: "https://usecanvas.com/\(canvas.collectionID)/-/\(canvas.shortID)") else { return }
-		UIApplication.sharedApplication().openURL(URL)
+		let activities = [SafariActivity(), ChromeActivity()]
+		let viewController = UIActivityViewController(activityItems: [URL], applicationActivities: activities)
+		presentViewController(viewController, animated: true, completion: nil)
 	}
 }
 

@@ -55,7 +55,7 @@ class SignInViewController: TableViewController {
 		super.viewDidLoad()
 
 		if OnePasswordExtension.sharedExtension().isAppExtensionAvailable() {
-			navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "OnePassword-NavigationBar"), landscapeImagePhone: nil, style: .Plain, target: self, action: "onePassword:")
+			navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "OnePassword"), landscapeImagePhone: nil, style: .Plain, target: self, action: "onePassword:")
 		}
 
 		usernameTextField.delegate = self

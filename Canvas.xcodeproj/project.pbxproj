@@ -20,6 +20,9 @@
 		21A8FA361BFCF5C40097FCC6 /* CanvasText.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21A8FA301BFCF59D0097FCC6 /* CanvasText.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21A8FA3D1BFD04F20097FCC6 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA3C1BFD04F20097FCC6 /* CollectionCell.swift */; };
 		21A8FA4A1BFD085F0097FCC6 /* CanvasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA491BFD085F0097FCC6 /* CanvasCell.swift */; };
+		21A8FA5B1BFD30790097FCC6 /* WebActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA5A1BFD30790097FCC6 /* WebActivity.swift */; };
+		21A8FA5D1BFD33DB0097FCC6 /* ChromeActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA5C1BFD33DB0097FCC6 /* ChromeActivity.swift */; };
+		21A8FA5F1BFD33EA0097FCC6 /* SafariActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA5E1BFD33EA0097FCC6 /* SafariActivity.swift */; };
 		21B8D8D91BFC0E0B001ED447 /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B8D8D81BFC0E0B001ED447 /* CheckboxView.swift */; };
 		21EECB681BFCF1CB003DF5AC /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21EECB461BFCF1A0003DF5AC /* CanvasKit.framework */; };
 		21EECB691BFCF1CB003DF5AC /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21EECB521BFCF1A7003DF5AC /* OnePasswordExtension.framework */; };
@@ -201,6 +204,9 @@
 		21A8FA2A1BFCF59D0097FCC6 /* CanvasText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasText.xcodeproj; path = CanvasText/CanvasText.xcodeproj; sourceTree = "<group>"; };
 		21A8FA3C1BFD04F20097FCC6 /* CollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		21A8FA491BFD085F0097FCC6 /* CanvasCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasCell.swift; sourceTree = "<group>"; };
+		21A8FA5A1BFD30790097FCC6 /* WebActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebActivity.swift; sourceTree = "<group>"; };
+		21A8FA5C1BFD33DB0097FCC6 /* ChromeActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChromeActivity.swift; sourceTree = "<group>"; };
+		21A8FA5E1BFD33EA0097FCC6 /* SafariActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafariActivity.swift; sourceTree = "<group>"; };
 		21B8D8D81BFC0E0B001ED447 /* CheckboxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
 		21CBBD761BFCF28400D02192 /* Static.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Static.xcodeproj; path = Carthage/Checkouts/Static/Static.xcodeproj; sourceTree = "<group>"; };
 		21EECB3E1BFCF1A0003DF5AC /* CanvasKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasKit.xcodeproj; path = Carthage/Checkouts/CanvasKit/CanvasKit.xcodeproj; sourceTree = "<group>"; };
@@ -252,6 +258,16 @@
 				21A8FA321BFCF59D0097FCC6 /* CanvasTextTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		21A8FA501BFD306E0097FCC6 /* Activities */ = {
+			isa = PBXGroup;
+			children = (
+				21A8FA5A1BFD30790097FCC6 /* WebActivity.swift */,
+				21A8FA5E1BFD33EA0097FCC6 /* SafariActivity.swift */,
+				21A8FA5C1BFD33DB0097FCC6 /* ChromeActivity.swift */,
+			);
+			name = Activities;
 			sourceTree = "<group>";
 		};
 		21CBBD771BFCF28400D02192 /* Products */ = {
@@ -330,6 +346,7 @@
 				21FB6AAD1BF53B2F003C82BB /* View Controllers */,
 				2134FADD1BFC09D300AE93CC /* Views */,
 				21FB6AAC1BF53B2C003C82BB /* Models */,
+				21A8FA501BFD306E0097FCC6 /* Activities */,
 				21FB6AAB1BF53AD3003C82BB /* Extensions */,
 				21F10F5F1BF13D720035057D /* Resources */,
 				2129D30F1BF5634A0018F255 /* Accountable.swift */,
@@ -588,9 +605,11 @@
 				21FB6AB01BF53B8E003C82BB /* RootViewController.swift in Sources */,
 				21F10F501BF138750035057D /* EditorViewController.swift in Sources */,
 				2129D30C1BF560810018F255 /* Color.swift in Sources */,
+				21A8FA5F1BFD33EA0097FCC6 /* SafariActivity.swift in Sources */,
 				2134FADF1BFC09E300AE93CC /* BulletView.swift in Sources */,
 				2129D3101BF5634A0018F255 /* Accountable.swift in Sources */,
 				2129D30A1BF55C340018F255 /* SignInViewController.swift in Sources */,
+				21A8FA5B1BFD30790097FCC6 /* WebActivity.swift in Sources */,
 				21B8D8D91BFC0E0B001ED447 /* CheckboxView.swift in Sources */,
 				21F8F1D81BF3BDAE0096D2AF /* UIColor+X.swift in Sources */,
 				21A8FA4A1BFD085F0097FCC6 /* CanvasCell.swift in Sources */,
@@ -598,6 +617,7 @@
 				2134FAE11BFC0A6A00AE93CC /* TextView.swift in Sources */,
 				21A8FA3D1BFD04F20097FCC6 /* CollectionCell.swift in Sources */,
 				2129D3121BF568AB0018F255 /* CanvasesViewController.swift in Sources */,
+				21A8FA5D1BFD33DB0097FCC6 /* ChromeActivity.swift in Sources */,
 				21F8F1D61BF3BC650096D2AF /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
