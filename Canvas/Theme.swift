@@ -76,7 +76,7 @@ struct Theme {
 			paragraph.headIndent = 24
 
 			// Smaller bottom margin if the next block is a list type
-			if let nextBlock = nextBlock where nextBlock.kind == .UnorderedList || nextBlock.kind == .OrderedList || nextBlock.kind == .Checklist {
+			if let nextBlock = nextBlock where nextBlock.kind.isListItem {
 				paragraph.paragraphSpacing = baseFontSize * 0.25
 			}
 		default: break

@@ -54,6 +54,10 @@ public struct BlockElement: Equatable {
 			}
 		}
 
+		public var isListItem: Bool {
+			return self == .OrderedList || self == .UnorderedList || self == .Checklist
+		}
+
 
 		// MARK: - Initializers
 
@@ -99,7 +103,7 @@ public struct BlockElement: Equatable {
 	public var delimiterRange: NSRange?
 	public var prefixRange: NSRange?
 	public var contentRange: NSRange
-	
+
 	static let leadingDelimiter = "⧙"
 	static let trailingDelimiter = "⧘"
 	
