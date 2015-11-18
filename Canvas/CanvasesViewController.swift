@@ -19,10 +19,11 @@ class CanvasesViewController: TableViewController, Accountable {
 
 	var canvases = [Canvas]() {
 		didSet {
-			let rows = canvases.map {
-				Row(text: $0.title ?? "Untitled", accessory: .DisclosureIndicator, selection: showCanvas($0))
+			let rows = canvases.map { canvas in
+				Row(text: canvas.title ?? "Untitled", accessory: .DisclosureIndicator, selection: showCanvas(canvas), editActions: [
+					Row.EditAction(title: "Delete", style: .Destructive, backgroundColor: nil, backgroundEffect: nil, selection: deleteCanvas(canvas))
+				])
 			}
-
 			dataSource.sections = [Section(rows: rows)]
 		}
 	}
@@ -68,5 +69,23 @@ class CanvasesViewController: TableViewController, Accountable {
 	private func showCanvas(canvas: Canvas)() {
 		let viewController = EditorViewController(account: account, canvas: canvas)
 		navigationController?.pushViewController(viewController, animated: true)
+	}
+
+	private func deleteCanvas(canvas: Canvas)() {
+		let title = canvas.title ?? "Untitled"
+		let actionSheet = UIAlertController(title: "Are you sure you want to delete “\(title)”?", message: nil, preferredStyle: .ActionSheet)
+
+		actionSheet.addAction(UIAlertAction(title: "Delete", style: .Destructive) { [weak self] _ in
+			guard let accessToken = self?.account.accessToken else { return }
+			APIClient(accessToken: accessToken).destroyCanvas(canvas) { _ in
+				dispatch_async(dispatch_get_main_queue()) {
+					self?.refresh()
+				}
+			}
+		})
+
+		actionSheet.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+		
+		presentViewController(actionSheet, animated: true, completion: nil)
 	}
 }
