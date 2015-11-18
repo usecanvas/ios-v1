@@ -17,8 +17,8 @@ class EditorViewController: UIViewController, Accountable {
 	var account: Account
 	let canvas: Canvas
 	
-	let textView: UITextView = {
-		let view = UITextView(frame: .zero)
+	let textView: TextView = {
+		let view = TextView(frame: .zero)
 		view.translatesAutoresizingMaskIntoConstraints = false
 		view.textContainerInset = UIEdgeInsets(top: 16, left: 16, bottom: 32, right: 16)
 		view.alwaysBounceVertical = true

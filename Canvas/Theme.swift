@@ -25,8 +25,8 @@ struct Theme {
 		
 		var attributes: [String: AnyObject] = [
 			NSParagraphStyleAttributeName: paragraph,
-			"Canvas.Block.Kind": block.kind.rawValue,
-			"Canvas.Block.Kind.\(block.kind.rawValue)": true
+			"Canvas.Block": block.kind.rawValue,
+			"Canvas.Block.\(block.kind.rawValue)": true
 		]
 
 		let headingBottomMargin = baseFontSize * 0.1
@@ -72,8 +72,10 @@ struct Theme {
 
 		// List items
 		case .UnorderedList, .OrderedList, .Checklist:
-			paragraph.firstLineHeadIndent = 32
-			paragraph.headIndent = 32
+			paragraph.firstLineHeadIndent = 24
+			paragraph.headIndent = 24
+
+			// TODO: Lookahead. If the next item is a list item, set the bottom margin to the smaller value
 			paragraph.paragraphSpacing = baseFontSize * 0.25
 
 		default: break
