@@ -58,6 +58,10 @@ class RootViewController: UIViewController {
 		accountDidChange(nil)
 	}
 
+	override func childViewControllerForStatusBarStyle() -> UIViewController? {
+		return viewController
+	}
+
 
 	// MARK: - Private
 

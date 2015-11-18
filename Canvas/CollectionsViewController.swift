@@ -19,7 +19,7 @@ class CollectionsViewController: TableViewController, Accountable {
 	var collections = [Collection]() {
 		didSet {
 			let rows = collections.map {
-				Row(text: $0.name, accessory: .DisclosureIndicator, selection: showCollection($0))
+				Row(text: $0.name, accessory: .DisclosureIndicator, selection: showCollection($0), cellClass: CollectionCell.self)
 			}
 
 			dataSource.sections = [Section(rows: rows)]
@@ -45,9 +45,31 @@ class CollectionsViewController: TableViewController, Accountable {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		view.backgroundColor = .blackColor()
+		tableView.rowHeight = 64
+		tableView.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
+		tableView.separatorColor = UIColor(white: 1, alpha: 0.15)
+
 		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .Plain, target: self, action: "signOut:")
+		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
 
 		refresh()
+	}
+
+	override func preferredStatusBarStyle() -> UIStatusBarStyle {
+		return .LightContent
+	}
+
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+		navigationController?.navigationBar.barTintColor = .blackColor()
+		navigationController?.navigationBar.barStyle = .Black
+	}
+	
+	override func viewWillDisappear(animated: Bool) {
+		super.viewWillDisappear(animated)
+		navigationController?.navigationBar.barTintColor = nil
+		navigationController?.navigationBar.barStyle = .Default
 	}
 
 

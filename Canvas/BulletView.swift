@@ -14,7 +14,7 @@ class BulletView: UIView {
 
 	override init(frame: CGRect) {
 		super.init(frame: frame)
-		backgroundColor = .whiteColor()
+		backgroundColor = .clearColor()
 		contentMode = .Redraw
 	}
 

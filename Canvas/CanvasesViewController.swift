@@ -20,7 +20,7 @@ class CanvasesViewController: TableViewController, Accountable {
 	var canvases = [Canvas]() {
 		didSet {
 			let rows = canvases.map { canvas in
-				Row(text: canvas.title ?? "Untitled", accessory: .DisclosureIndicator, selection: showCanvas(canvas), editActions: [
+				Row(text: canvas.title ?? "Untitled", accessory: .DisclosureIndicator, selection: showCanvas(canvas), cellClass: CanvasCell.self, editActions: [
 					Row.EditAction(title: "Delete", style: .Destructive, backgroundColor: nil, backgroundEffect: nil, selection: deleteCanvas(canvas))
 				])
 			}
@@ -35,7 +35,7 @@ class CanvasesViewController: TableViewController, Accountable {
 		self.account = account
 		self.collection = collection
 		super.init(nibName: nil, bundle: nil)
-		title = collection.name
+		title = collection.name.capitalizedString
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -47,6 +47,10 @@ class CanvasesViewController: TableViewController, Accountable {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
+		tableView.rowHeight = 66
+		tableView.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
+
 		refresh()
 	}
 

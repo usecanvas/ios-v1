@@ -63,7 +63,7 @@ class EditorViewController: UIViewController, Accountable {
 		
 		view.backgroundColor = .whiteColor()
 
-		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Open", style: .Plain, target: self, action: "openInSafari:")
+		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "share:")
 		
 		textView.delegate = self
 		view.addSubview(textView)
@@ -84,6 +84,10 @@ class EditorViewController: UIViewController, Accountable {
 
 	@objc private func dismissKeyboard(sender: AnyObject?) {
 		textView.resignFirstResponder()
+	}
+
+	@objc private func share(sender: AnyObject?) {
+
 	}
 
 	@objc private func openInSafari(sender: AnyObject?) {
