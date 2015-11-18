@@ -103,6 +103,7 @@ class SignInViewController: TableViewController {
 			switch $0 {
 			case .Success(let account):
 				dispatch_async(dispatch_get_main_queue()) {
+					UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 					AccountController.sharedController.currentAccount = account
 				}
 			case .Failure(let errorMessage):
@@ -127,4 +128,3 @@ extension SignInViewController: UITextFieldDelegate {
 		return false
 	}
 }
-
