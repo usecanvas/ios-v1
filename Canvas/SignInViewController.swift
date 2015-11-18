@@ -18,6 +18,8 @@ class SignInViewController: TableViewController {
 	let usernameTextField: UITextField = {
 		let field = UITextField(frame: CGRect(x: 0, y: 0, width: 240, height: 44))
 		field.placeholder = "user"
+		field.autocapitalizationType = .None
+		field.autocorrectionType = .No
 		return field
 	}()
 
