@@ -71,7 +71,7 @@ class EditorViewController: UIViewController, Accountable {
 		NSLayoutConstraint.activateConstraints([
 			textView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
 			textView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor),
-			textView.topAnchor.constraintEqualToAnchor(topLayoutGuide.bottomAnchor),
+			textView.topAnchor.constraintEqualToAnchor(view.topAnchor),
 			textView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor)
 		])
 		
