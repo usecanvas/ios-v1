@@ -33,7 +33,7 @@
 		21F8F1C71BF296CC0096D2AF /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F8F1C61BF296CC0096D2AF /* Operation.swift */; };
 		21F8F1CB1BF2978B0096D2AF /* TextController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F8F1CA1BF2978B0096D2AF /* TextController.swift */; };
 		21F8F1CC1BF29E800096D2AF /* BlockTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F8F1B71BF296810096D2AF /* BlockTest.swift */; };
-		21F8F1CE1BF2A0560096D2AF /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F8F1CD1BF2A0560096D2AF /* Line.swift */; };
+		21F8F1CE1BF2A0560096D2AF /* BlockElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F8F1CD1BF2A0560096D2AF /* BlockElement.swift */; };
 		21F8F1D41BF2B9130096D2AF /* NSRange+CanvasText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F8F1D31BF2B9130096D2AF /* NSRange+CanvasText.swift */; };
 		21F8F1D61BF3BC650096D2AF /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F8F1D51BF3BC650096D2AF /* Theme.swift */; };
 		21F8F1D81BF3BDAE0096D2AF /* UIColor+X.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F8F1D71BF3BDAE0096D2AF /* UIColor+X.swift */; };
@@ -122,7 +122,7 @@
 		21F8F1C01BF296A20096D2AF /* OTController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTController.swift; sourceTree = "<group>"; };
 		21F8F1C61BF296CC0096D2AF /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		21F8F1CA1BF2978B0096D2AF /* TextController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextController.swift; sourceTree = "<group>"; };
-		21F8F1CD1BF2A0560096D2AF /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		21F8F1CD1BF2A0560096D2AF /* BlockElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockElement.swift; sourceTree = "<group>"; };
 		21F8F1D31BF2B9130096D2AF /* NSRange+CanvasText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSRange+CanvasText.swift"; sourceTree = "<group>"; };
 		21F8F1D51BF3BC650096D2AF /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		21F8F1D71BF3BDAE0096D2AF /* UIColor+X.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+X.swift"; sourceTree = "<group>"; };
@@ -262,7 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				21F8F1C61BF296CC0096D2AF /* Operation.swift */,
-				21F8F1CD1BF2A0560096D2AF /* Line.swift */,
+				21F8F1CD1BF2A0560096D2AF /* BlockElement.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -498,7 +498,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21F8F1C11BF296A20096D2AF /* OTController.swift in Sources */,
-				21F8F1CE1BF2A0560096D2AF /* Line.swift in Sources */,
+				21F8F1CE1BF2A0560096D2AF /* BlockElement.swift in Sources */,
 				21F8F1CB1BF2978B0096D2AF /* TextController.swift in Sources */,
 				21F8F1C71BF296CC0096D2AF /* Operation.swift in Sources */,
 				21F8F1D41BF2B9130096D2AF /* NSRange+CanvasText.swift in Sources */,

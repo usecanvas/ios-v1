@@ -1,5 +1,5 @@
 //
-//  Annotation.swift
+//  BlockElement.swift
 //  Canvas
 //
 //  Created by Sam Soffes on 11/10/15.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Line: Equatable {
+public struct BlockElement: Equatable {
 	
 	// MARK: - Types
 	
@@ -16,7 +16,7 @@ public struct Line: Equatable {
 
 		// MARK: - Cases
 
-		case Checklist = "checklist"
+		case Checklist = "checklist-0"			// TODO: Nesting
 		case Comment = "comment"
 		case Blockquote = "blockquote"
 		case Code = "code"
@@ -30,13 +30,14 @@ public struct Line: Equatable {
 		case HorizontalRule = "horizontal-rule"
 		case Image = "image"
 		case LinkDefinition = "link-definition"
-		case OrderedList = "ordered-list"
-		case UnorderedList = "unordered-list"
+		case OrderedList = "ordered-list-0"		// TODO: Nesting
+		case UnorderedList = "unordered-list-0"	// TODO: Nesting
 		case Paragraph = "paragraph"
 
 
 		// MARK: - Properties
-		
+
+		/// These are included after the delimiter (on in place of for some) and should be stripped.
 		public var prefix: String? {
 			switch self {
 			case .Blockquote: return "> "
@@ -46,6 +47,9 @@ public struct Line: Equatable {
 			case .Heading4: return "#### "
 			case .Heading5: return "##### "
 			case .Heading6: return "###### "
+			case .UnorderedList: return "- "
+			case .OrderedList: return "1. "
+			case .Checklist: return "- [ ] " // TODO: or `- [x] `
 			default: return nil
 			}
 		}
@@ -118,7 +122,7 @@ public struct Line: Equatable {
 }
 
 
-public func ==(lhs: Line, rhs: Line) -> Bool {
+public func ==(lhs: BlockElement, rhs: BlockElement) -> Bool {
 		return lhs.kind == rhs.kind
 			&& lhs.delimiterRange == rhs.delimiterRange
 			&& lhs.prefixRange == rhs.prefixRange

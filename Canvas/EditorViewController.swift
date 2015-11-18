@@ -18,7 +18,7 @@ class EditorViewController: UIViewController, Accountable {
 	let canvas: Canvas
 	
 	let textView: UITextView = {
-		let view = UITextView()
+		let view = UITextView(frame: .zero)
 		view.translatesAutoresizingMaskIntoConstraints = false
 		view.textContainerInset = UIEdgeInsets(top: 16, left: 16, bottom: 32, right: 16)
 		view.alwaysBounceVertical = true
@@ -111,9 +111,9 @@ extension EditorViewController: TextControllerDelegate {
 		
 		let text = NSMutableAttributedString(string: textController.displayText, attributes: Theme.baseAttributes)
 		
-		for line in textController.lines {
-			let attributes = Theme.attributesForLine(line)
-			let range = textController.backingRangeToDisplayRange(line.contentRange)
+		for block in textController.blocks {
+			let attributes = Theme.attributesForBlock(block)
+			let range = textController.backingRangeToDisplayRange(block.contentRange)
 			text.addAttributes(attributes, range: range)
 		}
 		

@@ -35,7 +35,7 @@ public class TextController {
 	
 	public private(set) var displaySelection: NSRange
 	
-	public private(set) var lines = [Line]()
+	public private(set) var blocks = [BlockElement]()
 	
 	public weak var delegate: TextControllerDelegate?
 	
@@ -85,7 +85,7 @@ public class TextController {
 	public func backingRangeToDisplayRange(backingRange: NSRange) -> NSRange {
 		var displayRange = backingRange
 		
-		for delimiter in lines.flatMap({ $0.delimiterRange }) {
+		for delimiter in blocks.flatMap({ $0.delimiterRange }) {
 			if delimiter.location > backingRange.location {
 				break
 			}
@@ -93,7 +93,7 @@ public class TextController {
 			displayRange.location -= delimiter.length
 		}
 
-		for prefix in lines.flatMap({ $0.prefixRange }) {
+		for prefix in blocks.flatMap({ $0.prefixRange }) {
 			if prefix.location > backingRange.location {
 				break
 			}
@@ -107,7 +107,7 @@ public class TextController {
 	public func displayRangeToBackingRange(displayRange: NSRange) -> NSRange {
 		var backingRange = displayRange
 		
-		for delimiter in lines.flatMap({ $0.delimiterRange }) {
+		for delimiter in blocks.flatMap({ $0.delimiterRange }) {
 			if delimiter.location > backingRange.location {
 				break
 			}
@@ -115,7 +115,7 @@ public class TextController {
 			backingRange.location += delimiter.length
 		}
 
-		for prefix in lines.flatMap({ $0.prefixRange }) {
+		for prefix in blocks.flatMap({ $0.prefixRange }) {
 			if prefix.location > backingRange.location {
 				break
 			}
@@ -134,10 +134,10 @@ public class TextController {
 		// `NSRange` instead `Range`. Bummer.
 		let text = backingText as NSString
 		
-		// We're going to rebuild `lines` and `displayText` from the new `backingText`.
-		var lines = [Line]()
+		// We're going to rebuild `blocks` and `displayText` from the new `backingText`.
+		var blocks = [BlockElement]()
 		
-		// Enumerate the string lines of the `backingText`.
+		// Enumerate the string blocks of the `backingText`.
 		text.enumerateSubstringsInRange(NSRange(location: 0, length: text.length), options: [.ByLines]) { [weak self] substring, substringRange, _, _ in
 			// Ensure we have a substring to work with
 			guard let substring = substring else { return }
@@ -147,45 +147,45 @@ public class TextController {
 			let scanner = NSScanner(string: substring)
 			scanner.charactersToBeSkipped = nil
 
-			var line = Line(kind: .Paragraph, contentRange: substringRange)
+			var block = BlockElement(kind: .Paragraph, contentRange: substringRange)
 
 			// Look for a delimiter
-			if scanner.scanString(Line.leadingDelimiter, intoString: nil) {
+			if scanner.scanString(BlockElement.leadingDelimiter, intoString: nil) {
 				var blockName: NSString?
-				scanner.scanUpToString(Line.trailingDelimiter, intoString: &blockName)
+				scanner.scanUpToString(BlockElement.trailingDelimiter, intoString: &blockName)
 			
-				if let blockName = blockName as? String, k = Line.Kind(rawValue: blockName) where scanner.scanString(Line.trailingDelimiter, intoString: nil) {
-					line.kind = k
-					line.delimiterRange = NSRange(location: offset, length: scanner.scanLocation)
+				if let blockName = blockName as? String, k = BlockElement.Kind(rawValue: blockName) where scanner.scanString(BlockElement.trailingDelimiter, intoString: nil) {
+					block.kind = k
+					block.delimiterRange = NSRange(location: offset, length: scanner.scanLocation)
 				}
 			}
 
 			// Look for a prefix
-			if let delimiter = line.delimiterRange, prefix = line.kind.prefix where scanner.scanString(prefix, intoString: nil) {
-				line.prefixRange = NSRange(location: delimiter.max, length: prefix.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
+			if let delimiter = block.delimiterRange, prefix = block.kind.prefix where scanner.scanString(prefix, intoString: nil) {
+				block.prefixRange = NSRange(location: delimiter.max, length: prefix.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
 			}
 
 			// Look for headers
-			if line.kind == .Paragraph, let heading = self?.parseHeadings(scanner: scanner, offset: offset, line: line) {
-				line = heading
+			if block.kind == .Paragraph, let heading = self?.parseHeadings(scanner: scanner, offset: offset, block: block) {
+				block = heading
 			}
 
-			if line.kind != .Paragraph {
-				let delimiter = line.delimiterRange ?? .zero
-				let prefix = line.prefixRange ?? .zero
-				line.contentRange = NSRange(location: offset + delimiter.length + prefix.length, length: substringRange.length - delimiter.length - prefix.length)
+			if block.kind != .Paragraph {
+				let delimiter = block.delimiterRange ?? .zero
+				let prefix = block.prefixRange ?? .zero
+				block.contentRange = NSRange(location: offset + delimiter.length + prefix.length, length: substringRange.length - delimiter.length - prefix.length)
 			}
 
-			lines.append(line)
+			blocks.append(block)
 		}
 		
-		self.lines = lines
-		displayText = lines.map { $0.contentInString(backingText) }.joinWithSeparator("\n")
+		self.blocks = blocks
+		displayText = blocks.map { $0.contentInString(backingText) }.joinWithSeparator("\n")
 		
 		delegate?.textControllerDidChangeText(self)
 	}
 
-	private func parseHeadings(scanner scanner: NSScanner, offset: Int, line: Line) -> Line? {
+	private func parseHeadings(scanner scanner: NSScanner, offset: Int, block: BlockElement) -> BlockElement? {
 		let location = scanner.scanLocation
 		var hashes: NSString?
 
@@ -194,12 +194,12 @@ public class TextController {
 			return nil
 		}
 
-		guard let h = hashes, k = Line.Kind(headingLevel: UInt(h.length)) else {
+		guard let h = hashes, k = BlockElement.Kind(headingLevel: UInt(h.length)) else {
 			scanner.scanLocation = location
 			return nil
 		}
 
-		var heading = line
+		var heading = block
 		heading.kind = k
 		heading.prefixRange = NSRange(location: offset + location, length: scanner.scanLocation - location)
 		return heading
