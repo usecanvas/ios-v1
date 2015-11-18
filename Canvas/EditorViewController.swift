@@ -113,7 +113,7 @@ extension EditorViewController: TextControllerDelegate {
 
 		let count = textController.blocks.count
 		for (i, block) in textController.blocks.enumerate() {
-			let nextBlock: BlockElement?
+			let nextBlock: Block?
 			if i < count - 2 {
 				nextBlock = textController.blocks[i + 1]
 			} else {

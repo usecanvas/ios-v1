@@ -1,5 +1,5 @@
 //
-//  BlockElement.swift
+//  Block.swift
 //  Canvas
 //
 //  Created by Sam Soffes on 11/10/15.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct BlockElement: Equatable {
+public struct Block: Equatable {
 	
 	// MARK: - Types
 	
@@ -126,7 +126,7 @@ public struct BlockElement: Equatable {
 }
 
 
-public func ==(lhs: BlockElement, rhs: BlockElement) -> Bool {
+public func ==(lhs: Block, rhs: Block) -> Bool {
 		return lhs.kind == rhs.kind
 			&& lhs.delimiterRange == rhs.delimiterRange
 			&& lhs.prefixRange == rhs.prefixRange

@@ -24,7 +24,7 @@ class TextView: UITextView {
 
 			let bounds = NSRange(location: 0, length: attributedText.length)
 			attributedText.enumerateAttribute("Canvas.Block", inRange: bounds, options: [.LongestEffectiveRangeNotRequired]) { [weak self] value, range, _ in
-				guard let this = self, kindString = value as? String, kind = BlockElement.Kind(rawValue: kindString) else { return }
+				guard let this = self, kindString = value as? String, kind = Block.Kind(rawValue: kindString) else { return }
 
 				guard let start = this.positionFromPosition(this.beginningOfDocument, offset: range.location),
 					end = this.positionFromPosition(start, offset: range.length),

@@ -35,7 +35,7 @@ public class TextController {
 	
 	public private(set) var displaySelection: NSRange
 	
-	public private(set) var blocks = [BlockElement]()
+	public private(set) var blocks = [Block]()
 	
 	public weak var delegate: TextControllerDelegate?
 	
@@ -135,7 +135,7 @@ public class TextController {
 		let text = backingText as NSString
 		
 		// We're going to rebuild `blocks` and `displayText` from the new `backingText`.
-		var blocks = [BlockElement]()
+		var blocks = [Block]()
 		
 		// Enumerate the string blocks of the `backingText`.
 		text.enumerateSubstringsInRange(NSRange(location: 0, length: text.length), options: [.ByLines]) { [weak self] substring, substringRange, _, _ in
@@ -147,14 +147,14 @@ public class TextController {
 			let scanner = NSScanner(string: substring)
 			scanner.charactersToBeSkipped = nil
 
-			var block = BlockElement(kind: .Paragraph, contentRange: substringRange)
+			var block = Block(kind: .Paragraph, contentRange: substringRange)
 
 			// Look for a delimiter
-			if scanner.scanString(BlockElement.leadingDelimiter, intoString: nil) {
+			if scanner.scanString(Block.leadingDelimiter, intoString: nil) {
 				var blockName: NSString?
-				scanner.scanUpToString(BlockElement.trailingDelimiter, intoString: &blockName)
+				scanner.scanUpToString(Block.trailingDelimiter, intoString: &blockName)
 			
-				if let blockName = blockName as? String, k = BlockElement.Kind(rawValue: blockName) where scanner.scanString(BlockElement.trailingDelimiter, intoString: nil) {
+				if let blockName = blockName as? String, k = Block.Kind(rawValue: blockName) where scanner.scanString(Block.trailingDelimiter, intoString: nil) {
 					block.kind = k
 					block.delimiterRange = NSRange(location: offset, length: scanner.scanLocation)
 				}
@@ -185,7 +185,7 @@ public class TextController {
 		delegate?.textControllerDidChangeText(self)
 	}
 
-	private func parseHeadings(scanner scanner: NSScanner, offset: Int, block: BlockElement) -> BlockElement? {
+	private func parseHeadings(scanner scanner: NSScanner, offset: Int, block: Block) -> Block? {
 		let location = scanner.scanLocation
 		var hashes: NSString?
 
@@ -194,7 +194,7 @@ public class TextController {
 			return nil
 		}
 
-		guard let h = hashes, k = BlockElement.Kind(headingLevel: UInt(h.length)) else {
+		guard let h = hashes, k = Block.Kind(headingLevel: UInt(h.length)) else {
 			scanner.scanLocation = location
 			return nil
 		}

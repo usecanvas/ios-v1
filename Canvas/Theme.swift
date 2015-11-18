@@ -19,7 +19,7 @@ struct Theme {
 		NSFontAttributeName: UIFont.systemFontOfSize(baseFontSize)
 	]
 	
-	static func attributesForBlock(block: BlockElement, nextBlock: BlockElement? = nil) -> [String: AnyObject] {
+	static func attributesForBlock(block: Block, nextBlock: Block? = nil) -> [String: AnyObject] {
 		let paragraph = NSMutableParagraphStyle()
 		paragraph.paragraphSpacing = baseFontSize * 1.5
 		
