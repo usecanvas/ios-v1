@@ -1,21 +1,11 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Canvas</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	</head>
-	<body>
-		<script>
-(function () {
-  var log = console.log;
-  console.log = function () {
-    document.write(JSON.stringify(Array.prototype.slice.call(arguments)));
-	document.write("<br><hr><br>");
-	log.apply(this, Array.prototype.slice.call(arguments));
-  };
-}());
-
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<title>Canvas</title>
+</head>
+<body>
+<script>
 // ShareJS v0.7.37
 (function(w){"object"===typeof exports&&"undefined"!==typeof module?module.exports=w():"function"===typeof define&&define.amd?define([],w):("undefined"!==typeof window?window:"undefined"!==typeof global?global:"undefined"!==typeof self?self:this).sharejs=w()})(function(){return function b(p,g,h){function l(d,f){if(!g[d]){if(!p[d]){var a="function"==typeof require&&require;if(!f&&a)return a(d,!0);if(q)return q(d,!0);a=Error("Cannot find module '"+d+"'");throw a.code="MODULE_NOT_FOUND",a;}a=g[d]={exports:{}};
 p[d][0].call(a.exports,function(a){var c=p[d][1][a];return l(c?c:a)},a,a.exports,b,p,g,h)}return g[d].exports}for(var q="function"==typeof require&&require,n=0;n<h.length;n++)l(h[n]);return l}({1:[function(b,p,g){function h(d){for(var f in d)return!0;return!1}var l=b("./doc").Doc,q=b("./query").Query,n=b("./emitter");b=g.Connection=function(d){n.EventEmitter.call(this);this.collections={};this.nextQueryId=1;this.queries={};this.state="disconnected";this.canSend=!1;this._retryInterval=null;this.reset();
@@ -170,4 +160,6 @@ Canvas._sendMessage = function(message) {
     window.webkit.messageHandlers.share.postMessage(message);
   }
 };
-</script></body></html>
+</script>
+</body>
+</html>
