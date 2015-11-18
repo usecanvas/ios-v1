@@ -76,7 +76,10 @@ class EditorViewController: UIViewController, Accountable {
 		])
 		
 		textController.delegate = self
-		textController.connect(accessToken: account.accessToken, collectionID: canvas.collectionID, canvasID: canvas.ID)
+		textController.connect(accessToken: account.accessToken, collectionID: canvas.collectionID, canvasID: canvas.ID) { webView in
+			webView.alpha = 0.01
+			self.view.addSubview(webView)
+		}
 	}
 
 

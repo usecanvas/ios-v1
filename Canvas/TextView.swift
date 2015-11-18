@@ -57,4 +57,12 @@ class TextView: UITextView {
 			}
 		}
 	}
+
+
+	// MARK: - Initializers
+
+	convenience init() {
+		self.init(frame: .zero, textContainer: nil)
+		tintColor = Color.brand
+	}
 }

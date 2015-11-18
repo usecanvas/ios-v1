@@ -1,5 +1,5 @@
 //
-//  OTController.swift
+//  TransportController.swift
 //  Canvas
 //
 //  Created by Sam Soffes on 11/10/15.
@@ -8,7 +8,7 @@
 
 import WebKit
 
-class OTController: NSObject {
+class TransportController: NSObject {
 	
 	// MARK: - Properties
 
@@ -16,8 +16,8 @@ class OTController: NSObject {
 	private let accessToken: String
 	let collectionID: String
 	let canvasID: String
-	weak var delegate: OTControllerDelegate?
-	private var webView: WKWebView!
+	weak var delegate: TransportControllerDelegate?
+	var webView: WKWebView!
 	
 	
 	// MARK: - Initializers
@@ -41,12 +41,20 @@ class OTController: NSObject {
 		
 		// Connect
 		let js = "Canvas.connect('\(serverURL.absoluteString)', '\(accessToken)', '\(collectionID)', '\(canvasID)');"
+		print(js)
 		userContentController.addUserScript(WKUserScript(source: js, injectionTime: .AtDocumentEnd, forMainFrameOnly: true))
 		configuration.userContentController = userContentController
 		
 		// Load file
 		webView = WKWebView(frame: .zero, configuration: configuration)
-		let fileURL = NSBundle(forClass: OTController.self).URLForResource("editor", withExtension: "html")!
+		webView.navigationDelegate = self
+	}
+
+
+	// MARK: - Connecting
+
+	func reload() {
+		let fileURL = NSBundle(forClass: TransportController.self).URLForResource("editor", withExtension: "html")!
 		webView.loadFileURL(fileURL, allowingReadAccessToURL: fileURL)
 	}
 	
@@ -59,7 +67,7 @@ class OTController: NSObject {
 		case .Remove(let location, let length): remove(location: location, length: length)
 		}
 	}
-	
+
 	
 	// MARK: - Private
 	
@@ -77,20 +85,35 @@ class OTController: NSObject {
 }
 
 
-protocol OTControllerDelegate: class {
-	func otController(controller: OTController, didReceiveSnapshot text: String)
-	func otController(controller: OTController, didReceiveOperation operation: Operation)
+protocol TransportControllerDelegate: class {
+	func transportController(controller: TransportController, didReceiveSnapshot text: String)
+	func transportController(controller: TransportController, didReceiveOperation operation: Operation)
 }
 
 
-extension OTController: WKScriptMessageHandler {
+extension TransportController: WKScriptMessageHandler {
 	func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
 		guard let dictionary = message.body as? [String: AnyObject] else { return }
 		
 		if let dict = dictionary["op"] as? [String: AnyObject], operation = Operation(dictionary: dict) {
-			delegate?.otController(self, didReceiveOperation: operation)
+			delegate?.transportController(self, didReceiveOperation: operation)
 		} else if let snapshot = dictionary["snapshot"] as? String {
-			delegate?.otController(self, didReceiveSnapshot: snapshot)
+			delegate?.transportController(self, didReceiveSnapshot: snapshot)
 		}
+	}
+}
+
+
+extension TransportController: WKNavigationDelegate {
+	func webView(webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+		print("start: \(navigation)")
+	}
+
+	func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
+		print("finish: \(navigation)")
+	}
+
+	func webView(webView: WKWebView, didFailNavigation navigation: WKNavigation!, withError error: NSError) {
+		print("error: \(error)")
 	}
 }

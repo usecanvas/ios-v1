@@ -11,7 +11,7 @@ import CanvasText
 
 struct Theme {
 	
-	static let baseFontSize: CGFloat = 16
+	static let baseFontSize: CGFloat = 18
 	
 	static let baseAttributes = [
 		NSBackgroundColorAttributeName: UIColor.whiteColor(),
@@ -21,6 +21,7 @@ struct Theme {
 	
 	static func attributesForBlock(block: Block, nextBlock: Block? = nil) -> [String: AnyObject] {
 		let paragraph = NSMutableParagraphStyle()
+		paragraph.lineHeightMultiple = 1.2
 		paragraph.paragraphSpacing = baseFontSize * 1.5
 		
 		var attributes: [String: AnyObject] = [
@@ -29,7 +30,7 @@ struct Theme {
 			"Canvas.Block.\(block.kind.rawValue)": true
 		]
 
-		let headingBottomMargin = baseFontSize * 0.1
+		let headingBottomMargin = baseFontSize * 0.15
 		
 		switch block.kind {
 		// Document heading

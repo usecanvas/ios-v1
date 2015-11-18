@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import WebKit
 
 public protocol TextControllerDelegate: class {
 	func textControllerDidChangeText(textController: TextController)
@@ -39,7 +40,7 @@ public class TextController {
 	
 	public weak var delegate: TextControllerDelegate?
 	
-	private var otController: OTController?
+	private var transportController: TransportController?
 	
 	
 	// MARK: - Initializers
@@ -57,9 +58,12 @@ public class TextController {
 	
 	// MARK: - Realtime
 	
-	public func connect(accessToken accessToken: String, collectionID: String, canvasID: String) {
-		otController = OTController(serverURL: NSURL(string: "wss://api.usecanvas.com/realtime")!, accessToken: accessToken, collectionID: collectionID, canvasID: canvasID)
-		otController?.delegate = self
+	public func connect(accessToken accessToken: String, collectionID: String, canvasID: String, setup: WKWebView -> Void) {
+		let controller = TransportController(serverURL: NSURL(string: "wss://api.usecanvas.com/realtime")!, accessToken: accessToken, collectionID: collectionID, canvasID: canvasID)
+		controller.delegate = self
+		setup(controller.webView)
+		controller.reload()
+		transportController = controller
 	}
 	
 	
@@ -70,12 +74,12 @@ public class TextController {
 		
 		// Insert
 		if range.length == 0 {
-			otController?.submitOperation(.Insert(location: UInt(backingRange.location), string: text))
+			transportController?.submitOperation(.Insert(location: UInt(backingRange.location), string: text))
 		}
 			
 		// Remove
 		else {
-			otController?.submitOperation(.Remove(location: UInt(backingRange.location), length: UInt(backingRange.length)))
+			transportController?.submitOperation(.Remove(location: UInt(backingRange.location), length: UInt(backingRange.length)))
 		}
 	}
 	
@@ -207,12 +211,12 @@ public class TextController {
 }
 
 
-extension TextController: OTControllerDelegate {
-	func otController(controller: OTController, didReceiveSnapshot text: String) {
+extension TextController: TransportControllerDelegate {
+	func transportController(controller: TransportController, didReceiveSnapshot text: String) {
 		backingText = text
 	}
 	
-	func otController(controller: OTController, didReceiveOperation operation: Operation) {
+	func transportController(controller: TransportController, didReceiveOperation operation: Operation) {
 		var backingText = self.backingText
 		var backingSelection = self.backingSelection
 		
