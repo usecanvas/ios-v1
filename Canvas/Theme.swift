@@ -19,7 +19,7 @@ struct Theme {
 		NSFontAttributeName: UIFont.systemFontOfSize(baseFontSize)
 	]
 	
-	static func attributesForBlock(block: BlockElement) -> [String: AnyObject] {
+	static func attributesForBlock(block: BlockElement, nextBlock: BlockElement? = nil) -> [String: AnyObject] {
 		let paragraph = NSMutableParagraphStyle()
 		paragraph.paragraphSpacing = baseFontSize * 1.5
 		
@@ -75,9 +75,10 @@ struct Theme {
 			paragraph.firstLineHeadIndent = 24
 			paragraph.headIndent = 24
 
-			// TODO: Lookahead. If the next item is a list item, set the bottom margin to the smaller value
-			paragraph.paragraphSpacing = baseFontSize * 0.25
-
+			// Smaller bottom margin if the next block is a list type
+			if let nextBlock = nextBlock where nextBlock.kind == .UnorderedList || nextBlock.kind == .OrderedList || nextBlock.kind == .Checklist {
+				paragraph.paragraphSpacing = baseFontSize * 0.25
+			}
 		default: break
 		}
 		

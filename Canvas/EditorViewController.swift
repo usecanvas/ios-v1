@@ -110,9 +110,17 @@ extension EditorViewController: TextControllerDelegate {
 		textView.editable = true
 		
 		let text = NSMutableAttributedString(string: textController.displayText, attributes: Theme.baseAttributes)
-		
-		for block in textController.blocks {
-			let attributes = Theme.attributesForBlock(block)
+
+		let count = textController.blocks.count
+		for (i, block) in textController.blocks.enumerate() {
+			let nextBlock: BlockElement?
+			if i < count - 2 {
+				nextBlock = textController.blocks[i + 1]
+			} else {
+				nextBlock = nil
+			}
+
+			let attributes = Theme.attributesForBlock(block, nextBlock: nextBlock)
 			let range = textController.backingRangeToDisplayRange(block.contentRange)
 			text.addAttributes(attributes, range: range)
 		}
