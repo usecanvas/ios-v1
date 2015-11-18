@@ -26,7 +26,7 @@ class CanvasCell: UITableViewCell, CellType {
 	}
 
 	func configure(row row: Row) {
-		textLabel?.text = row.text?.capitalizedString
+		textLabel?.text = row.text
 		accessoryType = row.accessory.type
 	}
 }

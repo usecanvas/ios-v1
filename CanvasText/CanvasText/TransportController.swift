@@ -41,13 +41,11 @@ class TransportController: NSObject {
 		
 		// Connect
 		let js = "Canvas.connect('\(serverURL.absoluteString)', '\(accessToken)', '\(collectionID)', '\(canvasID)');"
-		print(js)
 		userContentController.addUserScript(WKUserScript(source: js, injectionTime: .AtDocumentEnd, forMainFrameOnly: true))
 		configuration.userContentController = userContentController
 		
 		// Load file
 		webView = WKWebView(frame: .zero, configuration: configuration)
-		webView.navigationDelegate = self
 	}
 
 
@@ -100,20 +98,5 @@ extension TransportController: WKScriptMessageHandler {
 		} else if let snapshot = dictionary["snapshot"] as? String {
 			delegate?.transportController(self, didReceiveSnapshot: snapshot)
 		}
-	}
-}
-
-
-extension TransportController: WKNavigationDelegate {
-	func webView(webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-		print("start: \(navigation)")
-	}
-
-	func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
-		print("finish: \(navigation)")
-	}
-
-	func webView(webView: WKWebView, didFailNavigation navigation: WKNavigation!, withError error: NSError) {
-		print("error: \(error)")
 	}
 }
