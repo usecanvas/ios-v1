@@ -30,7 +30,7 @@ struct Theme {
 			"Canvas.Block.\(block.kind.rawValue)": true
 		]
 
-		let headingBottomMargin = baseFontSize * 0.15
+		let headingBottomMargin = baseFontSize * 0.5
 		
 		switch block.kind {
 		// Document heading

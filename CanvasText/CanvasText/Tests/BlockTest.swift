@@ -46,4 +46,57 @@ class BlockTest: XCTestCase {
 
 		XCTAssertEqual("Help, I need somebody\nHelp, not just anybody\nHelp, you know I need someone\nHelp!\nWhen I was younger, so much younger than today\nI never needed anybody's help in any way", controller.displayText)
 	}
+
+	func testUnorderedList() {
+		let controller = TextController(backingText: "⧙unordered-list-0⧘- Hello\n⧙unordered-list-0⧘- World")
+
+		XCTAssertEqual([
+			Block(kind: .UnorderedList, delimiterRange: NSRange(location: 0, length: 18), prefixRange: NSRange(location: 18, length: 2), contentRange: NSRange(location: 20, length: 5)),
+			Block(kind: .UnorderedList, delimiterRange: NSRange(location: 26, length: 18), prefixRange: NSRange(location: 44, length: 2), contentRange: NSRange(location: 46, length: 5))
+		], controller.blocks)
+
+		XCTAssertEqual("Hello\nWorld", controller.displayText)
+	}
+
+	func testOrderedList() {
+		let controller = TextController(backingText: "⧙ordered-list-0⧘1. Hello\n⧙ordered-list-0⧘1. World")
+
+		XCTAssertEqual([
+			Block(kind: .OrderedList, delimiterRange: NSRange(location: 0, length: 16), prefixRange: NSRange(location: 16, length: 3), contentRange: NSRange(location: 19, length: 5)),
+			Block(kind: .OrderedList, delimiterRange: NSRange(location: 25, length: 16), prefixRange: NSRange(location: 41, length: 3), contentRange: NSRange(location: 44, length: 5))
+		], controller.blocks)
+
+		XCTAssertEqual("Hello\nWorld", controller.displayText)
+	}
+
+	func testChecklist() {
+		let controller = TextController(backingText: "⧙checklist-0⧘- [ ] Done\n⧙checklist-0⧘- [ ] Not done")
+
+		XCTAssertEqual([
+			Block(kind: .Checklist, delimiterRange: NSRange(location: 0, length: 13), prefixRange: NSRange(location: 13, length: 6), contentRange: NSRange(location: 19, length: 4)),
+			Block(kind: .Checklist, delimiterRange: NSRange(location: 24, length: 13), prefixRange: NSRange(location: 37, length: 6), contentRange: NSRange(location: 43, length: 8))
+		], controller.blocks)
+
+		XCTAssertEqual("Done\nNot done", controller.displayText)
+	}
+
+	func testCodeBlock() {
+		let controller = TextController(backingText: "⧙code⧘puts \"hi\"")
+
+		XCTAssertEqual([
+			Block(kind: .Code, delimiterRange: NSRange(location: 0, length: 6), contentRange: NSRange(location: 6, length: 9))
+		], controller.blocks)
+
+		XCTAssertEqual("puts \"hi\"", controller.displayText)
+	}
+
+	func testHorizontalRule() {
+		let controller = TextController(backingText: "⧙horizontal-rule⧘")
+
+		XCTAssertEqual([
+			Block(kind: .Code, delimiterRange: NSRange(location: 0, length: 17))
+			], controller.blocks)
+
+		XCTAssertEqual("---", controller.displayText)
+	}
 }

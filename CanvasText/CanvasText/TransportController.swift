@@ -32,9 +32,12 @@ class TransportController: NSObject {
 		
 		let configuration = WKWebViewConfiguration()
 		configuration.allowsAirPlayForMediaPlayback = false
-		configuration.allowsInlineMediaPlayback = false
-		configuration.allowsPictureInPictureMediaPlayback = false
-		
+
+		#if !os(OSX)
+			configuration.allowsInlineMediaPlayback = false
+			configuration.allowsPictureInPictureMediaPlayback = false
+		#endif
+
 		// Setup script handler
 		let userContentController = WKUserContentController()
 		userContentController.addScriptMessageHandler(self, name: "share")
