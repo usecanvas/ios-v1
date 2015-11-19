@@ -8,6 +8,12 @@
 
 import Foundation
 
+#if os(OSX)
+	import AppKit
+#else
+	import UIKit
+#endif
+
 public struct Block: Equatable {
 	
 	// MARK: - Types
@@ -102,7 +108,7 @@ public struct Block: Equatable {
 	public var kind: Kind
 	public var delimiterRange: NSRange?
 	public var prefixRange: NSRange?
-	public var contentRange: NSRange
+	public var contentRange: NSRange?
 
 	static let leadingDelimiter = "⧙"
 	static let trailingDelimiter = "⧘"
@@ -110,7 +116,7 @@ public struct Block: Equatable {
 	
 	// MARK: - Initializers
 	
-	public init(kind: Kind, delimiterRange: NSRange? = nil, prefixRange: NSRange? = nil, contentRange: NSRange) {
+	public init(kind: Kind, delimiterRange: NSRange? = nil, prefixRange: NSRange? = nil, contentRange: NSRange? = nil) {
 		self.kind = kind
 		self.delimiterRange = delimiterRange
 		self.prefixRange = prefixRange
@@ -120,8 +126,11 @@ public struct Block: Equatable {
 	
 	// MARK: - Text
 	
-	public func contentInString(string: String) -> String {
-		return (string as NSString).substringWithRange(contentRange)
+	public func contentInString(string: String) -> String? {
+		if kind == .HorizontalRule || kind == .Image {
+			return String(UnicodeScalar(NSAttachmentCharacter))
+		}
+		return contentRange.flatMap { (string as NSString).substringWithRange($0) }
 	}
 }
 

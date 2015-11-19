@@ -184,7 +184,7 @@ public class TextController {
 		}
 		
 		self.blocks = blocks
-		displayText = blocks.map { $0.contentInString(backingText) }.joinWithSeparator("\n")
+		displayText = blocks.flatMap { $0.contentInString(backingText) }.joinWithSeparator("\n")
 		
 		delegate?.textControllerDidChangeText(self)
 	}
