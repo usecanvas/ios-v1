@@ -11,7 +11,7 @@ import CanvasText
 
 class ChecklistTest: XCTestCase {
 	func testUncompleted() {
-		let task = ChecklistItem(string: "⧙checklist-0⧘- [ ] Hello", enclosingRange: NSRange(location: 0, length: 24))!
+		let task = Checklist(string: "⧙checklist-0⧘- [ ] Hello", enclosingRange: NSRange(location: 0, length: 24))!
 		XCTAssertEqual(NSRange(location: 0, length: 13), task.delimiterRange)
 		XCTAssertEqual(NSRange(location: 13, length: 6), task.prefixRange)
 		XCTAssertEqual(NSRange(location: 19, length: 5), task.contentRange)
@@ -20,7 +20,7 @@ class ChecklistTest: XCTestCase {
 	}
 
 	func testCompleted() {
-		let task = ChecklistItem(string: "⧙checklist-1⧘- [x] Done", enclosingRange: NSRange(location: 10, length: 23))!
+		let task = Checklist(string: "⧙checklist-1⧘- [x] Done", enclosingRange: NSRange(location: 10, length: 23))!
 		XCTAssertEqual(NSRange(location: 10, length: 13), task.delimiterRange)
 		XCTAssertEqual(NSRange(location: 23, length: 6), task.prefixRange)
 		XCTAssertEqual(NSRange(location: 29, length: 4), task.contentRange)

@@ -1,5 +1,5 @@
 //
-//  Blockquote.swift
+//  CodeBlock.swift
 //  CanvasText
 //
 //  Created by Sam Soffes on 11/19/15.
@@ -8,22 +8,20 @@
 
 import Foundation
 
-public struct Blockquote: Delimitable, Prefixable {
+public struct CodeBlock: Delimitable {
 
 	// MARK: - Properties
 
 	public var delimiterRange: NSRange
-	public var prefixRange: NSRange
 	public var contentRange: NSRange
 
 
 	// MARK: - Initializers
 
 	public init?(string: String, enclosingRange: NSRange) {
-		guard let (delimiterRange, prefixRange, contentRange) = parseBlockNode(string: string, enclosingRange: enclosingRange, delimiter: "blockquote", prefix: "> ") else { return nil }
+		guard let (delimiterRange, contentRange) = parseBlockNode(string: string, enclosingRange: enclosingRange, delimiter: "code") else { return nil }
 
 		self.delimiterRange = delimiterRange
-		self.prefixRange = prefixRange
 		self.contentRange = contentRange
 	}
 }
