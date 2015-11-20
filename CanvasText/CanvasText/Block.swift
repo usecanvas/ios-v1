@@ -23,7 +23,7 @@ public struct Block: Equatable {
 		// MARK: - Cases
 
 		case Checklist = "checklist-0"			// TODO: Nesting
-		case Comment = "comment"
+//		case Comment = "comment"
 		case Blockquote = "blockquote"
 		case Code = "code"
 		case DocHeading = "doc-heading"

@@ -1,5 +1,5 @@
 //
-//  Paragraph.swift
+//  Blockquote.swift
 //  CanvasText
 //
 //  Created by Sam Soffes on 11/19/15.
@@ -8,16 +8,19 @@
 
 import Foundation
 
-public struct Paragraph: Node {
+public struct Blockquote: Delimitable, Prefixable {
 
 	// MARK: - Properties
 
+	public var delimiterRange: NSRange
+	public var prefixRange: NSRange
 	public var contentRange: NSRange
 
 
 	// MARK: - Initializers
 
-	public init?(string: String, enclosingRange: NSRange) {
-		self.contentRange = enclosingRange
+	init?(string: String, enclosingRange: NSRange) {
+		// TODO: Implement
+		return nil
 	}
 }

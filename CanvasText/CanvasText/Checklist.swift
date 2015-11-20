@@ -1,5 +1,5 @@
 //
-//  ChecklistItem.swift
+//  Checklist.swift
 //  CanvasText
 //
 //  Created by Sam Soffes on 11/19/15.
@@ -8,12 +8,12 @@
 
 import Foundation
 
-public struct ChecklistItem: ListItem {
+public struct Checklist: Listable, Delimitable, Prefixable {
 
 	// MARK: - Properties
 
-	public var delimiterRange: NSRange?
-	public var prefixRange: NSRange?
+	public var delimiterRange: NSRange
+	public var prefixRange: NSRange
 	public var contentRange: NSRange
 	public var indentation: Indentation
 	public var completed: Bool
@@ -79,7 +79,5 @@ public struct ChecklistItem: ListItem {
 
 		// Content
 		contentRange = NSRange(location: enclosingRange.location + scanner.scanLocation, length: enclosingRange.length - scanner.scanLocation)
-
-
 	}
 }
