@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Checklist: Listable, Delimitable, Prefixable {
+public struct Checklist: Listable {
 
 	// MARK: - Properties
 
