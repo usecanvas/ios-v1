@@ -15,8 +15,10 @@ class SignInViewController: TableViewController {
 
 	// MARK: - Properties
 
+	private static let fieldWidth = UIScreen.mainScreen().bounds.width < 350 ? 190 : 240
+
 	let usernameTextField: UITextField = {
-		let field = UITextField(frame: CGRect(x: 0, y: 0, width: 240, height: 44))
+		let field = UITextField(frame: CGRect(x: 0, y: 0, width: fieldWidth, height: 44))
 		field.placeholder = "user"
 		field.autocapitalizationType = .None
 		field.autocorrectionType = .No
@@ -25,7 +27,7 @@ class SignInViewController: TableViewController {
 	}()
 
 	let passwordTextField: UITextField = {
-		let field = UITextField(frame: CGRect(x: 0, y: 0, width: 240, height: 44))
+		let field = UITextField(frame: CGRect(x: 0, y: 0, width: fieldWidth, height: 44))
 		field.secureTextEntry = true
 		field.placeholder = "password"
 		field.returnKeyType = .Go
