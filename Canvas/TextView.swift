@@ -54,7 +54,7 @@ class TextView: UITextView, Accountable {
 		addSubview(annotation)
 	}
 
-	private func annotationForNode(node: Node) -> UIView? {
+	private func annotationForNode(node: Node, orderedIndentationCounts: [Indentation: UInt]) -> UIView? {
 		let range = textController.backingRangeToDisplayRange(node.contentRange)
 		guard let start = positionFromPosition(beginningOfDocument, offset: range.location),
 			end = positionFromPosition(start, offset: range.length),
@@ -76,8 +76,9 @@ class TextView: UITextView, Accountable {
 		}
 
 		// Ordered list
-		if node is OrderedList {
-			let view = NumberView(frame: .zero, value: 1)
+		if let node = node as? OrderedList {
+			let value = orderedIndentationCounts[node.indentation] ?? 1
+			let view = NumberView(frame: .zero, value: value)
 			view.sizeToFit()
 
 			let size = view.bounds.size
@@ -161,8 +162,19 @@ extension TextView: TextControllerDelegate {
 			becomeFirstResponder()
 		}
 
+		var orderedIndentationCounts = [Indentation: UInt]()
+
 		for node in textController.nodes {
-			if let annotation = annotationForNode(node) {
+			if node is Listable {
+				if let node = node as? OrderedList {
+					let value = orderedIndentationCounts[node.indentation] ?? 0
+					orderedIndentationCounts[node.indentation] = value + 1
+				}
+			} else {
+				orderedIndentationCounts.removeAll()
+			}
+
+			if let annotation = annotationForNode(node, orderedIndentationCounts: orderedIndentationCounts) {
 				addAnnotation(annotation)
 			}
 		}
