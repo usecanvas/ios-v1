@@ -64,7 +64,13 @@ struct Theme {
 		}
 
 		else if node is Blockquote {
-			attributes[NSForegroundColorAttributeName] = UIColor(hex: "#3da25f")!
+			attributes[NSForegroundColorAttributeName] = UIColor(red: 0.494, green: 0.494, blue: 0.510, alpha: 1)
+			paragraph.firstLineHeadIndent = listIndentation
+			paragraph.headIndent = listIndentation
+
+			if let nextSibling = nextSibling where nextSibling is Blockquote {
+				paragraph.paragraphSpacing = 0
+			}
 		}
 
 		else if let listable = node as? Listable {

@@ -24,6 +24,7 @@
 		21A8FA5D1BFD33DB0097FCC6 /* ChromeActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA5C1BFD33DB0097FCC6 /* ChromeActivity.swift */; };
 		21A8FA5F1BFD33EA0097FCC6 /* SafariActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA5E1BFD33EA0097FCC6 /* SafariActivity.swift */; };
 		21B742C81BFF991600FF293C /* NumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742C71BFF991600FF293C /* NumberView.swift */; };
+		21B742D91BFFCFDB00FF293C /* BlockquoteBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742D81BFFCFDB00FF293C /* BlockquoteBorderView.swift */; };
 		21B8D8D91BFC0E0B001ED447 /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B8D8D81BFC0E0B001ED447 /* CheckboxView.swift */; };
 		21EECB681BFCF1CB003DF5AC /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21EECB461BFCF1A0003DF5AC /* CanvasKit.framework */; };
 		21EECB691BFCF1CB003DF5AC /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21EECB521BFCF1A7003DF5AC /* OnePasswordExtension.framework */; };
@@ -224,6 +225,7 @@
 		21A8FA5E1BFD33EA0097FCC6 /* SafariActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafariActivity.swift; sourceTree = "<group>"; };
 		21A8FA621BFD3E0F0097FCC6 /* Canvas.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Canvas.entitlements; sourceTree = "<group>"; };
 		21B742C71BFF991600FF293C /* NumberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberView.swift; sourceTree = "<group>"; };
+		21B742D81BFFCFDB00FF293C /* BlockquoteBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockquoteBorderView.swift; sourceTree = "<group>"; };
 		21B8D8D81BFC0E0B001ED447 /* CheckboxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
 		21CBBD761BFCF28400D02192 /* Static.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Static.xcodeproj; path = Carthage/Checkouts/Static/Static.xcodeproj; sourceTree = "<group>"; };
 		21EECB3E1BFCF1A0003DF5AC /* CanvasKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasKit.xcodeproj; path = Carthage/Checkouts/CanvasKit/CanvasKit.xcodeproj; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				21B8D8D81BFC0E0B001ED447 /* CheckboxView.swift */,
 				2134FADE1BFC09E300AE93CC /* BulletView.swift */,
 				21B742C71BFF991600FF293C /* NumberView.swift */,
+				21B742D81BFFCFDB00FF293C /* BlockquoteBorderView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -687,6 +690,7 @@
 				2129D3121BF568AB0018F255 /* CanvasesViewController.swift in Sources */,
 				21A8FA5D1BFD33DB0097FCC6 /* ChromeActivity.swift in Sources */,
 				21F8F1D61BF3BC650096D2AF /* Theme.swift in Sources */,
+				21B742D91BFFCFDB00FF293C /* BlockquoteBorderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

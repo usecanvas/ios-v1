@@ -51,6 +51,7 @@ public struct Checklist: Listable {
 
 		delimiterRange = NSRange(location: enclosingRange.location, length: scanner.scanLocation)
 
+
 		// Prefix
 		let startPrefix = scanner.scanLocation
 		if !scanner.scanString("- [", intoString: nil) {

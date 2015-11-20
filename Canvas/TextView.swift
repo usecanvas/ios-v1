@@ -72,13 +72,12 @@ class TextView: UITextView, Accountable {
 			rect.origin.y = floor(rect.origin.y + font.ascender - (size.height / 2))
 			rect.size = size
 			view.frame = rect
-
 			return view
 		}
 
 		// Ordered list
 		if node is OrderedList {
-			let view = NumberView(frame: .zero, value: 999)
+			let view = NumberView(frame: .zero, value: 1)
 			view.sizeToFit()
 
 			let size = view.bounds.size
@@ -90,7 +89,6 @@ class TextView: UITextView, Accountable {
 			rect.origin.y = ceil((baseline - numberBaseline) * scale) / scale
 			rect.size = size
 			view.frame = rect
-
 			return view
 		}
 
@@ -102,7 +100,15 @@ class TextView: UITextView, Accountable {
 			rect.origin.y = floor(rect.origin.y + font.ascender - (size.height / 2))
 			rect.size = size
 			view.frame = rect
+			return view
+		}
 
+		// Blockquote
+		if node is Blockquote {
+			let view = BlockquoteBorderView(frame: .zero)
+			rect.origin.x -= Theme.listIndentation
+			rect.size.width = 4
+			view.frame = rect
 			return view
 		}
 
