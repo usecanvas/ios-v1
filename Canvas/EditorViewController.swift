@@ -125,12 +125,12 @@ extension EditorViewController: TextControllerDelegate {
 				next = nil
 			}
 
-			let attributes = Theme.attributesForBlock(node, nextSibling: next)
+			let attributes = Theme.attributesForNode(node, nextSibling: next)
 			let range = textController.backingRangeToDisplayRange(node.contentRange)
 			text.addAttributes(attributes, range: range)
 		}
 		
-		textView.attributedText = text
+		textView.setAttributedText(text, nodes: textController.nodes)
 	}
 	
 	func textControllerDidUpdateSelection(textController: TextController) {
