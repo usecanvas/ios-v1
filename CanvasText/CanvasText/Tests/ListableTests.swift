@@ -1,5 +1,5 @@
 //
-//  ChecklistTest.swift
+//  ListableTests.swift
 //  CanvasText
 //
 //  Created by Sam Soffes on 11/19/15.
@@ -9,7 +9,7 @@
 import XCTest
 import CanvasText
 
-class ChecklistTest: XCTestCase {
+class ListableTests: XCTestCase {
 	func testUncompleted() {
 		let node = Checklist(string: "⧙checklist-0⧘- [ ] Hello", enclosingRange: NSRange(location: 0, length: 24))!
 		XCTAssertEqual(NSRange(location: 0, length: 13), node.delimiterRange)
@@ -26,5 +26,21 @@ class ChecklistTest: XCTestCase {
 		XCTAssertEqual(NSRange(location: 29, length: 4), node.contentRange)
 		XCTAssertEqual(Indentation.One, node.indentation)
 		XCTAssert(node.completed)
+	}
+
+	func testUnordered() {
+		let node = UnorderedList(string: "⧙unordered-list-0⧘- Hello", enclosingRange: NSRange(location: 0, length: 25))!
+		XCTAssertEqual(NSRange(location: 0, length: 18), node.delimiterRange)
+		XCTAssertEqual(NSRange(location: 18, length: 2), node.prefixRange)
+		XCTAssertEqual(NSRange(location: 20, length: 5), node.contentRange)
+		XCTAssertEqual(Indentation.Zero, node.indentation)
+	}
+
+	func testOrdered() {
+		let node = OrderedList(string: "⧙ordered-list-0⧘1. Hello", enclosingRange: NSRange(location: 0, length: 24))!
+		XCTAssertEqual(NSRange(location: 0, length: 16), node.delimiterRange)
+		XCTAssertEqual(NSRange(location: 16, length: 3), node.prefixRange)
+		XCTAssertEqual(NSRange(location: 19, length: 5), node.contentRange)
+		XCTAssertEqual(Indentation.Zero, node.indentation)
 	}
 }

@@ -21,7 +21,7 @@ public struct OrderedList: Listable {
 	// MARK: - Initializers
 
 	public init?(string: String, enclosingRange: NSRange) {
-		guard let (delimiterRange, indentation, prefixRange, contentRange) = parseListable(string: string, enclosingRange: enclosingRange, delimiter: "unordered-list", prefix: "1. ") else { return nil }
+		guard let (delimiterRange, indentation, prefixRange, contentRange) = parseListable(string: string, enclosingRange: enclosingRange, delimiter: "ordered-list", prefix: "1. ") else { return nil }
 
 		self.delimiterRange = delimiterRange
 		self.prefixRange = prefixRange

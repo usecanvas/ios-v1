@@ -1,5 +1,5 @@
 //
-//  BlockquoteTest.swift
+//  BlockquoteTests.swift
 //  CanvasText
 //
 //  Created by Sam Soffes on 11/19/15.

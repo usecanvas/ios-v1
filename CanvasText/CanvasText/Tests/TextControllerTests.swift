@@ -1,5 +1,5 @@
 //
-//  BlockTest.swift
+//  TextControllerTests.swift
 //  CanvasTextTests
 //
 //  Created by Sam Soffes on 11/10/15.
@@ -9,7 +9,7 @@
 import XCTest
 import CanvasText
 
-class BlockTest: XCTestCase {
+class TextControllerTests: XCTestCase {
 //	func testDocHeading() {
 //		let controller = TextController(backingText: "⧙doc-heading⧘A Lovely Document")
 //		

@@ -116,17 +116,17 @@ extension EditorViewController: TextControllerDelegate {
 		
 		let text = NSMutableAttributedString(string: textController.displayText, attributes: Theme.baseAttributes)
 
-		let count = textController.blocks.count
-		for (i, block) in textController.blocks.enumerate() {
-			let nextBlock: Block?
+		let count = textController.nodes.count
+		for (i, node) in textController.nodes.enumerate() {
+			let next: Node?
 			if i < count - 2 {
-				nextBlock = textController.blocks[i + 1]
+				next = textController.nodes[i + 1]
 			} else {
-				nextBlock = nil
+				next = nil
 			}
 
-			let attributes = Theme.attributesForBlock(block, nextBlock: nextBlock)
-			let range = textController.backingRangeToDisplayRange(block.contentRange)
+			let attributes = Theme.attributesForBlock(node, nextSibling: next)
+			let range = textController.backingRangeToDisplayRange(node.contentRange)
 			text.addAttributes(attributes, range: range)
 		}
 		

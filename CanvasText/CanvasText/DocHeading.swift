@@ -17,7 +17,7 @@ public struct DocHeading: Delimitable {
 	// MARK: - Initializers
 
 	public init?(string: String, enclosingRange: NSRange) {
-		guard let (delimiterRange, contentRange) = parseBlockNode(string: string, enclosingRange: enclosingRange, delimiter: "code") else { return nil }
+		guard let (delimiterRange, contentRange) = parseBlockNode(string: string, enclosingRange: enclosingRange, delimiter: "doc-heading") else { return nil }
 
 		self.delimiterRange = delimiterRange
 		self.contentRange = contentRange

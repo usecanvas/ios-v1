@@ -1,5 +1,5 @@
 //
-//  HeadingTest.swift
+//  HeadingTests.swift
 //  CanvasText
 //
 //  Created by Sam Soffes on 11/19/15.
