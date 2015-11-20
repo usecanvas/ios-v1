@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import CanvasText
 
 class BulletView: UIView {
 
+	// MARK: - Properties
+
+	let unorderedList: UnorderedList
+
 	// MARK: - Initializers
 
-	override init(frame: CGRect) {
+	init(frame: CGRect, unorderedList: UnorderedList) {
+		self.unorderedList = unorderedList
 		super.init(frame: frame)
 		backgroundColor = .clearColor()
 		contentMode = .Redraw
@@ -28,8 +34,14 @@ class BulletView: UIView {
 	override func drawRect(rect: CGRect) {
 		guard let context = UIGraphicsGetCurrentContext() else { return }
 
-		UIColor(red: 0.847, green: 0.847, blue: 0.863, alpha: 1).setFill()
-		CGContextFillEllipseInRect(context, CGRectInset(bounds, 0.5, 0.5))
+		let ellipse = CGRectInset(bounds, 0.5, 0.5)
+		UIColor(red: 0.847, green: 0.847, blue: 0.863, alpha: 1).set()
+
+		if unorderedList.indentation.isFilled {
+			CGContextFillEllipseInRect(context, ellipse)
+		} else {
+			CGContextStrokeEllipseInRect(context, ellipse)
+		}
 	}
 
 	override func sizeThatFits(size: CGSize) -> CGSize {

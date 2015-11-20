@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import CanvasText
 
 class CheckboxView: UIButton {
 
+	// MARK: - Properties
+
+	let checklist: Checklist
+
 	// MARK: - Initializers
 
-	override init(frame: CGRect) {
+	init(frame: CGRect, checklist: Checklist) {
+		self.checklist = checklist
 		super.init(frame: frame)
 		contentMode = .Redraw
 	}
@@ -26,7 +32,14 @@ class CheckboxView: UIButton {
 
 	override func drawRect(rect: CGRect) {
 		CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 2)
-		UIColor(red: 0.847, green: 0.847, blue: 0.863, alpha: 1).setStroke()
-		UIBezierPath(roundedRect: CGRectInset(bounds, 1, 1), cornerRadius: 4).stroke()
+		let path = UIBezierPath(roundedRect: CGRectInset(bounds, 1, 1), cornerRadius: 4)
+
+		if checklist.completed {
+			Color.brand.setFill()
+			path.fill()
+		} else {
+			UIColor(red: 0.847, green: 0.847, blue: 0.863, alpha: 1).setStroke()
+			path.stroke()
+		}
 	}
 }

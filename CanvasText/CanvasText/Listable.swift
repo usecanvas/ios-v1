@@ -17,6 +17,10 @@ public enum Indentation: UInt {
 	case Five = 5
 	case Six = 6
 	case Seven = 7
+
+	public var isFilled: Bool {
+		return rawValue % 2 == 0
+	}
 }
 
 

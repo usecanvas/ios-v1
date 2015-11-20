@@ -12,6 +12,8 @@ import CanvasText
 struct Theme {
 	
 	static let baseFontSize: CGFloat = 18
+
+	static let listIndentation: CGFloat = 16
 	
 	static let baseAttributes = [
 		NSBackgroundColorAttributeName: UIColor.whiteColor(),
@@ -66,7 +68,7 @@ struct Theme {
 		}
 
 		else if let listable = node as? Listable {
-			let indent = 24 * CGFloat(listable.indentation.rawValue + 1)
+			let indent = listIndentation * CGFloat(listable.indentation.rawValue + 1)
 			paragraph.firstLineHeadIndent = indent
 			paragraph.headIndent = indent
 
