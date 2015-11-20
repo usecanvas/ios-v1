@@ -49,31 +49,61 @@ class TextView: UITextView, Accountable {
 
 	// MARK: - Private
 
+	private func addAnnotation(annotation: UIView) {
+		annotations.append(annotation)
+		addSubview(annotation)
+	}
+
 	private func annotationForNode(node: Node) -> UIView? {
 		let range = textController.backingRangeToDisplayRange(node.contentRange)
 		guard let start = positionFromPosition(beginningOfDocument, offset: range.location),
 			end = positionFromPosition(start, offset: range.length),
-			textRange = textRangeFromPosition(start, toPosition: end)
+			textRange = textRangeFromPosition(start, toPosition: end),
+			font = font
 		else { return nil }
 
 		var rect = firstRectForRange(textRange)
 
 		// Unordered List
 		if let node = node as? UnorderedList {
-			rect.origin.x -= Theme.listIndentation
-			rect.origin.y += Theme.baseFontSize - 9 + 2.5 // Not sure about that + 2.5 &shrug
-			rect.size = CGSize(width: 9, height: 9)
+			let view = BulletView(frame: .zero, unorderedList: node)
+			let size = view.intrinsicContentSize()
+			rect.origin.x -= Theme.listIndentation - (size.width / 2)
+			rect.origin.y = floor(rect.origin.y + font.ascender - (size.height / 2))
+			rect.size = size
+			view.frame = rect
 
-			return BulletView(frame: rect, unorderedList: node)
+			return view
+		}
+
+		// Ordered list
+		if node is OrderedList {
+			let view = NumberView(frame: .zero, value: 999)
+			view.sizeToFit()
+
+			let size = view.bounds.size
+			let baseline = rect.maxY + font.descender
+			let numberBaseline = size.height + view.font!.descender
+			let scale = window!.screen.scale
+
+			rect.origin.x -= size.width + 4
+			rect.origin.y = ceil((baseline - numberBaseline) * scale) / scale
+			rect.size = size
+			view.frame = rect
+
+			return view
 		}
 
 		// Checklist
 		if let node = node as? Checklist {
-			rect.origin.x -= 12
-			rect.origin.y += 3
-			rect.size = CGSize(width: 16, height: 16)
+			let view = CheckboxView(frame: .zero, checklist: node)
+			let size = view.intrinsicContentSize()
+			rect.origin.x -= Theme.listIndentation
+			rect.origin.y = floor(rect.origin.y + font.ascender - (size.height / 2))
+			rect.size = size
+			view.frame = rect
 
-			return CheckboxView(frame: rect, checklist: node)
+			return view
 		}
 
 		return nil
@@ -127,8 +157,7 @@ extension TextView: TextControllerDelegate {
 
 		for node in textController.nodes {
 			if let annotation = annotationForNode(node) {
-				annotations.append(annotation)
-				addSubview(annotation)
+				addAnnotation(annotation)
 			}
 		}
 

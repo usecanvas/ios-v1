@@ -31,15 +31,28 @@ class CheckboxView: UIButton {
 	// MARK: - UIView
 
 	override func drawRect(rect: CGRect) {
-		CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 2)
-		let path = UIBezierPath(roundedRect: CGRectInset(bounds, 1, 1), cornerRadius: 4)
-
 		if checklist.completed {
 			Color.brand.setFill()
-			path.fill()
-		} else {
-			UIColor(red: 0.847, green: 0.847, blue: 0.863, alpha: 1).setStroke()
-			path.stroke()
+			UIBezierPath(roundedRect: bounds, cornerRadius: 3).fill()
+
+			if let checkmark = UIImage(named: "checkmark") {
+				UIColor.whiteColor().setFill()
+				checkmark.drawAtPoint(CGPoint(x: (bounds.width - checkmark.size.width) / 2, y: (bounds.height - checkmark.size.height) / 2))
+			}
+			return
 		}
+
+		Color.steel.setStroke()
+		let path = UIBezierPath(roundedRect: CGRectInset(bounds, 1, 1), cornerRadius: 3)
+		path.lineWidth = 2
+		path.stroke()
+	}
+
+	override func sizeThatFits(size: CGSize) -> CGSize {
+		return intrinsicContentSize()
+	}
+
+	override func intrinsicContentSize() -> CGSize {
+		return CGSize(width: 16, height: 16)
 	}
 }

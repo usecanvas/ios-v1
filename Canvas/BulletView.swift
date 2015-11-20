@@ -34,13 +34,13 @@ class BulletView: UIView {
 	override func drawRect(rect: CGRect) {
 		guard let context = UIGraphicsGetCurrentContext() else { return }
 
-		let ellipse = CGRectInset(bounds, 0.5, 0.5)
-		UIColor(red: 0.847, green: 0.847, blue: 0.863, alpha: 1).set()
+		Color.steel.set()
 
 		if unorderedList.indentation.isFilled {
-			CGContextFillEllipseInRect(context, ellipse)
+			CGContextFillEllipseInRect(context, bounds)
 		} else {
-			CGContextStrokeEllipseInRect(context, ellipse)
+			CGContextSetLineWidth(context, 2)
+			CGContextStrokeEllipseInRect(context, CGRectInset(bounds, 1, 1))
 		}
 	}
 
@@ -49,6 +49,6 @@ class BulletView: UIView {
 	}
 
 	override func intrinsicContentSize() -> CGSize {
-		return CGSize(width: 9, height: 9)
+		return CGSize(width: 8, height: 8)
 	}
 }

@@ -13,7 +13,7 @@ struct Theme {
 	
 	static let baseFontSize: CGFloat = 18
 
-	static let listIndentation: CGFloat = 16
+	static let listIndentation: CGFloat = 20
 	
 	static let baseAttributes = [
 		NSBackgroundColorAttributeName: UIColor.whiteColor(),

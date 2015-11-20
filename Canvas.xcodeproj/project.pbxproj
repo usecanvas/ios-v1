@@ -23,6 +23,7 @@
 		21A8FA5B1BFD30790097FCC6 /* WebActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA5A1BFD30790097FCC6 /* WebActivity.swift */; };
 		21A8FA5D1BFD33DB0097FCC6 /* ChromeActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA5C1BFD33DB0097FCC6 /* ChromeActivity.swift */; };
 		21A8FA5F1BFD33EA0097FCC6 /* SafariActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA5E1BFD33EA0097FCC6 /* SafariActivity.swift */; };
+		21B742C81BFF991600FF293C /* NumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742C71BFF991600FF293C /* NumberView.swift */; };
 		21B8D8D91BFC0E0B001ED447 /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B8D8D81BFC0E0B001ED447 /* CheckboxView.swift */; };
 		21EECB681BFCF1CB003DF5AC /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21EECB461BFCF1A0003DF5AC /* CanvasKit.framework */; };
 		21EECB691BFCF1CB003DF5AC /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21EECB521BFCF1A7003DF5AC /* OnePasswordExtension.framework */; };
@@ -67,6 +68,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 21A8F9EF1BFCF4BD0097FCC6;
 			remoteInfo = CanvasText;
+		};
+		21B742CF1BFF991700FF293C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21A8FA2A1BFCF59D0097FCC6 /* CanvasText.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 21A8FA791BFE7B5A0097FCC6;
+			remoteInfo = "CanvasText-OSX";
+		};
+		21B742D11BFF991700FF293C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21A8FA2A1BFCF59D0097FCC6 /* CanvasText.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 21A8FA821BFE7B5A0097FCC6;
+			remoteInfo = "CanvasTextTests-OSX";
 		};
 		21CBBD7C1BFCF28500D02192 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -208,6 +223,7 @@
 		21A8FA5C1BFD33DB0097FCC6 /* ChromeActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChromeActivity.swift; sourceTree = "<group>"; };
 		21A8FA5E1BFD33EA0097FCC6 /* SafariActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafariActivity.swift; sourceTree = "<group>"; };
 		21A8FA621BFD3E0F0097FCC6 /* Canvas.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Canvas.entitlements; sourceTree = "<group>"; };
+		21B742C71BFF991600FF293C /* NumberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberView.swift; sourceTree = "<group>"; };
 		21B8D8D81BFC0E0B001ED447 /* CheckboxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
 		21CBBD761BFCF28400D02192 /* Static.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Static.xcodeproj; path = Carthage/Checkouts/Static/Static.xcodeproj; sourceTree = "<group>"; };
 		21EECB3E1BFCF1A0003DF5AC /* CanvasKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasKit.xcodeproj; path = Carthage/Checkouts/CanvasKit/CanvasKit.xcodeproj; sourceTree = "<group>"; };
@@ -248,6 +264,7 @@
 				21A8FA491BFD085F0097FCC6 /* CanvasCell.swift */,
 				21B8D8D81BFC0E0B001ED447 /* CheckboxView.swift */,
 				2134FADE1BFC09E300AE93CC /* BulletView.swift */,
+				21B742C71BFF991600FF293C /* NumberView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -256,7 +273,9 @@
 			isa = PBXGroup;
 			children = (
 				21A8FA301BFCF59D0097FCC6 /* CanvasText.framework */,
-				21A8FA321BFCF59D0097FCC6 /* CanvasTextTests.xctest */,
+				21A8FA321BFCF59D0097FCC6 /* CanvasTextTests-iOS.xctest */,
+				21B742D01BFF991700FF293C /* CanvasText.framework */,
+				21B742D21BFF991700FF293C /* CanvasTextTests-OSX.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -350,7 +369,6 @@
 				21A8FA501BFD306E0097FCC6 /* Activities */,
 				21FB6AAB1BF53AD3003C82BB /* Extensions */,
 				21F10F5F1BF13D720035057D /* Resources */,
-				2129D30F1BF5634A0018F255 /* Accountable.swift */,
 			);
 			path = Canvas;
 			sourceTree = "<group>";
@@ -399,6 +417,7 @@
 			children = (
 				21F10F4D1BF138750035057D /* AppDelegate.swift */,
 				2129D30B1BF560810018F255 /* Color.swift */,
+				2129D30F1BF5634A0018F255 /* Accountable.swift */,
 			);
 			name = Application;
 			sourceTree = "<group>";
@@ -508,11 +527,25 @@
 			remoteRef = 21A8FA2F1BFCF59D0097FCC6 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		21A8FA321BFCF59D0097FCC6 /* CanvasTextTests.xctest */ = {
+		21A8FA321BFCF59D0097FCC6 /* CanvasTextTests-iOS.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = CanvasTextTests.xctest;
+			path = "CanvasTextTests-iOS.xctest";
 			remoteRef = 21A8FA311BFCF59D0097FCC6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B742D01BFF991700FF293C /* CanvasText.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CanvasText.framework;
+			remoteRef = 21B742CF1BFF991700FF293C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B742D21BFF991700FF293C /* CanvasTextTests-OSX.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "CanvasTextTests-OSX.xctest";
+			remoteRef = 21B742D11BFF991700FF293C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		21CBBD7D1BFCF28500D02192 /* Static.framework */ = {
@@ -636,6 +669,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2129D30E1BF561400018F255 /* CollectionsViewController.swift in Sources */,
+				21B742C81BFF991600FF293C /* NumberView.swift in Sources */,
 				21FB6AB01BF53B8E003C82BB /* RootViewController.swift in Sources */,
 				21F10F501BF138750035057D /* EditorViewController.swift in Sources */,
 				2129D30C1BF560810018F255 /* Color.swift in Sources */,
