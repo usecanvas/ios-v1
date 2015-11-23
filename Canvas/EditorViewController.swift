@@ -55,7 +55,7 @@ class EditorViewController: UIViewController, Accountable {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		view.backgroundColor = .whiteColor()
+		view.backgroundColor = Color.white
 
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "share:")
 		

@@ -13,7 +13,7 @@ class CanvasCell: UITableViewCell, CellType {
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-		textLabel?.highlightedTextColor = .whiteColor()
+		textLabel?.highlightedTextColor = Color.white
 		textLabel?.font = .systemFontOfSize(18)
 
 		let view = UIView()

@@ -13,8 +13,9 @@ class CollectionCell: UITableViewCell, CellType {
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-		backgroundColor = .blackColor()
-		textLabel?.textColor = .whiteColor()
+		backgroundColor = Color.lightGray
+		textLabel?.textColor = Color.darkGray
+		textLabel?.highlightedTextColor = Color.white
 		textLabel?.font = .systemFontOfSize(18)
 
 		let view = UIView()

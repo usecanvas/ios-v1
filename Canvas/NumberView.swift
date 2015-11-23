@@ -17,7 +17,7 @@ class NumberView: UILabel {
 
 		text = "\(value)."
 		textAlignment = .Right
-		textColor = Color.steel
+		textColor = Color.gray
 		font = .systemFontOfSize(Theme.baseFontSize - (value > 99 ? 2 : 0))
 //		adjustsFontSizeToFitWidth = true
 	}

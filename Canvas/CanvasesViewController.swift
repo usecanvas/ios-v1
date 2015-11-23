@@ -10,7 +10,7 @@ import UIKit
 import Static
 import CanvasKit
 
-class CanvasesViewController: TableViewController, Accountable {
+class CanvasesViewController: ListViewController, Accountable {
 
 	// MARK: - Properties
 
@@ -51,21 +51,33 @@ class CanvasesViewController: TableViewController, Accountable {
 		tableView.rowHeight = 66
 		tableView.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
 
+		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+
 		refresh()
 	}
 
 
-	// MARK: - Private
+	// MARK: - Actions
 
-	private func refresh() {
+	override func refresh() {
+		if loading {
+			return
+		}
+
+		loading = true
+
 		APIClient(accessToken: account.accessToken).listCanvases(collection) { [weak self] result in
 			switch result {
 			case .Success(let canvases):
 				dispatch_async(dispatch_get_main_queue()) {
+					self?.loading = false
 					self?.canvases = canvases
 				}
 			case .Failure(let message):
 				print("Failed to get canvases: \(message)")
+				dispatch_async(dispatch_get_main_queue()) {
+					self?.loading = false
+				}
 			}
 		}
 	}

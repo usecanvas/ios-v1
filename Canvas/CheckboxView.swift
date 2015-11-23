@@ -36,13 +36,13 @@ class CheckboxView: UIButton {
 			UIBezierPath(roundedRect: bounds, cornerRadius: 3).fill()
 
 			if let checkmark = UIImage(named: "checkmark") {
-				UIColor.whiteColor().setFill()
+				Color.white.setFill()
 				checkmark.drawAtPoint(CGPoint(x: (bounds.width - checkmark.size.width) / 2, y: (bounds.height - checkmark.size.height) / 2))
 			}
 			return
 		}
 
-		Color.steel.setStroke()
+		Color.gray.setStroke()
 		let path = UIBezierPath(roundedRect: CGRectInset(bounds, 1, 1), cornerRadius: 3)
 		path.lineWidth = 2
 		path.stroke()

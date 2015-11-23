@@ -34,7 +34,7 @@ class BulletView: UIView {
 	override func drawRect(rect: CGRect) {
 		guard let context = UIGraphicsGetCurrentContext() else { return }
 
-		Color.steel.set()
+		Color.gray.set()
 
 		if unorderedList.indentation.isFilled {
 			CGContextFillEllipseInRect(context, bounds)

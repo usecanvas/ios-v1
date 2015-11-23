@@ -10,7 +10,7 @@ import UIKit
 import Static
 import CanvasKit
 
-class CollectionsViewController: TableViewController, Accountable {
+class CollectionsViewController: ListViewController, Accountable {
 
 	// MARK: - Properties
 
@@ -45,10 +45,10 @@ class CollectionsViewController: TableViewController, Accountable {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		view.backgroundColor = .blackColor()
+		view.backgroundColor = Color.lightGray
 		tableView.rowHeight = 64
 		tableView.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
-		tableView.separatorColor = UIColor(white: 1, alpha: 0.15)
+		tableView.separatorColor = Color.gray
 
 		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .Plain, target: self, action: "signOut:")
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
@@ -62,13 +62,13 @@ class CollectionsViewController: TableViewController, Accountable {
 
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
-		navigationController?.navigationBar.barTintColor = .blackColor()
+		navigationController?.navigationBar.barTintColor = Color.darkGray
 		navigationController?.navigationBar.barStyle = .Black
 	}
 	
 	override func viewWillDisappear(animated: Bool) {
 		super.viewWillDisappear(animated)
-		navigationController?.navigationBar.barTintColor = nil
+		navigationController?.navigationBar.barTintColor = Color.white
 		navigationController?.navigationBar.barStyle = .Default
 	}
 
@@ -79,18 +79,25 @@ class CollectionsViewController: TableViewController, Accountable {
 		AccountController.sharedController.currentAccount = nil
 	}
 
+	override func refresh() {
+		if loading {
+			return
+		}
 
-	// MARK: - Private
-
-	private func refresh() {
+		loading = true
+		
 		APIClient(accessToken: account.accessToken).listCollections { [weak self] result in
 			switch result {
 			case .Success(let collections):
 				dispatch_async(dispatch_get_main_queue()) {
+					self?.loading = false
 					self?.collections = collections
 				}
 			case .Failure(let message):
 				print("Failed to get collections: \(message)")
+				dispatch_async(dispatch_get_main_queue()) {
+					self?.loading = false
+				}
 			}
 		}
 	}
