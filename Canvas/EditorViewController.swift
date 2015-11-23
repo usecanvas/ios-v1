@@ -78,7 +78,8 @@ class EditorViewController: UIViewController, Accountable {
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
 
-		let padding = max(16, (textView.bounds.width - 640) / 2)
+		let maxWidth = textStorage.theme.fontSize * 36
+		let padding = max(16, (textView.bounds.width - maxWidth) / 2)
 		textView.textContainerInset = UIEdgeInsets(top: 16, left: padding, bottom: 32, right: padding)
 	}
 

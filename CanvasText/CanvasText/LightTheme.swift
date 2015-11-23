@@ -31,7 +31,7 @@ public struct LightTheme: Theme {
 
 	public init() {
 		paragraphSpacing = fontSize * 1.5
-		smallParagraphSpacing = fontSize * 1.1
+		smallParagraphSpacing = fontSize * 0.1
 	}
 
 
@@ -42,9 +42,7 @@ public struct LightTheme: Theme {
 		paragraph.lineHeightMultiple = lineHeightMultiple
 		paragraph.paragraphSpacing = paragraphSpacing
 
-		var attributes: [String: AnyObject] = [
-			NSParagraphStyleAttributeName: paragraph
-		]
+		var attributes = [String: AnyObject]()
 
 		if node is DocHeading {
 			attributes[NSForegroundColorAttributeName] = UIColor.blackColor()
@@ -100,6 +98,8 @@ public struct LightTheme: Theme {
 				paragraph.paragraphSpacing = smallParagraphSpacing
 			}
 		}
+
+		attributes[NSParagraphStyleAttributeName] = paragraph
 
 		return attributes
 	}
