@@ -55,7 +55,7 @@ struct Theme {
 				attributes[NSForegroundColorAttributeName] = UIColor(hex: "#9a9a9a")!
 			}
 
-			paragraph.paragraphSpacing = baseFontSize * 0.5
+			paragraph.paragraphSpacing = baseFontSize * 0.1
 		}
 
 		else if node is CodeBlock {

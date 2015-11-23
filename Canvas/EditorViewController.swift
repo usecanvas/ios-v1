@@ -58,7 +58,8 @@ class EditorViewController: UIViewController, Accountable {
 		view.backgroundColor = Color.white
 
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "share:")
-		
+
+		textView.keyboardDismissMode = .Interactive
 		view.addSubview(textView)
 		
 		NSLayoutConstraint.activateConstraints([
