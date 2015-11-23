@@ -69,8 +69,10 @@ public struct LightTheme: Theme {
 				attributes[NSForegroundColorAttributeName] = Color(white: 0.6, alpha: 1)
 			}
 
-			// Less space after headings
-			paragraph.paragraphSpacing = smallParagraphSpacing
+			// Smaller bottom margin if the next block isn’t a heading
+			if let nextSibling = nextSibling where !(nextSibling is Heading) {
+				paragraph.paragraphSpacing = smallParagraphSpacing
+			}
 		}
 
 		else if node is CodeBlock {
@@ -82,10 +84,6 @@ public struct LightTheme: Theme {
 			attributes[NSForegroundColorAttributeName] = Color(red: 0.494, green: 0.494, blue: 0.510, alpha: 1)
 			paragraph.firstLineHeadIndent = listIndentation
 			paragraph.headIndent = listIndentation
-
-			if let nextSibling = nextSibling where nextSibling is Blockquote {
-				paragraph.paragraphSpacing = 0
-			}
 		}
 
 		else if let listable = node as? Listable {
