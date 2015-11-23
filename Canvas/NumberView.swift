@@ -7,18 +7,19 @@
 //
 
 import UIKit
+import CanvasText
 
 class NumberView: UILabel {
 
 	// MARK: - Initializers
 
-	init(frame: CGRect, value: UInt) {
+	init(frame: CGRect, theme: Theme, value: UInt) {
 		super.init(frame: frame)
 
 		text = "\(value)."
 		textAlignment = .Right
 		textColor = Color.gray
-		font = .systemFontOfSize(Theme.baseFontSize - (value > 99 ? 2 : 0))
+		font = .systemFontOfSize(theme.fontSize - (value > 99 ? 2 : 0))
 //		adjustsFontSizeToFitWidth = true
 	}
 

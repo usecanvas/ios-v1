@@ -38,8 +38,6 @@
 		21F10F501BF138750035057D /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F10F4F1BF138750035057D /* EditorViewController.swift */; };
 		21F10F651BF13D720035057D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21F10F601BF13D720035057D /* Assets.xcassets */; };
 		21F10F661BF13D720035057D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21F10F611BF13D720035057D /* LaunchScreen.storyboard */; };
-		21F8F1D61BF3BC650096D2AF /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F8F1D51BF3BC650096D2AF /* Theme.swift */; };
-		21F8F1D81BF3BDAE0096D2AF /* UIColor+X.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F8F1D71BF3BDAE0096D2AF /* UIColor+X.swift */; };
 		21FB6AB01BF53B8E003C82BB /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FB6AAF1BF53B8E003C82BB /* RootViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -241,8 +239,6 @@
 		21F10F601BF13D720035057D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21F10F621BF13D720035057D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21F10F631BF13D720035057D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		21F8F1D51BF3BC650096D2AF /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		21F8F1D71BF3BDAE0096D2AF /* UIColor+X.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+X.swift"; sourceTree = "<group>"; };
 		21FB6AAF1BF53B8E003C82BB /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -372,9 +368,7 @@
 				21FB6AAE1BF53B35003C82BB /* Application */,
 				21FB6AAD1BF53B2F003C82BB /* View Controllers */,
 				2134FADD1BFC09D300AE93CC /* Views */,
-				21FB6AAC1BF53B2C003C82BB /* Models */,
 				21A8FA501BFD306E0097FCC6 /* Activities */,
-				21FB6AAB1BF53AD3003C82BB /* Extensions */,
 				21F10F5F1BF13D720035057D /* Resources */,
 			);
 			path = Canvas;
@@ -389,22 +383,6 @@
 				21F10F631BF13D720035057D /* Info.plist */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		21FB6AAB1BF53AD3003C82BB /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				21F8F1D71BF3BDAE0096D2AF /* UIColor+X.swift */,
-			);
-			name = Extensions;
-			sourceTree = "<group>";
-		};
-		21FB6AAC1BF53B2C003C82BB /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				21F8F1D51BF3BC650096D2AF /* Theme.swift */,
-			);
-			name = Models;
 			sourceTree = "<group>";
 		};
 		21FB6AAD1BF53B2F003C82BB /* View Controllers */ = {
@@ -689,7 +667,6 @@
 				2129D30A1BF55C340018F255 /* SignInViewController.swift in Sources */,
 				21A8FA5B1BFD30790097FCC6 /* WebActivity.swift in Sources */,
 				21B8D8D91BFC0E0B001ED447 /* CheckboxView.swift in Sources */,
-				21F8F1D81BF3BDAE0096D2AF /* UIColor+X.swift in Sources */,
 				21A8FA4A1BFD085F0097FCC6 /* CanvasCell.swift in Sources */,
 				21F10F4E1BF138750035057D /* AppDelegate.swift in Sources */,
 				2134FAE11BFC0A6A00AE93CC /* TextView.swift in Sources */,
@@ -697,7 +674,6 @@
 				21A8FA3D1BFD04F20097FCC6 /* CollectionCell.swift in Sources */,
 				2129D3121BF568AB0018F255 /* CanvasesViewController.swift in Sources */,
 				21A8FA5D1BFD33DB0097FCC6 /* ChromeActivity.swift in Sources */,
-				21F8F1D61BF3BC650096D2AF /* Theme.swift in Sources */,
 				21B742D91BFFCFDB00FF293C /* BlockquoteBorderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

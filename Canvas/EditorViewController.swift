@@ -16,8 +16,9 @@ class EditorViewController: UIViewController, Accountable {
 
 	var account: Account
 	let canvas: Canvas
-	
-	let textView: TextView
+
+	let textStorage = TextStorage(theme: LightTheme())
+	let textView: UITextView
 
 
 	// MARK: - Initializers
@@ -26,7 +27,12 @@ class EditorViewController: UIViewController, Accountable {
 		self.account = account
 		self.canvas = canvas
 
-		textView = TextView(account: account, canvas: canvas)
+		let layoutManager = NSLayoutManager()
+		let container = NSTextContainer()
+		layoutManager.addTextContainer(container)
+		textStorage.addLayoutManager(layoutManager)
+
+		textView = UITextView(frame: .zero, textContainer: container)
 		textView.translatesAutoresizingMaskIntoConstraints = false
 
 		super.init(nibName: nil, bundle: nil)
@@ -61,6 +67,10 @@ class EditorViewController: UIViewController, Accountable {
 
 		textView.keyboardDismissMode = .Interactive
 		view.addSubview(textView)
+
+		textStorage.connect(accessToken: account.accessToken, collectionID: canvas.collectionID, canvasID: canvas.ID) { [weak self] webView in
+			self?.view.addSubview(webView)
+		}
 		
 		NSLayoutConstraint.activateConstraints([
 			textView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
@@ -68,6 +78,13 @@ class EditorViewController: UIViewController, Accountable {
 			textView.topAnchor.constraintEqualToAnchor(view.topAnchor),
 			textView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor)
 		])
+	}
+
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+
+		let padding = max(16, (textView.bounds.width - 640) / 2)
+		textView.textContainerInset = UIEdgeInsets(top: 16, left: padding, bottom: 32, right: padding)
 	}
 
 
