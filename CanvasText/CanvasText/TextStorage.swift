@@ -14,7 +14,7 @@
 
 import WebKit
 
-protocol TextStorageSelectionDelegate: class {
+public protocol TextStorageSelectionDelegate: class {
 	func textStorageDidUpdateSelection(textStorage: TextStorage)
 }
 
@@ -46,7 +46,7 @@ public class TextStorage: NSTextStorage {
 
 	public private(set) var nodes = [Node]()
 
-	weak var selectionDelegate: TextStorageSelectionDelegate?
+	public weak var selectionDelegate: TextStorageSelectionDelegate?
 
 	private var transportController: TransportController?
 

@@ -34,8 +34,12 @@ class EditorViewController: UIViewController, Accountable {
 
 		textView = UITextView(frame: .zero, textContainer: container)
 		textView.translatesAutoresizingMaskIntoConstraints = false
+		textView.keyboardDismissMode = .Interactive
 
 		super.init(nibName: nil, bundle: nil)
+
+		textStorage.selectionDelegate = self
+		textView.delegate = self
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -65,7 +69,6 @@ class EditorViewController: UIViewController, Accountable {
 
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "share:")
 
-		textView.keyboardDismissMode = .Interactive
 		view.addSubview(textView)
 
 		textStorage.connect(accessToken: account.accessToken, collectionID: canvas.collectionID, canvasID: canvas.ID) { [weak self] webView in
@@ -99,5 +102,19 @@ class EditorViewController: UIViewController, Accountable {
 		let activities = [SafariActivity(), ChromeActivity()]
 		let viewController = UIActivityViewController(activityItems: [URL], applicationActivities: activities)
 		presentViewController(viewController, animated: true, completion: nil)
+	}
+}
+
+
+extension EditorViewController: UITextViewDelegate {
+	func textViewDidChangeSelection(textView: UITextView) {
+		textStorage.backingSelection = textStorage.displayRangeToBackingRange(textView.selectedRange)
+	}
+}
+
+
+extension EditorViewController: TextStorageSelectionDelegate {
+	func textStorageDidUpdateSelection(textStorage: TextStorage) {
+		textView.selectedRange = textStorage.displaySelection
 	}
 }
