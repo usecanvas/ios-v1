@@ -49,6 +49,10 @@ class TransportController: NSObject {
 		
 		// Load file
 		webView = WKWebView(frame: .zero, configuration: configuration)
+
+		#if !os(OSX)
+			webView.scrollView.scrollsToTop = false
+		#endif
 	}
 
 
