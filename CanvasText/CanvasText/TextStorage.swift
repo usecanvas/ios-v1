@@ -19,6 +19,11 @@ public protocol TextStorageSelectionDelegate: class {
 }
 
 
+public protocol TextStorageNodesDelegate: class {
+	func textStorageDidUpdateNodes(textStorage: TextStorage)
+}
+
+
 public class TextStorage: NSTextStorage {
 
 	// MARK: - Properties
@@ -47,6 +52,7 @@ public class TextStorage: NSTextStorage {
 	public private(set) var nodes = [Node]()
 
 	public weak var selectionDelegate: TextStorageSelectionDelegate?
+	public weak var nodesDelegate: TextStorageNodesDelegate?
 
 	private var transportController: TransportController?
 
@@ -209,6 +215,8 @@ public class TextStorage: NSTextStorage {
 		endEditing()
 
 		edited([.EditedAttributes, .EditedCharacters], range: range, changeInLength: storage.length - range.length)
+
+		nodesDelegate?.textStorageDidUpdateNodes(self)
 	}
 }
 

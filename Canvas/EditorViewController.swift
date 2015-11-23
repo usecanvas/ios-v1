@@ -18,7 +18,7 @@ class EditorViewController: UIViewController, Accountable {
 	let canvas: Canvas
 
 	let textStorage = TextStorage(theme: LightTheme())
-	let textView: UITextView
+	let textView: TextView
 
 
 	// MARK: - Initializers
@@ -27,19 +27,11 @@ class EditorViewController: UIViewController, Accountable {
 		self.account = account
 		self.canvas = canvas
 
-		let layoutManager = NSLayoutManager()
-		let container = NSTextContainer()
-		layoutManager.addTextContainer(container)
-		textStorage.addLayoutManager(layoutManager)
-
-		textView = UITextView(frame: .zero, textContainer: container)
+		textView = TextView(textStorage: textStorage)
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		textView.keyboardDismissMode = .Interactive
 
 		super.init(nibName: nil, bundle: nil)
-
-		textStorage.selectionDelegate = self
-		textView.delegate = self
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -102,19 +94,5 @@ class EditorViewController: UIViewController, Accountable {
 		let activities = [SafariActivity(), ChromeActivity()]
 		let viewController = UIActivityViewController(activityItems: [URL], applicationActivities: activities)
 		presentViewController(viewController, animated: true, completion: nil)
-	}
-}
-
-
-extension EditorViewController: UITextViewDelegate {
-	func textViewDidChangeSelection(textView: UITextView) {
-		textStorage.backingSelection = textStorage.displayRangeToBackingRange(textView.selectedRange)
-	}
-}
-
-
-extension EditorViewController: TextStorageSelectionDelegate {
-	func textStorageDidUpdateSelection(textStorage: TextStorage) {
-		textView.selectedRange = textStorage.displaySelection
 	}
 }
