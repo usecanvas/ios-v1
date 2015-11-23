@@ -142,7 +142,7 @@ extension TextView: TextControllerDelegate {
 		let count = textController.nodes.count
 		for (i, node) in textController.nodes.enumerate() {
 			let next: Node?
-			if i < count - 2 {
+			if i < count - 1 {
 				next = textController.nodes[i + 1]
 			} else {
 				next = nil
