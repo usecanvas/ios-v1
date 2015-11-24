@@ -64,12 +64,14 @@ class CollectionsViewController: ListViewController, Accountable {
 		super.viewWillAppear(animated)
 		navigationController?.navigationBar.barTintColor = Color.darkGray
 		navigationController?.navigationBar.barStyle = .Black
+		navigationController?.navigationBar.tintColor = Color.white.colorWithAlphaComponent(0.5)
 	}
 	
 	override func viewWillDisappear(animated: Bool) {
 		super.viewWillDisappear(animated)
 		navigationController?.navigationBar.barTintColor = Color.white
 		navigationController?.navigationBar.barStyle = .Default
+		navigationController?.navigationBar.tintColor = Color.brand
 	}
 
 
