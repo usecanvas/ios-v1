@@ -22,7 +22,7 @@ class EditorViewController: UIViewController, Accountable {
 	let textStorage = TextStorage(theme: LightTheme())
 	private let textView: TextView
 	private let longhouse = Longhouse(serverURL: NSURL(string: "wss://presence.usecanvas.com/")!)
-	private let presenceBarButtonItem = UIBarButtonItem(title: "0", style: .Plain, target: nil, action: nil)
+	private let presenceBarButtonItem = UIBarButtonItem(title: " ", style: .Plain, target: nil, action: nil)
 
 
 	// MARK: - Initializers
