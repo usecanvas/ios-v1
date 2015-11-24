@@ -9,6 +9,7 @@
 import UIKit
 import CanvasKit
 import CanvasText
+import AMScrollingNavbar
 
 class EditorViewController: UIViewController, Accountable {
 	
@@ -61,6 +62,7 @@ class EditorViewController: UIViewController, Accountable {
 
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "share:")
 
+		textView.delegate = self
 		view.addSubview(textView)
 
 		textStorage.connect(accessToken: account.accessToken, collectionID: canvas.collectionID, canvasID: canvas.ID) { [weak self] webView in
@@ -83,6 +85,23 @@ class EditorViewController: UIViewController, Accountable {
 		textView.textContainerInset = UIEdgeInsets(top: 16, left: padding, bottom: 32, right: padding)
 	}
 
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+
+		if let navigationController = self.navigationController as? ScrollingNavigationController {
+			// TODO: This should be the height of the DocHeading node
+			navigationController.followScrollView(textView, delay: 0.0)
+		}
+	}
+
+	override func viewDidDisappear(animated: Bool) {
+		super.viewDidDisappear(animated)
+
+		if let navigationController = self.navigationController as? ScrollingNavigationController {
+			navigationController.stopFollowingScrollView()
+		}
+	}
+
 
 	// MARK: - Actions
 
@@ -95,5 +114,19 @@ class EditorViewController: UIViewController, Accountable {
 		let activities = [SafariActivity(), ChromeActivity()]
 		let viewController = UIActivityViewController(activityItems: [URL], applicationActivities: activities)
 		presentViewController(viewController, animated: true, completion: nil)
+	}
+}
+
+
+extension EditorViewController: UITextViewDelegate {
+	func textViewDidChangeSelection(textView: UITextView) {
+		textStorage.backingSelection = textStorage.displayRangeToBackingRange(textView.selectedRange)
+	}
+
+	func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool {
+		if let navigationController = self.navigationController as? ScrollingNavigationController {
+			navigationController.showNavbar(animated: true)
+		}
+		return true
 	}
 }

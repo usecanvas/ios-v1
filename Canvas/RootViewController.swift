@@ -8,6 +8,7 @@
 
 import UIKit
 import CanvasKit
+import AMScrollingNavbar
 
 class RootViewController: UIViewController {
 
@@ -77,6 +78,6 @@ class RootViewController: UIViewController {
 			return
 		}
 
-		viewController = UINavigationController(rootViewController: CollectionsViewController(account: account))
+		viewController = ScrollingNavigationController(rootViewController: CollectionsViewController(account: account))
 	}
 }

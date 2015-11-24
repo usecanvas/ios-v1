@@ -29,7 +29,6 @@ class TextView: UITextView {
 
 		textStorage.selectionDelegate = self
 		textStorage.nodesDelegate = self
-		delegate = self
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -140,14 +139,6 @@ class TextView: UITextView {
 		}
 
 		return nil
-	}
-}
-
-
-extension TextView: UITextViewDelegate {
-	func textViewDidChangeSelection(textView: UITextView) {
-		guard let textStorage = textStorage as? TextStorage else { return }
-		textStorage.backingSelection = textStorage.displayRangeToBackingRange(selectedRange)
 	}
 }
 

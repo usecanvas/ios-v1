@@ -27,6 +27,8 @@
 		21B742D91BFFCFDB00FF293C /* BlockquoteBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742D81BFFCFDB00FF293C /* BlockquoteBorderView.swift */; };
 		21B742E01C03BD9000FF293C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742DF1C03BD9000FF293C /* TableViewController.swift */; };
 		21B742ED1C03BDF400FF293C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742EC1C03BDF400FF293C /* ListViewController.swift */; };
+		21B7431C1C03E2C000FF293C /* AMScrollingNavbar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B743191C03E2AF00FF293C /* AMScrollingNavbar.framework */; };
+		21B7431D1C03E2C600FF293C /* AMScrollingNavbar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B743191C03E2AF00FF293C /* AMScrollingNavbar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21B8D8D91BFC0E0B001ED447 /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B8D8D81BFC0E0B001ED447 /* CheckboxView.swift */; };
 		21EECB681BFCF1CB003DF5AC /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21EECB461BFCF1A0003DF5AC /* CanvasKit.framework */; };
 		21EECB691BFCF1CB003DF5AC /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21EECB521BFCF1A7003DF5AC /* OnePasswordExtension.framework */; };
@@ -83,6 +85,20 @@
 			proxyType = 2;
 			remoteGlobalIDString = 21A8FA821BFE7B5A0097FCC6;
 			remoteInfo = "CanvasTextTests-OSX";
+		};
+		21B743181C03E2AF00FF293C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B743141C03E2AF00FF293C /* AMScrollingNavbar.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 658FA1851B83943000EB32A4;
+			remoteInfo = AMScrollingNavbar;
+		};
+		21B7431A1C03E2BB00FF293C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B743141C03E2AF00FF293C /* AMScrollingNavbar.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 658FA1841B83943000EB32A4;
+			remoteInfo = AMScrollingNavbar;
 		};
 		21CBBD7C1BFCF28500D02192 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -198,6 +214,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				21B7431D1C03E2C600FF293C /* AMScrollingNavbar.framework in Embed Frameworks */,
 				21A8FA361BFCF5C40097FCC6 /* CanvasText.framework in Embed Frameworks */,
 				21A8F9E51BFCF2FE0097FCC6 /* Static.framework in Embed Frameworks */,
 				21EECB6B1BFCF1E0003DF5AC /* CanvasKit.framework in Embed Frameworks */,
@@ -228,6 +245,7 @@
 		21B742D81BFFCFDB00FF293C /* BlockquoteBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockquoteBorderView.swift; sourceTree = "<group>"; };
 		21B742DF1C03BD9000FF293C /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		21B742EC1C03BDF400FF293C /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		21B743141C03E2AF00FF293C /* AMScrollingNavbar.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AMScrollingNavbar.xcodeproj; path = Carthage/Checkouts/AMScrollingNavbar/AMScrollingNavbar.xcodeproj; sourceTree = "<group>"; };
 		21B8D8D81BFC0E0B001ED447 /* CheckboxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
 		21CBBD761BFCF28400D02192 /* Static.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Static.xcodeproj; path = Carthage/Checkouts/Static/Static.xcodeproj; sourceTree = "<group>"; };
 		21EECB3E1BFCF1A0003DF5AC /* CanvasKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasKit.xcodeproj; path = Carthage/Checkouts/CanvasKit/CanvasKit.xcodeproj; sourceTree = "<group>"; };
@@ -247,6 +265,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21B7431C1C03E2C000FF293C /* AMScrollingNavbar.framework in Frameworks */,
 				21A8FA351BFCF5BC0097FCC6 /* CanvasText.framework in Frameworks */,
 				21A8F9E41BFCF2F70097FCC6 /* Static.framework in Frameworks */,
 				21EECB681BFCF1CB003DF5AC /* CanvasKit.framework in Frameworks */,
@@ -293,6 +312,14 @@
 			name = Activities;
 			sourceTree = "<group>";
 		};
+		21B743151C03E2AF00FF293C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				21B743191C03E2AF00FF293C /* AMScrollingNavbar.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		21CBBD771BFCF28400D02192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,6 +333,7 @@
 		21EECB3D1BFCF194003DF5AC /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				21B743141C03E2AF00FF293C /* AMScrollingNavbar.xcodeproj */,
 				21EECB3E1BFCF1A0003DF5AC /* CanvasKit.xcodeproj */,
 				21EECB4D1BFCF1A7003DF5AC /* OnePasswordExtension.xcodeproj */,
 				21EECB531BFCF1B0003DF5AC /* SSKeychain.xcodeproj */,
@@ -425,6 +453,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				21B7431B1C03E2BB00FF293C /* PBXTargetDependency */,
 				21A8FA341BFCF5B80097FCC6 /* PBXTargetDependency */,
 				21A8F9DA1BFCF2F30097FCC6 /* PBXTargetDependency */,
 				21EECB631BFCF1C3003DF5AC /* PBXTargetDependency */,
@@ -478,6 +507,10 @@
 			productRefGroup = 21F10F4B1BF138750035057D /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = 21B743151C03E2AF00FF293C /* Products */;
+					ProjectRef = 21B743141C03E2AF00FF293C /* AMScrollingNavbar.xcodeproj */;
+				},
 				{
 					ProductGroup = 21EECB3F1BFCF1A0003DF5AC /* Products */;
 					ProjectRef = 21EECB3E1BFCF1A0003DF5AC /* CanvasKit.xcodeproj */;
@@ -533,6 +566,13 @@
 			fileType = wrapper.cfbundle;
 			path = "CanvasTextTests-OSX.xctest";
 			remoteRef = 21B742D11BFF991700FF293C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B743191C03E2AF00FF293C /* AMScrollingNavbar.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AMScrollingNavbar.framework;
+			remoteRef = 21B743181C03E2AF00FF293C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		21CBBD7D1BFCF28500D02192 /* Static.framework */ = {
@@ -690,6 +730,11 @@
 			isa = PBXTargetDependency;
 			name = CanvasText;
 			targetProxy = 21A8FA331BFCF5B80097FCC6 /* PBXContainerItemProxy */;
+		};
+		21B7431B1C03E2BB00FF293C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AMScrollingNavbar;
+			targetProxy = 21B7431A1C03E2BB00FF293C /* PBXContainerItemProxy */;
 		};
 		21EECB631BFCF1C3003DF5AC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

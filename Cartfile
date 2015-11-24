@@ -1,3 +1,4 @@
 github "usecanvas/CanvasKit" "master"
 github "venmo/Static"
 github "AgileBits/onepassword-app-extension" "add-framework-support"
+github "andreamazz/AMScrollingNavbar"
