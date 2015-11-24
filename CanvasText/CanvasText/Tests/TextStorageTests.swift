@@ -21,6 +21,13 @@ class TextStorageTests: XCTestCase {
 		XCTAssertEqual("A Lovely Document", storage.displayText)
 	}
 
+	func testUnsupported() {
+		storage.backingText = "⧙nonsense⧘A Lovely Document"
+
+		XCTAssertEqual(0, storage.nodes.count)
+		XCTAssertEqual("", storage.displayText)
+	}
+
 //	func testBlockquote() {
 //		let controller = TextController(backingText: "⧙doc-heading⧘A Lovely Document\nThis is a paragraph.\n⧙blockquote⧘> Here’s to the crazy ones…")
 //

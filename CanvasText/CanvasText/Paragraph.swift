@@ -18,6 +18,11 @@ public struct Paragraph: Node {
 	// MARK: - Initializers
 
 	public init?(string: String, enclosingRange: NSRange) {
+		// Prevent any Canvas Native from appearing in the documment
+		if string.hasPrefix(leadingDelimiter) {
+			return nil
+		}
+
 		self.contentRange = enclosingRange
 	}
 }
