@@ -14,8 +14,6 @@
 		2129D3121BF568AB0018F255 /* CanvasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D3111BF568AB0018F255 /* CanvasesViewController.swift */; };
 		2134FADF1BFC09E300AE93CC /* BulletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2134FADE1BFC09E300AE93CC /* BulletView.swift */; };
 		2134FAE11BFC0A6A00AE93CC /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2134FAE01BFC0A6A00AE93CC /* TextView.swift */; };
-		21A8F9E41BFCF2F70097FCC6 /* Static.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CBBD7D1BFCF28500D02192 /* Static.framework */; };
-		21A8F9E51BFCF2FE0097FCC6 /* Static.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21CBBD7D1BFCF28500D02192 /* Static.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21A8FA351BFCF5BC0097FCC6 /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A8FA301BFCF59D0097FCC6 /* CanvasText.framework */; };
 		21A8FA361BFCF5C40097FCC6 /* CanvasText.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21A8FA301BFCF59D0097FCC6 /* CanvasText.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21A8FA3D1BFD04F20097FCC6 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA3C1BFD04F20097FCC6 /* CollectionCell.swift */; };
@@ -23,19 +21,17 @@
 		21A8FA5B1BFD30790097FCC6 /* WebActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA5A1BFD30790097FCC6 /* WebActivity.swift */; };
 		21A8FA5D1BFD33DB0097FCC6 /* ChromeActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA5C1BFD33DB0097FCC6 /* ChromeActivity.swift */; };
 		21A8FA5F1BFD33EA0097FCC6 /* SafariActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA5E1BFD33EA0097FCC6 /* SafariActivity.swift */; };
+		21AE3F4A1C0424A700AE5DDC /* CanvasKit.framework.dSYM in Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = 21AE3F3C1C0423E300AE5DDC /* CanvasKit.framework.dSYM */; };
+		21AE3F4B1C0424A700AE5DDC /* ISO8601.framework.dSYM in Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = 21AE3F3E1C0423E300AE5DDC /* ISO8601.framework.dSYM */; };
+		21AE3F4C1C0424A700AE5DDC /* Longhouse.framework.dSYM in Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = 21AE3F401C0423E300AE5DDC /* Longhouse.framework.dSYM */; };
+		21AE3F4D1C0424A700AE5DDC /* OnePasswordExtension.framework.dSYM in Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = 21AE3F421C0423E300AE5DDC /* OnePasswordExtension.framework.dSYM */; };
+		21AE3F4E1C0424A700AE5DDC /* SSKeychain.framework.dSYM in Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = 21AE3F451C0423E300AE5DDC /* SSKeychain.framework.dSYM */; };
+		21AE3F4F1C0424A700AE5DDC /* Static.framework.dSYM in Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = 21AE3F471C0423E300AE5DDC /* Static.framework.dSYM */; };
 		21B742C81BFF991600FF293C /* NumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742C71BFF991600FF293C /* NumberView.swift */; };
 		21B742D91BFFCFDB00FF293C /* BlockquoteBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742D81BFFCFDB00FF293C /* BlockquoteBorderView.swift */; };
 		21B742E01C03BD9000FF293C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742DF1C03BD9000FF293C /* TableViewController.swift */; };
 		21B742ED1C03BDF400FF293C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742EC1C03BDF400FF293C /* ListViewController.swift */; };
-		21B7431C1C03E2C000FF293C /* AMScrollingNavbar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B743191C03E2AF00FF293C /* AMScrollingNavbar.framework */; };
-		21B7431D1C03E2C600FF293C /* AMScrollingNavbar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B743191C03E2AF00FF293C /* AMScrollingNavbar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21B8D8D91BFC0E0B001ED447 /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B8D8D81BFC0E0B001ED447 /* CheckboxView.swift */; };
-		21EECB681BFCF1CB003DF5AC /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21EECB461BFCF1A0003DF5AC /* CanvasKit.framework */; };
-		21EECB691BFCF1CB003DF5AC /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21EECB521BFCF1A7003DF5AC /* OnePasswordExtension.framework */; };
-		21EECB6A1BFCF1CB003DF5AC /* SSKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21EECB5B1BFCF1B0003DF5AC /* SSKeychain.framework */; };
-		21EECB6B1BFCF1E0003DF5AC /* CanvasKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21EECB461BFCF1A0003DF5AC /* CanvasKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		21EECB6D1BFCF1E0003DF5AC /* OnePasswordExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21EECB521BFCF1A7003DF5AC /* OnePasswordExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		21EECB6E1BFCF1E0003DF5AC /* SSKeychain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21EECB5B1BFCF1B0003DF5AC /* SSKeychain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21F10F4E1BF138750035057D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F10F4D1BF138750035057D /* AppDelegate.swift */; };
 		21F10F501BF138750035057D /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F10F4F1BF138750035057D /* EditorViewController.swift */; };
 		21F10F651BF13D720035057D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21F10F601BF13D720035057D /* Assets.xcassets */; };
@@ -44,13 +40,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		21A8F9D91BFCF2F30097FCC6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21CBBD761BFCF28400D02192 /* Static.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 21826AA91B3F51A100AA9641;
-			remoteInfo = "Static-iOS";
-		};
 		21A8FA2F1BFCF59D0097FCC6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 21A8FA2A1BFCF59D0097FCC6 /* CanvasText.xcodeproj */;
@@ -86,140 +75,32 @@
 			remoteGlobalIDString = 21A8FA821BFE7B5A0097FCC6;
 			remoteInfo = "CanvasTextTests-OSX";
 		};
-		21B743181C03E2AF00FF293C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21B743141C03E2AF00FF293C /* AMScrollingNavbar.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 658FA1851B83943000EB32A4;
-			remoteInfo = AMScrollingNavbar;
-		};
-		21B7431A1C03E2BB00FF293C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21B743141C03E2AF00FF293C /* AMScrollingNavbar.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 658FA1841B83943000EB32A4;
-			remoteInfo = AMScrollingNavbar;
-		};
-		21CBBD7C1BFCF28500D02192 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21CBBD761BFCF28400D02192 /* Static.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21826AAA1B3F51A100AA9641;
-			remoteInfo = "Static-iOS";
-		};
-		21CBBD7E1BFCF28500D02192 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21CBBD761BFCF28400D02192 /* Static.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21826AB41B3F51A100AA9641;
-			remoteInfo = StaticTests;
-		};
-		21CBBD801BFCF28500D02192 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21CBBD761BFCF28400D02192 /* Static.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 36748D4F1B5034EC0046F207;
-			remoteInfo = Example;
-		};
-		21EECB451BFCF1A0003DF5AC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21EECB3E1BFCF1A0003DF5AC /* CanvasKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21FB6ABB1BF53C9D003C82BB;
-			remoteInfo = "CanvasKit-iOS";
-		};
-		21EECB471BFCF1A0003DF5AC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21EECB3E1BFCF1A0003DF5AC /* CanvasKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21FB6AC51BF53C9D003C82BB;
-			remoteInfo = "CanvasKit-iOSTests";
-		};
-		21EECB491BFCF1A0003DF5AC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21EECB3E1BFCF1A0003DF5AC /* CanvasKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 216C4B971BF54AB100260B8E;
-			remoteInfo = "CanvasKit-OSX";
-		};
-		21EECB4B1BFCF1A0003DF5AC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21EECB3E1BFCF1A0003DF5AC /* CanvasKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 216C4BA01BF54AB100260B8E;
-			remoteInfo = "CanvasKit-OSXTests";
-		};
-		21EECB511BFCF1A7003DF5AC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21EECB4D1BFCF1A7003DF5AC /* OnePasswordExtension.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9C3F4D8C1A59ACDC004B3ECE;
-			remoteInfo = OnePasswordExtension;
-		};
-		21EECB5A1BFCF1B0003DF5AC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21EECB531BFCF1B0003DF5AC /* SSKeychain.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E8A666341A844CC400287CA3;
-			remoteInfo = "SSKeychain iOS";
-		};
-		21EECB5C1BFCF1B0003DF5AC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21EECB531BFCF1B0003DF5AC /* SSKeychain.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E8A666551A844D3A00287CA3;
-			remoteInfo = "SSKeychain iOS Tests";
-		};
-		21EECB5E1BFCF1B0003DF5AC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21EECB531BFCF1B0003DF5AC /* SSKeychain.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E8A6666F1A844E4100287CA3;
-			remoteInfo = "SSKeychain Mac";
-		};
-		21EECB601BFCF1B0003DF5AC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21EECB531BFCF1B0003DF5AC /* SSKeychain.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E8A666791A844E4100287CA3;
-			remoteInfo = "SSKeychain Mac Tests";
-		};
-		21EECB621BFCF1C3003DF5AC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21EECB3E1BFCF1A0003DF5AC /* CanvasKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 21FB6ABA1BF53C9D003C82BB;
-			remoteInfo = "CanvasKit-iOS";
-		};
-		21EECB641BFCF1C3003DF5AC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21EECB4D1BFCF1A7003DF5AC /* OnePasswordExtension.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 9C3F4D8B1A59ACDC004B3ECE;
-			remoteInfo = OnePasswordExtension;
-		};
-		21EECB661BFCF1C3003DF5AC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21EECB531BFCF1B0003DF5AC /* SSKeychain.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = E8A666331A844CC400287CA3;
-			remoteInfo = "SSKeychain iOS";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		21AE3F491C04249700AE5DDC /* Copy dSYM Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				21AE3F4A1C0424A700AE5DDC /* CanvasKit.framework.dSYM in Copy dSYM Files */,
+				21AE3F4B1C0424A700AE5DDC /* ISO8601.framework.dSYM in Copy dSYM Files */,
+				21AE3F4C1C0424A700AE5DDC /* Longhouse.framework.dSYM in Copy dSYM Files */,
+				21AE3F4D1C0424A700AE5DDC /* OnePasswordExtension.framework.dSYM in Copy dSYM Files */,
+				21AE3F4E1C0424A700AE5DDC /* SSKeychain.framework.dSYM in Copy dSYM Files */,
+				21AE3F4F1C0424A700AE5DDC /* Static.framework.dSYM in Copy dSYM Files */,
+			);
+			name = "Copy dSYM Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		21F8F1B21BF296480096D2AF /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				21B7431D1C03E2C600FF293C /* AMScrollingNavbar.framework in Embed Frameworks */,
 				21A8FA361BFCF5C40097FCC6 /* CanvasText.framework in Embed Frameworks */,
-				21A8F9E51BFCF2FE0097FCC6 /* Static.framework in Embed Frameworks */,
-				21EECB6B1BFCF1E0003DF5AC /* CanvasKit.framework in Embed Frameworks */,
-				21EECB6D1BFCF1E0003DF5AC /* OnePasswordExtension.framework in Embed Frameworks */,
-				21EECB6E1BFCF1E0003DF5AC /* SSKeychain.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,16 +122,25 @@
 		21A8FA5C1BFD33DB0097FCC6 /* ChromeActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChromeActivity.swift; sourceTree = "<group>"; };
 		21A8FA5E1BFD33EA0097FCC6 /* SafariActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafariActivity.swift; sourceTree = "<group>"; };
 		21A8FA621BFD3E0F0097FCC6 /* Canvas.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Canvas.entitlements; sourceTree = "<group>"; };
+		21AE3F3A1C0423E300AE5DDC /* AMScrollingNavbar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMScrollingNavbar.framework; path = Carthage/Build/iOS/AMScrollingNavbar.framework; sourceTree = "<group>"; };
+		21AE3F3B1C0423E300AE5DDC /* CanvasKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CanvasKit.framework; path = Carthage/Build/iOS/CanvasKit.framework; sourceTree = "<group>"; };
+		21AE3F3C1C0423E300AE5DDC /* CanvasKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = CanvasKit.framework.dSYM; path = Carthage/Build/iOS/CanvasKit.framework.dSYM; sourceTree = "<group>"; };
+		21AE3F3D1C0423E300AE5DDC /* ISO8601.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ISO8601.framework; path = Carthage/Build/iOS/ISO8601.framework; sourceTree = "<group>"; };
+		21AE3F3E1C0423E300AE5DDC /* ISO8601.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = ISO8601.framework.dSYM; path = Carthage/Build/iOS/ISO8601.framework.dSYM; sourceTree = "<group>"; };
+		21AE3F3F1C0423E300AE5DDC /* Longhouse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Longhouse.framework; path = Carthage/Build/iOS/Longhouse.framework; sourceTree = "<group>"; };
+		21AE3F401C0423E300AE5DDC /* Longhouse.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Longhouse.framework.dSYM; path = Carthage/Build/iOS/Longhouse.framework.dSYM; sourceTree = "<group>"; };
+		21AE3F411C0423E300AE5DDC /* OnePasswordExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OnePasswordExtension.framework; path = Carthage/Build/iOS/OnePasswordExtension.framework; sourceTree = "<group>"; };
+		21AE3F421C0423E300AE5DDC /* OnePasswordExtension.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = OnePasswordExtension.framework.dSYM; path = Carthage/Build/iOS/OnePasswordExtension.framework.dSYM; sourceTree = "<group>"; };
+		21AE3F431C0423E300AE5DDC /* SocketRocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketRocket.framework; path = Carthage/Build/iOS/SocketRocket.framework; sourceTree = "<group>"; };
+		21AE3F441C0423E300AE5DDC /* SSKeychain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SSKeychain.framework; path = Carthage/Build/iOS/SSKeychain.framework; sourceTree = "<group>"; };
+		21AE3F451C0423E300AE5DDC /* SSKeychain.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SSKeychain.framework.dSYM; path = Carthage/Build/iOS/SSKeychain.framework.dSYM; sourceTree = "<group>"; };
+		21AE3F461C0423E300AE5DDC /* Static.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Static.framework; path = Carthage/Build/iOS/Static.framework; sourceTree = "<group>"; };
+		21AE3F471C0423E300AE5DDC /* Static.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Static.framework.dSYM; path = Carthage/Build/iOS/Static.framework.dSYM; sourceTree = "<group>"; };
 		21B742C71BFF991600FF293C /* NumberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberView.swift; sourceTree = "<group>"; };
 		21B742D81BFFCFDB00FF293C /* BlockquoteBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockquoteBorderView.swift; sourceTree = "<group>"; };
 		21B742DF1C03BD9000FF293C /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		21B742EC1C03BDF400FF293C /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
-		21B743141C03E2AF00FF293C /* AMScrollingNavbar.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AMScrollingNavbar.xcodeproj; path = Carthage/Checkouts/AMScrollingNavbar/AMScrollingNavbar.xcodeproj; sourceTree = "<group>"; };
 		21B8D8D81BFC0E0B001ED447 /* CheckboxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
-		21CBBD761BFCF28400D02192 /* Static.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Static.xcodeproj; path = Carthage/Checkouts/Static/Static.xcodeproj; sourceTree = "<group>"; };
-		21EECB3E1BFCF1A0003DF5AC /* CanvasKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasKit.xcodeproj; path = Carthage/Checkouts/CanvasKit/CanvasKit.xcodeproj; sourceTree = "<group>"; };
-		21EECB4D1BFCF1A7003DF5AC /* OnePasswordExtension.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OnePasswordExtension.xcodeproj; path = "Carthage/Checkouts/onepassword-app-extension/OnePasswordExtension.xcodeproj"; sourceTree = "<group>"; };
-		21EECB531BFCF1B0003DF5AC /* SSKeychain.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSKeychain.xcodeproj; path = Carthage/Checkouts/sskeychain/SSKeychain.xcodeproj; sourceTree = "<group>"; };
 		21F10F4A1BF138750035057D /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F10F4D1BF138750035057D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21F10F4F1BF138750035057D /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
@@ -265,12 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21B7431C1C03E2C000FF293C /* AMScrollingNavbar.framework in Frameworks */,
 				21A8FA351BFCF5BC0097FCC6 /* CanvasText.framework in Frameworks */,
-				21A8F9E41BFCF2F70097FCC6 /* Static.framework in Frameworks */,
-				21EECB681BFCF1CB003DF5AC /* CanvasKit.framework in Frameworks */,
-				21EECB691BFCF1CB003DF5AC /* OnePasswordExtension.framework in Frameworks */,
-				21EECB6A1BFCF1CB003DF5AC /* SSKeychain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,64 +197,25 @@
 			name = Activities;
 			sourceTree = "<group>";
 		};
-		21B743151C03E2AF00FF293C /* Products */ = {
+		21AE3F391C0423CE00AE5DDC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				21B743191C03E2AF00FF293C /* AMScrollingNavbar.framework */,
+				21AE3F3A1C0423E300AE5DDC /* AMScrollingNavbar.framework */,
+				21AE3F3B1C0423E300AE5DDC /* CanvasKit.framework */,
+				21AE3F3C1C0423E300AE5DDC /* CanvasKit.framework.dSYM */,
+				21AE3F3D1C0423E300AE5DDC /* ISO8601.framework */,
+				21AE3F3E1C0423E300AE5DDC /* ISO8601.framework.dSYM */,
+				21AE3F3F1C0423E300AE5DDC /* Longhouse.framework */,
+				21AE3F401C0423E300AE5DDC /* Longhouse.framework.dSYM */,
+				21AE3F411C0423E300AE5DDC /* OnePasswordExtension.framework */,
+				21AE3F421C0423E300AE5DDC /* OnePasswordExtension.framework.dSYM */,
+				21AE3F431C0423E300AE5DDC /* SocketRocket.framework */,
+				21AE3F441C0423E300AE5DDC /* SSKeychain.framework */,
+				21AE3F451C0423E300AE5DDC /* SSKeychain.framework.dSYM */,
+				21AE3F461C0423E300AE5DDC /* Static.framework */,
+				21AE3F471C0423E300AE5DDC /* Static.framework.dSYM */,
 			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		21CBBD771BFCF28400D02192 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				21CBBD7D1BFCF28500D02192 /* Static.framework */,
-				21CBBD7F1BFCF28500D02192 /* StaticTests.xctest */,
-				21CBBD811BFCF28500D02192 /* Example.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		21EECB3D1BFCF194003DF5AC /* Vendor */ = {
-			isa = PBXGroup;
-			children = (
-				21B743141C03E2AF00FF293C /* AMScrollingNavbar.xcodeproj */,
-				21EECB3E1BFCF1A0003DF5AC /* CanvasKit.xcodeproj */,
-				21EECB4D1BFCF1A7003DF5AC /* OnePasswordExtension.xcodeproj */,
-				21EECB531BFCF1B0003DF5AC /* SSKeychain.xcodeproj */,
-				21CBBD761BFCF28400D02192 /* Static.xcodeproj */,
-			);
-			name = Vendor;
-			sourceTree = "<group>";
-		};
-		21EECB3F1BFCF1A0003DF5AC /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				21EECB461BFCF1A0003DF5AC /* CanvasKit.framework */,
-				21EECB481BFCF1A0003DF5AC /* CanvasKit-iOSTests.xctest */,
-				21EECB4A1BFCF1A0003DF5AC /* CanvasKit.framework */,
-				21EECB4C1BFCF1A0003DF5AC /* CanvasKit-OSXTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		21EECB4E1BFCF1A7003DF5AC /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				21EECB521BFCF1A7003DF5AC /* OnePasswordExtension.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		21EECB541BFCF1B0003DF5AC /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				21EECB5B1BFCF1B0003DF5AC /* SSKeychain.framework */,
-				21EECB5D1BFCF1B0003DF5AC /* SSKeychain iOS Tests.xctest */,
-				21EECB5F1BFCF1B0003DF5AC /* SSKeychain.framework */,
-				21EECB611BFCF1B0003DF5AC /* SSKeychain Mac Tests.xctest */,
-			);
-			name = Products;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		21F10F411BF138750035057D = {
@@ -377,7 +223,7 @@
 			children = (
 				21F10F4C1BF138750035057D /* Canvas */,
 				21A8FA2A1BFCF59D0097FCC6 /* CanvasText.xcodeproj */,
-				21EECB3D1BFCF194003DF5AC /* Vendor */,
+				21AE3F391C0423CE00AE5DDC /* Frameworks */,
 				21F10F4B1BF138750035057D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -448,17 +294,14 @@
 				21F10F471BF138750035057D /* Frameworks */,
 				21F10F481BF138750035057D /* Resources */,
 				21F8F1B21BF296480096D2AF /* Embed Frameworks */,
+				21AE3F481C04248D00AE5DDC /* Embed Carthage Frameworks */,
 				21A8FA601BFD3D160097FCC6 /* Set Version */,
+				21AE3F491C04249700AE5DDC /* Copy dSYM Files */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				21B7431B1C03E2BB00FF293C /* PBXTargetDependency */,
 				21A8FA341BFCF5B80097FCC6 /* PBXTargetDependency */,
-				21A8F9DA1BFCF2F30097FCC6 /* PBXTargetDependency */,
-				21EECB631BFCF1C3003DF5AC /* PBXTargetDependency */,
-				21EECB651BFCF1C3003DF5AC /* PBXTargetDependency */,
-				21EECB671BFCF1C3003DF5AC /* PBXTargetDependency */,
 			);
 			name = Canvas;
 			productName = Canvas;
@@ -508,28 +351,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 21B743151C03E2AF00FF293C /* Products */;
-					ProjectRef = 21B743141C03E2AF00FF293C /* AMScrollingNavbar.xcodeproj */;
-				},
-				{
-					ProductGroup = 21EECB3F1BFCF1A0003DF5AC /* Products */;
-					ProjectRef = 21EECB3E1BFCF1A0003DF5AC /* CanvasKit.xcodeproj */;
-				},
-				{
 					ProductGroup = 21A8FA2B1BFCF59D0097FCC6 /* Products */;
 					ProjectRef = 21A8FA2A1BFCF59D0097FCC6 /* CanvasText.xcodeproj */;
-				},
-				{
-					ProductGroup = 21EECB4E1BFCF1A7003DF5AC /* Products */;
-					ProjectRef = 21EECB4D1BFCF1A7003DF5AC /* OnePasswordExtension.xcodeproj */;
-				},
-				{
-					ProductGroup = 21EECB541BFCF1B0003DF5AC /* Products */;
-					ProjectRef = 21EECB531BFCF1B0003DF5AC /* SSKeychain.xcodeproj */;
-				},
-				{
-					ProductGroup = 21CBBD771BFCF28400D02192 /* Products */;
-					ProjectRef = 21CBBD761BFCF28400D02192 /* Static.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -568,97 +391,6 @@
 			remoteRef = 21B742D11BFF991700FF293C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		21B743191C03E2AF00FF293C /* AMScrollingNavbar.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = AMScrollingNavbar.framework;
-			remoteRef = 21B743181C03E2AF00FF293C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21CBBD7D1BFCF28500D02192 /* Static.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Static.framework;
-			remoteRef = 21CBBD7C1BFCF28500D02192 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21CBBD7F1BFCF28500D02192 /* StaticTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = StaticTests.xctest;
-			remoteRef = 21CBBD7E1BFCF28500D02192 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21CBBD811BFCF28500D02192 /* Example.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = Example.app;
-			remoteRef = 21CBBD801BFCF28500D02192 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21EECB461BFCF1A0003DF5AC /* CanvasKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CanvasKit.framework;
-			remoteRef = 21EECB451BFCF1A0003DF5AC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21EECB481BFCF1A0003DF5AC /* CanvasKit-iOSTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "CanvasKit-iOSTests.xctest";
-			remoteRef = 21EECB471BFCF1A0003DF5AC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21EECB4A1BFCF1A0003DF5AC /* CanvasKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CanvasKit.framework;
-			remoteRef = 21EECB491BFCF1A0003DF5AC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21EECB4C1BFCF1A0003DF5AC /* CanvasKit-OSXTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "CanvasKit-OSXTests.xctest";
-			remoteRef = 21EECB4B1BFCF1A0003DF5AC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21EECB521BFCF1A7003DF5AC /* OnePasswordExtension.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = OnePasswordExtension.framework;
-			remoteRef = 21EECB511BFCF1A7003DF5AC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21EECB5B1BFCF1B0003DF5AC /* SSKeychain.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SSKeychain.framework;
-			remoteRef = 21EECB5A1BFCF1B0003DF5AC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21EECB5D1BFCF1B0003DF5AC /* SSKeychain iOS Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "SSKeychain iOS Tests.xctest";
-			remoteRef = 21EECB5C1BFCF1B0003DF5AC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21EECB5F1BFCF1B0003DF5AC /* SSKeychain.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SSKeychain.framework;
-			remoteRef = 21EECB5E1BFCF1B0003DF5AC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21EECB611BFCF1B0003DF5AC /* SSKeychain Mac Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "SSKeychain Mac Tests.xctest";
-			remoteRef = 21EECB601BFCF1B0003DF5AC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -687,6 +419,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = "/usr/bin/env ruby";
 			shellScript = "git = `sh /etc/profile; which git`.chomp\napp_build = `#{git} rev-list --all | wc -l`.chomp.to_i\n`/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion #{app_build}\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"`\nputs \"Updated #{ENV['TARGET_BUILD_DIR']}/#{ENV['INFOPLIST_PATH']}\"";
+		};
+		21AE3F481C04248D00AE5DDC /* Embed Carthage Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/AMScrollingNavbar.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CanvasKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ISO8601.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Longhouse.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/OnePasswordExtension.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SocketRocket.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SSKeychain.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Static.framework",
+			);
+			name = "Embed Carthage Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -721,35 +475,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		21A8F9DA1BFCF2F30097FCC6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Static-iOS";
-			targetProxy = 21A8F9D91BFCF2F30097FCC6 /* PBXContainerItemProxy */;
-		};
 		21A8FA341BFCF5B80097FCC6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = CanvasText;
 			targetProxy = 21A8FA331BFCF5B80097FCC6 /* PBXContainerItemProxy */;
-		};
-		21B7431B1C03E2BB00FF293C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = AMScrollingNavbar;
-			targetProxy = 21B7431A1C03E2BB00FF293C /* PBXContainerItemProxy */;
-		};
-		21EECB631BFCF1C3003DF5AC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "CanvasKit-iOS";
-			targetProxy = 21EECB621BFCF1C3003DF5AC /* PBXContainerItemProxy */;
-		};
-		21EECB651BFCF1C3003DF5AC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = OnePasswordExtension;
-			targetProxy = 21EECB641BFCF1C3003DF5AC /* PBXContainerItemProxy */;
-		};
-		21EECB671BFCF1C3003DF5AC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "SSKeychain iOS";
-			targetProxy = 21EECB661BFCF1C3003DF5AC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
