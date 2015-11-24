@@ -31,11 +31,17 @@ class TransportController: NSObject {
 		super.init()
 		
 		let configuration = WKWebViewConfiguration()
-		configuration.allowsAirPlayForMediaPlayback = false
+
+		if #available(iOSApplicationExtension 9.0, *) {
+		    configuration.allowsAirPlayForMediaPlayback = false
+		}
 
 		#if !os(OSX)
 			configuration.allowsInlineMediaPlayback = false
-			configuration.allowsPictureInPictureMediaPlayback = false
+
+			if #available(iOSApplicationExtension 9.0, *) {
+				configuration.allowsPictureInPictureMediaPlayback = false
+			}
 		#endif
 
 		// Setup script handler

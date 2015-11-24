@@ -9,6 +9,7 @@
 import UIKit
 import CanvasKit
 import CanvasText
+import Longhouse
 import AMScrollingNavbar
 
 class EditorViewController: UIViewController, Accountable {
@@ -19,7 +20,9 @@ class EditorViewController: UIViewController, Accountable {
 	let canvas: Canvas
 
 	let textStorage = TextStorage(theme: LightTheme())
-	let textView: TextView
+	private let textView: TextView
+	private let longhouse = Longhouse(serverURL: NSURL(string: "wss://presence.usecanvas.com/")!)
+	private let presenceBarButtonItem = UIBarButtonItem(title: "0", style: .Plain, target: nil, action: nil)
 
 
 	// MARK: - Initializers
@@ -33,6 +36,8 @@ class EditorViewController: UIViewController, Accountable {
 		textView.keyboardDismissMode = .Interactive
 
 		super.init(nibName: nil, bundle: nil)
+
+		longhouse.delegate = self
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -60,13 +65,18 @@ class EditorViewController: UIViewController, Accountable {
 		
 		view.backgroundColor = Color.white
 
-		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "share:")
+		navigationItem.rightBarButtonItems = [
+			UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "share:"),
+			presenceBarButtonItem
+		]
 
 		textView.delegate = self
 		view.addSubview(textView)
 
 		textStorage.connect(accessToken: account.accessToken, collectionID: canvas.collectionID, canvasID: canvas.ID) { [weak self] webView in
-			self?.view.addSubview(webView)
+			guard let this = self else { return }
+			this.longhouse.join(this.canvas.ID, identity: this.account.user.email)
+			this.view.addSubview(webView)
 		}
 		
 		NSLayoutConstraint.activateConstraints([
@@ -128,5 +138,16 @@ extension EditorViewController: UITextViewDelegate {
 			navigationController.showNavbar(animated: true)
 		}
 		return true
+	}
+}
+
+
+extension EditorViewController: LonghouseDelegate {
+	func longhouse(longhouse: Longhouse, didConnectWithID ID: String) {}
+	func longhouse(longhouse: Longhouse, failedToConnectWithError error: ErrorType) {}
+	func longhouse(longhouse: Longhouse, didReceiveEvent event: Event, withClient client: Client) {}
+
+	func longhouseDidUpdateConnectedClients(longhouse: Longhouse) {
+		presenceBarButtonItem.title = "\(longhouse.connectedClients.count)"
 	}
 }
