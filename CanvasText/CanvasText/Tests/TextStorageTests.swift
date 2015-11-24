@@ -1,5 +1,5 @@
 //
-//  TextControllerTests.swift
+//  TextStorageTests.swift
 //  CanvasTextTests
 //
 //  Created by Sam Soffes on 11/10/15.
@@ -9,17 +9,18 @@
 import XCTest
 import CanvasText
 
-class TextControllerTests: XCTestCase {
-//	func testDocHeading() {
-//		let controller = TextController(backingText: "⧙doc-heading⧘A Lovely Document")
-//		
-//		XCTAssertEqual([
-//			Block(kind: .DocHeading, delimiterRange: NSRange(location: 0, length: 13), contentRange: NSRange(location: 13, length: 17))
-//		], controller.blocks)
-//		
-//		XCTAssertEqual("A Lovely Document", controller.displayText)
-//	}
-//
+class TextStorageTests: XCTestCase {
+	let storage = TextStorage(theme: LightTheme())
+
+	func testDocHeading() {
+		storage.backingText = "⧙doc-heading⧘A Lovely Document"
+
+		let node = DocHeading(delimiterRange: NSRange(location: 0, length: 13), contentRange: NSRange(location: 13, length: 17))
+		XCTAssertEqual(node, (storage.nodes.first as! DocHeading))
+		
+		XCTAssertEqual("A Lovely Document", storage.displayText)
+	}
+
 //	func testBlockquote() {
 //		let controller = TextController(backingText: "⧙doc-heading⧘A Lovely Document\nThis is a paragraph.\n⧙blockquote⧘> Here’s to the crazy ones…")
 //

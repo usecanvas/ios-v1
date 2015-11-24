@@ -45,14 +45,14 @@ public struct LightTheme: Theme {
 		var attributes = [String: AnyObject]()
 
 		if node is DocHeading {
-			attributes[NSForegroundColorAttributeName] = UIColor.blackColor()
+			attributes[NSForegroundColorAttributeName] = Color.blackColor()
 			attributes[NSFontAttributeName] = fontOfSize(fontSize * 2, style: [.Bold])
 		}
 
 		else if let heading = node as? Heading {
 			switch heading.level {
 			case .One:
-				attributes[NSForegroundColorAttributeName] = UIColor.blackColor()
+				attributes[NSForegroundColorAttributeName] = Color.blackColor()
 				attributes[NSFontAttributeName] = fontOfSize(fontSize * 1.5, style: [.Bold])
 			case .Two:
 				attributes[NSForegroundColorAttributeName] = foregroundColor

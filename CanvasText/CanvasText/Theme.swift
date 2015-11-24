@@ -49,9 +49,12 @@ extension Theme {
 			return Font.boldSystemFontOfSize(fontSize)
 		}
 
-		if style == [.Italic] {
-			return Font.italicSystemFontOfSize(fontSize)
-		}
+		// TODO: Italic on OS X
+		#if !os(OSX)
+			if style == [.Italic] {
+				return Font.italicSystemFontOfSize(fontSize)
+			}
+		#endif
 
 		// TODO: Bold italic
 

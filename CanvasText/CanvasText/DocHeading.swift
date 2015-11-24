@@ -6,7 +6,7 @@
 //  Copyright © 2015 Canvas Labs, Inc. All rights reserved.
 //
 
-public struct DocHeading: Delimitable {
+public struct DocHeading: Delimitable, Equatable {
 
 	// MARK: - Properties
 
@@ -22,4 +22,14 @@ public struct DocHeading: Delimitable {
 		self.delimiterRange = delimiterRange
 		self.contentRange = contentRange
 	}
+
+	public init(delimiterRange: NSRange, contentRange: NSRange) {
+		self.delimiterRange = delimiterRange
+		self.contentRange = contentRange
+	}
+}
+
+
+public func ==(lhs: DocHeading, rhs: DocHeading) -> Bool {
+	return lhs.delimiterRange == rhs.delimiterRange && lhs.contentRange == rhs.contentRange
 }

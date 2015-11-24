@@ -42,13 +42,13 @@
 		21A8FA141BFCF4E90097FCC6 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA0C1BFCF4E90097FCC6 /* Operation.swift */; };
 		21A8FA151BFCF4E90097FCC6 /* TransportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA0D1BFCF4E90097FCC6 /* TransportController.swift */; };
 		21A8FA181BFCF4E90097FCC6 /* TextController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA111BFCF4E90097FCC6 /* TextController.swift */; };
-		21A8FA1C1BFCF4F80097FCC6 /* TextControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA1A1BFCF4F80097FCC6 /* TextControllerTests.swift */; };
+		21A8FA1C1BFCF4F80097FCC6 /* TextStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA1A1BFCF4F80097FCC6 /* TextStorageTests.swift */; };
 		21A8FA831BFE7B5A0097FCC6 /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A8FA791BFE7B5A0097FCC6 /* CanvasText.framework */; };
 		21A8FA911BFE7B870097FCC6 /* NSRange+CanvasText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA0B1BFCF4E90097FCC6 /* NSRange+CanvasText.swift */; };
 		21A8FA921BFE7B870097FCC6 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA0C1BFCF4E90097FCC6 /* Operation.swift */; };
 		21A8FA931BFE7B870097FCC6 /* TransportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA0D1BFCF4E90097FCC6 /* TransportController.swift */; };
 		21A8FA941BFE7B870097FCC6 /* TextController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA111BFCF4E90097FCC6 /* TextController.swift */; };
-		21A8FA961BFE7B940097FCC6 /* TextControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA1A1BFCF4F80097FCC6 /* TextControllerTests.swift */; };
+		21A8FA961BFE7B940097FCC6 /* TextStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA1A1BFCF4F80097FCC6 /* TextStorageTests.swift */; };
 		21A8FA981BFE7BBA0097FCC6 /* CanvasText.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A8FA971BFE7BBA0097FCC6 /* CanvasText.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21A8FA991BFE7BBE0097FCC6 /* CanvasText.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A8FA971BFE7BBA0097FCC6 /* CanvasText.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21A8FAA01BFE890D0097FCC6 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA9F1BFE890D0097FCC6 /* Node.swift */; };
@@ -111,7 +111,7 @@
 		21A8FA0D1BFCF4E90097FCC6 /* TransportController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportController.swift; sourceTree = "<group>"; };
 		21A8FA101BFCF4E90097FCC6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21A8FA111BFCF4E90097FCC6 /* TextController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextController.swift; sourceTree = "<group>"; };
-		21A8FA1A1BFCF4F80097FCC6 /* TextControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextControllerTests.swift; sourceTree = "<group>"; };
+		21A8FA1A1BFCF4F80097FCC6 /* TextStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStorageTests.swift; sourceTree = "<group>"; };
 		21A8FA1B1BFCF4F80097FCC6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21A8FA791BFE7B5A0097FCC6 /* CanvasText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CanvasText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A8FA821BFE7B5A0097FCC6 /* CanvasTextTests-OSX.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CanvasTextTests-OSX.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -209,7 +209,7 @@
 		21A8FA191BFCF4F80097FCC6 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				21A8FA1A1BFCF4F80097FCC6 /* TextControllerTests.swift */,
+				21A8FA1A1BFCF4F80097FCC6 /* TextStorageTests.swift */,
 				212668DF1BFEC7B500DE996F /* BlockquoteTests.swift */,
 				212669221BFEE3EB00DE996F /* ListableTests.swift */,
 				212668EE1BFECCBC00DE996F /* HeadingTests.swift */,
@@ -487,7 +487,7 @@
 			files = (
 				212668E01BFEC7B500DE996F /* BlockquoteTests.swift in Sources */,
 				212668EF1BFECCBC00DE996F /* HeadingTests.swift in Sources */,
-				21A8FA1C1BFCF4F80097FCC6 /* TextControllerTests.swift in Sources */,
+				21A8FA1C1BFCF4F80097FCC6 /* TextStorageTests.swift in Sources */,
 				212669231BFEE3EB00DE996F /* ListableTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -527,7 +527,7 @@
 			files = (
 				212668E11BFEC7B500DE996F /* BlockquoteTests.swift in Sources */,
 				212668F01BFECCBC00DE996F /* HeadingTests.swift in Sources */,
-				21A8FA961BFE7B940097FCC6 /* TextControllerTests.swift in Sources */,
+				21A8FA961BFE7B940097FCC6 /* TextStorageTests.swift in Sources */,
 				212669241BFEE3EB00DE996F /* ListableTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
