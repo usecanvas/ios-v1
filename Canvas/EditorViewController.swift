@@ -88,17 +88,17 @@ class EditorViewController: UIViewController, Accountable {
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 
-		if let navigationController = self.navigationController as? ScrollingNavigationController {
-			// TODO: This should be the height of the DocHeading node
+		if let navigationController = navigationController as? ScrollingNavigationController {
 			navigationController.followScrollView(textView, delay: 0.0)
 		}
 	}
 
-	override func viewDidDisappear(animated: Bool) {
-		super.viewDidDisappear(animated)
+	override func viewWillDisappear(animated: Bool) {
+		super.viewWillDisappear(animated)
 
-		if let navigationController = self.navigationController as? ScrollingNavigationController {
+		if let navigationController = navigationController as? ScrollingNavigationController {
 			navigationController.stopFollowingScrollView()
+			navigationController.showNavbar(animated: animated)
 		}
 	}
 
