@@ -21,7 +21,7 @@ class CanvasesViewController: ListViewController, Accountable {
 		didSet {
 			let rows = canvases.map { canvas in
 				Row(text: canvas.title ?? "Untitled", accessory: .DisclosureIndicator, selection: showCanvas(canvas), cellClass: CanvasCell.self, editActions: [
-					Row.EditAction(title: "Delete", style: .Destructive, backgroundColor: nil, backgroundEffect: nil, selection: deleteCanvas(canvas))
+					Row.EditAction(title: "Delete", style: .Destructive, backgroundColor: Color.destructive, backgroundEffect: nil, selection: deleteCanvas(canvas))
 				])
 			}
 			dataSource.sections = [Section(rows: rows)]

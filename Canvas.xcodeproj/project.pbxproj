@@ -32,10 +32,6 @@
 		21B742E01C03BD9000FF293C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742DF1C03BD9000FF293C /* TableViewController.swift */; };
 		21B742ED1C03BDF400FF293C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742EC1C03BDF400FF293C /* ListViewController.swift */; };
 		21B8D8D91BFC0E0B001ED447 /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B8D8D81BFC0E0B001ED447 /* CheckboxView.swift */; };
-		21CAFBCA1C044A5A00B9A3B5 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CAFBC81C044A5A00B9A3B5 /* CryptoSwift.framework */; };
-		21CAFBCB1C044A5A00B9A3B5 /* CryptoSwift.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 21CAFBC91C044A5A00B9A3B5 /* CryptoSwift.framework.dSYM */; };
-		21CAFBCC1C044A7100B9A3B5 /* CryptoSwift.framework.dSYM in Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = 21CAFBC91C044A5A00B9A3B5 /* CryptoSwift.framework.dSYM */; };
-		21E48AEA1C0445F900C9F6AA /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E48AE91C0445F900C9F6AA /* AvatarView.swift */; };
 		21E48AFD1C0447AC00C9F6AA /* AMScrollingNavbar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AE3F3A1C0423E300AE5DDC /* AMScrollingNavbar.framework */; };
 		21E48AFE1C0447AC00C9F6AA /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AE3F3B1C0423E300AE5DDC /* CanvasKit.framework */; };
 		21E48B011C0447AC00C9F6AA /* ISO8601.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AE3F3D1C0423E300AE5DDC /* ISO8601.framework */; };
@@ -102,7 +98,6 @@
 				21AE3F4D1C0424A700AE5DDC /* OnePasswordExtension.framework.dSYM in Copy dSYM Files */,
 				21AE3F4E1C0424A700AE5DDC /* SSKeychain.framework.dSYM in Copy dSYM Files */,
 				21AE3F4F1C0424A700AE5DDC /* Static.framework.dSYM in Copy dSYM Files */,
-				21CAFBCC1C044A7100B9A3B5 /* CryptoSwift.framework.dSYM in Copy dSYM Files */,
 			);
 			name = "Copy dSYM Files";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,9 +149,6 @@
 		21B742DF1C03BD9000FF293C /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		21B742EC1C03BDF400FF293C /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		21B8D8D81BFC0E0B001ED447 /* CheckboxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
-		21CAFBC81C044A5A00B9A3B5 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
-		21CAFBC91C044A5A00B9A3B5 /* CryptoSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = CryptoSwift.framework.dSYM; path = Carthage/Build/iOS/CryptoSwift.framework.dSYM; sourceTree = "<group>"; };
-		21E48AE91C0445F900C9F6AA /* AvatarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		21F10F4A1BF138750035057D /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F10F4D1BF138750035057D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21F10F4F1BF138750035057D /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
@@ -180,7 +172,6 @@
 				21E48B041C0447AC00C9F6AA /* SocketRocket.framework in Frameworks */,
 				21E48B051C0447AC00C9F6AA /* SSKeychain.framework in Frameworks */,
 				21E48B061C0447AC00C9F6AA /* Static.framework in Frameworks */,
-				21CAFBCA1C044A5A00B9A3B5 /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +188,6 @@
 				2134FADE1BFC09E300AE93CC /* BulletView.swift */,
 				21B742C71BFF991600FF293C /* NumberView.swift */,
 				21B742D81BFFCFDB00FF293C /* BlockquoteBorderView.swift */,
-				21E48AE91C0445F900C9F6AA /* AvatarView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -229,8 +219,6 @@
 				21AE3F3A1C0423E300AE5DDC /* AMScrollingNavbar.framework */,
 				21AE3F3B1C0423E300AE5DDC /* CanvasKit.framework */,
 				21AE3F3C1C0423E300AE5DDC /* CanvasKit.framework.dSYM */,
-				21CAFBC81C044A5A00B9A3B5 /* CryptoSwift.framework */,
-				21CAFBC91C044A5A00B9A3B5 /* CryptoSwift.framework.dSYM */,
 				21AE3F3D1C0423E300AE5DDC /* ISO8601.framework */,
 				21AE3F3E1C0423E300AE5DDC /* ISO8601.framework.dSYM */,
 				21AE3F3F1C0423E300AE5DDC /* Longhouse.framework */,
@@ -428,7 +416,6 @@
 			files = (
 				21F10F651BF13D720035057D /* Assets.xcassets in Resources */,
 				21F10F661BF13D720035057D /* LaunchScreen.storyboard in Resources */,
-				21CAFBCB1C044A5A00B9A3B5 /* CryptoSwift.framework.dSYM in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,7 +450,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SocketRocket.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SSKeychain.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Static.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/CryptoSwift.framework",
 			);
 			name = "Embed Carthage Frameworks";
 			outputPaths = (
@@ -495,7 +481,6 @@
 				21F10F4E1BF138750035057D /* AppDelegate.swift in Sources */,
 				2134FAE11BFC0A6A00AE93CC /* TextView.swift in Sources */,
 				21B742ED1C03BDF400FF293C /* ListViewController.swift in Sources */,
-				21E48AEA1C0445F900C9F6AA /* AvatarView.swift in Sources */,
 				21A8FA3D1BFD04F20097FCC6 /* CollectionCell.swift in Sources */,
 				2129D3121BF568AB0018F255 /* CanvasesViewController.swift in Sources */,
 				21A8FA5D1BFD33DB0097FCC6 /* ChromeActivity.swift in Sources */,

@@ -1,7 +1,6 @@
-github "usecanvas/CanvasKit" "master"
-github "usecanvas/longhouse-swift" "master"
+github "usecanvas/CanvasKit" "4896169817eeefab11fd4c7b6393563e227d70ed"
+github "usecanvas/longhouse-swift"
 
-github "krzyzanowskim/CryptoSwift"
 github "venmo/Static"
 github "AgileBits/onepassword-app-extension" "add-framework-support"
 github "andreamazz/AMScrollingNavbar"
