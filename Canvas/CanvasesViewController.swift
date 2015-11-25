@@ -66,7 +66,7 @@ class CanvasesViewController: ListViewController, Accountable {
 
 		loading = true
 
-		APIClient(accessToken: account.accessToken).listCanvases(collection) { [weak self] result in
+		APIClient(accessToken: account.accessToken, baseURL: baseURL).listCanvases(collection) { [weak self] result in
 			switch result {
 			case .Success(let canvases):
 				dispatch_async(dispatch_get_main_queue()) {
@@ -93,7 +93,7 @@ class CanvasesViewController: ListViewController, Accountable {
 
 		actionSheet.addAction(UIAlertAction(title: "Delete", style: .Destructive) { [weak self] _ in
 			guard let accessToken = self?.account.accessToken else { return }
-			APIClient(accessToken: accessToken).destroyCanvas(canvas) { _ in
+			APIClient(accessToken: accessToken, baseURL: baseURL).destroyCanvas(canvas) { _ in
 				dispatch_async(dispatch_get_main_queue()) {
 					self?.refresh()
 				}

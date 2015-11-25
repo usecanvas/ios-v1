@@ -3,14 +3,15 @@ window.Canvas = Canvas;
 
 Canvas.connect = function(host, accessToken, collectionID, canvasID) {
   const socket = new WebSocket(host);
+  this._socket = socket;
+
+  this._connection = new sharejs.Connection(this._socket);
   socket._onopen = socket.onopen;
   socket.onopen = function() {
     socket.send('auth-token:' + accessToken);
     socket._onopen.apply(socket, arguments);
   };
-  this._socket = socket;
 
-  this._connection = new sharejs.Connection(this._socket);
   this._doc = this._connection.get(collectionID, canvasID);
 
   this._doc.subscribe();

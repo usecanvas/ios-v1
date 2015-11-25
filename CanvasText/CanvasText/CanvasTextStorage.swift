@@ -149,8 +149,8 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 	// MARK: - Realtime
 
-	public func connect(accessToken accessToken: String, collectionID: String, canvasID: String, setup: WKWebView -> Void) {
-		let controller = TransportController(serverURL: NSURL(string: "wss://api.usecanvas.com/realtime")!, accessToken: accessToken, collectionID: collectionID, canvasID: canvasID)
+	public func connect(accessToken accessToken: String, collectionID: String, canvasID: String, realtimeURL: NSURL, setup: WKWebView -> Void) {
+		let controller = TransportController(serverURL: realtimeURL, accessToken: accessToken, collectionID: collectionID, canvasID: canvasID)
 		controller.delegate = self
 		setup(controller.webView)
 		transportController = controller

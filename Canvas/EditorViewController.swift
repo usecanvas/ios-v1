@@ -21,7 +21,7 @@ class EditorViewController: UIViewController, Accountable {
 
 	let textStorage = CanvasTextStorage(theme: LightTheme())
 	private let textView: TextView
-	private let longhouse = Longhouse(serverURL: NSURL(string: "wss://presence.usecanvas.com/")!)
+	private let longhouse = Longhouse(serverURL: longhouseURL)
 	private let presenceBarButtonItem = UIBarButtonItem(title: " ", style: .Plain, target: nil, action: nil)
 
 	private var ignoreSelectionChange = false
@@ -78,7 +78,7 @@ class EditorViewController: UIViewController, Accountable {
 		textView.delegate = self
 		view.addSubview(textView)
 
-		textStorage.connect(accessToken: account.accessToken, collectionID: canvas.collectionID, canvasID: canvas.ID) { [weak self] webView in
+		textStorage.connect(accessToken: account.accessToken, collectionID: canvas.collectionID, canvasID: canvas.ID, realtimeURL: realtimeURL) { [weak self] webView in
 			guard let this = self else { return }
 			this.longhouse.join(this.canvas.ID, identity: this.account.user.email)
 			this.view.addSubview(webView)

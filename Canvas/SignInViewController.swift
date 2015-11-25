@@ -101,9 +101,10 @@ class SignInViewController: TableViewController {
 
 		loading = true
 
-		AuthorizationClient().signIn(username: username, password: password) { [weak self] in
+		AuthorizationClient(baseURL: baseURL).signIn(username: username, password: password) { [weak self] in
 			switch $0 {
 			case .Success(let account):
+				print("accessToken: \(account.accessToken)")
 				dispatch_async(dispatch_get_main_queue()) {
 					UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 					AccountController.sharedController.currentAccount = account

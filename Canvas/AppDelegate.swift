@@ -8,6 +8,10 @@
 
 import UIKit
 
+let baseURL = NSURL(string: "https://api.usecanvas.com/")!
+let realtimeURL = NSURL(string: "wss://api.usecanvas.com/realtime")!
+let longhouseURL = NSURL(string: "wss://presence.usecanvas.com/")!
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
