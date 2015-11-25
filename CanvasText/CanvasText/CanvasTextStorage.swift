@@ -1,5 +1,5 @@
 //
-//  TextStorage.swift
+//  CanvasTextStorage.swift
 //  CanvasText
 //
 //  Created by Sam Soffes on 11/23/15.
