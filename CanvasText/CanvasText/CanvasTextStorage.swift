@@ -165,44 +165,41 @@ extension CanvasTextStorage: TransportControllerDelegate {
 	}
 
 	func transportController(controller: TransportController, didReceiveOperation operation: Operation) {
-		dispatch_async(dispatch_get_main_queue()) { [weak self] in
-			guard let this = self else { return }
-			var backingText = this.backingText
-			var backingSelection = this.backingSelection
+		var backingText = self.backingText
+		var backingSelection = self.backingSelection
 
-			switch operation {
-			case .Insert(let location, let string):
-				// Shift selection
-				let length = string.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
-				if Int(location) < backingSelection.location {
-					backingSelection.location += string.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
-				}
-
-				// Extend selection
-				backingSelection.length += NSIntersectionRange(backingSelection, NSRange(location: location, length: length)).length
-
-				// Update text
-				let index = backingText.startIndex.advancedBy(Int(location))
-				let range = Range<String.Index>(start: index, end: index)
-				backingText = backingText.stringByReplacingCharactersInRange(range, withString: string)
-			case .Remove(let location, let length):
-				// Shift selection
-				if Int(location) < backingSelection.location {
-					backingSelection.location -= Int(length)
-				}
-
-				// Extend selection
-				backingSelection.length -= NSIntersectionRange(backingSelection, NSRange(location: location, length: length)).length
-
-				// Update text
-				let index = backingText.startIndex.advancedBy(Int(location))
-				let range = Range<String.Index>(start: index, end: index.advancedBy(Int(length)))
-				backingText = backingText.stringByReplacingCharactersInRange(range, withString: "")
+		switch operation {
+		case .Insert(let location, let string):
+			// Shift selection
+			let length = string.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
+			if Int(location) < backingSelection.location {
+				backingSelection.location += string.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
 			}
 
-			// Apply changes
-			this.backingText = backingText
-			this.backingSelection = backingSelection
+			// Extend selection
+			backingSelection.length += NSIntersectionRange(backingSelection, NSRange(location: location, length: length)).length
+
+			// Update text
+			let index = backingText.startIndex.advancedBy(Int(location))
+			let range = Range<String.Index>(start: index, end: index)
+			backingText = backingText.stringByReplacingCharactersInRange(range, withString: string)
+		case .Remove(let location, let length):
+			// Shift selection
+			if Int(location) < backingSelection.location {
+				backingSelection.location -= Int(length)
+			}
+
+			// Extend selection
+			backingSelection.length -= NSIntersectionRange(backingSelection, NSRange(location: location, length: length)).length
+
+			// Update text
+			let index = backingText.startIndex.advancedBy(Int(location))
+			let range = Range<String.Index>(start: index, end: index.advancedBy(Int(length)))
+			backingText = backingText.stringByReplacingCharactersInRange(range, withString: "")
 		}
+
+		// Apply changes
+		self.backingText = backingText
+		self.backingSelection = backingSelection
 	}
 }

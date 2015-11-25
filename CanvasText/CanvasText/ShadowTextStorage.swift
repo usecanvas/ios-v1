@@ -148,7 +148,6 @@ public class ShadowTextStorage: NSTextStorage {
 		for r in hiddenRanges {
 			var range = r
 			range.location -= offset
-			print("range: \(range), text: \(displayText)")
 			displayText = displayText.stringByReplacingCharactersInRange(range, withString: "")
 			offset += range.length
 		}
