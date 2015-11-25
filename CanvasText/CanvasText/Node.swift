@@ -15,12 +15,18 @@ public protocol Node {
 	init?(string: String, enclosingRange: NSRange)
 
 	func contentInString(string: String) -> String
+
+	var hasAnnotation: Bool { get }
 }
 
 
 extension Node {
 	public func contentInString(string: String) -> String {
 		return (string as NSString).substringWithRange(contentRange)
+	}
+
+	public var hasAnnotation: Bool {
+		return false
 	}
 }
 

@@ -16,6 +16,10 @@ public struct Blockquote: Delimitable, Prefixable {
 	public var prefixRange: NSRange
 	public var contentRange: NSRange
 
+	public var hasAnnotation: Bool {
+		return true
+	}
+
 
 	// MARK: - Initializers
 

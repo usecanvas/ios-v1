@@ -96,7 +96,9 @@ class TransportController: NSObject {
 			json = String(data: data, encoding: NSUTF8StringEncoding)
 			else { return }
 		
-		webView.evaluateJavaScript("Canvas.insert(\(location), \(json)[0]);", completionHandler: nil)
+		webView.evaluateJavaScript("Canvas.insert(\(location), \(json)[0]);") { object, error in
+			print("js: \(object), error: \(error)")
+		}
 	}
 	
 	private func remove(location location: UInt, length: UInt) {

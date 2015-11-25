@@ -17,6 +17,10 @@ public struct UnorderedList: Listable {
 	public var contentRange: NSRange
 	public var indentation: Indentation
 
+	public var hasAnnotation: Bool {
+		return true
+	}
+
 
 	// MARK: - Initializers
 

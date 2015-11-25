@@ -18,6 +18,10 @@ public struct Checklist: Listable {
 	public var indentation: Indentation
 	public var completed: Bool
 
+	public var hasAnnotation: Bool {
+		return true
+	}
+
 
 	// MARK: - Initializers
 

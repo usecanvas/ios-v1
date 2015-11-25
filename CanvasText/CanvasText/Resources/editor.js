@@ -27,6 +27,7 @@ Canvas.connect = function(host, accessToken, collectionID, canvasID) {
   }
 
   function onInsert(position, text) {
+    console.log("Remote Insert:", {"location": position, "string": text});
     Canvas._sendMessage({
       "op": {
         "type": "insert",
@@ -37,6 +38,7 @@ Canvas.connect = function(host, accessToken, collectionID, canvasID) {
   }
 
   function onDelete(position, length) {
+    console.log("Remote Remove:", {"location": position, "length": length});
     Canvas._sendMessage({
       "op": {
         "type": "remove",
@@ -48,13 +50,15 @@ Canvas.connect = function(host, accessToken, collectionID, canvasID) {
 };
 
 Canvas.insert = function(location, string) {
-  console.log("Insert:", {"location": location, "string": string});
+  console.log("Local Insert:", {"location": location, "string": string});
   Canvas._context.insert(location, string);
+  return true;
 };
 
 Canvas.remove = function(location, length) {
-  console.log("Remove:", {"location": location, "length": length});
+  console.log("Local Remove:", {"location": location, "length": length});
   Canvas._context.remove(location, length);
+  return true;
 };
 
 Canvas._sendMessage = function(message) {

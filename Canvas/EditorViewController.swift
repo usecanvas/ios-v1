@@ -24,6 +24,8 @@ class EditorViewController: UIViewController, Accountable {
 	private let longhouse = Longhouse(serverURL: NSURL(string: "wss://presence.usecanvas.com/")!)
 	private let presenceBarButtonItem = UIBarButtonItem(title: " ", style: .Plain, target: nil, action: nil)
 
+	private var ignoreSelectionChange = false
+
 
 	// MARK: - Initializers
 
@@ -36,6 +38,9 @@ class EditorViewController: UIViewController, Accountable {
 		textView.keyboardDismissMode = .Interactive
 
 		super.init(nibName: nil, bundle: nil)
+
+		textStorage.selectionDelegate = self
+		textStorage.nodesDelegate = self
 
 		longhouse.delegate = self
 	}
@@ -128,9 +133,25 @@ class EditorViewController: UIViewController, Accountable {
 }
 
 
+extension EditorViewController: TextStorageSelectionDelegate, TextStorageNodesDelegate {
+	func textStorageDidUpdateSelection(textStorage: TextStorage) {
+		if ignoreSelectionChange {
+			return
+		}
+		textView.selectedRange = textStorage.displaySelection
+	}
+
+	func textStorageDidUpdateNodes(textStorage: TextStorage) {
+		textView.updateAnnotations()
+	}
+}
+
+
 extension EditorViewController: UITextViewDelegate {
 	func textViewDidChangeSelection(textView: UITextView) {
+		ignoreSelectionChange = true
 		textStorage.backingSelection = textStorage.displayRangeToBackingRange(textView.selectedRange)
+		ignoreSelectionChange = false
 	}
 
 	func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool {

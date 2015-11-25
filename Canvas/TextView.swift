@@ -26,9 +26,6 @@ class TextView: UITextView {
 		textStorage.addLayoutManager(layoutManager)
 
 		super.init(frame: .zero, textContainer: container)
-
-		textStorage.selectionDelegate = self
-		textStorage.nodesDelegate = self
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -36,9 +33,9 @@ class TextView: UITextView {
 	}
 
 
-	// MARK: - Private
+	// MARK: - Annotations
 
-	private func updateAnnotations() {
+	func updateAnnotations() {
 		// Add annotations
 		let needsFirstResponder = !isFirstResponder()
 		if needsFirstResponder {
@@ -59,7 +56,7 @@ class TextView: UITextView {
 				orderedIndentationCounts.removeAll()
 			}
 
-			if let annotation = annotationForNode(node, orderedIndentationCounts: orderedIndentationCounts) {
+			if node.hasAnnotation, let annotation = annotationForNode(node, orderedIndentationCounts: orderedIndentationCounts) {
 				addAnnotation(annotation)
 			}
 		}
@@ -68,6 +65,9 @@ class TextView: UITextView {
 			resignFirstResponder()
 		}
 	}
+
+
+	// MARK: - Private
 
 	private func addAnnotation(annotation: UIView) {
 		annotations.append(annotation)
@@ -139,16 +139,5 @@ class TextView: UITextView {
 		}
 
 		return nil
-	}
-}
-
-
-extension TextView: TextStorageSelectionDelegate, TextStorageNodesDelegate {
-	func textStorageDidUpdateSelection(textStorage: TextStorage) {
-		selectedRange = textStorage.displaySelection
-	}
-
-	func textStorageDidUpdateNodes(textStorage: TextStorage) {
-		updateAnnotations()
 	}
 }

@@ -50,11 +50,14 @@ public class TextStorage: NSTextStorage {
 	public private(set) var displaySelection: NSRange = .zero
 
 	public private(set) var nodes = [Node]()
+	private var hidden = [NSRange]()
 
 	public weak var selectionDelegate: TextStorageSelectionDelegate?
 	public weak var nodesDelegate: TextStorageNodesDelegate?
 
 	private var transportController: TransportController?
+
+	private var ignoreChange = false
 
 
 	// MARK: - Initializers
@@ -86,6 +89,11 @@ public class TextStorage: NSTextStorage {
 	}
 
 	public override func replaceCharactersInRange(range: NSRange, withString str: String) {
+		// Update the backing text
+		let text = backingText as NSString
+		backingText = text.stringByReplacingCharactersInRange(displayRangeToBackingRange(range), withString: str) as String
+
+		// Submit the transport operation
 		change(range: range, replacementText: str)
 	}
 
@@ -100,8 +108,8 @@ public class TextStorage: NSTextStorage {
 		let controller = TransportController(serverURL: NSURL(string: "wss://api.usecanvas.com/realtime")!, accessToken: accessToken, collectionID: collectionID, canvasID: canvasID)
 		controller.delegate = self
 		setup(controller.webView)
-		controller.reload()
 		transportController = controller
+		controller.reload()
 	}
 
 
@@ -110,22 +118,12 @@ public class TextStorage: NSTextStorage {
 	public func backingRangeToDisplayRange(backingRange: NSRange) -> NSRange {
 		var displayRange = backingRange
 
-		for node in nodes {
-			if let node = node as? Delimitable {
-				if node.delimiterRange.location > backingRange.location {
-					break
-				}
-
-				displayRange.location -= node.delimiterRange.length
+		for range in hidden {
+			if range.location > backingRange.location {
+				break
 			}
 
-			if let node = node as? Prefixable {
-				if node.prefixRange.location > backingRange.location {
-					break
-				}
-
-				displayRange.location -= node.prefixRange.length
-			}
+			displayRange.location -= range.length
 		}
 
 		return displayRange
@@ -134,22 +132,12 @@ public class TextStorage: NSTextStorage {
 	public func displayRangeToBackingRange(displayRange: NSRange) -> NSRange {
 		var backingRange = displayRange
 
-		for node in nodes {
-			if let node = node as? Delimitable {
-				if node.delimiterRange.location > backingRange.location {
-					break
-				}
-
-				backingRange.location += node.delimiterRange.length
+		for range in hidden {
+			if range.location > backingRange.location {
+				break
 			}
 
-			if let node = node as? Prefixable {
-				if node.prefixRange.location > backingRange.location {
-					break
-				}
-
-				backingRange.location += node.prefixRange.length
-			}
+			backingRange.location += range.length
 		}
 
 		return backingRange
@@ -159,26 +147,36 @@ public class TextStorage: NSTextStorage {
 	// MARK: - Private
 
 	private func change(range range: NSRange, replacementText text: String) {
+		guard let transportController = transportController else {
+			print("[CanvasText.TextStorage] Tried to submit operation without transport controller.")
+			return
+		}
+
 		let backingRange = displayRangeToBackingRange(range)
 
 		// Insert
 		if range.length == 0 {
-			transportController?.submitOperation(.Insert(location: UInt(backingRange.location), string: text))
+			transportController.submitOperation(.Insert(location: UInt(backingRange.location), string: text))
 		}
 
-			// Remove
+		// Remove
 		else {
-			transportController?.submitOperation(.Remove(location: UInt(backingRange.location), length: UInt(backingRange.length)))
+			transportController.submitOperation(.Remove(location: UInt(backingRange.location), length: UInt(backingRange.length)))
 		}
 	}
 
 	private func backingTextDidChange() {
+		if ignoreChange {
+			return
+		}
+
 		// Convert to Foundation string so we can work with `NSRange` instead of `Range` since the TextKit APIs take
 		// `NSRange` instead `Range`. Bummer.
 		let text = backingText as NSString
 
 		// We're going to rebuild `nodes` and `displayText` from the new `backingText`.
 		var nodes = [Node]()
+		var hidden = [NSRange]()
 
 		// Enumerate the string blocks of the `backingText`.
 		text.enumerateSubstringsInRange(NSRange(location: 0, length: text.length), options: [.ByLines]) { substring, substringRange, _, _ in
@@ -190,14 +188,28 @@ public class TextStorage: NSTextStorage {
 			scanner.charactersToBeSkipped = nil
 
 			for type in nodeParseOrder {
-				if let node = type.init(string: substring, enclosingRange: substringRange) {
-					nodes.append(node)
-					return
+				guard let node = type.init(string: substring, enclosingRange: substringRange) else { continue }
+
+				if let node = node as? Delimitable {
+					hidden.append(node.delimiterRange)
 				}
+
+				if let node = node as? Prefixable {
+					hidden.append(node.prefixRange)
+				}
+
+				nodes.append(node)
+				return
 			}
+
+			// Unsupported range
+			var range = substringRange
+			range.length += 1 // Account for new line
+			hidden.append(range)
 		}
 
 		self.nodes = nodes
+		self.hidden = hidden
 		displayText = nodes.flatMap { $0.contentInString(backingText) }.joinWithSeparator("\n")
 
 		beginEditing()
@@ -233,41 +245,44 @@ extension TextStorage: TransportControllerDelegate {
 	}
 
 	func transportController(controller: TransportController, didReceiveOperation operation: Operation) {
-		var backingText = self.backingText
-		var backingSelection = self.backingSelection
+		dispatch_async(dispatch_get_main_queue()) { [weak self] in
+			guard let this = self else { return }
+			var backingText = this.backingText
+			var backingSelection = this.backingSelection
 
-		switch operation {
-		case .Insert(let location, let string):
-			// Shift selection
-			let length = string.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
-			if Int(location) < backingSelection.location {
-				backingSelection.location += string.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
+			switch operation {
+			case .Insert(let location, let string):
+				// Shift selection
+				let length = string.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
+				if Int(location) < backingSelection.location {
+					backingSelection.location += string.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
+				}
+
+				// Extend selection
+				backingSelection.length += NSIntersectionRange(backingSelection, NSRange(location: location, length: length)).length
+
+				// Update text
+				let index = backingText.startIndex.advancedBy(Int(location))
+				let range = Range<String.Index>(start: index, end: index)
+				backingText = backingText.stringByReplacingCharactersInRange(range, withString: string)
+			case .Remove(let location, let length):
+				// Shift selection
+				if Int(location) < backingSelection.location {
+					backingSelection.location -= Int(length)
+				}
+
+				// Extend selection
+				backingSelection.length -= NSIntersectionRange(backingSelection, NSRange(location: location, length: length)).length
+
+				// Update text
+				let index = backingText.startIndex.advancedBy(Int(location))
+				let range = Range<String.Index>(start: index, end: index.advancedBy(Int(length)))
+				backingText = backingText.stringByReplacingCharactersInRange(range, withString: "")
 			}
 
-			// Extend selection
-			backingSelection.length += NSIntersectionRange(backingSelection, NSRange(location: location, length: length)).length
-
-			// Update text
-			let index = backingText.startIndex.advancedBy(Int(location))
-			let range = Range<String.Index>(start: index, end: index)
-			backingText = backingText.stringByReplacingCharactersInRange(range, withString: string)
-		case .Remove(let location, let length):
-			// Shift selection
-			if Int(location) < backingSelection.location {
-				backingSelection.location -= Int(length)
-			}
-
-			// Extend selection
-			backingSelection.length -= NSIntersectionRange(backingSelection, NSRange(location: location, length: length)).length
-
-			// Update text
-			let index = backingText.startIndex.advancedBy(Int(location))
-			let range = Range<String.Index>(start: index, end: index.advancedBy(Int(length)))
-			backingText = backingText.stringByReplacingCharactersInRange(range, withString: "")
+			// Apply changes
+			this.backingText = backingText
+			this.backingSelection = backingSelection
 		}
-
-		// Apply changes
-		self.backingText = backingText
-		self.backingSelection = backingSelection
 	}
 }
