@@ -1,5 +1,5 @@
 //
-//  TextStorageTests.swift
+//  CanvasTextStorageTests.swift
 //  CanvasTextTests
 //
 //  Created by Sam Soffes on 11/10/15.
@@ -9,8 +9,8 @@
 import XCTest
 import CanvasText
 
-class TextStorageTests: XCTestCase {
-	let storage = TextStorage(theme: LightTheme())
+class CanvasTextStorageTests: XCTestCase {
+	let storage = CanvasTextStorage(theme: LightTheme())
 
 	func testDocHeading() {
 		storage.backingText = "⧙doc-heading⧘A Lovely Document"

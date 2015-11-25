@@ -19,7 +19,7 @@ class TextView: UITextView {
 
 	// MARK: - Initializers {
 
-	init(textStorage: TextStorage) {
+	init(textStorage: NSTextStorage) {
 		let layoutManager = NSLayoutManager()
 		let container = NSTextContainer()
 		layoutManager.addTextContainer(container)
@@ -42,7 +42,7 @@ class TextView: UITextView {
 			becomeFirstResponder()
 		}
 
-		guard let textStorage = textStorage as? TextStorage else { return }
+		guard let textStorage = textStorage as? CanvasTextStorage else { return }
 
 		var orderedIndentationCounts = [Indentation: UInt]()
 
@@ -75,7 +75,7 @@ class TextView: UITextView {
 	}
 
 	private func annotationForNode(node: Node, orderedIndentationCounts: [Indentation: UInt]) -> UIView? {
-		guard let textStorage = textStorage as? TextStorage else { return nil }
+		guard let textStorage = textStorage as? CanvasTextStorage else { return nil }
 
 		let range = textStorage.backingRangeToDisplayRange(node.contentRange)
 

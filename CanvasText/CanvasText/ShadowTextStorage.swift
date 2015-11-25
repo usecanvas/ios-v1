@@ -1,5 +1,5 @@
 //
-//  GhostTextStorage.swift
+//  ShadowTextStorage.swift
 //  CanvasText
 //
 //  Created by Sam Soffes on 11/24/15.
@@ -12,13 +12,13 @@
 	import UIKit
 #endif
 
-public protocol GhostTextStorageSelectionDelegate: class {
-	func ghostTextStorageDidUpdateSelection(textStorage: GhostTextStorage)
+public protocol ShadowTextStorageSelectionDelegate: class {
+	func shadowTextStorageDidUpdateSelection(textStorage: ShadowTextStorage)
 }
 
 /// Concrete text storage for using a backing string and a display string. This class also manages selection so when the
 /// display or backing version of the text change, the selection is preserved.
-public class GhostTextStorage: NSTextStorage {
+public class ShadowTextStorage: NSTextStorage {
 
 	// MARK: - Properties
 
@@ -32,18 +32,21 @@ public class GhostTextStorage: NSTextStorage {
 
 	public var backingSelection: NSRange = .zero {
 		didSet {
-			displaySelection = backingRangeToDisplayRange(backingSelection)
-			selectionDelegate?.ghostTextStorageDidUpdateSelection(self)
+			updateSelection()
 		}
 	}
 
 	public private(set) var displayText = ""
 
-	public private(set) var displaySelection: NSRange = .zero
+	public private(set) var displaySelection: NSRange = .zero {
+		didSet {
+			selectionDelegate?.shadowTextStorageDidUpdateSelection(self)
+		}
+	}
 
-	private var hiddenRanges = [NSRange]()
+	private private(set) var hiddenRanges = [NSRange]()
 
-	public weak var selectionDelegate: GhostTextStorageSelectionDelegate?
+	public weak var selectionDelegate: ShadowTextStorageSelectionDelegate?
 
 
 	// MARK: - Initializers
@@ -128,6 +131,10 @@ public class GhostTextStorage: NSTextStorage {
 		return NSAttributedString(string: displayText)
 	}
 
+	public func didProcessBackingText(backingText: String) {
+		// Do nothing
+	}
+
 
 	// MARK: - Private
 
@@ -158,5 +165,16 @@ public class GhostTextStorage: NSTextStorage {
 		endEditing()
 
 		edited([.EditedAttributes, .EditedCharacters], range: range, changeInLength: storage.length - range.length)
+
+		updateSelection()
+		
+		didProcessBackingText(backingText)
+	}
+
+	private func updateSelection() {
+		let updatedDisplaySelection = backingRangeToDisplayRange(backingSelection)
+		if updatedDisplaySelection != displaySelection {
+			displaySelection = updatedDisplaySelection
+		}
 	}
 }

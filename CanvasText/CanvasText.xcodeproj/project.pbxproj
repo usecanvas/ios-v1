@@ -41,12 +41,12 @@
 		21A8FA131BFCF4E90097FCC6 /* NSRange+CanvasText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA0B1BFCF4E90097FCC6 /* NSRange+CanvasText.swift */; };
 		21A8FA141BFCF4E90097FCC6 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA0C1BFCF4E90097FCC6 /* Operation.swift */; };
 		21A8FA151BFCF4E90097FCC6 /* TransportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA0D1BFCF4E90097FCC6 /* TransportController.swift */; };
-		21A8FA1C1BFCF4F80097FCC6 /* TextStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA1A1BFCF4F80097FCC6 /* TextStorageTests.swift */; };
+		21A8FA1C1BFCF4F80097FCC6 /* CanvasTextStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA1A1BFCF4F80097FCC6 /* CanvasTextStorageTests.swift */; };
 		21A8FA831BFE7B5A0097FCC6 /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A8FA791BFE7B5A0097FCC6 /* CanvasText.framework */; };
 		21A8FA911BFE7B870097FCC6 /* NSRange+CanvasText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA0B1BFCF4E90097FCC6 /* NSRange+CanvasText.swift */; };
 		21A8FA921BFE7B870097FCC6 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA0C1BFCF4E90097FCC6 /* Operation.swift */; };
 		21A8FA931BFE7B870097FCC6 /* TransportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA0D1BFCF4E90097FCC6 /* TransportController.swift */; };
-		21A8FA961BFE7B940097FCC6 /* TextStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA1A1BFCF4F80097FCC6 /* TextStorageTests.swift */; };
+		21A8FA961BFE7B940097FCC6 /* CanvasTextStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA1A1BFCF4F80097FCC6 /* CanvasTextStorageTests.swift */; };
 		21A8FA981BFE7BBA0097FCC6 /* CanvasText.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A8FA971BFE7BBA0097FCC6 /* CanvasText.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21A8FA991BFE7BBE0097FCC6 /* CanvasText.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A8FA971BFE7BBA0097FCC6 /* CanvasText.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21A8FAA01BFE890D0097FCC6 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA9F1BFE890D0097FCC6 /* Node.swift */; };
@@ -67,10 +67,10 @@
 		21B743101C03D19300FF293C /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B7430E1C03D19300FF293C /* FontStyle.swift */; };
 		21B743121C03D1B000FF293C /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B743111C03D1B000FF293C /* LightTheme.swift */; };
 		21B743131C03D1B000FF293C /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B743111C03D1B000FF293C /* LightTheme.swift */; };
-		21CAFBD11C056FC100B9A3B5 /* GhostTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CAFBD01C056FC100B9A3B5 /* GhostTextStorage.swift */; };
-		21CAFBD21C056FC100B9A3B5 /* GhostTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CAFBD01C056FC100B9A3B5 /* GhostTextStorage.swift */; };
-		21CAFBD41C05767E00B9A3B5 /* GhostTextStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CAFBD31C05767E00B9A3B5 /* GhostTextStorageTests.swift */; };
-		21CAFBD51C05767E00B9A3B5 /* GhostTextStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CAFBD31C05767E00B9A3B5 /* GhostTextStorageTests.swift */; };
+		21CAFBD11C056FC100B9A3B5 /* ShadowTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CAFBD01C056FC100B9A3B5 /* ShadowTextStorage.swift */; };
+		21CAFBD21C056FC100B9A3B5 /* ShadowTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CAFBD01C056FC100B9A3B5 /* ShadowTextStorage.swift */; };
+		21CAFBD41C05767E00B9A3B5 /* ShadowTextStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CAFBD31C05767E00B9A3B5 /* ShadowTextStorageTests.swift */; };
+		21CAFBD51C05767E00B9A3B5 /* ShadowTextStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CAFBD31C05767E00B9A3B5 /* ShadowTextStorageTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,7 +112,7 @@
 		21A8FA0C1BFCF4E90097FCC6 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		21A8FA0D1BFCF4E90097FCC6 /* TransportController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportController.swift; sourceTree = "<group>"; };
 		21A8FA101BFCF4E90097FCC6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		21A8FA1A1BFCF4F80097FCC6 /* TextStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStorageTests.swift; sourceTree = "<group>"; };
+		21A8FA1A1BFCF4F80097FCC6 /* CanvasTextStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasTextStorageTests.swift; sourceTree = "<group>"; };
 		21A8FA1B1BFCF4F80097FCC6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21A8FA791BFE7B5A0097FCC6 /* CanvasText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CanvasText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A8FA821BFE7B5A0097FCC6 /* CanvasTextTests-OSX.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CanvasTextTests-OSX.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,8 +126,8 @@
 		21B742FA1C03CDA500FF293C /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		21B7430E1C03D19300FF293C /* FontStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontStyle.swift; sourceTree = "<group>"; };
 		21B743111C03D1B000FF293C /* LightTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
-		21CAFBD01C056FC100B9A3B5 /* GhostTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GhostTextStorage.swift; sourceTree = "<group>"; };
-		21CAFBD31C05767E00B9A3B5 /* GhostTextStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GhostTextStorageTests.swift; sourceTree = "<group>"; };
+		21CAFBD01C056FC100B9A3B5 /* ShadowTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowTextStorage.swift; sourceTree = "<group>"; };
+		21CAFBD31C05767E00B9A3B5 /* ShadowTextStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowTextStorageTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,8 +212,8 @@
 		21A8FA191BFCF4F80097FCC6 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				21CAFBD31C05767E00B9A3B5 /* GhostTextStorageTests.swift */,
-				21A8FA1A1BFCF4F80097FCC6 /* TextStorageTests.swift */,
+				21CAFBD31C05767E00B9A3B5 /* ShadowTextStorageTests.swift */,
+				21A8FA1A1BFCF4F80097FCC6 /* CanvasTextStorageTests.swift */,
 				212668DF1BFEC7B500DE996F /* BlockquoteTests.swift */,
 				212669221BFEE3EB00DE996F /* ListableTests.swift */,
 				212668EE1BFECCBC00DE996F /* HeadingTests.swift */,
@@ -264,7 +264,7 @@
 		21B742F91C03CA2E00FF293C /* Text */ = {
 			isa = PBXGroup;
 			children = (
-				21CAFBD01C056FC100B9A3B5 /* GhostTextStorage.swift */,
+				21CAFBD01C056FC100B9A3B5 /* ShadowTextStorage.swift */,
 				21B742F61C03C71600FF293C /* CanvasTextStorage.swift */,
 			);
 			name = Text;
@@ -472,7 +472,7 @@
 				2150D6831BFEBDF6008BB629 /* Delimitable.swift in Sources */,
 				21A8FA131BFCF4E90097FCC6 /* NSRange+CanvasText.swift in Sources */,
 				21B743121C03D1B000FF293C /* LightTheme.swift in Sources */,
-				21CAFBD11C056FC100B9A3B5 /* GhostTextStorage.swift in Sources */,
+				21CAFBD11C056FC100B9A3B5 /* ShadowTextStorage.swift in Sources */,
 				21B742EF1C03C6B900FF293C /* Font.swift in Sources */,
 				21B742F71C03C71600FF293C /* CanvasTextStorage.swift in Sources */,
 				212668FF1BFECD7100DE996F /* CodeBlock.swift in Sources */,
@@ -491,8 +491,8 @@
 			files = (
 				212668E01BFEC7B500DE996F /* BlockquoteTests.swift in Sources */,
 				212668EF1BFECCBC00DE996F /* HeadingTests.swift in Sources */,
-				21A8FA1C1BFCF4F80097FCC6 /* TextStorageTests.swift in Sources */,
-				21CAFBD41C05767E00B9A3B5 /* GhostTextStorageTests.swift in Sources */,
+				21A8FA1C1BFCF4F80097FCC6 /* CanvasTextStorageTests.swift in Sources */,
+				21CAFBD41C05767E00B9A3B5 /* ShadowTextStorageTests.swift in Sources */,
 				212669231BFEE3EB00DE996F /* ListableTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -513,7 +513,7 @@
 				2150D6841BFEBDF6008BB629 /* Delimitable.swift in Sources */,
 				21A8FA911BFE7B870097FCC6 /* NSRange+CanvasText.swift in Sources */,
 				21B743131C03D1B000FF293C /* LightTheme.swift in Sources */,
-				21CAFBD21C056FC100B9A3B5 /* GhostTextStorage.swift in Sources */,
+				21CAFBD21C056FC100B9A3B5 /* ShadowTextStorage.swift in Sources */,
 				21B742F01C03C6B900FF293C /* Font.swift in Sources */,
 				21B742F81C03C71600FF293C /* CanvasTextStorage.swift in Sources */,
 				212669001BFECD7200DE996F /* CodeBlock.swift in Sources */,
@@ -532,8 +532,8 @@
 			files = (
 				212668E11BFEC7B500DE996F /* BlockquoteTests.swift in Sources */,
 				212668F01BFECCBC00DE996F /* HeadingTests.swift in Sources */,
-				21A8FA961BFE7B940097FCC6 /* TextStorageTests.swift in Sources */,
-				21CAFBD51C05767E00B9A3B5 /* GhostTextStorageTests.swift in Sources */,
+				21A8FA961BFE7B940097FCC6 /* CanvasTextStorageTests.swift in Sources */,
+				21CAFBD51C05767E00B9A3B5 /* ShadowTextStorageTests.swift in Sources */,
 				212669241BFEE3EB00DE996F /* ListableTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

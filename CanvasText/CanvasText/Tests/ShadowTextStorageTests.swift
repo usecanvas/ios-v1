@@ -1,5 +1,5 @@
 //
-//  GhostTextStorageTests.swift
+//  ShadowTextStorageTests.swift
 //  CanvasText
 //
 //  Created by Sam Soffes on 11/24/15.
@@ -9,7 +9,7 @@
 import XCTest
 import CanvasText
 
-class Ghost: GhostTextStorage {
+class Shadow: ShadowTextStorage {
 	convenience init() {
 		self.init(backingText: "<p>Hello</p>\n<p>World</p>")
 	}
@@ -24,11 +24,16 @@ class Ghost: GhostTextStorage {
 	}
 }
 
-class GhostTextStorageTests: XCTestCase {
+class ShadowTextStorageTests: XCTestCase {
 
-	let storage = Ghost()
+	let storage = Shadow()
 
 	func testDisplayText() {
 		XCTAssertEqual("Hello\nWorld", storage.displayText)
+	}
+
+	func testSelection() {
+		storage.backingSelection = NSRange(location: 3, length: 5)
+		XCTAssertEqual(NSRange(location: 0, length: 5), storage.displaySelection)
 	}
 }

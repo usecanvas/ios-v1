@@ -19,7 +19,7 @@ class EditorViewController: UIViewController, Accountable {
 	var account: Account
 	let canvas: Canvas
 
-	let textStorage = TextStorage(theme: LightTheme())
+	let textStorage = CanvasTextStorage(theme: LightTheme())
 	private let textView: TextView
 	private let longhouse = Longhouse(serverURL: NSURL(string: "wss://presence.usecanvas.com/")!)
 	private let presenceBarButtonItem = UIBarButtonItem(title: " ", style: .Plain, target: nil, action: nil)
@@ -133,15 +133,18 @@ class EditorViewController: UIViewController, Accountable {
 }
 
 
-extension EditorViewController: TextStorageSelectionDelegate, TextStorageNodesDelegate {
-	func textStorageDidUpdateSelection(textStorage: TextStorage) {
+extension EditorViewController: ShadowTextStorageSelectionDelegate {
+	func shadowTextStorageDidUpdateSelection(textStorage: ShadowTextStorage) {
 		if ignoreSelectionChange {
 			return
 		}
 		textView.selectedRange = textStorage.displaySelection
 	}
+}
 
-	func textStorageDidUpdateNodes(textStorage: TextStorage) {
+
+extension EditorViewController: CanvasTextStorageNodesDelegate {
+	func canvasTextStorageDidUpdateNodes(textStorage: CanvasTextStorage) {
 		textView.updateAnnotations()
 	}
 }
