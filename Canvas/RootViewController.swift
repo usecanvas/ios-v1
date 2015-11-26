@@ -68,7 +68,7 @@ class RootViewController: UIViewController {
 
 	@objc private func accountDidChange(notification: NSNotification?) {
 		guard let account = AccountController.sharedController.currentAccount else {
-			viewController = SignInViewController()
+			viewController = LoginViewController()
 			return
 		}
 

@@ -1,5 +1,5 @@
 //
-//  SignInViewController.swift
+//  LoginViewController.swift
 //  Canvas
 //
 //  Created by Sam Soffes on 11/12/15.
@@ -10,7 +10,7 @@ import UIKit
 import CanvasKit
 import OnePasswordExtension
 
-class SignInViewController: UIViewController {
+class LoginViewController: UIViewController {
 
 	// MARK: - Properties
 
@@ -23,7 +23,7 @@ class SignInViewController: UIViewController {
 	}()
 
 	let usernameTextField: UITextField = {
-		let field = SignInTextField()
+		let field = LoginTextField()
 		field.translatesAutoresizingMaskIntoConstraints = false
 		field.placeholder = "Username or email"
 		field.autocapitalizationType = .None
@@ -33,7 +33,7 @@ class SignInViewController: UIViewController {
 	}()
 
 	let passwordTextField: UITextField = {
-		let field = SignInTextField()
+		let field = LoginTextField()
 		field.translatesAutoresizingMaskIntoConstraints = false
 		field.secureTextEntry = true
 		field.placeholder = "Password"
@@ -41,7 +41,7 @@ class SignInViewController: UIViewController {
 		return field
 	}()
 
-	let signInButton: UIButton = {
+	let submitButton: UIButton = {
 		let button = Button()
 		button.translatesAutoresizingMaskIntoConstraints = false
 		button.backgroundColor = Color.white
@@ -54,6 +54,7 @@ class SignInViewController: UIViewController {
 		didSet {
 			usernameTextField.enabled = !loading
 			passwordTextField.enabled = !loading
+			submitButton.enabled = !loading
 			UIApplication.sharedApplication().networkActivityIndicatorVisible = loading
 		}
 	}
@@ -81,14 +82,14 @@ class SignInViewController: UIViewController {
 
 		stackView.addArrangedSubview(usernameTextField)
 		stackView.addArrangedSubview(passwordTextField)
-		stackView.addArrangedSubview(signInButton)
+		stackView.addArrangedSubview(submitButton)
 		view.addSubview(stackView)
 
 		NSLayoutConstraint.activateConstraints([
 			stackView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor),
 			stackView.widthAnchor.constraintEqualToAnchor(view.widthAnchor, multiplier: 0.8),
 			stackView.topAnchor.constraintEqualToAnchor(view.topAnchor, constant: 64),
-			signInButton.heightAnchor.constraintEqualToAnchor(usernameTextField.heightAnchor)
+			submitButton.heightAnchor.constraintEqualToAnchor(usernameTextField.heightAnchor)
 		])
 	}
 
@@ -123,7 +124,7 @@ class SignInViewController: UIViewController {
 
 		loading = true
 
-		AuthorizationClient(baseURL: baseURL).signIn(username: username, password: password) { [weak self] in
+		AuthorizationClient(baseURL: baseURL).login(username: username, password: password) { [weak self] in
 			switch $0 {
 			case .Success(let account):
 				print("accessToken: \(account.accessToken)")
@@ -144,7 +145,7 @@ class SignInViewController: UIViewController {
 }
 
 
-extension SignInViewController: UITextFieldDelegate {
+extension LoginViewController: UITextFieldDelegate {
 	func textFieldShouldReturn(textField: UITextField) -> Bool {
 		if textField == usernameTextField {
 			passwordTextField.becomeFirstResponder()

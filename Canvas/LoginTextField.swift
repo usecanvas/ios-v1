@@ -1,5 +1,5 @@
 //
-//  SignInTextField.swift
+//  LoginTextField.swift
 //  Canvas
 //
 //  Created by Sam Soffes on 11/26/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignInTextField: UITextField {
+class LoginTextField: UITextField {
 
 	// MARK: - Properties
 
