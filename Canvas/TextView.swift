@@ -45,7 +45,7 @@ class TextView: UITextView {
 
 	func updateAnnotations() {
 		annotations.removeAll()
-		imageAttachments.removeAll()
+//		imageAttachments.removeAll()
 
 		// Add annotations
 		let needsFirstResponder = !isFirstResponder()
@@ -171,6 +171,15 @@ extension TextView: CanvasTextStorageDelegate {
 		attachment.image = Image.placeholderImage(size: attachment.bounds.ceil.size)
 
 		imageAttachments[image] = attachment
+
+		ImagesController.sharedController.image(node: image) { [weak self] node, image in
+			if let image = image, attachment = self?.imageAttachments[node], textStorage = self?.textStorage as? CanvasTextStorage {
+				attachment.image = image
+
+				let range = textStorage.backingRangeToDisplayRange(node.contentRange)
+				textStorage.edited([.EditedAttributes], range: range, changeInLength: 0)
+			}
+		}
 
 		return attachment
 	}

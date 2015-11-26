@@ -56,6 +56,7 @@
 		21FCB5831C0777E200F78D93 /* CGRect+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCB5821C0777E200F78D93 /* CGRect+Canvas.swift */; };
 		21FCB5851C077C8100F78D93 /* UIEdgeInsets+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCB5841C077C8100F78D93 /* UIEdgeInsets+Canvas.swift */; };
 		21FCB58B1C07867300F78D93 /* Image+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCB58A1C07867300F78D93 /* Image+Canvas.swift */; };
+		21FCB58D1C07929A00F78D93 /* NSCache+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCB58C1C07929A00F78D93 /* NSCache+Canvas.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -181,6 +182,7 @@
 		21FCB5821C0777E200F78D93 /* CGRect+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Canvas.swift"; sourceTree = "<group>"; };
 		21FCB5841C077C8100F78D93 /* UIEdgeInsets+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Canvas.swift"; sourceTree = "<group>"; };
 		21FCB58A1C07867300F78D93 /* Image+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Image+Canvas.swift"; sourceTree = "<group>"; };
+		21FCB58C1C07929A00F78D93 /* NSCache+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSCache+Canvas.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -356,6 +358,7 @@
 				21FCB5821C0777E200F78D93 /* CGRect+Canvas.swift */,
 				21FCB58A1C07867300F78D93 /* Image+Canvas.swift */,
 				21FCB5841C077C8100F78D93 /* UIEdgeInsets+Canvas.swift */,
+				21FCB58C1C07929A00F78D93 /* NSCache+Canvas.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 				21A8FA3D1BFD04F20097FCC6 /* CollectionCell.swift in Sources */,
 				2129D3121BF568AB0018F255 /* CanvasesViewController.swift in Sources */,
 				21A8FA5D1BFD33DB0097FCC6 /* ChromeActivity.swift in Sources */,
+				21FCB58D1C07929A00F78D93 /* NSCache+Canvas.swift in Sources */,
 				21B742D91BFFCFDB00FF293C /* BlockquoteBorderView.swift in Sources */,
 				215642221C06BBE600685847 /* Button.swift in Sources */,
 			);
