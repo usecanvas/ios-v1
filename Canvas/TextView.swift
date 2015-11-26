@@ -26,6 +26,9 @@ class TextView: UITextView {
 		textStorage.addLayoutManager(layoutManager)
 
 		super.init(frame: .zero, textContainer: container)
+
+		alwaysBounceVertical = true
+		keyboardDismissMode = .Interactive
 	}
 
 	required init?(coder aDecoder: NSCoder) {

@@ -35,7 +35,6 @@ class EditorViewController: UIViewController, Accountable {
 
 		textView = TextView(textStorage: textStorage)
 		textView.translatesAutoresizingMaskIntoConstraints = false
-		textView.keyboardDismissMode = .Interactive
 
 		super.init(nibName: nil, bundle: nil)
 

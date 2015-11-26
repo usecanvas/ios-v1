@@ -24,9 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+		// Analytics
+		Analytics.track(.LaunchedApp)
 
+		// Appearance
 		UINavigationBar.appearance().barTintColor = Color.white
 
+		// Show window
 		window?.makeKeyAndVisible()
 		return true
 	}

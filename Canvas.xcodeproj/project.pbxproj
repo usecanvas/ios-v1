@@ -14,6 +14,11 @@
 		2129D3121BF568AB0018F255 /* CanvasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D3111BF568AB0018F255 /* CanvasesViewController.swift */; };
 		2134FADF1BFC09E300AE93CC /* BulletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2134FADE1BFC09E300AE93CC /* BulletView.swift */; };
 		2134FAE11BFC0A6A00AE93CC /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2134FAE01BFC0A6A00AE93CC /* TextView.swift */; };
+		215642151C06B46E00685847 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 215642111C06B46E00685847 /* Mixpanel.framework */; };
+		2156421B1C06B49500685847 /* SocketRocket.framework.dSYM in Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = 215642131C06B46E00685847 /* SocketRocket.framework.dSYM */; };
+		2156421C1C06B49700685847 /* Mixpanel.framework.dSYM in Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = 215642121C06B46E00685847 /* Mixpanel.framework.dSYM */; };
+		2156421D1C06B49A00685847 /* AMScrollingNavbar.framework.dSYM in Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = 215642101C06B46E00685847 /* AMScrollingNavbar.framework.dSYM */; };
+		2156421F1C06B4ED00685847 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2156421E1C06B4ED00685847 /* Analytics.swift */; };
 		21A8FA351BFCF5BC0097FCC6 /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A8FA301BFCF59D0097FCC6 /* CanvasText.framework */; };
 		21A8FA361BFCF5C40097FCC6 /* CanvasText.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21A8FA301BFCF59D0097FCC6 /* CanvasText.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21A8FA3D1BFD04F20097FCC6 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA3C1BFD04F20097FCC6 /* CollectionCell.swift */; };
@@ -92,10 +97,13 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				2156421D1C06B49A00685847 /* AMScrollingNavbar.framework.dSYM in Copy dSYM Files */,
 				21AE3F4A1C0424A700AE5DDC /* CanvasKit.framework.dSYM in Copy dSYM Files */,
 				21AE3F4B1C0424A700AE5DDC /* ISO8601.framework.dSYM in Copy dSYM Files */,
 				21AE3F4C1C0424A700AE5DDC /* Longhouse.framework.dSYM in Copy dSYM Files */,
+				2156421C1C06B49700685847 /* Mixpanel.framework.dSYM in Copy dSYM Files */,
 				21AE3F4D1C0424A700AE5DDC /* OnePasswordExtension.framework.dSYM in Copy dSYM Files */,
+				2156421B1C06B49500685847 /* SocketRocket.framework.dSYM in Copy dSYM Files */,
 				21AE3F4E1C0424A700AE5DDC /* SSKeychain.framework.dSYM in Copy dSYM Files */,
 				21AE3F4F1C0424A700AE5DDC /* Static.framework.dSYM in Copy dSYM Files */,
 			);
@@ -123,6 +131,11 @@
 		2129D3111BF568AB0018F255 /* CanvasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasesViewController.swift; sourceTree = "<group>"; };
 		2134FADE1BFC09E300AE93CC /* BulletView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulletView.swift; sourceTree = "<group>"; };
 		2134FAE01BFC0A6A00AE93CC /* TextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		215642101C06B46E00685847 /* AMScrollingNavbar.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = AMScrollingNavbar.framework.dSYM; path = Carthage/Build/iOS/AMScrollingNavbar.framework.dSYM; sourceTree = "<group>"; };
+		215642111C06B46E00685847 /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mixpanel.framework; path = Carthage/Build/iOS/Mixpanel.framework; sourceTree = "<group>"; };
+		215642121C06B46E00685847 /* Mixpanel.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Mixpanel.framework.dSYM; path = Carthage/Build/iOS/Mixpanel.framework.dSYM; sourceTree = "<group>"; };
+		215642131C06B46E00685847 /* SocketRocket.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SocketRocket.framework.dSYM; path = Carthage/Build/iOS/SocketRocket.framework.dSYM; sourceTree = "<group>"; };
+		2156421E1C06B4ED00685847 /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		21A8FA2A1BFCF59D0097FCC6 /* CanvasText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasText.xcodeproj; path = CanvasText/CanvasText.xcodeproj; sourceTree = "<group>"; };
 		21A8FA3C1BFD04F20097FCC6 /* CollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		21A8FA491BFD085F0097FCC6 /* CanvasCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasCell.swift; sourceTree = "<group>"; };
@@ -167,6 +180,7 @@
 				21E48AFD1C0447AC00C9F6AA /* AMScrollingNavbar.framework in Frameworks */,
 				21E48AFE1C0447AC00C9F6AA /* CanvasKit.framework in Frameworks */,
 				21E48B011C0447AC00C9F6AA /* ISO8601.framework in Frameworks */,
+				215642151C06B46E00685847 /* Mixpanel.framework in Frameworks */,
 				21E48B021C0447AC00C9F6AA /* Longhouse.framework in Frameworks */,
 				21E48B031C0447AC00C9F6AA /* OnePasswordExtension.framework in Frameworks */,
 				21E48B041C0447AC00C9F6AA /* SocketRocket.framework in Frameworks */,
@@ -217,15 +231,19 @@
 			isa = PBXGroup;
 			children = (
 				21AE3F3A1C0423E300AE5DDC /* AMScrollingNavbar.framework */,
+				215642101C06B46E00685847 /* AMScrollingNavbar.framework.dSYM */,
 				21AE3F3B1C0423E300AE5DDC /* CanvasKit.framework */,
 				21AE3F3C1C0423E300AE5DDC /* CanvasKit.framework.dSYM */,
 				21AE3F3D1C0423E300AE5DDC /* ISO8601.framework */,
 				21AE3F3E1C0423E300AE5DDC /* ISO8601.framework.dSYM */,
 				21AE3F3F1C0423E300AE5DDC /* Longhouse.framework */,
 				21AE3F401C0423E300AE5DDC /* Longhouse.framework.dSYM */,
+				215642111C06B46E00685847 /* Mixpanel.framework */,
+				215642121C06B46E00685847 /* Mixpanel.framework.dSYM */,
 				21AE3F411C0423E300AE5DDC /* OnePasswordExtension.framework */,
 				21AE3F421C0423E300AE5DDC /* OnePasswordExtension.framework.dSYM */,
 				21AE3F431C0423E300AE5DDC /* SocketRocket.framework */,
+				215642131C06B46E00685847 /* SocketRocket.framework.dSYM */,
 				21AE3F441C0423E300AE5DDC /* SSKeychain.framework */,
 				21AE3F451C0423E300AE5DDC /* SSKeychain.framework.dSYM */,
 				21AE3F461C0423E300AE5DDC /* Static.framework */,
@@ -295,6 +313,7 @@
 				21F10F4D1BF138750035057D /* AppDelegate.swift */,
 				2129D30B1BF560810018F255 /* Color.swift */,
 				2129D30F1BF5634A0018F255 /* Accountable.swift */,
+				2156421E1C06B4ED00685847 /* Analytics.swift */,
 			);
 			name = Application;
 			sourceTree = "<group>";
@@ -450,6 +469,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SocketRocket.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SSKeychain.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Static.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Mixpanel.framework",
 			);
 			name = "Embed Carthage Frameworks";
 			outputPaths = (
@@ -473,6 +493,7 @@
 				2129D30C1BF560810018F255 /* Color.swift in Sources */,
 				21A8FA5F1BFD33EA0097FCC6 /* SafariActivity.swift in Sources */,
 				2134FADF1BFC09E300AE93CC /* BulletView.swift in Sources */,
+				2156421F1C06B4ED00685847 /* Analytics.swift in Sources */,
 				2129D3101BF5634A0018F255 /* Accountable.swift in Sources */,
 				2129D30A1BF55C340018F255 /* SignInViewController.swift in Sources */,
 				21A8FA5B1BFD30790097FCC6 /* WebActivity.swift in Sources */,

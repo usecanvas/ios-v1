@@ -83,6 +83,7 @@ class CanvasesViewController: ListViewController, Accountable {
 	}
 
 	private func showCanvas(canvas: Canvas)() {
+		Analytics.track(.OpenedCanvas)
 		let viewController = EditorViewController(account: account, canvas: canvas)
 		navigationController?.pushViewController(viewController, animated: true)
 	}

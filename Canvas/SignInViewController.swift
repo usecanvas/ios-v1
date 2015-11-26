@@ -109,6 +109,7 @@ class SignInViewController: TableViewController {
 				dispatch_async(dispatch_get_main_queue()) {
 					UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 					AccountController.sharedController.currentAccount = account
+					Analytics.track(.LoggedIn)
 				}
 			case .Failure(let errorMessage):
 				print("Error: \(errorMessage)")

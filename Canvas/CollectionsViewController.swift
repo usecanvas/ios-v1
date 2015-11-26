@@ -78,6 +78,7 @@ class CollectionsViewController: ListViewController, Accountable {
 	// MARK: - Actions
 
 	@objc private func signOut(sender: AnyObject?) {
+		Analytics.track(.LoggedIn)
 		AccountController.sharedController.currentAccount = nil
 	}
 
@@ -105,6 +106,7 @@ class CollectionsViewController: ListViewController, Accountable {
 	}
 
 	private func showCollection(collection: Collection)() {
+		Analytics.track(.ChangedCollection(collection: collection))
 		let viewController = CanvasesViewController(account: account, collection: collection)
 		navigationController?.pushViewController(viewController, animated: true)
 	}
