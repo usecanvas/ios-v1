@@ -35,6 +35,12 @@ class SignInViewController: TableViewController {
 		return field
 	}()
 
+	let signInButton: UIButton = {
+		let button = Button(frame: CGRect(x: 0, y: 0, width: 300, height: 44))
+		button.setTitle("Login", forState: .Normal)
+		return button
+	}()
+
 	private var loading = false {
 		didSet {
 			usernameTextField.enabled = !loading
@@ -57,27 +63,52 @@ class SignInViewController: TableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		view.backgroundColor = Color.lightGray
+
+		tableView.rowHeight = 48
+
+		if view.bounds.height < 500 {
+			tableView.contentInset = UIEdgeInsets(top: -35, left: 0, bottom: 0, right: 0)
+		}
+
 		if OnePasswordExtension.sharedExtension().isAppExtensionAvailable() {
-			navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "OnePassword"), landscapeImagePhone: nil, style: .Plain, target: self, action: "onePassword:")
+			let button = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: tableView.rowHeight))
+			button.setImage(UIImage(named: "OnePassword"), forState: .Normal)
+			button.imageView?.tintColor = Color.brand
+			button.addTarget(self, action: "onePassword:", forControlEvents: .TouchUpInside)
+			usernameTextField.rightView = button
+			usernameTextField.rightViewMode = .Always
 		}
 
 		usernameTextField.delegate = self
 		passwordTextField.delegate = self
+
+		let footer = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 44))
+		footer.addSubview(signInButton)
 
 		dataSource.sections = [
 			Section(rows: [
 				Row(text: "Username", accessory: .View(usernameTextField)),
 				Row(text: "Password", accessory: .View(passwordTextField))
 			]),
-			Section(rows: [
-				Row(text: "Sign In", cellClass: ButtonCell.self, selection: signIn)
-			])
+			Section(footer: .View(footer))
 		]
 	}
 
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		usernameTextField.becomeFirstResponder()
+	}
+
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+
+		signInButton.frame = CGRect(
+			x: tableView.separatorInset.left,
+			y: 0,
+			width: tableView.bounds.width - (tableView.separatorInset.left * 2),
+			height: 44
+		)
 	}
 
 

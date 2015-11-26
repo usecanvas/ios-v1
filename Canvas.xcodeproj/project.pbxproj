@@ -19,6 +19,7 @@
 		2156421C1C06B49700685847 /* Mixpanel.framework.dSYM in Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = 215642121C06B46E00685847 /* Mixpanel.framework.dSYM */; };
 		2156421D1C06B49A00685847 /* AMScrollingNavbar.framework.dSYM in Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = 215642101C06B46E00685847 /* AMScrollingNavbar.framework.dSYM */; };
 		2156421F1C06B4ED00685847 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2156421E1C06B4ED00685847 /* Analytics.swift */; };
+		215642221C06BBE600685847 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215642211C06BBE600685847 /* Button.swift */; };
 		21A8FA351BFCF5BC0097FCC6 /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A8FA301BFCF59D0097FCC6 /* CanvasText.framework */; };
 		21A8FA361BFCF5C40097FCC6 /* CanvasText.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21A8FA301BFCF59D0097FCC6 /* CanvasText.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21A8FA3D1BFD04F20097FCC6 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA3C1BFD04F20097FCC6 /* CollectionCell.swift */; };
@@ -136,6 +137,7 @@
 		215642121C06B46E00685847 /* Mixpanel.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Mixpanel.framework.dSYM; path = Carthage/Build/iOS/Mixpanel.framework.dSYM; sourceTree = "<group>"; };
 		215642131C06B46E00685847 /* SocketRocket.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SocketRocket.framework.dSYM; path = Carthage/Build/iOS/SocketRocket.framework.dSYM; sourceTree = "<group>"; };
 		2156421E1C06B4ED00685847 /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
+		215642211C06BBE600685847 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		21A8FA2A1BFCF59D0097FCC6 /* CanvasText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasText.xcodeproj; path = CanvasText/CanvasText.xcodeproj; sourceTree = "<group>"; };
 		21A8FA3C1BFD04F20097FCC6 /* CollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		21A8FA491BFD085F0097FCC6 /* CanvasCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasCell.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				2134FADE1BFC09E300AE93CC /* BulletView.swift */,
 				21B742C71BFF991600FF293C /* NumberView.swift */,
 				21B742D81BFFCFDB00FF293C /* BlockquoteBorderView.swift */,
+				215642211C06BBE600685847 /* Button.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				2129D3121BF568AB0018F255 /* CanvasesViewController.swift in Sources */,
 				21A8FA5D1BFD33DB0097FCC6 /* ChromeActivity.swift in Sources */,
 				21B742D91BFFCFDB00FF293C /* BlockquoteBorderView.swift in Sources */,
+				215642221C06BBE600685847 /* Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
