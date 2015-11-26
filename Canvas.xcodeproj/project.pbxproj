@@ -52,6 +52,7 @@
 		21F10F651BF13D720035057D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21F10F601BF13D720035057D /* Assets.xcassets */; };
 		21F10F661BF13D720035057D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21F10F611BF13D720035057D /* LaunchScreen.storyboard */; };
 		21FB6AB01BF53B8E003C82BB /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FB6AAF1BF53B8E003C82BB /* RootViewController.swift */; };
+		21FCB5801C07685000F78D93 /* SignInTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCB57F1C07685000F78D93 /* SignInTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +174,7 @@
 		21F10F621BF13D720035057D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21F10F631BF13D720035057D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21FB6AAF1BF53B8E003C82BB /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		21FCB57F1C07685000F78D93 /* SignInTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 				21B742C71BFF991600FF293C /* NumberView.swift */,
 				21B742D81BFFCFDB00FF293C /* BlockquoteBorderView.swift */,
 				215642211C06BBE600685847 /* Button.swift */,
+				21FCB57F1C07685000F78D93 /* SignInTextField.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				2129D30C1BF560810018F255 /* Color.swift in Sources */,
 				21A8FA5F1BFD33EA0097FCC6 /* SafariActivity.swift in Sources */,
 				2134FADF1BFC09E300AE93CC /* BulletView.swift in Sources */,
+				21FCB5801C07685000F78D93 /* SignInTextField.swift in Sources */,
 				2156421F1C06B4ED00685847 /* Analytics.swift in Sources */,
 				2129D3101BF5634A0018F255 /* Accountable.swift in Sources */,
 				2129D30A1BF55C340018F255 /* SignInViewController.swift in Sources */,

@@ -7,20 +7,25 @@
 //
 
 import UIKit
-import Static
 import CanvasKit
 import OnePasswordExtension
 
-class SignInViewController: TableViewController {
+class SignInViewController: UIViewController {
 
 	// MARK: - Properties
 
-	// TODO: lol gross
-	private static let fieldWidth = UIScreen.mainScreen().bounds.width - (UI_USER_INTERFACE_IDIOM() == .Pad ? 200 : 130)
+	let stackView: UIStackView = {
+		let view = UIStackView()
+		view.translatesAutoresizingMaskIntoConstraints = false
+		view.axis = .Vertical
+		view.spacing = 16
+		return view
+	}()
 
 	let usernameTextField: UITextField = {
-		let field = UITextField(frame: CGRect(x: 0, y: 0, width: fieldWidth, height: 44))
-		field.placeholder = "user"
+		let field = SignInTextField()
+		field.translatesAutoresizingMaskIntoConstraints = false
+		field.placeholder = "Username or email"
 		field.autocapitalizationType = .None
 		field.autocorrectionType = .No
 		field.returnKeyType = .Next
@@ -28,15 +33,19 @@ class SignInViewController: TableViewController {
 	}()
 
 	let passwordTextField: UITextField = {
-		let field = UITextField(frame: CGRect(x: 0, y: 0, width: fieldWidth, height: 44))
+		let field = SignInTextField()
+		field.translatesAutoresizingMaskIntoConstraints = false
 		field.secureTextEntry = true
-		field.placeholder = "password"
+		field.placeholder = "Password"
 		field.returnKeyType = .Go
 		return field
 	}()
 
 	let signInButton: UIButton = {
-		let button = Button(frame: CGRect(x: 0, y: 0, width: 300, height: 44))
+		let button = Button()
+		button.translatesAutoresizingMaskIntoConstraints = false
+		button.backgroundColor = Color.white
+		button.setTitleColor(Color.brand, forState: .Normal)
 		button.setTitle("Login", forState: .Normal)
 		return button
 	}()
@@ -50,31 +59,18 @@ class SignInViewController: TableViewController {
 	}
 
 
-	// MARK: - Initializers
-
-	convenience init() {
-		self.init(style: .Grouped)
-		title = "Canvas"
-	}
-
-
 	// MARK: - UIViewController
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		view.backgroundColor = Color.lightGray
+		view.backgroundColor = Color.brand
 
-		tableView.rowHeight = 48
-
-		if view.bounds.height < 500 {
-			tableView.contentInset = UIEdgeInsets(top: -35, left: 0, bottom: 0, right: 0)
-		}
-
+		// 1Password
 		if OnePasswordExtension.sharedExtension().isAppExtensionAvailable() {
-			let button = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: tableView.rowHeight))
+			let button = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 44))
 			button.setImage(UIImage(named: "OnePassword"), forState: .Normal)
-			button.imageView?.tintColor = Color.brand
+			button.imageView?.tintColor = Color.white
 			button.addTarget(self, action: "onePassword:", forControlEvents: .TouchUpInside)
 			usernameTextField.rightView = button
 			usernameTextField.rightViewMode = .Always
@@ -83,16 +79,17 @@ class SignInViewController: TableViewController {
 		usernameTextField.delegate = self
 		passwordTextField.delegate = self
 
-		let footer = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 44))
-		footer.addSubview(signInButton)
+		stackView.addArrangedSubview(usernameTextField)
+		stackView.addArrangedSubview(passwordTextField)
+		stackView.addArrangedSubview(signInButton)
+		view.addSubview(stackView)
 
-		dataSource.sections = [
-			Section(rows: [
-				Row(text: "Username", accessory: .View(usernameTextField)),
-				Row(text: "Password", accessory: .View(passwordTextField))
-			]),
-			Section(footer: .View(footer))
-		]
+		NSLayoutConstraint.activateConstraints([
+			stackView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor),
+			stackView.widthAnchor.constraintEqualToAnchor(view.widthAnchor, multiplier: 0.8),
+			stackView.topAnchor.constraintEqualToAnchor(view.topAnchor, constant: 64),
+			signInButton.heightAnchor.constraintEqualToAnchor(usernameTextField.heightAnchor)
+		])
 	}
 
 	override func viewWillAppear(animated: Bool) {
@@ -100,15 +97,8 @@ class SignInViewController: TableViewController {
 		usernameTextField.becomeFirstResponder()
 	}
 
-	override func viewDidLayoutSubviews() {
-		super.viewDidLayoutSubviews()
-
-		signInButton.frame = CGRect(
-			x: tableView.separatorInset.left,
-			y: 0,
-			width: tableView.bounds.width - (tableView.separatorInset.left * 2),
-			height: 44
-		)
+	override func preferredStatusBarStyle() -> UIStatusBarStyle {
+		return .LightContent
 	}
 
 
