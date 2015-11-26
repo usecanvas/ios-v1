@@ -15,7 +15,8 @@ class SignInViewController: TableViewController {
 
 	// MARK: - Properties
 
-	private static let fieldWidth = UIScreen.mainScreen().bounds.width < 350 ? 190 : 240
+	// TODO: lol gross
+	private static let fieldWidth = UIScreen.mainScreen().bounds.width - (UI_USER_INTERFACE_IDIOM() == .Pad ? 200 : 130)
 
 	let usernameTextField: UITextField = {
 		let field = UITextField(frame: CGRect(x: 0, y: 0, width: fieldWidth, height: 44))
