@@ -168,23 +168,7 @@ extension TextView: CanvasTextStorageDelegate {
 		attachment.bounds = CGRect(x: 0, y: 0, width: width, height: width * image.size.height / image.size.width)
 
 		// Draw a custom placeholder *sigh*
-		if let scale = window?.screen.scale, image = UIImage(named: "ImagePlaceholder") {
-			let rect = attachment.bounds.ceil
-			UIGraphicsBeginImageContextWithOptions(rect.size, true, scale)
-			UIColor(red: 0.957, green: 0.976, blue: 1, alpha: 1).setFill()
-			UIBezierPath(rect: rect).fill()
-
-			UIColor(red: 0.729, green: 0.773, blue: 0.835, alpha: 1).setFill()
-			image.drawInRect(CGRect(
-				x: (rect.width - image.size.width) / 2,
-				y: (rect.height - image.size.height) / 2,
-				width: image.size.width,
-				height: image.size.height
-			))
-
-			attachment.image = UIGraphicsGetImageFromCurrentImageContext()
-			UIGraphicsEndImageContext()
-		}
+		attachment.image = Image.placeholderImage(size: attachment.bounds.ceil.size)
 
 		imageAttachments[image] = attachment
 

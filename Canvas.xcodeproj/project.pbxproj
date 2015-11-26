@@ -55,6 +55,7 @@
 		21FCB5801C07685000F78D93 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCB57F1C07685000F78D93 /* LoginTextField.swift */; };
 		21FCB5831C0777E200F78D93 /* CGRect+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCB5821C0777E200F78D93 /* CGRect+Canvas.swift */; };
 		21FCB5851C077C8100F78D93 /* UIEdgeInsets+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCB5841C077C8100F78D93 /* UIEdgeInsets+Canvas.swift */; };
+		21FCB58B1C07867300F78D93 /* Image+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCB58A1C07867300F78D93 /* Image+Canvas.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,6 +180,7 @@
 		21FCB57F1C07685000F78D93 /* LoginTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		21FCB5821C0777E200F78D93 /* CGRect+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Canvas.swift"; sourceTree = "<group>"; };
 		21FCB5841C077C8100F78D93 /* UIEdgeInsets+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Canvas.swift"; sourceTree = "<group>"; };
+		21FCB58A1C07867300F78D93 /* Image+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Image+Canvas.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -352,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				21FCB5821C0777E200F78D93 /* CGRect+Canvas.swift */,
+				21FCB58A1C07867300F78D93 /* Image+Canvas.swift */,
 				21FCB5841C077C8100F78D93 /* UIEdgeInsets+Canvas.swift */,
 			);
 			name = Extensions;
@@ -530,6 +533,7 @@
 				21FB6AB01BF53B8E003C82BB /* RootViewController.swift in Sources */,
 				21F10F501BF138750035057D /* EditorViewController.swift in Sources */,
 				2129D30C1BF560810018F255 /* Color.swift in Sources */,
+				21FCB58B1C07867300F78D93 /* Image+Canvas.swift in Sources */,
 				21A8FA5F1BFD33EA0097FCC6 /* SafariActivity.swift in Sources */,
 				2134FADF1BFC09E300AE93CC /* BulletView.swift in Sources */,
 				21FCB5851C077C8100F78D93 /* UIEdgeInsets+Canvas.swift in Sources */,
