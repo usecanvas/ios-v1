@@ -30,4 +30,4 @@ extension Node {
 	}
 }
 
-let nodeParseOrder: [Node.Type] = [Blockquote.self, Checklist.self, CodeBlock.self, DocHeading.self, Heading.self, OrderedList.self, UnorderedList.self, Paragraph.self]
+let nodeParseOrder: [Node.Type] = [Blockquote.self, Checklist.self, CodeBlock.self, DocHeading.self, Heading.self, Image.self, OrderedList.self, UnorderedList.self, Paragraph.self]

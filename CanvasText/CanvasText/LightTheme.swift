@@ -21,7 +21,6 @@ public struct LightTheme: Theme {
 	public let foregroundColor = Color(white: 0.133, alpha: 1)
 
 	public let lineHeightMultiple: CGFloat = 1.2
-	public let paragraphSpacing: CGFloat
 	
 	private let smallParagraphSpacing: CGFloat
 	private let mediumGray = Color(white: 0.5, alpha: 1)
@@ -30,7 +29,6 @@ public struct LightTheme: Theme {
 	// MARK: - Initializers
 
 	public init() {
-		paragraphSpacing = fontSize * 1.5
 		smallParagraphSpacing = fontSize * 0.1
 	}
 

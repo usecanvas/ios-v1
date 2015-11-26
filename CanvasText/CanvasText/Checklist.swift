@@ -30,11 +30,7 @@ public struct Checklist: Listable {
 		scanner.charactersToBeSkipped = nil
 
 		// Delimiter
-		if !scanner.scanString(leadingDelimiter, intoString: nil) {
-			return nil
-		}
-
-		if !scanner.scanString("checklist-", intoString: nil) {
+		if !scanner.scanString("\(leadingDelimiter)checklist-", intoString: nil) {
 			return nil
 		}
 

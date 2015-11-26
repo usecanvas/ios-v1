@@ -24,6 +24,10 @@ public protocol Theme {
 	var foregroundColor: Color { get }
 	var baseAttributes: Attributes { get }
 
+	var lineHeightMultiple: CGFloat { get }
+	var paragraphSpacing: CGFloat { get }
+
+
 	func fontOfSize(fontSize: CGFloat, style: FontStyle) -> Font
 	func monospaceFontOfSize(fontSize: CGFloat, style: FontStyle) -> Font
 
@@ -32,6 +36,10 @@ public protocol Theme {
 
 
 extension Theme {
+	public var paragraphSpacing: CGFloat {
+		return fontSize * 1.5
+	}
+
 	public var listIndentation: CGFloat {
 		return round(fontSize * 1.1)
 	}

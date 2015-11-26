@@ -15,8 +15,9 @@
 import WebKit
 
 
-public protocol CanvasTextStorageNodesDelegate: class {
-	func canvasTextStorageDidUpdateNodes(textStorage: CanvasTextStorage)
+public protocol CanvasTextStorageDelegate: class {
+	func textStorageDidUpdateNodes(textStorage: CanvasTextStorage)
+	func textStorage(textStorage: CanvasTextStorage, attachmentForAttachable node: Attachable) -> NSTextAttachment?
 }
 
 
@@ -26,7 +27,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 	public let theme: Theme
 
-	public weak var nodesDelegate: CanvasTextStorageNodesDelegate?
+	public weak var canvasDelegate: CanvasTextStorageDelegate?
 
 	private var transportController: TransportController?
 
@@ -139,8 +140,27 @@ public class CanvasTextStorage: ShadowTextStorage {
 				next = nil
 			}
 
-			let attributes = theme.attributesForNode(node, nextSibling: next)
 			let range = backingRangeToDisplayRange(node.contentRange)
+
+			// Attachables
+			if let node = node as? Attachable, attachment = canvasDelegate?.textStorage(self, attachmentForAttachable: node) {
+				// Use the attachment character
+				text.replaceCharactersInRange(range, withString: String(Character(UnicodeScalar(NSAttachmentCharacter))))
+
+				// Add space after the attachment
+				let paragraph = NSMutableParagraphStyle()
+				paragraph.paragraphSpacing = theme.paragraphSpacing
+
+				// Add the attributes
+				text.addAttributes([
+					NSParagraphStyleAttributeName: paragraph,
+					NSAttachmentAttributeName: attachment
+				], range: range)
+				continue
+			}
+
+			// Normal elements
+			let attributes = theme.attributesForNode(node, nextSibling: next)
 			text.addAttributes(attributes, range: range)
 		}
 
@@ -148,7 +168,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 	}
 
 	public override func didProcessBackingText(backingText: String) {
-		self.nodesDelegate?.canvasTextStorageDidUpdateNodes(self)
+		self.canvasDelegate?.textStorageDidUpdateNodes(self)
 	}
 
 

@@ -39,7 +39,7 @@ class EditorViewController: UIViewController, Accountable {
 		super.init(nibName: nil, bundle: nil)
 
 		textStorage.selectionDelegate = self
-		textStorage.nodesDelegate = self
+		textStorage.canvasDelegate = self
 
 		longhouse.delegate = self
 	}
@@ -142,9 +142,18 @@ extension EditorViewController: ShadowTextStorageSelectionDelegate {
 }
 
 
-extension EditorViewController: CanvasTextStorageNodesDelegate {
-	func canvasTextStorageDidUpdateNodes(textStorage: CanvasTextStorage) {
+extension EditorViewController: CanvasTextStorageDelegate {
+	func textStorageDidUpdateNodes(textStorage: CanvasTextStorage) {
 		textView.updateAnnotations()
+	}
+
+	func textStorage(textStorage: CanvasTextStorage, attachmentForAttachable node: Attachable) -> NSTextAttachment? {
+		guard let image = node as? Image else { return nil }
+		let attachment = NSTextAttachment()
+
+		let width = textView.bounds.width - textView.textContainerInset.left - textView.textContainerInset.right
+		attachment.bounds = CGRect(x: 0, y: 0, width: width, height: width * image.size.height / image.size.width)
+		return attachment
 	}
 }
 
