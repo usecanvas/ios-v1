@@ -62,16 +62,22 @@ class CollectionsViewController: ListViewController, Accountable {
 
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
-		navigationController?.navigationBar.barTintColor = Color.darkGray
-		navigationController?.navigationBar.barStyle = .Black
-		navigationController?.navigationBar.tintColor = Color.white.colorWithAlphaComponent(0.5)
+
+		guard let navigationBar = navigationController?.navigationBar else { return }
+
+		navigationBar.barTintColor = Color.darkGray
+		navigationBar.barStyle = .Black
+		navigationBar.tintColor = Color.white.colorWithAlphaComponent(0.7)
+		navigationBar.translucent = true
 	}
 	
 	override func viewWillDisappear(animated: Bool) {
 		super.viewWillDisappear(animated)
-		navigationController?.navigationBar.barTintColor = Color.white
-		navigationController?.navigationBar.barStyle = .Default
-		navigationController?.navigationBar.tintColor = Color.brand
+
+		guard let navigationBar = navigationController?.navigationBar else { return }
+
+		navigationBar.barTintColor = Color.brand
+		navigationBar.translucent = false
 	}
 
 

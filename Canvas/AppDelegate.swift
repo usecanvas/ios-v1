@@ -27,9 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Analytics
 		Analytics.track(.LaunchedApp)
 
-		// Appearance
-		UINavigationBar.appearance().barTintColor = Color.white
-
 		// Show window
 		window?.makeKeyAndVisible()
 		return true
