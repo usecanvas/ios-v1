@@ -112,7 +112,12 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 			// Unsupported range
 			var range = substringRange
-			range.length += 1 // Account for new line
+
+			// Account for new line
+			if range.max + 1 < text.length {
+				range.length += 1
+			}
+			
 			hiddenRanges.append(range)
 		}
 

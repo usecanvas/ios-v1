@@ -94,11 +94,9 @@ class TransportController: NSObject {
 	private func insert(location location: UInt, string: String) {
 		guard let data = try? NSJSONSerialization.dataWithJSONObject([string], options: []),
 			json = String(data: data, encoding: NSUTF8StringEncoding)
-			else { return }
+		else { return }
 		
-		webView.evaluateJavaScript("Canvas.insert(\(location), \(json)[0]);") { object, error in
-			print("js: \(object), error: \(error)")
-		}
+		webView.evaluateJavaScript("Canvas.insert(\(location), \(json)[0]);", completionHandler: nil)
 	}
 	
 	private func remove(location location: UInt, length: UInt) {
