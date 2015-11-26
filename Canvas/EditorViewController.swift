@@ -35,11 +35,11 @@ class EditorViewController: UIViewController, Accountable {
 
 		textView = TextView(textStorage: textStorage)
 		textView.translatesAutoresizingMaskIntoConstraints = false
+		textView.contentInset = .zero
 
 		super.init(nibName: nil, bundle: nil)
 
 		textStorage.selectionDelegate = self
-		textStorage.canvasDelegate = self
 
 		longhouse.delegate = self
 	}
@@ -95,7 +95,9 @@ class EditorViewController: UIViewController, Accountable {
 		super.viewDidLayoutSubviews()
 
 		let maxWidth = textStorage.theme.fontSize * 36
-		let padding = max(16, (textView.bounds.width - maxWidth) / 2)
+
+		// The target minimum padding is 16. For some reason, there is an extra 10 on each side already.
+		let padding = max(11, (textView.bounds.width - maxWidth) / 2)
 		textView.textContainerInset = UIEdgeInsets(top: 16, left: padding, bottom: 32, right: padding)
 	}
 
@@ -138,22 +140,6 @@ extension EditorViewController: ShadowTextStorageSelectionDelegate {
 			return
 		}
 		textView.selectedRange = textStorage.displaySelection
-	}
-}
-
-
-extension EditorViewController: CanvasTextStorageDelegate {
-	func textStorageDidUpdateNodes(textStorage: CanvasTextStorage) {
-		textView.updateAnnotations()
-	}
-
-	func textStorage(textStorage: CanvasTextStorage, attachmentForAttachable node: Attachable) -> NSTextAttachment? {
-		guard let image = node as? Image else { return nil }
-		let attachment = NSTextAttachment()
-
-		let width = textView.bounds.width - textView.textContainerInset.left - textView.textContainerInset.right
-		attachment.bounds = CGRect(x: 0, y: 0, width: width, height: width * image.size.height / image.size.width)
-		return attachment
 	}
 }
 

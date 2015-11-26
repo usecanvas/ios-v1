@@ -9,7 +9,7 @@
 import Foundation
 import CoreGraphics
 
-public struct Image: Attachable {
+public struct Image: Attachable, Hashable {
 
 	// MARK: - Properties
 
@@ -19,10 +19,13 @@ public struct Image: Attachable {
 	public var size: CGSize
 	public var URL: NSURL
 
+	public var hashValue: Int {
+		return ID.hashValue
+	}
+
 	public var aspectRatio: CGFloat {
 		return min(size.width, size.height) / max(size.width, size.height)
 	}
-
 
 	// MARK: - Initializers
 
@@ -48,7 +51,7 @@ public struct Image: Attachable {
 			ID = dictionary["ci"] as? String,
 			width = dictionary["width"] as? UInt,
 			height = dictionary["height"] as? UInt,
-			URLString = dictionary["url"] as? String,
+			URLString = (dictionary["url"] as? String)?.stringByReplacingOccurrencesOfString(" ", withString: "%20"),
 			URL = NSURL(string: URLString)
 		else {
 			return nil
@@ -60,4 +63,9 @@ public struct Image: Attachable {
 
 		delimiterRange = NSRange(location: enclosingRange.location, length: enclosingRange.length - 1)
 	}
+}
+
+
+public func ==(lhs: Image, rhs: Image) -> Bool {
+	return lhs.ID == rhs.ID
 }

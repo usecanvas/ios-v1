@@ -15,6 +15,7 @@ class TextView: UITextView {
 	// MARK: - Properties
 
 	private var annotations = [UIView]()
+	private var imageAttachments = [Image: NSTextAttachment]()
 
 
 	// MARK: - Initializers {
@@ -29,6 +30,10 @@ class TextView: UITextView {
 
 		alwaysBounceVertical = true
 		keyboardDismissMode = .Interactive
+
+		if let textStorage = textStorage as? CanvasTextStorage {
+			textStorage.canvasDelegate = self
+		}
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -39,6 +44,9 @@ class TextView: UITextView {
 	// MARK: - Annotations
 
 	func updateAnnotations() {
+		annotations.removeAll()
+		imageAttachments.removeAll()
+
 		// Add annotations
 		let needsFirstResponder = !isFirstResponder()
 		if needsFirstResponder {
@@ -142,5 +150,44 @@ class TextView: UITextView {
 		}
 
 		return nil
+	}
+}
+
+
+extension TextView: CanvasTextStorageDelegate {
+	func textStorageDidUpdateNodes(textStorage: CanvasTextStorage) {
+		updateAnnotations()
+	}
+
+	func textStorage(textStorage: CanvasTextStorage, attachmentForAttachable node: Attachable) -> NSTextAttachment? {
+		guard let image = node as? Image else { return nil }
+		let attachment = NSTextAttachment()
+
+		// Not sure why it’s off by 10 here
+		let width = textContainer.size.width - 10
+		attachment.bounds = CGRect(x: 0, y: 0, width: width, height: width * image.size.height / image.size.width)
+
+		// Draw a custom placeholder *sigh*
+		if let scale = window?.screen.scale, image = UIImage(named: "ImagePlaceholder") {
+			let rect = attachment.bounds.ceil
+			UIGraphicsBeginImageContextWithOptions(rect.size, true, scale)
+			UIColor(red: 0.957, green: 0.976, blue: 1, alpha: 1).setFill()
+			UIBezierPath(rect: rect).fill()
+
+			UIColor(red: 0.729, green: 0.773, blue: 0.835, alpha: 1).setFill()
+			image.drawInRect(CGRect(
+				x: (rect.width - image.size.width) / 2,
+				y: (rect.height - image.size.height) / 2,
+				width: image.size.width,
+				height: image.size.height
+			))
+
+			attachment.image = UIGraphicsGetImageFromCurrentImageContext()
+			UIGraphicsEndImageContext()
+		}
+
+		imageAttachments[image] = attachment
+
+		return attachment
 	}
 }
