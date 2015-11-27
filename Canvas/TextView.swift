@@ -167,12 +167,10 @@ extension TextView: CanvasTextStorageDelegate {
 		let width = textContainer.size.width - 10
 		attachment.bounds = CGRect(x: 0, y: 0, width: width, height: width * image.size.height / image.size.width)
 
-		// Draw a custom placeholder *sigh*
-		attachment.image = Image.placeholderImage(size: attachment.bounds.ceil.size)
-
 		imageAttachments[image] = attachment
 
-		ImagesController.sharedController.image(node: image) { [weak self] node, image in
+		let size = attachment.bounds.ceil.size
+		attachment.image = ImagesController.sharedController.fetchImage(node: image, size: size) { [weak self] node, image in
 			if let image = image, attachment = self?.imageAttachments[node], textStorage = self?.textStorage as? CanvasTextStorage {
 				attachment.image = image
 
@@ -180,6 +178,8 @@ extension TextView: CanvasTextStorageDelegate {
 				textStorage.edited([.EditedAttributes], range: range, changeInLength: 0)
 			}
 		}
+
+		imageAttachments[image] = attachment
 
 		return attachment
 	}
