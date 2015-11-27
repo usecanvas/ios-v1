@@ -18,11 +18,13 @@ class CollectionsViewController: ListViewController, Accountable {
 
 	var collections = [Collection]() {
 		didSet {
-			let rows = collections.map {
-				Row(text: $0.name, accessory: .DisclosureIndicator, selection: showCollection($0), cellClass: CollectionCell.self)
-			}
+			reloadRows()
+		}
+	}
 
-			dataSource.sections = [Section(rows: rows)]
+	private var selectedCollection: Collection? {
+		didSet {
+			reloadRows()
 		}
 	}
 
@@ -37,6 +39,24 @@ class CollectionsViewController: ListViewController, Accountable {
 
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+
+
+
+	// MARK: - UIResponder
+
+	override func canBecomeFirstResponder() -> Bool {
+		return true
+	}
+
+	override var keyCommands: [UIKeyCommand] {
+		return [
+			UIKeyCommand(input: UIKeyInputUpArrow, modifierFlags: [], action: "selectPreviousCollection:", discoverabilityTitle: "Previous Collection"),
+			UIKeyCommand(input: UIKeyInputDownArrow, modifierFlags: [], action: "selectNextCollection:", discoverabilityTitle: "Next Collection"),
+			UIKeyCommand(input: "\r", modifierFlags: [], action: "openSelectedCollection:", discoverabilityTitle: "Open Collection"),
+			UIKeyCommand(input: UIKeyInputRightArrow, modifierFlags: [], action: "openSelectedCollection:"),
+			UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: "clearSelectedCollection:", discoverabilityTitle: "Clear Selection")
+		]
 	}
 
 
@@ -83,7 +103,43 @@ class CollectionsViewController: ListViewController, Accountable {
 
 	// MARK: - Actions
 
-	@objc private func signOut(sender: AnyObject?) {
+	func selectPreviousCollection(sender: AnyObject?) {
+		guard let selectedCollection = selectedCollection, index = collections.indexOf({ $0.ID == selectedCollection.ID }) else {
+			self.selectedCollection = collections.first
+			return
+		}
+
+		if index == 0 {
+			return
+		}
+
+		self.selectedCollection = collections[index.predecessor()]
+	}
+
+	func selectNextCollection(sender: AnyObject?) {
+		guard let selectedCollection = selectedCollection, index = collections.indexOf({ $0.ID == selectedCollection.ID }) else {
+			self.selectedCollection = collections.first
+			return
+		}
+
+		if index == collections.count - 1 {
+			return
+		}
+
+		self.selectedCollection = collections[index.successor()]
+
+	}
+
+	func openSelectedCollection(sender: AnyObject?) {
+		guard let collection = selectedCollection ?? collections.first else { return }
+		showCollection(collection)()
+	}
+
+	func clearSelectedCollection(sender: AnyObject?) {
+		selectedCollection = nil
+	}
+
+	func signOut(sender: AnyObject?) {
 		Analytics.track(.LoggedIn)
 		AccountController.sharedController.currentAccount = nil
 	}
@@ -109,6 +165,27 @@ class CollectionsViewController: ListViewController, Accountable {
 				}
 			}
 		}
+	}
+
+
+	// MARK: - Private
+
+	private func reloadRows() {
+		let rows = collections.map {
+			Row(
+				text: $0.name,
+				accessory: .DisclosureIndicator,
+				selection: showCollection($0),
+				cellClass: collectionCellClass($0)
+			)
+		}
+
+		dataSource.sections = [Section(rows: rows)]
+	}
+
+	private func collectionCellClass(collection: Collection) -> CellType.Type {
+		let selected = selectedCollection.flatMap { $0.ID == collection.ID } ?? false
+		return selected ? SelectedCollectionCell.self : CollectionCell.self
 	}
 
 	private func showCollection(collection: Collection)() {
