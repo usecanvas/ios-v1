@@ -150,6 +150,11 @@ extension EditorViewController: ShadowTextStorageSelectionDelegate {
 
 
 extension EditorViewController: UITextViewDelegate {
+	// Editing is disabled for now
+	func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+		return false
+	}
+
 	func textViewDidChangeSelection(textView: UITextView) {
 		ignoreSelectionChange = true
 		textStorage.backingSelection = textStorage.displayRangeToBackingRange(textView.selectedRange)
