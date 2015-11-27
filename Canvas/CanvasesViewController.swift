@@ -53,6 +53,7 @@ class CanvasesViewController: ListViewController, Accountable {
 	override var keyCommands: [UIKeyCommand] {
 		return [
 			UIKeyCommand(input: UIKeyInputLeftArrow, modifierFlags: [], action: "goBack:", discoverabilityTitle: "Back to Collections"),
+			UIKeyCommand(input: "w", modifierFlags: [.Command], action: "goBack:"),
 			UIKeyCommand(input: UIKeyInputUpArrow, modifierFlags: [], action: "selectPreviousCanvas:", discoverabilityTitle: "Previous Canvas"),
 			UIKeyCommand(input: UIKeyInputDownArrow, modifierFlags: [], action: "selectNextCanvas:", discoverabilityTitle: "Next Canvas"),
 			UIKeyCommand(input: "\r", modifierFlags: [], action: "openSelectedCanvas:", discoverabilityTitle: "Open Canvas"),

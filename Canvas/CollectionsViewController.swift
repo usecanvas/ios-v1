@@ -55,7 +55,8 @@ class CollectionsViewController: ListViewController, Accountable {
 			UIKeyCommand(input: UIKeyInputDownArrow, modifierFlags: [], action: "selectNextCollection:", discoverabilityTitle: "Next Collection"),
 			UIKeyCommand(input: "\r", modifierFlags: [], action: "openSelectedCollection:", discoverabilityTitle: "Open Collection"),
 			UIKeyCommand(input: UIKeyInputRightArrow, modifierFlags: [], action: "openSelectedCollection:"),
-			UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: "clearSelectedCollection:", discoverabilityTitle: "Clear Selection")
+			UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: "clearSelectedCollection:", discoverabilityTitle: "Clear Selection"),
+			UIKeyCommand(input: "Q", modifierFlags: [.Shift, .Command], action: "logOut:", discoverabilityTitle: "Log Out")
 		]
 	}
 
@@ -70,7 +71,7 @@ class CollectionsViewController: ListViewController, Accountable {
 		tableView.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
 		tableView.separatorColor = Color.gray
 
-		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .Plain, target: self, action: "signOut:")
+		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .Plain, target: self, action: "logOut:")
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
 
 		refresh()
@@ -139,7 +140,7 @@ class CollectionsViewController: ListViewController, Accountable {
 		selectedCollection = nil
 	}
 
-	func signOut(sender: AnyObject?) {
+	func logOut(sender: AnyObject?) {
 		Analytics.track(.LoggedIn)
 		AccountController.sharedController.currentAccount = nil
 	}

@@ -57,7 +57,8 @@ class EditorViewController: UIViewController, Accountable {
 
 	override var keyCommands: [UIKeyCommand] {
 		return [
-			UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: "dismissKeyboard:")
+			UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: "dismissKeyboard:"),
+			UIKeyCommand(input: "w", modifierFlags: [.Command], action: "close:")
 		]
 	}
 
@@ -121,11 +122,15 @@ class EditorViewController: UIViewController, Accountable {
 
 	// MARK: - Actions
 
-	@objc private func dismissKeyboard(sender: AnyObject?) {
+	func close(sender: AnyObject) {
+		navigationController?.popViewControllerAnimated(true)
+	}
+
+	func dismissKeyboard(sender: AnyObject?) {
 		textView.resignFirstResponder()
 	}
 
-	@objc private func share(sender: AnyObject?) {
+	func share(sender: AnyObject?) {
 		guard let URL = NSURL(string: "https://usecanvas.com/\(canvas.collectionID)/-/\(canvas.shortID)") else { return }
 		let activities = [SafariActivity(), ChromeActivity()]
 		let viewController = UIActivityViewController(activityItems: [URL], applicationActivities: activities)
