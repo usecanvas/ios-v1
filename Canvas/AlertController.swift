@@ -13,7 +13,7 @@ class AlertController: UIAlertController {
 	// MARK: - Properties
 
 	var primaryAction: (Void -> Void)?
-	
+
 
 	// MARK: - UIResponder
 
@@ -23,12 +23,17 @@ class AlertController: UIAlertController {
 
 	override var keyCommands: [UIKeyCommand]? {
 		return (super.keyCommands ?? []) + [
+			UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: "cancel:"),
 			UIKeyCommand(input: "\r", modifierFlags: [], action: "selectFirstAction:")
 		]
 	}
 
 
 	// MARK: - Actions
+
+	func cancel(sender: AnyObject?) {
+		dismissViewControllerAnimated(true, completion: nil)
+	}
 
 	func selectFirstAction(sender: AnyObject?) {
 		primaryAction?()

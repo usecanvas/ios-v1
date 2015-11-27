@@ -155,7 +155,8 @@ class CanvasesViewController: ListViewController, Accountable {
 
 	private func deleteCanvas(canvas: Canvas)() {
 		let title = canvas.title ?? "Untitled"
-		let actionSheet = AlertController(title: "Are you sure you want to delete “\(title)”?", message: nil, preferredStyle: .ActionSheet)
+		let style: UIAlertControllerStyle = traitCollection.userInterfaceIdiom == .Pad ? .Alert : .ActionSheet
+		let actionSheet = AlertController(title: "Are you sure you want to delete “\(title)”?", message: nil, preferredStyle: style)
 
 		let delete = { [weak self] in
 			guard let accessToken = self?.account.accessToken else { return }
@@ -169,7 +170,7 @@ class CanvasesViewController: ListViewController, Accountable {
 		actionSheet.addAction(UIAlertAction(title: "Delete", style: .Destructive) { _ in delete() })
 		actionSheet.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
 		actionSheet.primaryAction = delete
-		
+
 		presentViewController(actionSheet, animated: true, completion: nil)
 	}
 
