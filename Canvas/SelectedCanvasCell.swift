@@ -21,7 +21,7 @@ class SelectedCanvasCell: CanvasCell {
 
 		NSLayoutConstraint.activateConstraints([
 			indicator.widthAnchor.constraintEqualToConstant(4),
-			indicator.trailingAnchor.constraintEqualToAnchor(textLabel!.leadingAnchor, constant: -4),
+			indicator.trailingAnchor.constraintEqualToAnchor(textLabel!.leadingAnchor, constant: -12),
 			indicator.topAnchor.constraintEqualToAnchor(contentView.topAnchor, constant: 8),
 			indicator.bottomAnchor.constraintEqualToAnchor(contentView.bottomAnchor, constant: -8)
 		])

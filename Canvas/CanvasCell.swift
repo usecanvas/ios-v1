@@ -11,10 +11,10 @@ import Static
 
 class CanvasCell: UITableViewCell, CellType {
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-		super.init(style: style, reuseIdentifier: reuseIdentifier)
+		super.init(style: .Value1, reuseIdentifier: reuseIdentifier)
 
 		textLabel?.highlightedTextColor = Color.white
-		textLabel?.font = .systemFontOfSize(18)
+		textLabel?.font = Font.sansSerif()
 
 		let view = UIView()
 		view.backgroundColor = Color.brand
@@ -23,10 +23,5 @@ class CanvasCell: UITableViewCell, CellType {
 
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
-	}
-
-	func configure(row row: Row) {
-		textLabel?.text = row.text
-		accessoryType = row.accessory.type
 	}
 }

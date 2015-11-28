@@ -1,4 +1,4 @@
-github "usecanvas/CanvasKit"
+github "usecanvas/CanvasKit" "master"
 github "usecanvas/longhouse-swift"
 
 github "soffes/Mixpanel"

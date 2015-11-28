@@ -27,6 +27,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Analytics
 		Analytics.track(.LaunchedApp)
 
+		UIBarButtonItem.appearance().setTitleTextAttributes([
+			NSFontAttributeName: Font.sansSerif()
+		], forState: .Normal)
+
+		UINavigationBar.appearance().titleTextAttributes = [
+			NSFontAttributeName: Font.sansSerif(weight: .Bold),
+			NSForegroundColorAttributeName: Color.white
+		]
+
 		// Show window
 		window?.makeKeyAndVisible()
 		return true

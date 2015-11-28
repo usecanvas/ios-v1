@@ -155,9 +155,8 @@ class CanvasesViewController: ListViewController, Accountable {
 	}
 
 	private func deleteCanvas(canvas: Canvas)() {
-		let title = canvas.title ?? "Untitled"
 		let style: UIAlertControllerStyle = traitCollection.userInterfaceIdiom == .Pad ? .Alert : .ActionSheet
-		let actionSheet = AlertController(title: "Are you sure you want to delete “\(title)”?", message: nil, preferredStyle: style)
+		let actionSheet = AlertController(title: "Are you sure you want to delete “\(canvas.displayTitle)”?", message: nil, preferredStyle: style)
 
 		let delete = { [weak self] in
 			guard let accessToken = self?.account.accessToken else { return }
@@ -181,7 +180,8 @@ class CanvasesViewController: ListViewController, Accountable {
 	private func reloadRows() {
 		let rows = canvases.map {
 			Row(
-				text: $0.title ?? "Untitled",
+				text: $0.displayTitle,
+				detailText: $0.updatedAt.description,
 				accessory: .DisclosureIndicator,
 				selection: showCanvas($0),
 				cellClass: canvasCellClass($0),

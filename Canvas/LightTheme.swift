@@ -6,36 +6,44 @@
 //  Copyright © 2015 Canvas Labs, Inc. All rights reserved.
 //
 
-#if os(OSX)
-	import AppKit
-#else
-	import UIKit
-#endif
+import CanvasText
+import UIKit
 
-public struct LightTheme: Theme {
+struct LightTheme: Theme {
 
 	// MARK: - Properties
 
-	public let fontSize: CGFloat = 18
-	public let backgroundColor = Color(white: 1, alpha: 1)
-	public let foregroundColor = Color(white: 0.133, alpha: 1)
+	let fontSize: CGFloat = 16
+	let backgroundColor = UIColor(white: 1, alpha: 1)
+	let foregroundColor = UIColor(white: 0.133, alpha: 1)
 
-	public let lineHeightMultiple: CGFloat = 1.2
+	let lineHeightMultiple: CGFloat = 1.2
 	
 	private let smallParagraphSpacing: CGFloat
-	private let mediumGray = Color(white: 0.5, alpha: 1)
+	private let mediumGray = UIColor(white: 0.5, alpha: 1)
 
 
 	// MARK: - Initializers
 
-	public init() {
+	init() {
 		smallParagraphSpacing = fontSize * 0.1
 	}
 
 
-	// MARK: - Attributes
+	// MARK: - Theme
 
-	public func attributesForNode(node: Node, nextSibling: Node? = nil) -> Attributes {
+	func fontOfSize(fontSize: CGFloat, style: FontStyle = []) -> CanvasText.Font {
+		if style == [.Bold] {
+			return Font.sansSerif(weight: .Bold, pointSize: fontSize)
+		}
+
+		// TODO: Italic
+		// TODO: Bold italic
+
+		return Font.sansSerif(pointSize: fontSize)
+	}
+
+	func attributesForNode(node: Node, nextSibling: Node? = nil) -> Attributes {
 		let paragraph = NSMutableParagraphStyle()
 		paragraph.lineHeightMultiple = lineHeightMultiple
 		paragraph.paragraphSpacing = paragraphSpacing
@@ -43,20 +51,20 @@ public struct LightTheme: Theme {
 		var attributes = [String: AnyObject]()
 
 		if node is DocHeading {
-			attributes[NSForegroundColorAttributeName] = Color.blackColor()
-			attributes[NSFontAttributeName] = fontOfSize(fontSize * 2, style: [.Bold])
+			attributes[NSForegroundColorAttributeName] = UIColor.blackColor()
+			attributes[NSFontAttributeName] = fontOfSize(fontSize * 1.7, style: [.Bold])
 		}
 
 		else if let heading = node as? Heading {
 			switch heading.level {
 			case .One:
-				attributes[NSForegroundColorAttributeName] = Color.blackColor()
+				attributes[NSForegroundColorAttributeName] = UIColor.blackColor()
 				attributes[NSFontAttributeName] = fontOfSize(fontSize * 1.5, style: [.Bold])
 			case .Two:
 				attributes[NSForegroundColorAttributeName] = foregroundColor
 				attributes[NSFontAttributeName] = fontOfSize(fontSize * 1.2, style: [.Bold])
 			case .Three:
-				attributes[NSForegroundColorAttributeName] = Color(white: 0.3, alpha: 1)
+				attributes[NSForegroundColorAttributeName] = UIColor(white: 0.3, alpha: 1)
 				attributes[NSFontAttributeName] = fontOfSize(fontSize * 1.1, style: [.Bold])
 			case .Four:
 				attributes[NSForegroundColorAttributeName] = mediumGray
@@ -64,7 +72,7 @@ public struct LightTheme: Theme {
 			case .Five:
 				attributes[NSForegroundColorAttributeName] = mediumGray
 			case .Six:
-				attributes[NSForegroundColorAttributeName] = Color(white: 0.6, alpha: 1)
+				attributes[NSForegroundColorAttributeName] = UIColor(white: 0.6, alpha: 1)
 			}
 
 			// Smaller bottom margin if the next block isn’t a heading
@@ -79,7 +87,7 @@ public struct LightTheme: Theme {
 		}
 
 		else if node is Blockquote {
-			attributes[NSForegroundColorAttributeName] = Color(red: 0.494, green: 0.494, blue: 0.510, alpha: 1)
+			attributes[NSForegroundColorAttributeName] = UIColor(red: 0.494, green: 0.494, blue: 0.510, alpha: 1)
 			paragraph.firstLineHeadIndent = listIndentation
 			paragraph.headIndent = listIndentation
 		}

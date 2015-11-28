@@ -10,6 +10,8 @@
 		210960C51C08DE9600EB8F84 /* SelectedCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960C41C08DE9600EB8F84 /* SelectedCollectionCell.swift */; };
 		210960C71C08F01800EB8F84 /* SelectedCanvasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960C61C08F01800EB8F84 /* SelectedCanvasCell.swift */; };
 		210960C91C08F25000EB8F84 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960C81C08F24F00EB8F84 /* AlertController.swift */; };
+		210960D41C091CAE00EB8F84 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960D31C091CAE00EB8F84 /* Font.swift */; };
+		210960D61C091F7800EB8F84 /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960D51C091F7800EB8F84 /* LightTheme.swift */; };
 		2129D30A1BF55C340018F255 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D3091BF55C340018F255 /* LoginViewController.swift */; };
 		2129D30C1BF560810018F255 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D30B1BF560810018F255 /* Color.swift */; };
 		2129D30E1BF561400018F255 /* CollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D30D1BF561400018F255 /* CollectionsViewController.swift */; };
@@ -136,6 +138,8 @@
 		210960C41C08DE9600EB8F84 /* SelectedCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedCollectionCell.swift; sourceTree = "<group>"; };
 		210960C61C08F01800EB8F84 /* SelectedCanvasCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedCanvasCell.swift; sourceTree = "<group>"; };
 		210960C81C08F24F00EB8F84 /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		210960D31C091CAE00EB8F84 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		210960D51C091F7800EB8F84 /* LightTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
 		2129D3091BF55C340018F255 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2129D30B1BF560810018F255 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		2129D30D1BF561400018F255 /* CollectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionsViewController.swift; sourceTree = "<group>"; };
@@ -311,6 +315,7 @@
 		21F10F4C1BF138750035057D /* Canvas */ = {
 			isa = PBXGroup;
 			children = (
+				210960D51C091F7800EB8F84 /* LightTheme.swift */,
 				21FB6AAE1BF53B35003C82BB /* Application */,
 				21FB6AAD1BF53B2F003C82BB /* View Controllers */,
 				2134FADD1BFC09D300AE93CC /* Views */,
@@ -354,6 +359,7 @@
 			children = (
 				21F10F4D1BF138750035057D /* AppDelegate.swift */,
 				2129D30B1BF560810018F255 /* Color.swift */,
+				210960D31C091CAE00EB8F84 /* Font.swift */,
 				2156421E1C06B4ED00685847 /* Analytics.swift */,
 			);
 			name = Application;
@@ -558,8 +564,10 @@
 				21A8FA4A1BFD085F0097FCC6 /* CanvasCell.swift in Sources */,
 				21F10F4E1BF138750035057D /* AppDelegate.swift in Sources */,
 				2134FAE11BFC0A6A00AE93CC /* TextView.swift in Sources */,
+				210960D61C091F7800EB8F84 /* LightTheme.swift in Sources */,
 				21B742ED1C03BDF400FF293C /* ListViewController.swift in Sources */,
 				21A8FA3D1BFD04F20097FCC6 /* CollectionCell.swift in Sources */,
+				210960D41C091CAE00EB8F84 /* Font.swift in Sources */,
 				2129D3121BF568AB0018F255 /* CanvasesViewController.swift in Sources */,
 				21A8FA5D1BFD33DB0097FCC6 /* ChromeActivity.swift in Sources */,
 				21FCB58D1C07929A00F78D93 /* NSCache+Canvas.swift in Sources */,

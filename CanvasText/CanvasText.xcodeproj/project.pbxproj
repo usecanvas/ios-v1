@@ -71,8 +71,6 @@
 		21B742FC1C03CDA500FF293C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742FA1C03CDA500FF293C /* Theme.swift */; };
 		21B7430F1C03D19300FF293C /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B7430E1C03D19300FF293C /* FontStyle.swift */; };
 		21B743101C03D19300FF293C /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B7430E1C03D19300FF293C /* FontStyle.swift */; };
-		21B743121C03D1B000FF293C /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B743111C03D1B000FF293C /* LightTheme.swift */; };
-		21B743131C03D1B000FF293C /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B743111C03D1B000FF293C /* LightTheme.swift */; };
 		21CAFBD11C056FC100B9A3B5 /* ShadowTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CAFBD01C056FC100B9A3B5 /* ShadowTextStorage.swift */; };
 		21CAFBD21C056FC100B9A3B5 /* ShadowTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CAFBD01C056FC100B9A3B5 /* ShadowTextStorage.swift */; };
 		21CAFBD41C05767E00B9A3B5 /* ShadowTextStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CAFBD31C05767E00B9A3B5 /* ShadowTextStorageTests.swift */; };
@@ -134,7 +132,6 @@
 		21B742F61C03C71600FF293C /* CanvasTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasTextStorage.swift; sourceTree = "<group>"; };
 		21B742FA1C03CDA500FF293C /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		21B7430E1C03D19300FF293C /* FontStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontStyle.swift; sourceTree = "<group>"; };
-		21B743111C03D1B000FF293C /* LightTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
 		21CAFBD01C056FC100B9A3B5 /* ShadowTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowTextStorage.swift; sourceTree = "<group>"; };
 		21CAFBD31C05767E00B9A3B5 /* ShadowTextStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowTextStorageTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -287,7 +284,6 @@
 			children = (
 				21B742FA1C03CDA500FF293C /* Theme.swift */,
 				21B7430E1C03D19300FF293C /* FontStyle.swift */,
-				21B743111C03D1B000FF293C /* LightTheme.swift */,
 			);
 			name = Themes;
 			sourceTree = "<group>";
@@ -485,7 +481,6 @@
 				21A8FAA41BFE89A80097FCC6 /* Paragraph.swift in Sources */,
 				2150D6831BFEBDF6008BB629 /* Delimitable.swift in Sources */,
 				21A8FA131BFCF4E90097FCC6 /* NSRange+CanvasText.swift in Sources */,
-				21B743121C03D1B000FF293C /* LightTheme.swift in Sources */,
 				21CAFBD11C056FC100B9A3B5 /* ShadowTextStorage.swift in Sources */,
 				21B742EF1C03C6B900FF293C /* Font.swift in Sources */,
 				21B742F71C03C71600FF293C /* CanvasTextStorage.swift in Sources */,
@@ -529,7 +524,6 @@
 				21A8FAA51BFE89A80097FCC6 /* Paragraph.swift in Sources */,
 				2150D6841BFEBDF6008BB629 /* Delimitable.swift in Sources */,
 				21A8FA911BFE7B870097FCC6 /* NSRange+CanvasText.swift in Sources */,
-				21B743131C03D1B000FF293C /* LightTheme.swift in Sources */,
 				21CAFBD21C056FC100B9A3B5 /* ShadowTextStorage.swift in Sources */,
 				21B742F01C03C6B900FF293C /* Font.swift in Sources */,
 				21B742F81C03C71600FF293C /* CanvasTextStorage.swift in Sources */,

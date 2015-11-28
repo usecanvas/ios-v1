@@ -16,7 +16,7 @@ class CollectionCell: UITableViewCell, CellType {
 		backgroundColor = Color.lightGray
 		textLabel?.textColor = Color.darkGray
 		textLabel?.highlightedTextColor = Color.white
-		textLabel?.font = .systemFontOfSize(18)
+		textLabel?.font = Font.sansSerif()
 
 		let view = UIView()
 		view.backgroundColor = Color.brand

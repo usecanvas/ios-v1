@@ -29,7 +29,7 @@ class LoginTextField: UITextField {
 
 		textColor = Color.white
 		tintColor = Color.white
-		font = .systemFontOfSize(18)
+		font = Font.sansSerif()
 
 		layer.borderColor = Color.white.CGColor
 		layer.borderWidth = 2

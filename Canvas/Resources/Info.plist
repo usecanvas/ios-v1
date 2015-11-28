@@ -52,5 +52,12 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>NeueHaasUnicaPro-Italic.otf</string>
+		<string>NeueHaasUnicaPro-Medium.otf</string>
+		<string>NeueHaasUnicaPro-MediumIt.otf</string>
+		<string>NeueHaasUnicaPro-Regular.otf</string>
+	</array>
 </dict>
 </plist>

@@ -14,7 +14,7 @@ class Button: UIButton {
 
 		backgroundColor = Color.brand
 		layer.cornerRadius = 4
-		titleLabel?.font = .boldSystemFontOfSize(18)
+		titleLabel?.font = Font.sansSerif(weight: .Bold)
 	}
 
 	required init?(coder aDecoder: NSCoder) {
