@@ -17,12 +17,14 @@ struct Font {
 		var weight: CGFloat {
 			switch self {
 			case .Regular: return UIFontWeightRegular
-			case .Bold: return UIFontWeightSemibold
+			case .Bold: return UIFontWeightMedium
 			}
 		}
 	}
 
 	enum Size: UInt {
+		case Small = 14
+		case Subtitle = 16
 		case Body = 18
 
 		var pointSize: CGFloat {
