@@ -1,7 +1,7 @@
 github "andreamazz/AMScrollingNavbar" "2.0.9"
 github "soffes/ISO8601" "v0.4.0"
 github "soffes/Mixpanel" "v0.1.0"
-github "soffes/SocketRocket" "v0.4.2.1"
+github "soffes/SocketRocket" "v0.4.3"
 github "venmo/Static" "v0.4.1"
 github "AgileBits/onepassword-app-extension" "c5f2a0f815e74e678cfd2602bc99ff2ce95a1a2f"
 github "soffes/sskeychain" "v1.3.1"
