@@ -56,6 +56,9 @@ class TextView: UITextView {
 
 		guard let textStorage = textStorage as? CanvasTextStorage else { return }
 
+		// Make sure the layout is ready since we calculate annotations based off of that
+		layoutManager.ensureLayoutForTextContainer(textContainer)
+
 		var orderedIndentationCounts = [Indentation: UInt]()
 
 		for node in textStorage.nodes {
@@ -90,13 +93,7 @@ class TextView: UITextView {
 		guard let textStorage = textStorage as? CanvasTextStorage else { return nil }
 
 		let range = textStorage.backingRangeToDisplayRange(node.contentRange)
-
-		guard let start = positionFromPosition(beginningOfDocument, offset: range.location),
-			end = positionFromPosition(start, offset: range.length),
-			textRange = textRangeFromPosition(start, toPosition: end)
-		else { return nil }
-
-		var rect = firstRectForRange(textRange)
+		guard var rect = firstRectForRange(range) else { return nil }
 
 		let theme = textStorage.theme
 		let font = theme.fontOfSize(theme.fontSize, style: [])
@@ -106,13 +103,14 @@ class TextView: UITextView {
 			let view = BulletView(frame: .zero, unorderedList: node)
 			let size = view.intrinsicContentSize()
 
-			rect.origin.x -= theme.listIndentation - (size.width / 2)
 			rect.origin.y = floor(rect.origin.y + font.ascender - (size.height / 2))
 
 			// Terrible hack
 			if node.contentRange.length == 0 {
-				rect.origin.x += (size.width / 2) - 4
+				rect.origin.x += (size.width / 2)
 				rect.origin.y -= 1
+			} else {
+				rect.origin.x -= theme.listIndentation - (size.width / 2)
 			}
 
 			rect.size = size
@@ -165,6 +163,15 @@ class TextView: UITextView {
 		}
 
 		return nil
+	}
+
+	private func firstRectForRange(range: NSRange) -> CGRect? {
+		guard let start = positionFromPosition(beginningOfDocument, offset: range.location),
+			end = positionFromPosition(start, offset: range.length),
+			textRange = textRangeFromPosition(start, toPosition: end)
+		else { return nil }
+
+		return firstRectForRange(textRange)
 	}
 }
 
