@@ -44,6 +44,7 @@
 		21B742E01C03BD9000FF293C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742DF1C03BD9000FF293C /* TableViewController.swift */; };
 		21B742ED1C03BDF400FF293C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742EC1C03BDF400FF293C /* ListViewController.swift */; };
 		21B8D8D91BFC0E0B001ED447 /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B8D8D81BFC0E0B001ED447 /* CheckboxView.swift */; };
+		21D2B1981C0D0AED003652B7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21D2B1971C0D0AED003652B7 /* Settings.bundle */; };
 		21E48AFD1C0447AC00C9F6AA /* AMScrollingNavbar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AE3F3A1C0423E300AE5DDC /* AMScrollingNavbar.framework */; };
 		21E48AFE1C0447AC00C9F6AA /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AE3F3B1C0423E300AE5DDC /* CanvasKit.framework */; };
 		21E48B011C0447AC00C9F6AA /* ISO8601.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AE3F3D1C0423E300AE5DDC /* ISO8601.framework */; };
@@ -180,6 +181,7 @@
 		21B742DF1C03BD9000FF293C /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		21B742EC1C03BDF400FF293C /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		21B8D8D81BFC0E0B001ED447 /* CheckboxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
+		21D2B1971C0D0AED003652B7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		21F10F4A1BF138750035057D /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F10F4D1BF138750035057D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21F10F4F1BF138750035057D /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
@@ -294,6 +296,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		21D2B1961C0D0AC7003652B7 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				210960D51C091F7800EB8F84 /* LightTheme.swift */,
+				2129D30B1BF560810018F255 /* Color.swift */,
+				210960D31C091CAE00EB8F84 /* Font.swift */,
+			);
+			name = Styles;
+			sourceTree = "<group>";
+		};
 		21F10F411BF138750035057D = {
 			isa = PBXGroup;
 			children = (
@@ -315,11 +327,11 @@
 		21F10F4C1BF138750035057D /* Canvas */ = {
 			isa = PBXGroup;
 			children = (
-				210960D51C091F7800EB8F84 /* LightTheme.swift */,
 				21FB6AAE1BF53B35003C82BB /* Application */,
 				21FB6AAD1BF53B2F003C82BB /* View Controllers */,
 				2134FADD1BFC09D300AE93CC /* Views */,
 				215642271C06C3F300685847 /* Controllers */,
+				21D2B1961C0D0AC7003652B7 /* Styles */,
 				21A8FA501BFD306E0097FCC6 /* Activities */,
 				215642261C06C3E900685847 /* Protocols */,
 				21FCB5811C0777DA00F78D93 /* Extensions */,
@@ -335,6 +347,7 @@
 				21F10F601BF13D720035057D /* Assets.xcassets */,
 				21F10F611BF13D720035057D /* LaunchScreen.storyboard */,
 				21F10F631BF13D720035057D /* Info.plist */,
+				21D2B1971C0D0AED003652B7 /* Settings.bundle */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -358,8 +371,6 @@
 			isa = PBXGroup;
 			children = (
 				21F10F4D1BF138750035057D /* AppDelegate.swift */,
-				2129D30B1BF560810018F255 /* Color.swift */,
-				210960D31C091CAE00EB8F84 /* Font.swift */,
 				2156421E1C06B4ED00685847 /* Analytics.swift */,
 			);
 			name = Application;
@@ -491,6 +502,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21F10F651BF13D720035057D /* Assets.xcassets in Resources */,
+				21D2B1981C0D0AED003652B7 /* Settings.bundle in Resources */,
 				21F10F661BF13D720035057D /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
