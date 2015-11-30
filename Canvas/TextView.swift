@@ -133,6 +133,12 @@ class TextView: UITextView {
 
 			rect.origin.x -= size.width + 4
 			rect.origin.y = ceil((baseline - numberBaseline) * scale) / scale
+
+			// Terrible hack
+			if node.contentRange.length == 0 {
+				rect.origin.y += 0.5
+			}
+
 			rect.size = size
 			view.frame = rect
 			return view
