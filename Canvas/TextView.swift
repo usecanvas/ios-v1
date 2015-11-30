@@ -44,8 +44,9 @@ class TextView: UITextView {
 	// MARK: - Annotations
 
 	func updateAnnotations() {
+		annotations.forEach { $0.removeFromSuperview() }
 		annotations.removeAll()
-//		imageAttachments.removeAll()
+		imageAttachments.removeAll()
 
 		// Add annotations
 		let needsFirstResponder = !isFirstResponder()
