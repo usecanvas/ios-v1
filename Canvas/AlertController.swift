@@ -12,6 +12,7 @@ class AlertController: UIAlertController {
 
 	// MARK: - Properties
 
+	/// Used when return is pressed while the controller is showing
 	var primaryAction: (Void -> Void)?
 
 

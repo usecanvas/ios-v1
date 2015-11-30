@@ -59,6 +59,7 @@ class CanvasesViewController: ListViewController, Accountable {
 			UIKeyCommand(input: "\r", modifierFlags: [], action: "openSelectedCanvas:", discoverabilityTitle: "Open Canvas"),
 			UIKeyCommand(input: UIKeyInputRightArrow, modifierFlags: [], action: "openSelectedCanvas:"),
 			UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: "clearSelectedCanvas:", discoverabilityTitle: "Clear Selection"),
+			UIKeyCommand(input: "e", modifierFlags: [.Command], action: "archiveSelectedCanvas:", discoverabilityTitle: "Archive Selected Canvas"),
 			UIKeyCommand(input: "\u{8}", modifierFlags: [.Command], action: "deleteSelectedCanvas:", discoverabilityTitle: "Delete Selected Canvas")
 		]
 	}
@@ -125,6 +126,11 @@ class CanvasesViewController: ListViewController, Accountable {
 		deleteCanvas(canvas)()
 	}
 
+	func archiveSelectedCanvas(sender: AnyObject?) {
+		guard let canvas = selectedCanvas else { return }
+		archiveCanvas(canvas)()
+	}
+
 	override func refresh() {
 		if loading {
 			return
@@ -160,7 +166,7 @@ class CanvasesViewController: ListViewController, Accountable {
 
 		let delete = { [weak self] in
 			guard let accessToken = self?.account.accessToken else { return }
-			APIClient(accessToken: accessToken, baseURL: baseURL).destroyCanvas(canvas) { _ in
+			APIClient(accessToken: accessToken, baseURL: baseURL).destroyCanvas(canvas: canvas) { _ in
 				dispatch_async(dispatch_get_main_queue()) {
 					self?.refresh()
 				}
@@ -170,6 +176,26 @@ class CanvasesViewController: ListViewController, Accountable {
 		actionSheet.addAction(UIAlertAction(title: "Delete", style: .Destructive) { _ in delete() })
 		actionSheet.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
 		actionSheet.primaryAction = delete
+
+		presentViewController(actionSheet, animated: true, completion: nil)
+	}
+
+	private func archiveCanvas(canvas: Canvas)() {
+		let style: UIAlertControllerStyle = traitCollection.userInterfaceIdiom == .Pad ? .Alert : .ActionSheet
+		let actionSheet = AlertController(title: "Are you sure you want to archive “\(canvas.displayTitle)”?", message: nil, preferredStyle: style)
+
+		let archive = { [weak self] in
+			guard let accessToken = self?.account.accessToken else { return }
+			APIClient(accessToken: accessToken, baseURL: baseURL).archiveCanvas(canvas: canvas) { _ in
+				dispatch_async(dispatch_get_main_queue()) {
+					self?.refresh()
+				}
+			}
+		}
+
+		actionSheet.addAction(UIAlertAction(title: "Archive", style: .Destructive) { _ in archive() })
+		actionSheet.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+		actionSheet.primaryAction = archive
 
 		presentViewController(actionSheet, animated: true, completion: nil)
 	}
@@ -186,6 +212,7 @@ class CanvasesViewController: ListViewController, Accountable {
 				selection: showCanvas($0),
 				cellClass: canvasCellClass($0),
 				editActions: [
+					Row.EditAction(title: "Archive", style: .Destructive, backgroundColor: Color.darkGray, backgroundEffect: nil, selection: deleteCanvas($0)),
 					Row.EditAction(title: "Delete", style: .Destructive, backgroundColor: Color.destructive, backgroundEffect: nil, selection: deleteCanvas($0))
 				]
 			)
