@@ -61,7 +61,15 @@ class TextView: UITextView {
 
 		var orderedIndentationCounts = [Indentation: UInt]()
 
-		for node in textStorage.nodes {
+		let count = textStorage.nodes.count
+		for (i, node) in textStorage.nodes.enumerate() {
+			let next: Node?
+			if i < count - 1 {
+				next = textStorage.nodes[i + 1]
+			} else {
+				next = nil
+			}
+
 			if node is Listable {
 				if let node = node as? OrderedList {
 					let value = orderedIndentationCounts[node.indentation] ?? 0
@@ -71,7 +79,7 @@ class TextView: UITextView {
 				orderedIndentationCounts.removeAll()
 			}
 
-			if node.hasAnnotation, let annotation = annotationForNode(node, orderedIndentationCounts: orderedIndentationCounts) {
+			if node.hasAnnotation, let annotation = annotationForNode(node, nextSibling: next, orderedIndentationCounts: orderedIndentationCounts) {
 				addAnnotation(annotation)
 			}
 		}
@@ -89,7 +97,7 @@ class TextView: UITextView {
 		addSubview(annotation)
 	}
 
-	private func annotationForNode(node: Node, orderedIndentationCounts: [Indentation: UInt]) -> UIView? {
+	private func annotationForNode(node: Node, nextSibling: Node? = nil, orderedIndentationCounts: [Indentation: UInt]) -> UIView? {
 		guard let textStorage = textStorage as? CanvasTextStorage else { return nil }
 
 		let range = textStorage.backingRangeToDisplayRange(node.contentRange)
@@ -158,7 +166,14 @@ class TextView: UITextView {
 			let view = BlockquoteBorderView(frame: .zero)
 			rect.origin.x -= theme.listIndentation
 			rect.size.width = 4
+
+			// Extend vertically if the next node is also a blockquote
+			if let next = nextSibling as? Blockquote, let nextRect = firstRectForRange(textStorage.backingRangeToDisplayRange(next.contentRange)) {
+				rect.size.height = nextRect.origin.y - rect.origin.y
+			}
+
 			view.frame = rect
+
 			return view
 		}
 
