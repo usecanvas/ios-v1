@@ -84,6 +84,11 @@ struct LightTheme: Theme {
 		else if node is CodeBlock {
 			attributes[NSForegroundColorAttributeName] = mediumGray
 			attributes[NSFontAttributeName] = monospaceFontOfSize(fontSize)
+
+			// No bottom margin if the next block is a code block
+			if nextSibling is CodeBlock {
+				paragraph.paragraphSpacing = 0
+			}
 		}
 
 		else if node is Blockquote {
