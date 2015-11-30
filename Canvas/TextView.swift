@@ -105,8 +105,16 @@ class TextView: UITextView {
 		if let node = node as? UnorderedList {
 			let view = BulletView(frame: .zero, unorderedList: node)
 			let size = view.intrinsicContentSize()
+
 			rect.origin.x -= theme.listIndentation - (size.width / 2)
 			rect.origin.y = floor(rect.origin.y + font.ascender - (size.height / 2))
+
+			// Terrible hack
+			if node.contentRange.length == 0 {
+				rect.origin.x += (size.width / 2) - 4
+				rect.origin.y -= 1
+			}
+
 			rect.size = size
 			view.frame = rect
 			return view
