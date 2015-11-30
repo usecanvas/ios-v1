@@ -189,6 +189,7 @@ class CollectionsViewController: ListViewController, Accountable {
 		return selected ? SelectedCollectionCell.self : CollectionCell.self
 	}
 
+	// TODO: Guard against pushing multiple at the same time
 	private func showCollection(collection: Collection)() {
 		Analytics.track(.ChangedCollection(collection: collection))
 		let viewController = CanvasesViewController(account: account, collection: collection)
