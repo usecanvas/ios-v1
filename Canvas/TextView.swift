@@ -43,6 +43,11 @@ class TextView: UITextView {
 
 
 	// MARK: - UIView
+
+	override class func layerClass() -> AnyClass {
+		return TextViewLayer.self
+	}
+	
 	override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
 		super.traitCollectionDidChange(previousTraitCollection)
 

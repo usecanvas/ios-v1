@@ -16,24 +16,26 @@ class CanvasCell: UITableViewCell {
 	let titleLabel: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
+		label.backgroundColor = Color.white
 		label.textColor = Color.black
 		label.highlightedTextColor = Color.white
 		label.font = Font.sansSerif(weight: .Bold)
 		return label
 	}()
 
-	let descriptionLabel: UILabel = {
+	let summaryLabel: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
+		label.backgroundColor = Color.white
 		label.textColor = Color.darkGray
 		label.highlightedTextColor = Color.white
-		label.font = Font.sansSerif(size: .Subtitle)
 		return label
 	}()
 
 	let timeLabel: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
+		label.backgroundColor = Color.white
 		label.textColor = Color.gray
 		label.highlightedTextColor = Color.white
 		label.font = Font.sansSerif(size: .Small)
@@ -51,28 +53,25 @@ class CanvasCell: UITableViewCell {
 		view.backgroundColor = Color.brand
 		selectedBackgroundView = view
 
-		textLabel?.font = Font.sansSerif()
-		textLabel?.highlightedTextColor = Color.white
+		contentView.addSubview(titleLabel)
+		contentView.addSubview(summaryLabel)
+		contentView.addSubview(timeLabel)
 
-//		contentView.addSubview(titleLabel)
-//		contentView.addSubview(descriptionLabel)
-//		contentView.addSubview(timeLabel)
-//
-//		let verticalSpacing: CGFloat = 2
-//
-//		NSLayoutConstraint.activateConstraints([
-//			titleLabel.bottomAnchor.constraintEqualToAnchor(contentView.centerYAnchor, constant: -verticalSpacing),
-//			NSLayoutConstraint(item: titleLabel, attribute: .Leading, relatedBy: .Equal, toItem: contentView, attribute: .LeadingMargin, multiplier: 1, constant: 0),
-//			titleLabel.trailingAnchor.constraintLessThanOrEqualToAnchor(timeLabel.leadingAnchor),
-//
-//			descriptionLabel.topAnchor.constraintEqualToAnchor(contentView.centerYAnchor, constant: verticalSpacing),
-//			descriptionLabel.leadingAnchor.constraintEqualToAnchor(titleLabel.leadingAnchor),
-//			descriptionLabel.trailingAnchor.constraintEqualToAnchor(contentView.trailingAnchor),
-//
-//			NSLayoutConstraint(item: timeLabel, attribute: .Baseline, relatedBy: .Equal, toItem: titleLabel, attribute: .Baseline, multiplier: 1, constant: 0),
-//			timeLabel.trailingAnchor.constraintEqualToAnchor(descriptionLabel.trailingAnchor),
-//			timeLabel.widthAnchor.constraintLessThanOrEqualToConstant(100)
-//		])
+		let verticalSpacing: CGFloat = 2
+
+		NSLayoutConstraint.activateConstraints([
+			titleLabel.bottomAnchor.constraintEqualToAnchor(contentView.centerYAnchor, constant: -verticalSpacing),
+			NSLayoutConstraint(item: titleLabel, attribute: .Leading, relatedBy: .Equal, toItem: contentView, attribute: .LeadingMargin, multiplier: 1, constant: 0),
+			titleLabel.trailingAnchor.constraintLessThanOrEqualToAnchor(timeLabel.leadingAnchor),
+
+			summaryLabel.topAnchor.constraintEqualToAnchor(contentView.centerYAnchor, constant: verticalSpacing),
+			summaryLabel.leadingAnchor.constraintEqualToAnchor(titleLabel.leadingAnchor),
+			summaryLabel.trailingAnchor.constraintEqualToAnchor(contentView.trailingAnchor),
+
+			NSLayoutConstraint(item: timeLabel, attribute: .Baseline, relatedBy: .Equal, toItem: titleLabel, attribute: .Baseline, multiplier: 1, constant: 0),
+			timeLabel.trailingAnchor.constraintEqualToAnchor(summaryLabel.trailingAnchor),
+			timeLabel.widthAnchor.constraintLessThanOrEqualToConstant(100)
+		])
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -83,10 +82,17 @@ class CanvasCell: UITableViewCell {
 
 extension CanvasCell: CellType {
 	func configure(row row: Row) {
-//		titleLabel.text = row.text
-//		descriptionLabel.text = "This is a lovely canvas about cool things that are super important. No really. Really important. Okay, this is probably long enough."
+		titleLabel.text = row.text
+
+		if let summary = row.detailText where !summary.isEmpty {
+			summaryLabel.text = summary
+			summaryLabel.font = Font.sansSerif(size: .Subtitle)
+		} else {
+			summaryLabel.text = "No Content"
+			summaryLabel.font = Font.sansSerif(size: .Subtitle, style: .Italic)
+		}
+
 //		timeLabel.text = "1m"
-		textLabel?.text = row.text
 		accessoryType = row.accessory.type
 	}
 }

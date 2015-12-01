@@ -207,7 +207,7 @@ class CanvasesViewController: ListViewController, Accountable {
 		let rows = canvases.map {
 			Row(
 				text: $0.displayTitle,
-				detailText: $0.updatedAt.description,
+				detailText: $0.summary,
 				accessory: .DisclosureIndicator,
 				selection: showCanvas($0),
 				cellClass: canvasCellClass($0),

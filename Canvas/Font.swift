@@ -22,6 +22,11 @@ struct Font {
 		}
 	}
 
+	enum Style {
+		case Regular
+		case Italic
+	}
+
 	enum Size: UInt {
 		case Small = 14
 		case Subtitle = 16
@@ -32,7 +37,12 @@ struct Font {
 		}
 	}
 
-	static func sansSerif(weight weight: Weight = .Regular, size: Size = .Body) -> UIFont! {
+	static func sansSerif(weight weight: Weight = .Regular, style: Style = .Regular, size: Size = .Body) -> UIFont! {
+		if style == .Italic {
+			// TODO: Weight is currently ignored for italic
+			return UIFont.italicSystemFontOfSize(size.pointSize)
+		}
+
 		return .systemFontOfSize(size.pointSize, weight: weight.weight)
 	}
 
