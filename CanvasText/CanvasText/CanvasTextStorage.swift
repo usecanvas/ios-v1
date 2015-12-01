@@ -140,7 +140,11 @@ public class CanvasTextStorage: ShadowTextStorage {
 				next = nil
 			}
 
-			let range = backingRangeToDisplayRange(node.contentRange)
+			var range = backingRangeToDisplayRange(node.contentRange)
+
+			if next != nil {
+				range.length += 1
+			}
 
 			// Attachables
 			if let node = node as? Attachable, attachment = canvasDelegate?.textStorage(self, attachmentForAttachable: node) {

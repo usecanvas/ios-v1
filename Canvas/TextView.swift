@@ -111,18 +111,11 @@ class TextView: UITextView {
 			let view = BulletView(frame: .zero, unorderedList: node)
 			let size = view.intrinsicContentSize()
 
+			rect.origin.x -= theme.listIndentation - (size.width / 2)
 			rect.origin.y = floor(rect.origin.y + font.ascender - (size.height / 2))
-
-			// Terrible hack
-			if node.contentRange.length == 0 {
-				rect.origin.x += (size.width / 2)
-				rect.origin.y -= 1
-			} else {
-				rect.origin.x -= theme.listIndentation - (size.width / 2)
-			}
-
 			rect.size = size
 			view.frame = rect
+
 			return view
 		}
 
@@ -139,14 +132,9 @@ class TextView: UITextView {
 
 			rect.origin.x -= size.width + 4
 			rect.origin.y = ceil((baseline - numberBaseline) * scale) / scale
-
-			// Terrible hack
-			if node.contentRange.length == 0 {
-				rect.origin.y += 0.5
-			}
-
 			rect.size = size
 			view.frame = rect
+
 			return view
 		}
 
