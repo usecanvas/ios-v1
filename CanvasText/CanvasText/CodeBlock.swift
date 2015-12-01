@@ -15,6 +15,8 @@ public struct CodeBlock: Delimitable {
 	public var delimiterRange: NSRange
 	public var contentRange: NSRange
 
+	public let hasAnnotation = true
+
 
 	// MARK: - Initializers
 

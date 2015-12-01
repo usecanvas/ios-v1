@@ -17,6 +17,8 @@ struct Color {
 	static let lightGray = UIColor(red: 0.918, green: 0.918, blue: 0.929, alpha: 1)
 	static let darkGray = UIColor(red: 0.420, green: 0.420, blue: 0.447, alpha: 1)
 
+	static let codeBackground = UIColor(red: 0.961, green: 0.961, blue: 0.965, alpha: 1)
+
 	static let white = UIColor.whiteColor()
 	static let black = UIColor.blackColor()
 }

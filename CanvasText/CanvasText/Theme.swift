@@ -46,7 +46,7 @@ extension Theme {
 
 	public var baseAttributes: [String: AnyObject] {
 		return [
-			NSBackgroundColorAttributeName: backgroundColor,
+//			NSBackgroundColorAttributeName: backgroundColor,
 			NSForegroundColorAttributeName: foregroundColor,
 			NSFontAttributeName: fontOfSize(fontSize)
 		]

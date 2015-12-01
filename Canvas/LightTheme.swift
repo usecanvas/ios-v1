@@ -20,7 +20,7 @@ struct LightTheme: Theme {
 	let lineHeightMultiple: CGFloat = 1.2
 	
 	private let smallParagraphSpacing: CGFloat
-	private let mediumGray = UIColor(white: 0.5, alpha: 1)
+	private let mediumGray = UIColor(red: 0.494, green: 0.494, blue: 0.510, alpha: 1)
 
 
 	// MARK: - Initializers
@@ -85,14 +85,18 @@ struct LightTheme: Theme {
 			attributes[NSForegroundColorAttributeName] = mediumGray
 			attributes[NSFontAttributeName] = monospaceFontOfSize(fontSize)
 
+			paragraph.headIndent = listIndentation
+
 			// No bottom margin if the next block is a code block
 			if nextSibling is CodeBlock {
 				paragraph.paragraphSpacing = 0
+			} else {
+				paragraph.paragraphSpacing += paragraphSpacing / 2
 			}
 		}
 
 		else if node is Blockquote {
-			attributes[NSForegroundColorAttributeName] = UIColor(red: 0.494, green: 0.494, blue: 0.510, alpha: 1)
+			attributes[NSForegroundColorAttributeName] = mediumGray
 			paragraph.firstLineHeadIndent = listIndentation
 			paragraph.headIndent = listIndentation
 		}
@@ -106,6 +110,11 @@ struct LightTheme: Theme {
 			if let nextSibling = nextSibling where nextSibling is Listable {
 				paragraph.paragraphSpacing = smallParagraphSpacing
 			}
+		}
+
+
+		if !(node is CodeBlock) && nextSibling is CodeBlock {
+			paragraph.paragraphSpacing += paragraphSpacing / 2
 		}
 
 		attributes[NSParagraphStyleAttributeName] = paragraph

@@ -94,14 +94,13 @@ class TextView: UITextView {
 
 	private func addAnnotation(annotation: UIView) {
 		annotations.append(annotation)
-		addSubview(annotation)
+		insertSubview(annotation, atIndex: 0)
 	}
 
 	private func annotationForNode(node: Node, nextSibling: Node? = nil, orderedIndentationCounts: [Indentation: UInt]) -> UIView? {
 		guard let textStorage = textStorage as? CanvasTextStorage else { return nil }
 
-		let range = textStorage.backingRangeToDisplayRange(node.contentRange)
-		guard var rect = firstRectForRange(range) else { return nil }
+		guard var rect = firstRectForNode(node) else { return nil }
 
 		let theme = textStorage.theme
 		let font = theme.fontOfSize(theme.fontSize, style: [])
@@ -165,6 +164,19 @@ class TextView: UITextView {
 			return view
 		}
 
+		// Code block
+		if node is CodeBlock {
+			rect.origin.x = 0
+			rect.origin.y -= theme.paragraphSpacing / 2
+			rect.size.width = bounds.width
+			rect.size.height += theme.paragraphSpacing
+
+			let view = UIView(frame: rect)
+			view.backgroundColor = Color.codeBackground
+
+			return view
+		}
+
 		return nil
 	}
 
@@ -176,12 +188,19 @@ class TextView: UITextView {
 
 		return firstRectForRange(textRange)
 	}
+
+	private func firstRectForNode(node: Node) -> CGRect? {
+		guard let textStorage = textStorage as? CanvasTextStorage else { return nil }
+		let range = textStorage.backingRangeToDisplayRange(node.contentRange)
+		return firstRectForRange(range)
+	}
 }
 
 
 extension TextView: CanvasTextStorageDelegate {
 	func textStorageDidUpdateNodes(textStorage: CanvasTextStorage) {
 		updateAnnotations()
+		setNeedsDisplay()
 	}
 
 	func textStorage(textStorage: CanvasTextStorage, attachmentForAttachable node: Attachable) -> NSTextAttachment? {
