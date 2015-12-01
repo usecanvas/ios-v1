@@ -43,7 +43,7 @@ struct LightTheme: Theme {
 		return Font.sansSerif(pointSize: fontSize)
 	}
 
-	func attributesForNode(node: Node, nextSibling: Node? = nil) -> Attributes {
+	func attributesForNode(node: Node, nextSibling: Node? = nil, horizontalSizeClass: UserInterfaceSizeClass) -> Attributes {
 		let paragraph = NSMutableParagraphStyle()
 		paragraph.lineHeightMultiple = lineHeightMultiple
 		paragraph.paragraphSpacing = paragraphSpacing
@@ -85,7 +85,13 @@ struct LightTheme: Theme {
 			attributes[NSForegroundColorAttributeName] = mediumGray
 			attributes[NSFontAttributeName] = monospaceFontOfSize(fontSize)
 
-			paragraph.headIndent = listIndentation
+			if horizontalSizeClass == .Regular {
+				// TODO: Use a constant
+				paragraph.firstLineHeadIndent = 48
+				paragraph.headIndent = 48 + listIndentation
+			} else {
+				paragraph.headIndent = listIndentation
+			}
 
 			// No bottom margin if the next block is a code block
 			if nextSibling is CodeBlock {

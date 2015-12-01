@@ -8,8 +8,15 @@
 
 #if os(OSX)
 	import AppKit
+
+	enum UserInterfaceSizeClass : Int {
+		case Unspecified
+		case Compact
+		case Regular
+	}
 #else
 	import UIKit
+	public typealias UserInterfaceSizeClass = UIUserInterfaceSizeClass
 #endif
 
 public typealias Attributes = [String: AnyObject]
@@ -27,11 +34,10 @@ public protocol Theme {
 	var lineHeightMultiple: CGFloat { get }
 	var paragraphSpacing: CGFloat { get }
 
-
 	func fontOfSize(fontSize: CGFloat, style: FontStyle) -> Font
 	func monospaceFontOfSize(fontSize: CGFloat, style: FontStyle) -> Font
 
-	func attributesForNode(node: Node, nextSibling: Node?) -> Attributes
+	func attributesForNode(node: Node, nextSibling: Node?, horizontalSizeClass: UserInterfaceSizeClass) -> Attributes
 }
 
 

@@ -33,6 +33,8 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 	public private(set) var nodes = [Node]()
 
+	public var horizontalSizeClass: UserInterfaceSizeClass = .Unspecified
+
 
 	// MARK: - Initializers
 
@@ -164,7 +166,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 			}
 
 			// Normal elements
-			let attributes = theme.attributesForNode(node, nextSibling: next)
+			let attributes = theme.attributesForNode(node, nextSibling: next, horizontalSizeClass: horizontalSizeClass)
 			text.addAttributes(attributes, range: range)
 		}
 

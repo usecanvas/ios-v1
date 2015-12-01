@@ -16,6 +16,7 @@ class TextView: UITextView {
 
 	private var annotations = [UIView]()
 	private var imageAttachments = [Image: NSTextAttachment]()
+	private var lineNumber: UInt = 1
 
 
 	// MARK: - Initializers {
@@ -41,12 +42,25 @@ class TextView: UITextView {
 	}
 
 
+	// MARK: - UIView
+	override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
+		super.traitCollectionDidChange(previousTraitCollection)
+
+		guard let textStorage = textStorage as? CanvasTextStorage else { return }
+		textStorage.horizontalSizeClass = traitCollection.horizontalSizeClass
+
+		updateAnnotations()
+	}
+
+
 	// MARK: - Annotations
 
 	func updateAnnotations() {
 		annotations.forEach { $0.removeFromSuperview() }
 		annotations.removeAll()
 		imageAttachments.removeAll()
+
+		lineNumber = 1
 
 		// Add annotations
 		let needsFirstResponder = !isFirstResponder()
@@ -70,6 +84,13 @@ class TextView: UITextView {
 				next = nil
 			}
 
+			let previous: Node?
+			if i > 0 {
+				previous = textStorage.nodes[i - 1]
+			} else {
+				previous = nil
+			}
+
 			if node is Listable {
 				if let node = node as? OrderedList {
 					let value = orderedIndentationCounts[node.indentation] ?? 0
@@ -79,7 +100,7 @@ class TextView: UITextView {
 				orderedIndentationCounts.removeAll()
 			}
 
-			if node.hasAnnotation, let annotation = annotationForNode(node, nextSibling: next, orderedIndentationCounts: orderedIndentationCounts) {
+			if node.hasAnnotation, let annotation = annotationForNode(node, nextSibling: next, previousSibling: previous, orderedIndentationCounts: orderedIndentationCounts) {
 				addAnnotation(annotation)
 			}
 		}
@@ -97,7 +118,7 @@ class TextView: UITextView {
 		insertSubview(annotation, atIndex: 0)
 	}
 
-	private func annotationForNode(node: Node, nextSibling: Node? = nil, orderedIndentationCounts: [Indentation: UInt]) -> UIView? {
+	private func annotationForNode(node: Node, nextSibling: Node? = nil, previousSibling: Node? = nil, orderedIndentationCounts: [Indentation: UInt]) -> UIView? {
 		guard let textStorage = textStorage as? CanvasTextStorage else { return nil }
 
 		guard var rect = firstRectForNode(node) else { return nil }
@@ -166,14 +187,33 @@ class TextView: UITextView {
 
 		// Code block
 		if node is CodeBlock {
-			rect.origin.x = 0
-			rect.origin.y -= theme.paragraphSpacing / 2
-			rect.size.width = bounds.width
-			rect.size.height += theme.paragraphSpacing
+			if traitCollection.horizontalSizeClass == .Compact {
+				rect.origin.x = 0
+				rect.size.width = bounds.width
+			} else {
+				rect.origin.x -= 48
+				rect.size.width = textContainer.size.width
+			}
 
-			let view = UIView(frame: rect)
-			view.backgroundColor = Color.codeBackground
+			let position: CodeBlockBackgroundView.Position
 
+			if !(previousSibling is CodeBlock) {
+				position = .Top
+				rect.origin.y -= theme.paragraphSpacing / 4
+				rect.size.height += theme.paragraphSpacing / 4
+			} else if let next = nextSibling as? CodeBlock {
+				position = .Middle
+
+				if let nextRect = firstRectForRange(textStorage.backingRangeToDisplayRange(next.contentRange)) {
+					rect.size.height = ceil(nextRect.origin.y - rect.origin.y)
+				}
+			} else {
+				position = .Bottom
+				rect.size.height += theme.paragraphSpacing / 2
+			}
+
+			let view = CodeBlockBackgroundView(frame: rect.floor, theme: textStorage.theme, lineNumber: lineNumber, position: position)
+			lineNumber += 1
 			return view
 		}
 
