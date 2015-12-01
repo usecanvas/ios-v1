@@ -48,8 +48,11 @@ class TextView: UITextView {
 
 		guard let textStorage = textStorage as? CanvasTextStorage else { return }
 		textStorage.horizontalSizeClass = traitCollection.horizontalSizeClass
+		textStorage.reprocess()
 
-		updateAnnotations()
+		dispatch_async(dispatch_get_main_queue()) { [weak self] in
+			self?.updateAnnotations()
+		}
 	}
 
 

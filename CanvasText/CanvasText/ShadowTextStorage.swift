@@ -26,7 +26,7 @@ public class ShadowTextStorage: NSTextStorage {
 
 	public var backingText = "" {
 		didSet {
-			backingTextDidChange()
+			reprocess()
 		}
 	}
 
@@ -54,7 +54,7 @@ public class ShadowTextStorage: NSTextStorage {
 	public init(backingText: String) {
 		super.init()
 		self.backingText = backingText
-		backingTextDidChange()
+		reprocess()
 	}
 
 	public required init?(coder aDecoder: NSCoder) {
@@ -135,10 +135,7 @@ public class ShadowTextStorage: NSTextStorage {
 		// Do nothing
 	}
 
-
-	// MARK: - Private
-
-	private func backingTextDidChange() {
+	public func reprocess() {
 		// Get hidden ranges
 		hiddenRanges = hiddenRangesForBackingText(backingText)
 
@@ -169,6 +166,9 @@ public class ShadowTextStorage: NSTextStorage {
 		
 		didProcessBackingText(backingText)
 	}
+
+
+	// MARK: - Private
 
 	private func updateSelection() {
 		let updatedDisplaySelection = backingRangeToDisplayRange(backingSelection)

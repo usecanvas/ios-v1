@@ -15,13 +15,7 @@ let longhouseURL = NSURL(string: "wss://presence.usecanvas.com/")!
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-	var window: UIWindow? = {
-		let window = UIWindow()
-		window.tintColor = Color.brand
-		window.rootViewController = RootViewController()
-		return window
-	}()
-
+	var window: UIWindow?
 
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		// Analytics
@@ -35,9 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			NSFontAttributeName: Font.sansSerif(weight: .Bold),
 			NSForegroundColorAttributeName: Color.white
 		]
-
-		// Show window
-		window?.makeKeyAndVisible()
 
 		dispatch_async(dispatch_get_main_queue()) {
 			if let info = NSBundle.mainBundle().infoDictionary, version = info["CFBundleVersion"] as? String, shortVersion = info["CFBundleShortVersionString"] as? String {

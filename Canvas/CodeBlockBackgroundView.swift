@@ -89,15 +89,15 @@ class CodeBlockBackgroundView: UIView {
 	override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
 		super.traitCollectionDidChange(previousTraitCollection)
 
-		if traitCollection.horizontalSizeClass != .Regular || position == .Middle {
+		if traitCollection.horizontalSizeClass != .Regular {
 			backgroundColor = Color.codeBackground
-		} else if traitCollection.horizontalSizeClass == .Compact || traitCollection.horizontalSizeClass == .Unspecified {
-			backgroundColor = theme.backgroundColor
+			textLabel.removeFromSuperview()
+			return
 		}
 
-		if traitCollection.horizontalSizeClass != .Regular {
-			textLabel.removeFromSuperview()
-		} else if textLabel.superview == nil {
+		backgroundColor = theme.backgroundColor
+
+		if textLabel.superview == nil {
 			addSubview(textLabel)
 
 			// TODO: This is terrible
