@@ -72,8 +72,7 @@ class CanvasesViewController: ListViewController, Accountable {
 		super.viewDidLoad()
 
 		tableView.rowHeight = 72
-		tableView.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
-
+		
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
 
 		refresh()

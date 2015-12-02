@@ -69,7 +69,6 @@ class CollectionsViewController: ListViewController, Accountable {
 
 		view.backgroundColor = Color.lightGray
 		tableView.rowHeight = 64
-		tableView.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
 		tableView.separatorColor = Color.gray
 
 		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .Plain, target: self, action: "logOut:")
