@@ -21,6 +21,7 @@ class CanvasCell: UITableViewCell {
 		label.textColor = Color.black
 		label.highlightedTextColor = Color.white
 		label.font = Font.sansSerif(weight: .Bold)
+		label.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, forAxis: .Horizontal)
 		return label
 	}()
 

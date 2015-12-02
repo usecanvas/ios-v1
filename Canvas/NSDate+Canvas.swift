@@ -10,32 +10,24 @@ import Foundation
 
 extension NSDate {
 	var briefTimeAgoInWords: String {
-		// Seconds
-		let seconds = abs(timeIntervalSinceNow)
-		if seconds < 60 {
-			return "\(UInt(seconds))s"
+		let components = NSCalendar.currentCalendar().components([.Second, .Minute, .Hour, .Day, .Year], fromDate: self, toDate: NSDate(), options: [])
+
+		if components.year > 0 {
+			return "\(components.year)y"
 		}
 
-		// Minutes
-		let minutes = seconds / 60
-		if minutes < 60 {
-			return "\(UInt(minutes))m"
+		if components.day > 0 {
+			return "\(components.day)d"
 		}
 
-		// Hours
-		let hours = minutes / 60
-		if hours < 24 {
-			return "\(UInt(hours))m"
+		if components.hour > 0 {
+			return "\(components.hour)h"
 		}
 
-		// Days
-		let days = hours / 24
-		if days < 365 {
-			return "\(UInt(days))m"
+		if components.minute > 0 {
+			return "\(components.minute)m"
 		}
 
-		// Years
-		let years = days / 365
-		return "\(UInt(years))y"
+		return "\(components.second)s"
 	}
 }
