@@ -13,10 +13,14 @@ class CodeBlockBackgroundView: UIView {
 
 	// MARK: - Types
 
-	enum Position {
-		case Top
-		case Middle
-		case Bottom
+	struct Position: OptionSetType {
+		let rawValue: Int
+		init(rawValue: Int) { self.rawValue = rawValue }
+
+		static let Top = Position(rawValue: 1)
+		static let Bottom = Position(rawValue: 2)
+
+		static let Single: Position = [.Top, .Bottom]
 	}
 
 
@@ -68,10 +72,14 @@ class CodeBlockBackgroundView: UIView {
 
 		let path: CGPath?
 
-		switch position {
-		case .Top: path = UIBezierPath(roundedRect: bounds, byRoundingCorners: [.TopLeft, .TopRight], cornerRadii: CGSize(width: 4, height: 4)).CGPath
-		case .Bottom: path = UIBezierPath(roundedRect: bounds, byRoundingCorners: [.BottomLeft, .BottomRight], cornerRadii: CGSize(width: 4, height: 4)).CGPath
-		default: path = nil
+		if position.contains(.Top) && position.contains(.Bottom) {
+			path = UIBezierPath(roundedRect: bounds, cornerRadius: 4).CGPath
+		} else if position.contains(.Top) {
+			path = UIBezierPath(roundedRect: bounds, byRoundingCorners: [.TopLeft, .TopRight], cornerRadii: CGSize(width: 4, height: 4)).CGPath
+		} else if position.contains(.Bottom) {
+			path = UIBezierPath(roundedRect: bounds, byRoundingCorners: [.BottomLeft, .BottomRight], cornerRadii: CGSize(width: 4, height: 4)).CGPath
+		} else {
+			path = nil
 		}
 
 		if let path = path {
@@ -101,7 +109,7 @@ class CodeBlockBackgroundView: UIView {
 			addSubview(textLabel)
 
 			// TODO: This is terrible
-			let top: CGFloat = position == .Top ? 11.5 : 5.5
+			let top: CGFloat = position.contains(.Top) ? 11.5 : 5.5
 
 			NSLayoutConstraint.activateConstraints([
 				textLabel.trailingAnchor.constraintEqualToAnchor(leadingAnchor, constant: lineNumberWidth - 6),

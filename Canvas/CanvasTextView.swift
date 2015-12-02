@@ -199,25 +199,41 @@ class CanvasTextView: TextView {
 				rect.size.width = textContainer.size.width
 			}
 
-			let position: CodeBlockBackgroundView.Position
+			var position = CodeBlockBackgroundView.Position()
+			let originalTop = rect.origin.y
 
+			// Find the bottom of line (to handle wrapping)
+			var range = textStorage.backingRangeToDisplayRange(node.contentRange)
+			if range.length > 1 {
+				range.location += range.length - 1
+				range.length = 1
+			}
+
+			if let lastRect = firstRectForRange(range) where lastRect.origin.y > originalTop {
+				rect.size.height += lastRect.origin.y - originalTop
+			}
+
+			// Top
 			if !(previousSibling is CodeBlock) {
-				position = .Top
+				position = position.union([.Top])
 				rect.origin.y -= theme.paragraphSpacing / 4
 				rect.size.height += theme.paragraphSpacing / 4
-			} else if let next = nextSibling as? CodeBlock {
-				position = .Middle
+			}
 
-				if let nextRect = firstRectForRange(textStorage.backingRangeToDisplayRange(next.contentRange)) {
-					rect.size.height = ceil(nextRect.origin.y - rect.origin.y)
-				}
-			} else {
-				position = .Bottom
+			// Bottom
+			if !(nextSibling is CodeBlock) {
+				position = position.union([.Bottom])
 				rect.size.height += theme.paragraphSpacing / 2
 			}
 
 			let view = CodeBlockBackgroundView(frame: rect.floor, theme: textStorage.theme, lineNumber: lineNumber, position: position)
-			lineNumber += 1
+
+			if position.contains(.Bottom) {
+				lineNumber = 1
+			} else {
+				lineNumber += 1
+			}
+
 			return view
 		}
 
