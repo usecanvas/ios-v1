@@ -36,6 +36,7 @@ class TextView: UITextView {
 	}
 
 	private var frameChanged = false
+	
 
 	// MARK: - Initializers
 

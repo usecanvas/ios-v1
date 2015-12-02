@@ -19,7 +19,7 @@ class EditorViewController: UIViewController, Accountable {
 	let canvas: Canvas
 
 	let textStorage = CanvasTextStorage(theme: LightTheme())
-	private let textView: TextView
+	private let textView: CanvasTextView
 	private let longhouse = Longhouse(serverURL: longhouseURL)
 	private let presenceBarButtonItem = UIBarButtonItem(title: " ", style: .Plain, target: nil, action: nil)
 
@@ -99,6 +99,7 @@ class EditorViewController: UIViewController, Accountable {
 		// The target minimum padding is 16. For some reason, there is an extra 10 on each side already.
 		let padding = max(11, (textView.bounds.width - maxWidth) / 2)
 		textView.textContainerInset = UIEdgeInsets(top: 16, left: padding, bottom: 32, right: padding)
+		textView.updateAnnotations()
 	}
 
 
