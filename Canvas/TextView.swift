@@ -35,6 +35,7 @@ class TextView: UITextView {
 		}
 	}
 
+	private var frameChanged = false
 
 	// MARK: - Initializers
 
@@ -94,16 +95,35 @@ class TextView: UITextView {
 		}
 
 		if keyPath == "frame", let value = change?[NSKeyValueChangeNewKey] as? NSValue {
+			frameChanged = true
+
+			UIView.animateWithDuration(0, delay: 0, options: [.BeginFromCurrentState], animations: { [weak self] in
+				self?.customInsertionPointView?.alpha = 1
+			}, completion: nil)
+
+			guard let selectedTextRange = selectedTextRange else { return }
+
 			var frame = value.CGRectValue()
+			let textFrame = firstRectForRange(selectedTextRange)
 			
-			// TODO: Get this value from the font
-			frame.size.height = min(24.4125, frame.size.height)
+			frame.size.height = min(textFrame.size.height, frame.size.height)
 			customInsertionPointView?.frame = frame
+			
 			return
 		}
 
 		if keyPath == "alpha", let value = change?[NSKeyValueChangeNewKey] as? CGFloat {
-			UIView.animateWithDuration(1.43, delay: 0, options: [], animations: { [weak self] in
+			if frameChanged {
+				if value != 1 {
+					return
+				}
+
+				customInsertionPointView?.alpha = value
+				frameChanged = false
+				return
+			}
+
+			UIView.animateWithDuration(1.43, delay: 0, options: [.BeginFromCurrentState], animations: { [weak self] in
 				self?.customInsertionPointView?.alpha = value
 			}, completion: nil)
 		}
