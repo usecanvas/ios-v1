@@ -84,7 +84,7 @@ extension CanvasCell: CellType {
 	func configure(row row: Row) {
 		titleLabel.text = row.text
 
-		if let summary = row.detailText where !summary.isEmpty {
+		if let summary = row.detailText where summary.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0 {
 			summaryLabel.text = summary
 			summaryLabel.font = Font.sansSerif(size: .Subtitle)
 		} else {
@@ -92,7 +92,7 @@ extension CanvasCell: CellType {
 			summaryLabel.font = Font.sansSerif(size: .Subtitle, style: .Italic)
 		}
 
-//		timeLabel.text = "1m"
+		timeLabel.text = "1m"
 		accessoryType = row.accessory.type
 	}
 }

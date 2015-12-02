@@ -33,7 +33,7 @@ class EditorViewController: UIViewController, Accountable {
 		self.account = account
 		self.canvas = canvas
 
-		textView = TextView(textStorage: textStorage)
+		textView = CanvasTextView(textStorage: textStorage)
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		textView.contentInset = .zero
 

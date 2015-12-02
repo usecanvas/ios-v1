@@ -56,6 +56,7 @@ class CollectionsViewController: ListViewController, Accountable {
 			UIKeyCommand(input: "\r", modifierFlags: [], action: "openSelectedCollection:", discoverabilityTitle: "Open Collection"),
 			UIKeyCommand(input: UIKeyInputRightArrow, modifierFlags: [], action: "openSelectedCollection:"),
 			UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: "clearSelectedCollection:", discoverabilityTitle: "Clear Selection"),
+			UIKeyCommand(input: "R", modifierFlags: [.Command], action: "refresh", discoverabilityTitle: "Refresh"),
 			UIKeyCommand(input: "Q", modifierFlags: [.Shift, .Command], action: "logOut:", discoverabilityTitle: "Log Out")
 		]
 	}

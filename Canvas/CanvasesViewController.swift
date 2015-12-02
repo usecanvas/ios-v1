@@ -60,7 +60,8 @@ class CanvasesViewController: ListViewController, Accountable {
 			UIKeyCommand(input: UIKeyInputRightArrow, modifierFlags: [], action: "openSelectedCanvas:"),
 			UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: "clearSelectedCanvas:", discoverabilityTitle: "Clear Selection"),
 			UIKeyCommand(input: "e", modifierFlags: [.Command], action: "archiveSelectedCanvas:", discoverabilityTitle: "Archive Selected Canvas"),
-			UIKeyCommand(input: "\u{8}", modifierFlags: [.Command], action: "deleteSelectedCanvas:", discoverabilityTitle: "Delete Selected Canvas")
+			UIKeyCommand(input: "\u{8}", modifierFlags: [.Command], action: "deleteSelectedCanvas:", discoverabilityTitle: "Delete Selected Canvas"),
+			UIKeyCommand(input: "R", modifierFlags: [.Command], action: "refresh", discoverabilityTitle: "Refresh"),
 		]
 	}
 
