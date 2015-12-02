@@ -23,7 +23,6 @@
 		215642151C06B46E00685847 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 215642111C06B46E00685847 /* Mixpanel.framework */; };
 		2156421B1C06B49500685847 /* SocketRocket.framework.dSYM in Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = 215642131C06B46E00685847 /* SocketRocket.framework.dSYM */; };
 		2156421C1C06B49700685847 /* Mixpanel.framework.dSYM in Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = 215642121C06B46E00685847 /* Mixpanel.framework.dSYM */; };
-		2156421D1C06B49A00685847 /* AMScrollingNavbar.framework.dSYM in Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = 215642101C06B46E00685847 /* AMScrollingNavbar.framework.dSYM */; };
 		2156421F1C06B4ED00685847 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2156421E1C06B4ED00685847 /* Analytics.swift */; };
 		215642221C06BBE600685847 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215642211C06BBE600685847 /* Button.swift */; };
 		215642291C06C40000685847 /* ImagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215642281C06C40000685847 /* ImagesController.swift */; };
@@ -48,7 +47,6 @@
 		21B742ED1C03BDF400FF293C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742EC1C03BDF400FF293C /* ListViewController.swift */; };
 		21B8D8D91BFC0E0B001ED447 /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B8D8D81BFC0E0B001ED447 /* CheckboxView.swift */; };
 		21D2B1981C0D0AED003652B7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21D2B1971C0D0AED003652B7 /* Settings.bundle */; };
-		21E48AFD1C0447AC00C9F6AA /* AMScrollingNavbar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AE3F3A1C0423E300AE5DDC /* AMScrollingNavbar.framework */; };
 		21E48AFE1C0447AC00C9F6AA /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AE3F3B1C0423E300AE5DDC /* CanvasKit.framework */; };
 		21E48B011C0447AC00C9F6AA /* ISO8601.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AE3F3D1C0423E300AE5DDC /* ISO8601.framework */; };
 		21E48B021C0447AC00C9F6AA /* Longhouse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AE3F3F1C0423E300AE5DDC /* Longhouse.framework */; };
@@ -112,7 +110,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				2156421D1C06B49A00685847 /* AMScrollingNavbar.framework.dSYM in Copy dSYM Files */,
 				21AE3F4A1C0424A700AE5DDC /* CanvasKit.framework.dSYM in Copy dSYM Files */,
 				21AE3F4B1C0424A700AE5DDC /* ISO8601.framework.dSYM in Copy dSYM Files */,
 				21AE3F4C1C0424A700AE5DDC /* Longhouse.framework.dSYM in Copy dSYM Files */,
@@ -152,7 +149,6 @@
 		2129D3111BF568AB0018F255 /* CanvasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasesViewController.swift; sourceTree = "<group>"; };
 		2134FADE1BFC09E300AE93CC /* BulletView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulletView.swift; sourceTree = "<group>"; };
 		2134FAE01BFC0A6A00AE93CC /* CanvasTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasTextView.swift; sourceTree = "<group>"; };
-		215642101C06B46E00685847 /* AMScrollingNavbar.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = AMScrollingNavbar.framework.dSYM; path = Carthage/Build/iOS/AMScrollingNavbar.framework.dSYM; sourceTree = "<group>"; };
 		215642111C06B46E00685847 /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mixpanel.framework; path = Carthage/Build/iOS/Mixpanel.framework; sourceTree = "<group>"; };
 		215642121C06B46E00685847 /* Mixpanel.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Mixpanel.framework.dSYM; path = Carthage/Build/iOS/Mixpanel.framework.dSYM; sourceTree = "<group>"; };
 		215642131C06B46E00685847 /* SocketRocket.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SocketRocket.framework.dSYM; path = Carthage/Build/iOS/SocketRocket.framework.dSYM; sourceTree = "<group>"; };
@@ -168,7 +164,6 @@
 		21A8FA5C1BFD33DB0097FCC6 /* ChromeActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChromeActivity.swift; sourceTree = "<group>"; };
 		21A8FA5E1BFD33EA0097FCC6 /* SafariActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafariActivity.swift; sourceTree = "<group>"; };
 		21A8FA621BFD3E0F0097FCC6 /* Canvas.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Canvas.entitlements; sourceTree = "<group>"; };
-		21AE3F3A1C0423E300AE5DDC /* AMScrollingNavbar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMScrollingNavbar.framework; path = Carthage/Build/iOS/AMScrollingNavbar.framework; sourceTree = "<group>"; };
 		21AE3F3B1C0423E300AE5DDC /* CanvasKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CanvasKit.framework; path = Carthage/Build/iOS/CanvasKit.framework; sourceTree = "<group>"; };
 		21AE3F3C1C0423E300AE5DDC /* CanvasKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = CanvasKit.framework.dSYM; path = Carthage/Build/iOS/CanvasKit.framework.dSYM; sourceTree = "<group>"; };
 		21AE3F3D1C0423E300AE5DDC /* ISO8601.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ISO8601.framework; path = Carthage/Build/iOS/ISO8601.framework; sourceTree = "<group>"; };
@@ -207,7 +202,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				21A8FA351BFCF5BC0097FCC6 /* CanvasText.framework in Frameworks */,
-				21E48AFD1C0447AC00C9F6AA /* AMScrollingNavbar.framework in Frameworks */,
 				21E48AFE1C0447AC00C9F6AA /* CanvasKit.framework in Frameworks */,
 				21E48B011C0447AC00C9F6AA /* ISO8601.framework in Frameworks */,
 				215642151C06B46E00685847 /* Mixpanel.framework in Frameworks */,
@@ -282,8 +276,6 @@
 		21AE3F391C0423CE00AE5DDC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				21AE3F3A1C0423E300AE5DDC /* AMScrollingNavbar.framework */,
-				215642101C06B46E00685847 /* AMScrollingNavbar.framework.dSYM */,
 				21AE3F3B1C0423E300AE5DDC /* CanvasKit.framework */,
 				21AE3F3C1C0423E300AE5DDC /* CanvasKit.framework.dSYM */,
 				21AE3F3D1C0423E300AE5DDC /* ISO8601.framework */,
@@ -540,7 +532,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/AMScrollingNavbar.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/CanvasKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ISO8601.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Longhouse.framework",

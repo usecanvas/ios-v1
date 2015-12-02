@@ -10,7 +10,6 @@ import UIKit
 import CanvasKit
 import CanvasText
 import Longhouse
-import AMScrollingNavbar
 
 class EditorViewController: UIViewController, Accountable {
 	
@@ -102,23 +101,6 @@ class EditorViewController: UIViewController, Accountable {
 		textView.textContainerInset = UIEdgeInsets(top: 16, left: padding, bottom: 32, right: padding)
 	}
 
-	override func viewWillAppear(animated: Bool) {
-		super.viewWillAppear(animated)
-
-		if let navigationController = navigationController as? ScrollingNavigationController {
-			navigationController.followScrollView(textView, delay: 0.0)
-		}
-	}
-
-	override func viewWillDisappear(animated: Bool) {
-		super.viewWillDisappear(animated)
-
-		if let navigationController = navigationController as? ScrollingNavigationController {
-			navigationController.stopFollowingScrollView()
-			navigationController.showNavbar(animated: animated)
-		}
-	}
-
 
 	// MARK: - Actions
 
@@ -156,13 +138,6 @@ extension EditorViewController: UITextViewDelegate {
 		ignoreSelectionChange = true
 		textStorage.backingSelection = textStorage.displayRangeToBackingRange(textView.selectedRange)
 		ignoreSelectionChange = false
-	}
-
-	func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool {
-		if let navigationController = self.navigationController as? ScrollingNavigationController {
-			navigationController.showNavbar(animated: true)
-		}
-		return true
 	}
 }
 
