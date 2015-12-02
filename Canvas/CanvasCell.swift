@@ -8,6 +8,7 @@
 
 import UIKit
 import Static
+import CanvasKit
 
 class CanvasCell: UITableViewCell {
 
@@ -92,7 +93,13 @@ extension CanvasCell: CellType {
 			summaryLabel.font = Font.sansSerif(size: .Subtitle, style: .Italic)
 		}
 
-		timeLabel.text = "1m"
 		accessoryType = row.accessory.type
+
+		guard let canvas = row.context?["canvas"] as? Canvas else {
+			timeLabel.text = nil
+			return
+		}
+
+		timeLabel.text = canvas.updatedAt.briefTimeAgoInWords
 	}
 }

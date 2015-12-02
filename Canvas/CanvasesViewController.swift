@@ -212,6 +212,7 @@ class CanvasesViewController: ListViewController, Accountable {
 				accessory: .DisclosureIndicator,
 				selection: showCanvas($0),
 				cellClass: canvasCellClass($0),
+				context: ["canvas": $0],
 				editActions: [
 					Row.EditAction(title: "Archive", style: .Destructive, backgroundColor: Color.darkGray, backgroundEffect: nil, selection: deleteCanvas($0)),
 					Row.EditAction(title: "Delete", style: .Destructive, backgroundColor: Color.destructive, backgroundEffect: nil, selection: deleteCanvas($0))

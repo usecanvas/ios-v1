@@ -67,14 +67,17 @@ class TransportController: NSObject {
 	func reload() {
 		let bundle = NSBundle(forClass: TransportController.self)
 		guard let sharePath = bundle.pathForResource("share", ofType: "js"),
-			shareJS = try? NSString(contentsOfFile: sharePath, encoding: NSUTF8StringEncoding),
+			shareJS = try? String(contentsOfFile: sharePath, encoding: NSUTF8StringEncoding),
 			editorPath = bundle.pathForResource("editor", ofType: "js"),
-			editorJS = try? NSString(contentsOfFile: editorPath, encoding: NSUTF8StringEncoding),
+			editorJS = try? String(contentsOfFile: editorPath, encoding: NSUTF8StringEncoding),
+			rollbarPath = bundle.pathForResource("rollbar", ofType: "js"),
+			rollbarJS = try? String(contentsOfFile: rollbarPath, encoding: NSUTF8StringEncoding),
 			templatePath = bundle.pathForResource("template", ofType: "html"),
-			template = try? NSString(contentsOfFile: templatePath, encoding: NSUTF8StringEncoding)
+			template = try? String(contentsOfFile: templatePath, encoding: NSUTF8StringEncoding)
 		else { return }
 
-		let html = NSString(format: template, shareJS, editorJS) as String
+		let javaScript = shareJS + editorJS + rollbarJS
+		let html = NSString(format: template, javaScript) as String
 		webView.loadHTMLString(html, baseURL: nil)
 	}
 	

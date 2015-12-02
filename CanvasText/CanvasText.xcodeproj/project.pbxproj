@@ -43,6 +43,8 @@
 		2156422F1C06C81900685847 /* Attachable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2156422D1C06C81900685847 /* Attachable.swift */; };
 		215642311C06C91C00685847 /* ImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215642301C06C91C00685847 /* ImageTests.swift */; };
 		215642321C06C91C00685847 /* ImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215642301C06C91C00685847 /* ImageTests.swift */; };
+		219DAC8F1C0F93CD00F39A6F /* rollbar.js in Resources */ = {isa = PBXBuildFile; fileRef = 219DAC8E1C0F93CD00F39A6F /* rollbar.js */; };
+		219DAC901C0F93D400F39A6F /* rollbar.js in Resources */ = {isa = PBXBuildFile; fileRef = 219DAC8E1C0F93CD00F39A6F /* rollbar.js */; };
 		21A8F9FB1BFCF4BD0097FCC6 /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A8F9F01BFCF4BD0097FCC6 /* CanvasText.framework */; };
 		21A8FA131BFCF4E90097FCC6 /* NSRange+CanvasText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA0B1BFCF4E90097FCC6 /* NSRange+CanvasText.swift */; };
 		21A8FA141BFCF4E90097FCC6 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA0C1BFCF4E90097FCC6 /* Operation.swift */; };
@@ -113,6 +115,7 @@
 		2156422A1C06C60400685847 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		2156422D1C06C81900685847 /* Attachable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attachable.swift; sourceTree = "<group>"; };
 		215642301C06C91C00685847 /* ImageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTests.swift; sourceTree = "<group>"; };
+		219DAC8E1C0F93CD00F39A6F /* rollbar.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = rollbar.js; sourceTree = "<group>"; };
 		21A8F9F01BFCF4BD0097FCC6 /* CanvasText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CanvasText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A8F9FA1BFCF4BD0097FCC6 /* CanvasTextTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CanvasTextTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A8FA0B1BFCF4E90097FCC6 /* NSRange+CanvasText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSRange+CanvasText.swift"; sourceTree = "<group>"; };
@@ -207,6 +210,7 @@
 		21A8FA0E1BFCF4E90097FCC6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				219DAC8E1C0F93CD00F39A6F /* rollbar.js */,
 				212669D41BFF836D00DE996F /* share.js */,
 				212669D71BFF83C700DE996F /* editor.js */,
 				212669D81BFF83C700DE996F /* template.html */,
@@ -434,6 +438,7 @@
 				212669D51BFF836D00DE996F /* share.js in Resources */,
 				212669DB1BFF83C700DE996F /* template.html in Resources */,
 				212669D91BFF83C700DE996F /* editor.js in Resources */,
+				219DAC8F1C0F93CD00F39A6F /* rollbar.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,6 +456,7 @@
 				212669D61BFF836D00DE996F /* share.js in Resources */,
 				212669DC1BFF83C700DE996F /* template.html in Resources */,
 				212669DA1BFF83C700DE996F /* editor.js in Resources */,
+				219DAC901C0F93D400F39A6F /* rollbar.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

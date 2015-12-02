@@ -28,6 +28,7 @@
 		215642291C06C40000685847 /* ImagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215642281C06C40000685847 /* ImagesController.swift */; };
 		216343F61C0D43BB00916A8B /* CodeBlockBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216343F51C0D43BB00916A8B /* CodeBlockBackgroundView.swift */; };
 		219DAC821C0E75DC00F39A6F /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DAC811C0E75DC00F39A6F /* TextView.swift */; };
+		219DAC8A1C0F819700F39A6F /* NSDate+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DAC891C0F819700F39A6F /* NSDate+Canvas.swift */; };
 		21A8FA351BFCF5BC0097FCC6 /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A8FA301BFCF59D0097FCC6 /* CanvasText.framework */; };
 		21A8FA361BFCF5C40097FCC6 /* CanvasText.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21A8FA301BFCF59D0097FCC6 /* CanvasText.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21A8FA3D1BFD04F20097FCC6 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA3C1BFD04F20097FCC6 /* CollectionCell.swift */; };
@@ -157,6 +158,7 @@
 		215642281C06C40000685847 /* ImagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesController.swift; sourceTree = "<group>"; };
 		216343F51C0D43BB00916A8B /* CodeBlockBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeBlockBackgroundView.swift; sourceTree = "<group>"; };
 		219DAC811C0E75DC00F39A6F /* TextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		219DAC891C0F819700F39A6F /* NSDate+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Canvas.swift"; sourceTree = "<group>"; };
 		21A8FA2A1BFCF59D0097FCC6 /* CanvasText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasText.xcodeproj; path = CanvasText/CanvasText.xcodeproj; sourceTree = "<group>"; };
 		21A8FA3C1BFD04F20097FCC6 /* CollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		21A8FA491BFD085F0097FCC6 /* CanvasCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasCell.swift; sourceTree = "<group>"; };
@@ -383,6 +385,7 @@
 				21FCB5821C0777E200F78D93 /* CGRect+Canvas.swift */,
 				21FCB5841C077C8100F78D93 /* UIEdgeInsets+Canvas.swift */,
 				21FCB58C1C07929A00F78D93 /* NSCache+Canvas.swift */,
+				219DAC891C0F819700F39A6F /* NSDate+Canvas.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 				21A8FA4A1BFD085F0097FCC6 /* CanvasCell.swift in Sources */,
 				21F10F4E1BF138750035057D /* AppDelegate.swift in Sources */,
 				2134FAE11BFC0A6A00AE93CC /* CanvasTextView.swift in Sources */,
+				219DAC8A1C0F819700F39A6F /* NSDate+Canvas.swift in Sources */,
 				210960D61C091F7800EB8F84 /* LightTheme.swift in Sources */,
 				219DAC821C0E75DC00F39A6F /* TextView.swift in Sources */,
 				21B742ED1C03BDF400FF293C /* ListViewController.swift in Sources */,
