@@ -151,6 +151,8 @@ extension EditorViewController: ShadowTextStorageSelectionDelegate {
 
 extension EditorViewController: UITextViewDelegate {
 	func textViewDidChangeSelection(textView: UITextView) {
+		self.textView.hijack()
+
 		ignoreSelectionChange = true
 		textStorage.backingSelection = textStorage.displayRangeToBackingRange(textView.selectedRange)
 		ignoreSelectionChange = false

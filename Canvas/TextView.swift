@@ -45,17 +45,11 @@ class TextView: UITextView {
 	}
 
 
-	// MARK: - UIResponder
+	// MARK: - Hijacking
 
-	override func becomeFirstResponder() -> Bool {
-		let become = super.becomeFirstResponder()
-
-		dispatch_async(dispatch_get_main_queue()) { [weak self] in
-			guard self?.window != nil && self?.insertionPointView == nil, let insertionPointView = self?.cursorView() else { return }
-			self?.insertionPointView = insertionPointView
-		}
-
-		return become
+	func hijack() {
+		guard window != nil && insertionPointView == nil else { return }
+		insertionPointView = cursorView()
 	}
 
 
@@ -72,7 +66,7 @@ class TextView: UITextView {
 	}
 
 	/// Find the selection view in the text container view
-	private func findSelectionView(textContainerView: UIView) -> UIView? {
+	private func findTextSelectionView(textContainerView: UIView) -> UIView? {
 		for view in textContainerView.subviews {
 			if view.dynamicType.description() == "UITextSelectionView" {
 				return view
@@ -82,28 +76,12 @@ class TextView: UITextView {
 		return nil
 	}
 
-
-	// MARK: - Private
-
-	func cursorViewInView(view: UIView?, caretRect: CGRect) -> UIView? {
-		if view?.frame == caretRect {
-			return view
-		}
-
-		guard let view = view else { return nil }
-
-		for subview in view.subviews {
-			if let caretView = cursorViewInView(subview, caretRect: caretRect) {
-				return caretView
-			}
-		}
-
-		return nil
-	}
-
 	func cursorView() -> UIView? {
-		guard let position = selectedTextRange?.start else { return nil }
-		return cursorViewInView(self, caretRect: caretRectForPosition(position))
+		guard let containerView = findTextContainerView(),
+			selectionView = findTextSelectionView(containerView)
+		else { return nil }
+
+		return selectionView.subviews.first
 	}
 
 
@@ -121,6 +99,13 @@ class TextView: UITextView {
 			// TODO: Get this value from the font
 			frame.size.height = min(24.4125, frame.size.height)
 			customInsertionPointView?.frame = frame
+			return
+		}
+
+		if keyPath == "alpha", let value = change?[NSKeyValueChangeNewKey] as? CGFloat {
+			UIView.animateWithDuration(1.43, delay: 0, options: [], animations: { [weak self] in
+				self?.customInsertionPointView?.alpha = value
+			}, completion: nil)
 		}
 	}
 }
