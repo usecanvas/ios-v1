@@ -142,11 +142,12 @@ public class CanvasTextStorage: ShadowTextStorage {
 				next = nil
 			}
 
-			var range = backingRangeToDisplayRange(node.contentRange)
+			let range = backingRangeToDisplayRange(node.contentRange)
 
-			if next != nil {
-				range.length += 1
-			}
+			// TODO: This is to support blank lines. Currently causes some issues
+//			if next != nil {
+//				range.length += 1
+//			}
 
 			// Attachables
 			if let node = node as? Attachable, attachment = canvasDelegate?.textStorage(self, attachmentForAttachable: node) {
