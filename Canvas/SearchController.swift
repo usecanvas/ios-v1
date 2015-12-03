@@ -92,14 +92,11 @@ class SearchController {
 
 			guard let credential = self?.searchCredential,
 				collectionID = self?.collection.ID,
-				query = self?.nextQuery
+				text = self?.nextQuery
 			else {
 				dispatch_semaphore_signal(semaphore)
 				return
 			}
-
-			print("appID: \(credential.applicationID), apiKey: \(credential.searchKey)")
-
 
 			// Setup client
 			let search = Client(appID: credential.applicationID, apiKey: credential.searchKey)
@@ -108,14 +105,14 @@ class SearchController {
 			// Get index
 			let index = search.getIndex("prod_canvases")
 
-			let q = Query(query: query)
-			q.facetFilters = [
+			// Construct query
+			let query = Query(query: text)
+			query.facetFilters = [
 				"collection_id:\(collectionID)"
 			]
 
-
-
-			index.search(q) { content, error in
+			// Search index
+			index.search(query) { content, error in
 				print("content: \(content), error: \(error) \(error?.localizedDescription)")
 				guard let content = content,
 					hits = content["hits"] as? [JSONDictionary]
