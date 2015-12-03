@@ -9,6 +9,7 @@
 import UIKit
 import Static
 import CanvasKit
+import AlgoliaSearch
 
 class CanvasesViewController: ListViewController, Accountable {
 
@@ -204,19 +205,20 @@ class CanvasesViewController: ListViewController, Accountable {
 	// MARK: - Private
 
 	private func reloadRows() {
-		let rows = canvases.map {
-			Row(
-				text: $0.displayTitle,
-				detailText: $0.summary,
-				accessory: .DisclosureIndicator,
-				selection: showCanvas($0),
-				cellClass: canvasCellClass($0),
-				context: ["canvas": $0],
-				editActions: [
-					Row.EditAction(title: "Archive", style: .Destructive, backgroundColor: Color.darkGray, backgroundEffect: nil, selection: deleteCanvas($0)),
-					Row.EditAction(title: "Delete", style: .Destructive, backgroundColor: Color.destructive, backgroundEffect: nil, selection: deleteCanvas($0))
-				]
-			)
+		let rows: [Row] = canvases.map { canvas in
+			var row = canvas.row
+			row.selection = showCanvas(canvas)
+
+			if selectedCanvas.flatMap({ selected in selected.ID == canvas.ID }) ?? false {
+				row.cellClass = SelectedCanvasCell.self
+			}
+
+			row.editActions = [
+				Row.EditAction(title: "Archive", style: .Destructive, backgroundColor: Color.darkGray, backgroundEffect: nil, selection: deleteCanvas(canvas)),
+				Row.EditAction(title: "Delete", style: .Destructive, backgroundColor: Color.destructive, backgroundEffect: nil, selection: deleteCanvas(canvas))
+			]
+
+			return row
 		}
 
 		dataSource.sections = [Section(rows: rows)]

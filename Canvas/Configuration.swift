@@ -13,4 +13,4 @@ let realtimeURL = NSURL(string: "wss://api.usecanvas.com/realtime")!
 let longhouseURL = NSURL(string: "wss://presence.usecanvas.com/")!
 
 let algolaAppID = "8VYU4GUELB"
-let algoliaKey = "7585e17287a4cc427d377c181dda6acd"
+let algoliaAPIKey = "7585e17287a4cc427d377c181dda6acd"

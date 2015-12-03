@@ -27,6 +27,9 @@
 		215642221C06BBE600685847 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215642211C06BBE600685847 /* Button.swift */; };
 		215642291C06C40000685847 /* ImagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215642281C06C40000685847 /* ImagesController.swift */; };
 		216343F61C0D43BB00916A8B /* CodeBlockBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216343F51C0D43BB00916A8B /* CodeBlockBackgroundView.swift */; };
+		219334011C0FC5DD000A974B /* AlgoliaSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 219333FF1C0FC5DD000A974B /* AlgoliaSearch.framework */; };
+		219334031C0FC5E9000A974B /* AlgoliaSearch.framework.dSYM in Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = 219334001C0FC5DD000A974B /* AlgoliaSearch.framework.dSYM */; };
+		219334051C0FC6DD000A974B /* Canvas+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219334041C0FC6DD000A974B /* Canvas+Canvas.swift */; };
 		219DAC821C0E75DC00F39A6F /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DAC811C0E75DC00F39A6F /* TextView.swift */; };
 		219DAC8A1C0F819700F39A6F /* NSDate+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DAC891C0F819700F39A6F /* NSDate+Canvas.swift */; };
 		219DAC921C0F98BD00F39A6F /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DAC911C0F98BD00F39A6F /* Configuration.swift */; };
@@ -112,6 +115,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				219334031C0FC5E9000A974B /* AlgoliaSearch.framework.dSYM in Copy dSYM Files */,
 				21AE3F4A1C0424A700AE5DDC /* CanvasKit.framework.dSYM in Copy dSYM Files */,
 				21AE3F4B1C0424A700AE5DDC /* ISO8601.framework.dSYM in Copy dSYM Files */,
 				21AE3F4C1C0424A700AE5DDC /* Longhouse.framework.dSYM in Copy dSYM Files */,
@@ -158,6 +162,9 @@
 		215642211C06BBE600685847 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		215642281C06C40000685847 /* ImagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesController.swift; sourceTree = "<group>"; };
 		216343F51C0D43BB00916A8B /* CodeBlockBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeBlockBackgroundView.swift; sourceTree = "<group>"; };
+		219333FF1C0FC5DD000A974B /* AlgoliaSearch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlgoliaSearch.framework; path = Carthage/Build/iOS/AlgoliaSearch.framework; sourceTree = "<group>"; };
+		219334001C0FC5DD000A974B /* AlgoliaSearch.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = AlgoliaSearch.framework.dSYM; path = Carthage/Build/iOS/AlgoliaSearch.framework.dSYM; sourceTree = "<group>"; };
+		219334041C0FC6DD000A974B /* Canvas+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Canvas+Canvas.swift"; sourceTree = "<group>"; };
 		219DAC811C0E75DC00F39A6F /* TextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		219DAC891C0F819700F39A6F /* NSDate+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Canvas.swift"; sourceTree = "<group>"; };
 		219DAC911C0F98BD00F39A6F /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
@@ -205,6 +212,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				219334011C0FC5DD000A974B /* AlgoliaSearch.framework in Frameworks */,
 				21A8FA351BFCF5BC0097FCC6 /* CanvasText.framework in Frameworks */,
 				21E48AFE1C0447AC00C9F6AA /* CanvasKit.framework in Frameworks */,
 				21E48B011C0447AC00C9F6AA /* ISO8601.framework in Frameworks */,
@@ -280,6 +288,8 @@
 		21AE3F391C0423CE00AE5DDC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				219333FF1C0FC5DD000A974B /* AlgoliaSearch.framework */,
+				219334001C0FC5DD000A974B /* AlgoliaSearch.framework.dSYM */,
 				21AE3F3B1C0423E300AE5DDC /* CanvasKit.framework */,
 				21AE3F3C1C0423E300AE5DDC /* CanvasKit.framework.dSYM */,
 				21AE3F3D1C0423E300AE5DDC /* ISO8601.framework */,
@@ -389,6 +399,7 @@
 				21FCB5841C077C8100F78D93 /* UIEdgeInsets+Canvas.swift */,
 				21FCB58C1C07929A00F78D93 /* NSCache+Canvas.swift */,
 				219DAC891C0F819700F39A6F /* NSDate+Canvas.swift */,
+				219334041C0FC6DD000A974B /* Canvas+Canvas.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -546,6 +557,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SSKeychain.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Static.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Mixpanel.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AlgoliaSearch.framework",
 			);
 			name = "Embed Carthage Frameworks";
 			outputPaths = (
@@ -596,6 +608,7 @@
 				21FCB58D1C07929A00F78D93 /* NSCache+Canvas.swift in Sources */,
 				210960C71C08F01800EB8F84 /* SelectedCanvasCell.swift in Sources */,
 				21B742D91BFFCFDB00FF293C /* BlockquoteBorderView.swift in Sources */,
+				219334051C0FC6DD000A974B /* Canvas+Canvas.swift in Sources */,
 				215642221C06BBE600685847 /* Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
