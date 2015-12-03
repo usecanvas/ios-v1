@@ -11,9 +11,9 @@ Canvas client for iOS.
 
 2. Get the dependencies with [Carthage](https://github.com/carthage/carthage). (You can install Carthage with `brew install carthage`. Version 0.10 or higher is required.) You'll also need to setup your Apple ID in Xcode. Follow the instructions in [Running on Your Device](#running-on-your-device) (steps 1–7).
 
-        $ carthage bootstrap --platform iOS --no-use-binaries
+        $ rake bootstrap
 
-2. Open in Xcode 7 (or higher)
+2. Open in Xcode 7.1
 
 3. Click ▶️
 
