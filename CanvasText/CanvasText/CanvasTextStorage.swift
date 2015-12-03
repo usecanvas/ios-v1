@@ -75,6 +75,11 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 		// Remove
 		transportController.submitOperation(.Remove(location: UInt(backingRange.location), length: UInt(backingRange.length)))
+
+		// Insert after removing
+		if range.length > 0 {
+			transportController.submitOperation(.Insert(location: UInt(backingRange.location), string: str))
+		}
 	}
 
 
