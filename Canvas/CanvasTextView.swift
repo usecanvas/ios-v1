@@ -15,7 +15,6 @@ class CanvasTextView: TextView {
 	// MARK: - Properties
 
 	private var annotations = [UIView]()
-	private var imageAttachments = [Image: NSTextAttachment]()
 	private var lineNumber: UInt = 1
 
 
@@ -62,7 +61,6 @@ class CanvasTextView: TextView {
 	func updateAnnotations() {
 		annotations.forEach { $0.removeFromSuperview() }
 		annotations.removeAll()
-		imageAttachments.removeAll()
 
 		lineNumber = 1
 
@@ -264,26 +262,32 @@ extension CanvasTextView: CanvasTextStorageDelegate {
 	}
 
 	func textStorage(textStorage: CanvasTextStorage, attachmentForAttachable node: Attachable) -> NSTextAttachment? {
-		guard let image = node as? Image else { return nil }
+		guard let image = node as? Image, scale = window?.screen.scale else { return nil }
 		let attachment = NSTextAttachment()
 
 		// Not sure why it’s off by 10 here
 		let width = textContainer.size.width - 10
 		attachment.bounds = CGRect(x: 0, y: 0, width: width, height: width * image.size.height / image.size.width)
 
-		imageAttachments[image] = attachment
-
 		let size = attachment.bounds.ceil.size
-		attachment.image = ImagesController.sharedController.fetchImage(node: image, size: size) { [weak self] node, image in
-			if let image = image, attachment = self?.imageAttachments[node], textStorage = self?.textStorage as? CanvasTextStorage {
-				attachment.image = image
+		attachment.image = ImagesController.sharedController.fetchImage(node: image, size: size, scale: scale) { [weak self] node, image in
+			guard let image = image,
+				textStorage = self?.textStorage as? CanvasTextStorage
+			else { return }
 
-				let range = textStorage.backingRangeToDisplayRange(node.contentRange)
-				textStorage.edited([.EditedAttributes], range: range, changeInLength: 0)
-			}
+			let range = textStorage.backingRangeToDisplayRange(node.contentRange)
+			var attributes = textStorage.attributesAtIndex(range.location, effectiveRange: nil)
+
+			guard let attachment = attributes[NSAttachmentAttributeName] as? NSTextAttachment else { return }
+
+			let updatedAttachment = NSTextAttachment()
+			updatedAttachment.bounds = attachment.bounds
+			updatedAttachment.image = image
+			attributes[NSAttachmentAttributeName] = updatedAttachment
+
+			textStorage.setAttributes(attributes, range: range)
+			textStorage.edited([.EditedAttributes], range: range, changeInLength: 0)
 		}
-
-		imageAttachments[image] = attachment
 
 		return attachment
 	}

@@ -31,6 +31,8 @@ class ImagesController {
 		return cache
 	}()
 
+	private let placeholderCache = NSCache()
+
 	static let sharedController = ImagesController()
 
 
@@ -43,7 +45,7 @@ class ImagesController {
 
 	// MARK: - Accessing
 
-	func fetchImage(node node: Image, size: CGSize, completion: Completion) -> UIImage? {
+	func fetchImage(node node: Image, size: CGSize, scale: CGFloat, completion: Completion) -> UIImage? {
 		if let image = cache[node.ID] as? UIImage {
 			return image
 		}
@@ -65,7 +67,7 @@ class ImagesController {
 			}.resume()
 		}
 
-		return placeholderImage(size: size)
+		return placeholderImage(size: size, scale: scale)
 	}
 
 
@@ -94,7 +96,12 @@ class ImagesController {
 		}
 	}
 
-	private func placeholderImage(size size: CGSize, scale: CGFloat? = 0) -> UIImage? {
+	private func placeholderImage(size size: CGSize, scale: CGFloat) -> UIImage? {
+		let key = "\(size.width)x\(size.height)-\(scale)"
+		if let image = placeholderCache[key] as? UIImage {
+			return image
+		}
+
 		guard let icon = UIImage(named: "ImagePlaceholder") else { return nil }
 
 		let rect = CGRect(origin: .zero, size: size)
@@ -116,6 +123,7 @@ class ImagesController {
 		icon.drawInRect(iconFrame)
 
 		let image = UIGraphicsGetImageFromCurrentImageContext()
+		placeholderCache[key] = image
 
 		UIGraphicsEndImageContext()
 
