@@ -30,14 +30,36 @@ class CanvasesViewController: ListViewController, Accountable {
 		}
 	}
 
+	private let searchController: SearchController
+
+	private let searchViewController: UISearchController = {
+		let results = TableViewController()
+		results.tableView.rowHeight = 72
+
+		return UISearchController(searchResultsController: results)
+	}()
+
 
 	// MARK: - Initializers
 
 	init(account: Account, collection: Collection) {
 		self.account = account
 		self.collection = collection
+
+		searchController = SearchController(account: account, collection: collection)
+
 		super.init(nibName: nil, bundle: nil)
 		title = collection.name.capitalizedString
+
+		searchViewController.searchBar.placeholder = "Search in \(collection.name.capitalizedString)"
+		searchViewController.searchResultsUpdater = self
+
+		searchController.callback = { [weak self] canvases in
+			guard let viewController = self?.searchViewController.searchResultsController as? TableViewController else { return }
+			viewController.dataSource.sections = [
+				Section(rows: canvases.map { $0.row })
+			]
+		}
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -72,8 +94,14 @@ class CanvasesViewController: ListViewController, Accountable {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		definesPresentationContext = true
+		extendedLayoutIncludesOpaqueBars = true
+
+		searchViewController.hidesNavigationBarDuringPresentation = true
+
 		tableView.rowHeight = 72
-		
+		tableView.tableHeaderView = searchViewController.searchBar
+
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
 
 		refresh()
@@ -227,5 +255,13 @@ class CanvasesViewController: ListViewController, Accountable {
 	private func canvasCellClass(canvas: Canvas) -> CellType.Type {
 		let selected = selectedCanvas.flatMap { $0.ID == canvas.ID } ?? false
 		return selected ? SelectedCanvasCell.self : CanvasCell.self
+	}
+}
+
+
+extension CanvasesViewController: UISearchResultsUpdating {
+	func updateSearchResultsForSearchController(searchController: UISearchController) {
+		guard let text = searchController.searchBar.text else { return }
+		self.searchController.search(text)
 	}
 }
