@@ -57,16 +57,18 @@ public class CanvasTextStorage: ShadowTextStorage {
 	// MARK: - NSTextStorage
 
 	public override func replaceCharactersInRange(range: NSRange, withString str: String) {
-		super.replaceCharactersInRange(range, withString: str)
-
-		// Submit the transport operation
+		// Ensure transport controller is available
 		guard let transportController = transportController else {
 			print("[CanvasText.TextStorage] Tried to submit operation without transport controller.")
 			return
 		}
 
-		let backingRange = displayRangeToBackingRange(range)
+		// Update the backing string
+		let displayRange = range
+		let backingRange = displayRangeToBackingRange(displayRange)
+		backingText = (backingText as NSString).stringByReplacingCharactersInRange(backingRange, withString: str)
 
+		// Submit the operation
 		// Insert
 		if range.length == 0 {
 			transportController.submitOperation(.Insert(location: UInt(backingRange.location), string: str))
@@ -150,8 +152,11 @@ public class CanvasTextStorage: ShadowTextStorage {
 			let range = backingRangeToDisplayRange(node.contentRange)
 
 			// TODO: This is to support blank lines. Currently causes some issues
-//			if next != nil {
+//			if next != nil && range.max < text.length {
 //				range.length += 1
+//				print("longer range: \(range)")
+//			} else {
+//				print("last range: \(range)")
 //			}
 
 			// Attachables

@@ -23,8 +23,6 @@ class EditorViewController: UIViewController, Accountable {
 	private let longhouse = Longhouse(serverURL: longhouseURL)
 	private let presenceBarButtonItem = UIBarButtonItem(title: " ", style: .Plain, target: nil, action: nil)
 
-	private var ignoreSelectionChange = false
-
 
 	// MARK: - Initializers
 
@@ -124,10 +122,9 @@ class EditorViewController: UIViewController, Accountable {
 
 extension EditorViewController: ShadowTextStorageSelectionDelegate {
 	func shadowTextStorageDidUpdateSelection(textStorage: ShadowTextStorage) {
-		if ignoreSelectionChange {
-			return
+		if textView.selectedRange != textStorage.displaySelection {
+			textView.selectedRange = textStorage.displaySelection
 		}
-		textView.selectedRange = textStorage.displaySelection
 	}
 }
 
@@ -135,10 +132,7 @@ extension EditorViewController: ShadowTextStorageSelectionDelegate {
 extension EditorViewController: UITextViewDelegate {
 	func textViewDidChangeSelection(textView: UITextView) {
 		self.textView.hijack()
-
-		ignoreSelectionChange = true
 		textStorage.backingSelection = textStorage.displayRangeToBackingRange(textView.selectedRange)
-		ignoreSelectionChange = false
 	}
 }
 
