@@ -76,7 +76,7 @@ class TransportController: NSObject {
 			template = try? String(contentsOfFile: templatePath, encoding: NSUTF8StringEncoding)
 		else { return }
 
-		let javaScript = shareJS + editorJS + rollbarJS
+		let javaScript = rollbarJS + shareJS + editorJS
 		let html = NSString(format: template, javaScript) as String
 		webView.loadHTMLString(html, baseURL: nil)
 	}
