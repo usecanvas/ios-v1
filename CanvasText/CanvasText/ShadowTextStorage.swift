@@ -44,7 +44,8 @@ public class ShadowTextStorage: NSTextStorage {
 		}
 	}
 
-	private private(set) var hiddenRanges = [NSRange]()
+	/// Hidden regions from the backing text
+	private private(set) var shadows = [NSRange]()
 
 	public weak var selectionDelegate: ShadowTextStorageSelectionDelegate?
 
@@ -93,7 +94,7 @@ public class ShadowTextStorage: NSTextStorage {
 	public func backingRangeToDisplayRange(backingRange: NSRange) -> NSRange {
 		var displayRange = backingRange
 
-		for range in hiddenRanges {
+		for range in shadows {
 			if range.location > backingRange.location {
 				break
 			}
@@ -107,12 +108,25 @@ public class ShadowTextStorage: NSTextStorage {
 	public func displayRangeToBackingRange(displayRange: NSRange) -> NSRange {
 		var backingRange = displayRange
 
-		for range in hiddenRanges {
-			if range.location > backingRange.location {
+		for shadow in shadows {
+			// Shadow starts after backing range
+			if shadow.location > backingRange.location {
+
+				// Shadow intersects. Expand lenght.
+				if backingRange.intersection(shadow) > 0 {
+					backingRange.length += shadow.length
+					continue
+				}
+
+				// If the shadow starts directly after the backing range, expand to include it.
+				if shadow.location == backingRange.max {
+					backingRange.length += shadow.length
+				}
+
 				break
 			}
 
-			backingRange.location += range.length
+			backingRange.location += shadow.length
 		}
 
 		return backingRange
@@ -122,7 +136,7 @@ public class ShadowTextStorage: NSTextStorage {
 	// MARK: - Processing
 
 	/// Calculate the hidden ranges for a given backing text.
-	public func hiddenRangesForBackingText(backingText: String) -> [NSRange] {
+	public func shadowsForBackingText(backingText: String) -> [NSRange] {
 		return []
 	}
 
@@ -137,12 +151,12 @@ public class ShadowTextStorage: NSTextStorage {
 
 	public func reprocess() {
 		// Get hidden ranges
-		hiddenRanges = hiddenRangesForBackingText(backingText)
+		shadows = shadowsForBackingText(backingText)
 
 		// Calculate display text
 		var displayText = backingText as NSString
 		var offset = 0
-		for r in hiddenRanges {
+		for r in shadows {
 			var range = r
 			range.location -= offset
 			displayText = displayText.stringByReplacingCharactersInRange(range, withString: "")

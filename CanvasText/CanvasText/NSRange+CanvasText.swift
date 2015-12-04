@@ -34,6 +34,17 @@ extension NSRange: Equatable {
 	public init(location: Int, length: UInt) {
 		self.init(location: location, length: Int(length))
 	}
+
+
+	// MARK: - Working with other Ranges
+
+	public func union(range: NSRange) -> NSRange {
+		return NSUnionRange(self, range)
+	}
+
+	public func intersection(range: NSRange) -> Int {
+		return NSIntersectionRange(self, range).length
+	}
 }
 
 

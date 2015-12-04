@@ -9,7 +9,7 @@
 #if os(OSX)
 	import AppKit
 
-	enum UserInterfaceSizeClass : Int {
+	public enum UserInterfaceSizeClass : Int {
 		case Unspecified
 		case Compact
 		case Regular
