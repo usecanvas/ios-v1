@@ -34,6 +34,13 @@ extension NSRange: Equatable {
 	public init(location: Int, length: UInt) {
 		self.init(location: location, length: Int(length))
 	}
+
+
+	// MARK: - Combining
+
+	public func union(range: NSRange) -> NSRange {
+		return NSUnionRange(self, range)
+	}
 }
 
 

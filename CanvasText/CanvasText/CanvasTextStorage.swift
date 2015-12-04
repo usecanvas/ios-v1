@@ -87,14 +87,14 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 	// MARK: - ShadowTextStorage
 
-	public override func hiddenRangesForBackingText(backingText: String) -> [NSRange] {
+	public override func shadowsForBackingText(backingText: String) -> [NSRange] {
 		// Convert to Foundation string so we can work with `NSRange` instead of `Range` since the TextKit APIs take
 		// `NSRange` instead `Range`. Bummer.
 		let text = backingText as NSString
 
 		// We're going to rebuild `nodes` and `displayText` from the new `backingText`.
 		var nodes = [Node]()
-		var hiddenRanges = [NSRange]()
+		var shadows = [NSRange]()
 
 		// Enumerate the string blocks of the `backingText`.
 		text.enumerateSubstringsInRange(NSRange(location: 0, length: text.length), options: [.ByLines]) { substring, substringRange, _, _ in
@@ -108,12 +108,16 @@ public class CanvasTextStorage: ShadowTextStorage {
 			for type in nodeParseOrder {
 				guard let node = type.init(string: substring, enclosingRange: substringRange) else { continue }
 
-				if let node = node as? Delimitable {
-					hiddenRanges.append(node.delimiterRange)
-				}
+				if let delimitable = node as? Delimitable, prefixable = node as? Prefixable {
+					shadows.append(delimitable.delimiterRange.union(prefixable.prefixRange))
+				} else {
+					if let delimitable = node as? Delimitable {
+						shadows.append(delimitable.delimiterRange)
+					}
 
-				if let node = node as? Prefixable {
-					hiddenRanges.append(node.prefixRange)
+					if let prefixable = node as? Prefixable {
+						shadows.append(prefixable.prefixRange)
+					}
 				}
 
 				nodes.append(node)
@@ -128,12 +132,12 @@ public class CanvasTextStorage: ShadowTextStorage {
 				range.length += 1
 			}
 			
-			hiddenRanges.append(range)
+			shadows.append(range)
 		}
 
 		self.nodes = nodes
 
-		return hiddenRanges
+		return shadows
 	}
 
 	/// Optionally add attributes to the display version of the text.

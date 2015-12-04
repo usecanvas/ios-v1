@@ -11,15 +11,13 @@ import CanvasText
 
 class Shadow: ShadowTextStorage {
 	convenience init() {
-		self.init(backingText: "<p>Hello</p>\n<p>World</p>")
+		self.init(backingText: "* Hello\n* World")
 	}
 
-	override func hiddenRangesForBackingText(backingText: String) -> [NSRange] {
+	override func shadowsForBackingText(backingText: String) -> [NSRange] {
 		return [
-			NSRange(location: 0, length: 3),
-			NSRange(location: 8, length: 4),
-			NSRange(location: 13, length: 3),
-			NSRange(location: 21, length: 4)
+			NSRange(location: 0, length: 2),
+			NSRange(location: 8, length: 2)
 		]
 	}
 }
@@ -33,7 +31,12 @@ class ShadowTextStorageTests: XCTestCase {
 	}
 
 	func testSelection() {
-		storage.backingSelection = NSRange(location: 3, length: 5)
-		XCTAssertEqual(NSRange(location: 0, length: 5), storage.displaySelection)
+		storage.backingSelection = NSRange(location: 11, length: 2)
+		XCTAssertEqual(NSRange(location: 7, length: 2), storage.displaySelection)
+	}
+
+	func testDelimiterRanges() {
+		let range = NSRange(location: 5, length: 1)
+		XCTAssertEqual(NSRange(location: 7, length: 3), storage.displayRangeToBackingRange(range))
 	}
 }

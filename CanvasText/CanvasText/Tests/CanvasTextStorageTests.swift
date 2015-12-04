@@ -9,8 +9,20 @@
 import XCTest
 import CanvasText
 
+struct TestTheme: Theme {
+	let fontSize: CGFloat = 16
+	let backgroundColor = Color.whiteColor()
+	let foregroundColor = Color.blackColor()
+	let lineHeightMultiple: CGFloat = 1.2
+
+	func attributesForNode(node: Node, nextSibling: Node?, horizontalSizeClass: UserInterfaceSizeClass) -> Attributes {
+		return [:]
+	}
+}
+
+
 class CanvasTextStorageTests: XCTestCase {
-	let storage = CanvasTextStorage(theme: LightTheme())
+	let storage = CanvasTextStorage(theme: TestTheme())
 
 	func testDocHeading() {
 		storage.backingText = "⧙doc-heading⧘A Lovely Document"
