@@ -108,18 +108,25 @@ public class ShadowTextStorage: NSTextStorage {
 	public func displayRangeToBackingRange(displayRange: NSRange) -> NSRange {
 		var backingRange = displayRange
 
-		for range in shadows {
-			if range.location > backingRange.location {
+		for shadow in shadows {
+			// Shadow starts after backing range
+			if shadow.location > backingRange.location {
 
-				// Expand if a hidden range is contained
-				// TODO: For now this will only work if only the character directly before a shadow is selected.
-				if range.location == backingRange.max {
-					backingRange.length += range.length
+				// Shadow intersects. Expand lenght.
+				if backingRange.intersection(shadow) > 0 {
+					backingRange.length += shadow.length
+					continue
 				}
+
+				// If the shadow starts directly after the backing range, expand to include it.
+				if shadow.location == backingRange.max {
+					backingRange.length += shadow.length
+				}
+
 				break
 			}
 
-			backingRange.location += range.length
+			backingRange.location += shadow.length
 		}
 
 		return backingRange

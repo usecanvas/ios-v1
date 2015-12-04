@@ -36,10 +36,14 @@ extension NSRange: Equatable {
 	}
 
 
-	// MARK: - Combining
+	// MARK: - Working with other Ranges
 
 	public func union(range: NSRange) -> NSRange {
 		return NSUnionRange(self, range)
+	}
+
+	public func intersection(range: NSRange) -> Int {
+		return NSIntersectionRange(self, range).length
 	}
 }
 
