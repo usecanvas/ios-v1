@@ -48,6 +48,9 @@
 		21B742ED1C03BDF400FF293C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742EC1C03BDF400FF293C /* ListViewController.swift */; };
 		21B8D8D91BFC0E0B001ED447 /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B8D8D81BFC0E0B001ED447 /* CheckboxView.swift */; };
 		21D2B1981C0D0AED003652B7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21D2B1971C0D0AED003652B7 /* Settings.bundle */; };
+		21E349EB1C125FC500E91886 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E349EA1C125FC500E91886 /* Configuration.swift */; };
+		21E349EE1C125FFA00E91886 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E349EC1C125FFA00E91886 /* CryptoSwift.framework */; };
+		21E349F01C12600D00E91886 /* CryptoSwift.framework.dSYM in Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = 21E349ED1C125FFA00E91886 /* CryptoSwift.framework.dSYM */; };
 		21E48AFE1C0447AC00C9F6AA /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AE3F3B1C0423E300AE5DDC /* CanvasKit.framework */; };
 		21E48B011C0447AC00C9F6AA /* ISO8601.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AE3F3D1C0423E300AE5DDC /* ISO8601.framework */; };
 		21E48B021C0447AC00C9F6AA /* Longhouse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AE3F3F1C0423E300AE5DDC /* Longhouse.framework */; };
@@ -111,6 +114,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				21E349F01C12600D00E91886 /* CryptoSwift.framework.dSYM in Copy dSYM Files */,
 				21AE3F4A1C0424A700AE5DDC /* CanvasKit.framework.dSYM in Copy dSYM Files */,
 				21AE3F4B1C0424A700AE5DDC /* ISO8601.framework.dSYM in Copy dSYM Files */,
 				21AE3F4C1C0424A700AE5DDC /* Longhouse.framework.dSYM in Copy dSYM Files */,
@@ -185,6 +189,9 @@
 		21B742EC1C03BDF400FF293C /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		21B8D8D81BFC0E0B001ED447 /* CheckboxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
 		21D2B1971C0D0AED003652B7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		21E349EA1C125FC500E91886 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		21E349EC1C125FFA00E91886 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
+		21E349ED1C125FFA00E91886 /* CryptoSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = CryptoSwift.framework.dSYM; path = Carthage/Build/iOS/CryptoSwift.framework.dSYM; sourceTree = "<group>"; };
 		21F10F4A1BF138750035057D /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F10F4D1BF138750035057D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21F10F4F1BF138750035057D /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
@@ -206,6 +213,7 @@
 				21A8FA351BFCF5BC0097FCC6 /* CanvasText.framework in Frameworks */,
 				21E48AFE1C0447AC00C9F6AA /* CanvasKit.framework in Frameworks */,
 				21E48B011C0447AC00C9F6AA /* ISO8601.framework in Frameworks */,
+				21E349EE1C125FFA00E91886 /* CryptoSwift.framework in Frameworks */,
 				215642151C06B46E00685847 /* Mixpanel.framework in Frameworks */,
 				21E48B021C0447AC00C9F6AA /* Longhouse.framework in Frameworks */,
 				21E48B031C0447AC00C9F6AA /* OnePasswordExtension.framework in Frameworks */,
@@ -294,6 +302,8 @@
 				21AE3F451C0423E300AE5DDC /* SSKeychain.framework.dSYM */,
 				21AE3F461C0423E300AE5DDC /* Static.framework */,
 				21AE3F471C0423E300AE5DDC /* Static.framework.dSYM */,
+				21E349EC1C125FFA00E91886 /* CryptoSwift.framework */,
+				21E349ED1C125FFA00E91886 /* CryptoSwift.framework.dSYM */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -373,6 +383,7 @@
 		21FB6AAE1BF53B35003C82BB /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				21E349EA1C125FC500E91886 /* Configuration.swift */,
 				21F10F4D1BF138750035057D /* AppDelegate.swift */,
 				2156421E1C06B4ED00685847 /* Analytics.swift */,
 			);
@@ -543,6 +554,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SSKeychain.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Static.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Mixpanel.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CryptoSwift.framework",
 			);
 			name = "Embed Carthage Frameworks";
 			outputPaths = (
@@ -588,6 +600,7 @@
 				21A8FA3D1BFD04F20097FCC6 /* CollectionCell.swift in Sources */,
 				210960D41C091CAE00EB8F84 /* Font.swift in Sources */,
 				2129D3121BF568AB0018F255 /* CanvasesViewController.swift in Sources */,
+				21E349EB1C125FC500E91886 /* Configuration.swift in Sources */,
 				21A8FA5D1BFD33DB0097FCC6 /* ChromeActivity.swift in Sources */,
 				21FCB58D1C07929A00F78D93 /* NSCache+Canvas.swift in Sources */,
 				210960C71C08F01800EB8F84 /* SelectedCanvasCell.swift in Sources */,

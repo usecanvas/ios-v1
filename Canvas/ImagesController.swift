@@ -8,6 +8,7 @@
 
 import UIKit
 import CanvasText
+import CryptoSwift
 
 class ImagesController {
 
@@ -57,6 +58,12 @@ class ImagesController {
 				self.downloading[node] = array
 				return
 			}
+
+			// https://camo.usecanvas.com/${hmac}?url=${url}
+//			guard let components = NSURLComponents(string: "https://camo.usecanvas.com/") else { return }
+//
+//			let hmac = node.URL.absoluteString.encrypt(HMAC(camoSecret, variant: .sha1))
+//			components.path =
 
 			// Start download
 			self.downloading[node] = [completion]
