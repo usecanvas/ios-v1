@@ -9,6 +9,7 @@
 import UIKit
 import Static
 import CanvasKit
+import AlgoliaSearch
 
 class CanvasesViewController: ListViewController, Accountable {
 
@@ -29,14 +30,39 @@ class CanvasesViewController: ListViewController, Accountable {
 		}
 	}
 
+	private let searchController: SearchController
+
+	private let searchViewController: UISearchController = {
+		let results = TableViewController()
+		results.tableView.rowHeight = 72
+
+		let controller = UISearchController(searchResultsController: results)
+//		controller.searchBar.backgroundImage = UIImage()
+//		controller.searchBar.barTintColor = Color.lightGray
+		return controller
+	}()
+
 
 	// MARK: - Initializers
 
 	init(account: Account, collection: Collection) {
 		self.account = account
 		self.collection = collection
+
+		searchController = SearchController(account: account, collection: collection)
+
 		super.init(nibName: nil, bundle: nil)
 		title = collection.name.capitalizedString
+
+		searchViewController.searchBar.placeholder = "Search in \(collection.name.capitalizedString)"
+		searchViewController.searchResultsUpdater = self
+
+		searchController.callback = { [weak self] canvases in
+			guard let viewController = self?.searchViewController.searchResultsController as? TableViewController else { return }
+			viewController.dataSource.sections = [
+				Section(rows: canvases.map { $0.row })
+			]
+		}
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -71,8 +97,14 @@ class CanvasesViewController: ListViewController, Accountable {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		definesPresentationContext = true
+		extendedLayoutIncludesOpaqueBars = true
+
+		searchViewController.hidesNavigationBarDuringPresentation = true
+
 		tableView.rowHeight = 72
-		
+		tableView.tableHeaderView = searchViewController.searchBar
+
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
 
 		refresh()
@@ -204,19 +236,20 @@ class CanvasesViewController: ListViewController, Accountable {
 	// MARK: - Private
 
 	private func reloadRows() {
-		let rows = canvases.map {
-			Row(
-				text: $0.displayTitle,
-				detailText: $0.summary,
-				accessory: .DisclosureIndicator,
-				selection: showCanvas($0),
-				cellClass: canvasCellClass($0),
-				context: ["canvas": $0],
-				editActions: [
-					Row.EditAction(title: "Archive", style: .Destructive, backgroundColor: Color.darkGray, backgroundEffect: nil, selection: deleteCanvas($0)),
-					Row.EditAction(title: "Delete", style: .Destructive, backgroundColor: Color.destructive, backgroundEffect: nil, selection: deleteCanvas($0))
-				]
-			)
+		let rows: [Row] = canvases.map { canvas in
+			var row = canvas.row
+			row.selection = showCanvas(canvas)
+
+			if selectedCanvas.flatMap({ selected in selected.ID == canvas.ID }) ?? false {
+				row.cellClass = SelectedCanvasCell.self
+			}
+
+			row.editActions = [
+				Row.EditAction(title: "Archive", style: .Destructive, backgroundColor: Color.darkGray, backgroundEffect: nil, selection: deleteCanvas(canvas)),
+				Row.EditAction(title: "Delete", style: .Destructive, backgroundColor: Color.destructive, backgroundEffect: nil, selection: deleteCanvas(canvas))
+			]
+
+			return row
 		}
 
 		dataSource.sections = [Section(rows: rows)]
@@ -225,5 +258,13 @@ class CanvasesViewController: ListViewController, Accountable {
 	private func canvasCellClass(canvas: Canvas) -> CellType.Type {
 		let selected = selectedCanvas.flatMap { $0.ID == canvas.ID } ?? false
 		return selected ? SelectedCanvasCell.self : CanvasCell.self
+	}
+}
+
+
+extension CanvasesViewController: UISearchResultsUpdating {
+	func updateSearchResultsForSearchController(searchController: UISearchController) {
+		guard let text = searchController.searchBar.text else { return }
+		self.searchController.search(text)
 	}
 }
