@@ -34,7 +34,7 @@ public enum Indentation: UInt {
 		if self == .Zero {
 			return self
 		}
-		
+
 		return Indentation(rawValue: rawValue - 1)!
 	}
 
