@@ -10,23 +10,11 @@ import UIKit
 import Static
 import CanvasKit
 
-class CollectionsViewController: ListViewController, Accountable {
+class CollectionsViewController: ModelsViewController, Accountable {
 
 	// MARK: - Properties
 
 	var account: Account
-
-	var collections = [Collection]() {
-		didSet {
-			reloadRows()
-		}
-	}
-
-	private var selectedCollection: Collection? {
-		didSet {
-			reloadRows()
-		}
-	}
 
 
 	// MARK: - Initializers
@@ -45,20 +33,12 @@ class CollectionsViewController: ListViewController, Accountable {
 
 	// MARK: - UIResponder
 
-	override func canBecomeFirstResponder() -> Bool {
-		return true
-	}
-
 	override var keyCommands: [UIKeyCommand] {
-		return [
-			UIKeyCommand(input: UIKeyInputUpArrow, modifierFlags: [], action: "selectPreviousCollection:", discoverabilityTitle: "Previous Collection"),
-			UIKeyCommand(input: UIKeyInputDownArrow, modifierFlags: [], action: "selectNextCollection:", discoverabilityTitle: "Next Collection"),
-			UIKeyCommand(input: "\r", modifierFlags: [], action: "openSelectedCollection:", discoverabilityTitle: "Open Collection"),
-			UIKeyCommand(input: UIKeyInputRightArrow, modifierFlags: [], action: "openSelectedCollection:"),
-			UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: "clearSelectedCollection:", discoverabilityTitle: "Clear Selection"),
-			UIKeyCommand(input: "R", modifierFlags: [.Command], action: "refresh", discoverabilityTitle: "Refresh"),
+		var commands = super.keyCommands ?? []
+		commands += [
 			UIKeyCommand(input: "Q", modifierFlags: [.Shift, .Command], action: "logOut:", discoverabilityTitle: "Log Out")
 		]
+		return commands
 	}
 
 
@@ -73,8 +53,6 @@ class CollectionsViewController: ListViewController, Accountable {
 
 		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .Plain, target: self, action: "logOut:")
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
-
-		refresh()
 	}
 
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -102,47 +80,28 @@ class CollectionsViewController: ListViewController, Accountable {
 	}
 
 
-	// MARK: - Actions
+	// MARK: - ListViewController
 
-	func selectPreviousCollection(sender: AnyObject?) {
-		guard let selectedCollection = selectedCollection, index = collections.indexOf({ $0.ID == selectedCollection.ID }) else {
-			self.selectedCollection = collections.first
-			return
-		}
-
-		if index == 0 {
-			return
-		}
-
-		self.selectedCollection = collections[index.predecessor()]
+	override var modelTypeName: String {
+		return "Collection"
 	}
 
-	func selectNextCollection(sender: AnyObject?) {
-		guard let selectedCollection = selectedCollection, index = collections.indexOf({ $0.ID == selectedCollection.ID }) else {
-			self.selectedCollection = collections.first
-			return
-		}
-
-		if index == collections.count - 1 {
-			return
-		}
-
-		self.selectedCollection = collections[index.successor()]
-
+	override func rowForModel(model: Model, isSelected: Bool) -> Row? {
+		guard let collection = model as? Collection else { return nil }
+		return Row(
+			text: collection.name,
+			accessory: .DisclosureIndicator,
+			selection: { [weak self] in self?.selectModel(collection) },
+			cellClass: isSelected ? SelectedCollectionCell.self : CollectionCell.self
+		)
 	}
 
-	func openSelectedCollection(sender: AnyObject?) {
-		guard let collection = selectedCollection ?? collections.first else { return }
-		showCollection(collection)()
-	}
-
-	func clearSelectedCollection(sender: AnyObject?) {
-		selectedCollection = nil
-	}
-
-	func logOut(sender: AnyObject?) {
-		Analytics.track(.LoggedIn)
-		AccountController.sharedController.currentAccount = nil
+	override func selectModel(model: Model) {
+		guard !opening, let collection = model as? Collection else { return }
+		opening = true
+		Analytics.track(.ChangedCollection(collection: collection))
+		let viewController = CanvasesViewController(account: account, collection: collection)
+		navigationController?.pushViewController(viewController, animated: true)
 	}
 
 	override func refresh() {
@@ -151,13 +110,13 @@ class CollectionsViewController: ListViewController, Accountable {
 		}
 
 		loading = true
-		
+
 		APIClient(accessToken: account.accessToken, baseURL: baseURL).listCollections { [weak self] result in
 			switch result {
 			case .Success(let collections):
 				dispatch_async(dispatch_get_main_queue()) {
 					self?.loading = false
-					self?.collections = collections
+					self?.arrangedModels = collections.map { $0 as Model }
 				}
 			case .Failure(let message):
 				print("Failed to get collections: \(message)")
@@ -169,30 +128,10 @@ class CollectionsViewController: ListViewController, Accountable {
 	}
 
 
-	// MARK: - Private
+	// MARK: - Actions
 
-	private func reloadRows() {
-		let rows = collections.map {
-			Row(
-				text: $0.name,
-				accessory: .DisclosureIndicator,
-				selection: showCollection($0),
-				cellClass: collectionCellClass($0)
-			)
-		}
-
-		dataSource.sections = [Section(rows: rows)]
-	}
-
-	private func collectionCellClass(collection: Collection) -> CellType.Type {
-		let selected = selectedCollection.flatMap { $0.ID == collection.ID } ?? false
-		return selected ? SelectedCollectionCell.self : CollectionCell.self
-	}
-
-	// TODO: Guard against pushing multiple at the same time
-	private func showCollection(collection: Collection)() {
-		Analytics.track(.ChangedCollection(collection: collection))
-		let viewController = CanvasesViewController(account: account, collection: collection)
-		navigationController?.pushViewController(viewController, animated: true)
+	func logOut(sender: AnyObject?) {
+		Analytics.track(.LoggedIn)
+		AccountController.sharedController.currentAccount = nil
 	}
 }
