@@ -10,17 +10,11 @@ import UIKit
 import Static
 import CanvasKit
 
-class CollectionsViewController: ListViewController, Accountable {
+class CollectionsViewController: ListViewController<Collection>, Accountable {
 
 	// MARK: - Properties
 
 	var account: Account
-
-	var collections = [Collection]() {
-		didSet {
-			reloadRows()
-		}
-	}
 
 	private var selectedCollection: Collection? {
 		didSet {
@@ -45,20 +39,12 @@ class CollectionsViewController: ListViewController, Accountable {
 
 	// MARK: - UIResponder
 
-	override func canBecomeFirstResponder() -> Bool {
-		return true
-	}
-
 	override var keyCommands: [UIKeyCommand] {
-		return [
-			UIKeyCommand(input: UIKeyInputUpArrow, modifierFlags: [], action: "selectPreviousCollection:", discoverabilityTitle: "Previous Collection"),
-			UIKeyCommand(input: UIKeyInputDownArrow, modifierFlags: [], action: "selectNextCollection:", discoverabilityTitle: "Next Collection"),
-			UIKeyCommand(input: "\r", modifierFlags: [], action: "openSelectedCollection:", discoverabilityTitle: "Open Collection"),
-			UIKeyCommand(input: UIKeyInputRightArrow, modifierFlags: [], action: "openSelectedCollection:"),
-			UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: "clearSelectedCollection:", discoverabilityTitle: "Clear Selection"),
-			UIKeyCommand(input: "R", modifierFlags: [.Command], action: "refresh", discoverabilityTitle: "Refresh"),
+		var commands = super.keyCommands ?? []
+		commands += [
 			UIKeyCommand(input: "Q", modifierFlags: [.Shift, .Command], action: "logOut:", discoverabilityTitle: "Log Out")
 		]
+		return commands
 	}
 
 
@@ -103,42 +89,6 @@ class CollectionsViewController: ListViewController, Accountable {
 
 
 	// MARK: - Actions
-
-	func selectPreviousCollection(sender: AnyObject?) {
-		guard let selectedCollection = selectedCollection, index = collections.indexOf({ $0.ID == selectedCollection.ID }) else {
-			self.selectedCollection = collections.first
-			return
-		}
-
-		if index == 0 {
-			return
-		}
-
-		self.selectedCollection = collections[index.predecessor()]
-	}
-
-	func selectNextCollection(sender: AnyObject?) {
-		guard let selectedCollection = selectedCollection, index = collections.indexOf({ $0.ID == selectedCollection.ID }) else {
-			self.selectedCollection = collections.first
-			return
-		}
-
-		if index == collections.count - 1 {
-			return
-		}
-
-		self.selectedCollection = collections[index.successor()]
-
-	}
-
-	func openSelectedCollection(sender: AnyObject?) {
-		guard let collection = selectedCollection ?? collections.first else { return }
-		showCollection(collection)()
-	}
-
-	func clearSelectedCollection(sender: AnyObject?) {
-		selectedCollection = nil
-	}
 
 	func logOut(sender: AnyObject?) {
 		Analytics.track(.LoggedIn)
