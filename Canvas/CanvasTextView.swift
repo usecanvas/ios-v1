@@ -10,7 +10,7 @@ import UIKit
 import CanvasKit
 import CanvasText
 
-class CanvasTextView: TextView {
+class CanvasTextView: InsertionPointTextView {
 
 	// MARK: - Properties
 
@@ -34,6 +34,11 @@ class CanvasTextView: TextView {
 		if let textStorage = textStorage as? CanvasTextStorage {
 			textStorage.canvasDelegate = self
 		}
+
+		let indent = UISwipeGestureRecognizer(target: self, action: "indentWithGesture:")
+		indent.numberOfTouchesRequired = 2
+		indent.direction = .Right
+		addGestureRecognizer(indent)
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -53,6 +58,33 @@ class CanvasTextView: TextView {
 		dispatch_async(dispatch_get_main_queue()) { [weak self] in
 			self?.updateAnnotations()
 		}
+	}
+
+
+	// MARK: - Gestures
+
+	func indentWithGesture(sender: UISwipeGestureRecognizer?) {
+		guard let sender = sender,
+			textRange = characterRangeAtPoint(sender.locationInView(self)),
+			textStorage = textStorage as? CanvasTextStorage
+		else { return }
+
+		let range = NSRange(
+			location: offsetFromPosition(beginningOfDocument, toPosition: textRange.start),
+			length: offsetFromPosition(textRange.start, toPosition: textRange.end)
+		)
+
+		var node: Node?
+		for n in textStorage.nodes {
+			let content = textStorage.backingRangeToDisplayRange(n.contentRange)
+			if content.intersection(range) > 0 {
+				node = n
+				break
+			}
+		}
+
+		guard let listable = node as? Listable else { return }
+		textStorage.backingText = (textStorage.backingText as NSString).stringByReplacingCharactersInRange(listable.indentationRange, withString: listable.indentation.successor.rawValue.description)
 	}
 
 
