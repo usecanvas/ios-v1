@@ -36,7 +36,10 @@ class CanvasesViewController: ListViewController, Accountable {
 		let results = TableViewController()
 		results.tableView.rowHeight = 72
 
-		return UISearchController(searchResultsController: results)
+		let controller = UISearchController(searchResultsController: results)
+//		controller.searchBar.backgroundImage = UIImage()
+//		controller.searchBar.barTintColor = Color.lightGray
+		return controller
 	}()
 
 
