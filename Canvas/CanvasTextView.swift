@@ -70,50 +70,24 @@ class CanvasTextView: InsertionPointTextView {
 
 	func indentWithGesture(sender: UISwipeGestureRecognizer?) {
 		guard let sender = sender,
-			textRange = characterRangeAtPoint(sender.locationInView(self)),
-			textStorage = textStorage as? CanvasTextStorage
+			textStorage = textStorage as? CanvasTextStorage,
+			node = nodeAtPoint(sender.locationInView(self)) as? Listable
 		else { return }
 
-		let range = NSRange(
-			location: offsetFromPosition(beginningOfDocument, toPosition: textRange.start),
-			length: offsetFromPosition(textRange.start, toPosition: textRange.end)
-		)
-
-		var node: Node?
-		for n in textStorage.nodes {
-			let content = textStorage.backingRangeToDisplayRange(n.contentRange)
-			if content.intersection(range) > 0 {
-				node = n
-				break
-			}
-		}
-
-		guard let listable = node as? Listable else { return }
-		textStorage.replaceBackingCharactersInRange(listable.indentationRange, withString: listable.indentation.successor.rawValue.description)
+		// Increment indentation
+		let string = node.indentation.successor.string
+		textStorage.replaceBackingCharactersInRange(node.indentationRange, withString: string)
 	}
 
 	func outdentWithGesture(sender: UISwipeGestureRecognizer?) {
 		guard let sender = sender,
-			textRange = characterRangeAtPoint(sender.locationInView(self)),
-			textStorage = textStorage as? CanvasTextStorage
-			else { return }
+			textStorage = textStorage as? CanvasTextStorage,
+			node = nodeAtPoint(sender.locationInView(self)) as? Listable
+		else { return }
 
-		let range = NSRange(
-			location: offsetFromPosition(beginningOfDocument, toPosition: textRange.start),
-			length: offsetFromPosition(textRange.start, toPosition: textRange.end)
-		)
-
-		var node: Node?
-		for n in textStorage.nodes {
-			let content = textStorage.backingRangeToDisplayRange(n.contentRange)
-			if content.intersection(range) > 0 {
-				node = n
-				break
-			}
-		}
-
-		guard let listable = node as? Listable else { return }
-		textStorage.replaceBackingCharactersInRange(listable.indentationRange, withString: listable.indentation.predecessor.rawValue.description)
+		// Decrement indentation
+		let string = node.indentation.predecessor.string
+		textStorage.replaceBackingCharactersInRange(node.indentationRange, withString: string)
 	}
 
 
@@ -175,6 +149,28 @@ class CanvasTextView: InsertionPointTextView {
 
 
 	// MARK: - Private
+
+	private func nodeAtPoint(point: CGPoint) -> Node? {
+		guard let textRange = characterRangeAtPoint(point),
+			textStorage = textStorage as? CanvasTextStorage
+		else { return nil }
+
+		let range = NSRange(
+			location: offsetFromPosition(beginningOfDocument, toPosition: textRange.start),
+			length: offsetFromPosition(textRange.start, toPosition: textRange.end)
+		)
+
+		var node: Node?
+		for n in textStorage.nodes {
+			let content = textStorage.backingRangeToDisplayRange(n.contentRange)
+			if content.intersection(range) > 0 {
+				node = n
+				break
+			}
+		}
+
+		return node
+	}
 
 	private func addAnnotation(annotation: UIView) {
 		annotations.append(annotation)

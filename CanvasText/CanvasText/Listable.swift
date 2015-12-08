@@ -23,11 +23,23 @@ public enum Indentation: UInt {
 	}
 
 	public var successor: Indentation {
-		return Indentation(rawValue: min(7, rawValue + 1))!
+		if self == .Seven {
+			return self
+		}
+
+		return Indentation(rawValue: rawValue + 1)!
 	}
 
 	public var predecessor: Indentation {
-		return Indentation(rawValue: max(0, rawValue - 1))!
+		if self == .Zero {
+			return self
+		}
+		
+		return Indentation(rawValue: rawValue - 1)!
+	}
+
+	public var string: String {
+		return rawValue.description
 	}
 }
 
