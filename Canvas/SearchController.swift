@@ -6,6 +6,7 @@
 //  Copyright © 2015 Canvas Labs, Inc. All rights reserved.
 //
 
+import UIKit
 import Foundation
 import CanvasKit
 import SSKeychain
@@ -88,7 +89,8 @@ class SearchController {
 
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)) { [weak self] in
 			guard let semaphore = self?.semaphore else { return }
-			dispatch_semaphore_wait(semaphore, 60)
+
+			dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
 
 			guard let credential = self?.searchCredential,
 				collectionID = self?.collection.ID,
@@ -98,9 +100,10 @@ class SearchController {
 				return
 			}
 
+			self?.nextQuery = nil
+
 			// Setup client
 			let search = Client(appID: credential.applicationID, apiKey: credential.searchKey)
-			search.setExtraHeader("facetFilters=(collection_id:\(collectionID))", forKey: "X-Algolia-QueryParameters")
 
 			// Get index
 			let index = search.getIndex("prod_canvases")
@@ -112,8 +115,15 @@ class SearchController {
 			]
 
 			// Search index
+			dispatch_async(dispatch_get_main_queue()) {
+				UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+			}
+
 			index.search(query) { content, error in
-				print("content: \(content), error: \(error) \(error?.localizedDescription)")
+				dispatch_async(dispatch_get_main_queue()) {
+					UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+				}
+
 				guard let content = content,
 					hits = content["hits"] as? [JSONDictionary]
 				else { return }
