@@ -10,7 +10,7 @@ import UIKit
 import Static
 import CanvasKit
 
-class CollectionsViewController: ListViewController<Collection>, Accountable {
+class CollectionsViewController: ModelsViewController, Accountable {
 
 	// MARK: - Properties
 
@@ -21,7 +21,7 @@ class CollectionsViewController: ListViewController<Collection>, Accountable {
 
 	init(account: Account) {
 		self.account = account
-		super.init()
+		super.init(nibName: nil, bundle: nil)
 		title = "Collections"
 	}
 
@@ -84,24 +84,26 @@ class CollectionsViewController: ListViewController<Collection>, Accountable {
 
 	// MARK: - ListViewController
 
-	override var itemTypeName: String {
+	override var modelTypeName: String {
 		return "Collection"
 	}
 
-	override func rowForItem(item: Collection, isSelected: Bool) -> Row {
+	override func rowForModel(model: Model, isSelected: Bool) -> Row? {
+		guard let collection = model as? Collection else { return nil }
 		return Row(
-			text: item.name,
+			text: collection.name,
 			accessory: .DisclosureIndicator,
-			selection: { [weak self] in self?.selectItem(item) },
+			selection: { [weak self] in self?.selectModel(collection) },
 			cellClass: isSelected ? SelectedCollectionCell.self : CollectionCell.self
 		)
 	}
 
-	override func selectItem(item: Collection) {
-		// TODO: Guard against pushing multiple at the same time
-		Analytics.track(.ChangedCollection(collection: item))
-//		let viewController = CanvasesViewController(account: account, collection: item)
-		navigationController?.pushViewController(UIViewController(), animated: true)
+	override func selectModel(model: Model) {
+		guard !opening, let collection = model as? Collection else { return }
+		opening = true
+		Analytics.track(.ChangedCollection(collection: collection))
+		let viewController = CanvasesViewController(account: account, collection: collection)
+		navigationController?.pushViewController(viewController, animated: true)
 	}
 
 	override func refresh() {
@@ -116,7 +118,7 @@ class CollectionsViewController: ListViewController<Collection>, Accountable {
 			case .Success(let collections):
 				dispatch_async(dispatch_get_main_queue()) {
 					self?.loading = false
-					self?.arrangedItems = collections
+					self?.arrangedModels = collections.map { $0 as Model }
 				}
 			case .Failure(let message):
 				print("Failed to get collections: \(message)")

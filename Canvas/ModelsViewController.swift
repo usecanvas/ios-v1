@@ -1,5 +1,5 @@
 //
-//  ListViewController.swift
+//  ModelsViewController.swift
 //  Canvas
 //
 //  Created by Sam Soffes on 11/23/15.
@@ -7,19 +7,24 @@
 //
 
 import UIKit
+import CanvasKit
 import Static
 
-class ListViewController<T: Equatable>: TableViewController {
+class ModelsViewController: TableViewController {
 
 	// MARK: - Properties
 
-	var arrangedItems = [T]() {
+	var arrangedModels = [Model]() {
 		didSet {
 			reloadRows()
 		}
 	}
 
-	var selectedItem: T?
+	var selectedModel: Model? {
+		didSet {
+			reloadRows()
+		}
+	}
 
 	var loading = false {
 		didSet {
@@ -29,12 +34,7 @@ class ListViewController<T: Equatable>: TableViewController {
 		}
 	}
 
-
-	// MARK: - Initializers
-
-	init() {
-		super.init(nibName: nil, bundle: nil)
-	}
+	var opening = false
 
 
 	// MARK: - UIResponder
@@ -46,9 +46,9 @@ class ListViewController<T: Equatable>: TableViewController {
 	override var keyCommands: [UIKeyCommand] {
 		var commands = super.keyCommands ?? []
 		commands += [
-			UIKeyCommand(input: UIKeyInputUpArrow, modifierFlags: [], action: "selectPrevious", discoverabilityTitle: "Previous  \(itemTypeName)"),
-			UIKeyCommand(input: UIKeyInputDownArrow, modifierFlags: [], action: "selectNext", discoverabilityTitle: "Next  \(itemTypeName)"),
-			UIKeyCommand(input: "\r", modifierFlags: [], action: "openSelected", discoverabilityTitle: "Open \(itemTypeName)"),
+			UIKeyCommand(input: UIKeyInputUpArrow, modifierFlags: [], action: "selectPrevious", discoverabilityTitle: "Previous  \(modelTypeName)"),
+			UIKeyCommand(input: UIKeyInputDownArrow, modifierFlags: [], action: "selectNext", discoverabilityTitle: "Next  \(modelTypeName)"),
+			UIKeyCommand(input: "\r", modifierFlags: [], action: "openSelected", discoverabilityTitle: "Open \(modelTypeName)"),
 			UIKeyCommand(input: UIKeyInputRightArrow, modifierFlags: [], action: "openSelected"),
 			UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: "clearSelected", discoverabilityTitle: "Clear Selection")
 		]
@@ -71,21 +71,26 @@ class ListViewController<T: Equatable>: TableViewController {
 		refreshControl = control
 	}
 
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+		opening = false
+	}
+
 
 	// MARK: - Configuration
 
-	var itemTypeName: String {
+	var modelTypeName: String {
 		fatalError("Subclasses must override this method.")
 	}
 
 	var canRefresh = true
 
-	func rowForItem(item: T, isSelected: Bool) -> Row {
+	func rowForModel(model: Model, isSelected: Bool) -> Row? {
 		fatalError("Subclasses must override this method.")
 	}
 
-	func selectItem(item: T) {
-		// Do nothing. Subclasses are encouraged to override this.
+	func selectModel(model: Model) {
+		fatalError("Subclasses must override this method.")
 	}
 
 
@@ -98,15 +103,15 @@ class ListViewController<T: Equatable>: TableViewController {
 
 	// MARK: - Private
 
-	private func rowForItem(item: T) -> Row {
-		let selected = selectedItem.flatMap { $0 == item } ?? false
-		return rowForItem(item, isSelected: selected)
+	private func rowForModel(model: Model) -> Row? {
+		let selected = selectedModel.flatMap { $0.ID == model.ID } ?? false
+		return rowForModel(model, isSelected: selected)
 
 	}
 
 	@objc private func selectPrevious() {
-		guard let selectedItem = selectedItem, index = arrangedItems.indexOf({ $0 == selectedItem }) else {
-			self.selectedItem = arrangedItems.first
+		guard let selectedModel = selectedModel, index = arrangedModels.indexOf({ $0.ID == selectedModel.ID }) else {
+			self.selectedModel = arrangedModels.first
 			return
 		}
 
@@ -114,30 +119,30 @@ class ListViewController<T: Equatable>: TableViewController {
 			return
 		}
 
-		self.selectedItem = arrangedItems[index.predecessor()]
+		self.selectedModel = arrangedModels[index.predecessor()]
 	}
 
 	@objc private func selectNext() {
-		guard let selectedItem = selectedItem, index = arrangedItems.indexOf({ $0 == selectedItem }) else {
-			self.selectedItem = arrangedItems.first
+		guard let selectedModel = selectedModel, index = arrangedModels.indexOf({ $0.ID == selectedModel.ID }) else {
+			self.selectedModel = arrangedModels.first
 			return
 		}
 
-		if index == arrangedItems.count - 1 {
+		if index == arrangedModels.count - 1 {
 			return
 		}
 
-		self.selectedItem = arrangedItems[index.successor()]
+		self.selectedModel = arrangedModels[index.successor()]
 
 	}
 
 	@objc private func openSelected() {
-		guard let item = selectedItem ?? arrangedItems.first else { return }
-		selectItem(item)
+		guard let model = selectedModel ?? arrangedModels.first else { return }
+		selectModel(model)
 	}
 
 	@objc private func clearSelected() {
-		selectedItem = nil
+		selectedModel = nil
 	}
 
 
@@ -145,7 +150,7 @@ class ListViewController<T: Equatable>: TableViewController {
 
 	private func reloadRows() {
 		dataSource.sections = [
-			Section(rows: arrangedItems.map { rowForItem($0) })
+			Section(rows: arrangedModels.flatMap { rowForModel($0) })
 		]
 	}
 }
