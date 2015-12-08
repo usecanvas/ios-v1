@@ -45,6 +45,17 @@ class ModelsViewController: TableViewController {
 
 	override var keyCommands: [UIKeyCommand] {
 		var commands = super.keyCommands ?? []
+
+		if let navigationController = navigationController where navigationController.viewControllers.count > 1 {
+			let previousTitle = (navigationController.viewControllers[navigationController.viewControllers.count - 2]).title
+			let backTitle = previousTitle.flatMap { "Back to \($0)" } ?? "Back"
+
+			commands += [
+				UIKeyCommand(input: UIKeyInputLeftArrow, modifierFlags: [], action: "goBack", discoverabilityTitle: backTitle),
+				UIKeyCommand(input: "w", modifierFlags: [.Command], action: "goBack")
+			]
+		}
+
 		commands += [
 			UIKeyCommand(input: UIKeyInputUpArrow, modifierFlags: [], action: "selectPrevious", discoverabilityTitle: "Previous  \(modelTypeName)"),
 			UIKeyCommand(input: UIKeyInputDownArrow, modifierFlags: [], action: "selectNext", discoverabilityTitle: "Next  \(modelTypeName)"),
@@ -107,6 +118,10 @@ class ModelsViewController: TableViewController {
 		let selected = selectedModel.flatMap { $0.ID == model.ID } ?? false
 		return rowForModel(model, isSelected: selected)
 
+	}
+
+	@objc private func goBack() {
+		navigationController?.popViewControllerAnimated(true)
 	}
 
 	@objc private func selectPrevious() {

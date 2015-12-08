@@ -60,13 +60,10 @@ class CanvasesViewController: ModelsViewController, Accountable {
 
 	// MARK: - UIResponder
 	override var keyCommands: [UIKeyCommand] {
-		var commands = [
-			UIKeyCommand(input: UIKeyInputLeftArrow, modifierFlags: [], action: "goBack:", discoverabilityTitle: "Back to Collections"),
-			UIKeyCommand(input: "w", modifierFlags: [.Command], action: "goBack:")
-		]
+		var commands = super.keyCommands ?? []
 
-		commands += super.keyCommands ?? []
 		commands += [
+			UIKeyCommand(input: "/", modifierFlags: [.Command], action: "search:", discoverabilityTitle: "Search"),
 			UIKeyCommand(input: "e", modifierFlags: [.Command], action: "archiveSelectedCanvas:", discoverabilityTitle: "Archive Selected Canvas"),
 			UIKeyCommand(input: "\u{8}", modifierFlags: [.Command], action: "deleteSelectedCanvas:", discoverabilityTitle: "Delete Selected Canvas")
 		]
@@ -152,8 +149,8 @@ class CanvasesViewController: ModelsViewController, Accountable {
 
 	// MARK: - Actions
 
-	func goBack(sender: AnyObject?) {
-		navigationController?.popViewControllerAnimated(true)
+	func search(sender: AnyObject?) {
+		searchViewController.searchBar.becomeFirstResponder()
 	}
 
 	func deleteSelectedCanvas(sender: AnyObject?) {
