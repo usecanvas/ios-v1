@@ -53,9 +53,10 @@ class CanvasesViewController: PlainCanvasesViewController {
 		var commands = super.keyCommands ?? []
 
 		commands += [
-			UIKeyCommand(input: "/", modifierFlags: [], action: "search:", discoverabilityTitle: "Search"),
-			UIKeyCommand(input: "e", modifierFlags: [.Command], action: "archiveSelectedCanvas:", discoverabilityTitle: "Archive Selected Canvas"),
-			UIKeyCommand(input: "\u{8}", modifierFlags: [.Command], action: "deleteSelectedCanvas:", discoverabilityTitle: "Delete Selected Canvas")
+			UIKeyCommand(input: "/", modifierFlags: [], action: "search", discoverabilityTitle: "Search"),
+			UIKeyCommand(input: "n", modifierFlags: [.Command], action: "newCanvas", discoverabilityTitle: "New Canvas"),
+			UIKeyCommand(input: "e", modifierFlags: [.Command], action: "archiveSelectedCanvas", discoverabilityTitle: "Archive Selected Canvas"),
+			UIKeyCommand(input: "\u{8}", modifierFlags: [.Command], action: "deleteSelectedCanvas", discoverabilityTitle: "Delete Selected Canvas")
 		]
 
 		return commands
@@ -67,12 +68,13 @@ class CanvasesViewController: PlainCanvasesViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		// Search setup
 		definesPresentationContext = true
 		extendedLayoutIncludesOpaqueBars = true
-
 		searchViewController.hidesNavigationBarDuringPresentation = true
-
 		tableView.tableHeaderView = searchViewController.searchBar
+
+		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "newCanvas")
 	}
 
 
@@ -119,16 +121,34 @@ class CanvasesViewController: PlainCanvasesViewController {
 
 	// MARK: - Actions
 
-	func search(sender: AnyObject?) {
+	func newCanvas() {
+		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+		
+		// TODO: Avoid sending canvas-native here once the API is fixed
+		APIClient(accessToken: account.accessToken, baseURL: baseURL).createCanvas(collection: collection, body: "⧙doc-heading⧘\n") { [weak self] result in
+			dispatch_async(dispatch_get_main_queue()) {
+				UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+
+				switch result {
+				case .Success(let canvas):
+					self?.selectModel(canvas)
+				case .Failure(let message):
+					print("Failed to create canvas: \(message)")
+				}
+			}
+		}
+	}
+
+	func search() {
 		searchViewController.searchBar.becomeFirstResponder()
 	}
 
-	func deleteSelectedCanvas(sender: AnyObject?) {
+	func deleteSelectedCanvas() {
 		guard let canvas = selectedModel as? Canvas else { return }
 		deleteCanvas(canvas)()
 	}
 
-	func archiveSelectedCanvas(sender: AnyObject?) {
+	func archiveSelectedCanvas() {
 		guard let canvas = selectedModel as? Canvas else { return }
 		archiveCanvas(canvas)()
 	}
