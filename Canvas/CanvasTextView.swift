@@ -39,6 +39,11 @@ class CanvasTextView: InsertionPointTextView {
 		indent.numberOfTouchesRequired = 2
 		indent.direction = .Right
 		addGestureRecognizer(indent)
+
+		let outdent = UISwipeGestureRecognizer(target: self, action: "outdentWithGesture:")
+		outdent.numberOfTouchesRequired = 2
+		outdent.direction = .Left
+		addGestureRecognizer(outdent)
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -84,7 +89,31 @@ class CanvasTextView: InsertionPointTextView {
 		}
 
 		guard let listable = node as? Listable else { return }
-		textStorage.backingText = (textStorage.backingText as NSString).stringByReplacingCharactersInRange(listable.indentationRange, withString: listable.indentation.successor.rawValue.description)
+		textStorage.replaceBackingCharactersInRange(listable.indentationRange, withString: listable.indentation.successor.rawValue.description)
+	}
+
+	func outdentWithGesture(sender: UISwipeGestureRecognizer?) {
+		guard let sender = sender,
+			textRange = characterRangeAtPoint(sender.locationInView(self)),
+			textStorage = textStorage as? CanvasTextStorage
+			else { return }
+
+		let range = NSRange(
+			location: offsetFromPosition(beginningOfDocument, toPosition: textRange.start),
+			length: offsetFromPosition(textRange.start, toPosition: textRange.end)
+		)
+
+		var node: Node?
+		for n in textStorage.nodes {
+			let content = textStorage.backingRangeToDisplayRange(n.contentRange)
+			if content.intersection(range) > 0 {
+				node = n
+				break
+			}
+		}
+
+		guard let listable = node as? Listable else { return }
+		textStorage.replaceBackingCharactersInRange(listable.indentationRange, withString: listable.indentation.predecessor.rawValue.description)
 	}
 
 
