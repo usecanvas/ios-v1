@@ -7,18 +7,19 @@
 //
 
 import UIKit
+import Static
 
 class ListViewController<T: Equatable>: TableViewController {
 
 	// MARK: - Properties
 
-	var arrangedObjects = [T]() {
+	var arrangedItems = [T]() {
 		didSet {
 			reloadRows()
 		}
 	}
 
-	var selectedObject: T?
+	var selectedItem: T?
 
 	var loading = false {
 		didSet {
@@ -26,6 +27,13 @@ class ListViewController<T: Equatable>: TableViewController {
 				refreshControl?.endRefreshing()
 			}
 		}
+	}
+
+
+	// MARK: - Initializers
+
+	init() {
+		super.init(nibName: nil, bundle: nil)
 	}
 
 
@@ -38,14 +46,14 @@ class ListViewController<T: Equatable>: TableViewController {
 	override var keyCommands: [UIKeyCommand] {
 		var commands = super.keyCommands ?? []
 		commands += [
-			UIKeyCommand(input: UIKeyInputUpArrow, modifierFlags: [], action: "selectPrevious:", discoverabilityTitle: "Previous Collection"),
-			UIKeyCommand(input: UIKeyInputDownArrow, modifierFlags: [], action: "selectNext:", discoverabilityTitle: "Next Collection"),
-			UIKeyCommand(input: "\r", modifierFlags: [], action: "openSelected:", discoverabilityTitle: "Open Collection"),
-			UIKeyCommand(input: UIKeyInputRightArrow, modifierFlags: [], action: "openSelected:"),
-			UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: "clearSelected:", discoverabilityTitle: "Clear Selection")
+			UIKeyCommand(input: UIKeyInputUpArrow, modifierFlags: [], action: "selectPrevious", discoverabilityTitle: "Previous  \(itemTypeName)"),
+			UIKeyCommand(input: UIKeyInputDownArrow, modifierFlags: [], action: "selectNext", discoverabilityTitle: "Next  \(itemTypeName)"),
+			UIKeyCommand(input: "\r", modifierFlags: [], action: "openSelected", discoverabilityTitle: "Open \(itemTypeName)"),
+			UIKeyCommand(input: UIKeyInputRightArrow, modifierFlags: [], action: "openSelected"),
+			UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: "clearSelected", discoverabilityTitle: "Clear Selection")
 		]
 
-		if self.dynamicType.canRefresh {
+		if canRefresh {
 			commands.append(UIKeyCommand(input: "R", modifierFlags: [.Command], action: "refresh", discoverabilityTitle: "Refresh"))
 		}
 
@@ -66,27 +74,39 @@ class ListViewController<T: Equatable>: TableViewController {
 
 	// MARK: - Configuration
 
-	static var objectName: String {
-		// Subclasses are intended to override this
-		return "Object"
+	var itemTypeName: String {
+		fatalError("Subclasses must override this method.")
 	}
 
-	static var canRefresh: Bool {
-		return true
+	var canRefresh = true
+
+	func rowForItem(item: T, isSelected: Bool) -> Row {
+		fatalError("Subclasses must override this method.")
+	}
+
+	func selectItem(item: T) {
+		// Do nothing. Subclasses are encouraged to override this.
 	}
 
 
 	// MARK: - Actions
 
 	func refresh() {
-		// Do nothing. Subclasses are intended to override this
+		fatalError("Subclasses must override this method.")
 	}
 
-	// MARK: - Actions
 
-	func selectPrevious(sender: AnyObject?) {
-		guard let selectedObject = selectedObject, index = arrangedObjects.indexOf({ $0 == selectedObject }) else {
-			self.selectedObject = arrangedObjects.first
+	// MARK: - Private
+
+	private func rowForItem(item: T) -> Row {
+		let selected = selectedItem.flatMap { $0 == item } ?? false
+		return rowForItem(item, isSelected: selected)
+
+	}
+
+	@objc private func selectPrevious() {
+		guard let selectedItem = selectedItem, index = arrangedItems.indexOf({ $0 == selectedItem }) else {
+			self.selectedItem = arrangedItems.first
 			return
 		}
 
@@ -94,64 +114,38 @@ class ListViewController<T: Equatable>: TableViewController {
 			return
 		}
 
-		self.selectedObject = arrangedObjects[index.predecessor()]
+		self.selectedItem = arrangedItems[index.predecessor()]
 	}
 
-	func selectNextCollection(sender: AnyObject?) {
-		guard let selectedObject = selectedObject, index = arrangedObjects.indexOf({ $0 == selectedObject }) else {
-			self.selectedObject = arrangedObjects.first
+	@objc private func selectNext() {
+		guard let selectedItem = selectedItem, index = arrangedItems.indexOf({ $0 == selectedItem }) else {
+			self.selectedItem = arrangedItems.first
 			return
 		}
 
-		if index == arrangedObjects.count - 1 {
+		if index == arrangedItems.count - 1 {
 			return
 		}
 
-		self.selectedObject = arrangedObjects[index.successor()]
+		self.selectedItem = arrangedItems[index.successor()]
 
 	}
 
-	func openSelectedCollection(sender: AnyObject?) {
-		guard let collection = selectedObject ?? arrangedObjects.first else { return }
-		showCollection(collection)()
+	@objc private func openSelected() {
+		guard let item = selectedItem ?? arrangedItems.first else { return }
+		selectItem(item)
 	}
 
-	func clearSelected(sender: AnyObject?) {
-		selectedObject = nil
+	@objc private func clearSelected() {
+		selectedItem = nil
 	}
-
-
-	// MARK: - Private
-
-//	private func reloadRows() {
-//		let rows = arrangedObjects.map {
-//			Row(
-//				text: $0.name,
-//				accessory: .DisclosureIndicator,
-//				selection: showCollection($0),
-//				cellClass: collectionCellClass($0)
-//			)
-//		}
-//
-//		dataSource.sections = [Section(rows: rows)]
-//	}
-//
-//	private func collectionCellClass(collection: Collection) -> CellType.Type {
-//		let selected = selectedObject.flatMap { $0.ID == collection.ID } ?? false
-//		return selected ? SelectedCollectionCell.self : CollectionCell.self
-//	}
-//
-//	// TODO: Guard against pushing multiple at the same time
-//	private func showCollection(collection: Collection)() {
-//		Analytics.track(.ChangedCollection(collection: collection))
-//		let viewController = CanvasesViewController(account: account, collection: collection)
-//		navigationController?.pushViewController(viewController, animated: true)
-//	}
 
 
 	// MARK: - Private
 
 	private func reloadRows() {
-		
+		dataSource.sections = [
+			Section(rows: arrangedItems.map { rowForItem($0) })
+		]
 	}
 }

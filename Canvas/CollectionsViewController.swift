@@ -16,18 +16,12 @@ class CollectionsViewController: ListViewController<Collection>, Accountable {
 
 	var account: Account
 
-	private var selectedCollection: Collection? {
-		didSet {
-			reloadRows()
-		}
-	}
-
 
 	// MARK: - Initializers
 
 	init(account: Account) {
 		self.account = account
-		super.init(nibName: nil, bundle: nil)
+		super.init()
 		title = "Collections"
 	}
 
@@ -88,11 +82,26 @@ class CollectionsViewController: ListViewController<Collection>, Accountable {
 	}
 
 
-	// MARK: - Actions
+	// MARK: - ListViewController
 
-	func logOut(sender: AnyObject?) {
-		Analytics.track(.LoggedIn)
-		AccountController.sharedController.currentAccount = nil
+	override var itemTypeName: String {
+		return "Collection"
+	}
+
+	override func rowForItem(item: Collection, isSelected: Bool) -> Row {
+		return Row(
+			text: item.name,
+			accessory: .DisclosureIndicator,
+			selection: { [weak self] in self?.selectItem(item) },
+			cellClass: isSelected ? SelectedCollectionCell.self : CollectionCell.self
+		)
+	}
+
+	override func selectItem(item: Collection) {
+		// TODO: Guard against pushing multiple at the same time
+		Analytics.track(.ChangedCollection(collection: item))
+//		let viewController = CanvasesViewController(account: account, collection: item)
+		navigationController?.pushViewController(UIViewController(), animated: true)
 	}
 
 	override func refresh() {
@@ -101,13 +110,13 @@ class CollectionsViewController: ListViewController<Collection>, Accountable {
 		}
 
 		loading = true
-		
+
 		APIClient(accessToken: account.accessToken, baseURL: baseURL).listCollections { [weak self] result in
 			switch result {
 			case .Success(let collections):
 				dispatch_async(dispatch_get_main_queue()) {
 					self?.loading = false
-					self?.collections = collections
+					self?.arrangedItems = collections
 				}
 			case .Failure(let message):
 				print("Failed to get collections: \(message)")
@@ -119,30 +128,10 @@ class CollectionsViewController: ListViewController<Collection>, Accountable {
 	}
 
 
-	// MARK: - Private
+	// MARK: - Actions
 
-	private func reloadRows() {
-		let rows = collections.map {
-			Row(
-				text: $0.name,
-				accessory: .DisclosureIndicator,
-				selection: showCollection($0),
-				cellClass: collectionCellClass($0)
-			)
-		}
-
-		dataSource.sections = [Section(rows: rows)]
-	}
-
-	private func collectionCellClass(collection: Collection) -> CellType.Type {
-		let selected = selectedCollection.flatMap { $0.ID == collection.ID } ?? false
-		return selected ? SelectedCollectionCell.self : CollectionCell.self
-	}
-
-	// TODO: Guard against pushing multiple at the same time
-	private func showCollection(collection: Collection)() {
-		Analytics.track(.ChangedCollection(collection: collection))
-		let viewController = CanvasesViewController(account: account, collection: collection)
-		navigationController?.pushViewController(viewController, animated: true)
+	func logOut(sender: AnyObject?) {
+		Analytics.track(.LoggedIn)
+		AccountController.sharedController.currentAccount = nil
 	}
 }

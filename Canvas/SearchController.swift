@@ -13,7 +13,7 @@ import SSKeychain
 import AlgoliaSearch
 
 /// Object for coordinating searches
-class SearchController {
+class SearchController: NSObject {
 
 	// MARK: - Properties
 
@@ -38,6 +38,9 @@ class SearchController {
 	init(account: Account, collection: Collection) {
 		self.account = account
 		self.collection = collection
+
+		super.init()
+		
 		fetchSearchToken()
 	}
 
@@ -133,5 +136,13 @@ class SearchController {
 				dispatch_semaphore_signal(semaphore)
 			}
 		}
+	}
+}
+
+
+extension SearchController: UISearchResultsUpdating {
+	func updateSearchResultsForSearchController(searchController: UISearchController) {
+		guard let text = searchController.searchBar.text else { return }
+		search(text)
 	}
 }
