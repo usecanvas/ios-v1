@@ -53,8 +53,6 @@ class CollectionsViewController: ModelsViewController, Accountable {
 
 		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .Plain, target: self, action: "logOut:")
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
-
-		refresh()
 	}
 
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {

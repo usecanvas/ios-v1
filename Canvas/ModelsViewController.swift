@@ -85,6 +85,7 @@ class ModelsViewController: TableViewController {
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		opening = false
+		refresh()
 	}
 
 
@@ -94,7 +95,9 @@ class ModelsViewController: TableViewController {
 		fatalError("Subclasses must override this method.")
 	}
 
-	var canRefresh = true
+	var canRefresh: Bool {
+		return true
+	}
 
 	func rowForModel(model: Model, isSelected: Bool) -> Row? {
 		fatalError("Subclasses must override this method.")
@@ -108,7 +111,7 @@ class ModelsViewController: TableViewController {
 	// MARK: - Actions
 
 	func refresh() {
-		fatalError("Subclasses must override this method.")
+		// Subclasses should override this
 	}
 
 

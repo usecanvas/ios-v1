@@ -11,45 +11,34 @@ import Static
 import CanvasKit
 import AlgoliaSearch
 
-class CanvasesViewController: ModelsViewController, Accountable {
+class CanvasesViewController: PlainCanvasesViewController {
 
 	// MARK: - Properties
 
-	var account: Account
 	let collection: Collection
 
 	private let searchController: SearchController
 
-	private let searchViewController: UISearchController = {
-		let results = TableViewController()
-		results.tableView.rowHeight = 72
-
-		let controller = UISearchController(searchResultsController: results)
-//		controller.searchBar.backgroundImage = UIImage()
-//		controller.searchBar.barTintColor = Color.lightGray
-		return controller
-	}()
+	private let searchViewController: UISearchController
 
 
 	// MARK: - Initializers
 
 	init(account: Account, collection: Collection) {
-		self.account = account
 		self.collection = collection
-
 		searchController = SearchController(account: account, collection: collection)
+		searchViewController = UISearchController(searchResultsController: PlainCanvasesViewController(account: account))
 
-		super.init(nibName: nil, bundle: nil)
+		super.init(account: account)
+
 		title = collection.name.capitalizedString
 
 		searchViewController.searchBar.placeholder = "Search in \(collection.name.capitalizedString)"
 		searchViewController.searchResultsUpdater = searchController
 
 		searchController.callback = { [weak self] canvases in
-			guard let viewController = self?.searchViewController.searchResultsController as? TableViewController else { return }
-			viewController.dataSource.sections = [
-				Section(rows: canvases.map { $0.row })
-			]
+			guard let viewController = self?.searchViewController.searchResultsController as? PlainCanvasesViewController else { return }
+			viewController.arrangedModels = canvases.map { $0 as Model }
 		}
 	}
 
@@ -59,11 +48,12 @@ class CanvasesViewController: ModelsViewController, Accountable {
 
 
 	// MARK: - UIResponder
+
 	override var keyCommands: [UIKeyCommand] {
 		var commands = super.keyCommands ?? []
 
 		commands += [
-			UIKeyCommand(input: "/", modifierFlags: [.Command], action: "search:", discoverabilityTitle: "Search"),
+			UIKeyCommand(input: "/", modifierFlags: [], action: "search:", discoverabilityTitle: "Search"),
 			UIKeyCommand(input: "e", modifierFlags: [.Command], action: "archiveSelectedCanvas:", discoverabilityTitle: "Archive Selected Canvas"),
 			UIKeyCommand(input: "\u{8}", modifierFlags: [.Command], action: "deleteSelectedCanvas:", discoverabilityTitle: "Delete Selected Canvas")
 		]
@@ -82,19 +72,14 @@ class CanvasesViewController: ModelsViewController, Accountable {
 
 		searchViewController.hidesNavigationBarDuringPresentation = true
 
-		tableView.rowHeight = 72
 		tableView.tableHeaderView = searchViewController.searchBar
-
-		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
-
-		refresh()
 	}
 
 
 	// MARK: - ModelsViewController
 
-	override var modelTypeName: String {
-		return "Canvas"
+	override var canRefresh: Bool {
+		return true
 	}
 
 	override func refresh() {
@@ -121,14 +106,7 @@ class CanvasesViewController: ModelsViewController, Accountable {
 	}
 
 	override func rowForModel(model: Model, isSelected: Bool) -> Row? {
-		guard let canvas = model as? Canvas else { return nil }
-
-		var row = canvas.row
-		row.selection = { [weak self] in self?.selectModel(canvas) }
-
-		if isSelected {
-			row.cellClass = SelectedCanvasCell.self
-		}
+		guard let canvas = model as? Canvas, var row = super.rowForModel(model, isSelected: isSelected) else { return nil }
 
 		row.editActions = [
 			Row.EditAction(title: "Archive", style: .Destructive, backgroundColor: Color.darkGray, backgroundEffect: nil, selection: deleteCanvas(canvas)),
@@ -136,14 +114,6 @@ class CanvasesViewController: ModelsViewController, Accountable {
 		]
 
 		return row
-	}
-
-	override func selectModel(model: Model) {
-		guard !opening, let canvas = model as? Canvas else { return }
-		opening = true
-		Analytics.track(.OpenedCanvas)
-		let viewController = EditorViewController(account: account, canvas: canvas)
-		navigationController?.pushViewController(viewController, animated: true)
 	}
 
 
