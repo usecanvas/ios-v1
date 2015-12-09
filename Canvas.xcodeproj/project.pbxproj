@@ -235,21 +235,53 @@
 		2134FADD1BFC09D300AE93CC /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				219DAC811C0E75DC00F39A6F /* InsertionPointTextView.swift */,
-				2134FAE01BFC0A6A00AE93CC /* CanvasTextView.swift */,
-				21A8FA3C1BFD04F20097FCC6 /* CollectionCell.swift */,
-				210960C41C08DE9600EB8F84 /* SelectedCollectionCell.swift */,
-				21A8FA491BFD085F0097FCC6 /* CanvasCell.swift */,
-				210960C61C08F01800EB8F84 /* SelectedCanvasCell.swift */,
+				213791CD1C17A8FF000FACCC /* Text Views */,
+				213791CC1C17A8F6000FACCC /* Cells */,
+				213791CB1C17A8EA000FACCC /* Annotations */,
+				213791CE1C17A905000FACCC /* Forms */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		213791CB1C17A8EA000FACCC /* Annotations */ = {
+			isa = PBXGroup;
+			children = (
 				21B8D8D81BFC0E0B001ED447 /* CheckboxView.swift */,
 				2134FADE1BFC09E300AE93CC /* BulletView.swift */,
 				21B742C71BFF991600FF293C /* NumberView.swift */,
 				21B742D81BFFCFDB00FF293C /* BlockquoteBorderView.swift */,
-				215642211C06BBE600685847 /* Button.swift */,
-				21FCB57F1C07685000F78D93 /* LoginTextField.swift */,
 				216343F51C0D43BB00916A8B /* CodeBlockBackgroundView.swift */,
 			);
-			name = Views;
+			name = Annotations;
+			sourceTree = "<group>";
+		};
+		213791CC1C17A8F6000FACCC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				21A8FA3C1BFD04F20097FCC6 /* CollectionCell.swift */,
+				210960C41C08DE9600EB8F84 /* SelectedCollectionCell.swift */,
+				21A8FA491BFD085F0097FCC6 /* CanvasCell.swift */,
+				210960C61C08F01800EB8F84 /* SelectedCanvasCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		213791CD1C17A8FF000FACCC /* Text Views */ = {
+			isa = PBXGroup;
+			children = (
+				219DAC811C0E75DC00F39A6F /* InsertionPointTextView.swift */,
+				2134FAE01BFC0A6A00AE93CC /* CanvasTextView.swift */,
+			);
+			name = "Text Views";
+			sourceTree = "<group>";
+		};
+		213791CE1C17A905000FACCC /* Forms */ = {
+			isa = PBXGroup;
+			children = (
+				215642211C06BBE600685847 /* Button.swift */,
+				21FCB57F1C07685000F78D93 /* LoginTextField.swift */,
+			);
+			name = Forms;
 			sourceTree = "<group>";
 		};
 		215642261C06C3E900685847 /* Protocols */ = {

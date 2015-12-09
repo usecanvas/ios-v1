@@ -65,6 +65,17 @@ class CanvasTextView: InsertionPointTextView {
 		}
 	}
 
+	override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
+		// I can't believe I have to do this… *sigh*
+		for view in subviews {
+			if view.userInteractionEnabled && view.frame.contains(point) {
+				return view
+			}
+		}
+
+		return super.hitTest(point, withEvent: event)
+	}
+
 
 	// MARK: - Gestures
 
@@ -148,6 +159,16 @@ class CanvasTextView: InsertionPointTextView {
 	}
 
 
+	// MARK: - Actions
+
+	@objc private func toggleCheckbox(sender: CheckboxView?) {
+		guard let node = sender?.checklist, textStorage = textStorage as? CanvasTextStorage else { return }
+
+		let string = node.completion.opposite.string
+		textStorage.replaceBackingCharactersInRange(node.completedRange, withString: string)
+	}
+
+
 	// MARK: - Private
 
 	private func nodeAtPoint(point: CGPoint) -> Node? {
@@ -220,6 +241,7 @@ class CanvasTextView: InsertionPointTextView {
 		// Checklist
 		if let node = node as? Checklist {
 			let view = CheckboxView(frame: .zero, checklist: node)
+			view.addTarget(self, action: "toggleCheckbox:", forControlEvents: .TouchUpInside)
 			let size = view.intrinsicContentSize()
 			rect.origin.x -= theme.listIndentation
 			rect.origin.y = floor(rect.origin.y + font.ascender - (size.height / 2))

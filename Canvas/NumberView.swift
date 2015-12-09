@@ -16,6 +16,7 @@ class NumberView: UILabel {
 	init(frame: CGRect, theme: Theme, value: UInt) {
 		super.init(frame: frame)
 
+		userInteractionEnabled = false
 		text = "\(value)."
 		textAlignment = .Right
 		textColor = Color.gray
