@@ -35,15 +35,15 @@ class CanvasTextView: InsertionPointTextView {
 			textStorage.canvasDelegate = self
 		}
 
-		let indent = UISwipeGestureRecognizer(target: self, action: "increaseBlockLevelWithGesture:")
-		indent.numberOfTouchesRequired = 1
-		indent.direction = .Right
-		addGestureRecognizer(indent)
-
-		let outdent = UISwipeGestureRecognizer(target: self, action: "decreaseBlockLevelWithGesture:")
-		outdent.numberOfTouchesRequired = 1
-		outdent.direction = .Left
-		addGestureRecognizer(outdent)
+//		let indent = UISwipeGestureRecognizer(target: self, action: "increaseBlockLevelWithGesture:")
+//		indent.numberOfTouchesRequired = 1
+//		indent.direction = .Right
+//		addGestureRecognizer(indent)
+//
+//		let outdent = UISwipeGestureRecognizer(target: self, action: "decreaseBlockLevelWithGesture:")
+//		outdent.numberOfTouchesRequired = 1
+//		outdent.direction = .Left
+//		addGestureRecognizer(outdent)
 	}
 
 	required init?(coder aDecoder: NSCoder) {
