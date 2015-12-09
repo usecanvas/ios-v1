@@ -116,8 +116,10 @@ class CanvasTextView: InsertionPointTextView {
 			return
 		}
 
-		// TODO: Figure out what to do for headings and paragraphs
-		print("[Increase] TODO: Figure out what to do for headings")
+		// Decrease headings
+		if let node = node as? Heading {
+			print("[Increase] TODO: Figure out what to do for headings: \(node)")
+		}
 	}
 
 	func decreaseBlockLevelWithGesture(sender: UISwipeGestureRecognizer?) {
