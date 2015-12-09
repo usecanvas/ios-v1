@@ -19,7 +19,10 @@ class BulletView: UIView {
 
 	init(frame: CGRect, unorderedList: UnorderedList) {
 		self.unorderedList = unorderedList
+
 		super.init(frame: frame)
+
+		userInteractionEnabled = false
 		backgroundColor = .clearColor()
 		contentMode = .Redraw
 	}

@@ -11,6 +11,7 @@ import UIKit
 class BlockquoteBorderView: UIView {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
+		userInteractionEnabled = false
 		backgroundColor = UIColor(red: 0.925, green: 0.925, blue: 0.929, alpha: 1)
 	}
 
