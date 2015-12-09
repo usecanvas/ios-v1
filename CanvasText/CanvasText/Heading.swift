@@ -53,4 +53,19 @@ public struct Heading: Prefixable {
 		// Content
 		self.contentRange = NSRange(location: enclosingRange.location + scanner.scanLocation, length: enclosingRange.length - scanner.scanLocation)
 	}
+
+
+	// MARK: - Native
+
+	public static func nativeRepresentation(level: Level = .One) -> String {
+		var prefix = ""
+
+		for _ in 0..<level.rawValue {
+			prefix += "#"
+		}
+
+		prefix += " "
+
+		return prefix
+	}
 }
