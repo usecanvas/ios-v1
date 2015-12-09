@@ -34,5 +34,12 @@ public struct UnorderedList: Listable {
 		self.indentationRange = indentationRange
 		self.indentation = indentation
 	}
+
+
+	// MARK: - Native
+
+	public static func nativeRepresentation(indentation: Indentation = .Zero) -> String {
+		return "\(leadingDelimiter)unordered-\(indentation.string)\(trailingDelimiter)- "
+	}
 }
 

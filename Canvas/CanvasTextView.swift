@@ -35,13 +35,13 @@ class CanvasTextView: InsertionPointTextView {
 			textStorage.canvasDelegate = self
 		}
 
-		let indent = UISwipeGestureRecognizer(target: self, action: "indentWithGesture:")
-		indent.numberOfTouchesRequired = 2
+		let indent = UISwipeGestureRecognizer(target: self, action: "increaseBlockLevelWithGesture:")
+		indent.numberOfTouchesRequired = 1
 		indent.direction = .Right
 		addGestureRecognizer(indent)
 
-		let outdent = UISwipeGestureRecognizer(target: self, action: "outdentWithGesture:")
-		outdent.numberOfTouchesRequired = 2
+		let outdent = UISwipeGestureRecognizer(target: self, action: "decreaseBlockLevelWithGesture:")
+		outdent.numberOfTouchesRequired = 1
 		outdent.direction = .Left
 		addGestureRecognizer(outdent)
 	}
@@ -79,26 +79,68 @@ class CanvasTextView: InsertionPointTextView {
 
 	// MARK: - Gestures
 
-	func indentWithGesture(sender: UISwipeGestureRecognizer?) {
+	func increaseBlockLevelWithGesture(sender: UISwipeGestureRecognizer?) {
 		guard let sender = sender,
 			textStorage = textStorage as? CanvasTextStorage,
-			node = nodeAtPoint(sender.locationInView(self)) as? Listable
+			node = nodeAtPoint(sender.locationInView(self))
 		else { return }
 
-		// Increment indentation
-		let string = node.indentation.successor.string
-		textStorage.replaceBackingCharactersInRange(node.indentationRange, withString: string)
+		// Convert paragraph to unordered list
+		if node is Paragraph {
+			let string = Checklist.nativeRepresentation()
+			var range = node.contentRange
+			range.length = 0
+			textStorage.replaceBackingCharactersInRange(range, withString: string)
+			return
+		}
+
+		// Lists
+		if let node = node as? Listable {
+			// Increment indentation
+			let newIndentation = node.indentation.successor
+			if newIndentation == node.indentation {
+				return
+			}
+
+			let string = newIndentation.string
+			textStorage.replaceBackingCharactersInRange(node.indentationRange, withString: string)
+			return
+		}
+
+		// TODO: Figure out what to do for headings and paragraphs
+		print("[Increase] TODO: Figure out what to do for headings")
 	}
 
-	func outdentWithGesture(sender: UISwipeGestureRecognizer?) {
+	func decreaseBlockLevelWithGesture(sender: UISwipeGestureRecognizer?) {
 		guard let sender = sender,
 			textStorage = textStorage as? CanvasTextStorage,
-			node = nodeAtPoint(sender.locationInView(self)) as? Listable
+			node = nodeAtPoint(sender.locationInView(self))
 		else { return }
 
-		// Decrement indentation
-		let string = node.indentation.predecessor.string
-		textStorage.replaceBackingCharactersInRange(node.indentationRange, withString: string)
+		// Lists
+		if let node = node as? Listable {
+			// Convert checklist to paragraph
+			if let node = node as? Checklist {
+				textStorage.replaceBackingCharactersInRange(node.delimiterRange.union(node.prefixRange), withString: "")
+				return
+			}
+
+			// Convert unordered list to checklist
+			let newIndentation = node.indentation.predecessor
+			if newIndentation == node.indentation {
+				let string = Checklist.nativeRepresentation()
+				textStorage.replaceBackingCharactersInRange(node.delimiterRange.union(node.prefixRange), withString: string)
+				return
+			}
+
+			// Decrement indentation
+			let string = newIndentation.string
+			textStorage.replaceBackingCharactersInRange(node.indentationRange, withString: string)
+			return
+		}
+
+		// TODO: Figure out what to do for headings and paragraphs
+		print("[Decrease] TODO: Figure out what to do for headings and paragraphs")
 	}
 
 

@@ -104,4 +104,11 @@ public struct Checklist: Listable {
 		self.completedRange = completedRange
 		contentRange = NSRange(location: enclosingRange.location + scanner.scanLocation, length: enclosingRange.length - scanner.scanLocation)
 	}
+
+
+	// MARK: - Native
+
+	public static func nativeRepresentation(indentation: Indentation = .Zero, completion: Completion = .Incomplete) -> String {
+		return "\(leadingDelimiter)checklist-\(indentation.string)\(trailingDelimiter)- [\(completion.string)] "
+	}
 }
