@@ -50,7 +50,7 @@ struct LightTheme: Theme {
 
 		var attributes = [String: AnyObject]()
 
-		if node is DocHeading {
+		if node is Title {
 			attributes[NSForegroundColorAttributeName] = UIColor.blackColor()
 			attributes[NSFontAttributeName] = fontOfSize(fontSize * 1.7, style: [.Bold])
 		}

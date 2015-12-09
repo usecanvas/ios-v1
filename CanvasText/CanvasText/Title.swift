@@ -1,12 +1,12 @@
 //
-//  DocHeading.swift
+//  Title.swift
 //  CanvasText
 //
 //  Created by Sam Soffes on 11/19/15.
 //  Copyright © 2015 Canvas Labs, Inc. All rights reserved.
 //
 
-public struct DocHeading: Delimitable, Equatable {
+public struct Title: Delimitable, Equatable {
 
 	// MARK: - Properties
 
@@ -30,6 +30,6 @@ public struct DocHeading: Delimitable, Equatable {
 }
 
 
-public func ==(lhs: DocHeading, rhs: DocHeading) -> Bool {
+public func ==(lhs: Title, rhs: Title) -> Bool {
 	return lhs.delimiterRange == rhs.delimiterRange && lhs.contentRange == rhs.contentRange
 }

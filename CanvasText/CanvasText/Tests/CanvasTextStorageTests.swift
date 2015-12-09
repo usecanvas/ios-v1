@@ -24,11 +24,11 @@ struct TestTheme: Theme {
 class CanvasTextStorageTests: XCTestCase {
 	let storage = CanvasTextStorage(theme: TestTheme())
 
-	func testDocHeading() {
+	func testTitle() {
 		storage.backingText = "⧙doc-heading⧘A Lovely Document"
 
-		let node = DocHeading(delimiterRange: NSRange(location: 0, length: 13), contentRange: NSRange(location: 13, length: 17))
-		XCTAssertEqual(node, (storage.nodes.first as! DocHeading))
+		let node = Title(delimiterRange: NSRange(location: 0, length: 13), contentRange: NSRange(location: 13, length: 17))
+		XCTAssertEqual(node, (storage.nodes.first as! Title))
 		
 		XCTAssertEqual("A Lovely Document", storage.displayText)
 	}
@@ -44,7 +44,7 @@ class CanvasTextStorageTests: XCTestCase {
 //		let controller = TextController(backingText: "⧙doc-heading⧘A Lovely Document\nThis is a paragraph.\n⧙blockquote⧘> Here’s to the crazy ones…")
 //
 //		XCTAssertEqual([
-//			Block(kind: .DocHeading, delimiterRange: NSRange(location: 0, length: 13), contentRange: NSRange(location: 13, length: 17)),
+//			Block(kind: .Title, delimiterRange: NSRange(location: 0, length: 13), contentRange: NSRange(location: 13, length: 17)),
 //			Block(kind: .Paragraph, contentRange: NSRange(location: 31, length: 20)),
 //			Block(kind: .Blockquote, delimiterRange: NSRange(location: 52, length: 12), prefixRange: NSRange(location: 64, length: 2), contentRange: NSRange(location: 66, length: 25))
 //		], controller.blocks)
