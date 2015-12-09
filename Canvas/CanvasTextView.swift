@@ -35,15 +35,15 @@ class CanvasTextView: InsertionPointTextView {
 			textStorage.canvasDelegate = self
 		}
 
-//		let indent = UISwipeGestureRecognizer(target: self, action: "increaseBlockLevelWithGesture:")
-//		indent.numberOfTouchesRequired = 1
-//		indent.direction = .Right
-//		addGestureRecognizer(indent)
-//
-//		let outdent = UISwipeGestureRecognizer(target: self, action: "decreaseBlockLevelWithGesture:")
-//		outdent.numberOfTouchesRequired = 1
-//		outdent.direction = .Left
-//		addGestureRecognizer(outdent)
+		let indent = UISwipeGestureRecognizer(target: self, action: "increaseBlockLevelWithGesture:")
+		indent.numberOfTouchesRequired = 1
+		indent.direction = .Right
+		addGestureRecognizer(indent)
+
+		let outdent = UISwipeGestureRecognizer(target: self, action: "decreaseBlockLevelWithGesture:")
+		outdent.numberOfTouchesRequired = 1
+		outdent.direction = .Left
+		addGestureRecognizer(outdent)
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -94,10 +94,19 @@ class CanvasTextView: InsertionPointTextView {
 			return
 		}
 
+		// Convert checklist to unordered list
+		if let node = node as? Checklist {
+			let string = UnorderedList.nativeRepresentation()
+			textStorage.replaceBackingCharactersInRange(node.delimiterRange.union(node.prefixRange), withString: string)
+			return
+		}
+
 		// Lists
 		if let node = node as? Listable {
 			// Increment indentation
 			let newIndentation = node.indentation.successor
+
+			// Already at its maximum indentation
 			if newIndentation == node.indentation {
 				return
 			}
@@ -140,7 +149,7 @@ class CanvasTextView: InsertionPointTextView {
 		}
 
 		// TODO: Figure out what to do for headings and paragraphs
-		print("[Decrease] TODO: Figure out what to do for headings and paragraphs")
+		print("[Decrease] TODO: Figure out what to do for headings")
 	}
 
 
