@@ -1,5 +1,5 @@
 //
-//  TextView.swift
+//  InsertionPointTextView.swift
 //  Canvas
 //
 //  Created by Sam Soffes on 12/1/15.
@@ -9,7 +9,7 @@
 import UIKit
 
 /// Custom text view to ensure the insertion point doesn't fill the margin of a paragraph. This is terrible.
-class TextView: UITextView {
+class InsertionPointTextView: UITextView {
 
 	// MARK: - Properties
 

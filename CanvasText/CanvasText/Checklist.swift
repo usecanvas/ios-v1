@@ -15,6 +15,7 @@ public struct Checklist: Listable {
 	public var delimiterRange: NSRange
 	public var prefixRange: NSRange
 	public var contentRange: NSRange
+	public var indentationRange: NSRange
 	public var indentation: Indentation
 	public var completed: Bool
 
@@ -39,10 +40,12 @@ public struct Checklist: Listable {
 			return nil
 		}
 
+		let indentationRange = NSRange(location:  enclosingRange.location + scanner.scanLocation, length: 1)
 		guard indent != -1, let indentation = Indentation(rawValue: UInt(indent)) else {
 			return nil
 		}
 
+		self.indentationRange = indentationRange
 		self.indentation = indentation
 
 		if !scanner.scanString(trailingDelimiter, intoString: nil) {

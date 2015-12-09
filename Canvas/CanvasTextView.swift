@@ -10,7 +10,7 @@ import UIKit
 import CanvasKit
 import CanvasText
 
-class CanvasTextView: TextView {
+class CanvasTextView: InsertionPointTextView {
 
 	// MARK: - Properties
 
@@ -34,6 +34,16 @@ class CanvasTextView: TextView {
 		if let textStorage = textStorage as? CanvasTextStorage {
 			textStorage.canvasDelegate = self
 		}
+
+		let indent = UISwipeGestureRecognizer(target: self, action: "indentWithGesture:")
+		indent.numberOfTouchesRequired = 2
+		indent.direction = .Right
+		addGestureRecognizer(indent)
+
+		let outdent = UISwipeGestureRecognizer(target: self, action: "outdentWithGesture:")
+		outdent.numberOfTouchesRequired = 2
+		outdent.direction = .Left
+		addGestureRecognizer(outdent)
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -53,6 +63,31 @@ class CanvasTextView: TextView {
 		dispatch_async(dispatch_get_main_queue()) { [weak self] in
 			self?.updateAnnotations()
 		}
+	}
+
+
+	// MARK: - Gestures
+
+	func indentWithGesture(sender: UISwipeGestureRecognizer?) {
+		guard let sender = sender,
+			textStorage = textStorage as? CanvasTextStorage,
+			node = nodeAtPoint(sender.locationInView(self)) as? Listable
+		else { return }
+
+		// Increment indentation
+		let string = node.indentation.successor.string
+		textStorage.replaceBackingCharactersInRange(node.indentationRange, withString: string)
+	}
+
+	func outdentWithGesture(sender: UISwipeGestureRecognizer?) {
+		guard let sender = sender,
+			textStorage = textStorage as? CanvasTextStorage,
+			node = nodeAtPoint(sender.locationInView(self)) as? Listable
+		else { return }
+
+		// Decrement indentation
+		let string = node.indentation.predecessor.string
+		textStorage.replaceBackingCharactersInRange(node.indentationRange, withString: string)
 	}
 
 
@@ -114,6 +149,28 @@ class CanvasTextView: TextView {
 
 
 	// MARK: - Private
+
+	private func nodeAtPoint(point: CGPoint) -> Node? {
+		guard let textRange = characterRangeAtPoint(point),
+			textStorage = textStorage as? CanvasTextStorage
+		else { return nil }
+
+		let range = NSRange(
+			location: offsetFromPosition(beginningOfDocument, toPosition: textRange.start),
+			length: offsetFromPosition(textRange.start, toPosition: textRange.end)
+		)
+
+		var node: Node?
+		for n in textStorage.nodes {
+			let content = textStorage.backingRangeToDisplayRange(n.contentRange)
+			if content.intersection(range) > 0 {
+				node = n
+				break
+			}
+		}
+
+		return node
+	}
 
 	private func addAnnotation(annotation: UIView) {
 		annotations.append(annotation)
