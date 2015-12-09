@@ -44,10 +44,16 @@ class CanvasTextView: InsertionPointTextView {
 		outdent.numberOfTouchesRequired = 1
 		outdent.direction = .Left
 		addGestureRecognizer(outdent)
+
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillChangeFrame:", name: UIKeyboardWillChangeFrameNotification, object: nil)
 	}
 
 	required init?(coder aDecoder: NSCoder) {
 	    fatalError("init(coder:) has not been implemented")
+	}
+
+	deinit {
+		NSNotificationCenter.defaultCenter().removeObserver(self)
 	}
 
 
@@ -223,6 +229,16 @@ class CanvasTextView: InsertionPointTextView {
 
 
 	// MARK: - Private
+
+	@objc private func keyboardWillChangeFrame(notification: NSNotification?) {
+		guard let notification = notification,
+			value = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue
+		else { return }
+
+		let frame = convertRect(value.CGRectValue(), fromView: nil)
+		contentInset = UIEdgeInsets(top: 0, left: 0, bottom: frame.height, right: 0)
+		scrollIndicatorInsets = contentInset
+	}
 
 	private func nodeAtPoint(point: CGPoint) -> Node? {
 		guard let textRange = characterRangeAtPoint(point),
