@@ -17,10 +17,10 @@
 		2129D30C1BF560810018F255 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D30B1BF560810018F255 /* Color.swift */; };
 		2129D30E1BF561400018F255 /* CollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D30D1BF561400018F255 /* CollectionsViewController.swift */; };
 		2129D3101BF5634A0018F255 /* Accountable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D30F1BF5634A0018F255 /* Accountable.swift */; };
-		2129D3121BF568AB0018F255 /* CanvasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D3111BF568AB0018F255 /* CanvasesViewController.swift */; };
+		2129D3121BF568AB0018F255 /* CollectionCanvasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D3111BF568AB0018F255 /* CollectionCanvasesViewController.swift */; };
 		2134FADF1BFC09E300AE93CC /* BulletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2134FADE1BFC09E300AE93CC /* BulletView.swift */; };
 		2134FAE11BFC0A6A00AE93CC /* CanvasTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2134FAE01BFC0A6A00AE93CC /* CanvasTextView.swift */; };
-		213791C51C1790E2000FACCC /* PlainCanvasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213791C41C1790E2000FACCC /* PlainCanvasesViewController.swift */; };
+		213791C51C1790E2000FACCC /* CanvasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213791C41C1790E2000FACCC /* CanvasesViewController.swift */; };
 		215642151C06B46E00685847 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 215642111C06B46E00685847 /* Mixpanel.framework */; };
 		2156421F1C06B4ED00685847 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2156421E1C06B4ED00685847 /* Analytics.swift */; };
 		215642221C06BBE600685847 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215642211C06BBE600685847 /* Button.swift */; };
@@ -29,6 +29,7 @@
 		219334011C0FC5DD000A974B /* AlgoliaSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 219333FF1C0FC5DD000A974B /* AlgoliaSearch.framework */; };
 		219334051C0FC6DD000A974B /* Canvas+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219334041C0FC6DD000A974B /* Canvas+Canvas.swift */; };
 		219334131C0FD91D000A974B /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219334121C0FD91D000A974B /* SearchController.swift */; };
+		21952C8D1C1A032A006068E4 /* KeyboardSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21952C8C1C1A032A006068E4 /* KeyboardSelectionView.swift */; };
 		219DAC821C0E75DC00F39A6F /* InsertionPointTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DAC811C0E75DC00F39A6F /* InsertionPointTextView.swift */; };
 		219DAC8A1C0F819700F39A6F /* NSDate+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DAC891C0F819700F39A6F /* NSDate+Canvas.swift */; };
 		219DAC921C0F98BD00F39A6F /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DAC911C0F98BD00F39A6F /* Configuration.swift */; };
@@ -127,10 +128,10 @@
 		2129D30B1BF560810018F255 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		2129D30D1BF561400018F255 /* CollectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionsViewController.swift; sourceTree = "<group>"; };
 		2129D30F1BF5634A0018F255 /* Accountable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accountable.swift; sourceTree = "<group>"; };
-		2129D3111BF568AB0018F255 /* CanvasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasesViewController.swift; sourceTree = "<group>"; };
+		2129D3111BF568AB0018F255 /* CollectionCanvasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCanvasesViewController.swift; sourceTree = "<group>"; };
 		2134FADE1BFC09E300AE93CC /* BulletView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulletView.swift; sourceTree = "<group>"; };
 		2134FAE01BFC0A6A00AE93CC /* CanvasTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasTextView.swift; sourceTree = "<group>"; };
-		213791C41C1790E2000FACCC /* PlainCanvasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlainCanvasesViewController.swift; sourceTree = "<group>"; };
+		213791C41C1790E2000FACCC /* CanvasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasesViewController.swift; sourceTree = "<group>"; };
 		215642111C06B46E00685847 /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mixpanel.framework; path = Carthage/Build/iOS/Mixpanel.framework; sourceTree = "<group>"; };
 		215642121C06B46E00685847 /* Mixpanel.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Mixpanel.framework.dSYM; path = Carthage/Build/iOS/Mixpanel.framework.dSYM; sourceTree = "<group>"; };
 		215642131C06B46E00685847 /* SocketRocket.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SocketRocket.framework.dSYM; path = Carthage/Build/iOS/SocketRocket.framework.dSYM; sourceTree = "<group>"; };
@@ -142,6 +143,7 @@
 		219334001C0FC5DD000A974B /* AlgoliaSearch.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = AlgoliaSearch.framework.dSYM; path = Carthage/Build/iOS/AlgoliaSearch.framework.dSYM; sourceTree = "<group>"; };
 		219334041C0FC6DD000A974B /* Canvas+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Canvas+Canvas.swift"; sourceTree = "<group>"; };
 		219334121C0FD91D000A974B /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		21952C8C1C1A032A006068E4 /* KeyboardSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardSelectionView.swift; sourceTree = "<group>"; };
 		219DAC811C0E75DC00F39A6F /* InsertionPointTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertionPointTextView.swift; sourceTree = "<group>"; };
 		219DAC891C0F819700F39A6F /* NSDate+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Canvas.swift"; sourceTree = "<group>"; };
 		219DAC911C0F98BD00F39A6F /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				213791CC1C17A8F6000FACCC /* Cells */,
 				213791CB1C17A8EA000FACCC /* Annotations */,
 				213791CE1C17A905000FACCC /* Forms */,
+				21952C8C1C1A032A006068E4 /* KeyboardSelectionView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -384,8 +387,8 @@
 				21FB6AAF1BF53B8E003C82BB /* RootViewController.swift */,
 				2129D3091BF55C340018F255 /* LoginViewController.swift */,
 				2129D30D1BF561400018F255 /* CollectionsViewController.swift */,
-				2129D3111BF568AB0018F255 /* CanvasesViewController.swift */,
-				213791C41C1790E2000FACCC /* PlainCanvasesViewController.swift */,
+				2129D3111BF568AB0018F255 /* CollectionCanvasesViewController.swift */,
+				213791C41C1790E2000FACCC /* CanvasesViewController.swift */,
 				21C576941C19002A0015B8A5 /* CanvasesResultsViewController.swift */,
 				21F10F4F1BF138750035057D /* EditorViewController.swift */,
 				21B742DF1C03BD9000FF293C /* TableViewController.swift */,
@@ -609,7 +612,7 @@
 				21A8FA4A1BFD085F0097FCC6 /* CanvasCell.swift in Sources */,
 				219334131C0FD91D000A974B /* SearchController.swift in Sources */,
 				21F10F4E1BF138750035057D /* AppDelegate.swift in Sources */,
-				213791C51C1790E2000FACCC /* PlainCanvasesViewController.swift in Sources */,
+				213791C51C1790E2000FACCC /* CanvasesViewController.swift in Sources */,
 				2134FAE11BFC0A6A00AE93CC /* CanvasTextView.swift in Sources */,
 				219DAC8A1C0F819700F39A6F /* NSDate+Canvas.swift in Sources */,
 				210960D61C091F7800EB8F84 /* LightTheme.swift in Sources */,
@@ -617,13 +620,14 @@
 				21B742ED1C03BDF400FF293C /* ModelsViewController.swift in Sources */,
 				21A8FA3D1BFD04F20097FCC6 /* CollectionCell.swift in Sources */,
 				210960D41C091CAE00EB8F84 /* Font.swift in Sources */,
-				2129D3121BF568AB0018F255 /* CanvasesViewController.swift in Sources */,
+				2129D3121BF568AB0018F255 /* CollectionCanvasesViewController.swift in Sources */,
 				219DAC921C0F98BD00F39A6F /* Configuration.swift in Sources */,
 				21A8FA5D1BFD33DB0097FCC6 /* ChromeActivity.swift in Sources */,
 				21FCB58D1C07929A00F78D93 /* NSCache+Canvas.swift in Sources */,
 				210960C71C08F01800EB8F84 /* SelectedCanvasCell.swift in Sources */,
 				21B742D91BFFCFDB00FF293C /* BlockquoteBorderView.swift in Sources */,
 				219334051C0FC6DD000A974B /* Canvas+Canvas.swift in Sources */,
+				21952C8D1C1A032A006068E4 /* KeyboardSelectionView.swift in Sources */,
 				215642221C06BBE600685847 /* Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

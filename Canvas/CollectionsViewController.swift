@@ -67,7 +67,7 @@ class CollectionsViewController: ModelsViewController, Accountable {
 		navigationBar.barTintColor = Color.darkGray
 		navigationBar.barStyle = .Black
 		navigationBar.tintColor = Color.white.colorWithAlphaComponent(0.7)
-		navigationBar.translucent = true
+//		navigationBar.translucent = true
 	}
 	
 	override func viewWillDisappear(animated: Bool) {
@@ -76,7 +76,7 @@ class CollectionsViewController: ModelsViewController, Accountable {
 		guard let navigationBar = navigationController?.navigationBar else { return }
 
 		navigationBar.barTintColor = Color.brand
-		navigationBar.translucent = false
+//		navigationBar.translucent = false
 	}
 
 
@@ -100,7 +100,7 @@ class CollectionsViewController: ModelsViewController, Accountable {
 		guard !opening, let collection = model as? Collection else { return }
 		opening = true
 		Analytics.track(.ChangedCollection(collection: collection))
-		let viewController = CanvasesViewController(account: account, collection: collection)
+		let viewController = CollectionCanvasesViewController(account: account, collection: collection)
 		navigationController?.pushViewController(viewController, animated: true)
 	}
 

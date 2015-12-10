@@ -12,11 +12,8 @@ class SelectedCollectionCell: CollectionCell {
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-		let indicator = UIView()
+		let indicator = KeyboardSelectionView()
 		indicator.translatesAutoresizingMaskIntoConstraints = false
-		indicator.backgroundColor = Color.brand
-		indicator.layer.cornerRadius = 2
-
 		contentView.addSubview(indicator)
 
 		NSLayoutConstraint.activateConstraints([

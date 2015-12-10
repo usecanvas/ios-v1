@@ -13,7 +13,7 @@ protocol CanvasesResultsViewControllerDelegate: class {
 	func canvasesResultsViewController(viewController: CanvasesResultsViewController, didSelectCanvas canvas: Canvas)
 }
 
-class CanvasesResultsViewController: PlainCanvasesViewController {
+class CanvasesResultsViewController: CanvasesViewController {
 
 	weak var delegate: CanvasesResultsViewControllerDelegate?
 
