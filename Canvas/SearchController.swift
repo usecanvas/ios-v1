@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 import CanvasKit
-import SSKeychain
+//import SSKeychain
 import AlgoliaSearch
 
 /// Object for coordinating searches
@@ -25,6 +25,8 @@ class SearchController: NSObject {
 
 	private let semaphore = dispatch_semaphore_create(0)
 	private var searchCredential: SearchCredential?
+
+	private static var credentialsCache = [String: SearchCredential]()
 
 	private var nextQuery: String? {
 		didSet {
@@ -55,14 +57,9 @@ class SearchController: NSObject {
 	// MARK: - Private
 
 	private func fetchSearchToken() {
-		// Get from keychain
-		let keychainService = "CanvasSearch"
-		let keychainAccount = collection.ID
-		if let data = SSKeychain.passwordDataForService(keychainService, account: keychainAccount),
-			raw = try? NSJSONSerialization.JSONObjectWithData(data, options: []),
-			dictionary = raw as? JSONDictionary,
-			credential = SearchCredential(dictionary: dictionary) {
-
+		// Get from cache
+		let key = collection.ID
+		if let credential = self.dynamicType.credentialsCache[key] {
 				searchCredential = credential
 				dispatch_semaphore_signal(semaphore)
 				return
@@ -73,10 +70,8 @@ class SearchController: NSObject {
 		client.getCollectionSearchCredential(collection: collection) { [weak self] result in
 			switch result {
 			case .Success(let credential):
-				// Cache in the keychain
-				if let data = try? NSJSONSerialization.dataWithJSONObject(credential.dictionary, options: []) {
-					SSKeychain.setPasswordData(data, forService: keychainService, account: keychainAccount)
-				}
+				// Cache
+				self?.dynamicType.credentialsCache[key] = credential
 
 				self?.searchCredential = credential
 				if let semaphore = self?.semaphore {

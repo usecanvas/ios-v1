@@ -53,6 +53,7 @@
 		21B742E01C03BD9000FF293C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742DF1C03BD9000FF293C /* TableViewController.swift */; };
 		21B742ED1C03BDF400FF293C /* ModelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742EC1C03BDF400FF293C /* ModelsViewController.swift */; };
 		21B8D8D91BFC0E0B001ED447 /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B8D8D81BFC0E0B001ED447 /* CheckboxView.swift */; };
+		21C576951C19002A0015B8A5 /* CanvasesResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C576941C19002A0015B8A5 /* CanvasesResultsViewController.swift */; };
 		21D2B1981C0D0AED003652B7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21D2B1971C0D0AED003652B7 /* Settings.bundle */; };
 		21E48AFE1C0447AC00C9F6AA /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AE3F3B1C0423E300AE5DDC /* CanvasKit.framework */; };
 		21E48B011C0447AC00C9F6AA /* ISO8601.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AE3F3D1C0423E300AE5DDC /* ISO8601.framework */; };
@@ -197,6 +198,7 @@
 		21B742DF1C03BD9000FF293C /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		21B742EC1C03BDF400FF293C /* ModelsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelsViewController.swift; sourceTree = "<group>"; };
 		21B8D8D81BFC0E0B001ED447 /* CheckboxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
+		21C576941C19002A0015B8A5 /* CanvasesResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasesResultsViewController.swift; sourceTree = "<group>"; };
 		21D2B1971C0D0AED003652B7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		21F10F4A1BF138750035057D /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F10F4D1BF138750035057D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -412,6 +414,7 @@
 				2129D30D1BF561400018F255 /* CollectionsViewController.swift */,
 				2129D3111BF568AB0018F255 /* CanvasesViewController.swift */,
 				213791C41C1790E2000FACCC /* PlainCanvasesViewController.swift */,
+				21C576941C19002A0015B8A5 /* CanvasesResultsViewController.swift */,
 				21F10F4F1BF138750035057D /* EditorViewController.swift */,
 				21B742DF1C03BD9000FF293C /* TableViewController.swift */,
 				21B742EC1C03BDF400FF293C /* ModelsViewController.swift */,
@@ -614,6 +617,7 @@
 				2129D30E1BF561400018F255 /* CollectionsViewController.swift in Sources */,
 				21B742E01C03BD9000FF293C /* TableViewController.swift in Sources */,
 				21B742C81BFF991600FF293C /* NumberView.swift in Sources */,
+				21C576951C19002A0015B8A5 /* CanvasesResultsViewController.swift in Sources */,
 				21FB6AB01BF53B8E003C82BB /* RootViewController.swift in Sources */,
 				21F10F501BF138750035057D /* EditorViewController.swift in Sources */,
 				2129D30C1BF560810018F255 /* Color.swift in Sources */,

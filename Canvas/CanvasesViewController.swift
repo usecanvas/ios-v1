@@ -27,11 +27,15 @@ class CanvasesViewController: PlainCanvasesViewController {
 	init(account: Account, collection: Collection) {
 		self.collection = collection
 		searchController = SearchController(account: account, collection: collection)
-		searchViewController = UISearchController(searchResultsController: PlainCanvasesViewController(account: account))
+
+		let results = CanvasesResultsViewController(account: account)
+		searchViewController = UISearchController(searchResultsController: results)
 
 		super.init(account: account)
 
 		title = collection.name.capitalizedString
+
+		results.delegate = self
 
 		searchViewController.searchBar.placeholder = "Search in \(collection.name.capitalizedString)"
 		searchViewController.searchResultsUpdater = searchController
@@ -191,5 +195,12 @@ class CanvasesViewController: PlainCanvasesViewController {
 		actionSheet.primaryAction = archive
 
 		presentViewController(actionSheet, animated: true, completion: nil)
+	}
+}
+
+
+extension CanvasesViewController: CanvasesResultsViewControllerDelegate {
+	func canvasesResultsViewController(viewController: CanvasesResultsViewController, didSelectCanvas canvas: Canvas) {
+		selectModel(canvas)
 	}
 }
