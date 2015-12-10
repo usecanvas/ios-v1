@@ -34,7 +34,7 @@ let nodeParseOrder: [Node.Type] = [
 	Blockquote.self,
 	Checklist.self,
 	CodeBlock.self,
-	DocHeading.self,
+	Title.self,
 	Heading.self,
 	Image.self,
 	OrderedList.self,

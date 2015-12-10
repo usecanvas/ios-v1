@@ -80,6 +80,8 @@ class LoginViewController: UIViewController {
 		usernameTextField.delegate = self
 		passwordTextField.delegate = self
 
+		submitButton.addTarget(self, action: "signIn", forControlEvents: .TouchUpInside)
+
 		stackView.addArrangedSubview(usernameTextField)
 		stackView.addArrangedSubview(passwordTextField)
 		stackView.addArrangedSubview(submitButton)
@@ -119,7 +121,7 @@ class LoginViewController: UIViewController {
 		}
 	}
 
-	private func signIn() {
+	@objc private func signIn() {
 		guard let username = usernameTextField.text, password = passwordTextField.text else { return }
 
 		loading = true

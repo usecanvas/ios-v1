@@ -1,7 +1,8 @@
 github "usecanvas/CanvasKit" "master"
 github "usecanvas/longhouse-swift"
 
+github "soffes/Camo"
 github "soffes/Mixpanel"
 github "venmo/Static"
 github "AgileBits/onepassword-app-extension" "add-framework-support"
-github "krzyzanowskim/CryptoSwift"
+github "algolia/algoliasearch-client-swift"

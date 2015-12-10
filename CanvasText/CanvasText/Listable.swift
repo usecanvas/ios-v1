@@ -21,15 +21,36 @@ public enum Indentation: UInt {
 	public var isFilled: Bool {
 		return rawValue % 2 == 0
 	}
+
+	public var successor: Indentation {
+		if self == .Seven {
+			return self
+		}
+
+		return Indentation(rawValue: rawValue + 1)!
+	}
+
+	public var predecessor: Indentation {
+		if self == .Zero {
+			return self
+		}
+
+		return Indentation(rawValue: rawValue - 1)!
+	}
+
+	public var string: String {
+		return rawValue.description
+	}
 }
 
 
 public protocol Listable: Delimitable, Prefixable {
 	var indentation: Indentation { get }
+	var indentationRange: NSRange { get }
 }
 
 
-func parseListable(string string: String, enclosingRange: NSRange, delimiter: String, prefix: String) -> (delimiterRange: NSRange, indentation: Indentation, prefixRange: NSRange, contentRange: NSRange)? {
+func parseListable(string string: String, enclosingRange: NSRange, delimiter: String, prefix: String) -> (delimiterRange: NSRange, indentationRange: NSRange, indentation: Indentation, prefixRange: NSRange, contentRange: NSRange)? {
 	let scanner = NSScanner(string: string)
 	scanner.charactersToBeSkipped = nil
 
@@ -42,6 +63,7 @@ func parseListable(string string: String, enclosingRange: NSRange, delimiter: St
 		return nil
 	}
 
+	let indentationRange = NSRange(location:  enclosingRange.location + scanner.scanLocation, length: 1)
 	var indent = -1
 	if !scanner.scanInteger(&indent) {
 		return nil
@@ -68,5 +90,5 @@ func parseListable(string string: String, enclosingRange: NSRange, delimiter: St
 	// Content
 	let contentRange = NSRange(location: enclosingRange.location + scanner.scanLocation, length: enclosingRange.length - scanner.scanLocation)
 
-	return (delimiterRange, indentation, prefixRange, contentRange)
+	return (delimiterRange, indentationRange, indentation, prefixRange, contentRange)
 }

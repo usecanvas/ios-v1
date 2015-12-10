@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		212668E01BFEC7B500DE996F /* BlockquoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212668DF1BFEC7B500DE996F /* BlockquoteTests.swift */; };
 		212668E11BFEC7B500DE996F /* BlockquoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212668DF1BFEC7B500DE996F /* BlockquoteTests.swift */; };
-		212668E81BFECA5E00DE996F /* DocHeading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212668E51BFECA4D00DE996F /* DocHeading.swift */; };
-		212668EA1BFECA5F00DE996F /* DocHeading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212668E51BFECA4D00DE996F /* DocHeading.swift */; };
+		212668E81BFECA5E00DE996F /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212668E51BFECA4D00DE996F /* Title.swift */; };
+		212668EA1BFECA5F00DE996F /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212668E51BFECA4D00DE996F /* Title.swift */; };
 		212668EC1BFECA7C00DE996F /* Heading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212668EB1BFECA7C00DE996F /* Heading.swift */; };
 		212668ED1BFECA7C00DE996F /* Heading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212668EB1BFECA7C00DE996F /* Heading.swift */; };
 		212668EF1BFECCBC00DE996F /* HeadingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212668EE1BFECCBC00DE996F /* HeadingTests.swift */; };
@@ -99,7 +99,7 @@
 /* Begin PBXFileReference section */
 		212668DF1BFEC7B500DE996F /* BlockquoteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockquoteTests.swift; sourceTree = "<group>"; };
 		212668E21BFECA0700DE996F /* CodeBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeBlock.swift; sourceTree = "<group>"; };
-		212668E51BFECA4D00DE996F /* DocHeading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocHeading.swift; sourceTree = "<group>"; };
+		212668E51BFECA4D00DE996F /* Title.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		212668EB1BFECA7C00DE996F /* Heading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Heading.swift; sourceTree = "<group>"; };
 		212668EE1BFECCBC00DE996F /* HeadingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadingTests.swift; sourceTree = "<group>"; };
 		2126690F1BFECE9400DE996F /* OrderedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedList.swift; sourceTree = "<group>"; };
@@ -245,7 +245,7 @@
 				2150D6881BFEBEE0008BB629 /* Blockquote.swift */,
 				21A8FAA61BFE89EB0097FCC6 /* Checklist.swift */,
 				212668E21BFECA0700DE996F /* CodeBlock.swift */,
-				212668E51BFECA4D00DE996F /* DocHeading.swift */,
+				212668E51BFECA4D00DE996F /* Title.swift */,
 				212668EB1BFECA7C00DE996F /* Heading.swift */,
 				2126690F1BFECE9400DE996F /* OrderedList.swift */,
 				212669151BFED13600DE996F /* UnorderedList.swift */,
@@ -482,7 +482,7 @@
 				2150D6861BFEBE2F008BB629 /* Prefixable.swift in Sources */,
 				21A8FAA01BFE890D0097FCC6 /* Node.swift in Sources */,
 				212668EC1BFECA7C00DE996F /* Heading.swift in Sources */,
-				212668EA1BFECA5F00DE996F /* DocHeading.swift in Sources */,
+				212668EA1BFECA5F00DE996F /* Title.swift in Sources */,
 				21A8FAA71BFE89EB0097FCC6 /* Checklist.swift in Sources */,
 				21A8FAA41BFE89A80097FCC6 /* Paragraph.swift in Sources */,
 				2150D6831BFEBDF6008BB629 /* Delimitable.swift in Sources */,
@@ -525,7 +525,7 @@
 				2150D6871BFEBE2F008BB629 /* Prefixable.swift in Sources */,
 				21A8FAA11BFE890D0097FCC6 /* Node.swift in Sources */,
 				212668ED1BFECA7C00DE996F /* Heading.swift in Sources */,
-				212668E81BFECA5E00DE996F /* DocHeading.swift in Sources */,
+				212668E81BFECA5E00DE996F /* Title.swift in Sources */,
 				21A8FAA81BFE89EB0097FCC6 /* Checklist.swift in Sources */,
 				21A8FAA51BFE89A80097FCC6 /* Paragraph.swift in Sources */,
 				2150D6841BFEBDF6008BB629 /* Delimitable.swift in Sources */,

@@ -1,5 +1,5 @@
 CARTHAGE_VERSION = '0.10.0'
-XCODE_VERSION = '9079'
+XCODE_VERSION = '9548'
 XCODE_SHORT_VERSION = '7.1'
 
 desc 'Build the project’s dependencies'

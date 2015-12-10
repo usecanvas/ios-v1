@@ -10,7 +10,7 @@ import UIKit
 import CanvasKit
 import CanvasText
 
-class CanvasTextView: TextView {
+class CanvasTextView: InsertionPointTextView {
 
 	// MARK: - Properties
 
@@ -34,10 +34,26 @@ class CanvasTextView: TextView {
 		if let textStorage = textStorage as? CanvasTextStorage {
 			textStorage.canvasDelegate = self
 		}
+
+		let indent = UISwipeGestureRecognizer(target: self, action: "increaseBlockLevelWithGesture:")
+		indent.numberOfTouchesRequired = 1
+		indent.direction = .Right
+		addGestureRecognizer(indent)
+
+		let outdent = UISwipeGestureRecognizer(target: self, action: "decreaseBlockLevelWithGesture:")
+		outdent.numberOfTouchesRequired = 1
+		outdent.direction = .Left
+		addGestureRecognizer(outdent)
+
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillChangeFrame:", name: UIKeyboardWillChangeFrameNotification, object: nil)
 	}
 
 	required init?(coder aDecoder: NSCoder) {
 	    fatalError("init(coder:) has not been implemented")
+	}
+
+	deinit {
+		NSNotificationCenter.defaultCenter().removeObserver(self)
 	}
 
 
@@ -52,6 +68,116 @@ class CanvasTextView: TextView {
 
 		dispatch_async(dispatch_get_main_queue()) { [weak self] in
 			self?.updateAnnotations()
+		}
+	}
+
+	override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
+		// I can't believe I have to do this… *sigh*
+		for view in subviews {
+			if view.userInteractionEnabled && view.frame.contains(point) {
+				return view
+			}
+		}
+
+		return super.hitTest(point, withEvent: event)
+	}
+
+
+	// MARK: - Gestures
+
+	func increaseBlockLevelWithGesture(sender: UISwipeGestureRecognizer?) {
+		guard let sender = sender,
+			textStorage = textStorage as? CanvasTextStorage,
+			node = nodeAtPoint(sender.locationInView(self))
+		else { return }
+
+		// Convert paragraph to unordered list
+		if node is Paragraph {
+			let string = Checklist.nativeRepresentation()
+			var range = node.contentRange
+			range.length = 0
+			textStorage.replaceBackingCharactersInRange(range, withString: string)
+			return
+		}
+
+		// Convert checklist to unordered list
+		if let node = node as? Checklist {
+			let string = UnorderedList.nativeRepresentation()
+			textStorage.replaceBackingCharactersInRange(node.delimiterRange.union(node.prefixRange), withString: string)
+			return
+		}
+
+		// Lists
+		if let node = node as? Listable {
+			// Increment indentation
+			let newIndentation = node.indentation.successor
+
+			// Already at its maximum indentation
+			if newIndentation == node.indentation {
+				return
+			}
+
+			let string = newIndentation.string
+			textStorage.replaceBackingCharactersInRange(node.indentationRange, withString: string)
+			return
+		}
+
+		// Decrease headings
+		if let node = node as? Heading {
+			// Convert to Paragraph
+			if node.level == .Three {
+				textStorage.replaceBackingCharactersInRange(node.prefixRange, withString: "")
+				return
+			}
+
+			let string = Heading.nativeRepresentation(level: node.level.successor)
+			textStorage.replaceBackingCharactersInRange(node.prefixRange, withString: string)
+			return
+		}
+	}
+
+	func decreaseBlockLevelWithGesture(sender: UISwipeGestureRecognizer?) {
+		guard let sender = sender,
+			textStorage = textStorage as? CanvasTextStorage,
+			node = nodeAtPoint(sender.locationInView(self))
+		else { return }
+
+		// Lists
+		if let node = node as? Listable {
+			// Convert checklist to paragraph
+			if let node = node as? Checklist {
+				textStorage.replaceBackingCharactersInRange(node.delimiterRange.union(node.prefixRange), withString: "")
+				return
+			}
+
+			// Convert unordered list to checklist
+			let newIndentation = node.indentation.predecessor
+			if newIndentation == node.indentation {
+				let string = Checklist.nativeRepresentation()
+				textStorage.replaceBackingCharactersInRange(node.delimiterRange.union(node.prefixRange), withString: string)
+				return
+			}
+
+			// Decrement indentation
+			let string = newIndentation.string
+			textStorage.replaceBackingCharactersInRange(node.indentationRange, withString: string)
+			return
+		}
+
+		// Convert Paragraph to Heading
+		if node is Paragraph {
+			let string = Heading.nativeRepresentation(level: .Three)
+			var range = node.contentRange
+			range.length = 0
+			textStorage.replaceBackingCharactersInRange(range, withString: string)
+			return
+		}
+
+		// Increase Heading level
+		if let node = node as? Heading where node.level != .One {
+			let string = Heading.nativeRepresentation(level: node.level.predecessor)
+			textStorage.replaceBackingCharactersInRange(node.prefixRange, withString: string)
+			return
 		}
 	}
 
@@ -113,7 +239,49 @@ class CanvasTextView: TextView {
 	}
 
 
+	// MARK: - Actions
+
+	@objc private func toggleCheckbox(sender: CheckboxView?) {
+		guard let node = sender?.checklist, textStorage = textStorage as? CanvasTextStorage else { return }
+
+		let string = node.completion.opposite.string
+		textStorage.replaceBackingCharactersInRange(node.completedRange, withString: string)
+	}
+
+
 	// MARK: - Private
+
+	@objc private func keyboardWillChangeFrame(notification: NSNotification?) {
+		guard let notification = notification,
+			value = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue
+		else { return }
+
+		let frame = convertRect(value.CGRectValue(), fromView: nil)
+		contentInset = UIEdgeInsets(top: 0, left: 0, bottom: frame.height, right: 0)
+		scrollIndicatorInsets = contentInset
+	}
+
+	private func nodeAtPoint(point: CGPoint) -> Node? {
+		guard let textRange = characterRangeAtPoint(point),
+			textStorage = textStorage as? CanvasTextStorage
+		else { return nil }
+
+		let range = NSRange(
+			location: offsetFromPosition(beginningOfDocument, toPosition: textRange.start),
+			length: offsetFromPosition(textRange.start, toPosition: textRange.end)
+		)
+
+		var node: Node?
+		for n in textStorage.nodes {
+			let content = textStorage.backingRangeToDisplayRange(n.contentRange)
+			if content.intersection(range) > 0 {
+				node = n
+				break
+			}
+		}
+
+		return node
+	}
 
 	private func addAnnotation(annotation: UIView) {
 		annotations.append(annotation)
@@ -163,6 +331,7 @@ class CanvasTextView: TextView {
 		// Checklist
 		if let node = node as? Checklist {
 			let view = CheckboxView(frame: .zero, checklist: node)
+			view.addTarget(self, action: "toggleCheckbox:", forControlEvents: .TouchUpInside)
 			let size = view.intrinsicContentSize()
 			rect.origin.x -= theme.listIndentation
 			rect.origin.y = floor(rect.origin.y + font.ascender - (size.height / 2))

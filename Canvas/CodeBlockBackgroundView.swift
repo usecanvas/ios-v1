@@ -50,6 +50,8 @@ class CodeBlockBackgroundView: UIView {
 
 		super.init(frame: frame)
 
+		userInteractionEnabled = false
+
 		textLabel.font = theme.monospaceFontOfSize(theme.fontSize)
 		textLabel.text = lineNumber.description
 
