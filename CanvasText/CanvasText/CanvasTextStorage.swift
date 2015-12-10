@@ -54,6 +54,24 @@ public class CanvasTextStorage: ShadowTextStorage {
 	#endif
 
 
+	// MARK: - NSTextStorage
+
+	public override func replaceCharactersInRange(range: NSRange, withString str: String) {
+		// Delete the entire line of any attachments
+		var displayRange = range
+		enumerateAttribute(NSAttachmentAttributeName, inRange: range, options: []) { _, attachmentRange, _ in
+			var lineRange = (self.string as NSString).lineRangeForRange(attachmentRange)
+
+			// We want to delete the line before not the line after
+			lineRange.location -= 1
+			
+			displayRange = displayRange.union(lineRange)
+		}
+
+		super.replaceCharactersInRange(displayRange, withString: str)
+	}
+
+
 	// MARK: - ShadowTextStorage
 
 	override public func replaceBackingCharactersInRange(range: NSRange, withString str: String) {
@@ -64,9 +82,9 @@ public class CanvasTextStorage: ShadowTextStorage {
 			return
 		}
 
-		super.replaceBackingCharactersInRange(range, withString: str)
-
+		// Replace backing text
 		let backingRange = range
+		super.replaceBackingCharactersInRange(range, withString: str)
 
 		// Submit the operation
 		// Insert
@@ -83,9 +101,6 @@ public class CanvasTextStorage: ShadowTextStorage {
 			transportController.submitOperation(.Insert(location: UInt(backingRange.location), string: str))
 		}
 	}
-
-
-	// MARK: - ShadowTextStorage
 
 	public override func shadowsForBackingText(backingText: String) -> [Shadow] {
 		// Convert to Foundation string so we can work with `NSRange` instead of `Range` since the TextKit APIs take
