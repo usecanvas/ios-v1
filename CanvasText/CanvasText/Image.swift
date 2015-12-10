@@ -16,24 +16,40 @@ public struct Image: Attachable, Hashable {
 	public var delimiterRange: NSRange
 
 	public var ID: String
-	public var size: CGSize
 	public var URL: NSURL
+	public var size: CGSize?
 
 	public var hashValue: Int {
 		return ID.hashValue
 	}
 
-	public var aspectRatio: CGFloat {
-		return min(size.width, size.height) / max(size.width, size.height)
-	}
 
 	// MARK: - Initializers
 
 	public init?(string: String, enclosingRange: NSRange) {
+		delimiterRange = NSRange(location: enclosingRange.location, length: enclosingRange.length - 1)
+		
 		let scanner = NSScanner(string: string)
 		scanner.charactersToBeSkipped = nil
 
-		// Delimiter
+		// URL image
+		if scanner.scanString("\(leadingDelimiter)image\(trailingDelimiter)", intoString: nil) {
+			var urlString: NSString? = ""
+			if !scanner.scanUpToString("\n", intoString: &urlString) {
+				return nil
+			}
+
+			if let urlString = urlString as? String, URL = NSURL(string: urlString) {
+				self.ID = urlString
+				self.URL = URL
+				self.size = nil
+				return
+			}
+
+			return nil
+		}
+
+		// Uploaded image delimiter
 		if !scanner.scanString("\(leadingDelimiter)image-", intoString: nil) {
 			return nil
 		}
@@ -49,8 +65,6 @@ public struct Image: Attachable, Hashable {
 			raw = try? NSJSONSerialization.JSONObjectWithData(data, options: []),
 			dictionary = raw as? [String: AnyObject],
 			ID = dictionary["ci"] as? String,
-			width = dictionary["width"] as? UInt,
-			height = dictionary["height"] as? UInt,
 			URLString = (dictionary["url"] as? String)?.stringByReplacingOccurrencesOfString(" ", withString: "%20"),
 			URL = NSURL(string: URLString)
 		else {
@@ -58,10 +72,13 @@ public struct Image: Attachable, Hashable {
 		}
 
 		self.ID = ID
-		size = CGSize(width: Int(width), height: Int(height))
 		self.URL = URL
 
-		delimiterRange = NSRange(location: enclosingRange.location, length: enclosingRange.length - 1)
+		if let width = dictionary["width"] as? UInt, height = dictionary["height"] as? UInt {
+			size = CGSize(width: Int(width), height: Int(height))
+		} else {
+			size = nil
+		}
 	}
 }
 

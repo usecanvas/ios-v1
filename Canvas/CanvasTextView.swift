@@ -436,7 +436,13 @@ extension CanvasTextView: CanvasTextStorageDelegate {
 
 		// Not sure why it’s off by 10 here
 		let width = textContainer.size.width - 10
-		attachment.bounds = CGRect(x: 0, y: 0, width: width, height: width * image.size.height / image.size.width)
+
+		if let size = image.size {
+			attachment.bounds = CGRect(x: 0, y: 0, width: width, height: width * size.height / size.width)
+		} else {
+			// TODO: For now linked images are hardcoded to 300 tall
+			attachment.bounds = CGRect(x: 0, y: 0, width: width, height: 300)
+		}
 
 		let size = attachment.bounds.ceil.size
 		attachment.image = ImagesController.sharedController.fetchImage(node: image, size: size, scale: scale) { [weak self] node, image in
@@ -447,10 +453,9 @@ extension CanvasTextView: CanvasTextStorageDelegate {
 			let range = textStorage.backingRangeToDisplayRange(node.contentRange)
 			var attributes = textStorage.attributesAtIndex(range.location, effectiveRange: nil)
 
-			guard let attachment = attributes[NSAttachmentAttributeName] as? NSTextAttachment else { return }
-
+			let size = image.size
 			let updatedAttachment = NSTextAttachment()
-			updatedAttachment.bounds = attachment.bounds
+			updatedAttachment.bounds = CGRect(x: 0, y: 0, width: width, height: width * size.height / size.width)
 			updatedAttachment.image = image
 			attributes[NSAttachmentAttributeName] = updatedAttachment
 

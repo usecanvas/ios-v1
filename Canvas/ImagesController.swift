@@ -8,6 +8,7 @@
 
 import UIKit
 import CanvasText
+import Camo
 
 class ImagesController {
 
@@ -58,10 +59,14 @@ class ImagesController {
 				return
 			}
 
+			// Camo
+			let camo = Camo(secret: camoSecret, baseURL: camoURL)
+			guard let URL = camo.sign(URL: node.URL) else { return }
+
 			// Start download
 			self.downloading[node] = [completion]
 
-			let request = NSURLRequest(URL: node.URL)
+			let request = NSURLRequest(URL: URL)
 			self.session.downloadTaskWithRequest(request) { [weak self] location, _, _ in
 				self?.loadImage(location: location, node: node)
 			}.resume()
