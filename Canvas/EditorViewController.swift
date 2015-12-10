@@ -39,11 +39,19 @@ class EditorViewController: UIViewController, Accountable {
 		textStorage.selectionDelegate = self
 
 		longhouse.delegate = self
+
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillChangeFrame:", name: UIKeyboardWillChangeFrameNotification, object: nil)
 	}
 
 	required init?(coder aDecoder: NSCoder) {
 	    fatalError("init(coder:) has not been implemented")
 	}
+
+
+	deinit {
+		NSNotificationCenter.defaultCenter().removeObserver(self)
+	}
+
 
 
 	// MARK: - UIResponder
@@ -116,6 +124,22 @@ class EditorViewController: UIViewController, Accountable {
 		let activities = [SafariActivity(), ChromeActivity()]
 		let viewController = UIActivityViewController(activityItems: [URL], applicationActivities: activities)
 		presentViewController(viewController, animated: true, completion: nil)
+	}
+
+
+	// MARK: - Private
+
+	@objc private func keyboardWillChangeFrame(notification: NSNotification?) {
+		guard let notification = notification,
+			value = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue
+		else { return }
+
+		let frame = textView.frame.intersect(view.convertRect(value.CGRectValue(), fromView: nil))
+		var insets = textView.contentInset
+		insets.bottom = frame.height
+
+		textView.contentInset = insets
+		textView.scrollIndicatorInsets = insets
 	}
 }
 
