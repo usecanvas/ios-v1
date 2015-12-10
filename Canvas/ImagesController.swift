@@ -26,13 +26,17 @@ class ImagesController {
 	private let queue = dispatch_queue_create("com.usecanvas.canvas.imagescontroller", DISPATCH_QUEUE_SERIAL)
 
 	/// The image ID is the key. The value is a UIImage object.
-	private let cache: NSCache = {
+	private let imageCache: NSCache = {
 		let cache = NSCache()
-		cache.name = "ImagesController.cache"
+		cache.name = "ImagesController.imageCache"
 		return cache
 	}()
 
-	private let placeholderCache = NSCache()
+	private let placeholderCache: NSCache = {
+		let cache = NSCache()
+		cache.name = "ImagesController.placeholderCache"
+		return cache
+	}()
 
 	static let sharedController = ImagesController()
 
@@ -47,7 +51,7 @@ class ImagesController {
 	// MARK: - Accessing
 
 	func fetchImage(node node: Image, size: CGSize, scale: CGFloat, completion: Completion) -> UIImage? {
-		if let image = cache[node.ID] as? UIImage {
+		if let image = imageCache[node.ID] as? UIImage {
 			return image
 		}
 
@@ -86,7 +90,7 @@ class ImagesController {
 		let data = location.flatMap { NSData(contentsOfURL: $0) }
 		let image = data.flatMap { UIImage(data: $0) }
 
-		cache[node.ID] = image
+		imageCache[node.ID] = image
 
 		coordinate {
 			if let completions = self.downloading[node] {
