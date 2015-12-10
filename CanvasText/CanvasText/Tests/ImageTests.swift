@@ -20,6 +20,5 @@ class ImageTests: XCTestCase {
 		XCTAssertEqual("22ab2e78-0efa-4f12-9c73-65dc10873357", image.ID)
 		XCTAssertEqual(CGSize(width: 1011, height: 679), image.size)
 		XCTAssertEqual(NSURL(string: "https://canvas-files-prod.s3.amazonaws.com/uploads/22ab2e78-0efa-4f12-9c73-65dc10873357/cover.jpg")!, image.URL)
-		XCTAssertEqualWithAccuracy(0.67, image.aspectRatio, accuracy: 0.01)
 	}
 }

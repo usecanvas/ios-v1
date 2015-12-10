@@ -14,7 +14,7 @@ public struct Checklist: Listable {
 
 	public enum Completion: String {
 		case Incomplete = " "
-		case Completed = "x"
+		case Complete = "x"
 
 		public var string: String {
 			return rawValue
@@ -22,8 +22,8 @@ public struct Checklist: Listable {
 
 		public var opposite: Completion {
 			switch self {
-			case .Incomplete: return .Completed
-			case . Completed: return .Incomplete
+			case .Incomplete: return .Complete
+			case . Complete: return .Incomplete
 			}
 		}
 	}

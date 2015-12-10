@@ -31,7 +31,7 @@ class CheckboxView: UIButton {
 	// MARK: - UIView
 
 	override func drawRect(rect: CGRect) {
-		if checklist.completion == .Completed {
+		if checklist.completion == .Complete {
 			Color.brand.setFill()
 			UIBezierPath(roundedRect: bounds, cornerRadius: 3).fill()
 

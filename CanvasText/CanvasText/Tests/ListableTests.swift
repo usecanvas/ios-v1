@@ -16,7 +16,7 @@ class ListableTests: XCTestCase {
 		XCTAssertEqual(NSRange(location: 13, length: 6), node.prefixRange)
 		XCTAssertEqual(NSRange(location: 19, length: 5), node.contentRange)
 		XCTAssertEqual(Indentation.Zero, node.indentation)
-		XCTAssert(!node.completed)
+		XCTAssertEqual(Checklist.Completion.Incomplete, node.completion)
 	}
 
 	func testCompleted() {
@@ -25,7 +25,7 @@ class ListableTests: XCTestCase {
 		XCTAssertEqual(NSRange(location: 23, length: 6), node.prefixRange)
 		XCTAssertEqual(NSRange(location: 29, length: 4), node.contentRange)
 		XCTAssertEqual(Indentation.One, node.indentation)
-		XCTAssert(node.completed)
+		XCTAssertEqual(Checklist.Completion.Complete, node.completion)
 	}
 
 	func testUnordered() {
