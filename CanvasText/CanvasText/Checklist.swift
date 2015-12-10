@@ -108,7 +108,7 @@ public struct Checklist: Listable {
 
 	// MARK: - Native
 
-	public static func nativeRepresentation(indentation: Indentation = .Zero, completion: Completion = .Incomplete) -> String {
+	public static func nativeRepresentation(indentation indentation: Indentation = .Zero, completion: Completion = .Incomplete) -> String {
 		return "\(leadingDelimiter)checklist-\(indentation.string)\(trailingDelimiter)- [\(completion.string)] "
 	}
 }

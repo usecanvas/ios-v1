@@ -19,6 +19,22 @@ public struct Heading: Prefixable {
 		case Four = 4
 		case Five = 5
 		case Six = 6
+
+		public var successor: Level {
+			if self == .Six {
+				return self
+			}
+
+			return Level(rawValue: rawValue + 1)!
+		}
+
+		public var predecessor: Level {
+			if self == .One {
+				return self
+			}
+
+			return Level(rawValue: rawValue - 1)!
+		}
 	}
 
 
@@ -57,7 +73,7 @@ public struct Heading: Prefixable {
 
 	// MARK: - Native
 
-	public static func nativeRepresentation(level: Level = .One) -> String {
+	public static func nativeRepresentation(level level: Level = .One) -> String {
 		var prefix = ""
 
 		for _ in 0..<level.rawValue {

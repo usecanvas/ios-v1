@@ -124,7 +124,15 @@ class CanvasTextView: InsertionPointTextView {
 
 		// Decrease headings
 		if let node = node as? Heading {
-			print("[Increase] TODO: Figure out what to do for headings: \(node)")
+			// Convert to Paragraph
+			if node.level == .Three {
+				textStorage.replaceBackingCharactersInRange(node.prefixRange, withString: "")
+				return
+			}
+
+			let string = Heading.nativeRepresentation(level: node.level.successor)
+			textStorage.replaceBackingCharactersInRange(node.prefixRange, withString: string)
+			return
 		}
 	}
 
@@ -156,8 +164,21 @@ class CanvasTextView: InsertionPointTextView {
 			return
 		}
 
-		// TODO: Figure out what to do for headings and paragraphs
-		print("[Decrease] TODO: Figure out what to do for headings")
+		// Convert Paragraph to Heading
+		if node is Paragraph {
+			let string = Heading.nativeRepresentation(level: .Three)
+			var range = node.contentRange
+			range.length = 0
+			textStorage.replaceBackingCharactersInRange(range, withString: string)
+			return
+		}
+
+		// Increase Heading level
+		if let node = node as? Heading where node.level != .One {
+			let string = Heading.nativeRepresentation(level: node.level.predecessor)
+			textStorage.replaceBackingCharactersInRange(node.prefixRange, withString: string)
+			return
+		}
 	}
 
 
