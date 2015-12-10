@@ -22,14 +22,11 @@
 		2134FAE11BFC0A6A00AE93CC /* CanvasTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2134FAE01BFC0A6A00AE93CC /* CanvasTextView.swift */; };
 		213791C51C1790E2000FACCC /* PlainCanvasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213791C41C1790E2000FACCC /* PlainCanvasesViewController.swift */; };
 		215642151C06B46E00685847 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 215642111C06B46E00685847 /* Mixpanel.framework */; };
-		2156421B1C06B49500685847 /* SocketRocket.framework.dSYM in Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = 215642131C06B46E00685847 /* SocketRocket.framework.dSYM */; };
-		2156421C1C06B49700685847 /* Mixpanel.framework.dSYM in Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = 215642121C06B46E00685847 /* Mixpanel.framework.dSYM */; };
 		2156421F1C06B4ED00685847 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2156421E1C06B4ED00685847 /* Analytics.swift */; };
 		215642221C06BBE600685847 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215642211C06BBE600685847 /* Button.swift */; };
 		215642291C06C40000685847 /* ImagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215642281C06C40000685847 /* ImagesController.swift */; };
 		216343F61C0D43BB00916A8B /* CodeBlockBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216343F51C0D43BB00916A8B /* CodeBlockBackgroundView.swift */; };
 		219334011C0FC5DD000A974B /* AlgoliaSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 219333FF1C0FC5DD000A974B /* AlgoliaSearch.framework */; };
-		219334031C0FC5E9000A974B /* AlgoliaSearch.framework.dSYM in Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = 219334001C0FC5DD000A974B /* AlgoliaSearch.framework.dSYM */; };
 		219334051C0FC6DD000A974B /* Canvas+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219334041C0FC6DD000A974B /* Canvas+Canvas.swift */; };
 		219334131C0FD91D000A974B /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219334121C0FD91D000A974B /* SearchController.swift */; };
 		219DAC821C0E75DC00F39A6F /* InsertionPointTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DAC811C0E75DC00F39A6F /* InsertionPointTextView.swift */; };
@@ -42,12 +39,6 @@
 		21A8FA5B1BFD30790097FCC6 /* WebActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA5A1BFD30790097FCC6 /* WebActivity.swift */; };
 		21A8FA5D1BFD33DB0097FCC6 /* ChromeActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA5C1BFD33DB0097FCC6 /* ChromeActivity.swift */; };
 		21A8FA5F1BFD33EA0097FCC6 /* SafariActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA5E1BFD33EA0097FCC6 /* SafariActivity.swift */; };
-		21AE3F4A1C0424A700AE5DDC /* CanvasKit.framework.dSYM in Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = 21AE3F3C1C0423E300AE5DDC /* CanvasKit.framework.dSYM */; };
-		21AE3F4B1C0424A700AE5DDC /* ISO8601.framework.dSYM in Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = 21AE3F3E1C0423E300AE5DDC /* ISO8601.framework.dSYM */; };
-		21AE3F4C1C0424A700AE5DDC /* Longhouse.framework.dSYM in Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = 21AE3F401C0423E300AE5DDC /* Longhouse.framework.dSYM */; };
-		21AE3F4D1C0424A700AE5DDC /* OnePasswordExtension.framework.dSYM in Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = 21AE3F421C0423E300AE5DDC /* OnePasswordExtension.framework.dSYM */; };
-		21AE3F4E1C0424A700AE5DDC /* SSKeychain.framework.dSYM in Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = 21AE3F451C0423E300AE5DDC /* SSKeychain.framework.dSYM */; };
-		21AE3F4F1C0424A700AE5DDC /* Static.framework.dSYM in Copy dSYM Files */ = {isa = PBXBuildFile; fileRef = 21AE3F471C0423E300AE5DDC /* Static.framework.dSYM */; };
 		21B742C81BFF991600FF293C /* NumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742C71BFF991600FF293C /* NumberView.swift */; };
 		21B742D91BFFCFDB00FF293C /* BlockquoteBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742D81BFFCFDB00FF293C /* BlockquoteBorderView.swift */; };
 		21B742E01C03BD9000FF293C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742DF1C03BD9000FF293C /* TableViewController.swift */; };
@@ -112,25 +103,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		21AE3F491C04249700AE5DDC /* Copy dSYM Files */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 16;
-			files = (
-				219334031C0FC5E9000A974B /* AlgoliaSearch.framework.dSYM in Copy dSYM Files */,
-				21AE3F4A1C0424A700AE5DDC /* CanvasKit.framework.dSYM in Copy dSYM Files */,
-				21AE3F4B1C0424A700AE5DDC /* ISO8601.framework.dSYM in Copy dSYM Files */,
-				21AE3F4C1C0424A700AE5DDC /* Longhouse.framework.dSYM in Copy dSYM Files */,
-				2156421C1C06B49700685847 /* Mixpanel.framework.dSYM in Copy dSYM Files */,
-				21AE3F4D1C0424A700AE5DDC /* OnePasswordExtension.framework.dSYM in Copy dSYM Files */,
-				2156421B1C06B49500685847 /* SocketRocket.framework.dSYM in Copy dSYM Files */,
-				21AE3F4E1C0424A700AE5DDC /* SSKeychain.framework.dSYM in Copy dSYM Files */,
-				21AE3F4F1C0424A700AE5DDC /* Static.framework.dSYM in Copy dSYM Files */,
-			);
-			name = "Copy dSYM Files";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		21F8F1B21BF296480096D2AF /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -458,7 +430,6 @@
 				21F8F1B21BF296480096D2AF /* Embed Frameworks */,
 				21AE3F481C04248D00AE5DDC /* Embed Carthage Frameworks */,
 				21A8FA601BFD3D160097FCC6 /* Set Version */,
-				21AE3F491C04249700AE5DDC /* Copy dSYM Files */,
 			);
 			buildRules = (
 			);
