@@ -15,6 +15,3 @@ let longhouseURL = NSURL(string: "wss://presence.usecanvas.com/")!
 
 let camoSecret = "a4a8767e694052184df6259377f751977a86513364a3e8d44fb71e16327bd937"
 let camoURL = NSURL(string: "https://camo.usecanvas.com/")!
-
-let algolaAppID = "8VYU4GUELB"
-let algoliaAPIKey = "353483ed47fc003d45af9686a3aedd50"
