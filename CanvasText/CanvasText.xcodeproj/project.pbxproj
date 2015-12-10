@@ -43,6 +43,8 @@
 		2156422F1C06C81900685847 /* Attachable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2156422D1C06C81900685847 /* Attachable.swift */; };
 		215642311C06C91C00685847 /* ImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215642301C06C91C00685847 /* ImageTests.swift */; };
 		215642321C06C91C00685847 /* ImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215642301C06C91C00685847 /* ImageTests.swift */; };
+		21569B4C1C1A457600A017DE /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21569B4B1C1A457600A017DE /* Shadow.swift */; };
+		21569B4D1C1A457600A017DE /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21569B4B1C1A457600A017DE /* Shadow.swift */; };
 		219DAC8F1C0F93CD00F39A6F /* rollbar.js in Resources */ = {isa = PBXBuildFile; fileRef = 219DAC8E1C0F93CD00F39A6F /* rollbar.js */; };
 		219DAC901C0F93D400F39A6F /* rollbar.js in Resources */ = {isa = PBXBuildFile; fileRef = 219DAC8E1C0F93CD00F39A6F /* rollbar.js */; };
 		21A8F9FB1BFCF4BD0097FCC6 /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A8F9F01BFCF4BD0097FCC6 /* CanvasText.framework */; };
@@ -115,6 +117,7 @@
 		2156422A1C06C60400685847 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		2156422D1C06C81900685847 /* Attachable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attachable.swift; sourceTree = "<group>"; };
 		215642301C06C91C00685847 /* ImageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTests.swift; sourceTree = "<group>"; };
+		21569B4B1C1A457600A017DE /* Shadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
 		219DAC8E1C0F93CD00F39A6F /* rollbar.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = rollbar.js; sourceTree = "<group>"; };
 		21A8F9F01BFCF4BD0097FCC6 /* CanvasText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CanvasText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A8F9FA1BFCF4BD0097FCC6 /* CanvasTextTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CanvasTextTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,7 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				21A8FA971BFE7BBA0097FCC6 /* CanvasText.h */,
-				21B742F91C03CA2E00FF293C /* Text */,
+				21B742F91C03CA2E00FF293C /* Text Storage */,
 				21B7430D1C03D18000FF293C /* Themes */,
 				21A8FAA21BFE89790097FCC6 /* Nodes */,
 				21B742F41C03C6F600FF293C /* Extensions */,
@@ -274,13 +277,14 @@
 			name = "Operation Transport";
 			sourceTree = "<group>";
 		};
-		21B742F91C03CA2E00FF293C /* Text */ = {
+		21B742F91C03CA2E00FF293C /* Text Storage */ = {
 			isa = PBXGroup;
 			children = (
-				21CAFBD01C056FC100B9A3B5 /* ShadowTextStorage.swift */,
 				21B742F61C03C71600FF293C /* CanvasTextStorage.swift */,
+				21CAFBD01C056FC100B9A3B5 /* ShadowTextStorage.swift */,
+				21569B4B1C1A457600A017DE /* Shadow.swift */,
 			);
-			name = Text;
+			name = "Text Storage";
 			sourceTree = "<group>";
 		};
 		21B7430D1C03D18000FF293C /* Themes */ = {
@@ -495,6 +499,7 @@
 				2150D6801BFEBDE3008BB629 /* Listable.swift in Sources */,
 				21B742FB1C03CDA500FF293C /* Theme.swift in Sources */,
 				21A8FA141BFCF4E90097FCC6 /* Operation.swift in Sources */,
+				21569B4C1C1A457600A017DE /* Shadow.swift in Sources */,
 				21B742F21C03C6CB00FF293C /* Color.swift in Sources */,
 				21B7430F1C03D19300FF293C /* FontStyle.swift in Sources */,
 			);
@@ -538,6 +543,7 @@
 				2150D6811BFEBDE3008BB629 /* Listable.swift in Sources */,
 				21B742FC1C03CDA500FF293C /* Theme.swift in Sources */,
 				21A8FA921BFE7B870097FCC6 /* Operation.swift in Sources */,
+				21569B4D1C1A457600A017DE /* Shadow.swift in Sources */,
 				21B742F31C03C6CB00FF293C /* Color.swift in Sources */,
 				21B743101C03D19300FF293C /* FontStyle.swift in Sources */,
 			);

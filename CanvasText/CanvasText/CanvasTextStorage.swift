@@ -54,15 +54,6 @@ public class CanvasTextStorage: ShadowTextStorage {
 	#endif
 
 
-	// MARK: - NSTextStorage
-
-	public override func replaceCharactersInRange(range: NSRange, withString str: String) {
-		let displayRange = range
-		let backingRange = displayRangeToBackingRange(displayRange)
-		replaceBackingCharactersInRange(backingRange, withString: str)
-	}
-
-
 	// MARK: - ShadowTextStorage
 
 	override public func replaceBackingCharactersInRange(range: NSRange, withString str: String) {
@@ -96,36 +87,32 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 	// MARK: - ShadowTextStorage
 
-	public override func shadowsForBackingText(backingText: String) -> [NSRange] {
+	public override func shadowsForBackingText(backingText: String) -> [Shadow] {
 		// Convert to Foundation string so we can work with `NSRange` instead of `Range` since the TextKit APIs take
 		// `NSRange` instead `Range`. Bummer.
 		let text = backingText as NSString
 
 		// We're going to rebuild `nodes` and `displayText` from the new `backingText`.
 		var nodes = [Node]()
-		var shadows = [NSRange]()
+		var shadows = [Shadow]()
 
 		// Enumerate the string blocks of the `backingText`.
 		text.enumerateSubstringsInRange(NSRange(location: 0, length: text.length), options: [.ByLines]) { substring, substringRange, _, _ in
 			// Ensure we have a substring to work with
 			guard let substring = substring else { return }
 
-			// Setup a scanner
-			let scanner = NSScanner(string: substring)
-			scanner.charactersToBeSkipped = nil
-
 			for type in nodeParseOrder {
 				guard let node = type.init(string: substring, enclosingRange: substringRange) else { continue }
 
 				if let delimitable = node as? Delimitable, prefixable = node as? Prefixable {
-					shadows.append(delimitable.delimiterRange.union(prefixable.prefixRange))
+					shadows.append(Shadow(backingRange: delimitable.delimiterRange.union(prefixable.prefixRange)))
 				} else {
 					if let delimitable = node as? Delimitable {
-						shadows.append(delimitable.delimiterRange)
+						shadows.append(Shadow(backingRange: delimitable.delimiterRange))
 					}
 
 					if let prefixable = node as? Prefixable {
-						shadows.append(prefixable.prefixRange)
+						shadows.append(Shadow(backingRange: prefixable.prefixRange))
 					}
 				}
 
@@ -140,8 +127,8 @@ public class CanvasTextStorage: ShadowTextStorage {
 			if range.max + 1 < text.length {
 				range.length += 1
 			}
-			
-			shadows.append(range)
+
+			shadows.append(Shadow(backingRange: range))
 		}
 
 		self.nodes = nodes

@@ -9,22 +9,22 @@
 import XCTest
 import CanvasText
 
-class Shadow: ShadowTextStorage {
+class TextStorage: ShadowTextStorage {
 	convenience init() {
 		self.init(backingText: "* Hello\n* World\nHow are you?")
 	}
 
-	override func shadowsForBackingText(backingText: String) -> [NSRange] {
+	override func shadowsForBackingText(backingText: String) -> [Shadow] {
 		return [
-			NSRange(location: 0, length: 2),
-			NSRange(location: 8, length: 2)
+			Shadow(backingRange: NSRange(location: 0, length: 2)),
+			Shadow(backingRange: NSRange(location: 8, length: 2))
 		]
 	}
 }
 
 class ShadowTextStorageTests: XCTestCase {
 
-	let storage = Shadow()
+	let storage = TextStorage()
 
 	func testDisplayText() {
 		XCTAssertEqual("Hello\nWorld\nHow are you?", storage.displayText)

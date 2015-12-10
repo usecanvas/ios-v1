@@ -13,7 +13,7 @@
 #endif
 
 public protocol ShadowTextStorageSelectionDelegate: class {
-	func shadowTextStorageDidUpdateSelection(textStorage: ShadowTextStorage)
+	func textStorageDidUpdateSelection(textStorage: ShadowTextStorage)
 }
 
 /// Concrete text storage for using a backing string and a display string. This class also manages selection so when the
@@ -40,12 +40,12 @@ public class ShadowTextStorage: NSTextStorage {
 
 	public private(set) var displaySelection: NSRange = .zero {
 		didSet {
-			selectionDelegate?.shadowTextStorageDidUpdateSelection(self)
+			selectionDelegate?.textStorageDidUpdateSelection(self)
 		}
 	}
 
 	/// Hidden regions from the backing text
-	private private(set) var shadows = [NSRange]()
+	private private(set) var shadows = [Shadow]()
 
 	public weak var selectionDelegate: ShadowTextStorageSelectionDelegate?
 
@@ -80,8 +80,9 @@ public class ShadowTextStorage: NSTextStorage {
 	}
 
 	public override func replaceCharactersInRange(range: NSRange, withString str: String) {
-		let text = backingText as NSString
-		backingText = text.stringByReplacingCharactersInRange(displayRangeToBackingRange(range), withString: str) as String
+		let displayRange = range
+		let backingRange = displayRangeToBackingRange(displayRange)
+		replaceBackingCharactersInRange(backingRange, withString: str)
 	}
 
 	public override func setAttributes(attrs: [String : AnyObject]?, range: NSRange) {
@@ -102,7 +103,7 @@ public class ShadowTextStorage: NSTextStorage {
 	public func backingRangeToDisplayRange(backingRange: NSRange) -> NSRange {
 		var displayRange = backingRange
 
-		for range in shadows {
+		for range in shadows.map({ $0.backingRange }) {
 			if range.location > backingRange.location {
 				break
 			}
@@ -116,25 +117,25 @@ public class ShadowTextStorage: NSTextStorage {
 	public func displayRangeToBackingRange(displayRange: NSRange) -> NSRange {
 		var backingRange = displayRange
 
-		for shadow in shadows {
+		for range in shadows.map({ $0.backingRange }) {
 			// Shadow starts after backing range
-			if shadow.location > backingRange.location {
+			if range.location > backingRange.location {
 
 				// Shadow intersects. Expand lenght.
-				if backingRange.intersection(shadow) > 0 {
-					backingRange.length += shadow.length
+				if backingRange.intersection(range) > 0 {
+					backingRange.length += range.length
 					continue
 				}
 
 				// If the shadow starts directly after the backing range, expand to include it.
-				if shadow.location == backingRange.max {
-					backingRange.length += shadow.length
+				if range.location == backingRange.max {
+					backingRange.length += range.length
 				}
 
 				break
 			}
 
-			backingRange.location += shadow.length
+			backingRange.location += range.length
 		}
 
 		return backingRange
@@ -144,7 +145,7 @@ public class ShadowTextStorage: NSTextStorage {
 	// MARK: - Processing
 
 	/// Calculate the hidden ranges for a given backing text.
-	public func shadowsForBackingText(backingText: String) -> [NSRange] {
+	public func shadowsForBackingText(backingText: String) -> [Shadow] {
 		return []
 	}
 
@@ -164,7 +165,7 @@ public class ShadowTextStorage: NSTextStorage {
 		// Calculate display text
 		var displayText = backingText as NSString
 		var offset = 0
-		for r in shadows {
+		for r in shadows.map({ $0.backingRange }) {
 			var range = r
 			range.location -= offset
 			displayText = displayText.stringByReplacingCharactersInRange(range, withString: "")

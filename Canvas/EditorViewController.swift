@@ -156,7 +156,7 @@ class EditorViewController: UIViewController, Accountable {
 
 
 extension EditorViewController: ShadowTextStorageSelectionDelegate {
-	func shadowTextStorageDidUpdateSelection(textStorage: ShadowTextStorage) {
+	func textStorageDidUpdateSelection(textStorage: ShadowTextStorage) {
 		if textView.selectedRange != textStorage.displaySelection {
 			textView.selectedRange = textStorage.displaySelection
 		}
