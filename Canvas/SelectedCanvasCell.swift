@@ -51,16 +51,7 @@ class SelectedCanvasCell: CanvasCell {
 		if traitCollection.horizontalSizeClass == .Compact {
 			constraints.append(keyboardSelectionView.leadingAnchor.constraintEqualToAnchor(contentView.leadingAnchor))
 		} else {
-			let centered = NSLayoutConstraint(item: keyboardSelectionView, attribute: .CenterX, relatedBy: .GreaterThanOrEqual, toItem: titleLabel, attribute: .Leading, multiplier: 0.5, constant: 0)
-			centered.priority = UILayoutPriorityDefaultLow
-
-			let maxLeading = NSLayoutConstraint(item: keyboardSelectionView, attribute: .Trailing, relatedBy: .LessThanOrEqual, toItem: titleLabel, attribute: .Leading, multiplier: 1, constant: -16)
-			maxLeading.priority = UILayoutPriorityDefaultHigh
-
-			constraints += [
-				centered,
-				maxLeading
-			]
+			constraints.append(keyboardSelectionView.trailingAnchor.constraintEqualToAnchor(titleLabel.leadingAnchor, constant: -8))
 		}
 
 		keyboardSelectionViewConstraints = constraints
