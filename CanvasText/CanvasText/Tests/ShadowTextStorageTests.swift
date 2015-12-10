@@ -45,4 +45,16 @@ class ShadowTextStorageTests: XCTestCase {
 		displayRange = NSRange(location: 0, length: 6)
 		XCTAssertEqual(NSRange(location: 2, length: 8), storage.displayRangeToBackingRange(displayRange))
 	}
+
+	func testReplaceBackingCharacters() {
+		storage.backingSelection = NSRange(location: 28, length: 0)
+		storage.replaceBackingCharactersInRange(NSRange(location: 27, length: 1), withString: "")
+		XCTAssertEqual("Hello\nWorld\nHow are you", storage.displayText)
+	}
+
+	func testReplaceCharacters() {
+		storage.backingSelection = NSRange(location: 12, length: 0)
+		storage.replaceCharactersInRange(NSRange(location: 11, length: 1), withString: "")
+		XCTAssertEqual("Hello\nWorldHow are you?", storage.displayText)
+	}
 }

@@ -62,19 +62,24 @@ public class CanvasTextStorage: ShadowTextStorage {
 		replaceBackingCharactersInRange(backingRange, withString: str)
 	}
 
-	public func replaceBackingCharactersInRange(range: NSRange, withString str: String) {
+
+	// MARK: - ShadowTextStorage
+
+	override public func replaceBackingCharactersInRange(range: NSRange, withString str: String) {
+		
 		// Ensure transport controller is available
 		guard let transportController = transportController else {
 			print("[CanvasText.TextStorage] Tried to submit operation without transport controller.")
 			return
 		}
 
+		super.replaceBackingCharactersInRange(range, withString: str)
+
 		let backingRange = range
-		backingText = (backingText as NSString).stringByReplacingCharactersInRange(backingRange, withString: str)
 
 		// Submit the operation
 		// Insert
-		if range.length == 0 {
+		if backingRange.length == 0 {
 			transportController.submitOperation(.Insert(location: UInt(backingRange.location), string: str))
 			return
 		}

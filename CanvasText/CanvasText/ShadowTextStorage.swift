@@ -89,6 +89,14 @@ public class ShadowTextStorage: NSTextStorage {
 	}
 
 
+	// MARK: - Manipulation
+
+	public func replaceBackingCharactersInRange(range: NSRange, withString str: String) {
+		let backingRange = range
+		backingText = (backingText as NSString).stringByReplacingCharactersInRange(backingRange, withString: str)
+	}
+
+
 	// MARK: - Ranges
 
 	public func backingRangeToDisplayRange(backingRange: NSRange) -> NSRange {
