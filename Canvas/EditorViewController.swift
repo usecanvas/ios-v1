@@ -18,6 +18,8 @@ class EditorViewController: UIViewController, Accountable {
 	var account: Account
 	let canvas: Canvas
 
+	var wantsFocus = false
+
 	let textStorage = CanvasTextStorage(theme: LightTheme())
 	private let textView: CanvasTextView
 	private let longhouse = Longhouse(serverURL: longhouseURL)
@@ -108,6 +110,15 @@ class EditorViewController: UIViewController, Accountable {
 		textView.updateAnnotations()
 	}
 
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+
+		if wantsFocus {
+			textView.becomeFirstResponder()
+			wantsFocus = false
+		}
+	}
+	
 
 	// MARK: - Actions
 

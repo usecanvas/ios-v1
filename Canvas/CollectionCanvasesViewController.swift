@@ -135,7 +135,9 @@ class CollectionCanvasesViewController: CanvasesViewController {
 
 				switch result {
 				case .Success(let canvas):
-					self?.selectModel(canvas)
+					self?.openCanvas(canvas) {
+						$0.wantsFocus = true
+					}
 				case .Failure(let message):
 					print("Failed to create canvas: \(message)")
 				}

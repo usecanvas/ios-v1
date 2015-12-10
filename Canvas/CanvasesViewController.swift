@@ -60,10 +60,16 @@ class CanvasesViewController: ModelsViewController, Accountable {
 	}
 
 	override func selectModel(model: Model) {
-		guard !opening, let canvas = model as? Canvas else { return }
+		guard let canvas = model as? Canvas else { return }
+		openCanvas(canvas)
+	}
+
+	func openCanvas(canvas: Canvas, configuration: (EditorViewController -> Void)? = nil) {
+		guard !opening else { return }
 		opening = true
 		Analytics.track(.OpenedCanvas)
 		let viewController = EditorViewController(account: account, canvas: canvas)
+		configuration?(viewController)
 		navigationController?.pushViewController(viewController, animated: true)
 	}
 
