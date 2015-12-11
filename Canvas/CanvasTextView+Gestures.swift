@@ -10,7 +10,23 @@ import UIKit
 import CanvasText
 
 extension CanvasTextView {
-	func increaseBlockLevelWithGesture(sender: UISwipeGestureRecognizer?) {
+
+	internal func registerGestureRecognizers() {
+		let indent = UISwipeGestureRecognizer(target: self, action: "increaseBlockLevelWithGesture:")
+		indent.numberOfTouchesRequired = 1
+		indent.direction = .Right
+		addGestureRecognizer(indent)
+
+		let outdent = UISwipeGestureRecognizer(target: self, action: "decreaseBlockLevelWithGesture:")
+		outdent.numberOfTouchesRequired = 1
+		outdent.direction = .Left
+		addGestureRecognizer(outdent)
+	}
+
+
+	// MARK: - Gestures
+
+	private func increaseBlockLevelWithGesture(sender: UISwipeGestureRecognizer?) {
 		guard let sender = sender,
 			textStorage = textStorage as? CanvasTextStorage,
 			node = nodeAtPoint(sender.locationInView(self))
@@ -61,7 +77,7 @@ extension CanvasTextView {
 		}
 	}
 
-	func decreaseBlockLevelWithGesture(sender: UISwipeGestureRecognizer?) {
+	private func decreaseBlockLevelWithGesture(sender: UISwipeGestureRecognizer?) {
 		guard let sender = sender,
 			textStorage = textStorage as? CanvasTextStorage,
 			node = nodeAtPoint(sender.locationInView(self))
