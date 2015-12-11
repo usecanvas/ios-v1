@@ -164,20 +164,18 @@ public class CanvasTextStorage: ShadowTextStorage {
 				next = nil
 			}
 
-			let range = backingRangeToDisplayRange(node.contentRange)
+			let originalRange = backingRangeToDisplayRange(node.contentRange)
+			var range = originalRange
 
-			// TODO: This is to support blank lines. Currently causes some issues
-//			if next != nil && range.max < text.length {
-//				range.length += 1
-//				print("longer range: \(range)")
-//			} else {
-//				print("last range: \(range)")
-//			}
+			// Extend the range to include the trailing new line if present
+			if next != nil && range.max < text.length {
+				range.length += 1
+			}
 
 			// Attachables
 			if let node = node as? Attachable, attachment = canvasDelegate?.textStorage(self, attachmentForAttachable: node) {
 				// Use the attachment character
-				text.replaceCharactersInRange(range, withString: String(Character(UnicodeScalar(NSAttachmentCharacter))))
+				text.replaceCharactersInRange(originalRange, withString: String(Character(UnicodeScalar(NSAttachmentCharacter))))
 
 				// Add space after the attachment
 				let paragraph = NSMutableParagraphStyle()
