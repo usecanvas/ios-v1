@@ -39,4 +39,11 @@ class CanvasTextStorageTests: XCTestCase {
 		XCTAssertEqual(2, storage.nodes.count)
 		XCTAssertEqual("Hello\nWorld", storage.displayText)
 	}
+
+	func testReturnCompletion() {
+		storage.backingText = "⧙doc-heading⧘Test\n⧙unordered-list-0⧘- Hello"
+		storage.replaceCharactersInRange(NSRange(location: 10, length: 0), withString: "\n")
+
+		XCTAssertEqual("⧙doc-heading⧘Test\n⧙unordered-list-0⧘- Hello\n⧙unordered-list-0⧘- ", storage.backingText)
+	}
 }

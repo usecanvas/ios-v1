@@ -57,15 +57,18 @@ public class CanvasTextStorage: ShadowTextStorage {
 	// MARK: - NSTextStorage
 
 	public override func replaceCharactersInRange(range: NSRange, withString str: String) {
-		// Delete the entire line of any attachments
 		var displayRange = range
-		enumerateAttribute(NSAttachmentAttributeName, inRange: range, options: []) { _, attachmentRange, _ in
-			var lineRange = (self.string as NSString).lineRangeForRange(attachmentRange)
 
-			// We want to delete the line before not the line after
-			lineRange.location -= 1
-			
-			displayRange = displayRange.union(lineRange)
+		if str.isEmpty {
+			// Delete the entire line of any attachments
+			enumerateAttribute(NSAttachmentAttributeName, inRange: range, options: []) { _, attachmentRange, _ in
+				var lineRange = (self.string as NSString).lineRangeForRange(attachmentRange)
+
+				// We want to delete the line before not the line after
+				lineRange.location -= 1
+				
+				displayRange = displayRange.union(lineRange)
+			}
 		}
 
 		super.replaceCharactersInRange(displayRange, withString: str)
@@ -75,21 +78,34 @@ public class CanvasTextStorage: ShadowTextStorage {
 	// MARK: - ShadowTextStorage
 
 	override public func replaceBackingCharactersInRange(range: NSRange, withString str: String) {
-		
+		let backingRange = range
+		var replacement = str
+
+		// Return completion
+		if replacement == "\n", let node = firstNodeInBackingRange(backingRange) {
+			if let node = node as? Delimitable {
+				replacement += (backingText as NSString).substringWithRange(node.delimiterRange)
+			}
+
+			if let node = node as? Prefixable {
+				replacement += (backingText as NSString).substringWithRange(node.prefixRange)
+			}
+		}
+
+
+		// Replace backing text
+		super.replaceBackingCharactersInRange(range, withString: replacement)
+
 		// Ensure transport controller is available
 		guard let transportController = transportController else {
 			print("[CanvasText.TextStorage] Tried to submit operation without transport controller.")
 			return
 		}
 
-		// Replace backing text
-		let backingRange = range
-		super.replaceBackingCharactersInRange(range, withString: str)
-
 		// Submit the operation
 		// Insert
 		if backingRange.length == 0 {
-			transportController.submitOperation(.Insert(location: UInt(backingRange.location), string: str))
+			transportController.submitOperation(.Insert(location: UInt(backingRange.location), string: replacement))
 			return
 		}
 
@@ -97,8 +113,8 @@ public class CanvasTextStorage: ShadowTextStorage {
 		transportController.submitOperation(.Remove(location: UInt(backingRange.location), length: UInt(backingRange.length)))
 
 		// Insert after removing
-		if range.length > 0 {
-			transportController.submitOperation(.Insert(location: UInt(backingRange.location), string: str))
+		if backingRange.length > 0 {
+			transportController.submitOperation(.Insert(location: UInt(backingRange.location), string: replacement))
 		}
 	}
 
@@ -199,6 +215,41 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 	public override func didProcessBackingText(backingText: String) {
 		self.canvasDelegate?.textStorageDidUpdateNodes(self)
+	}
+
+
+	// MARK: - Accessing Nodes
+
+	public func firstNodeInBackingRange(backingRange: NSRange) -> Node? {
+		for node in nodes {
+			var content = node.contentRange
+			content.length += 1
+
+			if content.intersection(backingRange) != nil {
+				return node
+			}
+
+			if let node = node as? Delimitable where node.delimiterRange.intersection(backingRange) != nil {
+				return node
+			}
+
+			if let node = node as? Prefixable where node.prefixRange.intersection(backingRange) != nil {
+				return node
+			}
+		}
+
+		return nil
+	}
+
+	public func firstNodeInDisplayRange(displayRange: NSRange) -> Node? {
+		for node in nodes {
+			let content = backingRangeToDisplayRange(node.contentRange)
+			if content.intersection(displayRange) != nil {
+				return node
+			}
+		}
+
+		return nil
 	}
 
 

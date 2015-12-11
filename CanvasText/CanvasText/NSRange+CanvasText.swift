@@ -42,7 +42,12 @@ extension NSRange: Equatable {
 		return NSUnionRange(self, range)
 	}
 
-	public func intersection(range: NSRange) -> Int {
+	/// Returns nil if they don't intersect. Their intersection may be 0 if one of the ranges has a zero length.
+	public func intersection(range: NSRange) -> Int? {
+		if range.length == 0 {
+			return NSLocationInRange(range.location, self) ? 0 : nil
+		}
+
 		return NSIntersectionRange(self, range).length
 	}
 }

@@ -255,16 +255,7 @@ class CanvasTextView: InsertionPointTextView {
 			length: offsetFromPosition(textRange.start, toPosition: textRange.end)
 		)
 
-		var node: Node?
-		for n in textStorage.nodes {
-			let content = textStorage.backingRangeToDisplayRange(n.contentRange)
-			if content.intersection(range) > 0 {
-				node = n
-				break
-			}
-		}
-
-		return node
+		return textStorage.firstNodeInDisplayRange(range)
 	}
 
 	private func addAnnotation(annotation: UIView) {
