@@ -40,9 +40,11 @@ public struct Heading: Prefixable {
 
 	// MARK: - Properties
 
+	public var range: NSRange
 	public var prefixRange: NSRange
 	public var contentRange: NSRange
 	public var level: Level
+	public let allowsReturnCompletion = false
 
 
 	// MARK: - Initializers
@@ -68,6 +70,7 @@ public struct Heading: Prefixable {
 
 		// Content
 		self.contentRange = NSRange(location: enclosingRange.location + scanner.scanLocation, length: enclosingRange.length - scanner.scanLocation)
+		range = enclosingRange
 	}
 
 

@@ -13,7 +13,9 @@ public struct Image: Attachable, Hashable {
 
 	// MARK: - Properties
 
+	public var range: NSRange
 	public var delimiterRange: NSRange
+	public let allowsReturnCompletion = false
 
 	public var ID: String
 	public var URL: NSURL
@@ -27,6 +29,7 @@ public struct Image: Attachable, Hashable {
 	// MARK: - Initializers
 
 	public init?(string: String, enclosingRange: NSRange) {
+		range = enclosingRange
 		delimiterRange = NSRange(location: enclosingRange.location, length: enclosingRange.length - 1)
 		
 		let scanner = NSScanner(string: string)

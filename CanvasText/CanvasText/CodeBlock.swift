@@ -12,6 +12,7 @@ public struct CodeBlock: Delimitable {
 
 	// MARK: - Properties
 
+	public var range: NSRange
 	public var delimiterRange: NSRange
 	public var contentRange: NSRange
 
@@ -23,6 +24,7 @@ public struct CodeBlock: Delimitable {
 	public init?(string: String, enclosingRange: NSRange) {
 		guard let (delimiterRange, contentRange) = parseBlockNode(string: string, enclosingRange: enclosingRange, delimiter: "code") else { return nil }
 
+		range = enclosingRange
 		self.delimiterRange = delimiterRange
 		self.contentRange = contentRange
 	}

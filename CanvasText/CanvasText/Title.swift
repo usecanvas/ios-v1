@@ -10,8 +10,11 @@ public struct Title: Delimitable, Equatable {
 
 	// MARK: - Properties
 
+	public var range: NSRange
 	public var delimiterRange: NSRange
 	public var contentRange: NSRange
+
+	public let allowsReturnCompletion = false
 
 
 	// MARK: - Initializers
@@ -19,11 +22,7 @@ public struct Title: Delimitable, Equatable {
 	public init?(string: String, enclosingRange: NSRange) {
 		guard let (delimiterRange, contentRange) = parseBlockNode(string: string, enclosingRange: enclosingRange, delimiter: "doc-heading") else { return nil }
 
-		self.delimiterRange = delimiterRange
-		self.contentRange = contentRange
-	}
-
-	public init(delimiterRange: NSRange, contentRange: NSRange) {
+		range = enclosingRange
 		self.delimiterRange = delimiterRange
 		self.contentRange = contentRange
 	}

@@ -12,7 +12,9 @@ public struct Paragraph: Node {
 
 	// MARK: - Properties
 
+	public var range: NSRange
 	public var contentRange: NSRange
+	public let allowsReturnCompletion = false
 
 
 	// MARK: - Initializers
@@ -23,6 +25,7 @@ public struct Paragraph: Node {
 			return nil
 		}
 
+		range = enclosingRange
 		self.contentRange = enclosingRange
 	}
 }

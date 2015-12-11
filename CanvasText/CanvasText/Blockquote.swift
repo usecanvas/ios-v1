@@ -12,6 +12,7 @@ public struct Blockquote: Delimitable, Prefixable {
 
 	// MARK: - Properties
 
+	public var range: NSRange
 	public var delimiterRange: NSRange
 	public var prefixRange: NSRange
 	public var contentRange: NSRange
@@ -26,6 +27,7 @@ public struct Blockquote: Delimitable, Prefixable {
 	public init?(string: String, enclosingRange: NSRange) {
 		guard let (delimiterRange, prefixRange, contentRange) = parseBlockNode(string: string, enclosingRange: enclosingRange, delimiter: "blockquote", prefix: "> ") else { return nil }
 
+		range = enclosingRange
 		self.delimiterRange = delimiterRange
 		self.prefixRange = prefixRange
 		self.contentRange = contentRange

@@ -10,6 +10,7 @@ import Foundation
 
 public protocol Node {
 
+	var range: NSRange { get }
 	var contentRange: NSRange { get }
 
 	init?(string: String, enclosingRange: NSRange)
@@ -17,6 +18,7 @@ public protocol Node {
 	func contentInString(string: String) -> String
 
 	var hasAnnotation: Bool { get }
+	var allowsReturnCompletion: Bool { get }
 }
 
 
@@ -27,6 +29,10 @@ extension Node {
 
 	public var hasAnnotation: Bool {
 		return false
+	}
+
+	public var allowsReturnCompletion: Bool {
+		return true
 	}
 }
 

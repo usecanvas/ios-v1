@@ -186,7 +186,6 @@ public class ShadowTextStorage: NSTextStorage {
 		edited([.EditedAttributes, .EditedCharacters], range: range, changeInLength: storage.length - range.length)
 
 		updateSelection()
-		
 		didProcessBackingText(backingText)
 	}
 

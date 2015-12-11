@@ -31,6 +31,7 @@ public struct Checklist: Listable {
 
 	// MARK: - Properties
 
+	public var range: NSRange
 	public var delimiterRange: NSRange
 	public var prefixRange: NSRange
 	public var contentRange: NSRange
@@ -103,6 +104,8 @@ public struct Checklist: Listable {
 		// Content
 		self.completedRange = completedRange
 		contentRange = NSRange(location: enclosingRange.location + scanner.scanLocation, length: enclosingRange.length - scanner.scanLocation)
+
+		range = enclosingRange
 	}
 
 
