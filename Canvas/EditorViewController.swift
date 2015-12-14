@@ -178,6 +178,15 @@ extension EditorViewController: UITextViewDelegate {
 		self.textView.hijack()
 		textStorage.backingSelection = textStorage.displayRangeToBackingRange(textView.selectedRange)
 	}
+
+	func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+		// Set typingAttributes based on the current node
+		if let node = textStorage.firstNodeInDisplayRange(range) {
+			// TODO: Get next sibling?
+			textView.typingAttributes = textStorage.theme.attributesForNode(node, nextSibling: nil, horizontalSizeClass: textView.traitCollection.horizontalSizeClass)
+		}
+		return true
+	}
 }
 
 

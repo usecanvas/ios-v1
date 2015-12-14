@@ -83,7 +83,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 		// Return completion
 		if replacement == "\n", let node = firstNodeInBackingRange(backingRange) {
-			if let node = node as? Delimitable {
+			if let node = node as? Delimitable where !(node is Title) {
 				replacement += (backingText as NSString).substringWithRange(node.delimiterRange)
 			}
 
