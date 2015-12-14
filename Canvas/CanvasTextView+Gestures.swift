@@ -26,7 +26,7 @@ extension CanvasTextView {
 
 	// MARK: - Gestures
 
-	private func increaseBlockLevelWithGesture(sender: UISwipeGestureRecognizer?) {
+	@objc private func increaseBlockLevelWithGesture(sender: UISwipeGestureRecognizer?) {
 		guard let sender = sender,
 			textStorage = textStorage as? CanvasTextStorage,
 			node = nodeAtPoint(sender.locationInView(self))
@@ -77,7 +77,7 @@ extension CanvasTextView {
 		}
 	}
 
-	private func decreaseBlockLevelWithGesture(sender: UISwipeGestureRecognizer?) {
+	@objc private func decreaseBlockLevelWithGesture(sender: UISwipeGestureRecognizer?) {
 		guard let sender = sender,
 			textStorage = textStorage as? CanvasTextStorage,
 			node = nodeAtPoint(sender.locationInView(self))

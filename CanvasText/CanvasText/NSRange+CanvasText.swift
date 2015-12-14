@@ -48,7 +48,8 @@ extension NSRange: Equatable {
 			return NSLocationInRange(range.location, self) ? 0 : nil
 		}
 
-		return NSIntersectionRange(self, range).length
+		let length = NSIntersectionRange(self, range).length
+		return length > 0 ? length : nil
 	}
 }
 
