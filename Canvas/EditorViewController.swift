@@ -85,7 +85,7 @@ class EditorViewController: UIViewController, Accountable {
 		textView.delegate = self
 		view.addSubview(textView)
 
-		textStorage.connect(accessToken: account.accessToken, collectionID: canvas.collectionID, canvasID: canvas.ID, realtimeURL: realtimeURL) { [weak self] webView in
+		textStorage.connect(accessToken: account.accessToken, organizationID: canvas.organizationID, canvasID: canvas.ID, realtimeURL: realtimeURL) { [weak self] webView in
 			guard let this = self else { return }
 			this.longhouse.join(this.canvas.ID, identity: this.account.user.email)
 			this.view.addSubview(webView)
@@ -140,7 +140,7 @@ class EditorViewController: UIViewController, Accountable {
 	}
 
 	func share(sender: AnyObject?) {
-		guard let URL = NSURL(string: "https://usecanvas.com/\(canvas.collectionID)/-/\(canvas.shortID)") else { return }
+		guard let URL = NSURL(string: "https://usecanvas.com/\(canvas.organizationID)/-/\(canvas.shortID)") else { return }
 		let activities = [SafariActivity(), ChromeActivity()]
 		let viewController = UIActivityViewController(activityItems: [URL], applicationActivities: activities)
 		presentViewController(viewController, animated: true, completion: nil)

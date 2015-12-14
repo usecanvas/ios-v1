@@ -17,7 +17,7 @@ struct Analytics {
 		case LoggedOut
 		case LoggedIn
 		case LaunchedApp
-		case ChangedCollection(collection: Collection)
+		case ChangedOrganization(organization: Organization)
 		case OpenedCanvas
 
 		var name: String {
@@ -25,14 +25,14 @@ struct Analytics {
 			case .LoggedOut: return "Logged Out"
 			case .LoggedIn: return "Logged In"
 			case .LaunchedApp: return "Launched App"
-			case .ChangedCollection(_): return "Changed Collection"
+			case .ChangedOrganization(_): return "Changed Organization"
 			case .OpenedCanvas: return "Opened Canvas"
 			}
 		}
 
 		var parameters: [String: AnyObject]? {
 			switch self {
-			case .ChangedCollection(let collection): return ["collection_name": collection.name]
+			case .ChangedOrganization(let organization): return ["organization_name": organization.name]
 			default: return nil
 			}
 		}

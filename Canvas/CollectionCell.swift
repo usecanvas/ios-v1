@@ -1,5 +1,5 @@
 //
-//  CollectionCell.swift
+//  OrganizationCell.swift
 //  Canvas
 //
 //  Created by Sam Soffes on 11/18/15.
@@ -9,7 +9,7 @@
 import UIKit
 import Static
 
-class CollectionCell: UITableViewCell, CellType {
+class OrganizationCell: UITableViewCell, CellType {
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 

@@ -14,7 +14,7 @@ class TransportController: NSObject {
 
 	let serverURL: NSURL
 	private let accessToken: String
-	let collectionID: String
+	let organizationID: String
 	let canvasID: String
 	weak var delegate: TransportControllerDelegate?
 	var webView: WKWebView!
@@ -22,10 +22,10 @@ class TransportController: NSObject {
 	
 	// MARK: - Initializers
 	
-	init(serverURL: NSURL, accessToken: String, collectionID: String, canvasID: String) {
+	init(serverURL: NSURL, accessToken: String, organizationID: String, canvasID: String) {
 		self.serverURL = serverURL
 		self.accessToken = accessToken
-		self.collectionID = collectionID
+		self.organizationID = organizationID
 		self.canvasID = canvasID
 		
 		super.init()
@@ -49,7 +49,7 @@ class TransportController: NSObject {
 		userContentController.addScriptMessageHandler(self, name: "share")
 		
 		// Connect
-		let js = "Canvas.connect('\(serverURL.absoluteString)', '\(accessToken)', '\(collectionID)', '\(canvasID)');"
+		let js = "Canvas.connect('\(serverURL.absoluteString)', '\(accessToken)', '\(organizationID)', '\(canvasID)');"
 		userContentController.addUserScript(WKUserScript(source: js, injectionTime: .AtDocumentEnd, forMainFrameOnly: true))
 		configuration.userContentController = userContentController
 		

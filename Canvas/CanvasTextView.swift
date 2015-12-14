@@ -53,8 +53,8 @@ class CanvasTextView: InsertionPointTextView {
 
 	// MARK: - UIView
 	
-	override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
-		super.traitCollectionDidChange(previousTraitCollection)
+	override func traitCollectionDidChange(previousTraitOrganization: UITraitCollection?) {
+		super.traitCollectionDidChange(previousTraitOrganization)
 
 		guard let textStorage = textStorage as? CanvasTextStorage else { return }
 		textStorage.horizontalSizeClass = traitCollection.horizontalSizeClass

@@ -1,5 +1,5 @@
 //
-//  CollectionCanvasesViewController.swift
+//  OrganizationCanvasesViewController.swift
 //  Canvas
 //
 //  Created by Sam Soffes on 11/12/15.
@@ -11,11 +11,11 @@ import Static
 import CanvasKit
 import AlgoliaSearch
 
-class CollectionCanvasesViewController: CanvasesViewController {
+class OrganizationCanvasesViewController: CanvasesViewController {
 
 	// MARK: - Properties
 
-	let collection: Collection
+	let organization: Organization
 
 	private let searchController: SearchController
 
@@ -24,20 +24,20 @@ class CollectionCanvasesViewController: CanvasesViewController {
 
 	// MARK: - Initializers
 
-	init(account: Account, collection: Collection) {
-		self.collection = collection
-		searchController = SearchController(account: account, collection: collection)
+	init(account: Account, organization: Organization) {
+		self.organization = organization
+		searchController = SearchController(account: account, organization: organization)
 
 		let results = CanvasesResultsViewController(account: account)
 		searchViewController = UISearchController(searchResultsController: results)
 
 		super.init(account: account)
 
-		title = collection.name.capitalizedString
+		title = organization.name.capitalizedString
 
 		results.delegate = self
 
-		searchViewController.searchBar.placeholder = "Search in \(collection.name.capitalizedString)"
+		searchViewController.searchBar.placeholder = "Search in \(organization.name.capitalizedString)"
 		searchViewController.searchResultsUpdater = searchController
 
 		searchController.callback = { [weak self] canvases in
@@ -95,7 +95,7 @@ class CollectionCanvasesViewController: CanvasesViewController {
 
 		loading = true
 
-		APIClient(accessToken: account.accessToken, baseURL: baseURL).listCanvases(collection) { [weak self] result in
+		APIClient(accessToken: account.accessToken, baseURL: baseURL).listCanvases(organization: organization) { [weak self] result in
 			switch result {
 			case .Success(let canvases):
 				dispatch_async(dispatch_get_main_queue()) {
@@ -129,7 +129,7 @@ class CollectionCanvasesViewController: CanvasesViewController {
 		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 		
 		// TODO: Avoid sending canvas-native here once the API is fixed
-		APIClient(accessToken: account.accessToken, baseURL: baseURL).createCanvas(collection: collection, body: "⧙doc-heading⧘\n") { [weak self] result in
+		APIClient(accessToken: account.accessToken, baseURL: baseURL).createCanvas(organization: organization, body: "⧙doc-heading⧘\n") { [weak self] result in
 			dispatch_async(dispatch_get_main_queue()) {
 				UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 
@@ -201,7 +201,7 @@ class CollectionCanvasesViewController: CanvasesViewController {
 }
 
 
-extension CollectionCanvasesViewController: CanvasesResultsViewControllerDelegate {
+extension OrganizationCanvasesViewController: CanvasesResultsViewControllerDelegate {
 	func canvasesResultsViewController(viewController: CanvasesResultsViewController, didSelectCanvas canvas: Canvas) {
 		selectModel(canvas)
 	}

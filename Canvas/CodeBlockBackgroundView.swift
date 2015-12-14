@@ -96,8 +96,8 @@ class CodeBlockBackgroundView: UIView {
 		CGContextFillRect(context, CGRect(x: 0, y: 0, width: lineNumberWidth, height: bounds.height))
 	}
 
-	override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
-		super.traitCollectionDidChange(previousTraitCollection)
+	override func traitCollectionDidChange(previousTraitOrganization: UITraitCollection?) {
+		super.traitCollectionDidChange(previousTraitOrganization)
 
 		if traitCollection.horizontalSizeClass != .Regular {
 			backgroundColor = Color.codeBackground

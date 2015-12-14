@@ -35,8 +35,8 @@ class SelectedCanvasCell: CanvasCell {
 
 	// MARK: - UIView
 
-	override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
-		super.traitCollectionDidChange(previousTraitCollection)
+	override func traitCollectionDidChange(previousTraitOrganization: UITraitCollection?) {
+		super.traitCollectionDidChange(previousTraitOrganization)
 
 		if let keyboardSelectionViewConstraints = keyboardSelectionViewConstraints {
 			NSLayoutConstraint.deactivateConstraints(keyboardSelectionViewConstraints)

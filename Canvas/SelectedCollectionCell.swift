@@ -1,5 +1,5 @@
 //
-//  SelectedCollectionCell.swift
+//  SelectedOrganizationCell.swift
 //  Canvas
 //
 //  Created by Sam Soffes on 11/27/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SelectedCollectionCell: CollectionCell {
+class SelectedOrganizationCell: OrganizationCell {
 
 	// MARK: - Properties
 
@@ -35,8 +35,8 @@ class SelectedCollectionCell: CollectionCell {
 
 	// MARK: - UIView
 
-	override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
-		super.traitCollectionDidChange(previousTraitCollection)
+	override func traitCollectionDidChange(previousTraitOrganization: UITraitCollection?) {
+		super.traitCollectionDidChange(previousTraitOrganization)
 
 		if let keyboardSelectionViewConstraints = keyboardSelectionViewConstraints {
 			NSLayoutConstraint.deactivateConstraints(keyboardSelectionViewConstraints)

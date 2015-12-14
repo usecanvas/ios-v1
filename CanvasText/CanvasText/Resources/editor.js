@@ -1,7 +1,7 @@
 var Canvas = {};
 window.Canvas = Canvas;
 
-Canvas.connect = function(host, accessToken, collectionID, canvasID) {
+Canvas.connect = function(host, accessToken, organizationID, canvasID) {
   const socket = new WebSocket(host);
   this._socket = socket;
 
@@ -12,7 +12,7 @@ Canvas.connect = function(host, accessToken, collectionID, canvasID) {
     socket._onopen.apply(socket, arguments);
   };
 
-  this._doc = this._connection.get(collectionID, canvasID);
+  this._doc = this._connection.get(organizationID, canvasID);
 
   this._doc.subscribe();
   this._doc.whenReady(onDocReady);

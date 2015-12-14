@@ -18,7 +18,7 @@ class SearchController: NSObject {
 	// MARK: - Properties
 
 	let account: Account
-	let collection: Collection
+	let organization: Organization
 
 	/// Results are delivered to this callback
 	var callback: ([Canvas] -> Void)?
@@ -37,9 +37,9 @@ class SearchController: NSObject {
 
 	// MARK: - Initializers
 
-	init(account: Account, collection: Collection) {
+	init(account: Account, organization: Organization) {
 		self.account = account
-		self.collection = collection
+		self.organization = organization
 
 		super.init()
 		
@@ -58,7 +58,7 @@ class SearchController: NSObject {
 
 	private func fetchSearchToken() {
 		// Get from cache
-		let key = collection.ID
+		let key = organization.ID
 		if let credential = self.dynamicType.credentialsCache[key] {
 				searchCredential = credential
 				dispatch_semaphore_signal(semaphore)
@@ -67,7 +67,7 @@ class SearchController: NSObject {
 
 		// Fetch from API
 		let client = APIClient(accessToken: account.accessToken)
-		client.getCollectionSearchCredential(collection: collection) { [weak self] result in
+		client.getOrganizationSearchCredential(organization: organization) { [weak self] result in
 			switch result {
 			case .Success(let credential):
 				// Cache
@@ -91,7 +91,7 @@ class SearchController: NSObject {
 			dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
 
 			guard let credential = self?.searchCredential,
-				collectionID = self?.collection.ID,
+				organizationID = self?.organization.ID,
 				text = self?.nextQuery
 			else {
 				dispatch_semaphore_signal(semaphore)
@@ -109,7 +109,7 @@ class SearchController: NSObject {
 			// Construct query
 			let query = Query(query: text)
 			query.facetFilters = [
-				"collection_id:\(collectionID)"
+				"organization_id:\(organizationID)"
 			]
 
 			// Search index

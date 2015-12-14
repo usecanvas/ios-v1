@@ -1,5 +1,5 @@
 //
-//  CollectionsViewController.swift
+//  OrganizationsViewController.swift
 //  Canvas
 //
 //  Created by Sam Soffes on 11/12/15.
@@ -10,7 +10,7 @@ import UIKit
 import Static
 import CanvasKit
 
-class CollectionsViewController: ModelsViewController, Accountable {
+class OrganizationsViewController: ModelsViewController, Accountable {
 
 	// MARK: - Properties
 
@@ -22,7 +22,7 @@ class CollectionsViewController: ModelsViewController, Accountable {
 	init(account: Account) {
 		self.account = account
 		super.init(nibName: nil, bundle: nil)
-		title = "Collections"
+		title = "Organizations"
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -83,24 +83,24 @@ class CollectionsViewController: ModelsViewController, Accountable {
 	// MARK: - ListViewController
 
 	override var modelTypeName: String {
-		return "Collection"
+		return "Organization"
 	}
 
 	override func rowForModel(model: Model, isSelected: Bool) -> Row? {
-		guard let collection = model as? Collection else { return nil }
+		guard let organization = model as? Organization else { return nil }
 		return Row(
-			text: collection.name,
+			text: organization.name,
 			accessory: .DisclosureIndicator,
-			selection: { [weak self] in self?.selectModel(collection) },
-			cellClass: isSelected ? SelectedCollectionCell.self : CollectionCell.self
+			selection: { [weak self] in self?.selectModel(organization) },
+			cellClass: isSelected ? SelectedOrganizationCell.self : OrganizationCell.self
 		)
 	}
 
 	override func selectModel(model: Model) {
-		guard !opening, let collection = model as? Collection else { return }
+		guard !opening, let organization = model as? Organization else { return }
 		opening = true
-		Analytics.track(.ChangedCollection(collection: collection))
-		let viewController = CollectionCanvasesViewController(account: account, collection: collection)
+		Analytics.track(.ChangedOrganization(organization: organization))
+		let viewController = OrganizationCanvasesViewController(account: account, organization: organization)
 		navigationController?.pushViewController(viewController, animated: true)
 	}
 
@@ -111,15 +111,15 @@ class CollectionsViewController: ModelsViewController, Accountable {
 
 		loading = true
 
-		APIClient(accessToken: account.accessToken, baseURL: baseURL).listCollections { [weak self] result in
+		APIClient(accessToken: account.accessToken, baseURL: baseURL).listOrganizations { [weak self] result in
 			switch result {
-			case .Success(let collections):
+			case .Success(let organizations):
 				dispatch_async(dispatch_get_main_queue()) {
 					self?.loading = false
-					self?.arrangedModels = collections.map { $0 as Model }
+					self?.arrangedModels = organizations.map { $0 as Model }
 				}
 			case .Failure(let message):
-				print("Failed to get collections: \(message)")
+				print("Failed to get organizations: \(message)")
 				dispatch_async(dispatch_get_main_queue()) {
 					self?.loading = false
 				}
