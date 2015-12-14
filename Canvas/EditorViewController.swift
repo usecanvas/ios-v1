@@ -117,6 +117,15 @@ class EditorViewController: UIViewController, Accountable {
 			textView.becomeFirstResponder()
 			wantsFocus = false
 		}
+
+		if NSUserDefaults.standardUserDefaults().boolForKey("PreventSleep") {
+			UIApplication.sharedApplication().idleTimerDisabled = true
+		}
+	}
+
+	override func viewWillDisappear(animated: Bool) {
+		super.viewWillDisappear(animated)
+		UIApplication.sharedApplication().idleTimerDisabled = false
 	}
 	
 
