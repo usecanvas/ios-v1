@@ -131,7 +131,7 @@ extension CanvasTextView {
 			rect.size.width = 4
 
 			// Extend vertically if the next node is also a blockquote
-			if let next = nextSibling as? Blockquote, let nextRect = firstRectForRange(textStorage.backingRangeToDisplayRange(next.contentRange)) {
+			if let next = nextSibling as? Blockquote, let nextRect = firstRectForBackingRange(next.contentRange) {
 				rect.size.height = nextRect.origin.y - rect.origin.y
 			}
 
@@ -154,13 +154,13 @@ extension CanvasTextView {
 			let originalTop = rect.origin.y
 
 			// Find the bottom of line (to handle wrapping)
-			var range = textStorage.backingRangeToDisplayRange(node.contentRange)
-			if range.length > 1 {
-				range.location += range.length - 1
-				range.length = 1
+			var displayRange = textStorage.backingRangeToDisplayRange(node.contentRange)
+			if displayRange.length > 1 {
+				displayRange.location += displayRange.length - 1
+				displayRange.length = 1
 			}
 
-			if let lastRect = firstRectForRange(range) where lastRect.origin.y > originalTop {
+			if let lastRect = firstRectForDisplayRange(displayRange) where lastRect.origin.y > originalTop {
 				rect.size.height += lastRect.origin.y - originalTop
 			}
 

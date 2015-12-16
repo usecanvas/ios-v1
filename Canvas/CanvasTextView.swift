@@ -94,9 +94,14 @@ class CanvasTextView: InsertionPointTextView {
 		return textStorage.firstNodeInDisplayRange(range)
 	}
 
-	internal func firstRectForRange(range: NSRange) -> CGRect? {
-		guard let start = positionFromPosition(beginningOfDocument, offset: range.location),
-			end = positionFromPosition(start, offset: range.length),
+	internal func firstRectForBackingRange(backingRange: NSRange) -> CGRect? {
+		guard let textStorage = textStorage as? CanvasTextStorage else { return nil }
+		return firstRectForDisplayRange(textStorage.backingRangeToDisplayRange(backingRange))
+	}
+
+	internal func firstRectForDisplayRange(displayRange: NSRange) -> CGRect? {
+		guard let start = positionFromPosition(beginningOfDocument, offset: displayRange.location),
+			end = positionFromPosition(start, offset: displayRange.length),
 			textRange = textRangeFromPosition(start, toPosition: end)
 		else { return nil }
 
@@ -104,9 +109,7 @@ class CanvasTextView: InsertionPointTextView {
 	}
 
 	internal func firstRectForNode(node: Node) -> CGRect? {
-		guard let textStorage = textStorage as? CanvasTextStorage else { return nil }
-		let range = textStorage.backingRangeToDisplayRange(node.contentRange)
-		return firstRectForRange(range)
+		return firstRectForBackingRange(node.contentRange)
 	}
 }
 
