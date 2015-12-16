@@ -18,6 +18,7 @@
 		2129D30E1BF561400018F255 /* OrganizationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D30D1BF561400018F255 /* OrganizationsViewController.swift */; };
 		2129D3101BF5634A0018F255 /* Accountable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D30F1BF5634A0018F255 /* Accountable.swift */; };
 		2129D3121BF568AB0018F255 /* OrganizationCanvasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D3111BF568AB0018F255 /* OrganizationCanvasesViewController.swift */; };
+		213139201C22104000B09904 /* UIFont+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2131391F1C22104000B09904 /* UIFont+Canvas.swift */; };
 		2134FADF1BFC09E300AE93CC /* BulletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2134FADE1BFC09E300AE93CC /* BulletView.swift */; };
 		2134FAE11BFC0A6A00AE93CC /* CanvasTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2134FAE01BFC0A6A00AE93CC /* CanvasTextView.swift */; };
 		213598081C1A22FC00200825 /* Camo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 213598021C1A22FC00200825 /* Camo.framework */; };
@@ -134,6 +135,7 @@
 		2129D30D1BF561400018F255 /* OrganizationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsViewController.swift; sourceTree = "<group>"; };
 		2129D30F1BF5634A0018F255 /* Accountable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accountable.swift; sourceTree = "<group>"; };
 		2129D3111BF568AB0018F255 /* OrganizationCanvasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationCanvasesViewController.swift; sourceTree = "<group>"; };
+		2131391F1C22104000B09904 /* UIFont+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Canvas.swift"; sourceTree = "<group>"; };
 		2134FADE1BFC09E300AE93CC /* BulletView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulletView.swift; sourceTree = "<group>"; };
 		2134FAE01BFC0A6A00AE93CC /* CanvasTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasTextView.swift; sourceTree = "<group>"; };
 		213598021C1A22FC00200825 /* Camo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Camo.framework; path = Carthage/Build/iOS/Camo.framework; sourceTree = "<group>"; };
@@ -441,6 +443,7 @@
 				21FCB58C1C07929A00F78D93 /* NSCache+Canvas.swift */,
 				219DAC891C0F819700F39A6F /* NSDate+Canvas.swift */,
 				219334041C0FC6DD000A974B /* Canvas+Canvas.swift */,
+				2131391F1C22104000B09904 /* UIFont+Canvas.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -618,6 +621,7 @@
 			files = (
 				2129D30E1BF561400018F255 /* OrganizationsViewController.swift in Sources */,
 				21B742E01C03BD9000FF293C /* TableViewController.swift in Sources */,
+				213139201C22104000B09904 /* UIFont+Canvas.swift in Sources */,
 				21B742C81BFF991600FF293C /* NumberView.swift in Sources */,
 				21C576951C19002A0015B8A5 /* CanvasesResultsViewController.swift in Sources */,
 				21FB6AB01BF53B8E003C82BB /* RootViewController.swift in Sources */,
