@@ -27,10 +27,19 @@ extension CanvasTextView {
 	// MARK: - Gestures
 
 	@objc private func increaseBlockLevelWithGesture(sender: UISwipeGestureRecognizer?) {
-		guard let sender = sender,
-			textStorage = textStorage as? CanvasTextStorage,
-			node = nodeAtPoint(sender.locationInView(self))
-			else { return }
+		guard let sender = sender else { return }
+		increaseBlockLevel(sender.locationInView(self))
+	}
+
+	@objc private func decreaseBlockLevelWithGesture(sender: UISwipeGestureRecognizer?) {
+		guard let sender = sender else { return }
+		decreaseBlockLevel(sender.locationInView(self))
+	}
+
+	private func increaseBlockLevel(point: CGPoint) {
+		guard let textStorage = textStorage as? CanvasTextStorage,
+			node = nodeAtPoint(point)
+		else { return }
 
 		// Convert paragraph to unordered list
 		if node is Paragraph {
@@ -77,11 +86,10 @@ extension CanvasTextView {
 		}
 	}
 
-	@objc private func decreaseBlockLevelWithGesture(sender: UISwipeGestureRecognizer?) {
-		guard let sender = sender,
-			textStorage = textStorage as? CanvasTextStorage,
-			node = nodeAtPoint(sender.locationInView(self))
-			else { return }
+	private func decreaseBlockLevel(point: CGPoint) {
+		guard let textStorage = textStorage as? CanvasTextStorage,
+			node = nodeAtPoint(point)
+		else { return }
 
 		// Lists
 		if let node = node as? Listable {
