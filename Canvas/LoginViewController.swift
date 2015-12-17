@@ -25,7 +25,7 @@ class LoginViewController: UIViewController {
 	let usernameTextField: UITextField = {
 		let field = LoginTextField()
 		field.translatesAutoresizingMaskIntoConstraints = false
-		field.placeholder = "Username or email"
+		field.placeholder = LocalizedString.UsernamePlaceholder.string
 		field.autocapitalizationType = .None
 		field.autocorrectionType = .No
 		field.returnKeyType = .Next
@@ -36,7 +36,7 @@ class LoginViewController: UIViewController {
 		let field = LoginTextField()
 		field.translatesAutoresizingMaskIntoConstraints = false
 		field.secureTextEntry = true
-		field.placeholder = "Password"
+		field.placeholder = LocalizedString.PasswordPlaceholder.string
 		field.returnKeyType = .Go
 		return field
 	}()
@@ -46,7 +46,7 @@ class LoginViewController: UIViewController {
 		button.translatesAutoresizingMaskIntoConstraints = false
 		button.backgroundColor = Color.white
 		button.setTitleColor(Color.brand, forState: .Normal)
-		button.setTitle("Login", forState: .Normal)
+		button.setTitle(LocalizedString.LoginButton.string, forState: .Normal)
 		return button
 	}()
 

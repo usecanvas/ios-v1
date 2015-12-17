@@ -10,6 +10,7 @@ import UIKit
 import CanvasKit
 import Static
 
+// TODO: Localize this class
 class ModelsViewController: TableViewController {
 
 	// MARK: - Properties

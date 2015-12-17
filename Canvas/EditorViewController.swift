@@ -43,6 +43,8 @@ class EditorViewController: UIViewController, Accountable {
 		longhouse.delegate = self
 
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillChangeFrame:", name: UIKeyboardWillChangeFrameNotification, object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: "updatePreventSleep", name: NSUserDefaultsDidChangeNotification, object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: "updatePreventSleep", name: UIApplicationDidBecomeActiveNotification, object: nil)
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -64,8 +66,8 @@ class EditorViewController: UIViewController, Accountable {
 
 	override var keyCommands: [UIKeyCommand] {
 		return [
-			UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: "dismissKeyboard:", discoverabilityTitle: "Dismiss Keyboard"),
-			UIKeyCommand(input: "w", modifierFlags: [.Command], action: "close:", discoverabilityTitle: "Close")
+			UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: "dismissKeyboard:", discoverabilityTitle: LocalizedString.DismissKeyboardCommand.string),
+			UIKeyCommand(input: "w", modifierFlags: [.Command], action: "close:", discoverabilityTitle: LocalizedString.CloseCommand.string)
 		]
 	}
 
@@ -107,7 +109,6 @@ class EditorViewController: UIViewController, Accountable {
 		// The target minimum padding is 16. For some reason, there is an extra 10 on each side already.
 		let padding = max(11, (textView.bounds.width - maxWidth) / 2)
 		textView.textContainerInset = UIEdgeInsets(top: 16, left: padding, bottom: 32, right: padding)
-		textView.updateAnnotations()
 	}
 
 	override func viewWillAppear(animated: Bool) {
@@ -118,14 +119,13 @@ class EditorViewController: UIViewController, Accountable {
 			wantsFocus = false
 		}
 
-		if NSUserDefaults.standardUserDefaults().boolForKey("PreventSleep") {
-			UIApplication.sharedApplication().idleTimerDisabled = true
-		}
+		updatePreventSleep()
 	}
 
 	override func viewWillDisappear(animated: Bool) {
 		super.viewWillDisappear(animated)
 		UIApplication.sharedApplication().idleTimerDisabled = false
+		textView.editable = false
 	}
 	
 
@@ -160,6 +160,12 @@ class EditorViewController: UIViewController, Accountable {
 
 		textView.contentInset = insets
 		textView.scrollIndicatorInsets = insets
+	}
+
+	@objc private func updatePreventSleep() {
+		if NSUserDefaults.standardUserDefaults().boolForKey("PreventSleep") {
+			UIApplication.sharedApplication().idleTimerDisabled = true
+		}
 	}
 }
 

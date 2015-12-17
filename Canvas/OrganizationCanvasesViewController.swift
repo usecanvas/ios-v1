@@ -37,7 +37,7 @@ class OrganizationCanvasesViewController: CanvasesViewController {
 
 		results.delegate = self
 
-		searchViewController.searchBar.placeholder = "Search in \(organization.name.capitalizedString)"
+		searchViewController.searchBar.placeholder = LocalizedString.SearchIn(organizationName: organization.displayName).string
 		searchViewController.searchResultsUpdater = searchController
 
 		searchController.callback = { [weak self] canvases in
@@ -57,10 +57,10 @@ class OrganizationCanvasesViewController: CanvasesViewController {
 		var commands = super.keyCommands ?? []
 
 		commands += [
-			UIKeyCommand(input: "/", modifierFlags: [], action: "search", discoverabilityTitle: "Search"),
-			UIKeyCommand(input: "n", modifierFlags: [.Command], action: "newCanvas", discoverabilityTitle: "New Canvas"),
-			UIKeyCommand(input: "e", modifierFlags: [.Command], action: "archiveSelectedCanvas", discoverabilityTitle: "Archive Selected Canvas"),
-			UIKeyCommand(input: "\u{8}", modifierFlags: [.Command], action: "deleteSelectedCanvas", discoverabilityTitle: "Delete Selected Canvas")
+			UIKeyCommand(input: "/", modifierFlags: [], action: "search", discoverabilityTitle: LocalizedString.SearchCommand.string),
+			UIKeyCommand(input: "n", modifierFlags: [.Command], action: "newCanvas", discoverabilityTitle: LocalizedString.NewCanvasCommand.string),
+			UIKeyCommand(input: "e", modifierFlags: [.Command], action: "archiveSelectedCanvas", discoverabilityTitle: LocalizedString.ArchiveSelectedCanvasCommand.string),
+			UIKeyCommand(input: "\u{8}", modifierFlags: [.Command], action: "deleteSelectedCanvas", discoverabilityTitle: LocalizedString.DeleteSelectedCanvasCommand.string)
 		]
 
 		return commands
@@ -115,8 +115,8 @@ class OrganizationCanvasesViewController: CanvasesViewController {
 		guard let canvas = model as? Canvas, var row = super.rowForModel(model, isSelected: isSelected) else { return nil }
 
 		row.editActions = [
-			Row.EditAction(title: "Delete", style: .Destructive, backgroundColor: Color.destructive, backgroundEffect: nil, selection: deleteCanvas(canvas)),
-			Row.EditAction(title: "Archive", style: .Destructive, backgroundColor: Color.darkGray, backgroundEffect: nil, selection: archiveCanvas(canvas))
+			Row.EditAction(title: LocalizedString.DeleteButton.string, style: .Destructive, backgroundColor: Color.destructive, backgroundEffect: nil, selection: deleteCanvas(canvas)),
+			Row.EditAction(title: LocalizedString.ArchiveButton.string, style: .Destructive, backgroundColor: Color.darkGray, backgroundEffect: nil, selection: archiveCanvas(canvas))
 		]
 
 		return row
@@ -161,7 +161,7 @@ class OrganizationCanvasesViewController: CanvasesViewController {
 
 	private func deleteCanvas(canvas: Canvas)() {
 		let style: UIAlertControllerStyle = traitCollection.userInterfaceIdiom == .Pad ? .Alert : .ActionSheet
-		let actionSheet = AlertController(title: "Are you sure you want to delete “\(canvas.displayTitle)”?", message: nil, preferredStyle: style)
+		let actionSheet = AlertController(title: LocalizedString.DeleteConfirmationMessage(canvasTitle: canvas.displayTitle).string, message: nil, preferredStyle: style)
 
 		let delete = { [weak self] in
 			guard let accessToken = self?.account.accessToken else { return }
@@ -172,8 +172,8 @@ class OrganizationCanvasesViewController: CanvasesViewController {
 			}
 		}
 
-		actionSheet.addAction(UIAlertAction(title: "Delete", style: .Destructive) { _ in delete() })
-		actionSheet.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+		actionSheet.addAction(UIAlertAction(title: LocalizedString.DeleteButton.string, style: .Destructive) { _ in delete() })
+		actionSheet.addAction(UIAlertAction(title: LocalizedString.CancelButton.string, style: .Cancel, handler: nil))
 		actionSheet.primaryAction = delete
 
 		presentViewController(actionSheet, animated: true, completion: nil)
@@ -181,7 +181,7 @@ class OrganizationCanvasesViewController: CanvasesViewController {
 
 	private func archiveCanvas(canvas: Canvas)() {
 		let style: UIAlertControllerStyle = traitCollection.userInterfaceIdiom == .Pad ? .Alert : .ActionSheet
-		let actionSheet = AlertController(title: "Are you sure you want to archive “\(canvas.displayTitle)”?", message: nil, preferredStyle: style)
+		let actionSheet = AlertController(title: LocalizedString.ArchiveConfirmationMessage(canvasTitle: canvas.displayTitle).string, message: nil, preferredStyle: style)
 
 		let archive = { [weak self] in
 			guard let accessToken = self?.account.accessToken else { return }
@@ -192,8 +192,8 @@ class OrganizationCanvasesViewController: CanvasesViewController {
 			}
 		}
 
-		actionSheet.addAction(UIAlertAction(title: "Archive", style: .Destructive) { _ in archive() })
-		actionSheet.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+		actionSheet.addAction(UIAlertAction(title: LocalizedString.ArchiveButton.string, style: .Destructive) { _ in archive() })
+		actionSheet.addAction(UIAlertAction(title: LocalizedString.CancelButton.string, style: .Cancel, handler: nil))
 		actionSheet.primaryAction = archive
 
 		presentViewController(actionSheet, animated: true, completion: nil)

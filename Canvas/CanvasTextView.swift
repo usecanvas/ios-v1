@@ -17,6 +17,16 @@ class CanvasTextView: InsertionPointTextView {
 	internal var annotations = [UIView]()
 	internal var lineNumber: UInt = 1
 
+	internal let placeholderLabel: UILabel = {
+		let label = UILabel()
+		label.text = LocalizedString.CanvasTitlePlaceholder.string
+
+		// TODO: Get this from the theme
+		label.textColor = Color.gray
+
+		return label
+	}()
+
 
 	// MARK: - Initializers {
 
@@ -30,9 +40,14 @@ class CanvasTextView: InsertionPointTextView {
 
 		alwaysBounceVertical = true
 		keyboardDismissMode = .Interactive
+		editable = false
 
 		if let textStorage = textStorage as? CanvasTextStorage {
 			textStorage.canvasDelegate = self
+
+			// TODO: Properly get this from the theme
+			let theme = textStorage.theme
+			placeholderLabel.font = theme.fontOfSize(theme.fontSize * 1.7, style: [.Bold])
 		}
 
 		registerGestureRecognizers()
@@ -53,13 +68,15 @@ class CanvasTextView: InsertionPointTextView {
 		textStorage.reprocess()
 
 		dispatch_async(dispatch_get_main_queue()) { [weak self] in
-			self?.updateAnnotations()
+			if self?.editable ?? false {
+				self?.updateAnnotations()
+			}
 		}
 	}
 
 	override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
 		// I can't believe I have to do this… *sigh*
-		for view in subviews {
+		for view in annotations {
 			if view.userInteractionEnabled && view.frame.contains(point) {
 				return view
 			}
@@ -124,8 +141,7 @@ extension CanvasTextView: CanvasTextStorageDelegate {
 		guard let node = node as? Image, scale = window?.screen.scale else { return nil }
 		let attachment = NSTextAttachment()
 
-		// Not sure why it’s off by 10 here
-		let width = textContainer.size.width - 10
+		let width = textContainer.size.width - (textContainer.lineFragmentPadding * 2)
 
 		var size = node.size ?? CGSize(width: floor(width), height: 300)
 		let image = ImagesController.sharedController.fetchImage(node: node, size: size, scale: scale) { [weak self] node, image in

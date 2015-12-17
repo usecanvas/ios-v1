@@ -1,0 +1,40 @@
+/* 
+  Localizable.strings
+  Canvas
+
+  Created by Sam Soffes on 12/17/15.
+  Copyright © 2015 Canvas Labs, Inc. All rights reserved.
+*/
+
+// ----- Login -----
+
+"USERNAME_PLACEHOLDER" = "Username or email";
+"PASSWORD_PLACEHOLDER" = "Password";
+"LOGIN_BUTTON" = "Login";
+
+
+// ----- Organizations -----
+
+"ORGANIZATIONS_TITLE" = "Organizations";
+"LOG_OUT_BUTTON" = "Log Out";
+
+
+// ----- Canvases -----
+
+"SEARCH_IN_ORGANIZATION" = "Search in %@";
+"SEARCH_COMMAND" = "Search";
+"NEW_CANVAS_COMMAND" = "New Canvas";
+"ARCHIVE_SELECTED_CANVAS_COMMAND" = "Archive Selected Canvas";
+"DELETE_SELECTED_CANVAS_COMMAND" = "Delete Selected Canvas";
+"ARCHIVE_BUTTON" = "Archive";
+"DELETE_BUTTON" = "Delete";
+"CANCEL_BUTTON" = "Cancel";
+"DELETE_CONFIRMATION_MESSAGE" = "Are you sure you want to delete “%@”?";
+"ARCHIVE_CONFIRMATION_MESSAGE" = "Are you sure you want to archive “%@”?";
+
+
+// ----- Editor -----
+
+"CANVAS_TITLE_PLACEHOLDER" = "Give me a name…";
+"CLOSE_COMMAND" = "Close";
+"DISMISS_KEYBOARD_COMMAND" = "Dismiss Keyboard";

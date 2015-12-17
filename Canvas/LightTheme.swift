@@ -13,7 +13,7 @@ struct LightTheme: Theme {
 
 	// MARK: - Properties
 
-	let fontSize: CGFloat = 16
+	let fontSize: CGFloat = 18
 	let backgroundColor = UIColor(white: 1, alpha: 1)
 	let foregroundColor = UIColor(white: 0.133, alpha: 1)
 
