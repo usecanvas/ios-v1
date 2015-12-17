@@ -17,7 +17,7 @@
 		212404FA1C233E4200BF0C91 /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212404DF1C233E2500BF0C91 /* CanvasText.framework */; };
 		212404FB1C233E4D00BF0C91 /* CanvasKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 212404EE1C233E2D00BF0C91 /* CanvasKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		212404FC1C233E5200BF0C91 /* CanvasText.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 212404DF1C233E2500BF0C91 /* CanvasText.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		212405031C23562800BF0C91 /* Localizeable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 212405011C23562800BF0C91 /* Localizeable.strings */; };
+		212405031C23562800BF0C91 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 212405011C23562800BF0C91 /* Localizable.strings */; };
 		2124050B1C23564100BF0C91 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2124050A1C23564100BF0C91 /* LocalizedString.swift */; };
 		2129D30A1BF55C340018F255 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D3091BF55C340018F255 /* LoginViewController.swift */; };
 		2129D30C1BF560810018F255 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D30B1BF560810018F255 /* Color.swift */; };
@@ -170,7 +170,7 @@
 		2114833B1C0D68530072F94B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		212404D71C233E2500BF0C91 /* CanvasText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasText.xcodeproj; path = Vendor/CanvasText/CanvasText.xcodeproj; sourceTree = "<group>"; };
 		212404E61C233E2D00BF0C91 /* CanvasKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasKit.xcodeproj; path = Vendor/CanvasKit/CanvasKit.xcodeproj; sourceTree = "<group>"; };
-		212405021C23562800BF0C91 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizeable.strings; sourceTree = "<group>"; };
+		212405021C23562800BF0C91 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2124050A1C23564100BF0C91 /* LocalizedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
 		2129D3091BF55C340018F255 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2129D30B1BF560810018F255 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -448,7 +448,7 @@
 				2114833A1C0D68530072F94B /* Main.storyboard */,
 				21F10F631BF13D720035057D /* Info.plist */,
 				21D2B1971C0D0AED003652B7 /* Settings.bundle */,
-				212405011C23562800BF0C91 /* Localizeable.strings */,
+				212405011C23562800BF0C91 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -642,7 +642,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21F10F651BF13D720035057D /* Assets.xcassets in Resources */,
-				212405031C23562800BF0C91 /* Localizeable.strings in Resources */,
+				212405031C23562800BF0C91 /* Localizable.strings in Resources */,
 				21D2B1981C0D0AED003652B7 /* Settings.bundle in Resources */,
 				21F10F661BF13D720035057D /* LaunchScreen.storyboard in Resources */,
 				2114833C1C0D68530072F94B /* Main.storyboard in Resources */,
@@ -770,12 +770,12 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		212405011C23562800BF0C91 /* Localizeable.strings */ = {
+		212405011C23562800BF0C91 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				212405021C23562800BF0C91 /* en */,
 			);
-			name = Localizeable.strings;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		21F10F611BF13D720035057D /* LaunchScreen.storyboard */ = {
