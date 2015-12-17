@@ -1,6 +1,6 @@
 var _rollbarConfig = {
     accessToken: "c8736fff4cc745f0b21187f0128ab233",
-    captureUncaught: true,
+    captureUncaught: false,
     payload: {
         environment: "production"
     },

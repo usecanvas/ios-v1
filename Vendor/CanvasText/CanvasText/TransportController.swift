@@ -8,6 +8,12 @@
 
 import WebKit
 
+protocol TransportControllerDelegate: class {
+	func transportController(controller: TransportController, didReceiveSnapshot text: String)
+	func transportController(controller: TransportController, didReceiveOperation operation: Operation)
+}
+
+
 class TransportController: NSObject {
 	
 	// MARK: - Properties
@@ -59,6 +65,8 @@ class TransportController: NSObject {
 		#if !os(OSX)
 			webView.scrollView.scrollsToTop = false
 		#endif
+
+		reload()
 	}
 
 
@@ -78,7 +86,7 @@ class TransportController: NSObject {
 
 		let javaScript = rollbarJS + shareJS + editorJS
 		let html = NSString(format: template, javaScript) as String
-		webView.loadHTMLString(html, baseURL: nil)
+		webView.loadHTMLString(html, baseURL: NSURL(string: "https://ios.usecanvas.com/")!)
 	}
 	
 	
@@ -108,12 +116,6 @@ class TransportController: NSObject {
 }
 
 
-protocol TransportControllerDelegate: class {
-	func transportController(controller: TransportController, didReceiveSnapshot text: String)
-	func transportController(controller: TransportController, didReceiveOperation operation: Operation)
-}
-
-
 extension TransportController: WKScriptMessageHandler {
 	func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
 		guard let dictionary = message.body as? [String: AnyObject] else { return }
@@ -122,6 +124,12 @@ extension TransportController: WKScriptMessageHandler {
 			delegate?.transportController(self, didReceiveOperation: operation)
 		} else if let snapshot = dictionary["snapshot"] as? String {
 			delegate?.transportController(self, didReceiveSnapshot: snapshot)
+		} else if let errorMessage = dictionary["error"] as? String {
+			print("[TransportController] Error: \(errorMessage)")
+			reload()
+		} else {
+			print(dictionary)
 		}
 	}
 }
+

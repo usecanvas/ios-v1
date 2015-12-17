@@ -68,3 +68,13 @@ Canvas._sendMessage = function(message) {
     window.webkit.messageHandlers.share.postMessage(message);
   }
 };
+
+window.onerror = function(errorMessage, url, lineNumber, columnNumber) {
+  Rollbar.error(errorMessage);
+
+  if (typeof window.webkit != "undefined" && typeof window.webkit.messageHandlers != "undefined") {
+    window.webkit.messageHandlers.share.postMessage({
+      "error": errorMessage
+    });
+  }
+}
