@@ -11,10 +11,28 @@ import CanvasText
 
 extension CanvasTextView {
 	func updateAnnotations() {
+		editable = true
 		annotations.forEach { $0.removeFromSuperview() }
 		annotations.removeAll()
 
 		lineNumber = 1
+
+		// Placeholder
+		if text.isEmpty {
+			addSubview(placeholderLabel)
+			annotations.append(placeholderLabel)
+
+			placeholderLabel.sizeToFit()
+
+			var frame = placeholderLabel.frame
+			frame.origin.x = textContainer.lineFragmentPadding + textContainerInset.left
+
+			// TODO: Get this in a structured way
+			frame.origin.y = textContainerInset.top + 7.5
+
+			placeholderLabel.frame = frame
+			return
+		}
 
 		// Add annotations
 		let needsFirstResponder = !isFirstResponder()

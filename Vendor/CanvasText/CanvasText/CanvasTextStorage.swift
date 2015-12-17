@@ -30,6 +30,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 	public weak var canvasDelegate: CanvasTextStorageDelegate?
 
 	private var transportController: TransportController?
+	private var loaded = false
 
 	public private(set) var nodes = [Node]()
 
@@ -132,6 +133,10 @@ public class CanvasTextStorage: ShadowTextStorage {
 	}
 
 	public override func shadowsForBackingText(backingText: String) -> [Shadow] {
+		if !loaded {
+			return []
+		}
+
 		// Convert to Foundation string so we can work with `NSRange` instead of `Range` since the TextKit APIs take
 		// `NSRange` instead `Range`. Bummer.
 		let text = backingText as NSString
@@ -184,6 +189,10 @@ public class CanvasTextStorage: ShadowTextStorage {
 	public override func attributedStringForDisplayText(displayText: String) -> NSAttributedString {
 		let text = NSMutableAttributedString(string: displayText, attributes: theme.baseAttributes)
 
+		if !loaded {
+			return text
+		}
+
 		let count = nodes.count
 		for (i, node) in nodes.enumerate() {
 			let next: Node?
@@ -227,6 +236,10 @@ public class CanvasTextStorage: ShadowTextStorage {
 	}
 
 	public override func didProcessBackingText(backingText: String) {
+		if !loaded {
+			return
+		}
+
 		self.canvasDelegate?.textStorageDidUpdateNodes(self)
 	}
 
@@ -272,6 +285,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 extension CanvasTextStorage: TransportControllerDelegate {
 	func transportController(controller: TransportController, didReceiveSnapshot text: String) {
+		loaded = true
 		backingText = text
 	}
 

@@ -108,7 +108,6 @@ class EditorViewController: UIViewController, Accountable {
 		// The target minimum padding is 16. For some reason, there is an extra 10 on each side already.
 		let padding = max(11, (textView.bounds.width - maxWidth) / 2)
 		textView.textContainerInset = UIEdgeInsets(top: 16, left: padding, bottom: 32, right: padding)
-		textView.updateAnnotations()
 	}
 
 	override func viewWillAppear(animated: Bool) {
@@ -125,6 +124,7 @@ class EditorViewController: UIViewController, Accountable {
 	override func viewWillDisappear(animated: Bool) {
 		super.viewWillDisappear(animated)
 		UIApplication.sharedApplication().idleTimerDisabled = false
+		textView.editable = false
 	}
 	
 

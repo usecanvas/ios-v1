@@ -6,8 +6,6 @@
 //  Copyright © 2015 Canvas Labs, Inc. All rights reserved.
 //
 
-/// Please use this file responsbily.
-
 import Foundation
 
 enum LocalizedString {

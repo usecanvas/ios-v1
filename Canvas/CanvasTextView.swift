@@ -17,9 +17,13 @@ class CanvasTextView: InsertionPointTextView {
 	internal var annotations = [UIView]()
 	internal var lineNumber: UInt = 1
 
-	private let placeholder: UILabel = {
+	internal let placeholderLabel: UILabel = {
 		let label = UILabel()
 		label.text = LocalizedString.CanvasTitlePlaceholder.string
+
+		// TODO: Get this from the theme
+		label.textColor = Color.gray
+
 		return label
 	}()
 
@@ -36,9 +40,14 @@ class CanvasTextView: InsertionPointTextView {
 
 		alwaysBounceVertical = true
 		keyboardDismissMode = .Interactive
+		editable = false
 
 		if let textStorage = textStorage as? CanvasTextStorage {
 			textStorage.canvasDelegate = self
+
+			// TODO: Properly get this from the theme
+			let theme = textStorage.theme
+			placeholderLabel.font = theme.fontOfSize(theme.fontSize * 1.7, style: [.Bold])
 		}
 
 		registerGestureRecognizers()
@@ -59,7 +68,9 @@ class CanvasTextView: InsertionPointTextView {
 		textStorage.reprocess()
 
 		dispatch_async(dispatch_get_main_queue()) { [weak self] in
-			self?.updateAnnotations()
+			if self?.editable ?? false {
+				self?.updateAnnotations()
+			}
 		}
 	}
 
