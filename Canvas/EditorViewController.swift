@@ -43,6 +43,7 @@ class EditorViewController: UIViewController, Accountable {
 		longhouse.delegate = self
 
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillChangeFrame:", name: UIKeyboardWillChangeFrameNotification, object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: "updatePreventSleep", name: NSUserDefaultsDidChangeNotification, object: nil)
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -118,9 +119,7 @@ class EditorViewController: UIViewController, Accountable {
 			wantsFocus = false
 		}
 
-		if NSUserDefaults.standardUserDefaults().boolForKey("PreventSleep") {
-			UIApplication.sharedApplication().idleTimerDisabled = true
-		}
+		updatePreventSleep()
 	}
 
 	override func viewWillDisappear(animated: Bool) {
@@ -160,6 +159,12 @@ class EditorViewController: UIViewController, Accountable {
 
 		textView.contentInset = insets
 		textView.scrollIndicatorInsets = insets
+	}
+
+	@objc private func updatePreventSleep() {
+		if NSUserDefaults.standardUserDefaults().boolForKey("PreventSleep") {
+			UIApplication.sharedApplication().idleTimerDisabled = true
+		}
 	}
 }
 
