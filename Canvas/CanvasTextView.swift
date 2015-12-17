@@ -124,8 +124,7 @@ extension CanvasTextView: CanvasTextStorageDelegate {
 		guard let node = node as? Image, scale = window?.screen.scale else { return nil }
 		let attachment = NSTextAttachment()
 
-		// Not sure why it’s off by 10 here
-		let width = textContainer.size.width - 10
+		let width = textContainer.size.width - (textContainer.lineFragmentPadding * 2)
 
 		var size = node.size ?? CGSize(width: floor(width), height: 300)
 		let image = ImagesController.sharedController.fetchImage(node: node, size: size, scale: scale) { [weak self] node, image in
