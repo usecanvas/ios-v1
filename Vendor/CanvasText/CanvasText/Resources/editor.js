@@ -69,11 +69,10 @@ Canvas._sendMessage = function(message) {
   }
 };
 
-window.onerror = function(message) {
-  // TODO: Send to Rollbar
+window.onerror = function(errorMessage, url, lineNumber, columnNumber) {
+  Rollbar.error(errorMessage);
 
-  // TODO: Send to native app
   if (typeof window.webkit != "undefined" && typeof window.webkit.messageHandlers != "undefined") {
-    window.webkit.messageHandlers.share.postMessage(message);
+    window.webkit.messageHandlers.share.postMessage({ errorMessage: errorMessage });
   }
 }
