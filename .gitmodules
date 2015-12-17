@@ -1,0 +1,3 @@
+[submodule "Vendor/CanvasKit"]
+	path = Vendor/CanvasKit
+	url = https://github.com/usecanvas/CanvasKit

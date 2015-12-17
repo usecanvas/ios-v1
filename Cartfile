@@ -1,4 +1,3 @@
-github "usecanvas/CanvasKit" "master"
 github "usecanvas/longhouse-swift"
 
 github "soffes/Camo"

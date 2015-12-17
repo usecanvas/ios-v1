@@ -87,7 +87,7 @@ class EditorViewController: UIViewController, Accountable {
 
 		textStorage.connect(accessToken: account.accessToken, organizationID: canvas.organizationID, canvasID: canvas.ID, realtimeURL: realtimeURL) { [weak self] webView in
 			guard let this = self else { return }
-			this.longhouse.join(this.canvas.ID, identity: this.account.user.email)
+//			this.longhouse.join(this.canvas.ID, identity: this.account.user.email)
 			this.view.addSubview(webView)
 		}
 		

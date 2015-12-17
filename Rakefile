@@ -3,8 +3,10 @@ XCODE_VERSION = '9548'
 XCODE_SHORT_VERSION = '7.2'
 
 desc 'Build the project’s dependencies'
-task :bootstrap => :check_tools do
+task :bootstrap => [:check_tools, :clean] do
   system 'carthage bootstrap --platform iOS --no-use-binaries'
+  system 'git submodule update --init --recursive'
+  system 'cd Vendor/CanvasKit && carthage bootstrap --platform iOS --no-use-binaries'
 end
 
 desc 'Update the project’s dependencies.'
@@ -30,6 +32,12 @@ task :check_tools do
   unless (version = `carthage version`.chomp) == CARTHAGE_VERSION
     fail "Carthage #{CARTHAGE_VERSION} isnt’t installed."
   end
+end
+
+desc 'Clean Carthage'
+task :clean do
+  system 'rm -rf Carthage'
+  system 'rm -rf Vendor/CanvasKit/Carthage'
 end
 
 private
