@@ -44,6 +44,7 @@ class EditorViewController: UIViewController, Accountable {
 
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillChangeFrame:", name: UIKeyboardWillChangeFrameNotification, object: nil)
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: "updatePreventSleep", name: NSUserDefaultsDidChangeNotification, object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: "updatePreventSleep", name: UIApplicationDidBecomeActiveNotification, object: nil)
 	}
 
 	required init?(coder aDecoder: NSCoder) {
