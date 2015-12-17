@@ -73,6 +73,8 @@ window.onerror = function(errorMessage, url, lineNumber, columnNumber) {
   Rollbar.error(errorMessage);
 
   if (typeof window.webkit != "undefined" && typeof window.webkit.messageHandlers != "undefined") {
-    window.webkit.messageHandlers.share.postMessage({ errorMessage: errorMessage });
+    window.webkit.messageHandlers.share.postMessage({
+      "error": errorMessage
+    });
   }
 }
