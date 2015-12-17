@@ -17,6 +17,12 @@ class CanvasTextView: InsertionPointTextView {
 	internal var annotations = [UIView]()
 	internal var lineNumber: UInt = 1
 
+	private let placeholder: UILabel = {
+		let label = UILabel()
+		label.text = LocalizedString.CanvasTitlePlaceholder.string
+		return label
+	}()
+
 
 	// MARK: - Initializers {
 

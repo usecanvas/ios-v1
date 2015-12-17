@@ -22,7 +22,7 @@ class OrganizationsViewController: ModelsViewController, Accountable {
 	init(account: Account) {
 		self.account = account
 		super.init(nibName: nil, bundle: nil)
-		title = "Organizations"
+		title = LocalizedString.OrganizationsTitle.string
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -36,7 +36,7 @@ class OrganizationsViewController: ModelsViewController, Accountable {
 	override var keyCommands: [UIKeyCommand] {
 		var commands = super.keyCommands ?? []
 		commands += [
-			UIKeyCommand(input: "Q", modifierFlags: [.Shift, .Command], action: "logOut:", discoverabilityTitle: "Log Out")
+			UIKeyCommand(input: "Q", modifierFlags: [.Shift, .Command], action: "logOut:", discoverabilityTitle: LocalizedString.LogOutButton.string)
 		]
 		return commands
 	}
@@ -51,7 +51,7 @@ class OrganizationsViewController: ModelsViewController, Accountable {
 		tableView.rowHeight = 64
 		tableView.separatorColor = Color.gray
 
-		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .Plain, target: self, action: "logOut:")
+		navigationItem.leftBarButtonItem = UIBarButtonItem(title: LocalizedString.LogOutButton.string, style: .Plain, target: self, action: "logOut:")
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
 	}
 

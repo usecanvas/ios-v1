@@ -65,8 +65,8 @@ class EditorViewController: UIViewController, Accountable {
 
 	override var keyCommands: [UIKeyCommand] {
 		return [
-			UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: "dismissKeyboard:", discoverabilityTitle: "Dismiss Keyboard"),
-			UIKeyCommand(input: "w", modifierFlags: [.Command], action: "close:", discoverabilityTitle: "Close")
+			UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: "dismissKeyboard:", discoverabilityTitle: LocalizedString.DismissKeyboardCommand.string),
+			UIKeyCommand(input: "w", modifierFlags: [.Command], action: "close:", discoverabilityTitle: LocalizedString.CloseCommand.string)
 		]
 	}
 
