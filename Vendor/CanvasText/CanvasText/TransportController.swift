@@ -78,7 +78,7 @@ class TransportController: NSObject {
 
 		let javaScript = rollbarJS + shareJS + editorJS
 		let html = NSString(format: template, javaScript) as String
-		webView.loadHTMLString(html, baseURL: nil)
+		webView.loadHTMLString(html, baseURL: NSURL(string: "https://ios.usecanvas.com/")!)
 	}
 	
 	
@@ -122,6 +122,8 @@ extension TransportController: WKScriptMessageHandler {
 			delegate?.transportController(self, didReceiveOperation: operation)
 		} else if let snapshot = dictionary["snapshot"] as? String {
 			delegate?.transportController(self, didReceiveSnapshot: snapshot)
+		} else {
+			print(dictionary)
 		}
 	}
 }

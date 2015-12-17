@@ -68,3 +68,12 @@ Canvas._sendMessage = function(message) {
     window.webkit.messageHandlers.share.postMessage(message);
   }
 };
+
+window.onerror = function(message) {
+  // TODO: Send to Rollbar
+
+  // TODO: Send to native app
+  if (typeof window.webkit != "undefined" && typeof window.webkit.messageHandlers != "undefined") {
+    window.webkit.messageHandlers.share.postMessage(message);
+  }
+}
