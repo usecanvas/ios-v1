@@ -59,7 +59,7 @@ class CanvasTextView: InsertionPointTextView {
 
 	override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
 		// I can't believe I have to do this… *sigh*
-		for view in subviews {
+		for view in annotations {
 			if view.userInteractionEnabled && view.frame.contains(point) {
 				return view
 			}
