@@ -32,6 +32,21 @@ struct LightTheme: Theme {
 
 	// MARK: - Theme
 
+	private var baseParagraph: NSMutableParagraphStyle {
+		let paragraph = NSMutableParagraphStyle()
+		paragraph.lineHeightMultiple = lineHeightMultiple
+		paragraph.paragraphSpacing = paragraphSpacing
+		return paragraph
+	}
+
+	var baseAttributes: Attributes {
+		return [
+			NSForegroundColorAttributeName: foregroundColor,
+			NSFontAttributeName: fontOfSize(fontSize),
+			NSParagraphStyleAttributeName: baseParagraph
+		]
+	}
+
 	var titleAttributes: Attributes {
 		var attributes = baseAttributes
 		attributes[NSForegroundColorAttributeName] = UIColor.blackColor()
@@ -55,9 +70,7 @@ struct LightTheme: Theme {
 			return titleAttributes
 		}
 
-		let paragraph = NSMutableParagraphStyle()
-		paragraph.lineHeightMultiple = lineHeightMultiple
-		paragraph.paragraphSpacing = paragraphSpacing
+		let paragraph = baseParagraph
 
 		var attributes = [String: AnyObject]()
 
