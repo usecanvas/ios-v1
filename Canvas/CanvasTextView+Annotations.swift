@@ -26,9 +26,7 @@ extension CanvasTextView {
 
 			var frame = placeholderLabel.frame
 			frame.origin.x = textContainer.lineFragmentPadding + textContainerInset.left
-
-			// TODO: Get this in a structured way
-			frame.origin.y = textContainerInset.top + 7.5
+			frame.origin.y = textContainerInset.top
 
 			placeholderLabel.frame = frame
 			return

@@ -30,6 +30,7 @@ public protocol Theme {
 	var backgroundColor: Color { get }
 	var foregroundColor: Color { get }
 	var baseAttributes: Attributes { get }
+	var titleAttributes: Attributes { get }
 
 	var lineHeightMultiple: CGFloat { get }
 	var paragraphSpacing: CGFloat { get }
@@ -50,12 +51,16 @@ extension Theme {
 		return round(fontSize * 1.1)
 	}
 
-	public var baseAttributes: [String: AnyObject] {
+	public var baseAttributes: Attributes {
 		return [
 //			NSBackgroundColorAttributeName: backgroundColor,
 			NSForegroundColorAttributeName: foregroundColor,
 			NSFontAttributeName: fontOfSize(fontSize)
 		]
+	}
+
+	public var titleAttributes: Attributes {
+		return baseAttributes
 	}
 
 	public func fontOfSize(fontSize: CGFloat, style: FontStyle = []) -> Font {

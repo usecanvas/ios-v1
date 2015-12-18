@@ -16,6 +16,7 @@ import WebKit
 
 
 public protocol CanvasTextStorageDelegate: class {
+	func textStorageWillUpdateNodes(textStorage: CanvasTextStorage)
 	func textStorageDidUpdateNodes(textStorage: CanvasTextStorage)
 	func textStorage(textStorage: CanvasTextStorage, attachmentForAttachable node: Attachable) -> NSTextAttachment?
 }
@@ -233,6 +234,14 @@ public class CanvasTextStorage: ShadowTextStorage {
 		}
 
 		return text
+	}
+
+	public override func didUpdateDisplayText(displayText: String) {
+		if !loaded {
+			return
+		}
+
+		self.canvasDelegate?.textStorageWillUpdateNodes(self)
 	}
 
 	public override func didProcessBackingText(backingText: String) {

@@ -32,6 +32,13 @@ struct LightTheme: Theme {
 
 	// MARK: - Theme
 
+	var titleAttributes: Attributes {
+		var attributes = baseAttributes
+		attributes[NSForegroundColorAttributeName] = UIColor.blackColor()
+		attributes[NSFontAttributeName] = fontOfSize(fontSize * 1.7, style: [.Bold])
+		return attributes
+	}
+
 	func fontOfSize(fontSize: CGFloat, style: FontStyle = []) -> CanvasText.Font {
 		if style == [.Bold] {
 			return Font.sansSerif(weight: .Bold, pointSize: fontSize)
@@ -44,18 +51,17 @@ struct LightTheme: Theme {
 	}
 
 	func attributesForNode(node: Node, nextSibling: Node? = nil, horizontalSizeClass: UserInterfaceSizeClass) -> Attributes {
+		if node is Title {
+			return titleAttributes
+		}
+
 		let paragraph = NSMutableParagraphStyle()
 		paragraph.lineHeightMultiple = lineHeightMultiple
 		paragraph.paragraphSpacing = paragraphSpacing
 
 		var attributes = [String: AnyObject]()
 
-		if node is Title {
-			attributes[NSForegroundColorAttributeName] = UIColor.blackColor()
-			attributes[NSFontAttributeName] = fontOfSize(fontSize * 1.7, style: [.Bold])
-		}
-
-		else if let heading = node as? Heading {
+		if let heading = node as? Heading {
 			switch heading.level {
 			case .One:
 				attributes[NSForegroundColorAttributeName] = UIColor.blackColor()

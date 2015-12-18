@@ -17,15 +17,7 @@ class CanvasTextView: InsertionPointTextView {
 	internal var annotations = [UIView]()
 	internal var lineNumber: UInt = 1
 
-	internal let placeholderLabel: UILabel = {
-		let label = UILabel()
-		label.text = LocalizedString.CanvasTitlePlaceholder.string
-
-		// TODO: Get this from the theme
-		label.textColor = Color.gray
-
-		return label
-	}()
+	internal let placeholderLabel = UILabel()
 
 
 	// MARK: - Initializers {
@@ -45,9 +37,19 @@ class CanvasTextView: InsertionPointTextView {
 		if let textStorage = textStorage as? CanvasTextStorage {
 			textStorage.canvasDelegate = self
 
-			// TODO: Properly get this from the theme
 			let theme = textStorage.theme
-			placeholderLabel.font = theme.fontOfSize(theme.fontSize * 1.7, style: [.Bold])
+			font = theme.fontOfSize(theme.fontSize)
+
+			var attributes = theme.titleAttributes
+			typingAttributes = attributes
+
+			// TODO: Get this from the theme
+			attributes[NSForegroundColorAttributeName] = Color.gray
+
+			placeholderLabel.attributedText = NSAttributedString(
+				string: LocalizedString.CanvasTitlePlaceholder.string,
+				attributes: attributes
+			)
 		}
 
 		registerGestureRecognizers()
@@ -132,6 +134,17 @@ class CanvasTextView: InsertionPointTextView {
 
 
 extension CanvasTextView: CanvasTextStorageDelegate {
+	func textStorageWillUpdateNodes(textStorage: CanvasTextStorage) {
+//		// Set typingAttributes based on the current node
+//		if let node = textStorage.firstNodeInDisplayRange(selectedRange) {
+//			// TODO: Next sibling
+//			dispatch_async(dispatch_get_main_queue()) { [weak self] in
+//				guard let sizeClass = self?.traitCollection.horizontalSizeClass else { return }
+//				self?.typingAttributes = textStorage.theme.attributesForNode(node, nextSibling: nil, horizontalSizeClass: sizeClass)
+//			}
+//		}
+	}
+	
 	func textStorageDidUpdateNodes(textStorage: CanvasTextStorage) {
 		updateAnnotations()
 		setNeedsDisplay()

@@ -154,6 +154,10 @@ public class ShadowTextStorage: NSTextStorage {
 		return NSAttributedString(string: displayText)
 	}
 
+	public func didUpdateDisplayText(displayText: String) {
+		// Do nothing
+	}
+
 	public func didProcessBackingText(backingText: String) {
 		// Do nothing
 	}
@@ -172,6 +176,8 @@ public class ShadowTextStorage: NSTextStorage {
 			offset += range.length
 		}
 		self.displayText = displayText as String
+
+		didUpdateDisplayText(self.displayText)
 
 		// Update storage
 		beginEditing()
