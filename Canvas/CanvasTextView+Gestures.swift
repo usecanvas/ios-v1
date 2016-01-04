@@ -11,7 +11,7 @@ import CanvasText
 
 extension CanvasTextView {
 
-	internal func registerGestureRecognizers() {
+	func registerGestureRecognizers() {
 		let indent = UISwipeGestureRecognizer(target: self, action: "increaseBlockLevelWithGesture:")
 		indent.numberOfTouchesRequired = 1
 		indent.direction = .Right

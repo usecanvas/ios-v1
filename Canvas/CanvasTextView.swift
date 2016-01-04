@@ -14,10 +14,11 @@ class CanvasTextView: InsertionPointTextView {
 
 	// MARK: - Properties
 
-	internal var annotations = [UIView]()
-	internal var lineNumber: UInt = 1
+	var annotations = [UIView]()
+	var lineNumber: UInt = 1
 
-	internal let placeholderLabel = UILabel()
+	let iconView = UIImageView()
+	let placeholderLabel = UILabel()
 
 
 	// MARK: - Initializers {
@@ -34,6 +35,9 @@ class CanvasTextView: InsertionPointTextView {
 		keyboardDismissMode = .Interactive
 		editable = false
 
+		iconView.image = UIImage(named: "description")
+		addSubview(iconView)
+
 		if let textStorage = textStorage as? CanvasTextStorage {
 			textStorage.canvasDelegate = self
 
@@ -43,13 +47,14 @@ class CanvasTextView: InsertionPointTextView {
 			var attributes = theme.titleAttributes
 			typingAttributes = attributes
 
-			// TODO: Get this from the theme
-			attributes[NSForegroundColorAttributeName] = Color.gray
+			attributes[NSForegroundColorAttributeName] = theme.placeholderColor
 
 			placeholderLabel.attributedText = NSAttributedString(
 				string: LocalizedString.CanvasTitlePlaceholder.string,
 				attributes: attributes
 			)
+
+			iconView.tintColor = theme.placeholderColor
 		}
 
 		registerGestureRecognizers()
@@ -100,7 +105,7 @@ class CanvasTextView: InsertionPointTextView {
 
 	// MARK: - Internal
 
-	internal func nodeAtPoint(point: CGPoint) -> Node? {
+	func nodeAtPoint(point: CGPoint) -> Node? {
 		guard let textRange = characterRangeAtPoint(point),
 			textStorage = textStorage as? CanvasTextStorage
 			else { return nil }
@@ -113,12 +118,12 @@ class CanvasTextView: InsertionPointTextView {
 		return textStorage.firstNodeInDisplayRange(range)
 	}
 
-	internal func firstRectForBackingRange(backingRange: NSRange) -> CGRect? {
+	func firstRectForBackingRange(backingRange: NSRange) -> CGRect? {
 		guard let textStorage = textStorage as? CanvasTextStorage else { return nil }
 		return firstRectForDisplayRange(textStorage.backingRangeToDisplayRange(backingRange))
 	}
 
-	internal func firstRectForDisplayRange(displayRange: NSRange) -> CGRect? {
+	func firstRectForDisplayRange(displayRange: NSRange) -> CGRect? {
 		guard let start = positionFromPosition(beginningOfDocument, offset: displayRange.location),
 			end = positionFromPosition(start, offset: displayRange.length),
 			textRange = textRangeFromPosition(start, toPosition: end)
@@ -127,7 +132,7 @@ class CanvasTextView: InsertionPointTextView {
 		return firstRectForRange(textRange)
 	}
 
-	internal func firstRectForNode(node: Node) -> CGRect? {
+	func firstRectForNode(node: Node) -> CGRect? {
 		return firstRectForBackingRange(node.contentRange)
 	}
 }

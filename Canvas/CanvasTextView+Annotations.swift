@@ -17,6 +17,15 @@ extension CanvasTextView {
 
 		lineNumber = 1
 
+		let top = textContainerInset.top
+
+		iconView.frame = CGRect(
+			x: textContainer.lineFragmentPadding + textContainerInset.left,
+			y: top + 14, // TODO: Get from line height
+			width: 24,
+			height: 24
+		)
+
 		// Placeholder
 		if text.isEmpty {
 			addSubview(placeholderLabel)
@@ -25,8 +34,8 @@ extension CanvasTextView {
 			placeholderLabel.sizeToFit()
 
 			var frame = placeholderLabel.frame
-			frame.origin.x = textContainer.lineFragmentPadding + textContainerInset.left
-			frame.origin.y = textContainerInset.top
+			frame.origin.x = iconView.frame.maxX + 8
+			frame.origin.y = top
 
 			placeholderLabel.frame = frame
 			return
@@ -38,12 +47,12 @@ extension CanvasTextView {
 			becomeFirstResponder()
 		}
 
-		guard let textStorage = textStorage as? CanvasTextStorage else { return }
-
 		// Make sure the layout is ready since we calculate annotations based off of that
 		layoutManager.ensureLayoutForTextContainer(textContainer)
 
 		var orderedIndentationCounts = [Indentation: UInt]()
+
+		guard let textStorage = textStorage as? CanvasTextStorage else { return }
 
 		let count = textStorage.nodes.count
 		for (i, node) in textStorage.nodes.enumerate() {

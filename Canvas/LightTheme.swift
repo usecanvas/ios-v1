@@ -16,6 +16,7 @@ struct LightTheme: Theme {
 	let fontSize: CGFloat = 18
 	let backgroundColor = UIColor(white: 1, alpha: 1)
 	let foregroundColor = UIColor(white: 0.133, alpha: 1)
+	let placeholderColor = Color.gray
 
 	let lineHeightMultiple: CGFloat = 1.2
 	
@@ -66,13 +67,17 @@ struct LightTheme: Theme {
 	}
 
 	func attributesForNode(node: Node, nextSibling: Node? = nil, horizontalSizeClass: UserInterfaceSizeClass) -> Attributes {
-		if node is Title {
-			return titleAttributes
-		}
-
 		let paragraph = baseParagraph
 
-		var attributes = [String: AnyObject]()
+		if node is Title {
+			var attributes = titleAttributes
+			paragraph.firstLineHeadIndent = 32
+			paragraph.headIndent = 32
+			attributes[NSParagraphStyleAttributeName] = paragraph
+			return attributes
+		}
+
+		var attributes = Attributes()
 
 		if let heading = node as? Heading {
 			switch heading.level {
