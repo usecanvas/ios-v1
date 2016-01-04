@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		210566EF1C3B1DBC00F4387A /* ISO8601.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210566EB1C3B1DBC00F4387A /* ISO8601.framework */; };
+		210566F11C3B1DBC00F4387A /* SSKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210566ED1C3B1DBC00F4387A /* SSKeychain.framework */; };
 		210960C51C08DE9600EB8F84 /* SelectedCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960C41C08DE9600EB8F84 /* SelectedCollectionCell.swift */; };
 		210960C71C08F01800EB8F84 /* SelectedCanvasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960C61C08F01800EB8F84 /* SelectedCanvasCell.swift */; };
 		210960C91C08F25000EB8F84 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960C81C08F24F00EB8F84 /* AlertController.swift */; };
@@ -57,10 +59,7 @@
 		21C0F36D1C1B81F700328E36 /* CanvasTextView+Annotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C0F36C1C1B81F700328E36 /* CanvasTextView+Annotations.swift */; };
 		21C576951C19002A0015B8A5 /* CanvasesResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C576941C19002A0015B8A5 /* CanvasesResultsViewController.swift */; };
 		21D2B1981C0D0AED003652B7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21D2B1971C0D0AED003652B7 /* Settings.bundle */; };
-		21E48B011C0447AC00C9F6AA /* ISO8601.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AE3F3D1C0423E300AE5DDC /* ISO8601.framework */; };
-		21E48B021C0447AC00C9F6AA /* Longhouse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AE3F3F1C0423E300AE5DDC /* Longhouse.framework */; };
 		21E48B031C0447AC00C9F6AA /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AE3F411C0423E300AE5DDC /* OnePasswordExtension.framework */; };
-		21E48B041C0447AC00C9F6AA /* SocketRocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AE3F431C0423E300AE5DDC /* SocketRocket.framework */; };
 		21E48B061C0447AC00C9F6AA /* Static.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AE3F461C0423E300AE5DDC /* Static.framework */; };
 		21F10F4E1BF138750035057D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F10F4D1BF138750035057D /* AppDelegate.swift */; };
 		21F10F501BF138750035057D /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F10F4F1BF138750035057D /* EditorViewController.swift */; };
@@ -162,6 +161,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		210566EB1C3B1DBC00F4387A /* ISO8601.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ISO8601.framework; path = Vendor/CanvasKit/Carthage/Build/iOS/ISO8601.framework; sourceTree = "<group>"; };
+		210566EC1C3B1DBC00F4387A /* ISO8601.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = ISO8601.framework.dSYM; path = Vendor/CanvasKit/Carthage/Build/iOS/ISO8601.framework.dSYM; sourceTree = "<group>"; };
+		210566ED1C3B1DBC00F4387A /* SSKeychain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SSKeychain.framework; path = Vendor/CanvasKit/Carthage/Build/iOS/SSKeychain.framework; sourceTree = "<group>"; };
+		210566EE1C3B1DBC00F4387A /* SSKeychain.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SSKeychain.framework.dSYM; path = Vendor/CanvasKit/Carthage/Build/iOS/SSKeychain.framework.dSYM; sourceTree = "<group>"; };
 		210960C41C08DE9600EB8F84 /* SelectedCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedCollectionCell.swift; sourceTree = "<group>"; };
 		210960C61C08F01800EB8F84 /* SelectedCanvasCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedCanvasCell.swift; sourceTree = "<group>"; };
 		210960C81C08F24F00EB8F84 /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
@@ -189,7 +192,6 @@
 		213791C41C1790E2000FACCC /* CanvasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasesViewController.swift; sourceTree = "<group>"; };
 		215642111C06B46E00685847 /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mixpanel.framework; path = Carthage/Build/iOS/Mixpanel.framework; sourceTree = "<group>"; };
 		215642121C06B46E00685847 /* Mixpanel.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Mixpanel.framework.dSYM; path = Carthage/Build/iOS/Mixpanel.framework.dSYM; sourceTree = "<group>"; };
-		215642131C06B46E00685847 /* SocketRocket.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SocketRocket.framework.dSYM; path = Carthage/Build/iOS/SocketRocket.framework.dSYM; sourceTree = "<group>"; };
 		2156421E1C06B4ED00685847 /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		215642211C06BBE600685847 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		215642281C06C40000685847 /* ImagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesController.swift; sourceTree = "<group>"; };
@@ -208,13 +210,8 @@
 		21A8FA5C1BFD33DB0097FCC6 /* ChromeActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChromeActivity.swift; sourceTree = "<group>"; };
 		21A8FA5E1BFD33EA0097FCC6 /* SafariActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafariActivity.swift; sourceTree = "<group>"; };
 		21A8FA621BFD3E0F0097FCC6 /* Canvas.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Canvas.entitlements; sourceTree = "<group>"; };
-		21AE3F3D1C0423E300AE5DDC /* ISO8601.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ISO8601.framework; path = Carthage/Build/iOS/ISO8601.framework; sourceTree = "<group>"; };
-		21AE3F3E1C0423E300AE5DDC /* ISO8601.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = ISO8601.framework.dSYM; path = Carthage/Build/iOS/ISO8601.framework.dSYM; sourceTree = "<group>"; };
-		21AE3F3F1C0423E300AE5DDC /* Longhouse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Longhouse.framework; path = Carthage/Build/iOS/Longhouse.framework; sourceTree = "<group>"; };
-		21AE3F401C0423E300AE5DDC /* Longhouse.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Longhouse.framework.dSYM; path = Carthage/Build/iOS/Longhouse.framework.dSYM; sourceTree = "<group>"; };
 		21AE3F411C0423E300AE5DDC /* OnePasswordExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OnePasswordExtension.framework; path = Carthage/Build/iOS/OnePasswordExtension.framework; sourceTree = "<group>"; };
 		21AE3F421C0423E300AE5DDC /* OnePasswordExtension.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = OnePasswordExtension.framework.dSYM; path = Carthage/Build/iOS/OnePasswordExtension.framework.dSYM; sourceTree = "<group>"; };
-		21AE3F431C0423E300AE5DDC /* SocketRocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketRocket.framework; path = Carthage/Build/iOS/SocketRocket.framework; sourceTree = "<group>"; };
 		21AE3F461C0423E300AE5DDC /* Static.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Static.framework; path = Carthage/Build/iOS/Static.framework; sourceTree = "<group>"; };
 		21AE3F471C0423E300AE5DDC /* Static.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Static.framework.dSYM; path = Carthage/Build/iOS/Static.framework.dSYM; sourceTree = "<group>"; };
 		21B742C71BFF991600FF293C /* NumberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberView.swift; sourceTree = "<group>"; };
@@ -245,17 +242,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				212404F91C233E4200BF0C91 /* CanvasKit.framework in Frameworks */,
+				210566EF1C3B1DBC00F4387A /* ISO8601.framework in Frameworks */,
 				212404FA1C233E4200BF0C91 /* CanvasText.framework in Frameworks */,
 				219334011C0FC5DD000A974B /* AlgoliaSearch.framework in Frameworks */,
 				213598081C1A22FC00200825 /* Camo.framework in Frameworks */,
 				219334011C0FC5DD000A974B /* AlgoliaSearch.framework in Frameworks */,
 				2135980C1C1A22FC00200825 /* Crypto.framework in Frameworks */,
 				2135980A1C1A22FC00200825 /* CommonCrypto.framework in Frameworks */,
-				21E48B011C0447AC00C9F6AA /* ISO8601.framework in Frameworks */,
 				215642151C06B46E00685847 /* Mixpanel.framework in Frameworks */,
-				21E48B021C0447AC00C9F6AA /* Longhouse.framework in Frameworks */,
 				21E48B031C0447AC00C9F6AA /* OnePasswordExtension.framework in Frameworks */,
-				21E48B041C0447AC00C9F6AA /* SocketRocket.framework in Frameworks */,
+				210566F11C3B1DBC00F4387A /* SSKeychain.framework in Frameworks */,
 				21E48B061C0447AC00C9F6AA /* Static.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,6 +366,10 @@
 		21AE3F391C0423CE00AE5DDC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				210566EB1C3B1DBC00F4387A /* ISO8601.framework */,
+				210566EC1C3B1DBC00F4387A /* ISO8601.framework.dSYM */,
+				210566ED1C3B1DBC00F4387A /* SSKeychain.framework */,
+				210566EE1C3B1DBC00F4387A /* SSKeychain.framework.dSYM */,
 				213598021C1A22FC00200825 /* Camo.framework */,
 				213598031C1A22FC00200825 /* Camo.framework.dSYM */,
 				213598041C1A22FC00200825 /* CommonCrypto.framework */,
@@ -378,16 +378,10 @@
 				213598071C1A22FC00200825 /* Crypto.framework.dSYM */,
 				219333FF1C0FC5DD000A974B /* AlgoliaSearch.framework */,
 				219334001C0FC5DD000A974B /* AlgoliaSearch.framework.dSYM */,
-				21AE3F3D1C0423E300AE5DDC /* ISO8601.framework */,
-				21AE3F3E1C0423E300AE5DDC /* ISO8601.framework.dSYM */,
-				21AE3F3F1C0423E300AE5DDC /* Longhouse.framework */,
-				21AE3F401C0423E300AE5DDC /* Longhouse.framework.dSYM */,
 				215642111C06B46E00685847 /* Mixpanel.framework */,
 				215642121C06B46E00685847 /* Mixpanel.framework.dSYM */,
 				21AE3F411C0423E300AE5DDC /* OnePasswordExtension.framework */,
 				21AE3F421C0423E300AE5DDC /* OnePasswordExtension.framework.dSYM */,
-				21AE3F431C0423E300AE5DDC /* SocketRocket.framework */,
-				215642131C06B46E00685847 /* SocketRocket.framework.dSYM */,
 				21AE3F461C0423E300AE5DDC /* Static.framework */,
 				21AE3F471C0423E300AE5DDC /* Static.framework.dSYM */,
 			);
@@ -672,10 +666,7 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/ISO8601.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Longhouse.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/OnePasswordExtension.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SocketRocket.framework",
 				"$(SRCROOT)/Vendor/CanvasKit/Carthage/Build/iOS/SSKeychain.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Static.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Mixpanel.framework",
@@ -683,6 +674,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Camo.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Crypto.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/CommonCrypto.framework",
+				"$(SRCROOT)/Vendor/CanvasKit/Carthage/Build/iOS/ISO8601.framework",
 			);
 			name = "Embed Carthage Frameworks";
 			outputPaths = (
@@ -885,6 +877,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Vendor/CanvasKit/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Canvas/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -906,6 +899,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Vendor/CanvasKit/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Canvas/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

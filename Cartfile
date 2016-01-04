@@ -1,5 +1,3 @@
-github "usecanvas/longhouse-swift"
-
 github "soffes/Camo"
 github "soffes/Mixpanel"
 github "venmo/Static"

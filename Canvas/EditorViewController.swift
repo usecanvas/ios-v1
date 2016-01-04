@@ -9,7 +9,6 @@
 import UIKit
 import CanvasKit
 import CanvasText
-import Longhouse
 
 class EditorViewController: UIViewController, Accountable {
 	
@@ -22,7 +21,6 @@ class EditorViewController: UIViewController, Accountable {
 
 	let textStorage = CanvasTextStorage(theme: LightTheme())
 	private let textView: CanvasTextView
-	private let longhouse = Longhouse(serverURL: longhouseURL)
 	private let presenceBarButtonItem = UIBarButtonItem(title: " ", style: .Plain, target: nil, action: nil)
 
 
@@ -39,8 +37,6 @@ class EditorViewController: UIViewController, Accountable {
 		super.init(nibName: nil, bundle: nil)
 
 		textStorage.selectionDelegate = self
-
-		longhouse.delegate = self
 
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillChangeFrame:", name: UIKeyboardWillChangeFrameNotification, object: nil)
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: "updatePreventSleep", name: NSUserDefaultsDidChangeNotification, object: nil)
@@ -192,16 +188,5 @@ extension EditorViewController: UITextViewDelegate {
 	func textViewDidChangeSelection(textView: UITextView) {
 //		self.textView.hijack()
 		textStorage.backingSelection = textStorage.displayRangeToBackingRange(textView.selectedRange)
-	}
-}
-
-
-extension EditorViewController: LonghouseDelegate {
-	func longhouse(longhouse: Longhouse, didConnectWithID ID: String) {}
-	func longhouse(longhouse: Longhouse, failedToConnectWithError error: ErrorType) {}
-	func longhouse(longhouse: Longhouse, didReceiveEvent event: Event, withClient client: Client) {}
-
-	func longhouseDidUpdateConnectedClients(longhouse: Longhouse) {
-		presenceBarButtonItem.title = "\(longhouse.connectedClients.count)"
 	}
 }
