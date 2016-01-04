@@ -91,7 +91,6 @@ class SearchController: NSObject {
 			dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
 
 			guard let credential = self?.searchCredential,
-				organizationID = self?.organization.ID,
 				text = self?.nextQuery
 			else {
 				dispatch_semaphore_signal(semaphore)
@@ -108,9 +107,6 @@ class SearchController: NSObject {
 
 			// Construct query
 			let query = Query(query: text)
-			query.facetFilters = [
-				"organization_id:\(organizationID)"
-			]
 
 			// Search index
 			dispatch_async(dispatch_get_main_queue()) {
