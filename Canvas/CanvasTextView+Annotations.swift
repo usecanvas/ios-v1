@@ -9,6 +9,20 @@
 import UIKit
 import CanvasText
 
+private let keywordMap = [
+	"workbench": "brush",
+	"planning": "event",
+	"discussion": "forum",
+	"meeting": "forum",
+	"okr": "insert_chart",
+	"okrs": "insert_chart",
+	"investor": "insert_chart",
+	"todo": "list",
+	"checklist": "list",
+	"mockup": "photo",
+	"log": "receipt"
+]
+
 extension CanvasTextView {
 	func updateAnnotations() {
 		editable = true
@@ -25,6 +39,7 @@ extension CanvasTextView {
 			width: 24,
 			height: 24
 		)
+		iconView.image = UIImage(named: "description")
 
 		// Placeholder
 		if text.isEmpty {
@@ -56,6 +71,15 @@ extension CanvasTextView {
 
 		let count = textStorage.nodes.count
 		for (i, node) in textStorage.nodes.enumerate() {
+			if node is Title {
+				for word in node.contentInString(textStorage.backingText).componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) {
+					if let imageName = keywordMap[word.lowercaseString] {
+						iconView.image = UIImage(named: imageName)
+						break
+					}
+				}
+			}
+
 			let next: Node?
 			if i < count - 1 {
 				next = textStorage.nodes[i + 1]
