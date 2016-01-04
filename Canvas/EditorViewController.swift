@@ -143,6 +143,15 @@ class EditorViewController: UIViewController, Accountable {
 		guard let URL = NSURL(string: "https://usecanvas.com/\(canvas.organizationID)/-/\(canvas.shortID)") else { return }
 		let activities = [SafariActivity(), ChromeActivity()]
 		let viewController = UIActivityViewController(activityItems: [URL], applicationActivities: activities)
+
+		if let popover = viewController.popoverPresentationController {
+			if let button = sender as? UIBarButtonItem {
+				popover.barButtonItem = button
+			} else {
+				popover.sourceView = view
+			}
+		}
+
 		presentViewController(viewController, animated: true, completion: nil)
 	}
 
