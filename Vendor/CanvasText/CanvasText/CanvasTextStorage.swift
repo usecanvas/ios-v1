@@ -107,9 +107,9 @@ public class CanvasTextStorage: ShadowTextStorage {
 		super.replaceBackingCharactersInRange(backingRange, withString: replacement)
 
 		// Update the selection if we messed with things
-		if backingRange != range || replacement != str {
-			backingSelection = NSRange(location: backingRange.location, length: 0)
-		}
+//		if backingRange != range || replacement != str {
+//			backingSelection = NSRange(location: backingRange.location, length: 0)
+//		}
 
 		// Ensure transport controller is available
 		guard let transportController = transportController else {
