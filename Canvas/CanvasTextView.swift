@@ -149,7 +149,6 @@ class CanvasTextView: InsertionPointTextView {
 			let sizeClass = traitCollection.horizontalSizeClass
 			typingAttributes = textStorage.theme.attributesForNode(node, nextSibling: nil, horizontalSizeClass: sizeClass)
 		} else {
-			print("Setting base typingAttributes")
 			typingAttributes = textStorage.theme.baseAttributes
 		}
 	}
