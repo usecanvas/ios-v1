@@ -108,7 +108,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 		// Update the selection if we messed with things
 		if backingRange != range || replacement != str {
-			backingSelection = NSRange(location: backingRange.max, length: 0)
+			backingSelection = NSRange(location: backingRange.location, length: 0)
 		}
 
 		// Ensure transport controller is available

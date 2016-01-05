@@ -86,6 +86,10 @@ public class ShadowTextStorage: NSTextStorage {
 	}
 
 	public override func setAttributes(attrs: [String : AnyObject]?, range: NSRange) {
+		if range.max > (string as NSString).length {
+			print("WARNING: Skipping applying invalid attribute.")
+			return
+		}
 		storage.setAttributes(attrs, range: range)
 	}
 
