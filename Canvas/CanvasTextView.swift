@@ -135,25 +135,37 @@ class CanvasTextView: InsertionPointTextView {
 	func firstRectForNode(node: Node) -> CGRect? {
 		return firstRectForBackingRange(node.contentRange)
 	}
+
+
+	// MARK: - Private
+
+	private func didUpdateNodes() {
+		updateAnnotations()
+
+		guard let textStorage = textStorage as? CanvasTextStorage else { return }
+
+		if let node = textStorage.firstNodeInDisplayRange(selectedRange) {
+			// TODO: Next sibling
+			let sizeClass = traitCollection.horizontalSizeClass
+			typingAttributes = textStorage.theme.attributesForNode(node, nextSibling: nil, horizontalSizeClass: sizeClass)
+		} else {
+			print("Setting base typingAttributes")
+			typingAttributes = textStorage.theme.baseAttributes
+		}
+	}
 }
 
 
 extension CanvasTextView: CanvasTextStorageDelegate {
 	func textStorageWillUpdateNodes(textStorage: CanvasTextStorage) {
-//		// Set typingAttributes based on the current node
-//		if let node = textStorage.firstNodeInDisplayRange(selectedRange) {
-//			// TODO: Next sibling
-//			dispatch_async(dispatch_get_main_queue()) { [weak self] in
-//				guard let sizeClass = self?.traitCollection.horizontalSizeClass else { return }
-//				self?.typingAttributes = textStorage.theme.attributesForNode(node, nextSibling: nil, horizontalSizeClass: sizeClass)
-//			}
-//		}
+		removeAnnotations()
 	}
 	
 	func textStorageDidUpdateNodes(textStorage: CanvasTextStorage) {
 		setNeedsDisplay()
+
 		dispatch_async(dispatch_get_main_queue()) { [weak self] in
-			self?.updateAnnotations()
+			self?.didUpdateNodes()
 		}
 	}
 
