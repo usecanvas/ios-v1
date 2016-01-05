@@ -31,11 +31,11 @@ extension CanvasTextView {
 
 		lineNumber = 1
 
-		let top = textContainerInset.top
+		let origin = CGPoint(x: textContainer.lineFragmentPadding + textContainerInset.left, y: textContainerInset.top)
 
 		iconView.frame = CGRect(
-			x: textContainer.lineFragmentPadding + textContainerInset.left,
-			y: top + 14, // TODO: Get from line height
+			x: origin.x,
+			y: origin.y + 14, // TODO: Get from line height
 			width: 24,
 			height: 24
 		)
@@ -49,8 +49,10 @@ extension CanvasTextView {
 			placeholderLabel.sizeToFit()
 
 			var frame = placeholderLabel.frame
-			frame.origin.x = iconView.frame.maxX + 8
-			frame.origin.y = top
+			frame.origin = origin
+
+			// TODO: Properly size to fit
+			frame.size.width = bounds.size.width
 
 			placeholderLabel.frame = frame
 			return
