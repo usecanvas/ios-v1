@@ -22,6 +22,7 @@ class EditorViewController: UIViewController, Accountable {
 	let textStorage = CanvasTextStorage(theme: LightTheme())
 	private let textView: CanvasTextView
 	private let presenceBarButtonItem = UIBarButtonItem(title: " ", style: .Plain, target: nil, action: nil)
+	private var ignoreSelectionChange = false
 
 
 	// MARK: - Initializers
@@ -177,14 +178,26 @@ class EditorViewController: UIViewController, Accountable {
 
 extension EditorViewController: ShadowTextStorageSelectionDelegate {
 	func textStorageDidUpdateSelection(textStorage: ShadowTextStorage) {
-		if textView.selectedRange != textStorage.displaySelection {
-			textView.selectedRange = textStorage.displaySelection
+		if ignoreSelectionChange {
+			ignoreSelectionChange = false
+			return
 		}
+
+		if textView.selectedRange == textStorage.displaySelection {
+			return
+		}
+
+		textView.selectedRange = textStorage.displaySelection
 	}
 }
 
 
 extension EditorViewController: UITextViewDelegate {
+	func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+		ignoreSelectionChange = true
+		return true
+	}
+	
 	func textViewDidChangeSelection(textView: UITextView) {
 //		self.textView.hijack()
 		textStorage.backingSelection = textStorage.displayRangeToBackingRange(textView.selectedRange)

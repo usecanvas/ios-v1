@@ -72,6 +72,8 @@ public class CanvasTextStorage: ShadowTextStorage {
 				
 				displayRange = displayRange.union(lineRange)
 			}
+
+			// TODO: Check for deleting the new line immediately after an attachment.
 		}
 
 		super.replaceCharactersInRange(displayRange, withString: str)
@@ -102,14 +104,13 @@ public class CanvasTextStorage: ShadowTextStorage {
 			}
 		}
 
-
 		// Replace backing text
 		super.replaceBackingCharactersInRange(backingRange, withString: replacement)
 
 		// Update the selection if we messed with things
-//		if backingRange != range || replacement != str {
-//			backingSelection = NSRange(location: backingRange.location, length: 0)
-//		}
+		if backingRange != range || replacement != str {
+			backingSelection = NSRange(location: backingRange.max, length: 0)
+		}
 
 		// Ensure transport controller is available
 		guard let transportController = transportController else {
