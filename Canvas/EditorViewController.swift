@@ -103,8 +103,7 @@ class EditorViewController: UIViewController, Accountable {
 
 		let maxWidth = textStorage.theme.fontSize * 36
 
-		// The target minimum padding is 16. For some reason, there is an extra 10 on each side already.
-		let padding = max(11, (textView.bounds.width - maxWidth) / 2)
+		let padding = max(16 - textView.textContainer.lineFragmentPadding, (textView.bounds.width - maxWidth) / 2)
 		textView.textContainerInset = UIEdgeInsets(top: 16, left: padding, bottom: 32, right: padding)
 	}
 

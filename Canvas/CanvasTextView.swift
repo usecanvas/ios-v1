@@ -26,6 +26,8 @@ class CanvasTextView: InsertionPointTextView {
 	init(textStorage: NSTextStorage) {
 		let layoutManager = NSLayoutManager()
 		let container = NSTextContainer()
+		container.lineFragmentPadding = 0
+		
 		layoutManager.addTextContainer(container)
 		textStorage.addLayoutManager(layoutManager)
 

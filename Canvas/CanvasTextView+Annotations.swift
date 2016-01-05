@@ -131,6 +131,8 @@ extension CanvasTextView {
 		guard var rect = firstRectForNode(node) else { return nil }
 
 		let theme = textStorage.theme
+
+		// TODO: Use the font for the given node
 		let font = theme.fontOfSize(theme.fontSize, style: [])
 
 		// Unordered List
@@ -138,7 +140,7 @@ extension CanvasTextView {
 			let view = BulletView(frame: .zero, unorderedList: node)
 			let size = view.intrinsicContentSize()
 
-			rect.origin.x -= theme.listIndentation - (size.width / 2)
+			rect.origin.x = floor(rect.origin.x - theme.listIndentation + (size.width / 2))
 			rect.origin.y = floor(rect.origin.y + font.ascender - (size.height / 2))
 			rect.size = size
 			view.frame = rect
@@ -157,7 +159,7 @@ extension CanvasTextView {
 			let numberBaseline = size.height + view.font!.descender
 			let scale = window!.screen.scale
 
-			rect.origin.x -= size.width + 4
+			rect.origin.x = floor(rect.origin.x - size.width - 4)
 			rect.origin.y = ceil((baseline - numberBaseline) * scale) / scale
 			rect.size = size
 			view.frame = rect
