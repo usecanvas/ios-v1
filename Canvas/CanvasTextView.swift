@@ -144,13 +144,37 @@ class CanvasTextView: InsertionPointTextView {
 
 		guard let textStorage = textStorage as? CanvasTextStorage else { return }
 
+		// Set the typing attributes for the current node if there is one
 		if let node = textStorage.firstNodeInDisplayRange(selectedRange) {
 			// TODO: Next sibling
 			let sizeClass = traitCollection.horizontalSizeClass
 			typingAttributes = textStorage.theme.attributesForNode(node, nextSibling: nil, horizontalSizeClass: sizeClass)
-		} else {
-			typingAttributes = textStorage.theme.baseAttributes
+			return
 		}
+
+		// Title attributes if in the first line
+		if textStorage.string.isEmpty {
+			typingAttributes = textStorage.theme.titleAttributes
+			return
+		}
+
+		// Title attributes if the range is on the first line
+		let string = textStorage.string as NSString
+		var shouldReturn = false
+		string.enumerateSubstringsInRange(NSRange(location: 0, length: selectedRange.max), options: [.ByLines]) { _, range, _, stop in
+			if self.selectedRange.location <= range.max {
+				self.typingAttributes = textStorage.theme.titleAttributes
+				shouldReturn = true
+			}
+			stop.memory = true
+		}
+
+		if shouldReturn {
+			return
+		}
+
+		// Fallback to base attributes
+		typingAttributes = textStorage.theme.baseAttributes
 	}
 }
 
