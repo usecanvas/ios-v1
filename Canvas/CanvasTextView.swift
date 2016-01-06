@@ -117,7 +117,7 @@ class CanvasTextView: InsertionPointTextView {
 			length: offsetFromPosition(textRange.start, toPosition: textRange.end)
 		)
 
-		return textStorage.firstNodeInDisplayRange(range)
+		return textStorage.firstNodeInBackingRange(textStorage.displayRangeToBackingRange(range))
 	}
 
 	func firstRectForBackingRange(backingRange: NSRange) -> CGRect? {
@@ -147,12 +147,12 @@ class CanvasTextView: InsertionPointTextView {
 		guard let textStorage = textStorage as? CanvasTextStorage else { return }
 
 		// Set the typing attributes for the current node if there is one
-		if let node = textStorage.firstNodeInDisplayRange(selectedRange) {
-			// TODO: Next sibling
-			let sizeClass = traitCollection.horizontalSizeClass
-			typingAttributes = textStorage.theme.attributesForNode(node, nextSibling: nil, horizontalSizeClass: sizeClass)
-			return
-		}
+//		if let node = textStorage.firstNodeInBackingRange(textStorage.displayRangeToBackingRange(selectedRange)) {
+//			// TODO: Next sibling
+//			let sizeClass = traitCollection.horizontalSizeClass
+//			typingAttributes = textStorage.theme.attributesForNode(node, nextSibling: nil, horizontalSizeClass: sizeClass)
+//			return
+//		}
 
 		// Title attributes if in the first line
 		if textStorage.string.isEmpty {

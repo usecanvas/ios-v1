@@ -269,17 +269,6 @@ public class CanvasTextStorage: ShadowTextStorage {
 		return nil
 	}
 
-	public func firstNodeInDisplayRange(displayRange: NSRange) -> Node? {
-		for node in nodes {
-			let content = backingRangeToDisplayRange(node.contentRange)
-			if content.intersection(displayRange) != nil {
-				return node
-			}
-		}
-
-		return nil
-	}
-
 
 	// MARK: - Realtime
 
