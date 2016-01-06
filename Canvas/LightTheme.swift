@@ -77,7 +77,7 @@ struct LightTheme: Theme {
 			return titleAttributes
 		}
 
-		var attributes = Attributes()
+		var attributes = baseAttributes
 		let paragraph = baseParagraph
 
 		if let heading = node as? Heading {
