@@ -26,9 +26,4 @@ class OrganizationCell: UITableViewCell, CellType {
 	required init?(coder aDecoder: NSCoder) {
 	    fatalError("init(coder:) has not been implemented")
 	}
-
-	func configure(row row: Row) {
-		textLabel?.text = row.text?.capitalizedString
-		accessoryType = row.accessory.type
-	}
 }

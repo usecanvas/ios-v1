@@ -62,6 +62,9 @@ public class CanvasTextStorage: ShadowTextStorage {
 		var displayRange = range
 
 		if str.isEmpty {
+			// TODO: If at the end of a line and the next line has an attachment, delete the entire next line
+			// TODO: If at the beginning of a line and the previous line has an attachment, delete the entire previous line
+
 			// Delete the entire line of any attachments
 			enumerateAttribute(NSAttachmentAttributeName, inRange: range, options: []) { attachment, attachmentRange, _ in
 				guard attachment != nil else { return }
@@ -72,8 +75,6 @@ public class CanvasTextStorage: ShadowTextStorage {
 				
 				displayRange = displayRange.union(lineRange)
 			}
-
-			// TODO: Check for deleting the new line immediately after an attachment.
 		}
 
 		super.replaceCharactersInRange(displayRange, withString: str)

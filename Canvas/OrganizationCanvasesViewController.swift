@@ -33,11 +33,11 @@ class OrganizationCanvasesViewController: CanvasesViewController {
 
 		super.init(account: account)
 
-		title = organization.name.capitalizedString
+		title = organization.name
 
 		results.delegate = self
 
-		searchViewController.searchBar.placeholder = LocalizedString.SearchIn(organizationName: organization.displayName).string
+		searchViewController.searchBar.placeholder = LocalizedString.SearchIn(organizationName: organization.name).string
 		searchViewController.searchResultsUpdater = searchController
 
 		searchController.callback = { [weak self] canvases in
