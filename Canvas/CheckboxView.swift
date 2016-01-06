@@ -31,19 +31,21 @@ class CheckboxView: UIButton {
 	// MARK: - UIView
 
 	override func drawRect(rect: CGRect) {
+		let rect = checkboxRectForBounds(bounds)
+
 		if checklist.completion == .Complete {
 			Color.brand.setFill()
-			UIBezierPath(roundedRect: bounds, cornerRadius: 3).fill()
+			UIBezierPath(roundedRect: rect, cornerRadius: 3).fill()
 
 			if let checkmark = UIImage(named: "checkmark") {
 				Color.white.setFill()
-				checkmark.drawAtPoint(CGPoint(x: (bounds.width - checkmark.size.width) / 2, y: (bounds.height - checkmark.size.height) / 2))
+				checkmark.drawAtPoint(CGPoint(x: rect.origin.x + (rect.width - checkmark.size.width) / 2, y: (bounds.height - checkmark.size.height) / 2))
 			}
 			return
 		}
 
 		Color.gray.setStroke()
-		let path = UIBezierPath(roundedRect: CGRectInset(bounds, 1, 1), cornerRadius: 3)
+		let path = UIBezierPath(roundedRect: CGRectInset(rect, 1, 1), cornerRadius: 3)
 		path.lineWidth = 2
 		path.stroke()
 	}
@@ -53,6 +55,14 @@ class CheckboxView: UIButton {
 	}
 
 	override func intrinsicContentSize() -> CGSize {
-		return CGSize(width: 16, height: 16)
+		return CGSize(width: 28, height: 28)
+	}
+
+
+	// MARK: - Private
+
+	private func checkboxRectForBounds(bounds: CGRect) -> CGRect {
+		let size: CGFloat = 16
+		return CGRect(x: bounds.size.width - size, y: floor((bounds.size.height - size) / 2), width: size, height: size)
 	}
 }

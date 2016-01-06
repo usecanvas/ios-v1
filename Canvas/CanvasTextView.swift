@@ -189,10 +189,7 @@ extension CanvasTextView: CanvasTextStorageDelegate {
 	
 	func textStorageDidUpdateNodes(textStorage: CanvasTextStorage) {
 		setNeedsDisplay()
-
-		dispatch_async(dispatch_get_main_queue()) { [weak self] in
-			self?.didUpdateNodes()
-		}
+		didUpdateNodes()
 	}
 
 	func textStorage(textStorage: CanvasTextStorage, attachmentForAttachable node: Attachable) -> NSTextAttachment? {

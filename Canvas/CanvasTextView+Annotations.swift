@@ -172,7 +172,7 @@ extension CanvasTextView {
 			let view = CheckboxView(frame: .zero, checklist: node)
 			view.addTarget(self, action: "toggleCheckbox:", forControlEvents: .TouchUpInside)
 			let size = view.intrinsicContentSize()
-			rect.origin.x -= theme.listIndentation
+			rect.origin.x = floor(rect.origin.x - theme.listIndentation - size.width + 16)
 			rect.origin.y = floor(rect.origin.y + font.ascender - (size.height / 2))
 			rect.size = size
 			view.frame = rect
