@@ -24,6 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			}
 		}
 
+		application.shortcutItems = [
+			UIApplicationShortcutItem(type: "New", localizedTitle: "New Canvas", localizedSubtitle: "In Personal", icon: UIApplicationShortcutIcon(templateImageName: "New Canvas Shortcut"), userInfo: nil),
+			UIApplicationShortcutItem(type: "New", localizedTitle: "Search", localizedSubtitle: "In Personal", icon: UIApplicationShortcutIcon(type: .Search), userInfo: nil)
+		]
+
 		return true
 	}
 }
