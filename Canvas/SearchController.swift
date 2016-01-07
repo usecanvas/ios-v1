@@ -100,10 +100,10 @@ class SearchController: NSObject {
 			self?.nextQuery = nil
 
 			// Setup client
-			let search = Client(appID: credential.applicationID, apiKey: credential.searchKey)
+			let search = Client(appID: credential.applicationID, apiKey: credential.key)
 
 			// Get index
-			let index = search.getIndex("prod_canvases")
+			let index = search.getIndex(credential.index)
 
 			// Construct query
 			let query = Query(query: text)
