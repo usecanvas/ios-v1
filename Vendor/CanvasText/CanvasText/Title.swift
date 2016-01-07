@@ -6,7 +6,7 @@
 //  Copyright © 2015 Canvas Labs, Inc. All rights reserved.
 //
 
-public struct Title: Delimitable, Equatable {
+public struct Title: NativeDelimitable, Equatable {
 
 	// MARK: - Properties
 

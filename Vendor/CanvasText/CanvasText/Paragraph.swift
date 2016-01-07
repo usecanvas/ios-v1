@@ -8,12 +8,14 @@
 
 import Foundation
 
-public struct Paragraph: Node {
+public struct Paragraph: BlockNode, ContainerNode {
 
 	// MARK: - Properties
 
 	public var range: NSRange
 	public var contentRange: NSRange
+	public var subnodes: [Node]
+
 	public let allowsReturnCompletion = false
 
 
@@ -27,5 +29,7 @@ public struct Paragraph: Node {
 
 		range = enclosingRange
 		self.contentRange = enclosingRange
+
+		subnodes = parseSpanLevelNodes(string: string, enclosingRange: enclosingRange)
 	}
 }

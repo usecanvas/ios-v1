@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol Attachable: Delimitable {}
+public protocol Attachable: NativeDelimitable {}
 
 extension Attachable {
 	public var contentRange: NSRange {

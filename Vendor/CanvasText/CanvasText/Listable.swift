@@ -44,7 +44,7 @@ public enum Indentation: UInt {
 }
 
 
-public protocol Listable: Delimitable, Prefixable {
+public protocol Listable: NativeDelimitable, Prefixable {
 	var indentation: Indentation { get }
 	var indentationRange: NSRange { get }
 }

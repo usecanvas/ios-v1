@@ -33,7 +33,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 	private var transportController: TransportController?
 	private var loaded = false
 
-	public private(set) var nodes = [Node]()
+	public private(set) var nodes = [BlockNode]()
 
 	public var horizontalSizeClass: UserInterfaceSizeClass = .Unspecified
 
@@ -88,14 +88,14 @@ public class CanvasTextStorage: ShadowTextStorage {
 		var replacement = str
 
 		// Return completion
-		if replacement == "\n", let node = firstNodeInBackingRange(backingRange) where node.allowsReturnCompletion {
+		if replacement == "\n", let node = firstBlockNodeInBackingRange(backingRange) where node.allowsReturnCompletion {
 			// Bust out of completion
 			if node.contentRange.length == 0 {
 				backingRange = node.range
 				replacement = ""
 			} else {
 				// Complete the node
-				if let node = node as? Delimitable {
+				if let node = node as? NativeDelimitable {
 					replacement += (backingText as NSString).substringWithRange(node.delimiterRange)
 				}
 
@@ -145,7 +145,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 		let text = backingText as NSString
 
 		// We're going to rebuild `nodes` and `displayText` from the new `backingText`.
-		var nodes = [Node]()
+		var nodes = [BlockNode]()
 		var shadows = [Shadow]()
 
 		// Enumerate the string blocks of the `backingText`.
@@ -153,13 +153,13 @@ public class CanvasTextStorage: ShadowTextStorage {
 			// Ensure we have a substring to work with
 			guard let substring = substring else { return }
 
-			for type in nodeParseOrder {
+			for type in blockLevelParseOrder {
 				guard let node = type.init(string: substring, enclosingRange: substringRange) else { continue }
 
-				if let delimitable = node as? Delimitable, prefixable = node as? Prefixable {
+				if let delimitable = node as? NativeDelimitable, prefixable = node as? Prefixable {
 					shadows.append(Shadow(backingRange: delimitable.delimiterRange.union(prefixable.prefixRange)))
 				} else {
-					if let delimitable = node as? Delimitable {
+					if let delimitable = node as? NativeDelimitable {
 						shadows.append(Shadow(backingRange: delimitable.delimiterRange))
 					}
 
@@ -257,7 +257,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 	// MARK: - Accessing Nodes
 
-	public func firstNodeInBackingRange(backingRange: NSRange) -> Node? {
+	public func firstBlockNodeInBackingRange(backingRange: NSRange) -> BlockNode? {
 		for node in nodes {
 			var range = node.range
 			range.length += 1

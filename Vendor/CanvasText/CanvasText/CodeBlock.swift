@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct CodeBlock: Delimitable {
+public struct CodeBlock: NativeDelimitable {
 
 	// MARK: - Properties
 

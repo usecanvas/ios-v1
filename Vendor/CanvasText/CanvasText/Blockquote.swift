@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Blockquote: Delimitable, Prefixable {
+public struct Blockquote: NativeDelimitable, Prefixable {
 
 	// MARK: - Properties
 

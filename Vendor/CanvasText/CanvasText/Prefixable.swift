@@ -8,6 +8,6 @@
 
 import Foundation
 
-public protocol Prefixable: Node {
+public protocol Prefixable: BlockNode {
 	var prefixRange: NSRange { get }
 }

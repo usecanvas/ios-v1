@@ -1,5 +1,5 @@
 //
-//  Delimitable.swift
+//  NativeDelimitable.swift
 //  CanvasText
 //
 //  Created by Sam Soffes on 11/19/15.
@@ -11,7 +11,7 @@ import Foundation
 let leadingDelimiter = "⧙"
 let trailingDelimiter = "⧘"
 
-public protocol Delimitable: Node {
+public protocol NativeDelimitable: BlockNode {
 	var delimiterRange: NSRange { get }
 }
 

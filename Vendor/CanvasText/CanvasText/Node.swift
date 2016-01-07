@@ -10,15 +10,15 @@ import Foundation
 
 public protocol Node {
 
+	/// Range of the entire node
 	var range: NSRange { get }
+
+	/// Range of the text content
 	var contentRange: NSRange { get }
 
 	init?(string: String, enclosingRange: NSRange)
 
 	func contentInString(string: String) -> String
-
-	var hasAnnotation: Bool { get }
-	var allowsReturnCompletion: Bool { get }
 }
 
 
@@ -26,24 +26,4 @@ extension Node {
 	public func contentInString(string: String) -> String {
 		return (string as NSString).substringWithRange(contentRange)
 	}
-
-	public var hasAnnotation: Bool {
-		return false
-	}
-
-	public var allowsReturnCompletion: Bool {
-		return true
-	}
 }
-
-let nodeParseOrder: [Node.Type] = [
-	Blockquote.self,
-	Checklist.self,
-	CodeBlock.self,
-	Title.self,
-	Heading.self,
-	Image.self,
-	OrderedList.self,
-	UnorderedList.self,
-	Paragraph.self
-]
