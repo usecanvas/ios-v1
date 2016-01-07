@@ -136,7 +136,7 @@ class EditorViewController: UIViewController, Accountable {
 	}
 
 	func share(sender: AnyObject?) {
-		guard let URL = NSURL(string: "https://usecanvas.com/\(canvas.organizationID)/-/\(canvas.shortID)") else { return }
+		guard let URL = canvas.URL else { return }
 		let activities = [SafariActivity(), ChromeActivity()]
 		let viewController = UIActivityViewController(activityItems: [URL], applicationActivities: activities)
 
