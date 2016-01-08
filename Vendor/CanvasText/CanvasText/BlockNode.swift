@@ -9,6 +9,8 @@
 public protocol BlockNode: Node {
 	var hasAnnotation: Bool { get }
 	var allowsReturnCompletion: Bool { get }
+
+	init?(string: String, enclosingRange: NSRange)
 }
 
 

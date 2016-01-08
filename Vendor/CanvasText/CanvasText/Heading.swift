@@ -42,7 +42,7 @@ public struct Heading: NativePrefixable {
 
 	public var range: NSRange
 	public var nativePrefixRange: NSRange
-	public var contentRange: NSRange
+	public var displayRange: NSRange
 	public var level: Level
 	public let allowsReturnCompletion = false
 
@@ -69,7 +69,7 @@ public struct Heading: NativePrefixable {
 		nativePrefixRange = NSRange(location: enclosingRange.location, length: scanner.scanLocation)
 
 		// Content
-		contentRange = NSRange(location: enclosingRange.location + scanner.scanLocation, length: enclosingRange.length - scanner.scanLocation)
+		displayRange = NSRange(location: enclosingRange.location + scanner.scanLocation, length: enclosingRange.length - scanner.scanLocation)
 		range = enclosingRange
 	}
 

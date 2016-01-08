@@ -6,11 +6,10 @@
 //  Copyright © 2016 Canvas Labs, Inc. All rights reserved.
 //
 
-protocol ContainerNode: Node {
+public protocol ContainerNode: Node {
+	/// Range of text to parse inline elements
+	var textRange: NSRange { get }
+
+	/// Nodes for inline elements
 	var subnodes: [Node] { get set }
-}
-
-
-func parseSpanLevelNodes(string string: String, enclosingRange: NSRange) -> [Node] {
-	return []
 }

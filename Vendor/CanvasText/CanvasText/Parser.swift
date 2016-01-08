@@ -14,7 +14,7 @@ public struct Parser {
 
 	public let string: String
 
-	private let blockLevelParseOrder: [BlockNode.Type] = [
+	private let blockParseOrder: [BlockNode.Type] = [
 		Blockquote.self,
 		Checklist.self,
 		CodeBlock.self,
@@ -24,6 +24,19 @@ public struct Parser {
 		OrderedList.self,
 		UnorderedList.self,
 		Paragraph.self
+	]
+
+	private let spanParseOrder: [SpanNode.Type] = [
+//		CodeSpan.self,
+//		Link.self,
+//		ReferenceLink.self,
+		DoubleEmphasis.self,
+//		Emphasis.self
+	]
+
+	private let spanRegularExpressions: [String: NSRegularExpression] = [
+//		String(Emphasis.self): try! NSRegularExpression(pattern: "(?:\\s|^A)(\\*|_)(?=\\S)(.+?)(?<=\\S)(\\1)", options: []),
+		String(DoubleEmphasis.self): try! NSRegularExpression(pattern: "(?:\\s|^A)(\\*\\*|__)(?=\\S)(.+?[*_]*)(?<=\\S)(\\1)", options: [])
 	]
 
 
@@ -46,15 +59,16 @@ public struct Parser {
 			// Ensure we have a substring to work with
 			guard let substring = substring else { return }
 
-			for type in self.blockLevelParseOrder {
+			for type in self.blockParseOrder {
 				guard var node = type.init(string: substring, enclosingRange: substringRange) else { continue }
 
 				if let prefixable = node as? NativePrefixable {
 					shadows.append(Shadow(backingRange: prefixable.nativePrefixRange))
 				}
 
-				if let container = node as? ContainerNode {
-					node = self.parseInline(container) as! BlockNode
+				if var container = node as? ContainerNode {
+					container.subnodes = self.parseInline(container)
+					node = container as! BlockNode
 				}
 
 				nodes.append(node)
@@ -79,9 +93,39 @@ public struct Parser {
 	// MARK: - Private
 
 	/// Returns a new version of container node with the subnodes array filed out
-	private func parseInline(node: ContainerNode) -> ContainerNode {
+	private func parseInline(container: ContainerNode) -> [Node] {
+		var subnodes = [Node]()
 
-		// TODO: Implement
-		return node
+		func fillTo(location: Int) {
+			let lastLocation = subnodes.last?.range.max ?? container.textRange.location
+			if lastLocation < location {
+				subnodes.append(Text(range: NSRange(location: lastLocation, length: location - lastLocation)))
+			}
+		}
+
+		for type in spanParseOrder {
+			guard let regularExpression = spanRegularExpressions[String(type)] else { continue }
+
+			let matches = regularExpression.matchesInString(string, options: [], range: container.textRange)
+			if matches.count == 0 {
+				continue
+			}
+
+			for match in matches {
+				if var node = type.init(match: match) {
+					// Create a text node before if neccessary
+					fillTo(node.range.location)
+
+					// Recurse
+					node.subnodes = parseInline(node)
+					subnodes.append(node)
+				}
+			}
+		}
+
+		// Create a text node to the end if neccessary
+		fillTo(container.textRange.max)
+
+		return subnodes
 	}
 }

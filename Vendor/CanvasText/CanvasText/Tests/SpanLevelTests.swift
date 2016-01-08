@@ -15,11 +15,16 @@ class SpanLevelTests: XCTestCase {
 
 		let paragraph = Paragraph(range: NSRange(location: 0, length: 16), subnodes: [
 			Text(range: NSRange(location: 0, length: 6)),
-			DoubleEmphasis(range: NSRange(location: 0, length: 6), subnodes: [
-				Text(range: NSRange(location: 8, length: 5)),
-				]),
+			DoubleEmphasis(
+				leadingDelimiterRange: NSRange(location: 6, length: 2),
+				textRange: NSRange(location: 8, length: 5),
+				trailingDelimiterRange: NSRange(location: 13, length: 2),
+				subnodes: [
+					Text(range: NSRange(location: 8, length: 5))
+				]
+			),
 			Text(range: NSRange(location: 15, length: 1))
-			])
+		])
 
 		XCTAssertEqual([paragraph].map { $0.dictionary }, parse(markdown))
 	}

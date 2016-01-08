@@ -8,31 +8,60 @@
 
 import Foundation
 
-public struct DoubleEmphasis: ContainerNode {
+public struct DoubleEmphasis: SpanNode, Foldable, ContainerNode {
 
-	public var range: NSRange
+	// MARK: - Properties
 
-	public var contentRange: NSRange {
+	public var leadingDelimiterRange: NSRange
+	public var textRange: NSRange
+	public var trailingDelimiterRange: NSRange
+
+	public var range: NSRange {
+		return leadingDelimiterRange.union(textRange).union(trailingDelimiterRange)
+	}
+
+	public var displayRange: NSRange {
 		return range
+	}
+
+	public var foldableRanges: [NSRange] {
+		return [
+			leadingDelimiterRange,
+			trailingDelimiterRange
+		]
 	}
 
 	public var dictionary: [String: AnyObject] {
 		return [
 			"type": "double-emphasis",
 			"range": range.dictionary,
-			"contentRange": contentRange.dictionary,
+			"displayRange": displayRange.dictionary,
+			"leadingDelimiterRange": leadingDelimiterRange.dictionary,
+			"textRange": textRange.dictionary,
+			"trailingDelimiterRange": trailingDelimiterRange.dictionary,
 			"subnodes": subnodes.map { $0.dictionary }
 		]
 	}
 
-	public var subnodes: [Node]
+	public var subnodes = [Node]()
 
-	public init?(string: String, enclosingRange: NSRange) {
-		return nil
+
+	// MARK: - Initializers
+
+	public init(leadingDelimiterRange: NSRange, textRange: NSRange, trailingDelimiterRange: NSRange, subnodes: [Node] = []) {
+		self.leadingDelimiterRange = leadingDelimiterRange
+		self.textRange = textRange
+		self.trailingDelimiterRange = trailingDelimiterRange
+		self.subnodes = subnodes
 	}
 
-	public init(range: NSRange, subnodes: [Node]) {
-		self.range = range
-		self.subnodes = subnodes
+	public init?(match: NSTextCheckingResult) {
+		if match.numberOfRanges != 4 {
+			return nil
+		}
+
+		leadingDelimiterRange = match.rangeAtIndex(1)
+		textRange = match.rangeAtIndex(2)
+		trailingDelimiterRange = match.rangeAtIndex(3)
 	}
 }

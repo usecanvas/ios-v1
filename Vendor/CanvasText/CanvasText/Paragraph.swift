@@ -14,17 +14,21 @@ public struct Paragraph: BlockNode, ContainerNode {
 
 	public var range: NSRange
 
-	public var contentRange: NSRange {
+	public var displayRange: NSRange {
 		return range
 	}
 
-	public var subnodes: [Node]
+	public var textRange: NSRange {
+		return range
+	}
+
+	public var subnodes = [Node]()
 
 	public var dictionary: [String: AnyObject] {
 		return [
 			"type": "paragraph",
 			"range": range.dictionary,
-			"contentRange": contentRange.dictionary,
+			"displayRange": displayRange.dictionary,
 			"subnodes": subnodes.map { $0.dictionary }
 		]
 	}
@@ -41,7 +45,6 @@ public struct Paragraph: BlockNode, ContainerNode {
 		}
 
 		range = enclosingRange
-		subnodes = parseSpanLevelNodes(string: string, enclosingRange: enclosingRange)
 	}
 
 	public init(range: NSRange, subnodes: [Node]) {

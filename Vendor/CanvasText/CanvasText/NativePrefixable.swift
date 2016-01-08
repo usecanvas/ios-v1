@@ -16,7 +16,7 @@ public protocol NativePrefixable: BlockNode {
 }
 
 
-func parseBlockNode(string string: String, enclosingRange: NSRange, delimiter: String, prefix: String) -> (nativePrefixRange: NSRange, prefixRange: NSRange, contentRange: NSRange)? {
+func parseBlockNode(string string: String, enclosingRange: NSRange, delimiter: String, prefix: String) -> (nativePrefixRange: NSRange, prefixRange: NSRange, displayRange: NSRange)? {
 	let scanner = NSScanner(string: string)
 	scanner.charactersToBeSkipped = nil
 
@@ -34,13 +34,13 @@ func parseBlockNode(string string: String, enclosingRange: NSRange, delimiter: S
 	let prefixRange = NSRange(location: enclosingRange.location + startPrefix, length: scanner.scanLocation - startPrefix)
 
 	// Content
-	let contentRange = NSRange(location: enclosingRange.location + scanner.scanLocation, length: enclosingRange.length - scanner.scanLocation)
+	let displayRange = NSRange(location: enclosingRange.location + scanner.scanLocation, length: enclosingRange.length - scanner.scanLocation)
 
-	return (nativePrefixRange, prefixRange, contentRange)
+	return (nativePrefixRange, prefixRange, displayRange)
 }
 
 
-func parseBlockNode(string string: String, enclosingRange: NSRange, delimiter: String) -> (nativePrefixRange: NSRange, contentRange: NSRange)? {
+func parseBlockNode(string string: String, enclosingRange: NSRange, delimiter: String) -> (nativePrefixRange: NSRange, displayRange: NSRange)? {
 	let scanner = NSScanner(string: string)
 	scanner.charactersToBeSkipped = nil
 
@@ -51,7 +51,7 @@ func parseBlockNode(string string: String, enclosingRange: NSRange, delimiter: S
 	let nativePrefixRange = NSRange(location: enclosingRange.location, length: scanner.scanLocation)
 
 	// Content
-	let contentRange = NSRange(location: enclosingRange.location + scanner.scanLocation, length: enclosingRange.length - scanner.scanLocation)
+	let displayRange = NSRange(location: enclosingRange.location + scanner.scanLocation, length: enclosingRange.length - scanner.scanLocation)
 
-	return (nativePrefixRange, contentRange)
+	return (nativePrefixRange, displayRange)
 }

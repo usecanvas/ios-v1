@@ -33,7 +33,7 @@ public struct Checklist: Listable {
 
 	public var range: NSRange
 	public var nativePrefixRange: NSRange
-	public var contentRange: NSRange
+	public var displayRange: NSRange
 	public var indentationRange: NSRange
 	public var indentation: Indentation
 	public var completedRange: NSRange
@@ -103,7 +103,7 @@ public struct Checklist: Listable {
 
 		// Content
 		self.completedRange = completedRange
-		contentRange = NSRange(location: enclosingRange.location + scanner.scanLocation, length: enclosingRange.length - scanner.scanLocation)
+		displayRange = NSRange(location: enclosingRange.location + scanner.scanLocation, length: enclosingRange.length - scanner.scanLocation)
 
 		range = enclosingRange
 	}

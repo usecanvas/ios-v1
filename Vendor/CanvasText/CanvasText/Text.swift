@@ -12,7 +12,7 @@ public struct Text: Node {
 
 	public var range: NSRange
 
-	public var contentRange: NSRange {
+	public var displayRange: NSRange {
 		return range
 	}
 
@@ -20,7 +20,7 @@ public struct Text: Node {
 		return [
 			"type": "text",
 			"range": range.dictionary,
-			"contentRange": contentRange.dictionary
+			"displayRange": displayRange.dictionary
 		]
 	}
 

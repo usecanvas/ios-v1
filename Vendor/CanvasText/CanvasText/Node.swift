@@ -14,12 +14,10 @@ public protocol Node {
 	var range: NSRange { get }
 
 	/// Range of the node in the display text
-	var contentRange: NSRange { get }
+	var displayRange: NSRange { get }
 
 	/// Dictionary representation
 	var dictionary: [String: AnyObject] { get }
-
-	init?(string: String, enclosingRange: NSRange)
 
 	func contentInString(string: String) -> String
 }
@@ -27,7 +25,7 @@ public protocol Node {
 
 extension Node {
 	public func contentInString(string: String) -> String {
-		return (string as NSString).substringWithRange(contentRange)
+		return (string as NSString).substringWithRange(displayRange)
 	}
 
 	// TODO: Remove this

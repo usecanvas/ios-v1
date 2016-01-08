@@ -14,7 +14,7 @@ public struct CodeBlock: NativePrefixable {
 
 	public var range: NSRange
 	public var nativePrefixRange: NSRange
-	public var contentRange: NSRange
+	public var displayRange: NSRange
 
 	public let hasAnnotation = true
 
@@ -22,10 +22,10 @@ public struct CodeBlock: NativePrefixable {
 	// MARK: - Initializers
 
 	public init?(string: String, enclosingRange: NSRange) {
-		guard let (nativePrefixRange, contentRange) = parseBlockNode(string: string, enclosingRange: enclosingRange, delimiter: "code") else { return nil }
+		guard let (nativePrefixRange, displayRange) = parseBlockNode(string: string, enclosingRange: enclosingRange, delimiter: "code") else { return nil }
 
 		range = enclosingRange
 		self.nativePrefixRange = nativePrefixRange
-		self.contentRange = contentRange
+		self.displayRange = displayRange
 	}
 }

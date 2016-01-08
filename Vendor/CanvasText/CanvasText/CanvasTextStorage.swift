@@ -90,7 +90,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 		// Return completion
 		if replacement == "\n", let node = firstBlockNodeInBackingRange(backingRange) where node.allowsReturnCompletion {
 			// Bust out of completion
-			if node.contentRange.length == 0 {
+			if node.displayRange.length == 0 {
 				backingRange = node.range
 				replacement = ""
 			} else {
@@ -159,7 +159,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 				next = nil
 			}
 
-			let originalRange = backingRangeToDisplayRange(node.contentRange)
+			let originalRange = backingRangeToDisplayRange(node.displayRange)
 			var range = originalRange
 
 			// Extend the range to include the trailing new line if present
