@@ -72,7 +72,7 @@ public struct Checklist: Listable {
 			return nil
 		}
 
-		var nativePrefixRange = NSRange(location: enclosingRange.location, length: scanner.scanLocation)
+		let nativePrefixRange = NSRange(location: enclosingRange.location, length: scanner.scanLocation)
 
 
 		// Prefix
