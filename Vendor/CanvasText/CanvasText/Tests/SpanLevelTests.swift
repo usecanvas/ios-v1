@@ -13,6 +13,44 @@ class SpanLevelTests: XCTestCase {
 
 	// MARK: - Tests
 
+	func testCodeSpan1() {
+		let markdown = "Hello `world`."
+
+		let paragraph = Paragraph(range: NSRange(location: 0, length: 14), subnodes: [
+			Text(range: NSRange(location: 0, length: 6)),
+			CodeSpan(
+				leadingDelimiterRange: NSRange(location: 6, length: 1),
+				textRange: NSRange(location: 7, length: 5),
+				trailingDelimiterRange: NSRange(location: 12, length: 1),
+				subnodes: [
+					Text(range: NSRange(location: 7, length: 5))
+				]
+			),
+			Text(range: NSRange(location: 13, length: 1))
+		])
+
+		XCTAssertEqual([paragraph].map { $0.dictionary }, parse(markdown))
+	}
+
+	func testCodeSpan2() {
+		let markdown = "Hello ``world``."
+
+		let paragraph = Paragraph(range: NSRange(location: 0, length: 16), subnodes: [
+			Text(range: NSRange(location: 0, length: 6)),
+			CodeSpan(
+				leadingDelimiterRange: NSRange(location: 6, length: 2),
+				textRange: NSRange(location: 8, length: 5),
+				trailingDelimiterRange: NSRange(location: 13, length: 2),
+				subnodes: [
+					Text(range: NSRange(location: 8, length: 5))
+				]
+			),
+			Text(range: NSRange(location: 15, length: 1))
+		])
+
+		XCTAssertEqual([paragraph].map { $0.dictionary }, parse(markdown))
+	}
+
 	func testDoubleEmphasis() {
 		let markdown = "Hello **world**."
 

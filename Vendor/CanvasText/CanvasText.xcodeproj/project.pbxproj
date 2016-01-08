@@ -57,6 +57,8 @@
 		21654ACA1C406C1D003EE9E2 /* SpanNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21654AC81C406C1D003EE9E2 /* SpanNode.swift */; };
 		21654ACC1C407E67003EE9E2 /* Emphasis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21654ACB1C407E67003EE9E2 /* Emphasis.swift */; };
 		21654ACD1C407E67003EE9E2 /* Emphasis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21654ACB1C407E67003EE9E2 /* Emphasis.swift */; };
+		21654ACF1C4083F9003EE9E2 /* CodeSpan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21654ACE1C4083F9003EE9E2 /* CodeSpan.swift */; };
+		21654AD01C4083F9003EE9E2 /* CodeSpan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21654ACE1C4083F9003EE9E2 /* CodeSpan.swift */; };
 		219DAC8F1C0F93CD00F39A6F /* rollbar.js in Resources */ = {isa = PBXBuildFile; fileRef = 219DAC8E1C0F93CD00F39A6F /* rollbar.js */; };
 		219DAC901C0F93D400F39A6F /* rollbar.js in Resources */ = {isa = PBXBuildFile; fileRef = 219DAC8E1C0F93CD00F39A6F /* rollbar.js */; };
 		21A8F9FB1BFCF4BD0097FCC6 /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A8F9F01BFCF4BD0097FCC6 /* CanvasText.framework */; };
@@ -140,6 +142,7 @@
 		21654AC51C406525003EE9E2 /* Foldable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Foldable.swift; sourceTree = "<group>"; };
 		21654AC81C406C1D003EE9E2 /* SpanNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpanNode.swift; sourceTree = "<group>"; };
 		21654ACB1C407E67003EE9E2 /* Emphasis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emphasis.swift; sourceTree = "<group>"; };
+		21654ACE1C4083F9003EE9E2 /* CodeSpan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeSpan.swift; sourceTree = "<group>"; };
 		219DAC8E1C0F93CD00F39A6F /* rollbar.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = rollbar.js; sourceTree = "<group>"; };
 		21A8F9F01BFCF4BD0097FCC6 /* CanvasText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CanvasText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A8F9FA1BFCF4BD0097FCC6 /* CanvasTextTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CanvasTextTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -234,6 +237,7 @@
 		212064A71C3DEF9500F6B5D0 /* Span-level */ = {
 			isa = PBXGroup;
 			children = (
+				21654ACE1C4083F9003EE9E2 /* CodeSpan.swift */,
 				21AF32DE1C3F2233005202A3 /* DoubleEmphasis.swift */,
 				21654ACB1C407E67003EE9E2 /* Emphasis.swift */,
 				212064AE1C3DF1E500F6B5D0 /* Text.swift */,
@@ -556,6 +560,7 @@
 				21CAFBD11C056FC100B9A3B5 /* ShadowTextStorage.swift in Sources */,
 				21B742EF1C03C6B900FF293C /* Font.swift in Sources */,
 				21B742F71C03C71600FF293C /* CanvasTextStorage.swift in Sources */,
+				21654ACF1C4083F9003EE9E2 /* CodeSpan.swift in Sources */,
 				212668FF1BFECD7100DE996F /* CodeBlock.swift in Sources */,
 				212669141BFED0DC00DE996F /* OrderedList.swift in Sources */,
 				2150D6801BFEBDE3008BB629 /* Listable.swift in Sources */,
@@ -608,6 +613,7 @@
 				21CAFBD21C056FC100B9A3B5 /* ShadowTextStorage.swift in Sources */,
 				21B742F01C03C6B900FF293C /* Font.swift in Sources */,
 				21B742F81C03C71600FF293C /* CanvasTextStorage.swift in Sources */,
+				21654AD01C4083F9003EE9E2 /* CodeSpan.swift in Sources */,
 				212669001BFECD7200DE996F /* CodeBlock.swift in Sources */,
 				212669131BFED0DC00DE996F /* OrderedList.swift in Sources */,
 				2150D6811BFEBDE3008BB629 /* Listable.swift in Sources */,
