@@ -10,11 +10,14 @@ import Foundation
 
 public protocol Node {
 
-	/// Range of the entire node
+	/// Range of the entire node in the backing text
 	var range: NSRange { get }
 
-	/// Range of the text content
+	/// Range of the node in the display text
 	var contentRange: NSRange { get }
+
+	/// Dictionary representation
+	var dictionary: [String: AnyObject] { get }
 
 	init?(string: String, enclosingRange: NSRange)
 
@@ -25,5 +28,10 @@ public protocol Node {
 extension Node {
 	public func contentInString(string: String) -> String {
 		return (string as NSString).substringWithRange(contentRange)
+	}
+
+	// TODO: Remove this
+	public var dictionary: [String: AnyObject] {
+		return [:]
 	}
 }

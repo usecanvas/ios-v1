@@ -26,6 +26,12 @@ public struct Title: NativeDelimitable, Equatable {
 		self.delimiterRange = delimiterRange
 		self.contentRange = contentRange
 	}
+
+	public init(delimiterRange: NSRange, contentRange: NSRange) {
+		range = delimiterRange.union(contentRange)
+		self.delimiterRange = delimiterRange
+		self.contentRange = contentRange
+	}
 }
 
 

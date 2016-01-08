@@ -21,16 +21,3 @@ extension BlockNode {
 		return true
 	}
 }
-
-
-let blockLevelParseOrder: [BlockNode.Type] = [
-	Blockquote.self,
-	Checklist.self,
-	CodeBlock.self,
-	Title.self,
-	Heading.self,
-	Image.self,
-	OrderedList.self,
-	UnorderedList.self,
-	Paragraph.self
-]

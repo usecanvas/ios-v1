@@ -140,51 +140,9 @@ public class CanvasTextStorage: ShadowTextStorage {
 			return []
 		}
 
-		// Convert to Foundation string so we can work with `NSRange` instead of `Range` since the TextKit APIs take
-		// `NSRange` instead `Range`. Bummer.
-		let text = backingText as NSString
-
-		// We're going to rebuild `nodes` and `displayText` from the new `backingText`.
-		var nodes = [BlockNode]()
 		var shadows = [Shadow]()
-
-		// Enumerate the string blocks of the `backingText`.
-		text.enumerateSubstringsInRange(NSRange(location: 0, length: text.length), options: [.ByLines]) { substring, substringRange, _, _ in
-			// Ensure we have a substring to work with
-			guard let substring = substring else { return }
-
-			for type in blockLevelParseOrder {
-				guard let node = type.init(string: substring, enclosingRange: substringRange) else { continue }
-
-				if let delimitable = node as? NativeDelimitable, prefixable = node as? Prefixable {
-					shadows.append(Shadow(backingRange: delimitable.delimiterRange.union(prefixable.prefixRange)))
-				} else {
-					if let delimitable = node as? NativeDelimitable {
-						shadows.append(Shadow(backingRange: delimitable.delimiterRange))
-					}
-
-					if let prefixable = node as? Prefixable {
-						shadows.append(Shadow(backingRange: prefixable.prefixRange))
-					}
-				}
-
-				nodes.append(node)
-				return
-			}
-
-			// Unsupported range
-			var range = substringRange
-
-			// Account for new line
-			if range.max + 1 < text.length {
-				range.length += 1
-			}
-
-			shadows.append(Shadow(backingRange: range))
-		}
-
-		self.nodes = nodes
-
+		(nodes, shadows) = Parser(string: backingText).parse()
+		
 		return shadows
 	}
 

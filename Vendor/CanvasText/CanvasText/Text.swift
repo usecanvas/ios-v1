@@ -10,16 +10,28 @@ public struct Text: Node {
 
 	// MARK: - Properties
 
-	public var range: NSRange {
-		return contentRange
+	public var range: NSRange
+
+	public var contentRange: NSRange {
+		return range
 	}
 
-	public var contentRange: NSRange
+	public var dictionary: [String: AnyObject] {
+		return [
+			"type": "text",
+			"range": range.dictionary,
+			"contentRange": contentRange.dictionary
+		]
+	}
 
 
 	// MARK: - Initializers
 
 	public init?(string: String, enclosingRange: NSRange) {
-		contentRange = enclosingRange
+		range = enclosingRange
+	}
+
+	public init(range: NSRange) {
+		self.range = range
 	}
 }

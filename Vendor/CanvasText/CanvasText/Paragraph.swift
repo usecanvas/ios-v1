@@ -13,8 +13,21 @@ public struct Paragraph: BlockNode, ContainerNode {
 	// MARK: - Properties
 
 	public var range: NSRange
-	public var contentRange: NSRange
+
+	public var contentRange: NSRange {
+		return range
+	}
+
 	public var subnodes: [Node]
+
+	public var dictionary: [String: AnyObject] {
+		return [
+			"type": "paragraph",
+			"range": range.dictionary,
+			"contentRange": contentRange.dictionary,
+			"subnodes": subnodes.map { $0.dictionary }
+		]
+	}
 
 	public let allowsReturnCompletion = false
 
@@ -28,8 +41,11 @@ public struct Paragraph: BlockNode, ContainerNode {
 		}
 
 		range = enclosingRange
-		self.contentRange = enclosingRange
-
 		subnodes = parseSpanLevelNodes(string: string, enclosingRange: enclosingRange)
+	}
+
+	public init(range: NSRange, subnodes: [Node]) {
+		self.range = range
+		self.subnodes = subnodes
 	}
 }
