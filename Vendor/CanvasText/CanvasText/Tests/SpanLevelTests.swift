@@ -17,10 +17,14 @@ class SpanLevelTests: XCTestCase {
 			Text(range: NSRange(location: 0, length: 6)),
 			DoubleEmphasis(range: NSRange(location: 0, length: 6), subnodes: [
 				Text(range: NSRange(location: 8, length: 5)),
-			]),
+				]),
 			Text(range: NSRange(location: 15, length: 1))
-		])
+			])
 
-		XCTAssertEqual([paragraph].map { $0.dictionary }, Parser.parse(markdown).nodes.map { $0.dictionary })
+		XCTAssertEqual([paragraph].map { $0.dictionary }, parse(markdown))
+	}
+
+	private func parse(markdown: String) -> [[String: AnyObject]] {
+		return Parser(string: markdown).parse().nodes.map { $0.dictionary }
 	}
 }
