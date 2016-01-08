@@ -41,6 +41,6 @@ public struct OrderedList: Listable {
 	// MARK: - Native
 
 	public static func nativeRepresentation(indentation indentation: Indentation = .Zero) -> String {
-		return "\(leadingDelimiter)ordered-\(indentation.string)\(trailingDelimiter)1. "
+		return "\(leadingNativePrefix)ordered-\(indentation.string)\(trailingNativePrefix)1. "
 	}
 }

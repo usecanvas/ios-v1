@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct CodeBlock: NativeDelimitable {
+public struct CodeBlock: NativePrefixable {
 
 	// MARK: - Properties
 

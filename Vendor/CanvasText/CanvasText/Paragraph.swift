@@ -36,7 +36,7 @@ public struct Paragraph: BlockNode, ContainerNode {
 
 	public init?(string: String, enclosingRange: NSRange) {
 		// Prevent any Canvas Native from appearing in the documment
-		if string.hasPrefix(leadingDelimiter) {
+		if string.hasPrefix(leadingNativePrefix) {
 			return nil
 		}
 

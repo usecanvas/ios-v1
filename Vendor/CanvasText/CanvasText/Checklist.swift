@@ -52,7 +52,7 @@ public struct Checklist: Listable {
 		scanner.charactersToBeSkipped = nil
 
 		// Delimiter
-		if !scanner.scanString("\(leadingDelimiter)checklist-", intoString: nil) {
+		if !scanner.scanString("\(leadingNativePrefix)checklist-", intoString: nil) {
 			return nil
 		}
 
@@ -69,7 +69,7 @@ public struct Checklist: Listable {
 		self.indentationRange = indentationRange
 		self.indentation = indentation
 
-		if !scanner.scanString(trailingDelimiter, intoString: nil) {
+		if !scanner.scanString(trailingNativePrefix, intoString: nil) {
 			return nil
 		}
 
@@ -112,6 +112,6 @@ public struct Checklist: Listable {
 	// MARK: - Native
 
 	public static func nativeRepresentation(indentation indentation: Indentation = .Zero, completion: Completion = .Incomplete) -> String {
-		return "\(leadingDelimiter)checklist-\(indentation.string)\(trailingDelimiter)- [\(completion.string)] "
+		return "\(leadingNativePrefix)checklist-\(indentation.string)\(trailingNativePrefix)- [\(completion.string)] "
 	}
 }

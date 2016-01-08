@@ -95,7 +95,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 				replacement = ""
 			} else {
 				// Complete the node
-				if let node = node as? NativeDelimitable {
+				if let node = node as? NativePrefixable {
 					replacement += (backingText as NSString).substringWithRange(node.delimiterRange)
 				}
 

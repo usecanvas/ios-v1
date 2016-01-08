@@ -36,7 +36,7 @@ public struct Image: Attachable, Hashable {
 		scanner.charactersToBeSkipped = nil
 
 		// URL image
-		if scanner.scanString("\(leadingDelimiter)image\(trailingDelimiter)", intoString: nil) {
+		if scanner.scanString("\(leadingNativePrefix)image\(trailingNativePrefix)", intoString: nil) {
 			var urlString: NSString? = ""
 			if !scanner.scanUpToString("\n", intoString: &urlString) {
 				return nil
@@ -53,14 +53,14 @@ public struct Image: Attachable, Hashable {
 		}
 
 		// Uploaded image delimiter
-		if !scanner.scanString("\(leadingDelimiter)image-", intoString: nil) {
+		if !scanner.scanString("\(leadingNativePrefix)image-", intoString: nil) {
 			return nil
 		}
 
 		var json: NSString? = ""
-		scanner.scanUpToString(trailingDelimiter, intoString: &json)
+		scanner.scanUpToString(trailingNativePrefix, intoString: &json)
 
-		if !scanner.scanString(trailingDelimiter, intoString: nil) {
+		if !scanner.scanString(trailingNativePrefix, intoString: nil) {
 			return nil
 		}
 

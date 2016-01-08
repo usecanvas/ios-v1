@@ -49,10 +49,10 @@ public struct Parser {
 			for type in self.blockLevelParseOrder {
 				guard var node = type.init(string: substring, enclosingRange: substringRange) else { continue }
 
-				if let delimitable = node as? NativeDelimitable, prefixable = node as? Prefixable {
+				if let delimitable = node as? NativePrefixable, prefixable = node as? Prefixable {
 					shadows.append(Shadow(backingRange: delimitable.delimiterRange.union(prefixable.prefixRange)))
 				} else {
-					if let delimitable = node as? NativeDelimitable {
+					if let delimitable = node as? NativePrefixable {
 						shadows.append(Shadow(backingRange: delimitable.delimiterRange))
 					}
 

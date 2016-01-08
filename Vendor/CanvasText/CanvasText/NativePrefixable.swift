@@ -1,5 +1,5 @@
 //
-//  NativeDelimitable.swift
+//  NativePrefixable.swift
 //  CanvasText
 //
 //  Created by Sam Soffes on 11/19/15.
@@ -8,10 +8,10 @@
 
 import Foundation
 
-let leadingDelimiter = "⧙"
-let trailingDelimiter = "⧘"
+let leadingNativePrefix = "⧙"
+let trailingNativePrefix = "⧘"
 
-public protocol NativeDelimitable: BlockNode {
+public protocol NativePrefixable: BlockNode {
 	var delimiterRange: NSRange { get }
 }
 
@@ -21,7 +21,7 @@ func parseBlockNode(string string: String, enclosingRange: NSRange, delimiter: S
 	scanner.charactersToBeSkipped = nil
 
 	// Delimiter
-	if !scanner.scanString("\(leadingDelimiter)\(delimiter)\(trailingDelimiter)", intoString: nil) {
+	if !scanner.scanString("\(leadingNativePrefix)\(delimiter)\(trailingNativePrefix)", intoString: nil) {
 		return nil
 	}
 	let delimiterRange = NSRange(location: enclosingRange.location, length: scanner.scanLocation)
@@ -45,7 +45,7 @@ func parseBlockNode(string string: String, enclosingRange: NSRange, delimiter: S
 	scanner.charactersToBeSkipped = nil
 
 	// Delimiter
-	if !scanner.scanString("\(leadingDelimiter)\(delimiter)\(trailingDelimiter)", intoString: nil) {
+	if !scanner.scanString("\(leadingNativePrefix)\(delimiter)\(trailingNativePrefix)", intoString: nil) {
 		return nil
 	}
 	let delimiterRange = NSRange(location: enclosingRange.location, length: scanner.scanLocation)
