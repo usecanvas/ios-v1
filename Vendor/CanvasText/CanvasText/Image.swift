@@ -14,7 +14,7 @@ public struct Image: Attachable, Hashable {
 	// MARK: - Properties
 
 	public var range: NSRange
-	public var delimiterRange: NSRange
+	public var nativePrefixRange: NSRange
 	public let allowsReturnCompletion = false
 
 	public var ID: String
@@ -30,7 +30,7 @@ public struct Image: Attachable, Hashable {
 
 	public init?(string: String, enclosingRange: NSRange) {
 		range = enclosingRange
-		delimiterRange = NSRange(location: enclosingRange.location, length: enclosingRange.length - 1)
+		nativePrefixRange = NSRange(location: enclosingRange.location, length: enclosingRange.length - 1)
 		
 		let scanner = NSScanner(string: string)
 		scanner.charactersToBeSkipped = nil

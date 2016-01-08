@@ -8,13 +8,12 @@
 
 import Foundation
 
-public struct Blockquote: NativePrefixable, Prefixable {
+public struct Blockquote: NativePrefixable {
 
 	// MARK: - Properties
 
 	public var range: NSRange
-	public var delimiterRange: NSRange
-	public var prefixRange: NSRange
+	public var nativePrefixRange: NSRange
 	public var contentRange: NSRange
 
 	public var hasAnnotation: Bool {
@@ -25,11 +24,10 @@ public struct Blockquote: NativePrefixable, Prefixable {
 	// MARK: - Initializers
 
 	public init?(string: String, enclosingRange: NSRange) {
-		guard let (delimiterRange, prefixRange, contentRange) = parseBlockNode(string: string, enclosingRange: enclosingRange, delimiter: "blockquote", prefix: "> ") else { return nil }
+		guard let (nativePrefixRange, prefixRange, contentRange) = parseBlockNode(string: string, enclosingRange: enclosingRange, delimiter: "blockquote", prefix: "> ") else { return nil }
 
 		range = enclosingRange
-		self.delimiterRange = delimiterRange
-		self.prefixRange = prefixRange
+		self.nativePrefixRange = nativePrefixRange.union(prefixRange)
 		self.contentRange = contentRange
 	}
 }

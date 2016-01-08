@@ -32,8 +32,7 @@ public struct Checklist: Listable {
 	// MARK: - Properties
 
 	public var range: NSRange
-	public var delimiterRange: NSRange
-	public var prefixRange: NSRange
+	public var nativePrefixRange: NSRange
 	public var contentRange: NSRange
 	public var indentationRange: NSRange
 	public var indentation: Indentation
@@ -73,7 +72,7 @@ public struct Checklist: Listable {
 			return nil
 		}
 
-		delimiterRange = NSRange(location: enclosingRange.location, length: scanner.scanLocation)
+		var nativePrefixRange = NSRange(location: enclosingRange.location, length: scanner.scanLocation)
 
 
 		// Prefix
@@ -99,7 +98,8 @@ public struct Checklist: Listable {
 			return nil
 		}
 
-		prefixRange = NSRange(location: enclosingRange.location + startPrefix, length: scanner.scanLocation - startPrefix)
+		let prefixRange = NSRange(location: enclosingRange.location + startPrefix, length: scanner.scanLocation - startPrefix)
+		self.nativePrefixRange = nativePrefixRange.union(prefixRange)
 
 		// Content
 		self.completedRange = completedRange

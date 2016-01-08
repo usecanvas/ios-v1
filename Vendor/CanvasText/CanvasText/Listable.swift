@@ -44,13 +44,13 @@ public enum Indentation: UInt {
 }
 
 
-public protocol Listable: NativePrefixable, Prefixable {
+public protocol Listable: NativePrefixable {
 	var indentation: Indentation { get }
 	var indentationRange: NSRange { get }
 }
 
 
-func parseListable(string string: String, enclosingRange: NSRange, delimiter: String, prefix: String) -> (delimiterRange: NSRange, indentationRange: NSRange, indentation: Indentation, prefixRange: NSRange, contentRange: NSRange)? {
+func parseListable(string string: String, enclosingRange: NSRange, delimiter: String, prefix: String) -> (nativePrefixRange: NSRange, indentationRange: NSRange, indentation: Indentation, prefixRange: NSRange, contentRange: NSRange)? {
 	let scanner = NSScanner(string: string)
 	scanner.charactersToBeSkipped = nil
 
@@ -77,7 +77,7 @@ func parseListable(string string: String, enclosingRange: NSRange, delimiter: St
 		return nil
 	}
 
-	let delimiterRange = NSRange(location: enclosingRange.location, length: scanner.scanLocation)
+	let nativePrefixRange = NSRange(location: enclosingRange.location, length: scanner.scanLocation)
 
 	// Prefix
 	let startPrefix = scanner.scanLocation
@@ -90,5 +90,5 @@ func parseListable(string string: String, enclosingRange: NSRange, delimiter: St
 	// Content
 	let contentRange = NSRange(location: enclosingRange.location + scanner.scanLocation, length: enclosingRange.length - scanner.scanLocation)
 
-	return (delimiterRange, indentationRange, indentation, prefixRange, contentRange)
+	return (nativePrefixRange, indentationRange, indentation, prefixRange, contentRange)
 }

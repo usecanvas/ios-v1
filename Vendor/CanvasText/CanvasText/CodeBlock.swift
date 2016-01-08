@@ -13,7 +13,7 @@ public struct CodeBlock: NativePrefixable {
 	// MARK: - Properties
 
 	public var range: NSRange
-	public var delimiterRange: NSRange
+	public var nativePrefixRange: NSRange
 	public var contentRange: NSRange
 
 	public let hasAnnotation = true
@@ -22,10 +22,10 @@ public struct CodeBlock: NativePrefixable {
 	// MARK: - Initializers
 
 	public init?(string: String, enclosingRange: NSRange) {
-		guard let (delimiterRange, contentRange) = parseBlockNode(string: string, enclosingRange: enclosingRange, delimiter: "code") else { return nil }
+		guard let (nativePrefixRange, contentRange) = parseBlockNode(string: string, enclosingRange: enclosingRange, delimiter: "code") else { return nil }
 
 		range = enclosingRange
-		self.delimiterRange = delimiterRange
+		self.nativePrefixRange = nativePrefixRange
 		self.contentRange = contentRange
 	}
 }

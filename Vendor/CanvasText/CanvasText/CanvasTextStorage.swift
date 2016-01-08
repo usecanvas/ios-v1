@@ -96,11 +96,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 			} else {
 				// Complete the node
 				if let node = node as? NativePrefixable {
-					replacement += (backingText as NSString).substringWithRange(node.delimiterRange)
-				}
-
-				if let node = node as? Prefixable {
-					replacement += (backingText as NSString).substringWithRange(node.prefixRange)
+					replacement += (backingText as NSString).substringWithRange(node.nativePrefixRange)
 				}
 			}
 		}

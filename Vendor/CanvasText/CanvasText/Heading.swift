@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Heading: Prefixable {
+public struct Heading: NativePrefixable {
 
 	// MARK: - Types
 
@@ -41,7 +41,7 @@ public struct Heading: Prefixable {
 	// MARK: - Properties
 
 	public var range: NSRange
-	public var prefixRange: NSRange
+	public var nativePrefixRange: NSRange
 	public var contentRange: NSRange
 	public var level: Level
 	public let allowsReturnCompletion = false
@@ -66,10 +66,10 @@ public struct Heading: Prefixable {
 			return nil
 		}
 
-		self.prefixRange = NSRange(location: enclosingRange.location, length: scanner.scanLocation)
+		nativePrefixRange = NSRange(location: enclosingRange.location, length: scanner.scanLocation)
 
 		// Content
-		self.contentRange = NSRange(location: enclosingRange.location + scanner.scanLocation, length: enclosingRange.length - scanner.scanLocation)
+		contentRange = NSRange(location: enclosingRange.location + scanner.scanLocation, length: enclosingRange.length - scanner.scanLocation)
 		range = enclosingRange
 	}
 

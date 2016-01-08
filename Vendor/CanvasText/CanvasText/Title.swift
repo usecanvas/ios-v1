@@ -11,7 +11,7 @@ public struct Title: NativePrefixable, Equatable {
 	// MARK: - Properties
 
 	public var range: NSRange
-	public var delimiterRange: NSRange
+	public var nativePrefixRange: NSRange
 	public var contentRange: NSRange
 
 	public let allowsReturnCompletion = false
@@ -20,21 +20,21 @@ public struct Title: NativePrefixable, Equatable {
 	// MARK: - Initializers
 
 	public init?(string: String, enclosingRange: NSRange) {
-		guard let (delimiterRange, contentRange) = parseBlockNode(string: string, enclosingRange: enclosingRange, delimiter: "doc-heading") else { return nil }
+		guard let (nativePrefixRange, contentRange) = parseBlockNode(string: string, enclosingRange: enclosingRange, delimiter: "doc-heading") else { return nil }
 
 		range = enclosingRange
-		self.delimiterRange = delimiterRange
+		self.nativePrefixRange = nativePrefixRange
 		self.contentRange = contentRange
 	}
 
-	public init(delimiterRange: NSRange, contentRange: NSRange) {
-		range = delimiterRange.union(contentRange)
-		self.delimiterRange = delimiterRange
+	public init(nativePrefixRange: NSRange, contentRange: NSRange) {
+		range = nativePrefixRange.union(contentRange)
+		self.nativePrefixRange = nativePrefixRange
 		self.contentRange = contentRange
 	}
 }
 
 
 public func ==(lhs: Title, rhs: Title) -> Bool {
-	return lhs.delimiterRange == rhs.delimiterRange && lhs.contentRange == rhs.contentRange
+	return lhs.nativePrefixRange == rhs.nativePrefixRange && lhs.contentRange == rhs.contentRange
 }

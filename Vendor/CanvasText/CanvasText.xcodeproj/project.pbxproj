@@ -43,8 +43,6 @@
 		2150D6811BFEBDE3008BB629 /* Listable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150D67F1BFEBDE3008BB629 /* Listable.swift */; };
 		2150D6831BFEBDF6008BB629 /* NativePrefixable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150D6821BFEBDF6008BB629 /* NativePrefixable.swift */; };
 		2150D6841BFEBDF6008BB629 /* NativePrefixable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150D6821BFEBDF6008BB629 /* NativePrefixable.swift */; };
-		2150D6861BFEBE2F008BB629 /* Prefixable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150D6851BFEBE2F008BB629 /* Prefixable.swift */; };
-		2150D6871BFEBE2F008BB629 /* Prefixable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150D6851BFEBE2F008BB629 /* Prefixable.swift */; };
 		2150D6891BFEBEE0008BB629 /* Blockquote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150D6881BFEBEE0008BB629 /* Blockquote.swift */; };
 		2150D68A1BFEBEE0008BB629 /* Blockquote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150D6881BFEBEE0008BB629 /* Blockquote.swift */; };
 		2156422B1C06C60400685847 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2156422A1C06C60400685847 /* Image.swift */; };
@@ -131,7 +129,6 @@
 		212669D81BFF83C700DE996F /* template.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = template.html; sourceTree = "<group>"; };
 		2150D67F1BFEBDE3008BB629 /* Listable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Listable.swift; sourceTree = "<group>"; };
 		2150D6821BFEBDF6008BB629 /* NativePrefixable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativePrefixable.swift; sourceTree = "<group>"; };
-		2150D6851BFEBE2F008BB629 /* Prefixable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prefixable.swift; sourceTree = "<group>"; };
 		2150D6881BFEBEE0008BB629 /* Blockquote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Blockquote.swift; sourceTree = "<group>"; };
 		2156422A1C06C60400685847 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		2156422D1C06C81900685847 /* Attachable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attachable.swift; sourceTree = "<group>"; };
@@ -205,7 +202,6 @@
 				2120649D1C3DE67000F6B5D0 /* ContainerNode.swift */,
 				2150D6821BFEBDF6008BB629 /* NativePrefixable.swift */,
 				2150D67F1BFEBDE3008BB629 /* Listable.swift */,
-				2150D6851BFEBE2F008BB629 /* Prefixable.swift */,
 				2156422D1C06C81900685847 /* Attachable.swift */,
 			);
 			name = Protocols;
@@ -537,7 +533,6 @@
 				2150D6891BFEBEE0008BB629 /* Blockquote.swift in Sources */,
 				2156422E1C06C81900685847 /* Attachable.swift in Sources */,
 				21AF32DF1C3F2233005202A3 /* DoubleEmphasis.swift in Sources */,
-				2150D6861BFEBE2F008BB629 /* Prefixable.swift in Sources */,
 				2120649E1C3DE67000F6B5D0 /* ContainerNode.swift in Sources */,
 				21A8FAA01BFE890D0097FCC6 /* Node.swift in Sources */,
 				212668EC1BFECA7C00DE996F /* Heading.swift in Sources */,
@@ -588,7 +583,6 @@
 				2156422C1C06C60400685847 /* Image.swift in Sources */,
 				21A8FA931BFE7B870097FCC6 /* TransportController.swift in Sources */,
 				2156422F1C06C81900685847 /* Attachable.swift in Sources */,
-				2150D6871BFEBE2F008BB629 /* Prefixable.swift in Sources */,
 				2120649F1C3DE67000F6B5D0 /* ContainerNode.swift in Sources */,
 				21A8FAA11BFE890D0097FCC6 /* Node.swift in Sources */,
 				212668ED1BFECA7C00DE996F /* Heading.swift in Sources */,

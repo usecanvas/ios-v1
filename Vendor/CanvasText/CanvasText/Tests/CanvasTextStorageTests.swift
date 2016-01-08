@@ -28,7 +28,7 @@ class CanvasTextStorageTests: XCTestCase {
 //	func testTitle() {
 //		storage.backingText = "⧙doc-heading⧘A Lovely Document"
 //
-//		let node = Title(delimiterRange: NSRange(location: 0, length: 13), contentRange: NSRange(location: 13, length: 17))
+//		let node = Title(nativePrefixRange: NSRange(location: 0, length: 13), contentRange: NSRange(location: 13, length: 17))
 //		XCTAssertEqual(node, (storage.nodes.first as! Title))
 //		
 //		XCTAssertEqual("A Lovely Document", storage.displayText)
