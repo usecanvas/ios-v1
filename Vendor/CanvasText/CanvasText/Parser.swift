@@ -31,11 +31,11 @@ public struct Parser {
 //		Link.self,
 //		ReferenceLink.self,
 		DoubleEmphasis.self,
-//		Emphasis.self
+		Emphasis.self
 	]
 
 	private let spanRegularExpressions: [String: NSRegularExpression] = [
-//		String(Emphasis.self): try! NSRegularExpression(pattern: "(?:\\s|^A)(\\*|_)(?=\\S)(.+?)(?<=\\S)(\\1)", options: []),
+		String(Emphasis.self): try! NSRegularExpression(pattern: "(?:\\s|^A)(\\*|_)(?=\\S)(.+?)(?<=\\S)(\\1)", options: []),
 		String(DoubleEmphasis.self): try! NSRegularExpression(pattern: "(?:\\s|^A)(\\*\\*|__)(?=\\S)(.+?[*_]*)(?<=\\S)(\\1)", options: [])
 	]
 
@@ -92,16 +92,8 @@ public struct Parser {
 
 	// MARK: - Private
 
-	/// Returns a new version of container node with the subnodes array filed out
 	private func parseInline(container: ContainerNode) -> [Node] {
 		var subnodes = [Node]()
-
-		func fillTo(location: Int) {
-			let lastLocation = subnodes.last?.range.max ?? container.textRange.location
-			if lastLocation < location {
-				subnodes.append(Text(range: NSRange(location: lastLocation, length: location - lastLocation)))
-			}
-		}
 
 		for type in spanParseOrder {
 			guard let regularExpression = spanRegularExpressions[String(type)] else { continue }
@@ -112,10 +104,20 @@ public struct Parser {
 			}
 
 			for match in matches {
-				if var node = type.init(match: match) {
-					// Create a text node before if neccessary
-					fillTo(node.range.location)
+				// Skip if there is already a sibling for this range
+				var skip = false
+				for sibling in subnodes {
+					if sibling.range.intersection(match.rangeAtIndex(0)) != nil {
+						skip = true
+						break
+					}
+				}
 
+				if skip {
+					continue
+				}
+
+				if var node = type.init(match: match) {
 					// Recurse
 					node.subnodes = parseInline(node)
 					subnodes.append(node)
@@ -123,9 +125,23 @@ public struct Parser {
 			}
 		}
 
-		// Create a text node to the end if neccessary
-		fillTo(container.textRange.max)
+		// Add text nodes
+		var output = [Node]()
 
-		return subnodes
+		var last = container.textRange.location
+
+		for node in subnodes.sort({ $0.range.location < $1.range.location }) {
+			if node.range.location != last {
+				output.append(Text(range: NSRange(location: last, length: node.range.location - last)))
+			}
+			output.append(node)
+			last = node.range.max
+		}
+
+		if last < container.textRange.max {
+			output.append(Text(range: NSRange(location: last, length: container.textRange.max - last)))
+		}
+
+		return output
 	}
 }
