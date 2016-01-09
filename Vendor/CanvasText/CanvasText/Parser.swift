@@ -37,8 +37,8 @@ public struct Parser {
 	private let spanRegularExpressions: [String: NSRegularExpression] = [
 		String(CodeSpan.self): try! NSRegularExpression(pattern: "(`+)(.+?)(?<!`)(\\1)(?!`)", options: []),
 		String(Link.self): try! NSRegularExpression(pattern: "(\\[)((?:(?:\\\\.)|[^\\[\\]])+)(\\])(\\()([^\\(\\)\\s]+(?:\\(\\S*?\\))??[^\\(\\)\\s]*?)(?:\\s(['‘][^'’]*['’]|[\"“][^\"”]*[\"”]))?(\\))", options: []),
-		String(Emphasis.self): try! NSRegularExpression(pattern: "(?:\\s|^A)(\\*|_)(?=\\S)(.+?)(?<=\\S)(\\1)", options: []),
-		String(DoubleEmphasis.self): try! NSRegularExpression(pattern: "(?:\\s|^A)(\\*\\*|__)(?=\\S)(.+?[*_]*)(?<=\\S)(\\1)", options: [])
+		String(Emphasis.self): try! NSRegularExpression(pattern: "(?:\\s|^)(\\*|_)(?=\\S)(.+?)(?<=\\S)(\\1)", options: []),
+		String(DoubleEmphasis.self): try! NSRegularExpression(pattern: "(?:\\s|^)(\\*\\*|__)(?=\\S)(.+?[*_]*)(?<=\\S)(\\1)", options: [])
 	]
 
 
@@ -95,9 +95,11 @@ public struct Parser {
 	// MARK: - Private
 
 	private func parseInline(container: ContainerNode) -> [Node] {
+		print("container: \(container)")
 		var subnodes = [Node]()
 
 		for type in spanParseOrder {
+			print("type: \(type)")
 			guard let regularExpression = spanRegularExpressions[String(type)] else { continue }
 
 			let matches = regularExpression.matchesInString(string, options: [], range: container.textRange)

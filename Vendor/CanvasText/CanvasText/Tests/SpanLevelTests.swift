@@ -192,6 +192,32 @@ class SpanLevelTests: XCTestCase {
 		XCTAssertEqual([paragraph].map { $0.dictionary }, parse(markdown))
 	}
 
+	func testNested() {
+		let markdown = "Hello ***world***."
+
+		let paragraph = Paragraph(range: NSRange(location: 0, length: 18), subnodes: [
+			Text(range: NSRange(location: 0, length: 6)),
+			DoubleEmphasis(
+				leadingDelimiterRange: NSRange(location: 6, length: 2),
+				textRange: NSRange(location: 8, length: 7),
+				trailingDelimiterRange: NSRange(location: 15, length: 2),
+				subnodes: [
+					Emphasis(
+						leadingDelimiterRange: NSRange(location: 8, length: 1),
+						textRange: NSRange(location: 9, length: 5),
+						trailingDelimiterRange: NSRange(location: 14, length: 1),
+						subnodes: [
+							Text(range: NSRange(location: 9, length: 5))
+						]
+					)
+				]
+			),
+			Text(range: NSRange(location: 17, length: 1))
+		])
+
+		XCTAssertEqual([paragraph].map { $0.dictionary }, parse(markdown))
+	}
+
 
 	// MARK: - Private
 
