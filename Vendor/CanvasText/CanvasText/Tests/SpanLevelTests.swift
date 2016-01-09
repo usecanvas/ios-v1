@@ -51,6 +51,53 @@ class SpanLevelTests: XCTestCase {
 		XCTAssertEqual([paragraph].map { $0.dictionary }, parse(markdown))
 	}
 
+	func testLink() {
+		let markdown = "Hello [world](http://example.com)."
+
+		let paragraph = Paragraph(range: NSRange(location: 0, length: 34), subnodes: [
+			Text(range: NSRange(location: 0, length: 6)),
+			Link(
+				range: NSRange(location: 6, length: 27),
+				leadingTextDelimiterRange: NSRange(location: 6, length: 1),
+				textRange: NSRange(location: 7, length: 5),
+				trailingTextDelimiterRange: NSRange(location: 12, length: 1),
+				leadingURLDelimiterRange: NSRange(location: 13, length: 1),
+				URLRange: NSRange(location: 14, length: 18),
+				trailingURLDelimiterRange: NSRange(location: 32, length: 1),
+				subnodes: [
+					Text(range: NSRange(location: 7, length: 5))
+				]
+			),
+			Text(range: NSRange(location: 33, length: 1))
+		])
+
+		XCTAssertEqual([paragraph].map { $0.dictionary }, parse(markdown))
+	}
+
+	func testLinkWithTitle() {
+		let markdown = "Hello [world](http://example.com \"Example\")."
+
+		let paragraph = Paragraph(range: NSRange(location: 0, length: 44), subnodes: [
+			Text(range: NSRange(location: 0, length: 6)),
+			Link(
+				range: NSRange(location: 6, length: 37),
+				leadingTextDelimiterRange: NSRange(location: 6, length: 1),
+				textRange: NSRange(location: 7, length: 5),
+				trailingTextDelimiterRange: NSRange(location: 12, length: 1),
+				leadingURLDelimiterRange: NSRange(location: 13, length: 1),
+				URLRange: NSRange(location: 14, length: 18),
+				titleRange: NSRange(location: 33, length: 9),
+				trailingURLDelimiterRange: NSRange(location: 42, length: 1),
+				subnodes: [
+					Text(range: NSRange(location: 7, length: 5))
+				]
+			),
+			Text(range: NSRange(location: 43, length: 1))
+		])
+
+		XCTAssertEqual([paragraph].map { $0.dictionary }, parse(markdown))
+	}
+
 	func testDoubleEmphasis() {
 		let markdown = "Hello **world**."
 

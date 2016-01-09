@@ -59,6 +59,8 @@
 		21654ACD1C407E67003EE9E2 /* Emphasis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21654ACB1C407E67003EE9E2 /* Emphasis.swift */; };
 		21654ACF1C4083F9003EE9E2 /* CodeSpan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21654ACE1C4083F9003EE9E2 /* CodeSpan.swift */; };
 		21654AD01C4083F9003EE9E2 /* CodeSpan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21654ACE1C4083F9003EE9E2 /* CodeSpan.swift */; };
+		21654AD21C4084D7003EE9E2 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21654AD11C4084D7003EE9E2 /* Link.swift */; };
+		21654AD31C4084D7003EE9E2 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21654AD11C4084D7003EE9E2 /* Link.swift */; };
 		219DAC8F1C0F93CD00F39A6F /* rollbar.js in Resources */ = {isa = PBXBuildFile; fileRef = 219DAC8E1C0F93CD00F39A6F /* rollbar.js */; };
 		219DAC901C0F93D400F39A6F /* rollbar.js in Resources */ = {isa = PBXBuildFile; fileRef = 219DAC8E1C0F93CD00F39A6F /* rollbar.js */; };
 		21A8F9FB1BFCF4BD0097FCC6 /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A8F9F01BFCF4BD0097FCC6 /* CanvasText.framework */; };
@@ -143,6 +145,7 @@
 		21654AC81C406C1D003EE9E2 /* SpanNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpanNode.swift; sourceTree = "<group>"; };
 		21654ACB1C407E67003EE9E2 /* Emphasis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emphasis.swift; sourceTree = "<group>"; };
 		21654ACE1C4083F9003EE9E2 /* CodeSpan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeSpan.swift; sourceTree = "<group>"; };
+		21654AD11C4084D7003EE9E2 /* Link.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
 		219DAC8E1C0F93CD00F39A6F /* rollbar.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = rollbar.js; sourceTree = "<group>"; };
 		21A8F9F01BFCF4BD0097FCC6 /* CanvasText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CanvasText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A8F9FA1BFCF4BD0097FCC6 /* CanvasTextTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CanvasTextTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -238,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				21654ACE1C4083F9003EE9E2 /* CodeSpan.swift */,
+				21654AD11C4084D7003EE9E2 /* Link.swift */,
 				21AF32DE1C3F2233005202A3 /* DoubleEmphasis.swift */,
 				21654ACB1C407E67003EE9E2 /* Emphasis.swift */,
 				212064AE1C3DF1E500F6B5D0 /* Text.swift */,
@@ -553,6 +557,7 @@
 				212064AC1C3DEFBF00F6B5D0 /* BlockNode.swift in Sources */,
 				212064AF1C3DF1E500F6B5D0 /* Text.swift in Sources */,
 				212668EA1BFECA5F00DE996F /* Title.swift in Sources */,
+				21654AD21C4084D7003EE9E2 /* Link.swift in Sources */,
 				21A8FAA71BFE89EB0097FCC6 /* Checklist.swift in Sources */,
 				21A8FAA41BFE89A80097FCC6 /* Paragraph.swift in Sources */,
 				2150D6831BFEBDF6008BB629 /* NativePrefixable.swift in Sources */,
@@ -606,6 +611,7 @@
 				212064AD1C3DEFBF00F6B5D0 /* BlockNode.swift in Sources */,
 				212064B01C3DF1E500F6B5D0 /* Text.swift in Sources */,
 				212668E81BFECA5E00DE996F /* Title.swift in Sources */,
+				21654AD31C4084D7003EE9E2 /* Link.swift in Sources */,
 				21A8FAA81BFE89EB0097FCC6 /* Checklist.swift in Sources */,
 				21A8FAA51BFE89A80097FCC6 /* Paragraph.swift in Sources */,
 				2150D6841BFEBDF6008BB629 /* NativePrefixable.swift in Sources */,

@@ -28,7 +28,7 @@ public struct Parser {
 
 	private let spanParseOrder: [SpanNode.Type] = [
 		CodeSpan.self,
-//		Link.self,
+		Link.self,
 //		ReferenceLink.self,
 		DoubleEmphasis.self,
 		Emphasis.self
@@ -36,6 +36,7 @@ public struct Parser {
 
 	private let spanRegularExpressions: [String: NSRegularExpression] = [
 		String(CodeSpan.self): try! NSRegularExpression(pattern: "(`+)(.+?)(?<!`)(\\1)(?!`)", options: []),
+		String(Link.self): try! NSRegularExpression(pattern: "(\\[)((?:(?:\\\\.)|[^\\[\\]])+)(\\])(\\()([^\\(\\)\\s]+(?:\\(\\S*?\\))??[^\\(\\)\\s]*?)(?:\\s(['‘][^'’]*['’]|[\"“][^\"”]*[\"”]))?(\\))", options: []),
 		String(Emphasis.self): try! NSRegularExpression(pattern: "(?:\\s|^A)(\\*|_)(?=\\S)(.+?)(?<=\\S)(\\1)", options: []),
 		String(DoubleEmphasis.self): try! NSRegularExpression(pattern: "(?:\\s|^A)(\\*\\*|__)(?=\\S)(.+?[*_]*)(?<=\\S)(\\1)", options: [])
 	]
