@@ -95,11 +95,9 @@ public struct Parser {
 	// MARK: - Private
 
 	private func parseInline(container: ContainerNode) -> [Node] {
-		print("container: \(container)")
 		var subnodes = [Node]()
 
 		for type in spanParseOrder {
-			print("type: \(type)")
 			guard let regularExpression = spanRegularExpressions[String(type)] else { continue }
 
 			let matches = regularExpression.matchesInString(string, options: [], range: container.textRange)

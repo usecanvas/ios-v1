@@ -135,7 +135,7 @@ class CanvasTextView: InsertionPointTextView {
 	}
 
 	func firstRectForNode(node: Node) -> CGRect? {
-		return firstRectForBackingRange(node.contentRange)
+		return firstRectForBackingRange(node.displayRange)
 	}
 
 
@@ -204,7 +204,7 @@ extension CanvasTextView: CanvasTextStorageDelegate {
 				textStorage = self?.textStorage as? CanvasTextStorage
 			else { return }
 
-			let range = textStorage.backingRangeToDisplayRange(node.contentRange)
+			let range = textStorage.backingRangeToDisplayRange(node.displayRange)
 			var attributes = textStorage.attributesAtIndex(range.location, effectiveRange: nil)
 
 			let size = image.size

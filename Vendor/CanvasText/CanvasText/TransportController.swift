@@ -128,7 +128,7 @@ extension TransportController: WKScriptMessageHandler {
 			print("[TransportController] Error: \(errorMessage)")
 			reload()
 		} else {
-			print(dictionary)
+			print("[TransportController] Unknown message: \(dictionary)")
 		}
 	}
 }

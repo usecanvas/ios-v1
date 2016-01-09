@@ -44,7 +44,7 @@ extension CanvasTextView {
 		// Convert paragraph to unordered list
 		if node is Paragraph {
 			let string = Checklist.nativeRepresentation()
-			var range = node.contentRange
+			var range = node.displayRange
 			range.length = 0
 			textStorage.replaceBackingCharactersInRange(range, withString: string)
 			return
@@ -53,7 +53,7 @@ extension CanvasTextView {
 		// Convert checklist to unordered list
 		if let node = node as? Checklist {
 			let string = UnorderedList.nativeRepresentation()
-			textStorage.replaceBackingCharactersInRange(node.delimiterRange.union(node.prefixRange), withString: string)
+			textStorage.replaceBackingCharactersInRange(node.nativePrefixRange, withString: string)
 			return
 		}
 
@@ -76,12 +76,12 @@ extension CanvasTextView {
 		if let node = node as? Heading {
 			// Convert to Paragraph
 			if node.level == .Three {
-				textStorage.replaceBackingCharactersInRange(node.prefixRange, withString: "")
+				textStorage.replaceBackingCharactersInRange(node.nativePrefixRange, withString: "")
 				return
 			}
 
 			let string = Heading.nativeRepresentation(level: node.level.successor)
-			textStorage.replaceBackingCharactersInRange(node.prefixRange, withString: string)
+			textStorage.replaceBackingCharactersInRange(node.nativePrefixRange, withString: string)
 			return
 		}
 	}
@@ -95,7 +95,7 @@ extension CanvasTextView {
 		if let node = node as? Listable {
 			// Convert checklist to paragraph
 			if let node = node as? Checklist {
-				textStorage.replaceBackingCharactersInRange(node.delimiterRange.union(node.prefixRange), withString: "")
+				textStorage.replaceBackingCharactersInRange(node.nativePrefixRange, withString: "")
 				return
 			}
 
@@ -103,7 +103,7 @@ extension CanvasTextView {
 			let newIndentation = node.indentation.predecessor
 			if newIndentation == node.indentation {
 				let string = Checklist.nativeRepresentation()
-				textStorage.replaceBackingCharactersInRange(node.delimiterRange.union(node.prefixRange), withString: string)
+				textStorage.replaceBackingCharactersInRange(node.nativePrefixRange, withString: string)
 				return
 			}
 
@@ -116,7 +116,7 @@ extension CanvasTextView {
 		// Convert Paragraph to Heading
 		if node is Paragraph {
 			let string = Heading.nativeRepresentation(level: .Three)
-			var range = node.contentRange
+			var range = node.displayRange
 			range.length = 0
 			textStorage.replaceBackingCharactersInRange(range, withString: string)
 			return
@@ -125,7 +125,7 @@ extension CanvasTextView {
 		// Increase Heading level
 		if let node = node as? Heading where node.level != .One {
 			let string = Heading.nativeRepresentation(level: node.level.predecessor)
-			textStorage.replaceBackingCharactersInRange(node.prefixRange, withString: string)
+			textStorage.replaceBackingCharactersInRange(node.nativePrefixRange, withString: string)
 			return
 		}
 	}
