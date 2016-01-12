@@ -143,7 +143,12 @@ class CanvasTextView: InsertionPointTextView {
 
 	private func didUpdateNodes() {
 		updateAnnotations()
+		dispatch_async(dispatch_get_main_queue()) {
+			self.updateTypingAttributes()
+		}
+	}
 
+	private func updateTypingAttributes() {
 		guard let textStorage = textStorage as? CanvasTextStorage else { return }
 
 		// Set the typing attributes for the current node if there is one

@@ -287,6 +287,10 @@ extension CanvasTextStorage: TransportControllerDelegate {
 	func transportController(controller: TransportController, didReceiveSnapshot text: String) {
 		loaded = true
 		backingText = text
+
+		if backingText.isEmpty {
+			replaceBackingCharactersInRange(.zero, withString: Title.nativeRepresentation())
+		}
 	}
 
 	func transportController(controller: TransportController, didReceiveOperation operation: Operation) {
