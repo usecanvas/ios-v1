@@ -184,9 +184,8 @@ public class CanvasTextStorage: ShadowTextStorage {
 				continue
 			}
 
-			// Normal elements
-			let attributes = theme.attributesForNode(node, nextSibling: next, horizontalSizeClass: horizontalSizeClass)
-			text.addAttributes(attributes, range: range)
+			// Apply attributes
+			applyAttributes(text: text, node: node, nextSibling: next)
 		}
 
 		return text
@@ -233,6 +232,41 @@ public class CanvasTextStorage: ShadowTextStorage {
 		setup(controller.webView)
 		transportController = controller
 		controller.reload()
+	}
+
+
+	// MARK: - Private
+
+	private func applyAttributes(text text: NSMutableAttributedString, node: Node, nextSibling: Node? = nil) {
+		// Skip text nodes
+		if node is Text {
+			return
+		}
+
+		// Extend the range to include the trailing new line if present
+		let originalRange = backingRangeToDisplayRange(node.displayRange)
+		var range = originalRange
+		if nextSibling != nil && range.max < text.length {
+			range.length += 1
+		}
+
+		// Normal elements
+		let attributes = theme.attributesForNode(node, nextSibling: nextSibling, horizontalSizeClass: horizontalSizeClass)
+		text.addAttributes(attributes, range: range)
+
+		// Foldable attributes
+		if let node = node as? Foldable {
+			for folding in node.foldableRanges {
+				text.addAttributes(theme.foldingAttributes, range: backingRangeToDisplayRange(folding))
+			}
+		}
+
+		// Recurse
+		if let node = node as? ContainerNode {
+			for child in node.subnodes {
+				applyAttributes(text: text, node: child)
+			}
+		}
 	}
 }
 

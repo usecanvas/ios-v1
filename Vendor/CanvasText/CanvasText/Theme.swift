@@ -30,6 +30,7 @@ public protocol Theme {
 	var backgroundColor: Color { get }
 	var foregroundColor: Color { get }
 	var placeholderColor: Color { get }
+	var foldingAttributes: Attributes { get }
 	var baseAttributes: Attributes { get }
 	var titleAttributes: Attributes { get }
 
@@ -50,6 +51,12 @@ extension Theme {
 
 	public var listIndentation: CGFloat {
 		return round(fontSize * 1.1)
+	}
+
+	public var foldingAttributes: Attributes {
+		return [
+			NSForegroundColorAttributeName: placeholderColor
+		]
 	}
 
 	public var baseAttributes: Attributes {
