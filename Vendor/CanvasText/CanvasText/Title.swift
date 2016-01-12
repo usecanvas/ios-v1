@@ -32,6 +32,13 @@ public struct Title: NativePrefixable, Equatable {
 		self.nativePrefixRange = nativePrefixRange
 		self.displayRange = displayRange
 	}
+
+
+	// MARK: - Native
+
+	public static func nativeRepresentation(string: String? = nil) -> String {
+		return "\(leadingDelimiter)doc-heading\(trailingDelimiter)" + (string ?? "")
+	}
 }
 
 
