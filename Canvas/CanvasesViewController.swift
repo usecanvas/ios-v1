@@ -19,9 +19,9 @@ class CanvasesViewController: ModelsViewController, Accountable {
 
 	// MARK: - Initializers
 
-	init(account: Account) {
+	init(account: Account, style: UITableViewStyle = .Plain) {
 		self.account = account
-		super.init(nibName: nil, bundle: nil)
+		super.init(style: style)
 	}
 
 	required init?(coder aDecoder: NSCoder) {

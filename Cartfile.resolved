@@ -1,4 +1,5 @@
 github "soffes/Crypto" "v0.3.0"
+github "soffes/GradientView" "v2.1.0"
 github "soffes/Mixpanel" "v0.1.0"
 github "venmo/Static" "v0.4.1"
 github "algolia/algoliasearch-client-swift" "2.2.0"

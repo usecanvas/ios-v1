@@ -1,4 +1,5 @@
 github "soffes/Camo"
+github "soffes/GradientView"
 github "soffes/Mixpanel"
 github "venmo/Static"
 github "AgileBits/onepassword-app-extension" "add-framework-support"

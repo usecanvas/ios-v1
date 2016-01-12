@@ -75,13 +75,13 @@ class ModelsViewController: TableViewController {
 
 	// MARK: - UIViewController
 
-	override func viewDidLoad() {
-		super.viewDidLoad()
-
-		let control = UIRefreshControl()
-		control.addTarget(self, action: "refresh", forControlEvents: .ValueChanged)
-		refreshControl = control
-	}
+//	override func viewDidLoad() {
+//		super.viewDidLoad()
+//
+//		let control = UIRefreshControl()
+//		control.addTarget(self, action: "refresh", forControlEvents: .ValueChanged)
+//		refreshControl = control
+//	}
 
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)

@@ -17,15 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Analytics
 		Analytics.track(.LaunchedApp)
 
-		UIBarButtonItem.appearance().setTitleTextAttributes([
-			NSFontAttributeName: Font.sansSerif()
-		], forState: .Normal)
-
-		UINavigationBar.appearance().titleTextAttributes = [
-			NSFontAttributeName: Font.sansSerif(weight: .Bold),
-			NSForegroundColorAttributeName: Color.white
-		]
-
 		dispatch_async(dispatch_get_main_queue()) {
 			if let info = NSBundle.mainBundle().infoDictionary, version = info["CFBundleVersion"] as? String, shortVersion = info["CFBundleShortVersionString"] as? String {
 				NSUserDefaults.standardUserDefaults().setObject("\(shortVersion) (\(version))", forKey: "HumanReadableVersion")

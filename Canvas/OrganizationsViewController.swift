@@ -21,7 +21,7 @@ class OrganizationsViewController: ModelsViewController, Accountable {
 
 	init(account: Account) {
 		self.account = account
-		super.init(nibName: nil, bundle: nil)
+		super.init(style: .Grouped)
 		title = LocalizedString.OrganizationsTitle.string
 	}
 
@@ -47,36 +47,14 @@ class OrganizationsViewController: ModelsViewController, Accountable {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		view.backgroundColor = Color.lightGray
 		tableView.rowHeight = 64
-		tableView.separatorColor = Color.gray
-
+		 
 		navigationItem.leftBarButtonItem = UIBarButtonItem(title: LocalizedString.LogOutButton.string, style: .Plain, target: self, action: "logOut:")
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
 	}
 
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {
 		return .LightContent
-	}
-
-	override func viewWillAppear(animated: Bool) {
-		super.viewWillAppear(animated)
-
-		guard let navigationBar = navigationController?.navigationBar else { return }
-
-		navigationBar.barTintColor = Color.darkGray
-		navigationBar.barStyle = .Black
-		navigationBar.tintColor = Color.white.colorWithAlphaComponent(0.7)
-//		navigationBar.translucent = true
-	}
-	
-	override func viewWillDisappear(animated: Bool) {
-		super.viewWillDisappear(animated)
-
-		guard let navigationBar = navigationController?.navigationBar else { return }
-
-		navigationBar.barTintColor = Color.brand
-//		navigationBar.translucent = false
 	}
 
 

@@ -81,6 +81,6 @@ class RootViewController: UIViewController {
 			return
 		}
 
-		viewController = UINavigationController(rootViewController: OrganizationsViewController(account: account))
+		viewController = NavigationController(rootViewController: OrganizationsViewController(account: account))
 	}
 }

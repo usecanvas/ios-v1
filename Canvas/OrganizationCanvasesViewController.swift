@@ -10,6 +10,7 @@ import UIKit
 import Static
 import CanvasKit
 import AlgoliaSearch
+import GradientView
 
 class OrganizationCanvasesViewController: CanvasesViewController {
 
@@ -30,8 +31,15 @@ class OrganizationCanvasesViewController: CanvasesViewController {
 
 		let results = CanvasesResultsViewController(account: account)
 		searchViewController = UISearchController(searchResultsController: results)
+//		searchViewController.searchBar.barTintColor = .whiteColor()
 
-		super.init(account: account)
+		let searchBar = searchViewController.searchBar
+		searchBar.barTintColor = .whiteColor()
+		searchBar.layer.borderColor = UIColor.whiteColor().CGColor
+		searchBar.layer.borderWidth = 1
+		searchBar.backgroundColor = .whiteColor()
+
+		super.init(account: account, style: .Grouped)
 
 		title = organization.name
 
@@ -76,9 +84,35 @@ class OrganizationCanvasesViewController: CanvasesViewController {
 		definesPresentationContext = true
 		extendedLayoutIncludesOpaqueBars = true
 		searchViewController.hidesNavigationBarDuringPresentation = true
-		tableView.tableHeaderView = searchViewController.searchBar
 
-		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "newCanvas")
+		let header = GradientView(frame: searchViewController.searchBar.bounds)
+		header.backgroundColor = .whiteColor()
+		searchViewController.searchBar.autoresizingMask = [.FlexibleWidth]
+		header.addSubview(searchViewController.searchBar)
+		tableView.tableHeaderView = header
+
+		let topView = UIView(frame: CGRect(x: 0, y: -400, width: view.bounds.width, height: 400))
+		topView.autoresizingMask = [.FlexibleWidth, .FlexibleBottomMargin]
+		topView.backgroundColor = .whiteColor()
+		tableView.addSubview(topView)
+
+		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Create Canvas"), style: .Plain, target: self, action: "createCanvas")
+	}
+
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+
+		if organization.name == "DNGN", let navigationController = navigationController as? NavigationController {
+			navigationController.tintColor = UIColor(red: 0.580, green: 0.459, blue: 0.878, alpha: 1)
+		}
+	}
+
+	override func viewWillDisappear(animated: Bool) {
+		super.viewWillDisappear(animated)
+
+		if let navigationController = navigationController as? NavigationController {
+			navigationController.tintColor = Color.brand
+		}
 	}
 
 
@@ -125,7 +159,7 @@ class OrganizationCanvasesViewController: CanvasesViewController {
 
 	// MARK: - Actions
 
-	func newCanvas() {
+	func createCanvas() {
 		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 		
 		// TODO: Avoid sending canvas-native here once the API is fixed

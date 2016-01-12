@@ -14,6 +14,14 @@ class CanvasCell: UITableViewCell {
 
 	// MARK: - Properties
 
+	let iconView: UIImageView = {
+		let view = UIImageView()
+		view.translatesAutoresizingMaskIntoConstraints = false
+		view.contentMode = .Center
+		view.tintColor = .whiteColor()
+		return view
+	}()
+
 	let titleLabel: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
@@ -55,6 +63,7 @@ class CanvasCell: UITableViewCell {
 		view.backgroundColor = Color.brand
 		selectedBackgroundView = view
 
+		contentView.addSubview(iconView)
 		contentView.addSubview(titleLabel)
 		contentView.addSubview(summaryLabel)
 		contentView.addSubview(timeLabel)
@@ -62,8 +71,13 @@ class CanvasCell: UITableViewCell {
 		let verticalSpacing: CGFloat = 2
 
 		NSLayoutConstraint.activateConstraints([
+			NSLayoutConstraint(item: iconView, attribute: .Leading, relatedBy: .Equal, toItem: contentView, attribute: .LeadingMargin, multiplier: 1, constant: 0),
+			iconView.widthAnchor.constraintEqualToConstant(28),
+			iconView.heightAnchor.constraintEqualToConstant(28),
+			iconView.centerYAnchor.constraintEqualToAnchor(contentView.centerYAnchor),
+
 			titleLabel.bottomAnchor.constraintEqualToAnchor(contentView.centerYAnchor, constant: -verticalSpacing),
-			NSLayoutConstraint(item: titleLabel, attribute: .Leading, relatedBy: .Equal, toItem: contentView, attribute: .LeadingMargin, multiplier: 1, constant: 0),
+			titleLabel.leadingAnchor.constraintEqualToAnchor(iconView.trailingAnchor, constant: 8),
 			titleLabel.trailingAnchor.constraintLessThanOrEqualToAnchor(timeLabel.leadingAnchor),
 
 			summaryLabel.topAnchor.constraintEqualToAnchor(contentView.centerYAnchor, constant: verticalSpacing),
@@ -89,9 +103,12 @@ extension CanvasCell: CellType {
 		if let summary = row.detailText where summary.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0 {
 			summaryLabel.text = summary
 			summaryLabel.font = Font.sansSerif(size: .Subtitle)
+			iconView.image = UIImage(named: "Document")
+			iconView.highlightedImage = UIImage(named: "Document")?.imageWithRenderingMode(.AlwaysTemplate)
 		} else {
 			summaryLabel.text = "No Content"
 			summaryLabel.font = Font.sansSerif(size: .Subtitle, style: .Italic)
+			iconView.image = UIImage(named: "Document-Blank")
 		}
 
 		accessoryType = row.accessory.type
