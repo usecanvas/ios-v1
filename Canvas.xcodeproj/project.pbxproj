@@ -33,6 +33,69 @@
 		2135980A1C1A22FC00200825 /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 213598041C1A22FC00200825 /* CommonCrypto.framework */; };
 		2135980C1C1A22FC00200825 /* Crypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 213598061C1A22FC00200825 /* Crypto.framework */; };
 		213791C51C1790E2000FACCC /* CanvasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213791C41C1790E2000FACCC /* CanvasesViewController.swift */; };
+		214F21111C4494A9004832F4 /* OrganizationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D30D1BF561400018F255 /* OrganizationsViewController.swift */; };
+		214F21121C4494A9004832F4 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742DF1C03BD9000FF293C /* TableViewController.swift */; };
+		214F21131C4494A9004832F4 /* UIFont+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2131391F1C22104000B09904 /* UIFont+Canvas.swift */; };
+		214F21141C4494A9004832F4 /* NumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742C71BFF991600FF293C /* NumberView.swift */; };
+		214F21151C4494A9004832F4 /* CanvasesResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C576941C19002A0015B8A5 /* CanvasesResultsViewController.swift */; };
+		214F21161C4494A9004832F4 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FB6AAF1BF53B8E003C82BB /* RootViewController.swift */; };
+		214F21171C4494A9004832F4 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F10F4F1BF138750035057D /* EditorViewController.swift */; };
+		214F21181C4494A9004832F4 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D30B1BF560810018F255 /* Color.swift */; };
+		214F21191C4494A9004832F4 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2124050A1C23564100BF0C91 /* LocalizedString.swift */; };
+		214F211A1C4494A9004832F4 /* SafariActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA5E1BFD33EA0097FCC6 /* SafariActivity.swift */; };
+		214F211B1C4494A9004832F4 /* BulletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2134FADE1BFC09E300AE93CC /* BulletView.swift */; };
+		214F211C1C4494A9004832F4 /* CanvasTextView+Annotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C0F36C1C1B81F700328E36 /* CanvasTextView+Annotations.swift */; };
+		214F211D1C4494A9004832F4 /* UIEdgeInsets+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCB5841C077C8100F78D93 /* UIEdgeInsets+Canvas.swift */; };
+		214F211E1C4494A9004832F4 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCB57F1C07685000F78D93 /* LoginTextField.swift */; };
+		214F211F1C4494A9004832F4 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2156421E1C06B4ED00685847 /* Analytics.swift */; };
+		214F21201C4494A9004832F4 /* CGRect+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCB5821C0777E200F78D93 /* CGRect+Canvas.swift */; };
+		214F21211C4494A9004832F4 /* SelectedCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960C41C08DE9600EB8F84 /* SelectedCollectionCell.swift */; };
+		214F21221C4494A9004832F4 /* Accountable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D30F1BF5634A0018F255 /* Accountable.swift */; };
+		214F21231C4494A9004832F4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D3091BF55C340018F255 /* LoginViewController.swift */; };
+		214F21241C4494A9004832F4 /* WebActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA5A1BFD30790097FCC6 /* WebActivity.swift */; };
+		214F21251C4494A9004832F4 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960C81C08F24F00EB8F84 /* AlertController.swift */; };
+		214F21261C4494A9004832F4 /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B8D8D81BFC0E0B001ED447 /* CheckboxView.swift */; };
+		214F21271C4494A9004832F4 /* CodeBlockBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216343F51C0D43BB00916A8B /* CodeBlockBackgroundView.swift */; };
+		214F21281C4494A9004832F4 /* ImagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215642281C06C40000685847 /* ImagesController.swift */; };
+		214F21291C4494A9004832F4 /* CanvasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA491BFD085F0097FCC6 /* CanvasCell.swift */; };
+		214F212A1C4494A9004832F4 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219334121C0FD91D000A974B /* SearchController.swift */; };
+		214F212B1C4494A9004832F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F10F4D1BF138750035057D /* AppDelegate.swift */; };
+		214F212C1C4494A9004832F4 /* CanvasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213791C41C1790E2000FACCC /* CanvasesViewController.swift */; };
+		214F212D1C4494A9004832F4 /* CanvasTextView+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C0F3671C1B81B700328E36 /* CanvasTextView+Gestures.swift */; };
+		214F212E1C4494A9004832F4 /* CanvasTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2134FAE01BFC0A6A00AE93CC /* CanvasTextView.swift */; };
+		214F212F1C4494A9004832F4 /* NSDate+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DAC891C0F819700F39A6F /* NSDate+Canvas.swift */; };
+		214F21301C4494A9004832F4 /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960D51C091F7800EB8F84 /* LightTheme.swift */; };
+		214F21311C4494A9004832F4 /* InsertionPointTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DAC811C0E75DC00F39A6F /* InsertionPointTextView.swift */; };
+		214F21321C4494A9004832F4 /* ModelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742EC1C03BDF400FF293C /* ModelsViewController.swift */; };
+		214F21331C4494A9004832F4 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA3C1BFD04F20097FCC6 /* CollectionCell.swift */; };
+		214F21341C4494A9004832F4 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960D31C091CAE00EB8F84 /* Font.swift */; };
+		214F21351C4494A9004832F4 /* OrganizationCanvasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D3111BF568AB0018F255 /* OrganizationCanvasesViewController.swift */; };
+		214F21361C4494A9004832F4 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DAC911C0F98BD00F39A6F /* Configuration.swift */; };
+		214F21371C4494A9004832F4 /* ChromeActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA5C1BFD33DB0097FCC6 /* ChromeActivity.swift */; };
+		214F21381C4494A9004832F4 /* NSCache+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCB58C1C07929A00F78D93 /* NSCache+Canvas.swift */; };
+		214F21391C4494A9004832F4 /* SelectedCanvasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960C61C08F01800EB8F84 /* SelectedCanvasCell.swift */; };
+		214F213A1C4494A9004832F4 /* BlockquoteBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742D81BFFCFDB00FF293C /* BlockquoteBorderView.swift */; };
+		214F213B1C4494A9004832F4 /* Canvas+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219334041C0FC6DD000A974B /* Canvas+Canvas.swift */; };
+		214F213C1C4494A9004832F4 /* KeyboardSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21952C8C1C1A032A006068E4 /* KeyboardSelectionView.swift */; };
+		214F213D1C4494A9004832F4 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215642211C06BBE600685847 /* Button.swift */; };
+		214F213F1C4494A9004832F4 /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212404EE1C233E2D00BF0C91 /* CanvasKit.framework */; };
+		214F21401C4494A9004832F4 /* ISO8601.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210566EB1C3B1DBC00F4387A /* ISO8601.framework */; };
+		214F21411C4494A9004832F4 /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212404DF1C233E2500BF0C91 /* CanvasText.framework */; };
+		214F21421C4494A9004832F4 /* AlgoliaSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 219333FF1C0FC5DD000A974B /* AlgoliaSearch.framework */; };
+		214F21431C4494A9004832F4 /* Camo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 213598021C1A22FC00200825 /* Camo.framework */; };
+		214F21441C4494A9004832F4 /* Crypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 213598061C1A22FC00200825 /* Crypto.framework */; };
+		214F21451C4494A9004832F4 /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 213598041C1A22FC00200825 /* CommonCrypto.framework */; };
+		214F21461C4494A9004832F4 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 215642111C06B46E00685847 /* Mixpanel.framework */; };
+		214F21471C4494A9004832F4 /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AE3F411C0423E300AE5DDC /* OnePasswordExtension.framework */; };
+		214F21481C4494A9004832F4 /* SSKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210566ED1C3B1DBC00F4387A /* SSKeychain.framework */; };
+		214F21491C4494A9004832F4 /* Static.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AE3F461C0423E300AE5DDC /* Static.framework */; };
+		214F214B1C4494A9004832F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21F10F601BF13D720035057D /* Assets.xcassets */; };
+		214F214C1C4494A9004832F4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 212405011C23562800BF0C91 /* Localizable.strings */; };
+		214F214D1C4494A9004832F4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21D2B1971C0D0AED003652B7 /* Settings.bundle */; };
+		214F214E1C4494A9004832F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21F10F611BF13D720035057D /* LaunchScreen.storyboard */; };
+		214F214F1C4494A9004832F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2114833A1C0D68530072F94B /* Main.storyboard */; };
+		214F21511C4494A9004832F4 /* CanvasText.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 212404DF1C233E2500BF0C91 /* CanvasText.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		214F21521C4494A9004832F4 /* CanvasKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 212404EE1C233E2D00BF0C91 /* CanvasKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		215642151C06B46E00685847 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 215642111C06B46E00685847 /* Mixpanel.framework */; };
 		2156421F1C06B4ED00685847 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2156421E1C06B4ED00685847 /* Analytics.swift */; };
 		215642221C06BBE600685847 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215642211C06BBE600685847 /* Button.swift */; };
@@ -143,9 +206,35 @@
 			remoteGlobalIDString = 21FB6ABA1BF53C9D003C82BB;
 			remoteInfo = "CanvasKit-iOS";
 		};
+		214F210D1C4494A9004832F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 212404D71C233E2500BF0C91 /* CanvasText.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 21A8F9EF1BFCF4BD0097FCC6;
+			remoteInfo = "CanvasText-iOS";
+		};
+		214F210F1C4494A9004832F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 212404E61C233E2D00BF0C91 /* CanvasKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 21FB6ABA1BF53C9D003C82BB;
+			remoteInfo = "CanvasKit-iOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		214F21501C4494A9004832F4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				214F21511C4494A9004832F4 /* CanvasText.framework in Embed Frameworks */,
+				214F21521C4494A9004832F4 /* CanvasKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		21F8F1B21BF296480096D2AF /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -190,6 +279,7 @@
 		213598061C1A22FC00200825 /* Crypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crypto.framework; path = Carthage/Build/iOS/Crypto.framework; sourceTree = "<group>"; };
 		213598071C1A22FC00200825 /* Crypto.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Crypto.framework.dSYM; path = Carthage/Build/iOS/Crypto.framework.dSYM; sourceTree = "<group>"; };
 		213791C41C1790E2000FACCC /* CanvasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasesViewController.swift; sourceTree = "<group>"; };
+		214F21581C4494A9004832F4 /* Canvas — Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Canvas — Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		215642111C06B46E00685847 /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mixpanel.framework; path = Carthage/Build/iOS/Mixpanel.framework; sourceTree = "<group>"; };
 		215642121C06B46E00685847 /* Mixpanel.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Mixpanel.framework.dSYM; path = Carthage/Build/iOS/Mixpanel.framework.dSYM; sourceTree = "<group>"; };
 		2156421E1C06B4ED00685847 /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
@@ -237,6 +327,25 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		214F213E1C4494A9004832F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				214F213F1C4494A9004832F4 /* CanvasKit.framework in Frameworks */,
+				214F21401C4494A9004832F4 /* ISO8601.framework in Frameworks */,
+				214F21411C4494A9004832F4 /* CanvasText.framework in Frameworks */,
+				214F21421C4494A9004832F4 /* AlgoliaSearch.framework in Frameworks */,
+				214F21431C4494A9004832F4 /* Camo.framework in Frameworks */,
+				214F21421C4494A9004832F4 /* AlgoliaSearch.framework in Frameworks */,
+				214F21441C4494A9004832F4 /* Crypto.framework in Frameworks */,
+				214F21451C4494A9004832F4 /* CommonCrypto.framework in Frameworks */,
+				214F21461C4494A9004832F4 /* Mixpanel.framework in Frameworks */,
+				214F21471C4494A9004832F4 /* OnePasswordExtension.framework in Frameworks */,
+				214F21481C4494A9004832F4 /* SSKeychain.framework in Frameworks */,
+				214F21491C4494A9004832F4 /* Static.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		21F10F471BF138750035057D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -413,6 +522,7 @@
 			isa = PBXGroup;
 			children = (
 				21F10F4A1BF138750035057D /* Canvas.app */,
+				214F21581C4494A9004832F4 /* Canvas — Dev.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -491,6 +601,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		214F210B1C4494A9004832F4 /* Canvas — Dev */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 214F21551C4494A9004832F4 /* Build configuration list for PBXNativeTarget "Canvas — Dev" */;
+			buildPhases = (
+				214F21101C4494A9004832F4 /* Sources */,
+				214F213E1C4494A9004832F4 /* Frameworks */,
+				214F214A1C4494A9004832F4 /* Resources */,
+				214F21501C4494A9004832F4 /* Embed Frameworks */,
+				214F21531C4494A9004832F4 /* Embed Carthage Frameworks */,
+				214F21541C4494A9004832F4 /* Set Version */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				214F210C1C4494A9004832F4 /* PBXTargetDependency */,
+				214F210E1C4494A9004832F4 /* PBXTargetDependency */,
+			);
+			name = "Canvas — Dev";
+			productName = Canvas;
+			productReference = 214F21581C4494A9004832F4 /* Canvas — Dev.app */;
+			productType = "com.apple.product-type.application";
+		};
 		21F10F491BF138750035057D /* Canvas */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21F10F5C1BF138750035057D /* Build configuration list for PBXNativeTarget "Canvas" */;
@@ -567,6 +699,7 @@
 			projectRoot = "";
 			targets = (
 				21F10F491BF138750035057D /* Canvas */,
+				214F210B1C4494A9004832F4 /* Canvas — Dev */,
 			);
 		};
 /* End PBXProject section */
@@ -631,6 +764,18 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		214F214A1C4494A9004832F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				214F214B1C4494A9004832F4 /* Assets.xcassets in Resources */,
+				214F214C1C4494A9004832F4 /* Localizable.strings in Resources */,
+				214F214D1C4494A9004832F4 /* Settings.bundle in Resources */,
+				214F214E1C4494A9004832F4 /* LaunchScreen.storyboard in Resources */,
+				214F214F1C4494A9004832F4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		21F10F481BF138750035057D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -646,6 +791,43 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		214F21531C4494A9004832F4 /* Embed Carthage Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/OnePasswordExtension.framework",
+				"$(SRCROOT)/Vendor/CanvasKit/Carthage/Build/iOS/SSKeychain.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Static.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Mixpanel.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AlgoliaSearch.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Camo.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Crypto.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CommonCrypto.framework",
+				"$(SRCROOT)/Vendor/CanvasKit/Carthage/Build/iOS/ISO8601.framework",
+			);
+			name = "Embed Carthage Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		214F21541C4494A9004832F4 /* Set Version */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Set Version";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = "/usr/bin/env ruby";
+			shellScript = "git = `sh /etc/profile; which git`.chomp\napp_build = `#{git} rev-list HEAD --count`.chomp.to_i\n`/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion #{app_build}\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"`\nputs \"Updated #{ENV['TARGET_BUILD_DIR']}/#{ENV['INFOPLIST_PATH']}\"";
+		};
 		21A8FA601BFD3D160097FCC6 /* Set Version */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -686,6 +868,58 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		214F21101C4494A9004832F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				214F21111C4494A9004832F4 /* OrganizationsViewController.swift in Sources */,
+				214F21121C4494A9004832F4 /* TableViewController.swift in Sources */,
+				214F21131C4494A9004832F4 /* UIFont+Canvas.swift in Sources */,
+				214F21141C4494A9004832F4 /* NumberView.swift in Sources */,
+				214F21151C4494A9004832F4 /* CanvasesResultsViewController.swift in Sources */,
+				214F21161C4494A9004832F4 /* RootViewController.swift in Sources */,
+				214F21171C4494A9004832F4 /* EditorViewController.swift in Sources */,
+				214F21181C4494A9004832F4 /* Color.swift in Sources */,
+				214F21191C4494A9004832F4 /* LocalizedString.swift in Sources */,
+				214F211A1C4494A9004832F4 /* SafariActivity.swift in Sources */,
+				214F211B1C4494A9004832F4 /* BulletView.swift in Sources */,
+				214F211C1C4494A9004832F4 /* CanvasTextView+Annotations.swift in Sources */,
+				214F211D1C4494A9004832F4 /* UIEdgeInsets+Canvas.swift in Sources */,
+				214F211E1C4494A9004832F4 /* LoginTextField.swift in Sources */,
+				214F211F1C4494A9004832F4 /* Analytics.swift in Sources */,
+				214F21201C4494A9004832F4 /* CGRect+Canvas.swift in Sources */,
+				214F21211C4494A9004832F4 /* SelectedCollectionCell.swift in Sources */,
+				214F21221C4494A9004832F4 /* Accountable.swift in Sources */,
+				214F21231C4494A9004832F4 /* LoginViewController.swift in Sources */,
+				214F21241C4494A9004832F4 /* WebActivity.swift in Sources */,
+				214F21251C4494A9004832F4 /* AlertController.swift in Sources */,
+				214F21261C4494A9004832F4 /* CheckboxView.swift in Sources */,
+				214F21271C4494A9004832F4 /* CodeBlockBackgroundView.swift in Sources */,
+				214F21281C4494A9004832F4 /* ImagesController.swift in Sources */,
+				214F21291C4494A9004832F4 /* CanvasCell.swift in Sources */,
+				214F212A1C4494A9004832F4 /* SearchController.swift in Sources */,
+				214F212B1C4494A9004832F4 /* AppDelegate.swift in Sources */,
+				214F212C1C4494A9004832F4 /* CanvasesViewController.swift in Sources */,
+				214F212D1C4494A9004832F4 /* CanvasTextView+Gestures.swift in Sources */,
+				214F212E1C4494A9004832F4 /* CanvasTextView.swift in Sources */,
+				214F212F1C4494A9004832F4 /* NSDate+Canvas.swift in Sources */,
+				214F21301C4494A9004832F4 /* LightTheme.swift in Sources */,
+				214F21311C4494A9004832F4 /* InsertionPointTextView.swift in Sources */,
+				214F21321C4494A9004832F4 /* ModelsViewController.swift in Sources */,
+				214F21331C4494A9004832F4 /* CollectionCell.swift in Sources */,
+				214F21341C4494A9004832F4 /* Font.swift in Sources */,
+				214F21351C4494A9004832F4 /* OrganizationCanvasesViewController.swift in Sources */,
+				214F21361C4494A9004832F4 /* Configuration.swift in Sources */,
+				214F21371C4494A9004832F4 /* ChromeActivity.swift in Sources */,
+				214F21381C4494A9004832F4 /* NSCache+Canvas.swift in Sources */,
+				214F21391C4494A9004832F4 /* SelectedCanvasCell.swift in Sources */,
+				214F213A1C4494A9004832F4 /* BlockquoteBorderView.swift in Sources */,
+				214F213B1C4494A9004832F4 /* Canvas+Canvas.swift in Sources */,
+				214F213C1C4494A9004832F4 /* KeyboardSelectionView.swift in Sources */,
+				214F213D1C4494A9004832F4 /* Button.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		21F10F461BF138750035057D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -751,6 +985,16 @@
 			name = "CanvasKit-iOS";
 			targetProxy = 212404F71C233E3C00BF0C91 /* PBXContainerItemProxy */;
 		};
+		214F210C1C4494A9004832F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CanvasText-iOS";
+			targetProxy = 214F210D1C4494A9004832F4 /* PBXContainerItemProxy */;
+		};
+		214F210E1C4494A9004832F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CanvasKit-iOS";
+			targetProxy = 214F210F1C4494A9004832F4 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -781,6 +1025,52 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		214F21561C4494A9004832F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = DevAppIcon;
+				BUNDLE_DISPLAY_NAME = "Canvas ⚒";
+				CODE_SIGN_ENTITLEMENTS = Canvas/Resources/Canvas.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Vendor/CanvasKit/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Canvas/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.usecanvas.canvas-ios-dev";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		214F21571C4494A9004832F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = DevAppIcon;
+				BUNDLE_DISPLAY_NAME = "Canvas ⚒";
+				CODE_SIGN_ENTITLEMENTS = Canvas/Resources/Canvas.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Vendor/CanvasKit/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Canvas/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.usecanvas.canvas-ios-dev";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
 		21F10F5A1BF138750035057D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -869,6 +1159,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_DISPLAY_NAME = Canvas;
 				CODE_SIGN_ENTITLEMENTS = Canvas/Resources/Canvas.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -891,6 +1182,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_DISPLAY_NAME = Canvas;
 				CODE_SIGN_ENTITLEMENTS = Canvas/Resources/Canvas.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -912,6 +1204,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		214F21551C4494A9004832F4 /* Build configuration list for PBXNativeTarget "Canvas — Dev" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				214F21561C4494A9004832F4 /* Debug */,
+				214F21571C4494A9004832F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		21F10F451BF138750035057D /* Build configuration list for PBXProject "Canvas" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
