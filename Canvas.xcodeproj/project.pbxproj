@@ -1040,7 +1040,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Vendor/CanvasKit/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "Canvas copy-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Canvas/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.usecanvas.canvas-ios-dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1063,7 +1063,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Vendor/CanvasKit/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "Canvas copy-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Canvas/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.usecanvas.canvas-ios-dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
