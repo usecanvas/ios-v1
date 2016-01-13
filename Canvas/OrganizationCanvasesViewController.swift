@@ -9,9 +9,53 @@
 import UIKit
 import Static
 import CanvasKit
-import AlgoliaSearch
+import GradientView
 
-class OrganizationCanvasesViewController: CanvasesViewController {
+final class OrganizationCanvasesViewController: CanvasesViewController {
+
+	// MARK: - Types
+
+	private enum Group: String {
+		case Today
+		case Recent // 3 days
+		case Week
+		case Month
+		case Forever
+
+		var title: String {
+			switch self {
+			case .Week: return "This Week"
+			case . Month: return "This Month"
+			case .Forever: return "Older"
+			default: return rawValue
+			}
+		}
+
+		func containsDate(date: NSDate) -> Bool {
+			let calendar = NSCalendar.currentCalendar()
+
+			let now = NSDate()
+
+			switch self {
+			case .Today:
+				return calendar.isDateInToday(date)
+			case .Recent:
+				guard let end = calendar.dateByAddingUnit(NSCalendarUnit.Day, value: -3, toDate: now, options: []) else { return false }
+				return calendar.compareDate(date, toDate: end, toUnitGranularity: .Day) == .OrderedDescending
+			case .Week:
+				guard let end = calendar.dateByAddingUnit(NSCalendarUnit.Day, value: -7, toDate: now, options: []) else { return false }
+				return calendar.compareDate(date, toDate: end, toUnitGranularity: .Day) == .OrderedDescending
+			case .Month:
+				guard let end = calendar.dateByAddingUnit(NSCalendarUnit.Month, value: -1, toDate: now, options: []) else { return false }
+				return calendar.compareDate(date, toDate: end, toUnitGranularity: .Day) == .OrderedDescending
+			case .Forever:
+				return true
+			}
+		}
+
+		static let all: [Group] = [.Today, .Recent, .Week, .Month, .Forever]
+	}
+
 
 	// MARK: - Properties
 
@@ -30,8 +74,15 @@ class OrganizationCanvasesViewController: CanvasesViewController {
 
 		let results = CanvasesResultsViewController(account: account)
 		searchViewController = UISearchController(searchResultsController: results)
+//		searchViewController.searchBar.barTintColor = .whiteColor()
 
-		super.init(account: account)
+		let searchBar = searchViewController.searchBar
+		searchBar.barTintColor = .whiteColor()
+		searchBar.layer.borderColor = UIColor.whiteColor().CGColor
+		searchBar.layer.borderWidth = 1
+		searchBar.backgroundColor = .whiteColor()
+
+		super.init(account: account, style: .Grouped)
 
 		title = organization.name
 
@@ -41,8 +92,10 @@ class OrganizationCanvasesViewController: CanvasesViewController {
 		searchViewController.searchResultsUpdater = searchController
 
 		searchController.callback = { [weak self] canvases in
-			guard let viewController = self?.searchViewController.searchResultsController as? CanvasesViewController else { return }
-			viewController.arrangedModels = canvases.map { $0 as Model }
+			guard let this = self, viewController = this.searchViewController.searchResultsController as? CanvasesViewController else { return }
+			viewController.dataSource.sections = [
+				Section(rows: canvases.map({ this.rowForCanvas($0) }))
+			]
 		}
 	}
 
@@ -76,17 +129,26 @@ class OrganizationCanvasesViewController: CanvasesViewController {
 		definesPresentationContext = true
 		extendedLayoutIncludesOpaqueBars = true
 		searchViewController.hidesNavigationBarDuringPresentation = true
-		tableView.tableHeaderView = searchViewController.searchBar
 
-		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "newCanvas")
+		var frame = searchViewController.searchBar.bounds
+		frame.size.height += 1
+		let header = GradientView(frame: frame)
+		header.backgroundColor = tableView.separatorColor
+		header.bottomBorderColor = tableView.backgroundColor
+		searchViewController.searchBar.autoresizingMask = [.FlexibleWidth]
+		header.addSubview(searchViewController.searchBar)
+		tableView.tableHeaderView = header
+
+		let topView = UIView(frame: CGRect(x: 0, y: -400, width: view.bounds.width, height: 400))
+		topView.autoresizingMask = [.FlexibleWidth, .FlexibleBottomMargin]
+		topView.backgroundColor = .whiteColor()
+		tableView.addSubview(topView)
+
+		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Create Canvas"), style: .Plain, target: self, action: "createCanvas")
 	}
 
 
 	// MARK: - ModelsViewController
-
-	override var canRefresh: Bool {
-		return true
-	}
 
 	override func refresh() {
 		if loading {
@@ -100,7 +162,7 @@ class OrganizationCanvasesViewController: CanvasesViewController {
 			case .Success(let canvases):
 				dispatch_async(dispatch_get_main_queue()) {
 					self?.loading = false
-					self?.arrangedModels = canvases.map { $0 as Model }
+					self?.updateCanvases(canvases)
 				}
 			case .Failure(let message):
 				print("Failed to get canvases: \(message)")
@@ -111,8 +173,11 @@ class OrganizationCanvasesViewController: CanvasesViewController {
 		}
 	}
 
-	override func rowForModel(model: Model, isSelected: Bool) -> Row? {
-		guard let canvas = model as? Canvas, var row = super.rowForModel(model, isSelected: isSelected) else { return nil }
+
+	// MARK: - CanvasesViewController
+
+	override  func rowForCanvas(canvas: Canvas) -> Row {
+		var row = super.rowForCanvas(canvas)
 
 		row.editActions = [
 			Row.EditAction(title: LocalizedString.DeleteButton.string, style: .Destructive, backgroundColor: Color.destructive, backgroundEffect: nil, selection: deleteCanvas(canvas)),
@@ -125,7 +190,7 @@ class OrganizationCanvasesViewController: CanvasesViewController {
 
 	// MARK: - Actions
 
-	func newCanvas() {
+	func createCanvas() {
 		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 		
 		// TODO: Avoid sending canvas-native here once the API is fixed
@@ -135,9 +200,7 @@ class OrganizationCanvasesViewController: CanvasesViewController {
 
 				switch result {
 				case .Success(let canvas):
-					self?.openCanvas(canvas) {
-						$0.wantsFocus = true
-					}
+					self?.openCanvas(canvas)
 				case .Failure(let message):
 					print("Failed to create canvas: \(message)")
 				}
@@ -147,16 +210,6 @@ class OrganizationCanvasesViewController: CanvasesViewController {
 
 	func search() {
 		searchViewController.searchBar.becomeFirstResponder()
-	}
-
-	func deleteSelectedCanvas() {
-		guard let canvas = selectedModel as? Canvas else { return }
-		deleteCanvas(canvas)()
-	}
-
-	func archiveSelectedCanvas() {
-		guard let canvas = selectedModel as? Canvas else { return }
-		archiveCanvas(canvas)()
 	}
 
 	private func deleteCanvas(canvas: Canvas)() {
@@ -198,11 +251,46 @@ class OrganizationCanvasesViewController: CanvasesViewController {
 
 		presentViewController(actionSheet, animated: true, completion: nil)
 	}
+
+
+	// MARK: - Private
+
+	private func updateCanvases(canvases: [Canvas]) {
+		var groups = [Group: [Canvas]]()
+
+		for canvas in canvases {
+			for group in Group.all {
+				if group.containsDate(canvas.updatedAt) {
+					var list = groups[group] ?? [Canvas]()
+					list.append(canvas)
+					groups[group] = list
+					break
+				}
+			}
+		}
+
+		var sections = [Section]()
+		for group in Group.all {
+			guard let canvases = groups[group] else { continue }
+
+			let rows = canvases.map { rowForCanvas($0) }
+			sections.append(Section(header: .Title(group.title), rows: rows))
+		}
+
+		dataSource.sections = sections
+	}
 }
 
 
 extension OrganizationCanvasesViewController: CanvasesResultsViewControllerDelegate {
 	func canvasesResultsViewController(viewController: CanvasesResultsViewController, didSelectCanvas canvas: Canvas) {
-		selectModel(canvas)
+		openCanvas(canvas)
+	}
+}
+
+
+extension OrganizationCanvasesViewController: TintableEnvironment {
+	var preferredTintColor: UIColor {
+		return organization.color
 	}
 }

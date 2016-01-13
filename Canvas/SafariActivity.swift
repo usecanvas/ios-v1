@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SafariActivity: WebActivity {
+final class SafariActivity: WebActivity {
 
 	// MARK: - UIActivity
 

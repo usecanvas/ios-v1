@@ -10,7 +10,7 @@ import UIKit
 import Static
 import CanvasKit
 
-class OrganizationsViewController: ModelsViewController, Accountable {
+final class OrganizationsViewController: ModelsViewController, Accountable {
 
 	// MARK: - Properties
 
@@ -21,7 +21,7 @@ class OrganizationsViewController: ModelsViewController, Accountable {
 
 	init(account: Account) {
 		self.account = account
-		super.init(nibName: nil, bundle: nil)
+		super.init(style: .Grouped)
 		title = LocalizedString.OrganizationsTitle.string
 	}
 
@@ -36,7 +36,7 @@ class OrganizationsViewController: ModelsViewController, Accountable {
 	override var keyCommands: [UIKeyCommand] {
 		var commands = super.keyCommands ?? []
 		commands += [
-			UIKeyCommand(input: "Q", modifierFlags: [.Shift, .Command], action: "logOut:", discoverabilityTitle: LocalizedString.LogOutButton.string)
+			UIKeyCommand(input: "Q", modifierFlags: [.Shift, .Command], action: "logOut", discoverabilityTitle: LocalizedString.LogOutButton.string)
 		]
 		return commands
 	}
@@ -47,11 +47,9 @@ class OrganizationsViewController: ModelsViewController, Accountable {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		view.backgroundColor = Color.lightGray
-		tableView.rowHeight = 64
-		tableView.separatorColor = Color.gray
-
-		navigationItem.leftBarButtonItem = UIBarButtonItem(title: LocalizedString.LogOutButton.string, style: .Plain, target: self, action: "logOut:")
+		tableView.estimatedRowHeight = 66
+		 
+		navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Settings"), style: .Plain, target: self, action: "showSettings:")
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
 	}
 
@@ -59,45 +57,21 @@ class OrganizationsViewController: ModelsViewController, Accountable {
 		return .LightContent
 	}
 
-	override func viewWillAppear(animated: Bool) {
-		super.viewWillAppear(animated)
 
-		guard let navigationBar = navigationController?.navigationBar else { return }
+	// MARK: - Rows
 
-		navigationBar.barTintColor = Color.darkGray
-		navigationBar.barStyle = .Black
-		navigationBar.tintColor = Color.white.colorWithAlphaComponent(0.7)
-//		navigationBar.translucent = true
-	}
-	
-	override func viewWillDisappear(animated: Bool) {
-		super.viewWillDisappear(animated)
+	func rowForOrganization(organization: Organization) -> Row {
+		var row = organization.row
 
-		guard let navigationBar = navigationController?.navigationBar else { return }
+		row.selection = { [weak self] in
+			self?.openOrganization(organization)
+		}
 
-		navigationBar.barTintColor = Color.brand
-//		navigationBar.translucent = false
+		return row
 	}
 
-
-	// MARK: - ListViewController
-
-	override var modelTypeName: String {
-		return "Organization"
-	}
-
-	override func rowForModel(model: Model, isSelected: Bool) -> Row? {
-		guard let organization = model as? Organization else { return nil }
-		return Row(
-			text: organization.name,
-			accessory: .DisclosureIndicator,
-			selection: { [weak self] in self?.selectModel(organization) },
-			cellClass: isSelected ? SelectedOrganizationCell.self : OrganizationCell.self
-		)
-	}
-
-	override func selectModel(model: Model) {
-		guard !opening, let organization = model as? Organization else { return }
+	func openOrganization(organization: Organization) {
+		guard !opening else { return }
 		opening = true
 		Analytics.track(.ChangedOrganization(organization: organization))
 		let viewController = OrganizationCanvasesViewController(account: account, organization: organization)
@@ -116,7 +90,7 @@ class OrganizationsViewController: ModelsViewController, Accountable {
 			case .Success(let organizations):
 				dispatch_async(dispatch_get_main_queue()) {
 					self?.loading = false
-					self?.arrangedModels = organizations.map { $0 as Model }
+					self?.updateOrganizations(organizations)
 				}
 			case .Failure(let message):
 				print("Failed to get organizations: \(message)")
@@ -130,8 +104,39 @@ class OrganizationsViewController: ModelsViewController, Accountable {
 
 	// MARK: - Actions
 
-	func logOut(sender: AnyObject?) {
+	func showSettings(sender: AnyObject?) {
+		let style: UIAlertControllerStyle = traitCollection.userInterfaceIdiom == .Pad ? .Alert : .ActionSheet
+		let actionSheet = AlertController(title:nil, message: nil, preferredStyle: style)
+
+		actionSheet.addAction(UIAlertAction(title: LocalizedString.LogOutButton.string, style: .Destructive) { _ in self.logOut() })
+		actionSheet.addAction(UIAlertAction(title: LocalizedString.CancelButton.string, style: .Cancel, handler: nil))
+		actionSheet.primaryAction = logOut
+
+		presentViewController(actionSheet, animated: true, completion: nil)
+	}
+
+	func logOut() {
 		Analytics.track(.LoggedIn)
 		AccountController.sharedController.currentAccount = nil
+	}
+
+
+	// MARK: - Private
+
+	private func updateOrganizations(organizations: [Organization]) {
+		guard let personalIndex = organizations.indexOf({ $0.name == account.user.username }) else { return }
+
+		var orgs = organizations
+		let personal = orgs[personalIndex]
+		orgs.removeAtIndex(personalIndex)
+
+		var personalRow = rowForOrganization(personal)
+		personalRow.text = "Personal Notes"
+		personalRow.cellClass = PersonalOrganizationCell.self
+
+		dataSource.sections = [
+			Section(rows: [personalRow]),
+			Section(header: "Organizations", rows: orgs.map({ rowForOrganization($0) }))
+		]
 	}
 }

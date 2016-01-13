@@ -9,11 +9,9 @@
 import UIKit
 import Foundation
 import CanvasKit
-//import SSKeychain
-import AlgoliaSearch
 
 /// Object for coordinating searches
-class SearchController: NSObject {
+final class SearchController: NSObject {
 
 	// MARK: - Properties
 
@@ -24,9 +22,6 @@ class SearchController: NSObject {
 	var callback: ([Canvas] -> Void)?
 
 	private let semaphore = dispatch_semaphore_create(0)
-	private var searchCredential: SearchCredential?
-
-	private static var credentialsCache = [String: SearchCredential]()
 
 	private var nextQuery: String? {
 		didSet {
@@ -34,16 +29,19 @@ class SearchController: NSObject {
 		}
 	}
 
+	private let client: APIClient
+
 
 	// MARK: - Initializers
 
 	init(account: Account, organization: Organization) {
 		self.account = account
 		self.organization = organization
+		client = APIClient(accessToken: account.accessToken)
 
 		super.init()
-		
-		fetchSearchToken()
+
+		dispatch_semaphore_signal(semaphore)
 	}
 
 
@@ -56,74 +54,37 @@ class SearchController: NSObject {
 
 	// MARK: - Private
 
-	private func fetchSearchToken() {
-		// Get from cache
-		let key = organization.ID
-		if let credential = self.dynamicType.credentialsCache[key] {
-				searchCredential = credential
-				dispatch_semaphore_signal(semaphore)
-				return
-		}
-
-		// Fetch from API
-		let client = APIClient(accessToken: account.accessToken)
-		client.getOrganizationSearchCredential(organization: organization) { [weak self] result in
-			switch result {
-			case .Success(let credential):
-				// Cache
-				self?.dynamicType.credentialsCache[key] = credential
-
-				self?.searchCredential = credential
-				if let semaphore = self?.semaphore {
-					dispatch_semaphore_signal(semaphore)
-				}
-			default: print("Failed to get search token")
-			}
-		}
-	}
-
 	private func query() {
 		guard nextQuery != nil else { return }
+
+		let organizationID = organization.ID
 
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)) { [weak self] in
 			guard let semaphore = self?.semaphore else { return }
 
 			dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
 
-			guard let credential = self?.searchCredential,
-				text = self?.nextQuery
-			else {
+			guard let query = self?.nextQuery, client = self?.client else {
 				dispatch_semaphore_signal(semaphore)
 				return
 			}
 
 			self?.nextQuery = nil
 
-			// Setup client
-			let search = Client(appID: credential.applicationID, apiKey: credential.key)
-
-			// Get index
-			let index = search.getIndex(credential.index)
-
-			// Construct query
-			let query = Query(query: text)
-
-			// Search index
 			dispatch_async(dispatch_get_main_queue()) {
 				UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 			}
 
-			index.search(query) { content, error in
+			client.searchCanvases(organizationID: organizationID, query: query) {
 				dispatch_async(dispatch_get_main_queue()) {
 					UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 				}
 
-				guard let content = content,
-					hits = content["hits"] as? [JSONDictionary]
-				else { return }
+				switch $0 {
+				case .Success(let canvases): self?.callback?(canvases)
+				default: break
+				}
 
-				let canvases = hits.flatMap { Canvas(dictionary: $0) }
-				self?.callback?(canvases)
 				dispatch_semaphore_signal(semaphore)
 			}
 		}

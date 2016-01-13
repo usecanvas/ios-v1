@@ -17,8 +17,7 @@ class CanvasesResultsViewController: CanvasesViewController {
 
 	weak var delegate: CanvasesResultsViewControllerDelegate?
 
-	override func selectModel(model: Model) {
-		guard let canvas = model as? Canvas else { return }
+	override func openCanvas(canvas: Canvas) {
 		delegate?.canvasesResultsViewController(self, didSelectCanvas: canvas)
 	}
 }

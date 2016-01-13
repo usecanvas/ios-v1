@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		210566EF1C3B1DBC00F4387A /* ISO8601.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210566EB1C3B1DBC00F4387A /* ISO8601.framework */; };
 		210566F11C3B1DBC00F4387A /* SSKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210566ED1C3B1DBC00F4387A /* SSKeychain.framework */; };
-		210960C51C08DE9600EB8F84 /* SelectedCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960C41C08DE9600EB8F84 /* SelectedCollectionCell.swift */; };
-		210960C71C08F01800EB8F84 /* SelectedCanvasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960C61C08F01800EB8F84 /* SelectedCanvasCell.swift */; };
 		210960C91C08F25000EB8F84 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960C81C08F24F00EB8F84 /* AlertController.swift */; };
 		210960D41C091CAE00EB8F84 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960D31C091CAE00EB8F84 /* Font.swift */; };
 		210960D61C091F7800EB8F84 /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960D51C091F7800EB8F84 /* LightTheme.swift */; };
@@ -21,6 +19,14 @@
 		212404FC1C233E5200BF0C91 /* CanvasText.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 212404DF1C233E2500BF0C91 /* CanvasText.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		212405031C23562800BF0C91 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 212405011C23562800BF0C91 /* Localizable.strings */; };
 		2124050B1C23564100BF0C91 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2124050A1C23564100BF0C91 /* LocalizedString.swift */; };
+		212448101C45B225008E41A4 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2124480F1C45B225008E41A4 /* NavigationController.swift */; };
+		212448111C45B225008E41A4 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2124480F1C45B225008E41A4 /* NavigationController.swift */; };
+		2124481C1C45BF75008E41A4 /* GradientView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2124481A1C45BF75008E41A4 /* GradientView.framework */; };
+		2124481D1C45BF75008E41A4 /* GradientView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2124481A1C45BF75008E41A4 /* GradientView.framework */; };
+		212448211C45D7F7008E41A4 /* Organization+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212448201C45D7F7008E41A4 /* Organization+Canvas.swift */; };
+		212448221C45D7F7008E41A4 /* Organization+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212448201C45D7F7008E41A4 /* Organization+Canvas.swift */; };
+		212448241C45D963008E41A4 /* TintableEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212448231C45D963008E41A4 /* TintableEnvironment.swift */; };
+		212448251C45D963008E41A4 /* TintableEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212448231C45D963008E41A4 /* TintableEnvironment.swift */; };
 		2129D30A1BF55C340018F255 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D3091BF55C340018F255 /* LoginViewController.swift */; };
 		2129D30C1BF560810018F255 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D30B1BF560810018F255 /* Color.swift */; };
 		2129D30E1BF561400018F255 /* OrganizationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D30D1BF561400018F255 /* OrganizationsViewController.swift */; };
@@ -49,7 +55,6 @@
 		214F211E1C4494A9004832F4 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCB57F1C07685000F78D93 /* LoginTextField.swift */; };
 		214F211F1C4494A9004832F4 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2156421E1C06B4ED00685847 /* Analytics.swift */; };
 		214F21201C4494A9004832F4 /* CGRect+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCB5821C0777E200F78D93 /* CGRect+Canvas.swift */; };
-		214F21211C4494A9004832F4 /* SelectedCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960C41C08DE9600EB8F84 /* SelectedCollectionCell.swift */; };
 		214F21221C4494A9004832F4 /* Accountable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D30F1BF5634A0018F255 /* Accountable.swift */; };
 		214F21231C4494A9004832F4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D3091BF55C340018F255 /* LoginViewController.swift */; };
 		214F21241C4494A9004832F4 /* WebActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA5A1BFD30790097FCC6 /* WebActivity.swift */; };
@@ -67,21 +72,18 @@
 		214F21301C4494A9004832F4 /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960D51C091F7800EB8F84 /* LightTheme.swift */; };
 		214F21311C4494A9004832F4 /* InsertionPointTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DAC811C0E75DC00F39A6F /* InsertionPointTextView.swift */; };
 		214F21321C4494A9004832F4 /* ModelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742EC1C03BDF400FF293C /* ModelsViewController.swift */; };
-		214F21331C4494A9004832F4 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA3C1BFD04F20097FCC6 /* CollectionCell.swift */; };
+		214F21331C4494A9004832F4 /* OrganizationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA3C1BFD04F20097FCC6 /* OrganizationCell.swift */; };
 		214F21341C4494A9004832F4 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960D31C091CAE00EB8F84 /* Font.swift */; };
 		214F21351C4494A9004832F4 /* OrganizationCanvasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D3111BF568AB0018F255 /* OrganizationCanvasesViewController.swift */; };
 		214F21361C4494A9004832F4 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DAC911C0F98BD00F39A6F /* Configuration.swift */; };
 		214F21371C4494A9004832F4 /* ChromeActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA5C1BFD33DB0097FCC6 /* ChromeActivity.swift */; };
 		214F21381C4494A9004832F4 /* NSCache+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCB58C1C07929A00F78D93 /* NSCache+Canvas.swift */; };
-		214F21391C4494A9004832F4 /* SelectedCanvasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960C61C08F01800EB8F84 /* SelectedCanvasCell.swift */; };
 		214F213A1C4494A9004832F4 /* BlockquoteBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742D81BFFCFDB00FF293C /* BlockquoteBorderView.swift */; };
 		214F213B1C4494A9004832F4 /* Canvas+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219334041C0FC6DD000A974B /* Canvas+Canvas.swift */; };
-		214F213C1C4494A9004832F4 /* KeyboardSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21952C8C1C1A032A006068E4 /* KeyboardSelectionView.swift */; };
 		214F213D1C4494A9004832F4 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215642211C06BBE600685847 /* Button.swift */; };
 		214F213F1C4494A9004832F4 /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212404EE1C233E2D00BF0C91 /* CanvasKit.framework */; };
 		214F21401C4494A9004832F4 /* ISO8601.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210566EB1C3B1DBC00F4387A /* ISO8601.framework */; };
 		214F21411C4494A9004832F4 /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212404DF1C233E2500BF0C91 /* CanvasText.framework */; };
-		214F21421C4494A9004832F4 /* AlgoliaSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 219333FF1C0FC5DD000A974B /* AlgoliaSearch.framework */; };
 		214F21431C4494A9004832F4 /* Camo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 213598021C1A22FC00200825 /* Camo.framework */; };
 		214F21441C4494A9004832F4 /* Crypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 213598061C1A22FC00200825 /* Crypto.framework */; };
 		214F21451C4494A9004832F4 /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 213598041C1A22FC00200825 /* CommonCrypto.framework */; };
@@ -101,14 +103,16 @@
 		215642221C06BBE600685847 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215642211C06BBE600685847 /* Button.swift */; };
 		215642291C06C40000685847 /* ImagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215642281C06C40000685847 /* ImagesController.swift */; };
 		216343F61C0D43BB00916A8B /* CodeBlockBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216343F51C0D43BB00916A8B /* CodeBlockBackgroundView.swift */; };
-		219334011C0FC5DD000A974B /* AlgoliaSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 219333FF1C0FC5DD000A974B /* AlgoliaSearch.framework */; };
+		217381411C45E400002F87C5 /* OrganizationAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217381401C45E400002F87C5 /* OrganizationAvatarView.swift */; };
+		217381421C45E400002F87C5 /* OrganizationAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217381401C45E400002F87C5 /* OrganizationAvatarView.swift */; };
 		219334051C0FC6DD000A974B /* Canvas+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219334041C0FC6DD000A974B /* Canvas+Canvas.swift */; };
 		219334131C0FD91D000A974B /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219334121C0FD91D000A974B /* SearchController.swift */; };
-		21952C8D1C1A032A006068E4 /* KeyboardSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21952C8C1C1A032A006068E4 /* KeyboardSelectionView.swift */; };
 		219DAC821C0E75DC00F39A6F /* InsertionPointTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DAC811C0E75DC00F39A6F /* InsertionPointTextView.swift */; };
 		219DAC8A1C0F819700F39A6F /* NSDate+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DAC891C0F819700F39A6F /* NSDate+Canvas.swift */; };
 		219DAC921C0F98BD00F39A6F /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DAC911C0F98BD00F39A6F /* Configuration.swift */; };
-		21A8FA3D1BFD04F20097FCC6 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA3C1BFD04F20097FCC6 /* CollectionCell.swift */; };
+		219DFC761C46D22C006101DA /* PersonalOrganizationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DFC751C46D22C006101DA /* PersonalOrganizationCell.swift */; };
+		219DFC771C46D22C006101DA /* PersonalOrganizationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DFC751C46D22C006101DA /* PersonalOrganizationCell.swift */; };
+		21A8FA3D1BFD04F20097FCC6 /* OrganizationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA3C1BFD04F20097FCC6 /* OrganizationCell.swift */; };
 		21A8FA4A1BFD085F0097FCC6 /* CanvasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA491BFD085F0097FCC6 /* CanvasCell.swift */; };
 		21A8FA5B1BFD30790097FCC6 /* WebActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA5A1BFD30790097FCC6 /* WebActivity.swift */; };
 		21A8FA5D1BFD33DB0097FCC6 /* ChromeActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA5C1BFD33DB0097FCC6 /* ChromeActivity.swift */; };
@@ -254,8 +258,6 @@
 		210566EC1C3B1DBC00F4387A /* ISO8601.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = ISO8601.framework.dSYM; path = Vendor/CanvasKit/Carthage/Build/iOS/ISO8601.framework.dSYM; sourceTree = "<group>"; };
 		210566ED1C3B1DBC00F4387A /* SSKeychain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SSKeychain.framework; path = Vendor/CanvasKit/Carthage/Build/iOS/SSKeychain.framework; sourceTree = "<group>"; };
 		210566EE1C3B1DBC00F4387A /* SSKeychain.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SSKeychain.framework.dSYM; path = Vendor/CanvasKit/Carthage/Build/iOS/SSKeychain.framework.dSYM; sourceTree = "<group>"; };
-		210960C41C08DE9600EB8F84 /* SelectedCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedCollectionCell.swift; sourceTree = "<group>"; };
-		210960C61C08F01800EB8F84 /* SelectedCanvasCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedCanvasCell.swift; sourceTree = "<group>"; };
 		210960C81C08F24F00EB8F84 /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		210960D31C091CAE00EB8F84 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		210960D51C091F7800EB8F84 /* LightTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
@@ -264,6 +266,11 @@
 		212404E61C233E2D00BF0C91 /* CanvasKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasKit.xcodeproj; path = Vendor/CanvasKit/CanvasKit.xcodeproj; sourceTree = "<group>"; };
 		212405021C23562800BF0C91 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2124050A1C23564100BF0C91 /* LocalizedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
+		2124480F1C45B225008E41A4 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		2124481A1C45BF75008E41A4 /* GradientView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GradientView.framework; path = Carthage/Build/iOS/GradientView.framework; sourceTree = "<group>"; };
+		2124481B1C45BF75008E41A4 /* GradientView.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = GradientView.framework.dSYM; path = Carthage/Build/iOS/GradientView.framework.dSYM; sourceTree = "<group>"; };
+		212448201C45D7F7008E41A4 /* Organization+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Organization+Canvas.swift"; sourceTree = "<group>"; };
+		212448231C45D963008E41A4 /* TintableEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TintableEnvironment.swift; sourceTree = "<group>"; };
 		2129D3091BF55C340018F255 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2129D30B1BF560810018F255 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		2129D30D1BF561400018F255 /* OrganizationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsViewController.swift; sourceTree = "<group>"; };
@@ -286,15 +293,14 @@
 		215642211C06BBE600685847 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		215642281C06C40000685847 /* ImagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesController.swift; sourceTree = "<group>"; };
 		216343F51C0D43BB00916A8B /* CodeBlockBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeBlockBackgroundView.swift; sourceTree = "<group>"; };
-		219333FF1C0FC5DD000A974B /* AlgoliaSearch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlgoliaSearch.framework; path = Carthage/Build/iOS/AlgoliaSearch.framework; sourceTree = "<group>"; };
-		219334001C0FC5DD000A974B /* AlgoliaSearch.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = AlgoliaSearch.framework.dSYM; path = Carthage/Build/iOS/AlgoliaSearch.framework.dSYM; sourceTree = "<group>"; };
+		217381401C45E400002F87C5 /* OrganizationAvatarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationAvatarView.swift; sourceTree = "<group>"; };
 		219334041C0FC6DD000A974B /* Canvas+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Canvas+Canvas.swift"; sourceTree = "<group>"; };
 		219334121C0FD91D000A974B /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
-		21952C8C1C1A032A006068E4 /* KeyboardSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardSelectionView.swift; sourceTree = "<group>"; };
 		219DAC811C0E75DC00F39A6F /* InsertionPointTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertionPointTextView.swift; sourceTree = "<group>"; };
 		219DAC891C0F819700F39A6F /* NSDate+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Canvas.swift"; sourceTree = "<group>"; };
 		219DAC911C0F98BD00F39A6F /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		21A8FA3C1BFD04F20097FCC6 /* CollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
+		219DFC751C46D22C006101DA /* PersonalOrganizationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalOrganizationCell.swift; sourceTree = "<group>"; };
+		21A8FA3C1BFD04F20097FCC6 /* OrganizationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationCell.swift; sourceTree = "<group>"; };
 		21A8FA491BFD085F0097FCC6 /* CanvasCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasCell.swift; sourceTree = "<group>"; };
 		21A8FA5A1BFD30790097FCC6 /* WebActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebActivity.swift; sourceTree = "<group>"; };
 		21A8FA5C1BFD33DB0097FCC6 /* ChromeActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChromeActivity.swift; sourceTree = "<group>"; };
@@ -334,12 +340,11 @@
 				214F213F1C4494A9004832F4 /* CanvasKit.framework in Frameworks */,
 				214F21401C4494A9004832F4 /* ISO8601.framework in Frameworks */,
 				214F21411C4494A9004832F4 /* CanvasText.framework in Frameworks */,
-				214F21421C4494A9004832F4 /* AlgoliaSearch.framework in Frameworks */,
 				214F21431C4494A9004832F4 /* Camo.framework in Frameworks */,
-				214F21421C4494A9004832F4 /* AlgoliaSearch.framework in Frameworks */,
 				214F21441C4494A9004832F4 /* Crypto.framework in Frameworks */,
 				214F21451C4494A9004832F4 /* CommonCrypto.framework in Frameworks */,
 				214F21461C4494A9004832F4 /* Mixpanel.framework in Frameworks */,
+				2124481D1C45BF75008E41A4 /* GradientView.framework in Frameworks */,
 				214F21471C4494A9004832F4 /* OnePasswordExtension.framework in Frameworks */,
 				214F21481C4494A9004832F4 /* SSKeychain.framework in Frameworks */,
 				214F21491C4494A9004832F4 /* Static.framework in Frameworks */,
@@ -353,12 +358,11 @@
 				212404F91C233E4200BF0C91 /* CanvasKit.framework in Frameworks */,
 				210566EF1C3B1DBC00F4387A /* ISO8601.framework in Frameworks */,
 				212404FA1C233E4200BF0C91 /* CanvasText.framework in Frameworks */,
-				219334011C0FC5DD000A974B /* AlgoliaSearch.framework in Frameworks */,
 				213598081C1A22FC00200825 /* Camo.framework in Frameworks */,
-				219334011C0FC5DD000A974B /* AlgoliaSearch.framework in Frameworks */,
 				2135980C1C1A22FC00200825 /* Crypto.framework in Frameworks */,
 				2135980A1C1A22FC00200825 /* CommonCrypto.framework in Frameworks */,
 				215642151C06B46E00685847 /* Mixpanel.framework in Frameworks */,
+				2124481C1C45BF75008E41A4 /* GradientView.framework in Frameworks */,
 				21E48B031C0447AC00C9F6AA /* OnePasswordExtension.framework in Frameworks */,
 				210566F11C3B1DBC00F4387A /* SSKeychain.framework in Frameworks */,
 				21E48B061C0447AC00C9F6AA /* Static.framework in Frameworks */,
@@ -397,7 +401,7 @@
 				213791CC1C17A8F6000FACCC /* Cells */,
 				213791CB1C17A8EA000FACCC /* Annotations */,
 				213791CE1C17A905000FACCC /* Forms */,
-				21952C8C1C1A032A006068E4 /* KeyboardSelectionView.swift */,
+				217381401C45E400002F87C5 /* OrganizationAvatarView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -417,10 +421,9 @@
 		213791CC1C17A8F6000FACCC /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				21A8FA3C1BFD04F20097FCC6 /* CollectionCell.swift */,
-				210960C41C08DE9600EB8F84 /* SelectedCollectionCell.swift */,
+				219DFC751C46D22C006101DA /* PersonalOrganizationCell.swift */,
+				21A8FA3C1BFD04F20097FCC6 /* OrganizationCell.swift */,
 				21A8FA491BFD085F0097FCC6 /* CanvasCell.swift */,
-				210960C61C08F01800EB8F84 /* SelectedCanvasCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 			isa = PBXGroup;
 			children = (
 				2129D30F1BF5634A0018F255 /* Accountable.swift */,
+				212448231C45D963008E41A4 /* TintableEnvironment.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -475,6 +479,8 @@
 		21AE3F391C0423CE00AE5DDC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2124481A1C45BF75008E41A4 /* GradientView.framework */,
+				2124481B1C45BF75008E41A4 /* GradientView.framework.dSYM */,
 				210566EB1C3B1DBC00F4387A /* ISO8601.framework */,
 				210566EC1C3B1DBC00F4387A /* ISO8601.framework.dSYM */,
 				210566ED1C3B1DBC00F4387A /* SSKeychain.framework */,
@@ -485,8 +491,6 @@
 				213598051C1A22FC00200825 /* CommonCrypto.framework.dSYM */,
 				213598061C1A22FC00200825 /* Crypto.framework */,
 				213598071C1A22FC00200825 /* Crypto.framework.dSYM */,
-				219333FF1C0FC5DD000A974B /* AlgoliaSearch.framework */,
-				219334001C0FC5DD000A974B /* AlgoliaSearch.framework.dSYM */,
 				215642111C06B46E00685847 /* Mixpanel.framework */,
 				215642121C06B46E00685847 /* Mixpanel.framework.dSYM */,
 				21AE3F411C0423E300AE5DDC /* OnePasswordExtension.framework */,
@@ -563,6 +567,7 @@
 				21FB6AAF1BF53B8E003C82BB /* RootViewController.swift */,
 				2129D3091BF55C340018F255 /* LoginViewController.swift */,
 				2129D30D1BF561400018F255 /* OrganizationsViewController.swift */,
+				2124480F1C45B225008E41A4 /* NavigationController.swift */,
 				2129D3111BF568AB0018F255 /* OrganizationCanvasesViewController.swift */,
 				213791C41C1790E2000FACCC /* CanvasesViewController.swift */,
 				21C576941C19002A0015B8A5 /* CanvasesResultsViewController.swift */,
@@ -594,6 +599,7 @@
 				219DAC891C0F819700F39A6F /* NSDate+Canvas.swift */,
 				219334041C0FC6DD000A974B /* Canvas+Canvas.swift */,
 				2131391F1C22104000B09904 /* UIFont+Canvas.swift */,
+				212448201C45D7F7008E41A4 /* Organization+Canvas.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -801,11 +807,11 @@
 				"$(SRCROOT)/Vendor/CanvasKit/Carthage/Build/iOS/SSKeychain.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Static.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Mixpanel.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/AlgoliaSearch.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Camo.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Crypto.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/CommonCrypto.framework",
 				"$(SRCROOT)/Vendor/CanvasKit/Carthage/Build/iOS/ISO8601.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/GradientView.framework",
 			);
 			name = "Embed Carthage Frameworks";
 			outputPaths = (
@@ -852,11 +858,11 @@
 				"$(SRCROOT)/Vendor/CanvasKit/Carthage/Build/iOS/SSKeychain.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Static.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Mixpanel.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/AlgoliaSearch.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Camo.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Crypto.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/CommonCrypto.framework",
 				"$(SRCROOT)/Vendor/CanvasKit/Carthage/Build/iOS/ISO8601.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/GradientView.framework",
 			);
 			name = "Embed Carthage Frameworks";
 			outputPaths = (
@@ -874,6 +880,7 @@
 			files = (
 				214F21111C4494A9004832F4 /* OrganizationsViewController.swift in Sources */,
 				214F21121C4494A9004832F4 /* TableViewController.swift in Sources */,
+				219DFC771C46D22C006101DA /* PersonalOrganizationCell.swift in Sources */,
 				214F21131C4494A9004832F4 /* UIFont+Canvas.swift in Sources */,
 				214F21141C4494A9004832F4 /* NumberView.swift in Sources */,
 				214F21151C4494A9004832F4 /* CanvasesResultsViewController.swift in Sources */,
@@ -887,35 +894,36 @@
 				214F211D1C4494A9004832F4 /* UIEdgeInsets+Canvas.swift in Sources */,
 				214F211E1C4494A9004832F4 /* LoginTextField.swift in Sources */,
 				214F211F1C4494A9004832F4 /* Analytics.swift in Sources */,
+				212448111C45B225008E41A4 /* NavigationController.swift in Sources */,
 				214F21201C4494A9004832F4 /* CGRect+Canvas.swift in Sources */,
-				214F21211C4494A9004832F4 /* SelectedCollectionCell.swift in Sources */,
 				214F21221C4494A9004832F4 /* Accountable.swift in Sources */,
 				214F21231C4494A9004832F4 /* LoginViewController.swift in Sources */,
 				214F21241C4494A9004832F4 /* WebActivity.swift in Sources */,
 				214F21251C4494A9004832F4 /* AlertController.swift in Sources */,
+				212448221C45D7F7008E41A4 /* Organization+Canvas.swift in Sources */,
 				214F21261C4494A9004832F4 /* CheckboxView.swift in Sources */,
 				214F21271C4494A9004832F4 /* CodeBlockBackgroundView.swift in Sources */,
 				214F21281C4494A9004832F4 /* ImagesController.swift in Sources */,
 				214F21291C4494A9004832F4 /* CanvasCell.swift in Sources */,
+				212448251C45D963008E41A4 /* TintableEnvironment.swift in Sources */,
 				214F212A1C4494A9004832F4 /* SearchController.swift in Sources */,
 				214F212B1C4494A9004832F4 /* AppDelegate.swift in Sources */,
 				214F212C1C4494A9004832F4 /* CanvasesViewController.swift in Sources */,
 				214F212D1C4494A9004832F4 /* CanvasTextView+Gestures.swift in Sources */,
 				214F212E1C4494A9004832F4 /* CanvasTextView.swift in Sources */,
+				217381421C45E400002F87C5 /* OrganizationAvatarView.swift in Sources */,
 				214F212F1C4494A9004832F4 /* NSDate+Canvas.swift in Sources */,
 				214F21301C4494A9004832F4 /* LightTheme.swift in Sources */,
 				214F21311C4494A9004832F4 /* InsertionPointTextView.swift in Sources */,
 				214F21321C4494A9004832F4 /* ModelsViewController.swift in Sources */,
-				214F21331C4494A9004832F4 /* CollectionCell.swift in Sources */,
+				214F21331C4494A9004832F4 /* OrganizationCell.swift in Sources */,
 				214F21341C4494A9004832F4 /* Font.swift in Sources */,
 				214F21351C4494A9004832F4 /* OrganizationCanvasesViewController.swift in Sources */,
 				214F21361C4494A9004832F4 /* Configuration.swift in Sources */,
 				214F21371C4494A9004832F4 /* ChromeActivity.swift in Sources */,
 				214F21381C4494A9004832F4 /* NSCache+Canvas.swift in Sources */,
-				214F21391C4494A9004832F4 /* SelectedCanvasCell.swift in Sources */,
 				214F213A1C4494A9004832F4 /* BlockquoteBorderView.swift in Sources */,
 				214F213B1C4494A9004832F4 /* Canvas+Canvas.swift in Sources */,
-				214F213C1C4494A9004832F4 /* KeyboardSelectionView.swift in Sources */,
 				214F213D1C4494A9004832F4 /* Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -926,6 +934,7 @@
 			files = (
 				2129D30E1BF561400018F255 /* OrganizationsViewController.swift in Sources */,
 				21B742E01C03BD9000FF293C /* TableViewController.swift in Sources */,
+				219DFC761C46D22C006101DA /* PersonalOrganizationCell.swift in Sources */,
 				213139201C22104000B09904 /* UIFont+Canvas.swift in Sources */,
 				21B742C81BFF991600FF293C /* NumberView.swift in Sources */,
 				21C576951C19002A0015B8A5 /* CanvasesResultsViewController.swift in Sources */,
@@ -939,35 +948,36 @@
 				21FCB5851C077C8100F78D93 /* UIEdgeInsets+Canvas.swift in Sources */,
 				21FCB5801C07685000F78D93 /* LoginTextField.swift in Sources */,
 				2156421F1C06B4ED00685847 /* Analytics.swift in Sources */,
+				212448101C45B225008E41A4 /* NavigationController.swift in Sources */,
 				21FCB5831C0777E200F78D93 /* CGRect+Canvas.swift in Sources */,
-				210960C51C08DE9600EB8F84 /* SelectedCollectionCell.swift in Sources */,
 				2129D3101BF5634A0018F255 /* Accountable.swift in Sources */,
 				2129D30A1BF55C340018F255 /* LoginViewController.swift in Sources */,
 				21A8FA5B1BFD30790097FCC6 /* WebActivity.swift in Sources */,
 				210960C91C08F25000EB8F84 /* AlertController.swift in Sources */,
+				212448211C45D7F7008E41A4 /* Organization+Canvas.swift in Sources */,
 				21B8D8D91BFC0E0B001ED447 /* CheckboxView.swift in Sources */,
 				216343F61C0D43BB00916A8B /* CodeBlockBackgroundView.swift in Sources */,
 				215642291C06C40000685847 /* ImagesController.swift in Sources */,
 				21A8FA4A1BFD085F0097FCC6 /* CanvasCell.swift in Sources */,
+				212448241C45D963008E41A4 /* TintableEnvironment.swift in Sources */,
 				219334131C0FD91D000A974B /* SearchController.swift in Sources */,
 				21F10F4E1BF138750035057D /* AppDelegate.swift in Sources */,
 				213791C51C1790E2000FACCC /* CanvasesViewController.swift in Sources */,
 				21C0F3681C1B81B700328E36 /* CanvasTextView+Gestures.swift in Sources */,
 				2134FAE11BFC0A6A00AE93CC /* CanvasTextView.swift in Sources */,
+				217381411C45E400002F87C5 /* OrganizationAvatarView.swift in Sources */,
 				219DAC8A1C0F819700F39A6F /* NSDate+Canvas.swift in Sources */,
 				210960D61C091F7800EB8F84 /* LightTheme.swift in Sources */,
 				219DAC821C0E75DC00F39A6F /* InsertionPointTextView.swift in Sources */,
 				21B742ED1C03BDF400FF293C /* ModelsViewController.swift in Sources */,
-				21A8FA3D1BFD04F20097FCC6 /* CollectionCell.swift in Sources */,
+				21A8FA3D1BFD04F20097FCC6 /* OrganizationCell.swift in Sources */,
 				210960D41C091CAE00EB8F84 /* Font.swift in Sources */,
 				2129D3121BF568AB0018F255 /* OrganizationCanvasesViewController.swift in Sources */,
 				219DAC921C0F98BD00F39A6F /* Configuration.swift in Sources */,
 				21A8FA5D1BFD33DB0097FCC6 /* ChromeActivity.swift in Sources */,
 				21FCB58D1C07929A00F78D93 /* NSCache+Canvas.swift in Sources */,
-				210960C71C08F01800EB8F84 /* SelectedCanvasCell.swift in Sources */,
 				21B742D91BFFCFDB00FF293C /* BlockquoteBorderView.swift in Sources */,
 				219334051C0FC6DD000A974B /* Canvas+Canvas.swift in Sources */,
-				21952C8D1C1A032A006068E4 /* KeyboardSelectionView.swift in Sources */,
 				215642221C06BBE600685847 /* Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

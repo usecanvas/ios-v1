@@ -14,7 +14,6 @@ extension Canvas {
 		return Row(
 			text: displayTitle,
 			detailText: summary,
-			accessory: .DisclosureIndicator,
 			cellClass: CanvasCell.self,
 			context: ["canvas": self]
 		)

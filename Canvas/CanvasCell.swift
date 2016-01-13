@@ -10,9 +10,17 @@ import UIKit
 import Static
 import CanvasKit
 
-class CanvasCell: UITableViewCell {
+final class CanvasCell: UITableViewCell {
 
 	// MARK: - Properties
+
+	let iconView: UIImageView = {
+		let view = UIImageView()
+		view.translatesAutoresizingMaskIntoConstraints = false
+		view.contentMode = .Center
+		view.tintColor = .whiteColor()
+		return view
+	}()
 
 	let titleLabel: UILabel = {
 		let label = UILabel()
@@ -45,6 +53,8 @@ class CanvasCell: UITableViewCell {
 		return label
 	}()
 
+	let disclosureIndicatorView = UIImageView(image: UIImage(named: "Chevron"))
+	
 
 	// MARK: - Initializers
 
@@ -52,9 +62,12 @@ class CanvasCell: UITableViewCell {
 		super.init(style: .Subtitle, reuseIdentifier: reuseIdentifier)
 
 		let view = UIView()
-		view.backgroundColor = Color.brand
+		view.backgroundColor = tintColor
 		selectedBackgroundView = view
 
+		accessoryView = disclosureIndicatorView
+
+		contentView.addSubview(iconView)
 		contentView.addSubview(titleLabel)
 		contentView.addSubview(summaryLabel)
 		contentView.addSubview(timeLabel)
@@ -62,13 +75,18 @@ class CanvasCell: UITableViewCell {
 		let verticalSpacing: CGFloat = 2
 
 		NSLayoutConstraint.activateConstraints([
+			NSLayoutConstraint(item: iconView, attribute: .Leading, relatedBy: .Equal, toItem: contentView, attribute: .LeadingMargin, multiplier: 1, constant: 0),
+			iconView.widthAnchor.constraintEqualToConstant(28),
+			iconView.heightAnchor.constraintEqualToConstant(28),
+			iconView.centerYAnchor.constraintEqualToAnchor(contentView.centerYAnchor),
+
 			titleLabel.bottomAnchor.constraintEqualToAnchor(contentView.centerYAnchor, constant: -verticalSpacing),
-			NSLayoutConstraint(item: titleLabel, attribute: .Leading, relatedBy: .Equal, toItem: contentView, attribute: .LeadingMargin, multiplier: 1, constant: 0),
+			titleLabel.leadingAnchor.constraintEqualToAnchor(iconView.trailingAnchor, constant: 8),
 			titleLabel.trailingAnchor.constraintLessThanOrEqualToAnchor(timeLabel.leadingAnchor),
 
 			summaryLabel.topAnchor.constraintEqualToAnchor(contentView.centerYAnchor, constant: verticalSpacing),
 			summaryLabel.leadingAnchor.constraintEqualToAnchor(titleLabel.leadingAnchor),
-			summaryLabel.trailingAnchor.constraintEqualToAnchor(contentView.trailingAnchor),
+			summaryLabel.trailingAnchor.constraintEqualToAnchor(contentView.trailingAnchor, constant: -8),
 
 			NSLayoutConstraint(item: timeLabel, attribute: .Baseline, relatedBy: .Equal, toItem: titleLabel, attribute: .Baseline, multiplier: 1, constant: 0),
 			timeLabel.trailingAnchor.constraintEqualToAnchor(summaryLabel.trailingAnchor),
@@ -78,6 +96,34 @@ class CanvasCell: UITableViewCell {
 
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+
+
+	// MARK: - UIView
+
+	override func tintColorDidChange() {
+		super.tintColorDidChange()
+		selectedBackgroundView?.backgroundColor = tintColor
+	}
+	
+
+	// MARK: - UITableViewCell
+
+	override func setHighlighted(highlighted: Bool, animated: Bool) {
+		super.setHighlighted(highlighted, animated: animated)
+		updateHighlighted()
+	}
+
+	override func setSelected(selected: Bool, animated: Bool) {
+		super.setSelected(selected, animated: animated)
+		updateHighlighted()
+	}
+
+
+	// MARK: - Private
+
+	private func updateHighlighted() {
+		disclosureIndicatorView.tintColor = highlighted || selected ? .whiteColor() : UIColor(red: 0.780, green: 0.780, blue: 0.800, alpha: 1)
 	}
 }
 
@@ -89,12 +135,14 @@ extension CanvasCell: CellType {
 		if let summary = row.detailText where summary.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0 {
 			summaryLabel.text = summary
 			summaryLabel.font = Font.sansSerif(size: .Subtitle)
+			iconView.image = UIImage(named: "Document")?.imageWithRenderingMode(.AlwaysOriginal)
+			iconView.highlightedImage = UIImage(named: "Document")?.imageWithRenderingMode(.AlwaysTemplate)
 		} else {
 			summaryLabel.text = "No Content"
 			summaryLabel.font = Font.sansSerif(size: .Subtitle, style: .Italic)
+			iconView.image = UIImage(named: "Document-Blank")?.imageWithRenderingMode(.AlwaysOriginal)
+			iconView.highlightedImage = UIImage(named: "Document-Blank")?.imageWithRenderingMode(.AlwaysTemplate)
 		}
-
-		accessoryType = row.accessory.type
 
 		guard let canvas = row.context?["canvas"] as? Canvas else {
 			timeLabel.text = nil

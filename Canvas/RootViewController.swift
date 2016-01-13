@@ -9,7 +9,7 @@
 import UIKit
 import CanvasKit
 
-class RootViewController: UIViewController {
+final class RootViewController: UIViewController {
 
 	// MARK: - Properties
 
@@ -81,6 +81,6 @@ class RootViewController: UIViewController {
 			return
 		}
 
-		viewController = UINavigationController(rootViewController: OrganizationsViewController(account: account))
+		viewController = NavigationController(rootViewController: OrganizationsViewController(account: account))
 	}
 }

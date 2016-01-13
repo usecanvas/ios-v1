@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AlertController: UIAlertController {
+final class AlertController: UIAlertController {
 
 	// MARK: - Properties
 

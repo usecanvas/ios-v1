@@ -9,7 +9,7 @@
 import UIKit
 import CanvasText
 
-class CodeBlockBackgroundView: UIView {
+final class CodeBlockBackgroundView: UIView {
 
 	// MARK: - Types
 

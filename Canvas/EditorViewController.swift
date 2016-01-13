@@ -10,14 +10,12 @@ import UIKit
 import CanvasKit
 import CanvasText
 
-class EditorViewController: UIViewController, Accountable {
+final class EditorViewController: UIViewController, Accountable {
 	
 	// MARK: - Properties
 
 	var account: Account
 	let canvas: Canvas
-
-	var wantsFocus = false
 
 	let textStorage = CanvasTextStorage(theme: LightTheme())
 	private let textView: CanvasTextView
@@ -110,9 +108,8 @@ class EditorViewController: UIViewController, Accountable {
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 
-		if wantsFocus {
+		if canvas.summary == nil {
 			textView.becomeFirstResponder()
-			wantsFocus = false
 		}
 
 		updatePreventSleep()
@@ -202,3 +199,11 @@ extension EditorViewController: UITextViewDelegate {
 		textStorage.backingSelection = textStorage.displayRangeToBackingRange(textView.selectedRange)
 	}
 }
+
+
+extension EditorViewController: TintableEnvironment {
+	var preferredTintColor: UIColor {
+		return canvas.organization.color
+	}
+}
+
