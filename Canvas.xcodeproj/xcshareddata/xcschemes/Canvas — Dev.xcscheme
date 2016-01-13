@@ -11,11 +11,12 @@
             buildForRunning = "YES"
             buildForProfiling = "YES"
             buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
+            buildForAnalyzing = "YES"
+            hideIssues = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "214F210B1C4494A9004832F4"
-               BuildableName = "Canvas &#x2014; Dev.app"
+               BuildableName = "Canvas.app"
                BlueprintName = "Canvas &#x2014; Dev"
                ReferencedContainer = "container:Canvas.xcodeproj">
             </BuildableReference>
@@ -33,7 +34,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "214F210B1C4494A9004832F4"
-            BuildableName = "Canvas &#x2014; Dev.app"
+            BuildableName = "Canvas.app"
             BlueprintName = "Canvas &#x2014; Dev"
             ReferencedContainer = "container:Canvas.xcodeproj">
          </BuildableReference>
@@ -56,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "214F210B1C4494A9004832F4"
-            BuildableName = "Canvas &#x2014; Dev.app"
+            BuildableName = "Canvas.app"
             BlueprintName = "Canvas &#x2014; Dev"
             ReferencedContainer = "container:Canvas.xcodeproj">
          </BuildableReference>
@@ -75,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "214F210B1C4494A9004832F4"
-            BuildableName = "Canvas &#x2014; Dev.app"
+            BuildableName = "Canvas.app"
             BlueprintName = "Canvas &#x2014; Dev"
             ReferencedContainer = "container:Canvas.xcodeproj">
          </BuildableReference>

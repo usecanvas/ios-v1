@@ -126,6 +126,7 @@
 		21C0F36D1C1B81F700328E36 /* CanvasTextView+Annotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C0F36C1C1B81F700328E36 /* CanvasTextView+Annotations.swift */; };
 		21C576951C19002A0015B8A5 /* CanvasesResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C576941C19002A0015B8A5 /* CanvasesResultsViewController.swift */; };
 		21D2B1981C0D0AED003652B7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21D2B1971C0D0AED003652B7 /* Settings.bundle */; };
+		21D37A131C471765004498B1 /* Canvas Dev.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 21D37A121C471765004498B1 /* Canvas Dev.entitlements */; };
 		21E48B031C0447AC00C9F6AA /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AE3F411C0423E300AE5DDC /* OnePasswordExtension.framework */; };
 		21E48B061C0447AC00C9F6AA /* Static.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AE3F461C0423E300AE5DDC /* Static.framework */; };
 		21F10F4E1BF138750035057D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F10F4D1BF138750035057D /* AppDelegate.swift */; };
@@ -286,7 +287,7 @@
 		213598061C1A22FC00200825 /* Crypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crypto.framework; path = Carthage/Build/iOS/Crypto.framework; sourceTree = "<group>"; };
 		213598071C1A22FC00200825 /* Crypto.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Crypto.framework.dSYM; path = Carthage/Build/iOS/Crypto.framework.dSYM; sourceTree = "<group>"; };
 		213791C41C1790E2000FACCC /* CanvasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasesViewController.swift; sourceTree = "<group>"; };
-		214F21581C4494A9004832F4 /* Canvas — Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Canvas — Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		214F21581C4494A9004832F4 /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		215642111C06B46E00685847 /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mixpanel.framework; path = Carthage/Build/iOS/Mixpanel.framework; sourceTree = "<group>"; };
 		215642121C06B46E00685847 /* Mixpanel.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Mixpanel.framework.dSYM; path = Carthage/Build/iOS/Mixpanel.framework.dSYM; sourceTree = "<group>"; };
 		2156421E1C06B4ED00685847 /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
@@ -319,6 +320,7 @@
 		21C0F36C1C1B81F700328E36 /* CanvasTextView+Annotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CanvasTextView+Annotations.swift"; sourceTree = "<group>"; };
 		21C576941C19002A0015B8A5 /* CanvasesResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasesResultsViewController.swift; sourceTree = "<group>"; };
 		21D2B1971C0D0AED003652B7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		21D37A121C471765004498B1 /* Canvas Dev.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Canvas Dev.entitlements"; sourceTree = "<group>"; };
 		21F10F4A1BF138750035057D /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F10F4D1BF138750035057D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21F10F4F1BF138750035057D /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
@@ -526,7 +528,7 @@
 			isa = PBXGroup;
 			children = (
 				21F10F4A1BF138750035057D /* Canvas.app */,
-				214F21581C4494A9004832F4 /* Canvas — Dev.app */,
+				214F21581C4494A9004832F4 /* Canvas.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -551,6 +553,7 @@
 			isa = PBXGroup;
 			children = (
 				21A8FA621BFD3E0F0097FCC6 /* Canvas.entitlements */,
+				21D37A121C471765004498B1 /* Canvas Dev.entitlements */,
 				21F10F601BF13D720035057D /* Assets.xcassets */,
 				21F10F611BF13D720035057D /* LaunchScreen.storyboard */,
 				2114833A1C0D68530072F94B /* Main.storyboard */,
@@ -626,7 +629,7 @@
 			);
 			name = "Canvas — Dev";
 			productName = Canvas;
-			productReference = 214F21581C4494A9004832F4 /* Canvas — Dev.app */;
+			productReference = 214F21581C4494A9004832F4 /* Canvas.app */;
 			productType = "com.apple.product-type.application";
 		};
 		21F10F491BF138750035057D /* Canvas */ = {
@@ -661,6 +664,17 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Canvas Labs, Inc.";
 				TargetAttributes = {
+					214F210B1C4494A9004832F4 = {
+						DevelopmentTeam = 676PZY29MZ;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
+					};
 					21F10F491BF138750035057D = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = 676PZY29MZ;
@@ -788,6 +802,7 @@
 			files = (
 				21F10F651BF13D720035057D /* Assets.xcassets in Resources */,
 				212405031C23562800BF0C91 /* Localizable.strings in Resources */,
+				21D37A131C471765004498B1 /* Canvas Dev.entitlements in Resources */,
 				21D2B1981C0D0AED003652B7 /* Settings.bundle in Resources */,
 				21F10F661BF13D720035057D /* LaunchScreen.storyboard in Resources */,
 				2114833C1C0D68530072F94B /* Main.storyboard in Resources */,
@@ -1040,7 +1055,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = DevAppIcon;
 				BUNDLE_DISPLAY_NAME = "Canvas ⚒";
-				CODE_SIGN_ENTITLEMENTS = Canvas/Resources/Canvas.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "Canvas/Resources/Canvas Dev.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
@@ -1052,8 +1067,8 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Canvas/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.usecanvas.canvas-ios-dev";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.usecanvas.canvas.dev;
+				PRODUCT_NAME = Canvas;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -1063,7 +1078,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = DevAppIcon;
 				BUNDLE_DISPLAY_NAME = "Canvas ⚒";
-				CODE_SIGN_ENTITLEMENTS = Canvas/Resources/Canvas.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "Canvas/Resources/Canvas Dev.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
@@ -1075,8 +1090,8 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Canvas/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.usecanvas.canvas-ios-dev";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.usecanvas.canvas.dev;
+				PRODUCT_NAME = Canvas;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
