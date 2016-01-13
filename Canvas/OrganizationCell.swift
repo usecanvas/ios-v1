@@ -10,26 +10,9 @@ import UIKit
 import Static
 import CanvasKit
 
-class OrganizationCell: UITableViewCell {
+class OrganizationCell: PersonalOrganizationCell {
 
 	// MARK: - Properties
-
-	let avatarView: OrganizationAvatarView = {
-		let view = OrganizationAvatarView()
-		view.translatesAutoresizingMaskIntoConstraints = false
-		return view
-	}()
-
-	let titleLabel: UILabel = {
-		let label = UILabel()
-		label.translatesAutoresizingMaskIntoConstraints = false
-		label.backgroundColor = Color.white
-		label.textColor = Color.black
-		label.highlightedTextColor = Color.white
-		label.font = Font.sansSerif(weight: .Bold)
-		label.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, forAxis: .Horizontal)
-		return label
-	}()
 
 	let membersLabel: UILabel = {
 		let label = UILabel()
@@ -41,22 +24,19 @@ class OrganizationCell: UITableViewCell {
 	}()
 
 
-	// MARK: - Initializers
+	// MARK: - PersonalOrganizationCell
 
-	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-		super.init(style: .Subtitle, reuseIdentifier: reuseIdentifier)
-
-		let view = UIView()
-		view.backgroundColor = Color.brand
-		selectedBackgroundView = view
-
-		contentView.addSubview(avatarView)
-		contentView.addSubview(titleLabel)
+	override func setupViews() {
+		super.setupViews()
 		contentView.addSubview(membersLabel)
+	}
 
+	override func setupConstraints() {
 		let verticalSpacing: CGFloat = 2
 
 		NSLayoutConstraint.activateConstraints([
+			contentView.heightAnchor.constraintEqualToConstant(66),
+
 			NSLayoutConstraint(item: avatarView, attribute: .Leading, relatedBy: .Equal, toItem: contentView, attribute: .LeadingMargin, multiplier: 1, constant: 0),
 			avatarView.widthAnchor.constraintEqualToConstant(32),
 			avatarView.heightAnchor.constraintEqualToConstant(32),
@@ -72,17 +52,8 @@ class OrganizationCell: UITableViewCell {
 		])
 	}
 
-	required init?(coder aDecoder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
-	}
-}
-
-
-extension OrganizationCell: CellType {
-	func configure(row row: Row) {
-		titleLabel.text = row.text
+	override func configure(row row: Row) {
+		super.configure(row: row)
 		membersLabel.text = row.detailText
-		accessoryType = row.accessory.type
-		avatarView.organization = row.context?["organization"] as? Organization
 	}
 }
