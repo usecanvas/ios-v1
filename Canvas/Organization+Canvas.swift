@@ -35,7 +35,6 @@ extension Organization {
 		return  Row(
 			text: name,
 			detailText: "0 members",
-			accessory: .DisclosureIndicator,
 			context: [
 				"organization": self
 			],

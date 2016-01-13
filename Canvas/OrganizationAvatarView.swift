@@ -71,6 +71,6 @@ final class OrganizationAvatarView: UIView {
 
 		let name = organization.name
 		initialsLabel.text = name.substringToIndex(name.startIndex.advancedBy(2))
-		initialsLabel.textColor = highlighted ? Color.brand : .whiteColor()
+		initialsLabel.textColor = highlighted ? organization.color : .whiteColor()
 	}
 }

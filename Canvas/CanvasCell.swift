@@ -53,6 +53,8 @@ final class CanvasCell: UITableViewCell {
 		return label
 	}()
 
+	let disclosureIndicatorView = UIImageView(image: UIImage(named: "Chevron"))
+	
 
 	// MARK: - Initializers
 
@@ -60,8 +62,10 @@ final class CanvasCell: UITableViewCell {
 		super.init(style: .Subtitle, reuseIdentifier: reuseIdentifier)
 
 		let view = UIView()
-		view.backgroundColor = Color.brand
+		view.backgroundColor = tintColor
 		selectedBackgroundView = view
+
+		accessoryView = disclosureIndicatorView
 
 		contentView.addSubview(iconView)
 		contentView.addSubview(titleLabel)
@@ -82,7 +86,7 @@ final class CanvasCell: UITableViewCell {
 
 			summaryLabel.topAnchor.constraintEqualToAnchor(contentView.centerYAnchor, constant: verticalSpacing),
 			summaryLabel.leadingAnchor.constraintEqualToAnchor(titleLabel.leadingAnchor),
-			summaryLabel.trailingAnchor.constraintEqualToAnchor(contentView.trailingAnchor),
+			summaryLabel.trailingAnchor.constraintEqualToAnchor(contentView.trailingAnchor, constant: -8),
 
 			NSLayoutConstraint(item: timeLabel, attribute: .Baseline, relatedBy: .Equal, toItem: titleLabel, attribute: .Baseline, multiplier: 1, constant: 0),
 			timeLabel.trailingAnchor.constraintEqualToAnchor(summaryLabel.trailingAnchor),
@@ -92,6 +96,34 @@ final class CanvasCell: UITableViewCell {
 
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+
+
+	// MARK: - UIView
+
+	override func tintColorDidChange() {
+		super.tintColorDidChange()
+		selectedBackgroundView?.backgroundColor = tintColor
+	}
+	
+
+	// MARK: - UITableViewCell
+
+	override func setHighlighted(highlighted: Bool, animated: Bool) {
+		super.setHighlighted(highlighted, animated: animated)
+		updateHighlighted()
+	}
+
+	override func setSelected(selected: Bool, animated: Bool) {
+		super.setSelected(selected, animated: animated)
+		updateHighlighted()
+	}
+
+
+	// MARK: - Private
+
+	private func updateHighlighted() {
+		disclosureIndicatorView.tintColor = highlighted || selected ? .whiteColor() : UIColor(red: 0.780, green: 0.780, blue: 0.800, alpha: 1)
 	}
 }
 
@@ -110,8 +142,6 @@ extension CanvasCell: CellType {
 			summaryLabel.font = Font.sansSerif(size: .Subtitle, style: .Italic)
 			iconView.image = UIImage(named: "Document-Blank")
 		}
-
-		accessoryType = row.accessory.type
 
 		guard let canvas = row.context?["canvas"] as? Canvas else {
 			timeLabel.text = nil

@@ -40,7 +40,7 @@ class PersonalOrganizationCell: UITableViewCell, CellType {
 		super.init(style: .Subtitle, reuseIdentifier: reuseIdentifier)
 
 		let view = UIView()
-		view.backgroundColor = Color.brand
+		view.backgroundColor = tintColor
 		selectedBackgroundView = view
 
 		accessoryView = disclosureIndicatorView
@@ -94,7 +94,10 @@ class PersonalOrganizationCell: UITableViewCell, CellType {
 
 	func configure(row row: Row) {
 		titleLabel.text = row.text
-		avatarView.organization = row.context?["organization"] as? Organization
+
+		let organization = row.context?["organization"] as? Organization
+		avatarView.organization = organization
+		selectedBackgroundView?.backgroundColor = organization?.color
 	}
 
 

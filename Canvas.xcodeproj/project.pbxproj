@@ -429,8 +429,8 @@
 		213791CC1C17A8F6000FACCC /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				21A8FA3C1BFD04F20097FCC6 /* OrganizationCell.swift */,
 				219DFC751C46D22C006101DA /* PersonalOrganizationCell.swift */,
+				21A8FA3C1BFD04F20097FCC6 /* OrganizationCell.swift */,
 				21A8FA491BFD085F0097FCC6 /* CanvasCell.swift */,
 			);
 			name = Cells;
