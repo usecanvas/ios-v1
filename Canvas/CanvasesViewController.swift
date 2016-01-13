@@ -33,6 +33,8 @@ class CanvasesViewController: ModelsViewController, Accountable {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
+		canRefresh = false
 		
 		tableView.rowHeight = 72
 
@@ -42,38 +44,20 @@ class CanvasesViewController: ModelsViewController, Accountable {
 
 	// MARK: - ModelsViewController
 
-	override var modelTypeName: String {
-		return "Canvas"
-	}
-
-	override func rowForModel(model: Model, isSelected: Bool) -> Row? {
-		guard let canvas = model as? Canvas else { return nil }
-
-		var row = canvas.row
-		row.selection = { [weak self] in self?.selectModel(canvas) }
-
-		if isSelected {
-			row.cellClass = SelectedCanvasCell.self
-		}
-
-		return row
-	}
-
-	override func selectModel(model: Model) {
-		guard let canvas = model as? Canvas else { return }
-		openCanvas(canvas)
-	}
-
-	func openCanvas(canvas: Canvas, configuration: (EditorViewController -> Void)? = nil) {
+	func openCanvas(canvas: Canvas) {
 		guard !opening else { return }
 		opening = true
 		Analytics.track(.OpenedCanvas)
 		let viewController = EditorViewController(account: account, canvas: canvas)
-		configuration?(viewController)
 		navigationController?.pushViewController(viewController, animated: true)
 	}
 
-	override var canRefresh: Bool {
-		return false
+
+	// MARK: - Rows
+
+	func rowForCanvas(canvas: Canvas) -> Row {
+		var row = canvas.row
+		row.selection = { [weak self] in self?.openCanvas(canvas) }
+		return row
 	}
 }

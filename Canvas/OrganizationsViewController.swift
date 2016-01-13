@@ -58,24 +58,20 @@ class OrganizationsViewController: ModelsViewController, Accountable {
 	}
 
 
-	// MARK: - ListViewController
+	// MARK: - Rows
 
-	override var modelTypeName: String {
-		return "Organization"
+	func rowForOrganization(organization: Organization) -> Row {
+		var row = organization.row
+
+		row.selection = { [weak self] in
+			self?.openOrganization(organization)
+		}
+
+		return row
 	}
 
-	override func rowForModel(model: Model, isSelected: Bool) -> Row? {
-		guard let organization = model as? Organization else { return nil }
-		return Row(
-			text: organization.name,
-			accessory: .DisclosureIndicator,
-			selection: { [weak self] in self?.selectModel(organization) },
-			cellClass: isSelected ? SelectedOrganizationCell.self : OrganizationCell.self
-		)
-	}
-
-	override func selectModel(model: Model) {
-		guard !opening, let organization = model as? Organization else { return }
+	func openOrganization(organization: Organization) {
+		guard !opening else { return }
 		opening = true
 		Analytics.track(.ChangedOrganization(organization: organization))
 		let viewController = OrganizationCanvasesViewController(account: account, organization: organization)
@@ -94,7 +90,7 @@ class OrganizationsViewController: ModelsViewController, Accountable {
 			case .Success(let organizations):
 				dispatch_async(dispatch_get_main_queue()) {
 					self?.loading = false
-					self?.arrangedModels = organizations.map { $0 as Model }
+					self?.updateOrganizations(organizations)
 				}
 			case .Failure(let message):
 				print("Failed to get organizations: \(message)")
@@ -111,5 +107,14 @@ class OrganizationsViewController: ModelsViewController, Accountable {
 	func logOut(sender: AnyObject?) {
 		Analytics.track(.LoggedIn)
 		AccountController.sharedController.currentAccount = nil
+	}
+
+
+	// MARK: - Private
+
+	private func updateOrganizations(organizations: [Organization]) {
+		dataSource.sections = [
+			Section(rows: organizations.map({ rowForOrganization($0) }))
+		]
 	}
 }

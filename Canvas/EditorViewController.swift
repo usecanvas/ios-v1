@@ -17,8 +17,6 @@ class EditorViewController: UIViewController, Accountable {
 	var account: Account
 	let canvas: Canvas
 
-	var wantsFocus = false
-
 	let textStorage = CanvasTextStorage(theme: LightTheme())
 	private let textView: CanvasTextView
 	private let presenceBarButtonItem = UIBarButtonItem(title: " ", style: .Plain, target: nil, action: nil)
@@ -110,9 +108,8 @@ class EditorViewController: UIViewController, Accountable {
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 
-		if wantsFocus {
+		if canvas.summary == nil {
 			textView.becomeFirstResponder()
-			wantsFocus = false
 		}
 
 		updatePreventSleep()

@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		210566EF1C3B1DBC00F4387A /* ISO8601.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210566EB1C3B1DBC00F4387A /* ISO8601.framework */; };
 		210566F11C3B1DBC00F4387A /* SSKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210566ED1C3B1DBC00F4387A /* SSKeychain.framework */; };
-		210960C51C08DE9600EB8F84 /* SelectedOrganizationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960C41C08DE9600EB8F84 /* SelectedOrganizationCell.swift */; };
-		210960C71C08F01800EB8F84 /* SelectedCanvasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960C61C08F01800EB8F84 /* SelectedCanvasCell.swift */; };
 		210960C91C08F25000EB8F84 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960C81C08F24F00EB8F84 /* AlertController.swift */; };
 		210960D41C091CAE00EB8F84 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960D31C091CAE00EB8F84 /* Font.swift */; };
 		210960D61C091F7800EB8F84 /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960D51C091F7800EB8F84 /* LightTheme.swift */; };
@@ -25,6 +23,8 @@
 		212448111C45B225008E41A4 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2124480F1C45B225008E41A4 /* NavigationController.swift */; };
 		2124481C1C45BF75008E41A4 /* GradientView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2124481A1C45BF75008E41A4 /* GradientView.framework */; };
 		2124481D1C45BF75008E41A4 /* GradientView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2124481A1C45BF75008E41A4 /* GradientView.framework */; };
+		212448211C45D7F7008E41A4 /* Organization+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212448201C45D7F7008E41A4 /* Organization+Canvas.swift */; };
+		212448221C45D7F7008E41A4 /* Organization+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212448201C45D7F7008E41A4 /* Organization+Canvas.swift */; };
 		2129D30A1BF55C340018F255 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D3091BF55C340018F255 /* LoginViewController.swift */; };
 		2129D30C1BF560810018F255 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D30B1BF560810018F255 /* Color.swift */; };
 		2129D30E1BF561400018F255 /* OrganizationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D30D1BF561400018F255 /* OrganizationsViewController.swift */; };
@@ -53,7 +53,6 @@
 		214F211E1C4494A9004832F4 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCB57F1C07685000F78D93 /* LoginTextField.swift */; };
 		214F211F1C4494A9004832F4 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2156421E1C06B4ED00685847 /* Analytics.swift */; };
 		214F21201C4494A9004832F4 /* CGRect+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCB5821C0777E200F78D93 /* CGRect+Canvas.swift */; };
-		214F21211C4494A9004832F4 /* SelectedOrganizationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960C41C08DE9600EB8F84 /* SelectedOrganizationCell.swift */; };
 		214F21221C4494A9004832F4 /* Accountable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D30F1BF5634A0018F255 /* Accountable.swift */; };
 		214F21231C4494A9004832F4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D3091BF55C340018F255 /* LoginViewController.swift */; };
 		214F21241C4494A9004832F4 /* WebActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA5A1BFD30790097FCC6 /* WebActivity.swift */; };
@@ -77,7 +76,6 @@
 		214F21361C4494A9004832F4 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DAC911C0F98BD00F39A6F /* Configuration.swift */; };
 		214F21371C4494A9004832F4 /* ChromeActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA5C1BFD33DB0097FCC6 /* ChromeActivity.swift */; };
 		214F21381C4494A9004832F4 /* NSCache+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCB58C1C07929A00F78D93 /* NSCache+Canvas.swift */; };
-		214F21391C4494A9004832F4 /* SelectedCanvasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960C61C08F01800EB8F84 /* SelectedCanvasCell.swift */; };
 		214F213A1C4494A9004832F4 /* BlockquoteBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742D81BFFCFDB00FF293C /* BlockquoteBorderView.swift */; };
 		214F213B1C4494A9004832F4 /* Canvas+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219334041C0FC6DD000A974B /* Canvas+Canvas.swift */; };
 		214F213C1C4494A9004832F4 /* KeyboardSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21952C8C1C1A032A006068E4 /* KeyboardSelectionView.swift */; };
@@ -258,8 +256,6 @@
 		210566EC1C3B1DBC00F4387A /* ISO8601.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = ISO8601.framework.dSYM; path = Vendor/CanvasKit/Carthage/Build/iOS/ISO8601.framework.dSYM; sourceTree = "<group>"; };
 		210566ED1C3B1DBC00F4387A /* SSKeychain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SSKeychain.framework; path = Vendor/CanvasKit/Carthage/Build/iOS/SSKeychain.framework; sourceTree = "<group>"; };
 		210566EE1C3B1DBC00F4387A /* SSKeychain.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SSKeychain.framework.dSYM; path = Vendor/CanvasKit/Carthage/Build/iOS/SSKeychain.framework.dSYM; sourceTree = "<group>"; };
-		210960C41C08DE9600EB8F84 /* SelectedOrganizationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedOrganizationCell.swift; sourceTree = "<group>"; };
-		210960C61C08F01800EB8F84 /* SelectedCanvasCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedCanvasCell.swift; sourceTree = "<group>"; };
 		210960C81C08F24F00EB8F84 /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		210960D31C091CAE00EB8F84 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		210960D51C091F7800EB8F84 /* LightTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
@@ -271,6 +267,7 @@
 		2124480F1C45B225008E41A4 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		2124481A1C45BF75008E41A4 /* GradientView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GradientView.framework; path = Carthage/Build/iOS/GradientView.framework; sourceTree = "<group>"; };
 		2124481B1C45BF75008E41A4 /* GradientView.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = GradientView.framework.dSYM; path = Carthage/Build/iOS/GradientView.framework.dSYM; sourceTree = "<group>"; };
+		212448201C45D7F7008E41A4 /* Organization+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Organization+Canvas.swift"; sourceTree = "<group>"; };
 		2129D3091BF55C340018F255 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2129D30B1BF560810018F255 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		2129D30D1BF561400018F255 /* OrganizationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsViewController.swift; sourceTree = "<group>"; };
@@ -427,9 +424,7 @@
 			isa = PBXGroup;
 			children = (
 				21A8FA3C1BFD04F20097FCC6 /* OrganizationCell.swift */,
-				210960C41C08DE9600EB8F84 /* SelectedOrganizationCell.swift */,
 				21A8FA491BFD085F0097FCC6 /* CanvasCell.swift */,
-				210960C61C08F01800EB8F84 /* SelectedCanvasCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -606,6 +601,7 @@
 				219DAC891C0F819700F39A6F /* NSDate+Canvas.swift */,
 				219334041C0FC6DD000A974B /* Canvas+Canvas.swift */,
 				2131391F1C22104000B09904 /* UIFont+Canvas.swift */,
+				212448201C45D7F7008E41A4 /* Organization+Canvas.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -903,11 +899,11 @@
 				214F211F1C4494A9004832F4 /* Analytics.swift in Sources */,
 				212448111C45B225008E41A4 /* NavigationController.swift in Sources */,
 				214F21201C4494A9004832F4 /* CGRect+Canvas.swift in Sources */,
-				214F21211C4494A9004832F4 /* SelectedOrganizationCell.swift in Sources */,
 				214F21221C4494A9004832F4 /* Accountable.swift in Sources */,
 				214F21231C4494A9004832F4 /* LoginViewController.swift in Sources */,
 				214F21241C4494A9004832F4 /* WebActivity.swift in Sources */,
 				214F21251C4494A9004832F4 /* AlertController.swift in Sources */,
+				212448221C45D7F7008E41A4 /* Organization+Canvas.swift in Sources */,
 				214F21261C4494A9004832F4 /* CheckboxView.swift in Sources */,
 				214F21271C4494A9004832F4 /* CodeBlockBackgroundView.swift in Sources */,
 				214F21281C4494A9004832F4 /* ImagesController.swift in Sources */,
@@ -927,7 +923,6 @@
 				214F21361C4494A9004832F4 /* Configuration.swift in Sources */,
 				214F21371C4494A9004832F4 /* ChromeActivity.swift in Sources */,
 				214F21381C4494A9004832F4 /* NSCache+Canvas.swift in Sources */,
-				214F21391C4494A9004832F4 /* SelectedCanvasCell.swift in Sources */,
 				214F213A1C4494A9004832F4 /* BlockquoteBorderView.swift in Sources */,
 				214F213B1C4494A9004832F4 /* Canvas+Canvas.swift in Sources */,
 				214F213C1C4494A9004832F4 /* KeyboardSelectionView.swift in Sources */,
@@ -956,11 +951,11 @@
 				2156421F1C06B4ED00685847 /* Analytics.swift in Sources */,
 				212448101C45B225008E41A4 /* NavigationController.swift in Sources */,
 				21FCB5831C0777E200F78D93 /* CGRect+Canvas.swift in Sources */,
-				210960C51C08DE9600EB8F84 /* SelectedOrganizationCell.swift in Sources */,
 				2129D3101BF5634A0018F255 /* Accountable.swift in Sources */,
 				2129D30A1BF55C340018F255 /* LoginViewController.swift in Sources */,
 				21A8FA5B1BFD30790097FCC6 /* WebActivity.swift in Sources */,
 				210960C91C08F25000EB8F84 /* AlertController.swift in Sources */,
+				212448211C45D7F7008E41A4 /* Organization+Canvas.swift in Sources */,
 				21B8D8D91BFC0E0B001ED447 /* CheckboxView.swift in Sources */,
 				216343F61C0D43BB00916A8B /* CodeBlockBackgroundView.swift in Sources */,
 				215642291C06C40000685847 /* ImagesController.swift in Sources */,
@@ -980,7 +975,6 @@
 				219DAC921C0F98BD00F39A6F /* Configuration.swift in Sources */,
 				21A8FA5D1BFD33DB0097FCC6 /* ChromeActivity.swift in Sources */,
 				21FCB58D1C07929A00F78D93 /* NSCache+Canvas.swift in Sources */,
-				210960C71C08F01800EB8F84 /* SelectedCanvasCell.swift in Sources */,
 				21B742D91BFFCFDB00FF293C /* BlockquoteBorderView.swift in Sources */,
 				219334051C0FC6DD000A974B /* Canvas+Canvas.swift in Sources */,
 				21952C8D1C1A032A006068E4 /* KeyboardSelectionView.swift in Sources */,
