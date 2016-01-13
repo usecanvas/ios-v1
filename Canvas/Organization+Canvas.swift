@@ -26,7 +26,11 @@ extension Organization {
 	var row: Row {
 		return  Row(
 			text: name,
+			detailText: "0 members",
 			accessory: .DisclosureIndicator,
+			context: [
+				"organization": self
+			],
 			cellClass: OrganizationCell.self
 		)
 	}

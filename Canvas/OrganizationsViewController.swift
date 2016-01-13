@@ -47,7 +47,7 @@ class OrganizationsViewController: ModelsViewController, Accountable {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		tableView.rowHeight = 64
+		tableView.rowHeight = 66
 		 
 		navigationItem.leftBarButtonItem = UIBarButtonItem(title: LocalizedString.LogOutButton.string, style: .Plain, target: self, action: "logOut:")
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
@@ -113,8 +113,15 @@ class OrganizationsViewController: ModelsViewController, Accountable {
 	// MARK: - Private
 
 	private func updateOrganizations(organizations: [Organization]) {
+		guard let personalIndex = organizations.indexOf({ $0.name == account.user.username }) else { return }
+
+		var orgs = organizations
+		let personal = orgs[personalIndex]
+		orgs.removeAtIndex(personalIndex)
+
 		dataSource.sections = [
-			Section(rows: organizations.map({ rowForOrganization($0) }))
+			Section(rows: [rowForOrganization(personal)]),
+			Section(header: "Organizations", rows: orgs.map({ rowForOrganization($0) }))
 		]
 	}
 }
