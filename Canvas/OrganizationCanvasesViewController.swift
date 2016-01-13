@@ -9,7 +9,6 @@
 import UIKit
 import Static
 import CanvasKit
-import AlgoliaSearch
 import GradientView
 
 final class OrganizationCanvasesViewController: CanvasesViewController {

@@ -84,7 +84,6 @@
 		214F213F1C4494A9004832F4 /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212404EE1C233E2D00BF0C91 /* CanvasKit.framework */; };
 		214F21401C4494A9004832F4 /* ISO8601.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210566EB1C3B1DBC00F4387A /* ISO8601.framework */; };
 		214F21411C4494A9004832F4 /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212404DF1C233E2500BF0C91 /* CanvasText.framework */; };
-		214F21421C4494A9004832F4 /* AlgoliaSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 219333FF1C0FC5DD000A974B /* AlgoliaSearch.framework */; };
 		214F21431C4494A9004832F4 /* Camo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 213598021C1A22FC00200825 /* Camo.framework */; };
 		214F21441C4494A9004832F4 /* Crypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 213598061C1A22FC00200825 /* Crypto.framework */; };
 		214F21451C4494A9004832F4 /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 213598041C1A22FC00200825 /* CommonCrypto.framework */; };
@@ -106,7 +105,6 @@
 		216343F61C0D43BB00916A8B /* CodeBlockBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216343F51C0D43BB00916A8B /* CodeBlockBackgroundView.swift */; };
 		217381411C45E400002F87C5 /* OrganizationAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217381401C45E400002F87C5 /* OrganizationAvatarView.swift */; };
 		217381421C45E400002F87C5 /* OrganizationAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217381401C45E400002F87C5 /* OrganizationAvatarView.swift */; };
-		219334011C0FC5DD000A974B /* AlgoliaSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 219333FF1C0FC5DD000A974B /* AlgoliaSearch.framework */; };
 		219334051C0FC6DD000A974B /* Canvas+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219334041C0FC6DD000A974B /* Canvas+Canvas.swift */; };
 		219334131C0FD91D000A974B /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219334121C0FD91D000A974B /* SearchController.swift */; };
 		219DAC821C0E75DC00F39A6F /* InsertionPointTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DAC811C0E75DC00F39A6F /* InsertionPointTextView.swift */; };
@@ -296,8 +294,6 @@
 		215642281C06C40000685847 /* ImagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesController.swift; sourceTree = "<group>"; };
 		216343F51C0D43BB00916A8B /* CodeBlockBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeBlockBackgroundView.swift; sourceTree = "<group>"; };
 		217381401C45E400002F87C5 /* OrganizationAvatarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationAvatarView.swift; sourceTree = "<group>"; };
-		219333FF1C0FC5DD000A974B /* AlgoliaSearch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlgoliaSearch.framework; path = Carthage/Build/iOS/AlgoliaSearch.framework; sourceTree = "<group>"; };
-		219334001C0FC5DD000A974B /* AlgoliaSearch.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = AlgoliaSearch.framework.dSYM; path = Carthage/Build/iOS/AlgoliaSearch.framework.dSYM; sourceTree = "<group>"; };
 		219334041C0FC6DD000A974B /* Canvas+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Canvas+Canvas.swift"; sourceTree = "<group>"; };
 		219334121C0FD91D000A974B /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		219DAC811C0E75DC00F39A6F /* InsertionPointTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertionPointTextView.swift; sourceTree = "<group>"; };
@@ -344,9 +340,7 @@
 				214F213F1C4494A9004832F4 /* CanvasKit.framework in Frameworks */,
 				214F21401C4494A9004832F4 /* ISO8601.framework in Frameworks */,
 				214F21411C4494A9004832F4 /* CanvasText.framework in Frameworks */,
-				214F21421C4494A9004832F4 /* AlgoliaSearch.framework in Frameworks */,
 				214F21431C4494A9004832F4 /* Camo.framework in Frameworks */,
-				214F21421C4494A9004832F4 /* AlgoliaSearch.framework in Frameworks */,
 				214F21441C4494A9004832F4 /* Crypto.framework in Frameworks */,
 				214F21451C4494A9004832F4 /* CommonCrypto.framework in Frameworks */,
 				214F21461C4494A9004832F4 /* Mixpanel.framework in Frameworks */,
@@ -364,9 +358,7 @@
 				212404F91C233E4200BF0C91 /* CanvasKit.framework in Frameworks */,
 				210566EF1C3B1DBC00F4387A /* ISO8601.framework in Frameworks */,
 				212404FA1C233E4200BF0C91 /* CanvasText.framework in Frameworks */,
-				219334011C0FC5DD000A974B /* AlgoliaSearch.framework in Frameworks */,
 				213598081C1A22FC00200825 /* Camo.framework in Frameworks */,
-				219334011C0FC5DD000A974B /* AlgoliaSearch.framework in Frameworks */,
 				2135980C1C1A22FC00200825 /* Crypto.framework in Frameworks */,
 				2135980A1C1A22FC00200825 /* CommonCrypto.framework in Frameworks */,
 				215642151C06B46E00685847 /* Mixpanel.framework in Frameworks */,
@@ -499,8 +491,6 @@
 				213598051C1A22FC00200825 /* CommonCrypto.framework.dSYM */,
 				213598061C1A22FC00200825 /* Crypto.framework */,
 				213598071C1A22FC00200825 /* Crypto.framework.dSYM */,
-				219333FF1C0FC5DD000A974B /* AlgoliaSearch.framework */,
-				219334001C0FC5DD000A974B /* AlgoliaSearch.framework.dSYM */,
 				215642111C06B46E00685847 /* Mixpanel.framework */,
 				215642121C06B46E00685847 /* Mixpanel.framework.dSYM */,
 				21AE3F411C0423E300AE5DDC /* OnePasswordExtension.framework */,
@@ -817,7 +807,6 @@
 				"$(SRCROOT)/Vendor/CanvasKit/Carthage/Build/iOS/SSKeychain.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Static.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Mixpanel.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/AlgoliaSearch.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Camo.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Crypto.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/CommonCrypto.framework",
@@ -869,7 +858,6 @@
 				"$(SRCROOT)/Vendor/CanvasKit/Carthage/Build/iOS/SSKeychain.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Static.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Mixpanel.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/AlgoliaSearch.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Camo.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Crypto.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/CommonCrypto.framework",
