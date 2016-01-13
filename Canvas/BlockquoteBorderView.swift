@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BlockquoteBorderView: UIView {
+final class BlockquoteBorderView: UIView {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		userInteractionEnabled = false

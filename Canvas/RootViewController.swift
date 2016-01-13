@@ -9,7 +9,7 @@
 import UIKit
 import CanvasKit
 
-class RootViewController: UIViewController {
+final class RootViewController: UIViewController {
 
 	// MARK: - Properties
 

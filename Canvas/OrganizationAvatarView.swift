@@ -9,9 +9,15 @@
 import UIKit
 import CanvasKit
 
-class OrganizationAvatarView: UIView {
+final class OrganizationAvatarView: UIView {
 
 	// MARK: - Properties
+
+	var highlighted = false {
+		didSet {
+			updateUI()
+		}
+	}
 
 	var organization: Organization? {
 		didSet {
@@ -57,13 +63,14 @@ class OrganizationAvatarView: UIView {
 	private func updateUI() {
 		guard let organization = organization else {
 			initialsLabel.text = nil
-			backgroundColor = Color.gray
+			backgroundColor = highlighted ? .whiteColor() : Color.gray
 			return
 		}
 
-		backgroundColor = organization.color
+		backgroundColor = highlighted ? .whiteColor() : organization.color
 
 		let name = organization.name
 		initialsLabel.text = name.substringToIndex(name.startIndex.advancedBy(2))
+		initialsLabel.textColor = highlighted ? Color.brand : .whiteColor()
 	}
 }

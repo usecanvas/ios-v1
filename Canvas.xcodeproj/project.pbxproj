@@ -80,7 +80,6 @@
 		214F21381C4494A9004832F4 /* NSCache+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FCB58C1C07929A00F78D93 /* NSCache+Canvas.swift */; };
 		214F213A1C4494A9004832F4 /* BlockquoteBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742D81BFFCFDB00FF293C /* BlockquoteBorderView.swift */; };
 		214F213B1C4494A9004832F4 /* Canvas+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219334041C0FC6DD000A974B /* Canvas+Canvas.swift */; };
-		214F213C1C4494A9004832F4 /* KeyboardSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21952C8C1C1A032A006068E4 /* KeyboardSelectionView.swift */; };
 		214F213D1C4494A9004832F4 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215642211C06BBE600685847 /* Button.swift */; };
 		214F213F1C4494A9004832F4 /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212404EE1C233E2D00BF0C91 /* CanvasKit.framework */; };
 		214F21401C4494A9004832F4 /* ISO8601.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210566EB1C3B1DBC00F4387A /* ISO8601.framework */; };
@@ -110,7 +109,6 @@
 		219334011C0FC5DD000A974B /* AlgoliaSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 219333FF1C0FC5DD000A974B /* AlgoliaSearch.framework */; };
 		219334051C0FC6DD000A974B /* Canvas+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219334041C0FC6DD000A974B /* Canvas+Canvas.swift */; };
 		219334131C0FD91D000A974B /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219334121C0FD91D000A974B /* SearchController.swift */; };
-		21952C8D1C1A032A006068E4 /* KeyboardSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21952C8C1C1A032A006068E4 /* KeyboardSelectionView.swift */; };
 		219DAC821C0E75DC00F39A6F /* InsertionPointTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DAC811C0E75DC00F39A6F /* InsertionPointTextView.swift */; };
 		219DAC8A1C0F819700F39A6F /* NSDate+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DAC891C0F819700F39A6F /* NSDate+Canvas.swift */; };
 		219DAC921C0F98BD00F39A6F /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DAC911C0F98BD00F39A6F /* Configuration.swift */; };
@@ -302,7 +300,6 @@
 		219334001C0FC5DD000A974B /* AlgoliaSearch.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = AlgoliaSearch.framework.dSYM; path = Carthage/Build/iOS/AlgoliaSearch.framework.dSYM; sourceTree = "<group>"; };
 		219334041C0FC6DD000A974B /* Canvas+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Canvas+Canvas.swift"; sourceTree = "<group>"; };
 		219334121C0FD91D000A974B /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
-		21952C8C1C1A032A006068E4 /* KeyboardSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardSelectionView.swift; sourceTree = "<group>"; };
 		219DAC811C0E75DC00F39A6F /* InsertionPointTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertionPointTextView.swift; sourceTree = "<group>"; };
 		219DAC891C0F819700F39A6F /* NSDate+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Canvas.swift"; sourceTree = "<group>"; };
 		219DAC911C0F98BD00F39A6F /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
@@ -412,7 +409,6 @@
 				213791CC1C17A8F6000FACCC /* Cells */,
 				213791CB1C17A8EA000FACCC /* Annotations */,
 				213791CE1C17A905000FACCC /* Forms */,
-				21952C8C1C1A032A006068E4 /* KeyboardSelectionView.swift */,
 				217381401C45E400002F87C5 /* OrganizationAvatarView.swift */,
 			);
 			name = Views;
@@ -940,7 +936,6 @@
 				214F21381C4494A9004832F4 /* NSCache+Canvas.swift in Sources */,
 				214F213A1C4494A9004832F4 /* BlockquoteBorderView.swift in Sources */,
 				214F213B1C4494A9004832F4 /* Canvas+Canvas.swift in Sources */,
-				214F213C1C4494A9004832F4 /* KeyboardSelectionView.swift in Sources */,
 				214F213D1C4494A9004832F4 /* Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -995,7 +990,6 @@
 				21FCB58D1C07929A00F78D93 /* NSCache+Canvas.swift in Sources */,
 				21B742D91BFFCFDB00FF293C /* BlockquoteBorderView.swift in Sources */,
 				219334051C0FC6DD000A974B /* Canvas+Canvas.swift in Sources */,
-				21952C8D1C1A032A006068E4 /* KeyboardSelectionView.swift in Sources */,
 				215642221C06BBE600685847 /* Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

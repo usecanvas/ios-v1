@@ -10,7 +10,7 @@ import UIKit
 import Static
 import CanvasKit
 
-class CanvasCell: UITableViewCell {
+final class CanvasCell: UITableViewCell {
 
 	// MARK: - Properties
 

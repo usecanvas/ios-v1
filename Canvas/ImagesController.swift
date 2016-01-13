@@ -10,7 +10,7 @@ import UIKit
 import CanvasText
 import Camo
 
-class ImagesController {
+final class ImagesController {
 
 	// MARK: - Types
 

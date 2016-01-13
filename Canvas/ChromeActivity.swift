@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChromeActivity: WebActivity {
+final class ChromeActivity: WebActivity {
 
 	// MARK: - UIActivity
 

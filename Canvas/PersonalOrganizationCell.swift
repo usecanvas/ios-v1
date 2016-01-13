@@ -31,6 +31,8 @@ class PersonalOrganizationCell: UITableViewCell, CellType {
 		return label
 	}()
 
+	let disclosureIndicatorView = UIImageView(image: UIImage(named: "Chevron"))
+
 
 	// MARK: - Initializers
 
@@ -41,12 +43,27 @@ class PersonalOrganizationCell: UITableViewCell, CellType {
 		view.backgroundColor = Color.brand
 		selectedBackgroundView = view
 
+		accessoryView = disclosureIndicatorView
+
 		setupViews()
 		setupConstraints()
 	}
 
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+
+
+	// MARK: - UITableViewCell
+
+	override func setHighlighted(highlighted: Bool, animated: Bool) {
+		super.setHighlighted(highlighted, animated: animated)
+		updateHighlighted()
+	}
+
+	override func setSelected(selected: Bool, animated: Bool) {
+		super.setSelected(selected, animated: animated)
+		updateHighlighted()
 	}
 
 
@@ -77,7 +94,14 @@ class PersonalOrganizationCell: UITableViewCell, CellType {
 
 	func configure(row row: Row) {
 		titleLabel.text = row.text
-		accessoryType = row.accessory.type
 		avatarView.organization = row.context?["organization"] as? Organization
+	}
+
+
+	// MARK: - Private
+
+	private func updateHighlighted() {
+		avatarView.highlighted = highlighted || selected
+		disclosureIndicatorView.tintColor = highlighted || selected ? .whiteColor() : UIColor(red: 0.780, green: 0.780, blue: 0.800, alpha: 1)
 	}
 }

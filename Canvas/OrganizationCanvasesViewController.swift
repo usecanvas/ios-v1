@@ -12,7 +12,7 @@ import CanvasKit
 import AlgoliaSearch
 import GradientView
 
-class OrganizationCanvasesViewController: CanvasesViewController {
+final class OrganizationCanvasesViewController: CanvasesViewController {
 
 	// MARK: - Properties
 

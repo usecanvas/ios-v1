@@ -9,7 +9,7 @@
 import UIKit
 import CanvasText
 
-class BulletView: UIView {
+final class BulletView: UIView {
 
 	// MARK: - Properties
 

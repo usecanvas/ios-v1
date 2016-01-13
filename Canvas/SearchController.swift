@@ -13,7 +13,7 @@ import CanvasKit
 import AlgoliaSearch
 
 /// Object for coordinating searches
-class SearchController: NSObject {
+final class SearchController: NSObject {
 
 	// MARK: - Properties
 

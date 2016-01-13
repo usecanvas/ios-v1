@@ -8,11 +8,12 @@
 
 import UIKit
 
-class NavigationController: UINavigationController {
+final class NavigationController: UINavigationController {
 
 	// MARK: - Properties
 
 	private let defaultTintColor = Color.brand
+	private let defaultTitleColor = Color.darkGray
 
 
 	// MARK: - Initializers
@@ -42,13 +43,14 @@ class NavigationController: UINavigationController {
 	// MARK: - Private
 
 	private func updateTintColor(tintColor: UIColor?) {
-		let color = tintColor ?? defaultTintColor
+		let itemsColor = tintColor ?? defaultTintColor
+		let titleColor = tintColor ?? defaultTitleColor
 
-		view.tintColor = color
-		navigationBar.tintColor = color
+		view.tintColor = itemsColor
+		navigationBar.tintColor = itemsColor
 		navigationBar.titleTextAttributes = [
 			NSFontAttributeName: Font.sansSerif(weight: .Bold),
-			NSForegroundColorAttributeName: color
+			NSForegroundColorAttributeName: titleColor
 		]
 	}
 }

@@ -10,7 +10,7 @@ import UIKit
 import CanvasKit
 import CanvasText
 
-class EditorViewController: UIViewController, Accountable {
+final class EditorViewController: UIViewController, Accountable {
 	
 	// MARK: - Properties
 

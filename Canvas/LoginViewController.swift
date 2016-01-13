@@ -10,7 +10,7 @@ import UIKit
 import CanvasKit
 import OnePasswordExtension
 
-class LoginViewController: UIViewController {
+final class LoginViewController: UIViewController {
 
 	// MARK: - Properties
 

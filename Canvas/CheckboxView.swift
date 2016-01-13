@@ -9,7 +9,7 @@
 import UIKit
 import CanvasText
 
-class CheckboxView: UIButton {
+final class CheckboxView: UIButton {
 
 	// MARK: - Properties
 

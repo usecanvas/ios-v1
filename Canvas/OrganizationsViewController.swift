@@ -10,7 +10,7 @@ import UIKit
 import Static
 import CanvasKit
 
-class OrganizationsViewController: ModelsViewController, Accountable {
+final class OrganizationsViewController: ModelsViewController, Accountable {
 
 	// MARK: - Properties
 
@@ -36,7 +36,7 @@ class OrganizationsViewController: ModelsViewController, Accountable {
 	override var keyCommands: [UIKeyCommand] {
 		var commands = super.keyCommands ?? []
 		commands += [
-			UIKeyCommand(input: "Q", modifierFlags: [.Shift, .Command], action: "logOut:", discoverabilityTitle: LocalizedString.LogOutButton.string)
+			UIKeyCommand(input: "Q", modifierFlags: [.Shift, .Command], action: "logOut", discoverabilityTitle: LocalizedString.LogOutButton.string)
 		]
 		return commands
 	}
@@ -49,7 +49,7 @@ class OrganizationsViewController: ModelsViewController, Accountable {
 
 		tableView.estimatedRowHeight = 66
 		 
-		navigationItem.leftBarButtonItem = UIBarButtonItem(title: LocalizedString.LogOutButton.string, style: .Plain, target: self, action: "logOut:")
+		navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Settings"), style: .Plain, target: self, action: "showSettings:")
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
 	}
 
@@ -104,7 +104,18 @@ class OrganizationsViewController: ModelsViewController, Accountable {
 
 	// MARK: - Actions
 
-	func logOut(sender: AnyObject?) {
+	func showSettings(sender: AnyObject?) {
+		let style: UIAlertControllerStyle = traitCollection.userInterfaceIdiom == .Pad ? .Alert : .ActionSheet
+		let actionSheet = AlertController(title:nil, message: nil, preferredStyle: style)
+
+		actionSheet.addAction(UIAlertAction(title: LocalizedString.LogOutButton.string, style: .Destructive) { _ in self.logOut() })
+		actionSheet.addAction(UIAlertAction(title: LocalizedString.CancelButton.string, style: .Cancel, handler: nil))
+		actionSheet.primaryAction = logOut
+
+		presentViewController(actionSheet, animated: true, completion: nil)
+	}
+
+	func logOut() {
 		Analytics.track(.LoggedIn)
 		AccountController.sharedController.currentAccount = nil
 	}

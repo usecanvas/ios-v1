@@ -10,7 +10,7 @@ import UIKit
 import CanvasText
 
 /// Used for ordered lists
-class NumberView: UILabel {
+final class NumberView: UILabel {
 
 	// MARK: - Initializers
 
