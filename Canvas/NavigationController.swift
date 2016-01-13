@@ -12,15 +12,7 @@ class NavigationController: UINavigationController {
 
 	// MARK: - Properties
 
-	var tintColor: UIColor {
-		get {
-			return view.tintColor
-		}
-
-		set {
-			view.tintColor = newValue
-		}
-	}
+	private let defaultTintColor = Color.brand
 
 
 	// MARK: - Initializers
@@ -31,11 +23,10 @@ class NavigationController: UINavigationController {
 		navigationBar.barTintColor = .whiteColor()
 		navigationBar.translucent = false
 		navigationBar.shadowImage = UIImage()
-//		navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
 
-		tintColorDidChange()
+		updateTintColor(view.tintColor)
 
-		addObserver(self, forKeyPath: "view.tintColor", options: [.New], context: nil)
+		delegate = self
 	}
 
 	// TODO: Remove
@@ -47,30 +38,25 @@ class NavigationController: UINavigationController {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	deinit {
-		removeObserver(self, forKeyPath: "view.tintColor")
-	}
-
-
-	// MARK: - NSKeyValueObserving
-
-	override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-		if keyPath == "view.tintColor" {
-			tintColorDidChange()
-			return
-		}
-
-		super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
-	}
-
 
 	// MARK: - Private
 
-	private func tintColorDidChange() {
-		navigationBar.tintColor = tintColor
+	private func updateTintColor(tintColor: UIColor?) {
+		let color = tintColor ?? defaultTintColor
+
+		view.tintColor = color
+		navigationBar.tintColor = color
 		navigationBar.titleTextAttributes = [
 			NSFontAttributeName: Font.sansSerif(weight: .Bold),
-			NSForegroundColorAttributeName: tintColor
+			NSForegroundColorAttributeName: color
 		]
+	}
+}
+
+
+extension NavigationController: UINavigationControllerDelegate {
+	func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
+		let tintColor = (viewController as? TintableEnvironment)?.preferredTintColor
+		updateTintColor(tintColor)
 	}
 }

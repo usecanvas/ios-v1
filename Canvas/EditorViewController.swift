@@ -199,3 +199,11 @@ extension EditorViewController: UITextViewDelegate {
 		textStorage.backingSelection = textStorage.displayRangeToBackingRange(textView.selectedRange)
 	}
 }
+
+
+extension EditorViewController: TintableEnvironment {
+	var preferredTintColor: UIColor {
+		return canvas.organization.color
+	}
+}
+

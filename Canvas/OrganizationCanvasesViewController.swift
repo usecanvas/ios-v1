@@ -101,22 +101,6 @@ class OrganizationCanvasesViewController: CanvasesViewController {
 		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Create Canvas"), style: .Plain, target: self, action: "createCanvas")
 	}
 
-	override func viewWillAppear(animated: Bool) {
-		super.viewWillAppear(animated)
-
-		if organization.name == "DNGN", let navigationController = navigationController as? NavigationController {
-			navigationController.tintColor = UIColor(red: 0.580, green: 0.459, blue: 0.878, alpha: 1)
-		}
-	}
-
-	override func viewWillDisappear(animated: Bool) {
-		super.viewWillDisappear(animated)
-
-		if let navigationController = navigationController as? NavigationController {
-			navigationController.tintColor = Color.brand
-		}
-	}
-
 
 	// MARK: - ModelsViewController
 
@@ -236,5 +220,12 @@ class OrganizationCanvasesViewController: CanvasesViewController {
 extension OrganizationCanvasesViewController: CanvasesResultsViewControllerDelegate {
 	func canvasesResultsViewController(viewController: CanvasesResultsViewController, didSelectCanvas canvas: Canvas) {
 		openCanvas(canvas)
+	}
+}
+
+
+extension OrganizationCanvasesViewController: TintableEnvironment {
+	var preferredTintColor: UIColor {
+		return organization.color
 	}
 }
