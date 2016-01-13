@@ -29,6 +29,17 @@ class TableViewController: UITableViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
+		clearsSelectionOnViewWillAppear = false
+		dataSource.automaticallyDeselectRows = false
 		dataSource.tableView = tableView
+	}
+
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+
+		tableView.indexPathsForSelectedRows?.forEach { indexPath in
+			tableView.deselectRowAtIndexPath(indexPath, animated: false)
+		}
 	}
 }

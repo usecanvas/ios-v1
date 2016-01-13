@@ -1,6 +1,6 @@
 github "soffes/Crypto" "v0.3.0"
 github "soffes/GradientView" "v2.1.0"
 github "soffes/Mixpanel" "v0.1.0"
-github "venmo/Static" "v0.4.1"
+github "soffes/Static" "2ea79d9ead7a79693fcfc59d45e7e22976197d1c"
 github "AgileBits/onepassword-app-extension" "524b32ede6b2a070710ca3c51f348e9fe96437a2"
 github "soffes/Camo" "v0.1.0"
