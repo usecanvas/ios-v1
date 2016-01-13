@@ -13,6 +13,50 @@ import GradientView
 
 final class OrganizationCanvasesViewController: CanvasesViewController {
 
+	// MARK: - Types
+
+	private enum Group: String {
+		case Today
+		case Recent // 3 days
+		case Week
+		case Month
+		case Forever
+
+		var title: String {
+			switch self {
+			case .Week: return "This Week"
+			case . Month: return "This Month"
+			case .Forever: return "Older"
+			default: return rawValue
+			}
+		}
+
+		func containsDate(date: NSDate) -> Bool {
+			let calendar = NSCalendar.currentCalendar()
+
+			let now = NSDate()
+
+			switch self {
+			case .Today:
+				return calendar.isDateInToday(date)
+			case .Recent:
+				guard let end = calendar.dateByAddingUnit(NSCalendarUnit.Day, value: -3, toDate: now, options: []) else { return false }
+				return calendar.compareDate(date, toDate: end, toUnitGranularity: .Day) == .OrderedDescending
+			case .Week:
+				guard let end = calendar.dateByAddingUnit(NSCalendarUnit.Day, value: -7, toDate: now, options: []) else { return false }
+				return calendar.compareDate(date, toDate: end, toUnitGranularity: .Day) == .OrderedDescending
+			case .Month:
+				guard let end = calendar.dateByAddingUnit(NSCalendarUnit.Month, value: -1, toDate: now, options: []) else { return false }
+				return calendar.compareDate(date, toDate: end, toUnitGranularity: .Day) == .OrderedDescending
+			case .Forever:
+				return true
+			}
+		}
+
+		static let all: [Group] = [.Today, .Recent, .Week, .Month, .Forever]
+	}
+
+
 	// MARK: - Properties
 
 	let organization: Organization
@@ -209,9 +253,28 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 	// MARK: - Private
 
 	private func updateCanvases(canvases: [Canvas]) {
-		dataSource.sections = [
-			Section(rows: canvases.map({ rowForCanvas($0) }))
-		]
+		var groups = [Group: [Canvas]]()
+
+		for canvas in canvases {
+			for group in Group.all {
+				if group.containsDate(canvas.updatedAt) {
+					var list = groups[group] ?? [Canvas]()
+					list.append(canvas)
+					groups[group] = list
+					break
+				}
+			}
+		}
+
+		var sections = [Section]()
+		for group in Group.all {
+			guard let canvases = groups[group] else { continue }
+
+			let rows = canvases.map { rowForCanvas($0) }
+			sections.append(Section(header: .Title(group.title), rows: rows))
+		}
+
+		dataSource.sections = sections
 	}
 }
 
