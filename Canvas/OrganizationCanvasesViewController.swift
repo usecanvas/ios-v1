@@ -130,8 +130,11 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		extendedLayoutIncludesOpaqueBars = true
 		searchViewController.hidesNavigationBarDuringPresentation = true
 
-		let header = GradientView(frame: searchViewController.searchBar.bounds)
-		header.backgroundColor = .whiteColor()
+		var frame = searchViewController.searchBar.bounds
+		frame.size.height += 1
+		let header = GradientView(frame: frame)
+		header.backgroundColor = tableView.separatorColor
+		header.bottomBorderColor = tableView.backgroundColor
 		searchViewController.searchBar.autoresizingMask = [.FlexibleWidth]
 		header.addSubview(searchViewController.searchBar)
 		tableView.tableHeaderView = header
