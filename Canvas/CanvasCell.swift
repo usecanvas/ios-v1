@@ -135,12 +135,13 @@ extension CanvasCell: CellType {
 		if let summary = row.detailText where summary.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0 {
 			summaryLabel.text = summary
 			summaryLabel.font = Font.sansSerif(size: .Subtitle)
-			iconView.image = UIImage(named: "Document")
+			iconView.image = UIImage(named: "Document")?.imageWithRenderingMode(.AlwaysOriginal)
 			iconView.highlightedImage = UIImage(named: "Document")?.imageWithRenderingMode(.AlwaysTemplate)
 		} else {
 			summaryLabel.text = "No Content"
 			summaryLabel.font = Font.sansSerif(size: .Subtitle, style: .Italic)
-			iconView.image = UIImage(named: "Document-Blank")
+			iconView.image = UIImage(named: "Document-Blank")?.imageWithRenderingMode(.AlwaysOriginal)
+			iconView.highlightedImage = UIImage(named: "Document-Blank")?.imageWithRenderingMode(.AlwaysTemplate)
 		}
 
 		guard let canvas = row.context?["canvas"] as? Canvas else {
