@@ -75,14 +75,16 @@ final class SearchController: NSObject {
 				UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 			}
 
-			client.searchCanvases(organizationID: organizationID, query: query) {
+			let callback = self?.callback
+
+			client.searchCanvases(organizationID: organizationID, query: query) { result in
 				dispatch_async(dispatch_get_main_queue()) {
 					UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-				}
 
-				switch $0 {
-				case .Success(let canvases): self?.callback?(canvases)
-				default: break
+					switch result {
+					case .Success(let canvases): callback?(canvases)
+					default: break
+					}
 				}
 
 				dispatch_semaphore_signal(semaphore)

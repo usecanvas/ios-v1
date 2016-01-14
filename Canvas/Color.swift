@@ -18,6 +18,8 @@ struct Color {
 	static let extraLightGray = UIColor(red: 0.961, green: 0.961, blue: 0.965, alpha: 1)
 	static let darkGray = UIColor(red: 0.420, green: 0.420, blue: 0.447, alpha: 1)
 
+	static let disclosureIndicator = UIColor(red: 0.780, green: 0.780, blue: 0.800, alpha: 1)
+
 	static let codeBackground = UIColor(red: 0.961, green: 0.961, blue: 0.965, alpha: 1)
 	static let lineNumbersBackground = UIColor(red: 0.933, green: 0.933, blue: 0.941, alpha: 1)
 
