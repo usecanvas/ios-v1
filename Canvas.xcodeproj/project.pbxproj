@@ -12,6 +12,10 @@
 		210960C91C08F25000EB8F84 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960C81C08F24F00EB8F84 /* AlertController.swift */; };
 		210960D41C091CAE00EB8F84 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960D31C091CAE00EB8F84 /* Font.swift */; };
 		210960D61C091F7800EB8F84 /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960D51C091F7800EB8F84 /* LightTheme.swift */; };
+		210BB9521C484E1600ECADC0 /* CanvasIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210BB9511C484E1600ECADC0 /* CanvasIconView.swift */; };
+		210BB9531C484E1600ECADC0 /* CanvasIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210BB9511C484E1600ECADC0 /* CanvasIconView.swift */; };
+		210BB9551C484E3300ECADC0 /* TintableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210BB9541C484E3300ECADC0 /* TintableView.swift */; };
+		210BB9561C484E3300ECADC0 /* TintableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210BB9541C484E3300ECADC0 /* TintableView.swift */; };
 		2114833C1C0D68530072F94B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2114833A1C0D68530072F94B /* Main.storyboard */; };
 		212404F91C233E4200BF0C91 /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212404EE1C233E2D00BF0C91 /* CanvasKit.framework */; };
 		212404FA1C233E4200BF0C91 /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212404DF1C233E2500BF0C91 /* CanvasText.framework */; };
@@ -262,6 +266,8 @@
 		210960C81C08F24F00EB8F84 /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		210960D31C091CAE00EB8F84 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		210960D51C091F7800EB8F84 /* LightTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
+		210BB9511C484E1600ECADC0 /* CanvasIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasIconView.swift; sourceTree = "<group>"; };
+		210BB9541C484E3300ECADC0 /* TintableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TintableView.swift; sourceTree = "<group>"; };
 		2114833B1C0D68530072F94B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		212404D71C233E2500BF0C91 /* CanvasText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasText.xcodeproj; path = Vendor/CanvasText/CanvasText.xcodeproj; sourceTree = "<group>"; };
 		212404E61C233E2D00BF0C91 /* CanvasKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasKit.xcodeproj; path = Vendor/CanvasKit/CanvasKit.xcodeproj; sourceTree = "<group>"; };
@@ -404,6 +410,8 @@
 				213791CB1C17A8EA000FACCC /* Annotations */,
 				213791CE1C17A905000FACCC /* Forms */,
 				217381401C45E400002F87C5 /* OrganizationAvatarView.swift */,
+				210BB9541C484E3300ECADC0 /* TintableView.swift */,
+				210BB9511C484E1600ECADC0 /* CanvasIconView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -920,9 +928,11 @@
 				214F21271C4494A9004832F4 /* CodeBlockBackgroundView.swift in Sources */,
 				214F21281C4494A9004832F4 /* ImagesController.swift in Sources */,
 				214F21291C4494A9004832F4 /* CanvasCell.swift in Sources */,
+				210BB9561C484E3300ECADC0 /* TintableView.swift in Sources */,
 				212448251C45D963008E41A4 /* TintableEnvironment.swift in Sources */,
 				214F212A1C4494A9004832F4 /* SearchController.swift in Sources */,
 				214F212B1C4494A9004832F4 /* AppDelegate.swift in Sources */,
+				210BB9531C484E1600ECADC0 /* CanvasIconView.swift in Sources */,
 				214F212C1C4494A9004832F4 /* CanvasesViewController.swift in Sources */,
 				214F212D1C4494A9004832F4 /* CanvasTextView+Gestures.swift in Sources */,
 				214F212E1C4494A9004832F4 /* CanvasTextView.swift in Sources */,
@@ -974,9 +984,11 @@
 				216343F61C0D43BB00916A8B /* CodeBlockBackgroundView.swift in Sources */,
 				215642291C06C40000685847 /* ImagesController.swift in Sources */,
 				21A8FA4A1BFD085F0097FCC6 /* CanvasCell.swift in Sources */,
+				210BB9551C484E3300ECADC0 /* TintableView.swift in Sources */,
 				212448241C45D963008E41A4 /* TintableEnvironment.swift in Sources */,
 				219334131C0FD91D000A974B /* SearchController.swift in Sources */,
 				21F10F4E1BF138750035057D /* AppDelegate.swift in Sources */,
+				210BB9521C484E1600ECADC0 /* CanvasIconView.swift in Sources */,
 				213791C51C1790E2000FACCC /* CanvasesViewController.swift in Sources */,
 				21C0F3681C1B81B700328E36 /* CanvasTextView+Gestures.swift in Sources */,
 				2134FAE11BFC0A6A00AE93CC /* CanvasTextView.swift in Sources */,
