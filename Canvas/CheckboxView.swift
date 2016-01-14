@@ -34,7 +34,7 @@ final class CheckboxView: UIButton {
 		let rect = checkboxRectForBounds(bounds)
 
 		if checklist.completion == .Complete {
-			Color.brand.setFill()
+			tintColor.setFill()
 			UIBezierPath(roundedRect: rect, cornerRadius: 3).fill()
 
 			if let checkmark = UIImage(named: "checkmark") {
