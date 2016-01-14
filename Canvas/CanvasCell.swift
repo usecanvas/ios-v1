@@ -54,6 +54,28 @@ final class CanvasCell: UITableViewCell {
 	}()
 
 	let disclosureIndicatorView = UIImageView(image: UIImage(named: "Chevron"))
+
+	private var canvas: Canvas? {
+		didSet {
+			updateHighlighted()
+
+			guard let canvas = canvas else {
+				timeLabel.text = nil
+				return
+			}
+
+			if canvas.archivedAt == nil {
+				titleLabel.textColor = Color.black
+				summaryLabel.textColor = Color.darkGray
+			} else {
+				titleLabel.textColor = Color.gray
+				summaryLabel.textColor = Color.gray
+				iconView.image = iconView.image?.imageWithRenderingMode(.AlwaysTemplate)
+			}
+
+			timeLabel.text = canvas.updatedAt.briefTimeAgoInWords
+		}
+	}
 	
 
 	// MARK: - Initializers
@@ -123,7 +145,13 @@ final class CanvasCell: UITableViewCell {
 	// MARK: - Private
 
 	private func updateHighlighted() {
-		disclosureIndicatorView.tintColor = highlighted || selected ? .whiteColor() : UIColor(red: 0.780, green: 0.780, blue: 0.800, alpha: 1)
+		if highlighted || selected {
+			disclosureIndicatorView.tintColor = .whiteColor()
+			iconView.tintColor = .whiteColor()
+		} else {
+			disclosureIndicatorView.tintColor = canvas?.archivedAt == nil ? Color.disclosureIndicator : Color.gray
+			iconView.tintColor = Color.gray
+		}
 	}
 }
 
@@ -144,11 +172,6 @@ extension CanvasCell: CellType {
 			iconView.highlightedImage = UIImage(named: "Document-Blank")?.imageWithRenderingMode(.AlwaysTemplate)
 		}
 
-		guard let canvas = row.context?["canvas"] as? Canvas else {
-			timeLabel.text = nil
-			return
-		}
-
-		timeLabel.text = canvas.updatedAt.briefTimeAgoInWords
+		canvas = row.context?["canvas"] as? Canvas
 	}
 }
