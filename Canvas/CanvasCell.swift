@@ -14,11 +14,11 @@ final class CanvasCell: UITableViewCell {
 
 	// MARK: - Properties
 
-	let iconView: UIImageView = {
-		let view = UIImageView()
+	let iconView: CanvasIconView = {
+		let view = CanvasIconView()
 		view.translatesAutoresizingMaskIntoConstraints = false
-		view.contentMode = .Center
-		view.tintColor = .whiteColor()
+		view.tintColor = UIColor(red: 0.478, green: 0.475, blue: 0.482, alpha: 1)
+		view.highlightedTintColor = .whiteColor()
 		return view
 	}()
 
@@ -64,13 +64,14 @@ final class CanvasCell: UITableViewCell {
 				return
 			}
 
+			iconView.canvas = canvas
+
 			if canvas.archivedAt == nil {
 				titleLabel.textColor = Color.black
 				summaryLabel.textColor = Color.darkGray
 			} else {
 				titleLabel.textColor = Color.gray
 				summaryLabel.textColor = Color.gray
-				iconView.image = iconView.image?.imageWithRenderingMode(.AlwaysTemplate)
 			}
 
 			timeLabel.text = canvas.updatedAt.briefTimeAgoInWords
@@ -145,12 +146,12 @@ final class CanvasCell: UITableViewCell {
 	// MARK: - Private
 
 	private func updateHighlighted() {
+		iconView.highlighted = highlighted || selected
+
 		if highlighted || selected {
 			disclosureIndicatorView.tintColor = .whiteColor()
-			iconView.tintColor = .whiteColor()
 		} else {
 			disclosureIndicatorView.tintColor = canvas?.archivedAt == nil ? Color.disclosureIndicator : Color.gray
-			iconView.tintColor = Color.gray
 		}
 	}
 }
@@ -163,13 +164,9 @@ extension CanvasCell: CellType {
 		if let summary = row.detailText where summary.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0 {
 			summaryLabel.text = summary
 			summaryLabel.font = Font.sansSerif(size: .Subtitle)
-			iconView.image = UIImage(named: "Document")?.imageWithRenderingMode(.AlwaysOriginal)
-			iconView.highlightedImage = UIImage(named: "Document")?.imageWithRenderingMode(.AlwaysTemplate)
 		} else {
 			summaryLabel.text = "No Content"
 			summaryLabel.font = Font.sansSerif(size: .Subtitle, style: .Italic)
-			iconView.image = UIImage(named: "Document-Blank")?.imageWithRenderingMode(.AlwaysOriginal)
-			iconView.highlightedImage = UIImage(named: "Document-Blank")?.imageWithRenderingMode(.AlwaysTemplate)
 		}
 
 		canvas = row.context?["canvas"] as? Canvas

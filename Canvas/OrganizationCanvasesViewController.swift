@@ -84,7 +84,7 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		searchBar.layer.borderWidth = 1
 		searchBar.backgroundColor = .whiteColor()
 
-		super.init(account: account, style: .Grouped)
+		super.init(account: account, style: .Plain)
 
 		title = organization.name
 

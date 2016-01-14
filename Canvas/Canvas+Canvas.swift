@@ -6,10 +6,23 @@
 //  Copyright © 2015 Canvas Labs, Inc. All rights reserved.
 //
 
+import UIKit
 import CanvasKit
 import Static
 
 extension Canvas {
+	enum Kind {
+		case Document
+		case Blank
+
+		var icon: UIImage! {
+			switch self {
+			case .Document: return UIImage(named: "Document")
+			case .Blank: return UIImage(named: "Document-Blank")
+			}
+		}
+	}
+
 	var row: Row {
 		return Row(
 			text: displayTitle,
@@ -17,5 +30,9 @@ extension Canvas {
 			cellClass: CanvasCell.self,
 			context: ["canvas": self]
 		)
+	}
+
+	var kind: Kind {
+		return (summary?.isEmpty ?? true) ? .Blank : .Document
 	}
 }
