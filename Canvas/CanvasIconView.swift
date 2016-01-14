@@ -77,6 +77,10 @@ final class CanvasIconView: TintableView {
 
 		globeView.tintColor = canvas?.organization.color
 	}
+
+	override func intrinsicContentSize() -> CGSize {
+		return CGSize(width: 32, height: 32)
+	}
 }
 
 
