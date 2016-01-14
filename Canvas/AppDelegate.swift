@@ -32,9 +32,9 @@ import UIKit
 			return
 		}
 
-		organizations.showPersonalNotes()
-
-		completion(navigationController.topViewController as? OrganizationCanvasesViewController)
+		organizations.showPersonalNotes() {
+			completion(navigationController.topViewController as? OrganizationCanvasesViewController)
+		}
 	}
 }
 

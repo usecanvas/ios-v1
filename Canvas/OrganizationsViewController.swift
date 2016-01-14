@@ -16,6 +16,8 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 
 	var account: Account
 
+	private var animatePush = true
+
 
 	// MARK: - Initializers
 
@@ -75,7 +77,8 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 		opening = true
 		Analytics.track(.ChangedOrganization(organization: organization))
 		let viewController = OrganizationCanvasesViewController(account: account, organization: organization)
-		navigationController?.pushViewController(viewController, animated: true)
+		navigationController?.pushViewController(viewController, animated: animatePush)
+		animatePush = true
 	}
 
 	override func refresh() {
@@ -125,6 +128,7 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 	}
 
 	func showPersonalNotes(completion: (() -> Void)? = nil) {
+		opening = false
 		guard let selection = dataSource.sections.first?.rows.first?.selection else {
 			refresh() { [weak self] in
 				self?.showPersonalNotes(completion)
@@ -132,6 +136,7 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 			return
 		}
 
+		animatePush = false
 		selection()
 		completion?()
 	}
