@@ -79,6 +79,10 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 	}
 
 	override func refresh() {
+		refresh(nil)
+	}
+
+	func refresh(completion: (() -> Void)? = nil) {
 		if loading {
 			return
 		}
@@ -86,17 +90,17 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 		loading = true
 
 		APIClient(accessToken: account.accessToken, baseURL: baseURL).listOrganizations { [weak self] result in
-			switch result {
-			case .Success(let organizations):
-				dispatch_async(dispatch_get_main_queue()) {
+			dispatch_async(dispatch_get_main_queue()) {
+				switch result {
+				case .Success(let organizations):
 					self?.loading = false
 					self?.updateOrganizations(organizations)
-				}
-			case .Failure(let message):
-				print("Failed to get organizations: \(message)")
-				dispatch_async(dispatch_get_main_queue()) {
+				case .Failure(let message):
+					print("Failed to get organizations: \(message)")
 					self?.loading = false
 				}
+
+				completion?()
 			}
 		}
 	}
@@ -118,6 +122,18 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 	func logOut() {
 		Analytics.track(.LoggedIn)
 		AccountController.sharedController.currentAccount = nil
+	}
+
+	func showPersonalNotes(completion: (() -> Void)? = nil) {
+		guard let selection = dataSource.sections.first?.rows.first?.selection else {
+			refresh() { [weak self] in
+				self?.showPersonalNotes(completion)
+			}
+			return
+		}
+
+		selection()
+		completion?()
 	}
 
 

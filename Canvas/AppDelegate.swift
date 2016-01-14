@@ -8,11 +8,38 @@
 
 import UIKit
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+@UIApplicationMain final class AppDelegate: UIResponder {
+
+	// MARK: - Properties
 
 	var window: UIWindow?
 
+
+	// MARK: - Private
+
+	private func showPersonalNotes(completion: OrganizationCanvasesViewController? -> Void) {
+		guard let rootViewController = window?.rootViewController as? RootViewController,
+			navigationController = rootViewController.viewController as? UINavigationController
+		else {
+			completion(nil)
+			return
+		}
+
+		navigationController.popToRootViewControllerAnimated(false)
+
+		guard let organizations = navigationController.topViewController as? OrganizationsViewController else {
+			completion(nil)
+			return
+		}
+
+		organizations.showPersonalNotes()
+
+		completion(navigationController.topViewController as? OrganizationCanvasesViewController)
+	}
+}
+
+
+extension AppDelegate: UIApplicationDelegate {
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		// Analytics
 		Analytics.track(.LaunchedApp)
@@ -25,10 +52,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		}
 
 		application.shortcutItems = [
-			UIApplicationShortcutItem(type: "New", localizedTitle: "New Canvas", localizedSubtitle: "In Personal", icon: UIApplicationShortcutIcon(templateImageName: "New Canvas Shortcut"), userInfo: nil),
-			UIApplicationShortcutItem(type: "New", localizedTitle: "Search", localizedSubtitle: "In Personal", icon: UIApplicationShortcutIcon(type: .Search), userInfo: nil)
+			UIApplicationShortcutItem(type: "shortcut-new", localizedTitle: "New Canvas", localizedSubtitle: "In Personal", icon: UIApplicationShortcutIcon(templateImageName: "New Canvas Shortcut"), userInfo: nil),
+			UIApplicationShortcutItem(type: "shortcut-search", localizedTitle: "Search", localizedSubtitle: "In Personal", icon: UIApplicationShortcutIcon(type: .Search), userInfo: nil)
 		]
 
 		return true
+	}
+
+	func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
+		showPersonalNotes() { viewController in
+			guard let viewController = viewController else {
+				completionHandler(false)
+				return
+			}
+
+			if shortcutItem.type == "shortcut-new" {
+				viewController.ready = {
+					viewController.createCanvas()
+				}
+			} else if shortcutItem.type == "shortcut-search" {
+				viewController.ready = {
+					viewController.search()
+				}
+			}
+
+			completionHandler(true)
+		}
 	}
 }
