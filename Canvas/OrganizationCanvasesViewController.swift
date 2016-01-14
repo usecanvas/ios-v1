@@ -65,6 +65,8 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 
 	private let searchViewController: UISearchController
 
+	var ready: (() -> Void)?
+
 
 	// MARK: - Initializers
 
@@ -145,6 +147,17 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		tableView.addSubview(topView)
 
 		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Create Canvas"), style: .Plain, target: self, action: "createCanvas")
+	}
+
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
+
+		dispatch_async(dispatch_get_main_queue()) { [weak self] in
+			if let ready = self?.ready {
+				ready()
+				self?.ready = nil
+			}
+		}
 	}
 
 
