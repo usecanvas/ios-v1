@@ -261,6 +261,11 @@ public class CanvasTextStorage: ShadowTextStorage {
 			}
 		}
 
+		if let node = node as? Link {
+			text.addAttribute(NSForegroundColorAttributeName, value: theme.foregroundColor, range: backingRangeToDisplayRange(node.URLRange))
+			text.addAttribute(NSUnderlineStyleAttributeName, value: NSUnderlineStyle.StyleSingle.rawValue, range: backingRangeToDisplayRange(node.URLRange))
+		}
+
 		// Recurse
 		if let node = node as? ContainerNode {
 			for child in node.subnodes {

@@ -142,8 +142,8 @@ class CanvasTextView: InsertionPointTextView {
 	// MARK: - Private
 
 	private func didUpdateNodes() {
-		updateAnnotations()
 		dispatch_async(dispatch_get_main_queue()) {
+			self.updateAnnotations()
 			self.updateTypingAttributes()
 		}
 	}
