@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Link: SpanNode, Foldable, ContainerNode {
+public struct Link: SpanNode, Foldable, NodeContainer {
 
 	// MARK: - Properties
 

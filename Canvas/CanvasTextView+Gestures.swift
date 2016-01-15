@@ -43,7 +43,7 @@ extension CanvasTextView {
 
 		// Convert paragraph to unordered list
 		if node is Paragraph {
-			let string = Checklist.nativeRepresentation()
+			let string = ChecklistItem.nativeRepresentation()
 			var range = node.displayRange
 			range.length = 0
 			textStorage.replaceBackingCharactersInRange(range, withString: string)
@@ -51,8 +51,8 @@ extension CanvasTextView {
 		}
 
 		// Convert checklist to unordered list
-		if let node = node as? Checklist {
-			let string = UnorderedList.nativeRepresentation()
+		if let node = node as? ChecklistItem {
+			let string = UnorderedListItem.nativeRepresentation()
 			textStorage.replaceBackingCharactersInRange(node.nativePrefixRange, withString: string)
 			return
 		}
@@ -94,7 +94,7 @@ extension CanvasTextView {
 		// Lists
 		if let node = node as? Listable {
 			// Convert checklist to paragraph
-			if let node = node as? Checklist {
+			if let node = node as? ChecklistItem {
 				textStorage.replaceBackingCharactersInRange(node.nativePrefixRange, withString: "")
 				return
 			}
@@ -102,7 +102,7 @@ extension CanvasTextView {
 			// Convert unordered list to checklist
 			let newIndentation = node.indentation.predecessor
 			if newIndentation == node.indentation {
-				let string = Checklist.nativeRepresentation()
+				let string = ChecklistItem.nativeRepresentation()
 				textStorage.replaceBackingCharactersInRange(node.nativePrefixRange, withString: string)
 				return
 			}

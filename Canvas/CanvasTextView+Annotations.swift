@@ -99,7 +99,7 @@ extension CanvasTextView {
 			}
 
 			if node is Listable {
-				if let node = node as? OrderedList {
+				if let node = node as? OrderedListItem {
 					let value = orderedIndentationCounts[node.indentation] ?? 0
 					orderedIndentationCounts[node.indentation] = value + 1
 				}
@@ -136,7 +136,7 @@ extension CanvasTextView {
 		let font = theme.fontOfSize(theme.fontSize, style: [])
 
 		// Unordered List
-		if let node = node as? UnorderedList {
+		if let node = node as? UnorderedListItem {
 			let view = BulletView(frame: .zero, unorderedList: node)
 			let size = view.intrinsicContentSize()
 
@@ -149,7 +149,7 @@ extension CanvasTextView {
 		}
 
 		// Ordered list
-		if let node = node as? OrderedList {
+		if let node = node as? OrderedListItem {
 			let value = orderedIndentationCounts[node.indentation] ?? 1
 			let view = NumberView(frame: .zero, theme: theme, value: value)
 			view.sizeToFit()
@@ -167,8 +167,8 @@ extension CanvasTextView {
 			return view
 		}
 
-		// Checklist
-		if let node = node as? Checklist {
+		// ChecklistItem
+		if let node = node as? ChecklistItem {
 			let view = CheckboxView(frame: .zero, checklist: node)
 			view.addTarget(self, action: "toggleCheckbox:", forControlEvents: .TouchUpInside)
 			let size = view.intrinsicContentSize()

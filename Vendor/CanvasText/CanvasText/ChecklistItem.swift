@@ -1,5 +1,5 @@
 //
-//  Checklist.swift
+//  ChecklistItem.swift
 //  CanvasText
 //
 //  Created by Sam Soffes on 11/19/15.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Checklist: Listable {
+public struct ChecklistItem: Listable {
 
 	// MARK: - Types
 

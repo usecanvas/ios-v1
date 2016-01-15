@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Emphasis: SpanNode, Foldable, ContainerNode {
+public struct Emphasis: SpanNode, Foldable, NodeContainer {
 
 	// MARK: - Properties
 

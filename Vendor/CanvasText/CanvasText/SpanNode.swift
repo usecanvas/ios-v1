@@ -8,6 +8,6 @@
 
 import Foundation
 
-public protocol SpanNode: ContainerNode, Foldable {
+public protocol SpanNode: NodeContainer, Foldable {
 	init?(match: NSTextCheckingResult)
 }

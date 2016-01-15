@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Paragraph: BlockNode, ContainerNode {
+public struct Paragraph: BlockNode, NodeContainer {
 
 	// MARK: - Properties
 

@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2120649E1C3DE67000F6B5D0 /* ContainerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2120649D1C3DE67000F6B5D0 /* ContainerNode.swift */; };
-		2120649F1C3DE67000F6B5D0 /* ContainerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2120649D1C3DE67000F6B5D0 /* ContainerNode.swift */; };
+		2120649E1C3DE67000F6B5D0 /* NodeContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2120649D1C3DE67000F6B5D0 /* NodeContainer.swift */; };
+		2120649F1C3DE67000F6B5D0 /* NodeContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2120649D1C3DE67000F6B5D0 /* NodeContainer.swift */; };
 		212064A31C3DEE6100F6B5D0 /* SpanLevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212064A01C3DEE5E00F6B5D0 /* SpanLevelTests.swift */; };
 		212064A41C3DEE6200F6B5D0 /* SpanLevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212064A01C3DEE5E00F6B5D0 /* SpanLevelTests.swift */; };
 		212064AC1C3DEFBF00F6B5D0 /* BlockNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212064AB1C3DEFBF00F6B5D0 /* BlockNode.swift */; };
@@ -25,8 +25,8 @@
 		212668F01BFECCBC00DE996F /* HeadingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212668EE1BFECCBC00DE996F /* HeadingTests.swift */; };
 		212668FF1BFECD7100DE996F /* CodeBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212668E21BFECA0700DE996F /* CodeBlock.swift */; };
 		212669001BFECD7200DE996F /* CodeBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212668E21BFECA0700DE996F /* CodeBlock.swift */; };
-		212669131BFED0DC00DE996F /* OrderedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2126690F1BFECE9400DE996F /* OrderedList.swift */; };
-		212669141BFED0DC00DE996F /* OrderedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2126690F1BFECE9400DE996F /* OrderedList.swift */; };
+		212669131BFED0DC00DE996F /* OrderedListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2126690F1BFECE9400DE996F /* OrderedListItem.swift */; };
+		212669141BFED0DC00DE996F /* OrderedListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2126690F1BFECE9400DE996F /* OrderedListItem.swift */; };
 		212669161BFED13600DE996F /* UnorderedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212669151BFED13600DE996F /* UnorderedList.swift */; };
 		212669171BFED13600DE996F /* UnorderedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212669151BFED13600DE996F /* UnorderedList.swift */; };
 		212669231BFEE3EB00DE996F /* ListableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212669221BFEE3EB00DE996F /* ListableTests.swift */; };
@@ -79,8 +79,8 @@
 		21A8FAA11BFE890D0097FCC6 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA9F1BFE890D0097FCC6 /* Node.swift */; };
 		21A8FAA41BFE89A80097FCC6 /* Paragraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FAA31BFE89A80097FCC6 /* Paragraph.swift */; };
 		21A8FAA51BFE89A80097FCC6 /* Paragraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FAA31BFE89A80097FCC6 /* Paragraph.swift */; };
-		21A8FAA71BFE89EB0097FCC6 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FAA61BFE89EB0097FCC6 /* Checklist.swift */; };
-		21A8FAA81BFE89EB0097FCC6 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FAA61BFE89EB0097FCC6 /* Checklist.swift */; };
+		21A8FAA71BFE89EB0097FCC6 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FAA61BFE89EB0097FCC6 /* ChecklistItem.swift */; };
+		21A8FAA81BFE89EB0097FCC6 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FAA61BFE89EB0097FCC6 /* ChecklistItem.swift */; };
 		21AF32DF1C3F2233005202A3 /* DoubleEmphasis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AF32DE1C3F2233005202A3 /* DoubleEmphasis.swift */; };
 		21AF32E01C3F223D005202A3 /* DoubleEmphasis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AF32DE1C3F2233005202A3 /* DoubleEmphasis.swift */; };
 		21AF32E21C3F2559005202A3 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AF32E11C3F2559005202A3 /* Parser.swift */; };
@@ -119,7 +119,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2120649D1C3DE67000F6B5D0 /* ContainerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerNode.swift; sourceTree = "<group>"; };
+		2120649D1C3DE67000F6B5D0 /* NodeContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeContainer.swift; sourceTree = "<group>"; };
 		212064A01C3DEE5E00F6B5D0 /* SpanLevelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpanLevelTests.swift; sourceTree = "<group>"; };
 		212064AB1C3DEFBF00F6B5D0 /* BlockNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockNode.swift; sourceTree = "<group>"; };
 		212064AE1C3DF1E500F6B5D0 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 		212668E51BFECA4D00DE996F /* Title.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		212668EB1BFECA7C00DE996F /* Heading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Heading.swift; sourceTree = "<group>"; };
 		212668EE1BFECCBC00DE996F /* HeadingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadingTests.swift; sourceTree = "<group>"; };
-		2126690F1BFECE9400DE996F /* OrderedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedList.swift; sourceTree = "<group>"; };
+		2126690F1BFECE9400DE996F /* OrderedListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedListItem.swift; sourceTree = "<group>"; };
 		212669151BFED13600DE996F /* UnorderedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnorderedList.swift; sourceTree = "<group>"; };
 		212669221BFEE3EB00DE996F /* ListableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListableTests.swift; sourceTree = "<group>"; };
 		212669D41BFF836D00DE996F /* share.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = share.js; sourceTree = "<group>"; };
@@ -160,7 +160,7 @@
 		21A8FA971BFE7BBA0097FCC6 /* CanvasText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasText.h; sourceTree = "<group>"; };
 		21A8FA9F1BFE890D0097FCC6 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		21A8FAA31BFE89A80097FCC6 /* Paragraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paragraph.swift; sourceTree = "<group>"; };
-		21A8FAA61BFE89EB0097FCC6 /* Checklist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
+		21A8FAA61BFE89EB0097FCC6 /* ChecklistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 		21AF32DE1C3F2233005202A3 /* DoubleEmphasis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleEmphasis.swift; sourceTree = "<group>"; };
 		21AF32E11C3F2559005202A3 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		21B742EE1C03C6B900FF293C /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
@@ -212,7 +212,7 @@
 				21A8FA9F1BFE890D0097FCC6 /* Node.swift */,
 				212064AB1C3DEFBF00F6B5D0 /* BlockNode.swift */,
 				21654AC81C406C1D003EE9E2 /* SpanNode.swift */,
-				2120649D1C3DE67000F6B5D0 /* ContainerNode.swift */,
+				2120649D1C3DE67000F6B5D0 /* NodeContainer.swift */,
 				2150D6821BFEBDF6008BB629 /* NativePrefixable.swift */,
 				2150D67F1BFEBDE3008BB629 /* Listable.swift */,
 				2156422D1C06C81900685847 /* Attachable.swift */,
@@ -225,11 +225,11 @@
 			isa = PBXGroup;
 			children = (
 				2150D6881BFEBEE0008BB629 /* Blockquote.swift */,
-				21A8FAA61BFE89EB0097FCC6 /* Checklist.swift */,
+				21A8FAA61BFE89EB0097FCC6 /* ChecklistItem.swift */,
 				212668E21BFECA0700DE996F /* CodeBlock.swift */,
 				212668E51BFECA4D00DE996F /* Title.swift */,
 				212668EB1BFECA7C00DE996F /* Heading.swift */,
-				2126690F1BFECE9400DE996F /* OrderedList.swift */,
+				2126690F1BFECE9400DE996F /* OrderedListItem.swift */,
 				212669151BFED13600DE996F /* UnorderedList.swift */,
 				21A8FAA31BFE89A80097FCC6 /* Paragraph.swift */,
 				2156422A1C06C60400685847 /* Image.swift */,
@@ -273,7 +273,6 @@
 			isa = PBXGroup;
 			children = (
 				21A8FA971BFE7BBA0097FCC6 /* CanvasText.h */,
-				21AF32E11C3F2559005202A3 /* Parser.swift */,
 				21B742F91C03CA2E00FF293C /* Text Storage */,
 				21B7430D1C03D18000FF293C /* Themes */,
 				21A8FAA21BFE89790097FCC6 /* Nodes */,
@@ -315,6 +314,7 @@
 		21A8FAA21BFE89790097FCC6 /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
+				21AF32E11C3F2559005202A3 /* Parser.swift */,
 				212064A51C3DEF8800F6B5D0 /* Protocols */,
 				212064A61C3DEF8F00F6B5D0 /* Block-level */,
 				212064A71C3DEF9500F6B5D0 /* Span-level */,
@@ -550,7 +550,7 @@
 				2150D6891BFEBEE0008BB629 /* Blockquote.swift in Sources */,
 				2156422E1C06C81900685847 /* Attachable.swift in Sources */,
 				21AF32DF1C3F2233005202A3 /* DoubleEmphasis.swift in Sources */,
-				2120649E1C3DE67000F6B5D0 /* ContainerNode.swift in Sources */,
+				2120649E1C3DE67000F6B5D0 /* NodeContainer.swift in Sources */,
 				21A8FAA01BFE890D0097FCC6 /* Node.swift in Sources */,
 				212668EC1BFECA7C00DE996F /* Heading.swift in Sources */,
 				21654AC61C406525003EE9E2 /* Foldable.swift in Sources */,
@@ -558,7 +558,7 @@
 				212064AF1C3DF1E500F6B5D0 /* Text.swift in Sources */,
 				212668EA1BFECA5F00DE996F /* Title.swift in Sources */,
 				21654AD21C4084D7003EE9E2 /* Link.swift in Sources */,
-				21A8FAA71BFE89EB0097FCC6 /* Checklist.swift in Sources */,
+				21A8FAA71BFE89EB0097FCC6 /* ChecklistItem.swift in Sources */,
 				21A8FAA41BFE89A80097FCC6 /* Paragraph.swift in Sources */,
 				2150D6831BFEBDF6008BB629 /* NativePrefixable.swift in Sources */,
 				21A8FA131BFCF4E90097FCC6 /* NSRange+CanvasText.swift in Sources */,
@@ -567,7 +567,7 @@
 				21B742F71C03C71600FF293C /* CanvasTextStorage.swift in Sources */,
 				21654ACF1C4083F9003EE9E2 /* CodeSpan.swift in Sources */,
 				212668FF1BFECD7100DE996F /* CodeBlock.swift in Sources */,
-				212669141BFED0DC00DE996F /* OrderedList.swift in Sources */,
+				212669141BFED0DC00DE996F /* OrderedListItem.swift in Sources */,
 				2150D6801BFEBDE3008BB629 /* Listable.swift in Sources */,
 				21654ACC1C407E67003EE9E2 /* Emphasis.swift in Sources */,
 				21B742FB1C03CDA500FF293C /* Theme.swift in Sources */,
@@ -604,7 +604,7 @@
 				2156422C1C06C60400685847 /* Image.swift in Sources */,
 				21A8FA931BFE7B870097FCC6 /* TransportController.swift in Sources */,
 				2156422F1C06C81900685847 /* Attachable.swift in Sources */,
-				2120649F1C3DE67000F6B5D0 /* ContainerNode.swift in Sources */,
+				2120649F1C3DE67000F6B5D0 /* NodeContainer.swift in Sources */,
 				21A8FAA11BFE890D0097FCC6 /* Node.swift in Sources */,
 				212668ED1BFECA7C00DE996F /* Heading.swift in Sources */,
 				21654AC71C406525003EE9E2 /* Foldable.swift in Sources */,
@@ -612,7 +612,7 @@
 				212064B01C3DF1E500F6B5D0 /* Text.swift in Sources */,
 				212668E81BFECA5E00DE996F /* Title.swift in Sources */,
 				21654AD31C4084D7003EE9E2 /* Link.swift in Sources */,
-				21A8FAA81BFE89EB0097FCC6 /* Checklist.swift in Sources */,
+				21A8FAA81BFE89EB0097FCC6 /* ChecklistItem.swift in Sources */,
 				21A8FAA51BFE89A80097FCC6 /* Paragraph.swift in Sources */,
 				2150D6841BFEBDF6008BB629 /* NativePrefixable.swift in Sources */,
 				21A8FA911BFE7B870097FCC6 /* NSRange+CanvasText.swift in Sources */,
@@ -621,7 +621,7 @@
 				21B742F81C03C71600FF293C /* CanvasTextStorage.swift in Sources */,
 				21654AD01C4083F9003EE9E2 /* CodeSpan.swift in Sources */,
 				212669001BFECD7200DE996F /* CodeBlock.swift in Sources */,
-				212669131BFED0DC00DE996F /* OrderedList.swift in Sources */,
+				212669131BFED0DC00DE996F /* OrderedListItem.swift in Sources */,
 				2150D6811BFEBDE3008BB629 /* Listable.swift in Sources */,
 				21654ACD1C407E67003EE9E2 /* Emphasis.swift in Sources */,
 				21B742FC1C03CDA500FF293C /* Theme.swift in Sources */,

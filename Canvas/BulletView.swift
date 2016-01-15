@@ -13,11 +13,11 @@ final class BulletView: UIView {
 
 	// MARK: - Properties
 
-	let unorderedList: UnorderedList
+	let unorderedList: UnorderedListItem
 
 	// MARK: - Initializers
 
-	init(frame: CGRect, unorderedList: UnorderedList) {
+	init(frame: CGRect, unorderedList: UnorderedListItem) {
 		self.unorderedList = unorderedList
 
 		super.init(frame: frame)

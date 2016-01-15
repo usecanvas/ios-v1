@@ -16,13 +16,13 @@ public struct Parser {
 
 	private let blockParseOrder: [BlockNode.Type] = [
 		Blockquote.self,
-		Checklist.self,
+		ChecklistItem.self,
 		CodeBlock.self,
 		Title.self,
 		Heading.self,
 		Image.self,
-		OrderedList.self,
-		UnorderedList.self,
+		OrderedListItem.self,
+		UnorderedListItem.self,
 		Paragraph.self
 	]
 
@@ -68,7 +68,7 @@ public struct Parser {
 					shadows.append(Shadow(backingRange: prefixable.nativePrefixRange))
 				}
 
-				if var container = node as? ContainerNode {
+				if var container = node as? NodeContainer {
 					container.subnodes = self.parseInline(container)
 					node = container as! BlockNode
 				}
@@ -94,7 +94,7 @@ public struct Parser {
 
 	// MARK: - Private
 
-	private func parseInline(container: ContainerNode) -> [Node] {
+	private func parseInline(container: NodeContainer) -> [Node] {
 		var subnodes = [Node]()
 
 		for type in spanParseOrder {

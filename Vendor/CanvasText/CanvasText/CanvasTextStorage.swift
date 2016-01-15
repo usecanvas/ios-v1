@@ -267,7 +267,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 		}
 
 		// Recurse
-		if let node = node as? ContainerNode {
+		if let node = node as? NodeContainer {
 			for child in node.subnodes {
 				applyAttributes(text: text, node: child)
 			}

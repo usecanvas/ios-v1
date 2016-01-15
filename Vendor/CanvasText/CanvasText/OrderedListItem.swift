@@ -1,5 +1,5 @@
 //
-//  OrderedList.swift
+//  OrderedListItem.swift
 //  CanvasText
 //
 //  Created by Sam Soffes on 11/19/15.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct OrderedList: Listable {
+public struct OrderedListItem: Listable {
 
 	// MARK: - Properties
 

@@ -1,5 +1,5 @@
 //
-//  UnorderedList.swift
+//  UnorderedListItem.swift
 //  CanvasText
 //
 //  Created by Sam Soffes on 11/19/15.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct UnorderedList: Listable {
+public struct UnorderedListItem: Listable {
 
 	// MARK: - Properties
 

@@ -13,11 +13,11 @@ final class CheckboxView: UIButton {
 
 	// MARK: - Properties
 
-	let checklist: Checklist
+	let checklist: ChecklistItem
 
 	// MARK: - Initializers
 
-	init(frame: CGRect, checklist: Checklist) {
+	init(frame: CGRect, checklist: ChecklistItem) {
 		self.checklist = checklist
 		super.init(frame: frame)
 		contentMode = .Redraw

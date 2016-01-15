@@ -1,12 +1,12 @@
 //
-//  ContainerNode.swift
+//  NodeContainer.swift
 //  CanvasText
 //
 //  Created by Sam Soffes on 1/6/16.
 //  Copyright © 2016 Canvas Labs, Inc. All rights reserved.
 //
 
-public protocol ContainerNode: Node {
+public protocol NodeContainer: Node {
 	/// Range of text to parse inline elements
 	var textRange: NSRange { get }
 
