@@ -148,14 +148,24 @@ struct LightTheme: Theme {
 			if let nextSibling = nextSibling where nextSibling is Listable {
 				paragraph.paragraphSpacing = smallParagraphSpacing
 			}
-		} else if node is CodeSpan {
+		}
+
+		else if node is CodeSpan {
 			attributes[NSFontAttributeName] = monospaceFontOfSize(fontSize)
 			attributes[NSForegroundColorAttributeName] = UIColor(red:0.494,  green:0.494,  blue:0.510, alpha:1)
 			attributes[NSBackgroundColorAttributeName] = UIColor(red:0.961,  green:0.961,  blue:0.965, alpha:1)
-		} else if node is DoubleEmphasis {
+		}
+
+		else if node is DoubleEmphasis {
 			attributes[NSFontAttributeName] = fontOfSize(fontSize, style: .Bold)
-		} else if node is Emphasis {
+		}
+
+		else if node is Emphasis {
 			attributes[NSFontAttributeName] = fontOfSize(fontSize, style: .Italic)
+		}
+
+		else if node is Link {
+			attributes[NSForegroundColorAttributeName] = Color.brand
 		}
 
 		if !(node is CodeBlock) && nextSibling is CodeBlock {
