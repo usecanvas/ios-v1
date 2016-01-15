@@ -14,7 +14,7 @@ public struct Image: Attachable, Hashable {
 	// MARK: - Properties
 
 	public var range: NSRange
-	public var delimiterRange: NSRange
+	public var nativePrefixRange: NSRange
 	public let allowsReturnCompletion = false
 
 	public var ID: String
@@ -30,13 +30,13 @@ public struct Image: Attachable, Hashable {
 
 	public init?(string: String, enclosingRange: NSRange) {
 		range = enclosingRange
-		delimiterRange = NSRange(location: enclosingRange.location, length: enclosingRange.length - 1)
+		nativePrefixRange = NSRange(location: enclosingRange.location, length: enclosingRange.length - 1)
 		
 		let scanner = NSScanner(string: string)
 		scanner.charactersToBeSkipped = nil
 
 		// URL image
-		if scanner.scanString("\(leadingDelimiter)image\(trailingDelimiter)", intoString: nil) {
+		if scanner.scanString("\(leadingNativePrefix)image\(trailingNativePrefix)", intoString: nil) {
 			var urlString: NSString? = ""
 			if !scanner.scanUpToString("\n", intoString: &urlString) {
 				return nil
@@ -53,14 +53,14 @@ public struct Image: Attachable, Hashable {
 		}
 
 		// Uploaded image delimiter
-		if !scanner.scanString("\(leadingDelimiter)image-", intoString: nil) {
+		if !scanner.scanString("\(leadingNativePrefix)image-", intoString: nil) {
 			return nil
 		}
 
 		var json: NSString? = ""
-		scanner.scanUpToString(trailingDelimiter, intoString: &json)
+		scanner.scanUpToString(trailingNativePrefix, intoString: &json)
 
-		if !scanner.scanString(trailingDelimiter, intoString: nil) {
+		if !scanner.scanString(trailingNativePrefix, intoString: nil) {
 			return nil
 		}
 

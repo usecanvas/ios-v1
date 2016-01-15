@@ -117,7 +117,7 @@ class CanvasTextView: InsertionPointTextView {
 			length: offsetFromPosition(textRange.start, toPosition: textRange.end)
 		)
 
-		return textStorage.firstNodeInBackingRange(textStorage.displayRangeToBackingRange(range))
+		return textStorage.firstBlockNodeInBackingRange(textStorage.displayRangeToBackingRange(range))
 	}
 
 	func firstRectForBackingRange(backingRange: NSRange) -> CGRect? {
@@ -135,15 +135,15 @@ class CanvasTextView: InsertionPointTextView {
 	}
 
 	func firstRectForNode(node: Node) -> CGRect? {
-		return firstRectForBackingRange(node.contentRange)
+		return firstRectForBackingRange(node.displayRange)
 	}
 
 
 	// MARK: - Private
 
 	private func didUpdateNodes() {
-		updateAnnotations()
 		dispatch_async(dispatch_get_main_queue()) {
+			self.updateAnnotations()
 			self.updateTypingAttributes()
 		}
 	}
@@ -152,7 +152,7 @@ class CanvasTextView: InsertionPointTextView {
 		guard let textStorage = textStorage as? CanvasTextStorage else { return }
 
 		// Set the typing attributes for the current node if there is one
-		if let node = textStorage.firstNodeInBackingRange(textStorage.displayRangeToBackingRange(selectedRange)) {
+		if let node = textStorage.firstBlockNodeInBackingRange(textStorage.displayRangeToBackingRange(selectedRange)) {
 			// TODO: Next sibling
 			let sizeClass = traitCollection.horizontalSizeClass
 			let attributes = textStorage.theme.attributesForNode(node, nextSibling: nil, horizontalSizeClass: sizeClass)
@@ -209,7 +209,7 @@ extension CanvasTextView: CanvasTextStorageDelegate {
 				textStorage = self?.textStorage as? CanvasTextStorage
 			else { return }
 
-			let range = textStorage.backingRangeToDisplayRange(node.contentRange)
+			let range = textStorage.backingRangeToDisplayRange(node.displayRange)
 			var attributes = textStorage.attributesAtIndex(range.location, effectiveRange: nil)
 
 			let size = image.size

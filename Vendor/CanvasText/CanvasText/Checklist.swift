@@ -32,9 +32,8 @@ public struct Checklist: Listable {
 	// MARK: - Properties
 
 	public var range: NSRange
-	public var delimiterRange: NSRange
-	public var prefixRange: NSRange
-	public var contentRange: NSRange
+	public var nativePrefixRange: NSRange
+	public var displayRange: NSRange
 	public var indentationRange: NSRange
 	public var indentation: Indentation
 	public var completedRange: NSRange
@@ -52,7 +51,7 @@ public struct Checklist: Listable {
 		scanner.charactersToBeSkipped = nil
 
 		// Delimiter
-		if !scanner.scanString("\(leadingDelimiter)checklist-", intoString: nil) {
+		if !scanner.scanString("\(leadingNativePrefix)checklist-", intoString: nil) {
 			return nil
 		}
 
@@ -69,11 +68,11 @@ public struct Checklist: Listable {
 		self.indentationRange = indentationRange
 		self.indentation = indentation
 
-		if !scanner.scanString(trailingDelimiter, intoString: nil) {
+		if !scanner.scanString(trailingNativePrefix, intoString: nil) {
 			return nil
 		}
 
-		delimiterRange = NSRange(location: enclosingRange.location, length: scanner.scanLocation)
+		let nativePrefixRange = NSRange(location: enclosingRange.location, length: scanner.scanLocation)
 
 
 		// Prefix
@@ -99,11 +98,12 @@ public struct Checklist: Listable {
 			return nil
 		}
 
-		prefixRange = NSRange(location: enclosingRange.location + startPrefix, length: scanner.scanLocation - startPrefix)
+		let prefixRange = NSRange(location: enclosingRange.location + startPrefix, length: scanner.scanLocation - startPrefix)
+		self.nativePrefixRange = nativePrefixRange.union(prefixRange)
 
 		// Content
 		self.completedRange = completedRange
-		contentRange = NSRange(location: enclosingRange.location + scanner.scanLocation, length: enclosingRange.length - scanner.scanLocation)
+		displayRange = NSRange(location: enclosingRange.location + scanner.scanLocation, length: enclosingRange.length - scanner.scanLocation)
 
 		range = enclosingRange
 	}
@@ -112,6 +112,6 @@ public struct Checklist: Listable {
 	// MARK: - Native
 
 	public static func nativeRepresentation(indentation indentation: Indentation = .Zero, completion: Completion = .Incomplete) -> String {
-		return "\(leadingDelimiter)checklist-\(indentation.string)\(trailingDelimiter)- [\(completion.string)] "
+		return "\(leadingNativePrefix)checklist-\(indentation.string)\(trailingNativePrefix)- [\(completion.string)] "
 	}
 }

@@ -48,6 +48,12 @@ struct LightTheme: Theme {
 		]
 	}
 
+	var foldingAttributes: Attributes {
+		return [
+			NSForegroundColorAttributeName: UIColor(red: 0.847, green: 0.847, blue: 0.863, alpha: 1)
+		]
+	}
+
 	var titleAttributes: Attributes {
 		var attributes = baseAttributes
 		attributes[NSForegroundColorAttributeName] = UIColor.blackColor()
@@ -66,8 +72,9 @@ struct LightTheme: Theme {
 			return Font.sansSerif(weight: .Bold, pointSize: fontSize)
 		}
 
-		// TODO: Italic
-		// TODO: Bold italic
+		if style == [.Italic] {
+			return Font.italicSansSerif(size: fontSize)
+		}
 
 		return Font.sansSerif(pointSize: fontSize)
 	}
@@ -143,12 +150,31 @@ struct LightTheme: Theme {
 			}
 		}
 
+		else if node is CodeSpan {
+			attributes[NSFontAttributeName] = monospaceFontOfSize(fontSize)
+			attributes[NSForegroundColorAttributeName] = UIColor(red:0.494,  green:0.494,  blue:0.510, alpha:1)
+			attributes[NSBackgroundColorAttributeName] = UIColor(red:0.961,  green:0.961,  blue:0.965, alpha:1)
+		}
+
+		else if node is DoubleEmphasis {
+			attributes[NSFontAttributeName] = fontOfSize(fontSize, style: .Bold)
+		}
+
+		else if node is Emphasis {
+			attributes[NSFontAttributeName] = fontOfSize(fontSize, style: .Italic)
+		}
+
+		else if node is Link {
+			attributes[NSForegroundColorAttributeName] = Color.brand
+		}
 
 		if !(node is CodeBlock) && nextSibling is CodeBlock {
 			paragraph.paragraphSpacing += paragraphSpacing / 2
 		}
 
-		attributes[NSParagraphStyleAttributeName] = paragraph
+		if node is BlockNode {
+			attributes[NSParagraphStyleAttributeName] = paragraph
+		}
 
 		return attributes
 	}

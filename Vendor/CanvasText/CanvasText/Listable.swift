@@ -44,18 +44,18 @@ public enum Indentation: UInt {
 }
 
 
-public protocol Listable: Delimitable, Prefixable {
+public protocol Listable: NativePrefixable {
 	var indentation: Indentation { get }
 	var indentationRange: NSRange { get }
 }
 
 
-func parseListable(string string: String, enclosingRange: NSRange, delimiter: String, prefix: String) -> (delimiterRange: NSRange, indentationRange: NSRange, indentation: Indentation, prefixRange: NSRange, contentRange: NSRange)? {
+func parseListable(string string: String, enclosingRange: NSRange, delimiter: String, prefix: String) -> (nativePrefixRange: NSRange, indentationRange: NSRange, indentation: Indentation, prefixRange: NSRange, displayRange: NSRange)? {
 	let scanner = NSScanner(string: string)
 	scanner.charactersToBeSkipped = nil
 
 	// Delimiter
-	if !scanner.scanString(leadingDelimiter, intoString: nil) {
+	if !scanner.scanString(leadingNativePrefix, intoString: nil) {
 		return nil
 	}
 
@@ -73,11 +73,11 @@ func parseListable(string string: String, enclosingRange: NSRange, delimiter: St
 		return nil
 	}
 
-	if !scanner.scanString(trailingDelimiter, intoString: nil) {
+	if !scanner.scanString(trailingNativePrefix, intoString: nil) {
 		return nil
 	}
 
-	let delimiterRange = NSRange(location: enclosingRange.location, length: scanner.scanLocation)
+	let nativePrefixRange = NSRange(location: enclosingRange.location, length: scanner.scanLocation)
 
 	// Prefix
 	let startPrefix = scanner.scanLocation
@@ -88,7 +88,7 @@ func parseListable(string string: String, enclosingRange: NSRange, delimiter: St
 	let prefixRange = NSRange(location: enclosingRange.location + startPrefix, length: scanner.scanLocation - startPrefix)
 
 	// Content
-	let contentRange = NSRange(location: enclosingRange.location + scanner.scanLocation, length: enclosingRange.length - scanner.scanLocation)
+	let displayRange = NSRange(location: enclosingRange.location + scanner.scanLocation, length: enclosingRange.length - scanner.scanLocation)
 
-	return (delimiterRange, indentationRange, indentation, prefixRange, contentRange)
+	return (nativePrefixRange, indentationRange, indentation, prefixRange, displayRange)
 }

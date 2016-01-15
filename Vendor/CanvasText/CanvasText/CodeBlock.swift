@@ -8,13 +8,13 @@
 
 import Foundation
 
-public struct CodeBlock: Delimitable {
+public struct CodeBlock: NativePrefixable {
 
 	// MARK: - Properties
 
 	public var range: NSRange
-	public var delimiterRange: NSRange
-	public var contentRange: NSRange
+	public var nativePrefixRange: NSRange
+	public var displayRange: NSRange
 
 	public let hasAnnotation = true
 
@@ -22,10 +22,10 @@ public struct CodeBlock: Delimitable {
 	// MARK: - Initializers
 
 	public init?(string: String, enclosingRange: NSRange) {
-		guard let (delimiterRange, contentRange) = parseBlockNode(string: string, enclosingRange: enclosingRange, delimiter: "code") else { return nil }
+		guard let (nativePrefixRange, displayRange) = parseBlockNode(string: string, enclosingRange: enclosingRange, delimiter: "code") else { return nil }
 
 		range = enclosingRange
-		self.delimiterRange = delimiterRange
-		self.contentRange = contentRange
+		self.nativePrefixRange = nativePrefixRange
+		self.displayRange = displayRange
 	}
 }

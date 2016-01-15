@@ -20,6 +20,13 @@ extension NSRange: Equatable {
 		return NSRange(location: 0, length: 0)
 	}
 
+	public var dictionary: [String: AnyObject] {
+		return [
+			"location": location,
+			"length": length
+		]
+	}
+
 	
 	// MARK: - Initializers
 

@@ -33,7 +33,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 	private var transportController: TransportController?
 	private var loaded = false
 
-	public private(set) var nodes = [Node]()
+	public private(set) var nodes = [BlockNode]()
 
 	public var horizontalSizeClass: UserInterfaceSizeClass = .Unspecified
 
@@ -88,19 +88,15 @@ public class CanvasTextStorage: ShadowTextStorage {
 		var replacement = str
 
 		// Return completion
-		if replacement == "\n", let node = firstNodeInBackingRange(backingRange) where node.allowsReturnCompletion {
+		if replacement == "\n", let node = firstBlockNodeInBackingRange(backingRange) where node.allowsReturnCompletion {
 			// Bust out of completion
-			if node.contentRange.length == 0 {
+			if node.displayRange.length == 0 {
 				backingRange = node.range
 				replacement = ""
 			} else {
 				// Complete the node
-				if let node = node as? Delimitable {
-					replacement += (backingText as NSString).substringWithRange(node.delimiterRange)
-				}
-
-				if let node = node as? Prefixable {
-					replacement += (backingText as NSString).substringWithRange(node.prefixRange)
+				if let node = node as? NativePrefixable {
+					replacement += (backingText as NSString).substringWithRange(node.nativePrefixRange)
 				}
 			}
 		}
@@ -140,51 +136,9 @@ public class CanvasTextStorage: ShadowTextStorage {
 			return []
 		}
 
-		// Convert to Foundation string so we can work with `NSRange` instead of `Range` since the TextKit APIs take
-		// `NSRange` instead `Range`. Bummer.
-		let text = backingText as NSString
-
-		// We're going to rebuild `nodes` and `displayText` from the new `backingText`.
-		var nodes = [Node]()
 		var shadows = [Shadow]()
-
-		// Enumerate the string blocks of the `backingText`.
-		text.enumerateSubstringsInRange(NSRange(location: 0, length: text.length), options: [.ByLines]) { substring, substringRange, _, _ in
-			// Ensure we have a substring to work with
-			guard let substring = substring else { return }
-
-			for type in nodeParseOrder {
-				guard let node = type.init(string: substring, enclosingRange: substringRange) else { continue }
-
-				if let delimitable = node as? Delimitable, prefixable = node as? Prefixable {
-					shadows.append(Shadow(backingRange: delimitable.delimiterRange.union(prefixable.prefixRange)))
-				} else {
-					if let delimitable = node as? Delimitable {
-						shadows.append(Shadow(backingRange: delimitable.delimiterRange))
-					}
-
-					if let prefixable = node as? Prefixable {
-						shadows.append(Shadow(backingRange: prefixable.prefixRange))
-					}
-				}
-
-				nodes.append(node)
-				return
-			}
-
-			// Unsupported range
-			var range = substringRange
-
-			// Account for new line
-			if range.max + 1 < text.length {
-				range.length += 1
-			}
-
-			shadows.append(Shadow(backingRange: range))
-		}
-
-		self.nodes = nodes
-
+		(nodes, shadows) = Parser(string: backingText).parse()
+		
 		return shadows
 	}
 
@@ -205,7 +159,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 				next = nil
 			}
 
-			let originalRange = backingRangeToDisplayRange(node.contentRange)
+			let originalRange = backingRangeToDisplayRange(node.displayRange)
 			var range = originalRange
 
 			// Extend the range to include the trailing new line if present
@@ -230,9 +184,8 @@ public class CanvasTextStorage: ShadowTextStorage {
 				continue
 			}
 
-			// Normal elements
-			let attributes = theme.attributesForNode(node, nextSibling: next, horizontalSizeClass: horizontalSizeClass)
-			text.addAttributes(attributes, range: range)
+			// Apply attributes
+			applyAttributes(text: text, node: node, nextSibling: next)
 		}
 
 		return text
@@ -257,7 +210,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 	// MARK: - Accessing Nodes
 
-	public func firstNodeInBackingRange(backingRange: NSRange) -> Node? {
+	public func firstBlockNodeInBackingRange(backingRange: NSRange) -> BlockNode? {
 		for node in nodes {
 			var range = node.range
 			range.length += 1
@@ -279,6 +232,46 @@ public class CanvasTextStorage: ShadowTextStorage {
 		setup(controller.webView)
 		transportController = controller
 		controller.reload()
+	}
+
+
+	// MARK: - Private
+
+	private func applyAttributes(text text: NSMutableAttributedString, node: Node, nextSibling: Node? = nil) {
+		// Skip text nodes
+		if node is Text {
+			return
+		}
+
+		// Extend the range to include the trailing new line if present
+		let originalRange = backingRangeToDisplayRange(node.displayRange)
+		var range = originalRange
+		if nextSibling != nil && range.max < text.length {
+			range.length += 1
+		}
+
+		// Normal elements
+		let attributes = theme.attributesForNode(node, nextSibling: nextSibling, horizontalSizeClass: horizontalSizeClass)
+		text.addAttributes(attributes, range: range)
+
+		// Foldable attributes
+		if let node = node as? Foldable {
+			for folding in node.foldableRanges {
+				text.addAttributes(theme.foldingAttributes, range: backingRangeToDisplayRange(folding))
+			}
+		}
+
+		if let node = node as? Link {
+			text.addAttribute(NSForegroundColorAttributeName, value: theme.foregroundColor, range: backingRangeToDisplayRange(node.URLRange))
+			text.addAttribute(NSUnderlineStyleAttributeName, value: NSUnderlineStyle.StyleSingle.rawValue, range: backingRangeToDisplayRange(node.URLRange))
+		}
+
+		// Recurse
+		if let node = node as? ContainerNode {
+			for child in node.subnodes {
+				applyAttributes(text: text, node: child)
+			}
+		}
 	}
 }
 

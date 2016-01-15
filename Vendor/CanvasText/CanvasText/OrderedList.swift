@@ -13,9 +13,8 @@ public struct OrderedList: Listable {
 	// MARK: - Properties
 
 	public var range: NSRange
-	public var delimiterRange: NSRange
-	public var prefixRange: NSRange
-	public var contentRange: NSRange
+	public var nativePrefixRange: NSRange
+	public var displayRange: NSRange
 	public var indentationRange: NSRange
 	public var indentation: Indentation
 
@@ -27,12 +26,11 @@ public struct OrderedList: Listable {
 	// MARK: - Initializers
 
 	public init?(string: String, enclosingRange: NSRange) {
-		guard let (delimiterRange, indentationRange, indentation, prefixRange, contentRange) = parseListable(string: string, enclosingRange: enclosingRange, delimiter: "ordered-list", prefix: "1. ") else { return nil }
+		guard let (nativePrefixRange, indentationRange, indentation, prefixRange, displayRange) = parseListable(string: string, enclosingRange: enclosingRange, delimiter: "ordered-list", prefix: "1. ") else { return nil }
 
 		range = enclosingRange
-		self.delimiterRange = delimiterRange
-		self.prefixRange = prefixRange
-		self.contentRange = contentRange
+		self.nativePrefixRange = nativePrefixRange.union(prefixRange)
+		self.displayRange = displayRange
 		self.indentationRange = indentationRange
 		self.indentation = indentation
 	}
@@ -41,6 +39,6 @@ public struct OrderedList: Listable {
 	// MARK: - Native
 
 	public static func nativeRepresentation(indentation indentation: Indentation = .Zero) -> String {
-		return "\(leadingDelimiter)ordered-\(indentation.string)\(trailingDelimiter)1. "
+		return "\(leadingNativePrefix)ordered-\(indentation.string)\(trailingNativePrefix)1. "
 	}
 }

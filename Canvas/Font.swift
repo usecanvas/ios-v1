@@ -50,4 +50,9 @@ struct Font {
 	static func sansSerif(weight weight: Weight = .Regular, pointSize: CGFloat) -> UIFont! {
 		return .systemFontOfSize(pointSize, weight: weight.weight)
 	}
+
+	// TODO: Remove this
+	static func italicSansSerif(size pointSize: CGFloat) -> UIFont! {
+		return UIFont.italicSystemFontOfSize(pointSize)
+	}
 }

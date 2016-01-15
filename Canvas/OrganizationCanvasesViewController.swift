@@ -76,7 +76,6 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 
 		let results = CanvasesResultsViewController(account: account)
 		searchViewController = UISearchController(searchResultsController: results)
-//		searchViewController.searchBar.barTintColor = .whiteColor()
 
 		let searchBar = searchViewController.searchBar
 		searchBar.barTintColor = .whiteColor()

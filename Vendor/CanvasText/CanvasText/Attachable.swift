@@ -8,10 +8,10 @@
 
 import Foundation
 
-public protocol Attachable: Delimitable {}
+public protocol Attachable: NativePrefixable {}
 
 extension Attachable {
-	public var contentRange: NSRange {
-		return NSRange(location: delimiterRange.max, length: 1)
+	public var displayRange: NSRange {
+		return NSRange(location: nativePrefixRange.max, length: 1)
 	}
 }
