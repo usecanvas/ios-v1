@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct OrderedListItem: Listable {
+public struct OrderedListItem: Listable, NodeContainer {
 
 	// MARK: - Properties
 
@@ -21,6 +21,12 @@ public struct OrderedListItem: Listable {
 	public var hasAnnotation: Bool {
 		return true
 	}
+
+	public var textRange: NSRange {
+		return displayRange
+	}
+
+	public var subnodes = [Node]()
 
 
 	// MARK: - Initializers

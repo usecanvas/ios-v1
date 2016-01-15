@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Heading: NativePrefixable {
+public struct Heading: NativePrefixable, NodeContainer {
 
 	// MARK: - Types
 
@@ -45,6 +45,12 @@ public struct Heading: NativePrefixable {
 	public var displayRange: NSRange
 	public var level: Level
 	public let allowsReturnCompletion = false
+
+	public var textRange: NSRange {
+		return displayRange
+	}
+
+	public var subnodes = [Node]()
 
 
 	// MARK: - Initializers

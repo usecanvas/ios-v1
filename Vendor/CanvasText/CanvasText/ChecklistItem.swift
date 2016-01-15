@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct ChecklistItem: Listable {
+public struct ChecklistItem: Listable, NodeContainer {
 
 	// MARK: - Types
 
@@ -42,6 +42,12 @@ public struct ChecklistItem: Listable {
 	public var hasAnnotation: Bool {
 		return true
 	}
+
+	public var textRange: NSRange {
+		return displayRange
+	}
+
+	public var subnodes = [Node]()
 
 
 	// MARK: - Initializers
