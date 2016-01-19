@@ -32,9 +32,15 @@ extension Organization {
 	}
 
 	var row: Row {
+		// TODO: Localize
+		var detailText = "\(membersCount) member"
+		if membersCount != 1 {
+			detailText += "s"
+		}
+
 		return  Row(
 			text: name,
-			detailText: "0 members",
+			detailText: detailText,
 			context: [
 				"organization": self
 			],
