@@ -37,6 +37,8 @@ final class RootViewController: UIViewController {
 				viewController.view.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor)
 			])
 			viewController.viewDidAppear(false)
+
+			setNeedsStatusBarAppearanceUpdate()
 		}
 	}
 
