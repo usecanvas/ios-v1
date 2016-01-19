@@ -77,9 +77,7 @@ class CanvasTextView: InsertionPointTextView {
 		textStorage.reprocess()
 
 		dispatch_async(dispatch_get_main_queue()) { [weak self] in
-			if self?.editable ?? false {
-				self?.updateAnnotations()
-			}
+			self?.updateAnnotations()
 		}
 	}
 
@@ -164,6 +162,14 @@ class CanvasTextView: InsertionPointTextView {
 	// MARK: - Private
 
 	private func didUpdateNodes() {
+		editable = true
+
+		// TODO: This is fragile
+		if text == "\n" {
+			becomeFirstResponder()
+			selectedRange = .zero
+		}
+
 		dispatch_async(dispatch_get_main_queue()) {
 			self.updateAnnotations()
 			self.updateTypingAttributes()

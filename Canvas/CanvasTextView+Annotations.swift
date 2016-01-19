@@ -30,7 +30,6 @@ extension CanvasTextView {
 	}
 	
 	func updateAnnotations() {
-		editable = true
 		lineNumber = 1
 
 		let origin = CGPoint(x: textContainer.lineFragmentPadding + textContainerInset.left, y: textContainerInset.top)
