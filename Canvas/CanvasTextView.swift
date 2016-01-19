@@ -148,7 +148,11 @@ class CanvasTextView: InsertionPointTextView {
 			textRange = textRangeFromPosition(start, toPosition: end)
 		else { return nil }
 
-		return selectionRectsForRange(textRange).flatMap({ $0 as? UITextSelectionRect }).last?.rect
+		let rects = selectionRectsForRange(textRange)
+			.flatMap { ($0 as? UITextSelectionRect)?.rect }
+			.filter { $0.width > 0 }
+
+		return rects.last
 	}
 
 	func lastRectForBackingRange(backingRange: NSRange) -> CGRect? {
