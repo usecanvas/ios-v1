@@ -44,7 +44,8 @@ extension CanvasTextView {
 		iconView.image = UIImage(named: "description")
 
 		// Placeholder
-		if text.isEmpty {
+		// TODO: Use the AST to figure this out
+		if text.componentsSeparatedByString("\n").first == "" {
 			addSubview(placeholderLabel)
 			annotations.append(placeholderLabel)
 
