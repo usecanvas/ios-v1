@@ -97,6 +97,9 @@ public class CanvasTextStorage: ShadowTextStorage {
 				// Complete the node
 				if let node = node as? NativePrefixable {
 					replacement += (backingText as NSString).substringWithRange(node.nativePrefixRange)
+
+					// Make checkboxes unchecked by default
+					replacement = replacement.stringByReplacingOccurrencesOfString("- [x] ", withString: "- [ ] ")
 				}
 			}
 		}
