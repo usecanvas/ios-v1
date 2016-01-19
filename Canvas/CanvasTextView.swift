@@ -138,6 +138,24 @@ class CanvasTextView: InsertionPointTextView {
 		return firstRectForBackingRange(node.displayRange)
 	}
 
+	func lastRectForNode(node: Node) -> CGRect? {
+		return lastRectForBackingRange(node.displayRange)
+	}
+
+	func lastRectForDisplayRange(displayRange: NSRange) -> CGRect? {
+		guard let start = positionFromPosition(beginningOfDocument, offset: displayRange.location),
+			end = positionFromPosition(start, offset: displayRange.length),
+			textRange = textRangeFromPosition(start, toPosition: end)
+		else { return nil }
+
+		return selectionRectsForRange(textRange).flatMap({ $0 as? UITextSelectionRect }).last?.rect
+	}
+
+	func lastRectForBackingRange(backingRange: NSRange) -> CGRect? {
+		guard let textStorage = textStorage as? CanvasTextStorage else { return nil }
+		return lastRectForDisplayRange(textStorage.backingRangeToDisplayRange(backingRange))
+	}
+
 
 	// MARK: - Private
 

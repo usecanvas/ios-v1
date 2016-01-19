@@ -186,9 +186,15 @@ extension CanvasTextView {
 			rect.size.width = 4
 
 			// Extend vertically if the next node is also a blockquote
-			if let next = nextSibling as? Blockquote, let nextRect = firstRectForBackingRange(next.displayRange) {
+			if let next = nextSibling as? Blockquote, let nextRect = firstRectForNode(next) {
 				rect.size.height = nextRect.origin.y - rect.origin.y
 			}
+
+			// Extend to the end of the node
+			else if let last = lastRectForNode(node) {
+				rect.size.height = last.maxY - rect.origin.y
+			}
+
 
 			view.frame = rect
 
