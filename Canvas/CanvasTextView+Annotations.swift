@@ -174,6 +174,12 @@ extension CanvasTextView {
 			let size = view.intrinsicContentSize()
 			rect.origin.x = floor(rect.origin.x - theme.listIndentation - size.width + 16)
 			rect.origin.y = floor(rect.origin.y + font.ascender - (size.height / 2))
+
+			// TODO: Hack
+			if node.displayRange.length == 0 {
+				rect.origin.y -= 1
+			}
+
 			rect.size = size
 			view.frame = rect
 			return view
