@@ -85,6 +85,8 @@ struct LightTheme: Theme {
 		}
 
 		var attributes = baseAttributes
+		attributes[NSParagraphStyleAttributeName] = nil
+
 		let paragraph = baseParagraph
 
 		if let heading = node as? Heading {
