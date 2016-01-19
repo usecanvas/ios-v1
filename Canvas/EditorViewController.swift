@@ -118,7 +118,6 @@ final class EditorViewController: UIViewController, Accountable {
 	override func viewWillDisappear(animated: Bool) {
 		super.viewWillDisappear(animated)
 		UIApplication.sharedApplication().idleTimerDisabled = false
-		textView.editable = false
 	}
 	
 
