@@ -52,7 +52,7 @@ class CanvasTextView: InsertionPointTextView {
 			attributes[NSForegroundColorAttributeName] = theme.placeholderColor
 
 			placeholderLabel.attributedText = NSAttributedString(
-				string: LocalizedString.CanvasTitlePlaceholder.string,
+				string: LocalizedString.Loading.string,
 				attributes: attributes
 			)
 
@@ -163,6 +163,12 @@ class CanvasTextView: InsertionPointTextView {
 
 	private func didUpdateNodes() {
 		editable = true
+
+		let attributes = placeholderLabel.attributedText?.attributesAtIndex(0, effectiveRange: nil)
+		placeholderLabel.attributedText = NSAttributedString(
+			string: LocalizedString.CanvasTitlePlaceholder.string,
+			attributes: attributes
+		)
 
 		// TODO: This is fragile
 		if text == "\n" {

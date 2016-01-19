@@ -38,3 +38,5 @@
 "CANVAS_TITLE_PLACEHOLDER" = "Give me a name…";
 "CLOSE_COMMAND" = "Close";
 "DISMISS_KEYBOARD_COMMAND" = "Dismiss Keyboard";
+
+"LOADING" = "Loading…";
