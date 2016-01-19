@@ -33,6 +33,6 @@ extension Canvas {
 	}
 
 	var kind: Kind {
-		return (summary?.isEmpty ?? true) ? .Blank : .Document
+		return isEmpty ? .Blank : .Document
 	}
 }
