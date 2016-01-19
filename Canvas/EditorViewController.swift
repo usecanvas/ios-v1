@@ -119,6 +119,16 @@ final class EditorViewController: UIViewController, Accountable {
 		super.viewWillDisappear(animated)
 		UIApplication.sharedApplication().idleTimerDisabled = false
 	}
+
+	override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+		coordinator.animateAlongsideTransition(nil) { [weak self] _ in
+			dispatch_async(dispatch_get_main_queue()) {
+				self?.textStorage.reprocess()
+			}
+		}
+
+		super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+	}
 	
 
 	// MARK: - Actions

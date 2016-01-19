@@ -44,7 +44,7 @@ extension CanvasTextView {
 
 		// Placeholder
 		// TODO: Use the AST to figure this out
-		if text.componentsSeparatedByString("\n").first == "" {
+		if text?.componentsSeparatedByString("\n").first == "" {
 			addSubview(placeholderLabel)
 			annotations.append(placeholderLabel)
 
