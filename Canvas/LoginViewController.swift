@@ -14,6 +14,14 @@ final class LoginViewController: UIViewController {
 
 	// MARK: - Properties
 
+	let backgroundView: UIView = {
+		let view = UIView()
+		view.translatesAutoresizingMaskIntoConstraints = false
+		view.backgroundColor = UIColor(patternImage: UIImage(named: "Illustration")!)
+		view.alpha = 0.2
+		return view
+	}()
+
 	let stackView: UIStackView = {
 		let view = UIStackView()
 		view.translatesAutoresizingMaskIntoConstraints = false
@@ -82,12 +90,19 @@ final class LoginViewController: UIViewController {
 
 		submitButton.addTarget(self, action: "signIn", forControlEvents: .TouchUpInside)
 
+		view.addSubview(backgroundView)
+
 		stackView.addArrangedSubview(usernameTextField)
 		stackView.addArrangedSubview(passwordTextField)
 		stackView.addArrangedSubview(submitButton)
 		view.addSubview(stackView)
 
 		NSLayoutConstraint.activateConstraints([
+			backgroundView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
+			backgroundView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor),
+			backgroundView.topAnchor.constraintEqualToAnchor(view.topAnchor),
+			backgroundView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor),
+
 			stackView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor),
 			stackView.widthAnchor.constraintEqualToAnchor(view.widthAnchor, multiplier: 0.8),
 			stackView.topAnchor.constraintEqualToAnchor(view.topAnchor, constant: 64),

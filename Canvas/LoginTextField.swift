@@ -27,6 +27,7 @@ final class LoginTextField: UITextField {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 
+		backgroundColor = Color.brand.colorWithAlphaComponent(0.9)
 		textColor = Color.white
 		tintColor = Color.white
 		font = Font.sansSerif()
