@@ -132,17 +132,24 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		searchViewController.hidesNavigationBarDuringPresentation = true
 
 		var frame = searchViewController.searchBar.bounds
-		frame.size.height += 1
+		frame.size.height += 2
 		let header = GradientView(frame: frame)
-		header.backgroundColor = tableView.separatorColor
-		header.bottomBorderColor = tableView.backgroundColor
+		header.backgroundColor = .whiteColor()
+		header.topBorderColor = tableView.separatorColor
+		header.bottomBorderColor = tableView.separatorColor
 		searchViewController.searchBar.autoresizingMask = [.FlexibleWidth]
+
+		frame = searchViewController.searchBar.bounds
+		frame.origin.y += 1
+		searchViewController.searchBar.frame = frame
 		header.addSubview(searchViewController.searchBar)
+
 		tableView.tableHeaderView = header
 
 		let topView = UIView(frame: CGRect(x: 0, y: -400, width: view.bounds.width, height: 400))
 		topView.autoresizingMask = [.FlexibleWidth, .FlexibleBottomMargin]
-		topView.backgroundColor = .whiteColor()
+		topView.backgroundColor = UIColor(patternImage: UIImage(named: "Illustration")!)
+		topView.alpha = 0.1
 		tableView.addSubview(topView)
 
 		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Create Canvas"), style: .Plain, target: self, action: "createCanvas")
