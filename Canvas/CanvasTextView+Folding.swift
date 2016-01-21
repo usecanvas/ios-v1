@@ -20,8 +20,14 @@ extension CanvasTextView: NSLayoutManagerDelegate {
 
 		let properties = UnsafeMutablePointer<NSGlyphProperty>(props)
 
+		// Expand range
+		var selectedRange = self.selectedRange
+		selectedRange.location = max(0, selectedRange.location - 1)
+		selectedRange.length += (self.selectedRange.location - selectedRange.location) + 1
+		selectedRange = textStorage.displayRangeToBackingRange(selectedRange)
+
 		// TODO: Cache this
-		let foldableNodes = textStorage.nodesInBackingRange(textStorage.displayRangeToBackingRange(selectedRange)).filter { node in
+		let foldableNodes = textStorage.nodesInBackingRange(selectedRange).filter { node in
 			return node is Foldable
 		}
 
@@ -31,7 +37,8 @@ extension CanvasTextView: NSLayoutManagerDelegate {
 			// Skip if the selection is in a foldable node
 			var skip = false
 			for node in foldableNodes {
-				if textStorage.backingRangeToDisplayRange(node.range).contains(characterIndex) {
+				let nodeRange = textStorage.backingRangeToDisplayRange(node.range)
+				if nodeRange.contains(characterIndex) || nodeRange.max + 1 == characterIndex {
 					skip = true
 					break
 				}
