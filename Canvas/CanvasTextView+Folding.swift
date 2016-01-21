@@ -13,7 +13,6 @@ extension CanvasTextView: NSLayoutManagerDelegate {
 	func updateFolding() {
 		let range = NSRange(location: 0, length: textStorage.length)
 		layoutManager.invalidateGlyphsForCharacterRange(range, changeInLength: 0, actualCharacterRange: nil)
-		removeAnnotations()
 	}
 
 	func layoutManager(layoutManager: NSLayoutManager, shouldGenerateGlyphs glyphs: UnsafePointer<CGGlyph>, properties props: UnsafePointer<NSGlyphProperty>, characterIndexes: UnsafePointer<Int>, font: UIFont, forGlyphRange glyphRange: NSRange) -> Int {
@@ -73,6 +72,7 @@ extension CanvasTextView: NSLayoutManagerDelegate {
 			updatedFolding = false
 		}
 
+		removeAnnotations()
 		updateAnnotations()
 	}
 }
