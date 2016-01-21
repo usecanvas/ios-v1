@@ -88,7 +88,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 		var replacement = str
 
 		// Return completion
-		if replacement == "\n", let node = firstBlockNodeInBackingRange(backingRange) where node.allowsReturnCompletion {
+		if replacement == "\n", let node = blockNodeAtBackingLocation(backingRange.location) where node.allowsReturnCompletion {
 			// Bust out of completion
 			if node.displayRange.length == 0 {
 				backingRange = node.range
@@ -213,17 +213,39 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 	// MARK: - Accessing Nodes
 
-	public func firstBlockNodeInBackingRange(backingRange: NSRange) -> BlockNode? {
+	public func blockNodeAtBackingLocation(backingLocation: Int) -> BlockNode? {
 		for node in nodes {
 			var range = node.range
 			range.length += 1
 
-			if range.intersection(backingRange) != nil {
+			if range.contains(backingLocation) {
 				return node
 			}
 		}
 
 		return nil
+	}
+
+	/// This returns all nodes that are contained in the backing range. Most consumers will filter the results. If a
+	/// node is partially contained, it will be included in the results.
+	public func nodesInBackingRange(backingRange: NSRange) -> [Node] {
+		return nodesInBackingRange(backingRange, inNodes: nodes.map({ $0 as Node }))
+	}
+
+	private func nodesInBackingRange(backingRange: NSRange, inNodes nodes: [Node]) -> [Node] {
+		var results = [Node]()
+
+		for node in nodes {
+			if node.range.intersection(backingRange) != nil {
+				results.append(node)
+
+				if let node = node as? NodeContainer {
+					results += nodesInBackingRange(backingRange, inNodes: node.subnodes)
+				}
+			}
+		}
+
+		return results
 	}
 
 

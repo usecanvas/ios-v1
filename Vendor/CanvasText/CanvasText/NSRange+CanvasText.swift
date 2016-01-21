@@ -43,6 +43,17 @@ extension NSRange: Equatable {
 	}
 
 
+	// MARK: - Working with Locations
+
+	public func contains(location: UInt) -> Bool {
+		return contains(Int(location))
+	}
+
+	public func contains(location: Int) -> Bool {
+		return NSLocationInRange(location, self)
+	}
+
+
 	// MARK: - Working with other Ranges
 
 	public func union(range: NSRange) -> NSRange {
