@@ -30,13 +30,15 @@ public struct Link: SpanNode, Foldable, NodeContainer {
 			leadingTextDelimiterRange,
 			trailingTextDelimiterRange,
 			leadingURLDelimiterRange,
-			URLRange
 		]
 
+		var URLTitle = URLRange
+
 		if let titleRange = titleRange {
-			ranges.append(titleRange)
+			URLTitle = URLTitle.union(titleRange)
 		}
 
+		ranges.append(URLTitle)
 		ranges.append(trailingURLDelimiterRange)
 
 		return ranges
