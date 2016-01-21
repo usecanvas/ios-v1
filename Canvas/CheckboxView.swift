@@ -58,7 +58,12 @@ final class CheckboxView: UIButton {
 		return CGSize(width: 28, height: 28)
 	}
 
+	override func tintColorDidChange() {
+		super.tintColorDidChange()
+		setNeedsDisplay()
+	}
 
+	
 	// MARK: - Private
 
 	private func checkboxRectForBounds(bounds: CGRect) -> CGRect {

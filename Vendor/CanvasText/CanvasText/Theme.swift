@@ -32,6 +32,7 @@ public protocol Theme {
 	var backgroundColor: Color { get }
 	var foregroundColor: Color { get }
 	var placeholderColor: Color { get }
+	var tintColor: Color { get set }
 	var foldingAttributes: Attributes { get }
 	var baseAttributes: Attributes { get }
 	var titleAttributes: Attributes { get }

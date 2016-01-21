@@ -17,6 +17,7 @@ struct LightTheme: Theme {
 	let backgroundColor = UIColor(white: 1, alpha: 1)
 	let foregroundColor = UIColor(white: 0.133, alpha: 1)
 	let placeholderColor = Color.gray
+	var tintColor = Color.brand
 
 	let lineHeightMultiple: CGFloat = 1.2
 	
@@ -168,7 +169,7 @@ struct LightTheme: Theme {
 		}
 
 		else if node is Link {
-			attributes[NSForegroundColorAttributeName] = Color.brand
+			attributes[NSForegroundColorAttributeName] = tintColor
 		}
 
 		if !(node is CodeBlock) && nextSibling is CodeBlock {

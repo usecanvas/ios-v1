@@ -98,6 +98,13 @@ class CanvasTextView: InsertionPointTextView {
 		return super.hitTest(point, withEvent: event)
 	}
 
+	override func tintColorDidChange() {
+		super.tintColorDidChange()
+
+		guard let textStorage = textStorage as? CanvasTextStorage else { return }
+		textStorage.theme.tintColor = tintColor
+	}
+
 
 	// MARK: - Actions
 

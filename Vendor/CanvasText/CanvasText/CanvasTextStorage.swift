@@ -26,7 +26,11 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 	// MARK: - Properties
 
-	public let theme: Theme
+	public var theme: Theme {
+		didSet {
+			reprocess()
+		}
+	}
 
 	public weak var canvasDelegate: CanvasTextStorageDelegate?
 
