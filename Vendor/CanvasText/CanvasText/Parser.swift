@@ -36,7 +36,7 @@ public struct Parser {
 
 	private let spanRegularExpressions: [String: NSRegularExpression] = [
 		String(CodeSpan.self): try! NSRegularExpression(pattern: "(`+)(.+?)(?<!`)(\\1)(?!`)", options: []),
-		String(Link.self): try! NSRegularExpression(pattern: "(\\[)((?:(?:\\\\.)|[^\\[\\]])+)(\\])(\\()([^\\(\\)\\s]+(?:\\(\\S*?\\))??[^\\(\\)\\s]*?)(?:\\s(['‘][^'’]*['’]|[\"“][^\"”]*[\"”]))?(\\))", options: []),
+		String(Link.self): try! NSRegularExpression(pattern: "(\\[)((?:(?:\\\\.)|[^\\[\\]])+)(\\])(\\()([^\\(\\)\\s]+(?:\\(\\S*?\\))??[^\\(\\)\\s]*?)(?:\\s+(['‘’\"“”])(.*?)(\\6))?(\\))", options: []),
 		String(Emphasis.self): try! NSRegularExpression(pattern: "(?:\\s|^)(\\*|_)(?=\\S)(.+?)(?<=\\S)(\\1)", options: []),
 		String(DoubleEmphasis.self): try! NSRegularExpression(pattern: "(?:\\s|^)(\\*\\*|__)(?=\\S)(.+?[*_]*)(?<=\\S)(\\1)", options: [])
 	]

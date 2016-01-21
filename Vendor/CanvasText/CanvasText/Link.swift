@@ -8,6 +8,35 @@
 
 import Foundation
 
+public struct LinkTitle {
+	public var leadingDelimiterRange: NSRange
+	public var textRange: NSRange
+	public var trailingDelimiterRange: NSRange
+
+	public var range: NSRange {
+		return leadingDelimiterRange.union(textRange).union(trailingDelimiterRange)
+	}
+
+	public var dictionary: [String: AnyObject] {
+		return [
+			"leadingTitleDelimiterRange": leadingDelimiterRange,
+			"titleRange": textRange,
+			"trailingTitleDelimiterRange": trailingDelimiterRange
+		]
+	}
+
+	public init?(match: NSTextCheckingResult) {
+		leadingDelimiterRange = match.rangeAtIndex(6)
+		textRange = match.rangeAtIndex(7)
+		trailingDelimiterRange = match.rangeAtIndex(8)
+
+		if leadingDelimiterRange.location == NSNotFound || textRange.location == NSNotFound || trailingDelimiterRange.location == NSNotFound {
+			return nil
+		}
+	}
+}
+
+
 public struct Link: SpanNode, Foldable, NodeContainer {
 
 	// MARK: - Properties
@@ -18,7 +47,7 @@ public struct Link: SpanNode, Foldable, NodeContainer {
 	public var trailingTextDelimiterRange: NSRange
 	public var leadingURLDelimiterRange: NSRange
 	public var URLRange: NSRange
-	public var titleRange: NSRange?
+	public var title: LinkTitle?
 	public var trailingURLDelimiterRange: NSRange
 
 	public var displayRange: NSRange {
@@ -34,8 +63,8 @@ public struct Link: SpanNode, Foldable, NodeContainer {
 
 		var URLTitle = URLRange
 
-		if let titleRange = titleRange {
-			URLTitle = URLTitle.union(titleRange)
+		if let title = title {
+			URLTitle = URLTitle.union(title.range)
 		}
 
 		ranges.append(URLTitle)
@@ -58,8 +87,10 @@ public struct Link: SpanNode, Foldable, NodeContainer {
 			"subnodes": subnodes.map { $0.dictionary }
 		]
 
-		if let titleRange = titleRange {
-			dictionary["titleRange"] = titleRange.dictionary
+		if let title = title {
+			for (key, value) in title.dictionary {
+				dictionary[key] = value
+			}
 		}
 
 		return dictionary
@@ -70,20 +101,8 @@ public struct Link: SpanNode, Foldable, NodeContainer {
 
 	// MARK: - Initializers
 
-	public init(range: NSRange, leadingTextDelimiterRange: NSRange, textRange: NSRange, trailingTextDelimiterRange: NSRange, leadingURLDelimiterRange: NSRange, URLRange: NSRange, titleRange: NSRange? = nil, trailingURLDelimiterRange: NSRange, subnodes: [Node] = []) {
-		self.range = range
-		self.leadingTextDelimiterRange = leadingTextDelimiterRange
-		self.textRange = textRange
-		self.trailingTextDelimiterRange = trailingTextDelimiterRange
-		self.leadingURLDelimiterRange = leadingURLDelimiterRange
-		self.URLRange = URLRange
-		self.titleRange = titleRange
-		self.trailingURLDelimiterRange = trailingURLDelimiterRange
-		self.subnodes = subnodes
-	}
-
 	public init?(match: NSTextCheckingResult) {
-		if match.numberOfRanges != 8 {
+		if match.numberOfRanges != 10 {
 			return nil
 		}
 
@@ -93,14 +112,8 @@ public struct Link: SpanNode, Foldable, NodeContainer {
 		trailingTextDelimiterRange = match.rangeAtIndex(3)
 		leadingURLDelimiterRange = match.rangeAtIndex(4)
 		URLRange = match.rangeAtIndex(5)
-		trailingURLDelimiterRange = match.rangeAtIndex(7)
-
-		let titleRange = match.rangeAtIndex(6)
-		if titleRange.location == NSNotFound {
-			self.titleRange = nil
-		} else {
-			self.titleRange = titleRange
-		}
+		title = LinkTitle(match: match)
+		trailingURLDelimiterRange = match.rangeAtIndex(9)
 	}
 }
 

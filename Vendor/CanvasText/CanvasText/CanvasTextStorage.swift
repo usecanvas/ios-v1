@@ -287,8 +287,14 @@ public class CanvasTextStorage: ShadowTextStorage {
 		}
 
 		if let node = node as? Link {
-			text.addAttribute(NSForegroundColorAttributeName, value: theme.foregroundColor, range: backingRangeToDisplayRange(node.URLRange))
-			text.addAttribute(NSUnderlineStyleAttributeName, value: NSUnderlineStyle.StyleSingle.rawValue, range: backingRangeToDisplayRange(node.URLRange))
+			// TODO: Derive from theme
+			let color = Color(red: 0.420, green: 0.420, blue: 0.447, alpha: 1)
+
+			text.addAttribute(NSForegroundColorAttributeName, value: color, range: backingRangeToDisplayRange(node.URLRange))
+
+			if let title = node.title {
+				text.addAttribute(NSForegroundColorAttributeName, value: color, range: backingRangeToDisplayRange(title.textRange))
+			}
 		}
 
 		// Recurse
