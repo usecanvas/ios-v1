@@ -43,6 +43,7 @@ extension CanvasTextView: NSLayoutManagerDelegate {
 
 			if textStorage.attributesAtIndex(characterIndex, effectiveRange: nil)[FoldableAttributeName] as? Bool == true {
 				properties[i] = .ControlCharacter
+				updatedFolding = true
 			}
 		}
 
@@ -55,5 +56,13 @@ extension CanvasTextView: NSLayoutManagerDelegate {
 			return .ZeroAdvancement
 		}
 		return action
+	}
+
+	func layoutManager(layoutManager: NSLayoutManager, didCompleteLayoutForTextContainer textContainer: NSTextContainer?, atEnd layoutFinishedFlag: Bool) {
+		// This is totally stupid.
+		if updatedFolding {
+			textContainer?.replaceLayoutManager(layoutManager)
+			updatedFolding = false
+		}
 	}
 }

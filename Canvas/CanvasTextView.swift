@@ -20,6 +20,8 @@ class CanvasTextView: InsertionPointTextView {
 	let iconView = UIImageView()
 	let placeholderLabel = UILabel()
 
+	var updatedFolding = false
+
 
 	// MARK: - Initializers {
 
