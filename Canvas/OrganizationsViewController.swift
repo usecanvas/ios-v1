@@ -155,9 +155,15 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 		personalRow.text = "Personal Notes"
 		personalRow.cellClass = PersonalOrganizationCell.self
 
-		dataSource.sections = [
-			Section(rows: [personalRow]),
-			Section(header: "Organizations", rows: orgs.map({ rowForOrganization($0) }))
+		var sections = [
+			Section(rows: [personalRow])
 		]
+
+		if orgs.count > 0 {
+			let rows = orgs.map { rowForOrganization($0) }
+			sections.append(Section(header: "Organizations", rows: rows))
+		}
+
+		dataSource.sections = sections
 	}
 }
