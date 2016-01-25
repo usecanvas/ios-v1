@@ -310,6 +310,6 @@ extension OrganizationCanvasesViewController: CanvasesResultsViewControllerDeleg
 
 extension OrganizationCanvasesViewController: TintableEnvironment {
 	var preferredTintColor: UIColor {
-		return organization.color
+		return organization.color.UIColor
 	}
 }

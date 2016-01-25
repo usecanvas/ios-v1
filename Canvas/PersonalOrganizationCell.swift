@@ -97,7 +97,7 @@ class PersonalOrganizationCell: UITableViewCell, CellType {
 
 		let organization = row.context?["organization"] as? Organization
 		avatarView.organization = organization
-		selectedBackgroundView?.backgroundColor = organization?.color
+		selectedBackgroundView?.backgroundColor = organization?.color.UIColor
 	}
 
 

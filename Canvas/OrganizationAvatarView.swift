@@ -67,10 +67,10 @@ final class OrganizationAvatarView: UIView {
 			return
 		}
 
-		backgroundColor = highlighted ? .whiteColor() : organization.color
+		backgroundColor = highlighted ? .whiteColor() : organization.color.UIColor
 
 		let name = organization.name
 		initialsLabel.text = name.substringToIndex(name.startIndex.advancedBy(2))
-		initialsLabel.textColor = highlighted ? organization.color : .whiteColor()
+		initialsLabel.textColor = highlighted ? organization.color.UIColor : .whiteColor()
 	}
 }

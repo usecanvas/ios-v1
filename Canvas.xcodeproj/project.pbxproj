@@ -133,6 +133,8 @@
 		21C576951C19002A0015B8A5 /* CanvasesResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C576941C19002A0015B8A5 /* CanvasesResultsViewController.swift */; };
 		21D2B1981C0D0AED003652B7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21D2B1971C0D0AED003652B7 /* Settings.bundle */; };
 		21D37A131C471765004498B1 /* Canvas Dev.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 21D37A121C471765004498B1 /* Canvas Dev.entitlements */; };
+		21E39CEE1C56DB09005C1FF3 /* Color+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E39CED1C56DB09005C1FF3 /* Color+Canvas.swift */; };
+		21E39CF51C56DB0C005C1FF3 /* Color+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E39CED1C56DB09005C1FF3 /* Color+Canvas.swift */; };
 		21E48B031C0447AC00C9F6AA /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AE3F411C0423E300AE5DDC /* OnePasswordExtension.framework */; };
 		21E48B061C0447AC00C9F6AA /* Static.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AE3F461C0423E300AE5DDC /* Static.framework */; };
 		21F10F4E1BF138750035057D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F10F4D1BF138750035057D /* AppDelegate.swift */; };
@@ -330,6 +332,7 @@
 		21C576941C19002A0015B8A5 /* CanvasesResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasesResultsViewController.swift; sourceTree = "<group>"; };
 		21D2B1971C0D0AED003652B7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		21D37A121C471765004498B1 /* Canvas Dev.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Canvas Dev.entitlements"; sourceTree = "<group>"; };
+		21E39CED1C56DB09005C1FF3 /* Color+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Canvas.swift"; sourceTree = "<group>"; };
 		21F10F4A1BF138750035057D /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F10F4D1BF138750035057D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21F10F4F1BF138750035057D /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
@@ -615,6 +618,7 @@
 				219334041C0FC6DD000A974B /* Canvas+Canvas.swift */,
 				2131391F1C22104000B09904 /* UIFont+Canvas.swift */,
 				212448201C45D7F7008E41A4 /* Organization+Canvas.swift */,
+				21E39CED1C56DB09005C1FF3 /* Color+Canvas.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -953,6 +957,7 @@
 				214F21371C4494A9004832F4 /* ChromeActivity.swift in Sources */,
 				214F21381C4494A9004832F4 /* NSCache+Canvas.swift in Sources */,
 				214F213A1C4494A9004832F4 /* BlockquoteBorderView.swift in Sources */,
+				21E39CF51C56DB0C005C1FF3 /* Color+Canvas.swift in Sources */,
 				214F213B1C4494A9004832F4 /* Canvas+Canvas.swift in Sources */,
 				214F213D1C4494A9004832F4 /* Button.swift in Sources */,
 			);
@@ -1010,6 +1015,7 @@
 				21A8FA5D1BFD33DB0097FCC6 /* ChromeActivity.swift in Sources */,
 				21FCB58D1C07929A00F78D93 /* NSCache+Canvas.swift in Sources */,
 				21B742D91BFFCFDB00FF293C /* BlockquoteBorderView.swift in Sources */,
+				21E39CEE1C56DB09005C1FF3 /* Color+Canvas.swift in Sources */,
 				219334051C0FC6DD000A974B /* Canvas+Canvas.swift in Sources */,
 				215642221C06BBE600685847 /* Button.swift in Sources */,
 			);

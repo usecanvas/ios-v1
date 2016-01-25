@@ -11,26 +11,6 @@ import CanvasKit
 import Static
 
 extension Organization {
-	var color: UIColor {
-		if name == "DNGN" {
-			return UIColor(red: 0.584, green: 0.004, blue: 1, alpha: 1)
-		}
-
-		if name == "test" {
-			return UIColor(red: 1, green: 0.231, blue: 0.412, alpha: 1)
-		}
-
-		if name == "family" {
-			return UIColor(red: 0, green: 0.510, blue: 0, alpha: 1)
-		}
-
-		if name == "spec" {
-			return UIColor(red: 0.494, green: 0.494, blue: 0.510, alpha: 1)
-		}
-
-		return Color.brand
-	}
-
 	var row: Row {
 		// TODO: Localize
 		var detailText = "\(membersCount) member"
