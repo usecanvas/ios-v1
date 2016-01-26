@@ -20,13 +20,13 @@ desc 'Check for required tools.'
 task :check_tools do
   # Check for Xcode
   unless path = `xcode-select -p`.chomp
-    fail "Xcode is not installed. Please install Xcode #{XCODE_SHORT_VERSION} from https://developer.apple.com"
+    fail "Xcode is not installed. Please install Xcode #{XCODE_SHORT_VERSION} from https://developer.apple.com/xcode/download"
   end
 
   # Check Xcode version
   info_path = File.expand_path path + '/../Info'
   unless (version = `defaults read #{info_path} CFBundleVersion`.chomp) == XCODE_VERSION
-    fail "Xcode #{version} is installed. Xcode #{XCODE_VERSION} was expected."
+    fail "Xcode #{version} is installed. Xcode #{XCODE_VERSION} was expected. Please install Xcode #{XCODE_SHORT_VERSION} from https://developer.apple.com/xcode/download"
   end
 
   # Check Carthage
