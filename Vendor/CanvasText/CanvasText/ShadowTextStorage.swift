@@ -71,6 +71,10 @@ public class ShadowTextStorage: NSTextStorage {
 
 	// MARK: - NSTextStorage
 
+	public override var fixesAttributesLazily: Bool {
+		return false
+	}
+
 	public override var string: String {
 		return storage.string
 	}
