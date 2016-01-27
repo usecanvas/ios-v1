@@ -52,8 +52,7 @@ struct LightTheme: Theme {
 
 	var foldingAttributes: Attributes {
 		return [
-			NSForegroundColorAttributeName: UIColor(red: 0.847, green: 0.847, blue: 0.863, alpha: 1),
-			FoldableAttributeName: true
+			NSForegroundColorAttributeName: UIColor(red: 0.847, green: 0.847, blue: 0.863, alpha: 1)
 		]
 	}
 

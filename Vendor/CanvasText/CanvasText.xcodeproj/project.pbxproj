@@ -7,38 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		212064A31C3DEE6100F6B5D0 /* SpanLevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212064A01C3DEE5E00F6B5D0 /* SpanLevelTests.swift */; };
-		212064A41C3DEE6200F6B5D0 /* SpanLevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212064A01C3DEE5E00F6B5D0 /* SpanLevelTests.swift */; };
-		212668E01BFEC7B500DE996F /* BlockquoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212668DF1BFEC7B500DE996F /* BlockquoteTests.swift */; };
-		212668E11BFEC7B500DE996F /* BlockquoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212668DF1BFEC7B500DE996F /* BlockquoteTests.swift */; };
-		212668EF1BFECCBC00DE996F /* HeadingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212668EE1BFECCBC00DE996F /* HeadingTests.swift */; };
-		212668F01BFECCBC00DE996F /* HeadingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212668EE1BFECCBC00DE996F /* HeadingTests.swift */; };
-		212669231BFEE3EB00DE996F /* ListableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212669221BFEE3EB00DE996F /* ListableTests.swift */; };
-		212669241BFEE3EB00DE996F /* ListableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212669221BFEE3EB00DE996F /* ListableTests.swift */; };
 		212669D51BFF836D00DE996F /* share.js in Resources */ = {isa = PBXBuildFile; fileRef = 212669D41BFF836D00DE996F /* share.js */; };
 		212669D61BFF836D00DE996F /* share.js in Resources */ = {isa = PBXBuildFile; fileRef = 212669D41BFF836D00DE996F /* share.js */; };
 		212669D91BFF83C700DE996F /* editor.js in Resources */ = {isa = PBXBuildFile; fileRef = 212669D71BFF83C700DE996F /* editor.js */; };
 		212669DA1BFF83C700DE996F /* editor.js in Resources */ = {isa = PBXBuildFile; fileRef = 212669D71BFF83C700DE996F /* editor.js */; };
 		212669DB1BFF83C700DE996F /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = 212669D81BFF83C700DE996F /* template.html */; };
 		212669DC1BFF83C700DE996F /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = 212669D81BFF83C700DE996F /* template.html */; };
-		215642311C06C91C00685847 /* ImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215642301C06C91C00685847 /* ImageTests.swift */; };
-		215642321C06C91C00685847 /* ImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215642301C06C91C00685847 /* ImageTests.swift */; };
 		219DAC8F1C0F93CD00F39A6F /* rollbar.js in Resources */ = {isa = PBXBuildFile; fileRef = 219DAC8E1C0F93CD00F39A6F /* rollbar.js */; };
 		219DAC901C0F93D400F39A6F /* rollbar.js in Resources */ = {isa = PBXBuildFile; fileRef = 219DAC8E1C0F93CD00F39A6F /* rollbar.js */; };
 		21A8F9FB1BFCF4BD0097FCC6 /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A8F9F01BFCF4BD0097FCC6 /* CanvasText.framework */; };
 		21A8FA131BFCF4E90097FCC6 /* NSRange+CanvasText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA0B1BFCF4E90097FCC6 /* NSRange+CanvasText.swift */; };
 		21A8FA141BFCF4E90097FCC6 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA0C1BFCF4E90097FCC6 /* Operation.swift */; };
 		21A8FA151BFCF4E90097FCC6 /* TransportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA0D1BFCF4E90097FCC6 /* TransportController.swift */; };
-		21A8FA1C1BFCF4F80097FCC6 /* CanvasTextStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA1A1BFCF4F80097FCC6 /* CanvasTextStorageTests.swift */; };
 		21A8FA831BFE7B5A0097FCC6 /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A8FA791BFE7B5A0097FCC6 /* CanvasText.framework */; };
 		21A8FA911BFE7B870097FCC6 /* NSRange+CanvasText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA0B1BFCF4E90097FCC6 /* NSRange+CanvasText.swift */; };
 		21A8FA921BFE7B870097FCC6 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA0C1BFCF4E90097FCC6 /* Operation.swift */; };
 		21A8FA931BFE7B870097FCC6 /* TransportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA0D1BFCF4E90097FCC6 /* TransportController.swift */; };
-		21A8FA961BFE7B940097FCC6 /* CanvasTextStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA1A1BFCF4F80097FCC6 /* CanvasTextStorageTests.swift */; };
 		21A8FA981BFE7BBA0097FCC6 /* CanvasText.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A8FA971BFE7BBA0097FCC6 /* CanvasText.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21A8FA991BFE7BBE0097FCC6 /* CanvasText.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A8FA971BFE7BBA0097FCC6 /* CanvasText.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21B1CFC81C594E4B00CC8E7D /* CanvasNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1CFBF1C594E3B00CC8E7D /* CanvasNative.framework */; };
 		21B1CFCB1C594E5400CC8E7D /* CanvasNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1CFC31C594E3B00CC8E7D /* CanvasNative.framework */; };
+		21B1CFE31C596C5400CC8E7D /* FoldingLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B1CFE21C596C5400CC8E7D /* FoldingLayoutManager.swift */; };
+		21B1CFE41C596C5400CC8E7D /* FoldingLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B1CFE21C596C5400CC8E7D /* FoldingLayoutManager.swift */; };
+		21B1CFE81C596C7000CC8E7D /* FoldingLayoutManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B1CFE71C596C7000CC8E7D /* FoldingLayoutManagerTests.swift */; };
+		21B1CFE91C596C7000CC8E7D /* FoldingLayoutManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B1CFE71C596C7000CC8E7D /* FoldingLayoutManagerTests.swift */; };
 		21B742EF1C03C6B900FF293C /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742EE1C03C6B900FF293C /* Font.swift */; };
 		21B742F01C03C6B900FF293C /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742EE1C03C6B900FF293C /* Font.swift */; };
 		21B742F21C03C6CB00FF293C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742F11C03C6CB00FF293C /* Color.swift */; };
@@ -115,14 +107,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		212064A01C3DEE5E00F6B5D0 /* SpanLevelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpanLevelTests.swift; sourceTree = "<group>"; };
-		212668DF1BFEC7B500DE996F /* BlockquoteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockquoteTests.swift; sourceTree = "<group>"; };
-		212668EE1BFECCBC00DE996F /* HeadingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadingTests.swift; sourceTree = "<group>"; };
-		212669221BFEE3EB00DE996F /* ListableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListableTests.swift; sourceTree = "<group>"; };
 		212669D41BFF836D00DE996F /* share.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = share.js; sourceTree = "<group>"; };
 		212669D71BFF83C700DE996F /* editor.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = editor.js; sourceTree = "<group>"; };
 		212669D81BFF83C700DE996F /* template.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = template.html; sourceTree = "<group>"; };
-		215642301C06C91C00685847 /* ImageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTests.swift; sourceTree = "<group>"; };
 		219DAC8E1C0F93CD00F39A6F /* rollbar.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = rollbar.js; sourceTree = "<group>"; };
 		21A8F9F01BFCF4BD0097FCC6 /* CanvasText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CanvasText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A8F9FA1BFCF4BD0097FCC6 /* CanvasTextTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CanvasTextTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,12 +117,13 @@
 		21A8FA0C1BFCF4E90097FCC6 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		21A8FA0D1BFCF4E90097FCC6 /* TransportController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportController.swift; sourceTree = "<group>"; };
 		21A8FA101BFCF4E90097FCC6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		21A8FA1A1BFCF4F80097FCC6 /* CanvasTextStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasTextStorageTests.swift; sourceTree = "<group>"; };
 		21A8FA1B1BFCF4F80097FCC6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21A8FA791BFE7B5A0097FCC6 /* CanvasText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CanvasText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A8FA821BFE7B5A0097FCC6 /* CanvasTextTests-OSX.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CanvasTextTests-OSX.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A8FA971BFE7BBA0097FCC6 /* CanvasText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasText.h; sourceTree = "<group>"; };
 		21B1CF7D1C594E3300CC8E7D /* CanvasNative.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasNative.xcodeproj; path = CanvasNative/CanvasNative.xcodeproj; sourceTree = "<group>"; };
+		21B1CFE21C596C5400CC8E7D /* FoldingLayoutManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoldingLayoutManager.swift; sourceTree = "<group>"; };
+		21B1CFE71C596C7000CC8E7D /* FoldingLayoutManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoldingLayoutManagerTests.swift; sourceTree = "<group>"; };
 		21B742EE1C03C6B900FF293C /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		21B742F11C03C6CB00FF293C /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		21B742F61C03C71600FF293C /* CanvasTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasTextStorage.swift; sourceTree = "<group>"; };
@@ -231,12 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				21CAFBD31C05767E00B9A3B5 /* ShadowTextStorageTests.swift */,
-				21A8FA1A1BFCF4F80097FCC6 /* CanvasTextStorageTests.swift */,
-				212668DF1BFEC7B500DE996F /* BlockquoteTests.swift */,
-				212669221BFEE3EB00DE996F /* ListableTests.swift */,
-				212668EE1BFECCBC00DE996F /* HeadingTests.swift */,
-				215642301C06C91C00685847 /* ImageTests.swift */,
-				212064A01C3DEE5E00F6B5D0 /* SpanLevelTests.swift */,
+				21B1CFE71C596C7000CC8E7D /* FoldingLayoutManagerTests.swift */,
 				21A8FA1B1BFCF4F80097FCC6 /* Info.plist */,
 			);
 			name = Tests;
@@ -286,6 +269,7 @@
 			children = (
 				21B742F61C03C71600FF293C /* CanvasTextStorage.swift */,
 				21CAFBD01C056FC100B9A3B5 /* ShadowTextStorage.swift */,
+				21B1CFE21C596C5400CC8E7D /* FoldingLayoutManager.swift */,
 			);
 			name = "Text Storage";
 			sourceTree = "<group>";
@@ -525,6 +509,7 @@
 				21CAFBD11C056FC100B9A3B5 /* ShadowTextStorage.swift in Sources */,
 				21B742EF1C03C6B900FF293C /* Font.swift in Sources */,
 				21B742F71C03C71600FF293C /* CanvasTextStorage.swift in Sources */,
+				21B1CFE31C596C5400CC8E7D /* FoldingLayoutManager.swift in Sources */,
 				21B742FB1C03CDA500FF293C /* Theme.swift in Sources */,
 				21A8FA141BFCF4E90097FCC6 /* Operation.swift in Sources */,
 				21B742F21C03C6CB00FF293C /* Color.swift in Sources */,
@@ -536,13 +521,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				212668E01BFEC7B500DE996F /* BlockquoteTests.swift in Sources */,
-				215642311C06C91C00685847 /* ImageTests.swift in Sources */,
-				212668EF1BFECCBC00DE996F /* HeadingTests.swift in Sources */,
-				21A8FA1C1BFCF4F80097FCC6 /* CanvasTextStorageTests.swift in Sources */,
 				21CAFBD41C05767E00B9A3B5 /* ShadowTextStorageTests.swift in Sources */,
-				212064A41C3DEE6200F6B5D0 /* SpanLevelTests.swift in Sources */,
-				212669231BFEE3EB00DE996F /* ListableTests.swift in Sources */,
+				21B1CFE81C596C7000CC8E7D /* FoldingLayoutManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,6 +535,7 @@
 				21CAFBD21C056FC100B9A3B5 /* ShadowTextStorage.swift in Sources */,
 				21B742F01C03C6B900FF293C /* Font.swift in Sources */,
 				21B742F81C03C71600FF293C /* CanvasTextStorage.swift in Sources */,
+				21B1CFE41C596C5400CC8E7D /* FoldingLayoutManager.swift in Sources */,
 				21B742FC1C03CDA500FF293C /* Theme.swift in Sources */,
 				21A8FA921BFE7B870097FCC6 /* Operation.swift in Sources */,
 				21B742F31C03C6CB00FF293C /* Color.swift in Sources */,
@@ -566,13 +547,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				212668E11BFEC7B500DE996F /* BlockquoteTests.swift in Sources */,
-				215642321C06C91C00685847 /* ImageTests.swift in Sources */,
-				212668F01BFECCBC00DE996F /* HeadingTests.swift in Sources */,
-				21A8FA961BFE7B940097FCC6 /* CanvasTextStorageTests.swift in Sources */,
 				21CAFBD51C05767E00B9A3B5 /* ShadowTextStorageTests.swift in Sources */,
-				212064A31C3DEE6100F6B5D0 /* SpanLevelTests.swift in Sources */,
-				212669241BFEE3EB00DE996F /* ListableTests.swift in Sources */,
+				21B1CFE91C596C7000CC8E7D /* FoldingLayoutManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,7 +615,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -682,7 +658,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;

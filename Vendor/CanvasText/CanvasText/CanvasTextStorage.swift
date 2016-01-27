@@ -291,7 +291,9 @@ public class CanvasTextStorage: ShadowTextStorage {
 		// Foldable attributes
 		if let node = node as? Foldable {
 			for folding in node.foldableRanges {
-				text.addAttributes(theme.foldingAttributes, range: backingRangeToDisplayRange(folding))
+				let range = backingRangeToDisplayRange(folding)
+				text.addAttributes(theme.foldingAttributes, range: range)
+				text.addAttribute(FoldableAttributeName, value: true, range: range)
 			}
 		}
 

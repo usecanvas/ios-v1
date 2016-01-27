@@ -10,70 +10,58 @@ import UIKit
 import CanvasText
 import CanvasNative
 
-extension CanvasTextView: NSLayoutManagerDelegate {
+extension CanvasTextView {
+
+	// MARK: - Folding
+
 	func updateFolding() {
-		let range = NSRange(location: 0, length: textStorage.length)
-		layoutManager.invalidateGlyphsForCharacterRange(range, changeInLength: 0, actualCharacterRange: nil)
+		guard let layoutManager = textContainer.layoutManager as? FoldingLayoutManager else { return }
+		layoutManager.unfoldedRange = unfoldableRange(displaySelection: selectedRange)
 		updatedFolding = true
 	}
 
-	func layoutManager(layoutManager: NSLayoutManager, shouldGenerateGlyphs glyphs: UnsafePointer<CGGlyph>, properties props: UnsafePointer<NSGlyphProperty>, characterIndexes: UnsafePointer<Int>, font: UIFont, forGlyphRange glyphRange: NSRange) -> Int {
-		guard let textStorage = textStorage as? CanvasTextStorage else { return 0 }
 
-		let properties = UnsafeMutablePointer<NSGlyphProperty>(props)
+	// MARK: - Private
 
-		// Expand range
-		var selectedRange = self.selectedRange
-		selectedRange.location = max(0, selectedRange.location - 1)
-		selectedRange.length += (self.selectedRange.location - selectedRange.location) + 1
-		selectedRange = textStorage.displayRangeToBackingRange(selectedRange)
+	/// Expand selection to the entire node
+	private func unfoldableRange(displaySelection displaySelection: NSRange) -> NSRange? {
+		guard let textStorage = textStorage as? CanvasTextStorage else { return displaySelection }
 
-		// TODO: Cache this
-		let foldableNodes = textStorage.nodesInBackingRange(selectedRange).filter { node in
-			return node is Foldable
+		let selectedRange: NSRange = {
+			var range = displaySelection
+			range.location = max(0, range.location - 1)
+			range.length += (displaySelection.location - range.location) + 1
+			return textStorage.displayRangeToBackingRange(range)
+		}()
+
+		let foldableNodes = textStorage.nodesInBackingRange(selectedRange).filter { $0 is Foldable }
+		var foldableRanges = ArraySlice<NSRange>(foldableNodes.map { textStorage.backingRangeToDisplayRange($0.range) })
+
+		guard var range = foldableRanges.popFirst() else { return nil }
+
+		for r in foldableRanges {
+			range = range.union(r)
 		}
 
-		for i in 0..<glyphRange.length {
-			let characterIndex = characterIndexes[i]
+		return range
+	}
+}
 
-			// Skip if the selection is in a foldable node
-			var skip = false
-			for node in foldableNodes {
-				let nodeRange = textStorage.backingRangeToDisplayRange(node.range)
-				if nodeRange.contains(characterIndex) || nodeRange.max + 1 == characterIndex {
-					skip = true
-					break
-				}
-			}
 
-			if skip {
-				continue
-			}
-
-			if textStorage.attributesAtIndex(characterIndex, effectiveRange: nil)[FoldableAttributeName] as? Bool == true {
-				properties[i] = .ControlCharacter
-			}
-		}
-
-		layoutManager.setGlyphs(glyphs, properties: properties, characterIndexes: characterIndexes, font: font, forGlyphRange: glyphRange)
-		return glyphRange.length
+extension CanvasTextView: FoldingLayoutManagerDelegate {
+	func layoutManager(layoutManager: NSLayoutManager, didInvalidateGlyphs glyphRange: NSRange) {
+		updatingFolding = true
 	}
 
-	func layoutManager(layoutManager: NSLayoutManager, shouldUseAction action: NSControlCharacterAction, forControlCharacterAtIndex characterIndex: Int) -> NSControlCharacterAction {
-		if textStorage.attributesAtIndex(characterIndex, effectiveRange: nil)[FoldableAttributeName] as? Bool == true {
-			return .ZeroAdvancement
-		}
-		return action
-	}
-
-	func layoutManager(layoutManager: NSLayoutManager, didCompleteLayoutForTextContainer textContainer: NSTextContainer?, atEnd layoutFinishedFlag: Bool) {
-		// This is totally stupid.
-		if updatedFolding {
-			textContainer?.replaceLayoutManager(layoutManager)
-			updatedFolding = false
+	func layoutManager(layoutManager: NSLayoutManager, didCompleteLayoutForTextContainer textContainer: NSTextContainer) {
+		if updatingFolding {
+			textContainer.replaceLayoutManager(layoutManager)
+			updatingFolding = false
 		}
 
 		removeAnnotations()
 		updateAnnotations()
+		
+		updatingFolding = false
 	}
 }

@@ -21,7 +21,7 @@ class CanvasTextView: UITextView {
 	let iconView = UIImageView()
 	let placeholderLabel = UILabel()
 
-	var updatedFolding = false
+	var updatingFolding = false
 
 	let indentGestureRecognizer: UIGestureRecognizer = {
 		let gesture = UISwipeGestureRecognizer()
@@ -41,7 +41,7 @@ class CanvasTextView: UITextView {
 	// MARK: - Initializers {
 
 	init(textStorage: NSTextStorage) {
-		let layoutManager = NSLayoutManager()
+		let layoutManager = FoldingLayoutManager()
 
 		let container = NSTextContainer()
 		container.lineFragmentPadding = 0
@@ -52,7 +52,7 @@ class CanvasTextView: UITextView {
 
 		super.init(frame: .zero, textContainer: container)
 
-		layoutManager.delegate = self
+		layoutManager.layoutDelegate = self
 
 		alwaysBounceVertical = true
 		keyboardDismissMode = .Interactive

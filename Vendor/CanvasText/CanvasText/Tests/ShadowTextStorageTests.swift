@@ -14,10 +14,10 @@ class TextStorage: ShadowTextStorage {
 		self.init(backingText: "* Hello\n* World\nHow are you?")
 	}
 
-	override func shadowsForBackingText(backingText: String) -> [Shadow] {
+	override func shadowsForBackingText(backingText: String) -> [NSRange] {
 		return [
-			Shadow(backingRange: NSRange(location: 0, length: 2)),
-			Shadow(backingRange: NSRange(location: 8, length: 2))
+			NSRange(location: 0, length: 2),
+			NSRange(location: 8, length: 2)
 		]
 	}
 }
