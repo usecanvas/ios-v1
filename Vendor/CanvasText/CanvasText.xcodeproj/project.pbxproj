@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		210CEF5C1C597E72003B4421 /* CanvasNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210CEF5B1C597E72003B4421 /* CanvasNative.framework */; };
+		210CEF5E1C597E76003B4421 /* CanvasNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210CEF5D1C597E76003B4421 /* CanvasNative.framework */; };
 		212669D51BFF836D00DE996F /* share.js in Resources */ = {isa = PBXBuildFile; fileRef = 212669D41BFF836D00DE996F /* share.js */; };
 		212669D61BFF836D00DE996F /* share.js in Resources */ = {isa = PBXBuildFile; fileRef = 212669D41BFF836D00DE996F /* share.js */; };
 		212669D91BFF83C700DE996F /* editor.js in Resources */ = {isa = PBXBuildFile; fileRef = 212669D71BFF83C700DE996F /* editor.js */; };
@@ -63,6 +65,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		210CEF5B1C597E72003B4421 /* CanvasNative.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CanvasNative.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/Canvas-dpadicanchsimnfighzmilqitowi/Build/Products/Debug-iphoneos/CanvasNative.framework"; sourceTree = "<group>"; };
+		210CEF5D1C597E76003B4421 /* CanvasNative.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CanvasNative.framework; path = ../CanvasNative/build/Debug/CanvasNative.framework; sourceTree = "<group>"; };
 		212669D41BFF836D00DE996F /* share.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = share.js; sourceTree = "<group>"; };
 		212669D71BFF83C700DE996F /* editor.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = editor.js; sourceTree = "<group>"; };
 		212669D81BFF83C700DE996F /* template.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = template.html; sourceTree = "<group>"; };
@@ -93,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				210CEF5C1C597E72003B4421 /* CanvasNative.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				210CEF5E1C597E76003B4421 /* CanvasNative.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +131,8 @@
 		21A8F9E61BFCF4BD0097FCC6 = {
 			isa = PBXGroup;
 			children = (
+				210CEF5D1C597E76003B4421 /* CanvasNative.framework */,
+				210CEF5B1C597E72003B4421 /* CanvasNative.framework */,
 				21A8F9F21BFCF4BD0097FCC6 /* CanvasText */,
 				21A8FA191BFCF4F80097FCC6 /* Tests */,
 				21A8F9F11BFCF4BD0097FCC6 /* Products */,
