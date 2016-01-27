@@ -128,7 +128,11 @@ class CanvasTextView: UITextView {
 		if let layoutManager = textContainer.layoutManager {
 			let characterIndex = offsetFromPosition(beginningOfDocument, toPosition: position)
 			let glyphIndex = layoutManager.glyphIndexForCharacterAtIndex(characterIndex)
-			rect.size.height = layoutManager.lineFragmentUsedRectForGlyphAtIndex(glyphIndex, effectiveRange: nil).size.height
+			let height = layoutManager.lineFragmentUsedRectForGlyphAtIndex(glyphIndex, effectiveRange: nil).size.height
+
+			if height > 0 {
+				rect.size.height = height
+			}
 		}
 
 		return rect
