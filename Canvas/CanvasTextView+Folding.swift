@@ -13,6 +13,7 @@ extension CanvasTextView: NSLayoutManagerDelegate {
 	func updateFolding() {
 		let range = NSRange(location: 0, length: textStorage.length)
 		layoutManager.invalidateGlyphsForCharacterRange(range, changeInLength: 0, actualCharacterRange: nil)
+		updatedFolding = true
 	}
 
 	func layoutManager(layoutManager: NSLayoutManager, shouldGenerateGlyphs glyphs: UnsafePointer<CGGlyph>, properties props: UnsafePointer<NSGlyphProperty>, characterIndexes: UnsafePointer<Int>, font: UIFont, forGlyphRange glyphRange: NSRange) -> Int {
@@ -50,7 +51,6 @@ extension CanvasTextView: NSLayoutManagerDelegate {
 
 			if textStorage.attributesAtIndex(characterIndex, effectiveRange: nil)[FoldableAttributeName] as? Bool == true {
 				properties[i] = .ControlCharacter
-				updatedFolding = true
 			}
 		}
 
