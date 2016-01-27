@@ -22,6 +22,20 @@ class CanvasTextView: UITextView {
 
 	var updatedFolding = false
 
+	let indentGestureRecognizer: UIGestureRecognizer = {
+		let gesture = UISwipeGestureRecognizer()
+		gesture.numberOfTouchesRequired = 1
+		gesture.direction = .Right
+		return gesture
+	}()
+
+	let outdentGestureRecognizer: UIGestureRecognizer = {
+		let gesture = UISwipeGestureRecognizer()
+		gesture.numberOfTouchesRequired = 1
+		gesture.direction = .Left
+		return gesture
+	}()
+
 
 	// MARK: - Initializers {
 

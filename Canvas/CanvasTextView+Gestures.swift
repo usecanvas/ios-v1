@@ -12,17 +12,13 @@ import CanvasText
 extension CanvasTextView {
 
 	func registerGestureRecognizers() {
-		let indent = UISwipeGestureRecognizer(target: self, action: "increaseBlockLevelWithGesture:")
-		indent.numberOfTouchesRequired = 1
-		indent.direction = .Right
-		indent.delegate = self
-		addGestureRecognizer(indent)
+		indentGestureRecognizer.addTarget(self, action: "increaseBlockLevelWithGesture:")
+		indentGestureRecognizer.delegate = self
+		addGestureRecognizer(indentGestureRecognizer)
 
-		let outdent = UISwipeGestureRecognizer(target: self, action: "decreaseBlockLevelWithGesture:")
-		outdent.numberOfTouchesRequired = 1
-		outdent.direction = .Left
-		outdent.delegate = self
-		addGestureRecognizer(outdent)
+		outdentGestureRecognizer.addTarget(self, action: "decreaseBlockLevelWithGesture:")
+		outdentGestureRecognizer.delegate = self
+		addGestureRecognizer(outdentGestureRecognizer)
 	}
 
 
@@ -136,6 +132,9 @@ extension CanvasTextView {
 
 extension CanvasTextView: UIGestureRecognizerDelegate {
 	override func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
-		return selectedRange.length == 0
+		if gestureRecognizer == indentGestureRecognizer || gestureRecognizer == outdentGestureRecognizer {
+			return selectedRange.length == 0
+		}
+		return super.gestureRecognizerShouldBegin(gestureRecognizer)
 	}
 }
