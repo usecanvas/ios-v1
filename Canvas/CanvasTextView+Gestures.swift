@@ -15,11 +15,13 @@ extension CanvasTextView {
 		let indent = UISwipeGestureRecognizer(target: self, action: "increaseBlockLevelWithGesture:")
 		indent.numberOfTouchesRequired = 1
 		indent.direction = .Right
+		indent.delegate = self
 		addGestureRecognizer(indent)
 
 		let outdent = UISwipeGestureRecognizer(target: self, action: "decreaseBlockLevelWithGesture:")
 		outdent.numberOfTouchesRequired = 1
 		outdent.direction = .Left
+		outdent.delegate = self
 		addGestureRecognizer(outdent)
 	}
 
@@ -128,5 +130,12 @@ extension CanvasTextView {
 			textStorage.replaceBackingCharactersInRange(node.nativePrefixRange, withString: string)
 			return
 		}
+	}
+}
+
+
+extension CanvasTextView: UIGestureRecognizerDelegate {
+	override func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+		return selectedRange.length == 0
 	}
 }
