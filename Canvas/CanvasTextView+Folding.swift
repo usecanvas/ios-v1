@@ -11,14 +11,9 @@ import CanvasText
 
 extension CanvasTextView: NSLayoutManagerDelegate {
 	func updateFolding() {
-<<<<<<< Updated upstream
 		let range = NSRange(location: 0, length: textStorage.length)
 		layoutManager.invalidateGlyphsForCharacterRange(range, changeInLength: 0, actualCharacterRange: nil)
 		updatedFolding = true
-=======
-		guard let layoutManager = textContainer.layoutManager as? FoldingLayoutManager else { return }
-		layoutManager.unfoldedRange = unfoldableRange(displaySelection: selectedRange)
->>>>>>> Stashed changes
 	}
 
 	func layoutManager(layoutManager: NSLayoutManager, shouldGenerateGlyphs glyphs: UnsafePointer<CGGlyph>, properties props: UnsafePointer<NSGlyphProperty>, characterIndexes: UnsafePointer<Int>, font: UIFont, forGlyphRange glyphRange: NSRange) -> Int {
