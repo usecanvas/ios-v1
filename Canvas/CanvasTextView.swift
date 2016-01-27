@@ -10,7 +10,7 @@ import UIKit
 import CanvasKit
 import CanvasText
 
-class CanvasTextView: InsertionPointTextView {
+class CanvasTextView: UITextView {
 
 	// MARK: - Properties
 
@@ -103,6 +103,29 @@ class CanvasTextView: InsertionPointTextView {
 
 		guard let textStorage = textStorage as? CanvasTextStorage else { return }
 		textStorage.theme.tintColor = tintColor
+	}
+
+
+	// MARK: - UITextInput
+
+	override func caretRectForPosition(position: UITextPosition) -> CGRect {
+		var rect = super.caretRectForPosition(position)
+
+		if let layoutManager = textContainer.layoutManager {
+			let characterIndex = offsetFromPosition(beginningOfDocument, toPosition: position)
+			let glyphIndex = layoutManager.glyphIndexForCharacterAtIndex(characterIndex)
+			rect.size.height = layoutManager.lineFragmentUsedRectForGlyphAtIndex(glyphIndex, effectiveRange: nil).size.height
+		}
+
+		return rect
+	}
+
+	override func selectionRectsForRange(range: UITextRange) -> [AnyObject] {
+		let selectionRects = super.selectionRectsForRange(range)
+		return selectionRects.filter({ selection in
+			guard let selection = selection as? UITextSelectionRect else { return false }
+			return selection.rect.size.width > 0
+		})
 	}
 
 
