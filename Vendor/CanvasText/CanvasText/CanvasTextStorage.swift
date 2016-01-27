@@ -13,7 +13,7 @@
 #endif
 
 import WebKit
-
+import CanvasNative
 
 public protocol CanvasTextStorageDelegate: class {
 	func textStorageWillUpdateNodes(textStorage: CanvasTextStorage)
@@ -138,15 +138,20 @@ public class CanvasTextStorage: ShadowTextStorage {
 		}
 	}
 
-	public override func shadowsForBackingText(backingText: String) -> [Shadow] {
+	public override func shadowsForBackingText(backingText: String) -> [NSRange] {
 		if !loaded {
 			return []
 		}
 
-		var shadows = [Shadow]()
-		(nodes, shadows) = Parser(string: backingText).parse()
-		
-		return shadows
+		// Parse nodes
+		let parser = Parser(string: backingText)
+		nodes = parser.parse()
+
+		// Derive shadows from nodes
+		return nodes.flatMap { node in
+			guard let prefixable = node as? NativePrefixable else { return nil }
+			return prefixable.nativePrefixRange
+		}
 	}
 
 	/// Optionally add attributes to the display version of the text.
@@ -334,7 +339,7 @@ extension CanvasTextStorage: TransportControllerDelegate {
 
 			// Update text
 			let index = backingText.startIndex.advancedBy(Int(location))
-			let range = Range<String.Index>(start: index, end: index)
+			let range = index..<index
 			backingText = backingText.stringByReplacingCharactersInRange(range, withString: string)
 		case .Remove(let location, let length):
 			// Shift selection
@@ -347,7 +352,7 @@ extension CanvasTextStorage: TransportControllerDelegate {
 
 			// Update text
 			let index = backingText.startIndex.advancedBy(Int(location))
-			let range = Range<String.Index>(start: index, end: index.advancedBy(Int(length)))
+			let range = index..<index.advancedBy(Int(length))
 			backingText = backingText.stringByReplacingCharactersInRange(range, withString: "")
 		}
 

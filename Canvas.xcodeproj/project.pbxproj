@@ -121,6 +121,7 @@
 		21A8FA5B1BFD30790097FCC6 /* WebActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA5A1BFD30790097FCC6 /* WebActivity.swift */; };
 		21A8FA5D1BFD33DB0097FCC6 /* ChromeActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA5C1BFD33DB0097FCC6 /* ChromeActivity.swift */; };
 		21A8FA5F1BFD33EA0097FCC6 /* SafariActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA5E1BFD33EA0097FCC6 /* SafariActivity.swift */; };
+		21B1CFD01C594F2900CC8E7D /* CanvasNative.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1CFCF1C594F2900CC8E7D /* CanvasNative.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21B742C81BFF991600FF293C /* NumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742C71BFF991600FF293C /* NumberView.swift */; };
 		21B742D91BFFCFDB00FF293C /* BlockquoteBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742D81BFFCFDB00FF293C /* BlockquoteBorderView.swift */; };
 		21B742E01C03BD9000FF293C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742DF1C03BD9000FF293C /* TableViewController.swift */; };
@@ -254,6 +255,7 @@
 			files = (
 				212404FC1C233E5200BF0C91 /* CanvasText.framework in Embed Frameworks */,
 				212404FB1C233E4D00BF0C91 /* CanvasKit.framework in Embed Frameworks */,
+				21B1CFD01C594F2900CC8E7D /* CanvasNative.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,6 +321,7 @@
 		21AE3F421C0423E300AE5DDC /* OnePasswordExtension.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = OnePasswordExtension.framework.dSYM; path = Carthage/Build/iOS/OnePasswordExtension.framework.dSYM; sourceTree = "<group>"; };
 		21AE3F461C0423E300AE5DDC /* Static.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Static.framework; path = Carthage/Build/iOS/Static.framework; sourceTree = "<group>"; };
 		21AE3F471C0423E300AE5DDC /* Static.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Static.framework.dSYM; path = Carthage/Build/iOS/Static.framework.dSYM; sourceTree = "<group>"; };
+		21B1CFCF1C594F2900CC8E7D /* CanvasNative.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = CanvasNative.framework; path = "/Users/soffes/Library/Developer/Xcode/DerivedData/Canvas-dpadicanchsimnfighzmilqitowi/Build/Products/Debug-iphonesimulator/CanvasNative.framework"; sourceTree = "<absolute>"; };
 		21B742C71BFF991600FF293C /* NumberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberView.swift; sourceTree = "<group>"; };
 		21B742D81BFFCFDB00FF293C /* BlockquoteBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockquoteBorderView.swift; sourceTree = "<group>"; };
 		21B742DF1C03BD9000FF293C /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
@@ -492,6 +495,7 @@
 		21AE3F391C0423CE00AE5DDC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				21B1CFCF1C594F2900CC8E7D /* CanvasNative.framework */,
 				2124481A1C45BF75008E41A4 /* GradientView.framework */,
 				2124481B1C45BF75008E41A4 /* GradientView.framework.dSYM */,
 				210566EB1C3B1DBC00F4387A /* ISO8601.framework */,

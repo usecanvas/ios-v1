@@ -9,6 +9,7 @@
 import UIKit
 import CanvasKit
 import CanvasText
+import CanvasNative
 
 class CanvasTextView: UITextView {
 

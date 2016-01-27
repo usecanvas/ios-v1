@@ -6,6 +6,7 @@
 //  Copyright © 2015 Canvas Labs, Inc. All rights reserved.
 //
 
+import CanvasNative
 import CanvasText
 import UIKit
 

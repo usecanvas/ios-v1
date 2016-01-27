@@ -8,6 +8,7 @@
 
 import UIKit
 import CanvasText
+import CanvasNative
 
 private let keywordMap = [
 	"workbench": "brush",

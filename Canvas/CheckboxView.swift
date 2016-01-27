@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CanvasText
+import CanvasNative
 
 final class CheckboxView: UIButton {
 

@@ -7,28 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2120649E1C3DE67000F6B5D0 /* NodeContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2120649D1C3DE67000F6B5D0 /* NodeContainer.swift */; };
-		2120649F1C3DE67000F6B5D0 /* NodeContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2120649D1C3DE67000F6B5D0 /* NodeContainer.swift */; };
 		212064A31C3DEE6100F6B5D0 /* SpanLevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212064A01C3DEE5E00F6B5D0 /* SpanLevelTests.swift */; };
 		212064A41C3DEE6200F6B5D0 /* SpanLevelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212064A01C3DEE5E00F6B5D0 /* SpanLevelTests.swift */; };
-		212064AC1C3DEFBF00F6B5D0 /* BlockNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212064AB1C3DEFBF00F6B5D0 /* BlockNode.swift */; };
-		212064AD1C3DEFBF00F6B5D0 /* BlockNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212064AB1C3DEFBF00F6B5D0 /* BlockNode.swift */; };
-		212064AF1C3DF1E500F6B5D0 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212064AE1C3DF1E500F6B5D0 /* Text.swift */; };
-		212064B01C3DF1E500F6B5D0 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212064AE1C3DF1E500F6B5D0 /* Text.swift */; };
 		212668E01BFEC7B500DE996F /* BlockquoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212668DF1BFEC7B500DE996F /* BlockquoteTests.swift */; };
 		212668E11BFEC7B500DE996F /* BlockquoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212668DF1BFEC7B500DE996F /* BlockquoteTests.swift */; };
-		212668E81BFECA5E00DE996F /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212668E51BFECA4D00DE996F /* Title.swift */; };
-		212668EA1BFECA5F00DE996F /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212668E51BFECA4D00DE996F /* Title.swift */; };
-		212668EC1BFECA7C00DE996F /* Heading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212668EB1BFECA7C00DE996F /* Heading.swift */; };
-		212668ED1BFECA7C00DE996F /* Heading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212668EB1BFECA7C00DE996F /* Heading.swift */; };
 		212668EF1BFECCBC00DE996F /* HeadingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212668EE1BFECCBC00DE996F /* HeadingTests.swift */; };
 		212668F01BFECCBC00DE996F /* HeadingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212668EE1BFECCBC00DE996F /* HeadingTests.swift */; };
-		212668FF1BFECD7100DE996F /* CodeBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212668E21BFECA0700DE996F /* CodeBlock.swift */; };
-		212669001BFECD7200DE996F /* CodeBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212668E21BFECA0700DE996F /* CodeBlock.swift */; };
-		212669131BFED0DC00DE996F /* OrderedListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2126690F1BFECE9400DE996F /* OrderedListItem.swift */; };
-		212669141BFED0DC00DE996F /* OrderedListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2126690F1BFECE9400DE996F /* OrderedListItem.swift */; };
-		212669161BFED13600DE996F /* UnorderedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212669151BFED13600DE996F /* UnorderedList.swift */; };
-		212669171BFED13600DE996F /* UnorderedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212669151BFED13600DE996F /* UnorderedList.swift */; };
 		212669231BFEE3EB00DE996F /* ListableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212669221BFEE3EB00DE996F /* ListableTests.swift */; };
 		212669241BFEE3EB00DE996F /* ListableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212669221BFEE3EB00DE996F /* ListableTests.swift */; };
 		212669D51BFF836D00DE996F /* share.js in Resources */ = {isa = PBXBuildFile; fileRef = 212669D41BFF836D00DE996F /* share.js */; };
@@ -37,30 +21,8 @@
 		212669DA1BFF83C700DE996F /* editor.js in Resources */ = {isa = PBXBuildFile; fileRef = 212669D71BFF83C700DE996F /* editor.js */; };
 		212669DB1BFF83C700DE996F /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = 212669D81BFF83C700DE996F /* template.html */; };
 		212669DC1BFF83C700DE996F /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = 212669D81BFF83C700DE996F /* template.html */; };
-		2150D6801BFEBDE3008BB629 /* Listable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150D67F1BFEBDE3008BB629 /* Listable.swift */; };
-		2150D6811BFEBDE3008BB629 /* Listable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150D67F1BFEBDE3008BB629 /* Listable.swift */; };
-		2150D6831BFEBDF6008BB629 /* NativePrefixable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150D6821BFEBDF6008BB629 /* NativePrefixable.swift */; };
-		2150D6841BFEBDF6008BB629 /* NativePrefixable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150D6821BFEBDF6008BB629 /* NativePrefixable.swift */; };
-		2150D6891BFEBEE0008BB629 /* Blockquote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150D6881BFEBEE0008BB629 /* Blockquote.swift */; };
-		2150D68A1BFEBEE0008BB629 /* Blockquote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150D6881BFEBEE0008BB629 /* Blockquote.swift */; };
-		2156422B1C06C60400685847 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2156422A1C06C60400685847 /* Image.swift */; };
-		2156422C1C06C60400685847 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2156422A1C06C60400685847 /* Image.swift */; };
-		2156422E1C06C81900685847 /* Attachable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2156422D1C06C81900685847 /* Attachable.swift */; };
-		2156422F1C06C81900685847 /* Attachable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2156422D1C06C81900685847 /* Attachable.swift */; };
 		215642311C06C91C00685847 /* ImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215642301C06C91C00685847 /* ImageTests.swift */; };
 		215642321C06C91C00685847 /* ImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215642301C06C91C00685847 /* ImageTests.swift */; };
-		21569B4C1C1A457600A017DE /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21569B4B1C1A457600A017DE /* Shadow.swift */; };
-		21569B4D1C1A457600A017DE /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21569B4B1C1A457600A017DE /* Shadow.swift */; };
-		21654AC61C406525003EE9E2 /* Foldable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21654AC51C406525003EE9E2 /* Foldable.swift */; };
-		21654AC71C406525003EE9E2 /* Foldable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21654AC51C406525003EE9E2 /* Foldable.swift */; };
-		21654AC91C406C1D003EE9E2 /* SpanNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21654AC81C406C1D003EE9E2 /* SpanNode.swift */; };
-		21654ACA1C406C1D003EE9E2 /* SpanNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21654AC81C406C1D003EE9E2 /* SpanNode.swift */; };
-		21654ACC1C407E67003EE9E2 /* Emphasis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21654ACB1C407E67003EE9E2 /* Emphasis.swift */; };
-		21654ACD1C407E67003EE9E2 /* Emphasis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21654ACB1C407E67003EE9E2 /* Emphasis.swift */; };
-		21654ACF1C4083F9003EE9E2 /* CodeSpan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21654ACE1C4083F9003EE9E2 /* CodeSpan.swift */; };
-		21654AD01C4083F9003EE9E2 /* CodeSpan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21654ACE1C4083F9003EE9E2 /* CodeSpan.swift */; };
-		21654AD21C4084D7003EE9E2 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21654AD11C4084D7003EE9E2 /* Link.swift */; };
-		21654AD31C4084D7003EE9E2 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21654AD11C4084D7003EE9E2 /* Link.swift */; };
 		219DAC8F1C0F93CD00F39A6F /* rollbar.js in Resources */ = {isa = PBXBuildFile; fileRef = 219DAC8E1C0F93CD00F39A6F /* rollbar.js */; };
 		219DAC901C0F93D400F39A6F /* rollbar.js in Resources */ = {isa = PBXBuildFile; fileRef = 219DAC8E1C0F93CD00F39A6F /* rollbar.js */; };
 		21A8F9FB1BFCF4BD0097FCC6 /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A8F9F01BFCF4BD0097FCC6 /* CanvasText.framework */; };
@@ -75,16 +37,8 @@
 		21A8FA961BFE7B940097FCC6 /* CanvasTextStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA1A1BFCF4F80097FCC6 /* CanvasTextStorageTests.swift */; };
 		21A8FA981BFE7BBA0097FCC6 /* CanvasText.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A8FA971BFE7BBA0097FCC6 /* CanvasText.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21A8FA991BFE7BBE0097FCC6 /* CanvasText.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A8FA971BFE7BBA0097FCC6 /* CanvasText.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		21A8FAA01BFE890D0097FCC6 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA9F1BFE890D0097FCC6 /* Node.swift */; };
-		21A8FAA11BFE890D0097FCC6 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA9F1BFE890D0097FCC6 /* Node.swift */; };
-		21A8FAA41BFE89A80097FCC6 /* Paragraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FAA31BFE89A80097FCC6 /* Paragraph.swift */; };
-		21A8FAA51BFE89A80097FCC6 /* Paragraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FAA31BFE89A80097FCC6 /* Paragraph.swift */; };
-		21A8FAA71BFE89EB0097FCC6 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FAA61BFE89EB0097FCC6 /* ChecklistItem.swift */; };
-		21A8FAA81BFE89EB0097FCC6 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FAA61BFE89EB0097FCC6 /* ChecklistItem.swift */; };
-		21AF32DF1C3F2233005202A3 /* DoubleEmphasis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AF32DE1C3F2233005202A3 /* DoubleEmphasis.swift */; };
-		21AF32E01C3F223D005202A3 /* DoubleEmphasis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AF32DE1C3F2233005202A3 /* DoubleEmphasis.swift */; };
-		21AF32E21C3F2559005202A3 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AF32E11C3F2559005202A3 /* Parser.swift */; };
-		21AF32E31C3F2559005202A3 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AF32E11C3F2559005202A3 /* Parser.swift */; };
+		21B1CFC81C594E4B00CC8E7D /* CanvasNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1CFBF1C594E3B00CC8E7D /* CanvasNative.framework */; };
+		21B1CFCB1C594E5400CC8E7D /* CanvasNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1CFC31C594E3B00CC8E7D /* CanvasNative.framework */; };
 		21B742EF1C03C6B900FF293C /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742EE1C03C6B900FF293C /* Font.swift */; };
 		21B742F01C03C6B900FF293C /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742EE1C03C6B900FF293C /* Font.swift */; };
 		21B742F21C03C6CB00FF293C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742F11C03C6CB00FF293C /* Color.swift */; };
@@ -116,36 +70,59 @@
 			remoteGlobalIDString = 21A8FA781BFE7B5A0097FCC6;
 			remoteInfo = CanvasText;
 		};
+		21B1CFBE1C594E3B00CC8E7D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1CF7D1C594E3300CC8E7D /* CanvasNative.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 215BAB2D1C52B0C400118C8C;
+			remoteInfo = "CanvasNative-iOS";
+		};
+		21B1CFC01C594E3B00CC8E7D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1CF7D1C594E3300CC8E7D /* CanvasNative.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 215BAB371C52B0C400118C8C;
+			remoteInfo = "CanvasNativeTests-iOS";
+		};
+		21B1CFC21C594E3B00CC8E7D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1CF7D1C594E3300CC8E7D /* CanvasNative.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 215BAB4C1C52B18B00118C8C;
+			remoteInfo = "CanvasNative-OSX";
+		};
+		21B1CFC41C594E3B00CC8E7D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1CF7D1C594E3300CC8E7D /* CanvasNative.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 215BAB551C52B18C00118C8C;
+			remoteInfo = "CanvasNativeTests-OSX";
+		};
+		21B1CFC61C594E4700CC8E7D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1CF7D1C594E3300CC8E7D /* CanvasNative.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 215BAB2C1C52B0C400118C8C;
+			remoteInfo = "CanvasNative-iOS";
+		};
+		21B1CFC91C594E4F00CC8E7D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1CF7D1C594E3300CC8E7D /* CanvasNative.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 215BAB4B1C52B18B00118C8C;
+			remoteInfo = "CanvasNative-OSX";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2120649D1C3DE67000F6B5D0 /* NodeContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeContainer.swift; sourceTree = "<group>"; };
 		212064A01C3DEE5E00F6B5D0 /* SpanLevelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpanLevelTests.swift; sourceTree = "<group>"; };
-		212064AB1C3DEFBF00F6B5D0 /* BlockNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockNode.swift; sourceTree = "<group>"; };
-		212064AE1C3DF1E500F6B5D0 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		212668DF1BFEC7B500DE996F /* BlockquoteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockquoteTests.swift; sourceTree = "<group>"; };
-		212668E21BFECA0700DE996F /* CodeBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeBlock.swift; sourceTree = "<group>"; };
-		212668E51BFECA4D00DE996F /* Title.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
-		212668EB1BFECA7C00DE996F /* Heading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Heading.swift; sourceTree = "<group>"; };
 		212668EE1BFECCBC00DE996F /* HeadingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadingTests.swift; sourceTree = "<group>"; };
-		2126690F1BFECE9400DE996F /* OrderedListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedListItem.swift; sourceTree = "<group>"; };
-		212669151BFED13600DE996F /* UnorderedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnorderedList.swift; sourceTree = "<group>"; };
 		212669221BFEE3EB00DE996F /* ListableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListableTests.swift; sourceTree = "<group>"; };
 		212669D41BFF836D00DE996F /* share.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = share.js; sourceTree = "<group>"; };
 		212669D71BFF83C700DE996F /* editor.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = editor.js; sourceTree = "<group>"; };
 		212669D81BFF83C700DE996F /* template.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = template.html; sourceTree = "<group>"; };
-		2150D67F1BFEBDE3008BB629 /* Listable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Listable.swift; sourceTree = "<group>"; };
-		2150D6821BFEBDF6008BB629 /* NativePrefixable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativePrefixable.swift; sourceTree = "<group>"; };
-		2150D6881BFEBEE0008BB629 /* Blockquote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Blockquote.swift; sourceTree = "<group>"; };
-		2156422A1C06C60400685847 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
-		2156422D1C06C81900685847 /* Attachable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attachable.swift; sourceTree = "<group>"; };
 		215642301C06C91C00685847 /* ImageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTests.swift; sourceTree = "<group>"; };
-		21569B4B1C1A457600A017DE /* Shadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
-		21654AC51C406525003EE9E2 /* Foldable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Foldable.swift; sourceTree = "<group>"; };
-		21654AC81C406C1D003EE9E2 /* SpanNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpanNode.swift; sourceTree = "<group>"; };
-		21654ACB1C407E67003EE9E2 /* Emphasis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emphasis.swift; sourceTree = "<group>"; };
-		21654ACE1C4083F9003EE9E2 /* CodeSpan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeSpan.swift; sourceTree = "<group>"; };
-		21654AD11C4084D7003EE9E2 /* Link.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
 		219DAC8E1C0F93CD00F39A6F /* rollbar.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = rollbar.js; sourceTree = "<group>"; };
 		21A8F9F01BFCF4BD0097FCC6 /* CanvasText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CanvasText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A8F9FA1BFCF4BD0097FCC6 /* CanvasTextTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CanvasTextTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,11 +135,7 @@
 		21A8FA791BFE7B5A0097FCC6 /* CanvasText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CanvasText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A8FA821BFE7B5A0097FCC6 /* CanvasTextTests-OSX.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CanvasTextTests-OSX.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A8FA971BFE7BBA0097FCC6 /* CanvasText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasText.h; sourceTree = "<group>"; };
-		21A8FA9F1BFE890D0097FCC6 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
-		21A8FAA31BFE89A80097FCC6 /* Paragraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paragraph.swift; sourceTree = "<group>"; };
-		21A8FAA61BFE89EB0097FCC6 /* ChecklistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
-		21AF32DE1C3F2233005202A3 /* DoubleEmphasis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleEmphasis.swift; sourceTree = "<group>"; };
-		21AF32E11C3F2559005202A3 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		21B1CF7D1C594E3300CC8E7D /* CanvasNative.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasNative.xcodeproj; path = CanvasNative/CanvasNative.xcodeproj; sourceTree = "<group>"; };
 		21B742EE1C03C6B900FF293C /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		21B742F11C03C6CB00FF293C /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		21B742F61C03C71600FF293C /* CanvasTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasTextStorage.swift; sourceTree = "<group>"; };
@@ -177,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21B1CFC81C594E4B00CC8E7D /* CanvasNative.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +166,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21B1CFCB1C594E5400CC8E7D /* CanvasNative.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,53 +181,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		212064A51C3DEF8800F6B5D0 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				21A8FA9F1BFE890D0097FCC6 /* Node.swift */,
-				212064AB1C3DEFBF00F6B5D0 /* BlockNode.swift */,
-				21654AC81C406C1D003EE9E2 /* SpanNode.swift */,
-				2120649D1C3DE67000F6B5D0 /* NodeContainer.swift */,
-				2150D6821BFEBDF6008BB629 /* NativePrefixable.swift */,
-				2150D67F1BFEBDE3008BB629 /* Listable.swift */,
-				2156422D1C06C81900685847 /* Attachable.swift */,
-				21654AC51C406525003EE9E2 /* Foldable.swift */,
-			);
-			name = Protocols;
-			sourceTree = "<group>";
-		};
-		212064A61C3DEF8F00F6B5D0 /* Block-level */ = {
-			isa = PBXGroup;
-			children = (
-				2150D6881BFEBEE0008BB629 /* Blockquote.swift */,
-				21A8FAA61BFE89EB0097FCC6 /* ChecklistItem.swift */,
-				212668E21BFECA0700DE996F /* CodeBlock.swift */,
-				212668E51BFECA4D00DE996F /* Title.swift */,
-				212668EB1BFECA7C00DE996F /* Heading.swift */,
-				2126690F1BFECE9400DE996F /* OrderedListItem.swift */,
-				212669151BFED13600DE996F /* UnorderedList.swift */,
-				21A8FAA31BFE89A80097FCC6 /* Paragraph.swift */,
-				2156422A1C06C60400685847 /* Image.swift */,
-			);
-			name = "Block-level";
-			sourceTree = "<group>";
-		};
-		212064A71C3DEF9500F6B5D0 /* Span-level */ = {
-			isa = PBXGroup;
-			children = (
-				21654ACE1C4083F9003EE9E2 /* CodeSpan.swift */,
-				21654AD11C4084D7003EE9E2 /* Link.swift */,
-				21AF32DE1C3F2233005202A3 /* DoubleEmphasis.swift */,
-				21654ACB1C407E67003EE9E2 /* Emphasis.swift */,
-				212064AE1C3DF1E500F6B5D0 /* Text.swift */,
-			);
-			name = "Span-level";
-			sourceTree = "<group>";
-		};
 		21A8F9E61BFCF4BD0097FCC6 = {
 			isa = PBXGroup;
 			children = (
 				21A8F9F21BFCF4BD0097FCC6 /* CanvasText */,
+				21B1CF5F1C594E3300CC8E7D /* Vendor */,
 				21A8FA191BFCF4F80097FCC6 /* Tests */,
 				21A8F9F11BFCF4BD0097FCC6 /* Products */,
 			);
@@ -275,7 +208,6 @@
 				21A8FA971BFE7BBA0097FCC6 /* CanvasText.h */,
 				21B742F91C03CA2E00FF293C /* Text Storage */,
 				21B7430D1C03D18000FF293C /* Themes */,
-				21A8FAA21BFE89790097FCC6 /* Nodes */,
 				21B742F41C03C6F600FF293C /* Extensions */,
 				21B742F51C03C70600FF293C /* Operation Transport */,
 				21A8FA0E1BFCF4E90097FCC6 /* Resources */,
@@ -311,15 +243,23 @@
 			path = CanvasText/Tests;
 			sourceTree = "<group>";
 		};
-		21A8FAA21BFE89790097FCC6 /* Nodes */ = {
+		21B1CF5F1C594E3300CC8E7D /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				21AF32E11C3F2559005202A3 /* Parser.swift */,
-				212064A51C3DEF8800F6B5D0 /* Protocols */,
-				212064A61C3DEF8F00F6B5D0 /* Block-level */,
-				212064A71C3DEF9500F6B5D0 /* Span-level */,
+				21B1CF7D1C594E3300CC8E7D /* CanvasNative.xcodeproj */,
 			);
-			name = Nodes;
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		21B1CFB81C594E3B00CC8E7D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				21B1CFBF1C594E3B00CC8E7D /* CanvasNative.framework */,
+				21B1CFC11C594E3B00CC8E7D /* CanvasNativeTests.xctest */,
+				21B1CFC31C594E3B00CC8E7D /* CanvasNative.framework */,
+				21B1CFC51C594E3B00CC8E7D /* CanvasNativeTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		21B742F41C03C6F600FF293C /* Extensions */ = {
@@ -346,7 +286,6 @@
 			children = (
 				21B742F61C03C71600FF293C /* CanvasTextStorage.swift */,
 				21CAFBD01C056FC100B9A3B5 /* ShadowTextStorage.swift */,
-				21569B4B1C1A457600A017DE /* Shadow.swift */,
 			);
 			name = "Text Storage";
 			sourceTree = "<group>";
@@ -394,6 +333,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				21B1CFC71C594E4700CC8E7D /* PBXTargetDependency */,
 			);
 			name = "CanvasText-iOS";
 			productName = CanvasText;
@@ -430,6 +370,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				21B1CFCA1C594E4F00CC8E7D /* PBXTargetDependency */,
 			);
 			name = "CanvasText-OSX";
 			productName = CanvasText;
@@ -488,6 +429,12 @@
 			mainGroup = 21A8F9E61BFCF4BD0097FCC6;
 			productRefGroup = 21A8F9F11BFCF4BD0097FCC6 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 21B1CFB81C594E3B00CC8E7D /* Products */;
+					ProjectRef = 21B1CF7D1C594E3300CC8E7D /* CanvasNative.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				21A8F9EF1BFCF4BD0097FCC6 /* CanvasText-iOS */,
@@ -497,6 +444,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		21B1CFBF1C594E3B00CC8E7D /* CanvasNative.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CanvasNative.framework;
+			remoteRef = 21B1CFBE1C594E3B00CC8E7D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1CFC11C594E3B00CC8E7D /* CanvasNativeTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CanvasNativeTests.xctest;
+			remoteRef = 21B1CFC01C594E3B00CC8E7D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1CFC31C594E3B00CC8E7D /* CanvasNative.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CanvasNative.framework;
+			remoteRef = 21B1CFC21C594E3B00CC8E7D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1CFC51C594E3B00CC8E7D /* CanvasNativeTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CanvasNativeTests.xctest;
+			remoteRef = 21B1CFC41C594E3B00CC8E7D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		21A8F9EE1BFCF4BD0097FCC6 /* Resources */ = {
@@ -543,36 +521,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				21A8FA151BFCF4E90097FCC6 /* TransportController.swift in Sources */,
-				212669161BFED13600DE996F /* UnorderedList.swift in Sources */,
-				21AF32E21C3F2559005202A3 /* Parser.swift in Sources */,
-				2156422B1C06C60400685847 /* Image.swift in Sources */,
-				21654AC91C406C1D003EE9E2 /* SpanNode.swift in Sources */,
-				2150D6891BFEBEE0008BB629 /* Blockquote.swift in Sources */,
-				2156422E1C06C81900685847 /* Attachable.swift in Sources */,
-				21AF32DF1C3F2233005202A3 /* DoubleEmphasis.swift in Sources */,
-				2120649E1C3DE67000F6B5D0 /* NodeContainer.swift in Sources */,
-				21A8FAA01BFE890D0097FCC6 /* Node.swift in Sources */,
-				212668EC1BFECA7C00DE996F /* Heading.swift in Sources */,
-				21654AC61C406525003EE9E2 /* Foldable.swift in Sources */,
-				212064AC1C3DEFBF00F6B5D0 /* BlockNode.swift in Sources */,
-				212064AF1C3DF1E500F6B5D0 /* Text.swift in Sources */,
-				212668EA1BFECA5F00DE996F /* Title.swift in Sources */,
-				21654AD21C4084D7003EE9E2 /* Link.swift in Sources */,
-				21A8FAA71BFE89EB0097FCC6 /* ChecklistItem.swift in Sources */,
-				21A8FAA41BFE89A80097FCC6 /* Paragraph.swift in Sources */,
-				2150D6831BFEBDF6008BB629 /* NativePrefixable.swift in Sources */,
 				21A8FA131BFCF4E90097FCC6 /* NSRange+CanvasText.swift in Sources */,
 				21CAFBD11C056FC100B9A3B5 /* ShadowTextStorage.swift in Sources */,
 				21B742EF1C03C6B900FF293C /* Font.swift in Sources */,
 				21B742F71C03C71600FF293C /* CanvasTextStorage.swift in Sources */,
-				21654ACF1C4083F9003EE9E2 /* CodeSpan.swift in Sources */,
-				212668FF1BFECD7100DE996F /* CodeBlock.swift in Sources */,
-				212669141BFED0DC00DE996F /* OrderedListItem.swift in Sources */,
-				2150D6801BFEBDE3008BB629 /* Listable.swift in Sources */,
-				21654ACC1C407E67003EE9E2 /* Emphasis.swift in Sources */,
 				21B742FB1C03CDA500FF293C /* Theme.swift in Sources */,
 				21A8FA141BFCF4E90097FCC6 /* Operation.swift in Sources */,
-				21569B4C1C1A457600A017DE /* Shadow.swift in Sources */,
 				21B742F21C03C6CB00FF293C /* Color.swift in Sources */,
 				21B7430F1C03D19300FF293C /* FontStyle.swift in Sources */,
 			);
@@ -596,37 +550,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				212669171BFED13600DE996F /* UnorderedList.swift in Sources */,
-				21AF32E01C3F223D005202A3 /* DoubleEmphasis.swift in Sources */,
-				21AF32E31C3F2559005202A3 /* Parser.swift in Sources */,
-				2150D68A1BFEBEE0008BB629 /* Blockquote.swift in Sources */,
-				21654ACA1C406C1D003EE9E2 /* SpanNode.swift in Sources */,
-				2156422C1C06C60400685847 /* Image.swift in Sources */,
 				21A8FA931BFE7B870097FCC6 /* TransportController.swift in Sources */,
-				2156422F1C06C81900685847 /* Attachable.swift in Sources */,
-				2120649F1C3DE67000F6B5D0 /* NodeContainer.swift in Sources */,
-				21A8FAA11BFE890D0097FCC6 /* Node.swift in Sources */,
-				212668ED1BFECA7C00DE996F /* Heading.swift in Sources */,
-				21654AC71C406525003EE9E2 /* Foldable.swift in Sources */,
-				212064AD1C3DEFBF00F6B5D0 /* BlockNode.swift in Sources */,
-				212064B01C3DF1E500F6B5D0 /* Text.swift in Sources */,
-				212668E81BFECA5E00DE996F /* Title.swift in Sources */,
-				21654AD31C4084D7003EE9E2 /* Link.swift in Sources */,
-				21A8FAA81BFE89EB0097FCC6 /* ChecklistItem.swift in Sources */,
-				21A8FAA51BFE89A80097FCC6 /* Paragraph.swift in Sources */,
-				2150D6841BFEBDF6008BB629 /* NativePrefixable.swift in Sources */,
 				21A8FA911BFE7B870097FCC6 /* NSRange+CanvasText.swift in Sources */,
 				21CAFBD21C056FC100B9A3B5 /* ShadowTextStorage.swift in Sources */,
 				21B742F01C03C6B900FF293C /* Font.swift in Sources */,
 				21B742F81C03C71600FF293C /* CanvasTextStorage.swift in Sources */,
-				21654AD01C4083F9003EE9E2 /* CodeSpan.swift in Sources */,
-				212669001BFECD7200DE996F /* CodeBlock.swift in Sources */,
-				212669131BFED0DC00DE996F /* OrderedListItem.swift in Sources */,
-				2150D6811BFEBDE3008BB629 /* Listable.swift in Sources */,
-				21654ACD1C407E67003EE9E2 /* Emphasis.swift in Sources */,
 				21B742FC1C03CDA500FF293C /* Theme.swift in Sources */,
 				21A8FA921BFE7B870097FCC6 /* Operation.swift in Sources */,
-				21569B4D1C1A457600A017DE /* Shadow.swift in Sources */,
 				21B742F31C03C6CB00FF293C /* Color.swift in Sources */,
 				21B743101C03D19300FF293C /* FontStyle.swift in Sources */,
 			);
@@ -658,6 +588,16 @@
 			isa = PBXTargetDependency;
 			target = 21A8FA781BFE7B5A0097FCC6 /* CanvasText-OSX */;
 			targetProxy = 21A8FA841BFE7B5A0097FCC6 /* PBXContainerItemProxy */;
+		};
+		21B1CFC71C594E4700CC8E7D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CanvasNative-iOS";
+			targetProxy = 21B1CFC61C594E4700CC8E7D /* PBXContainerItemProxy */;
+		};
+		21B1CFCA1C594E4F00CC8E7D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CanvasNative-OSX";
+			targetProxy = 21B1CFC91C594E4F00CC8E7D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

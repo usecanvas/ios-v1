@@ -131,6 +131,9 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		extendedLayoutIncludesOpaqueBars = true
 		searchViewController.hidesNavigationBarDuringPresentation = true
 
+		// http://stackoverflow.com/a/33734661/118631
+		searchViewController.loadViewIfNeeded()
+
 		var frame = searchViewController.searchBar.bounds
 		frame.size.height += 2
 		let header = GradientView(frame: frame)
@@ -199,8 +202,12 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		var row = super.rowForCanvas(canvas)
 
 		row.editActions = [
-			Row.EditAction(title: LocalizedString.DeleteButton.string, style: .Destructive, backgroundColor: Color.destructive, backgroundEffect: nil, selection: deleteCanvas(canvas)),
-			Row.EditAction(title: LocalizedString.ArchiveButton.string, style: .Destructive, backgroundColor: Color.darkGray, backgroundEffect: nil, selection: archiveCanvas(canvas))
+			Row.EditAction(title: LocalizedString.DeleteButton.string, style: .Destructive, backgroundColor: Color.destructive, backgroundEffect: nil, selection: { [weak self] in
+				self?.deleteCanvas(canvas)
+			}),
+			Row.EditAction(title: LocalizedString.ArchiveButton.string, style: .Destructive, backgroundColor: Color.darkGray, backgroundEffect: nil, selection: { [weak self] in
+				self?.archiveCanvas(canvas)
+			})
 		]
 
 		return row
@@ -231,7 +238,7 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		searchViewController.searchBar.becomeFirstResponder()
 	}
 
-	private func deleteCanvas(canvas: Canvas)() {
+	private func deleteCanvas(canvas: Canvas) {
 		let style: UIAlertControllerStyle = traitCollection.userInterfaceIdiom == .Pad ? .Alert : .ActionSheet
 		let actionSheet = AlertController(title: LocalizedString.DeleteConfirmationMessage(canvasTitle: canvas.displayTitle).string, message: nil, preferredStyle: style)
 
@@ -251,7 +258,7 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		presentViewController(actionSheet, animated: true, completion: nil)
 	}
 
-	private func archiveCanvas(canvas: Canvas)() {
+	private func archiveCanvas(canvas: Canvas) {
 		let style: UIAlertControllerStyle = traitCollection.userInterfaceIdiom == .Pad ? .Alert : .ActionSheet
 		let actionSheet = AlertController(title: LocalizedString.ArchiveConfirmationMessage(canvasTitle: canvas.displayTitle).string, message: nil, preferredStyle: style)
 

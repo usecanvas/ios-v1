@@ -9,6 +9,7 @@
 import UIKit
 import CanvasText
 import Camo
+import CanvasNative
 
 final class ImagesController {
 

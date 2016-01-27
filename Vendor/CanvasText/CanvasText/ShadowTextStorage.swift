@@ -45,7 +45,7 @@ public class ShadowTextStorage: NSTextStorage {
 	}
 
 	/// Hidden regions from the backing text
-	private private(set) var shadows = [Shadow]()
+	private private(set) var shadows = [NSRange]()
 
 	public weak var selectionDelegate: ShadowTextStorageSelectionDelegate?
 
@@ -107,7 +107,7 @@ public class ShadowTextStorage: NSTextStorage {
 	public func backingRangeToDisplayRange(backingRange: NSRange) -> NSRange {
 		var displayRange = backingRange
 
-		for range in shadows.map({ $0.backingRange }) {
+		for range in shadows {
 			if range.location > backingRange.location {
 				break
 			}
@@ -121,7 +121,7 @@ public class ShadowTextStorage: NSTextStorage {
 	public func displayRangeToBackingRange(displayRange: NSRange) -> NSRange {
 		var backingRange = displayRange
 
-		for range in shadows.map({ $0.backingRange }) {
+		for range in shadows {
 			// Shadow starts after backing range
 			if range.location > backingRange.location {
 
@@ -149,7 +149,7 @@ public class ShadowTextStorage: NSTextStorage {
 	// MARK: - Processing
 
 	/// Calculate the hidden ranges for a given backing text.
-	public func shadowsForBackingText(backingText: String) -> [Shadow] {
+	public func shadowsForBackingText(backingText: String) -> [NSRange] {
 		return []
 	}
 
@@ -173,7 +173,7 @@ public class ShadowTextStorage: NSTextStorage {
 		// Calculate display text
 		var displayText = backingText as NSString
 		var offset = 0
-		for r in shadows.map({ $0.backingRange }) {
+		for r in shadows {
 			var range = r
 			range.location -= offset
 			displayText = displayText.stringByReplacingCharactersInRange(range, withString: "")

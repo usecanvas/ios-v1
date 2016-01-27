@@ -8,6 +8,7 @@
 
 import UIKit
 import CanvasText
+import CanvasNative
 
 extension CanvasTextView: NSLayoutManagerDelegate {
 	func updateFolding() {

@@ -19,6 +19,8 @@
 	public typealias UserInterfaceSizeClass = UIUserInterfaceSizeClass
 #endif
 
+import CanvasNative
+
 public let FoldableAttributeName = "Canvas.Foldable"
 
 public typealias Attributes = [String: AnyObject]
