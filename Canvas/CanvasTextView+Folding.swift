@@ -50,6 +50,7 @@ extension CanvasTextView {
 extension CanvasTextView: FoldingLayoutManagerDelegate {
 	func layoutManager(layoutManager: NSLayoutManager, didInvalidateGlyphs glyphRange: NSRange) {
 		updatingFolding = true
+		layoutManager.ensureLayoutForTextContainer(textContainer)
 	}
 
 	func layoutManager(layoutManager: NSLayoutManager, didCompleteLayoutForTextContainer textContainer: NSTextContainer) {
