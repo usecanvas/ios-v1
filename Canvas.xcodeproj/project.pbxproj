@@ -43,6 +43,8 @@
 		2135980A1C1A22FC00200825 /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 213598041C1A22FC00200825 /* CommonCrypto.framework */; };
 		2135980C1C1A22FC00200825 /* Crypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 213598061C1A22FC00200825 /* Crypto.framework */; };
 		213791C51C1790E2000FACCC /* CanvasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213791C41C1790E2000FACCC /* CanvasesViewController.swift */; };
+		213FE3291C5973E400D9DFC2 /* CanvasNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 213FE3201C5973D000D9DFC2 /* CanvasNative.framework */; };
+		213FE32A1C5973EC00D9DFC2 /* CanvasNative.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 213FE3201C5973D000D9DFC2 /* CanvasNative.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2144FB361C503DC500B0CB52 /* CanvasTextView+Folding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2144FB351C503DC500B0CB52 /* CanvasTextView+Folding.swift */; };
 		2144FB371C503DC500B0CB52 /* CanvasTextView+Folding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2144FB351C503DC500B0CB52 /* CanvasTextView+Folding.swift */; };
 		214F21111C4494A9004832F4 /* OrganizationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D30D1BF561400018F255 /* OrganizationsViewController.swift */; };
@@ -121,7 +123,6 @@
 		21A8FA5B1BFD30790097FCC6 /* WebActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA5A1BFD30790097FCC6 /* WebActivity.swift */; };
 		21A8FA5D1BFD33DB0097FCC6 /* ChromeActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA5C1BFD33DB0097FCC6 /* ChromeActivity.swift */; };
 		21A8FA5F1BFD33EA0097FCC6 /* SafariActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA5E1BFD33EA0097FCC6 /* SafariActivity.swift */; };
-		21B1CFD01C594F2900CC8E7D /* CanvasNative.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1CFCF1C594F2900CC8E7D /* CanvasNative.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21B742C81BFF991600FF293C /* NumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742C71BFF991600FF293C /* NumberView.swift */; };
 		21B742D91BFFCFDB00FF293C /* BlockquoteBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742D81BFFCFDB00FF293C /* BlockquoteBorderView.swift */; };
 		21B742E01C03BD9000FF293C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B742DF1C03BD9000FF293C /* TableViewController.swift */; };
@@ -218,6 +219,41 @@
 			remoteGlobalIDString = 21FB6ABA1BF53C9D003C82BB;
 			remoteInfo = "CanvasKit-iOS";
 		};
+		213FE31F1C5973D000D9DFC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 213FE3181C5973D000D9DFC2 /* CanvasNative.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 215BAB2D1C52B0C400118C8C;
+			remoteInfo = "CanvasNative-iOS";
+		};
+		213FE3211C5973D000D9DFC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 213FE3181C5973D000D9DFC2 /* CanvasNative.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 215BAB371C52B0C400118C8C;
+			remoteInfo = "CanvasNativeTests-iOS";
+		};
+		213FE3231C5973D000D9DFC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 213FE3181C5973D000D9DFC2 /* CanvasNative.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 215BAB4C1C52B18B00118C8C;
+			remoteInfo = "CanvasNative-OSX";
+		};
+		213FE3251C5973D000D9DFC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 213FE3181C5973D000D9DFC2 /* CanvasNative.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 215BAB551C52B18C00118C8C;
+			remoteInfo = "CanvasNativeTests-OSX";
+		};
+		213FE3271C5973DF00D9DFC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 213FE3181C5973D000D9DFC2 /* CanvasNative.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 215BAB2C1C52B0C400118C8C;
+			remoteInfo = "CanvasNative-iOS";
+		};
 		214F210D1C4494A9004832F4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 212404D71C233E2500BF0C91 /* CanvasText.xcodeproj */;
@@ -253,9 +289,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				213FE32A1C5973EC00D9DFC2 /* CanvasNative.framework in Embed Frameworks */,
 				212404FC1C233E5200BF0C91 /* CanvasText.framework in Embed Frameworks */,
 				212404FB1C233E4D00BF0C91 /* CanvasKit.framework in Embed Frameworks */,
-				21B1CFD01C594F2900CC8E7D /* CanvasNative.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,6 +333,7 @@
 		213598061C1A22FC00200825 /* Crypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crypto.framework; path = Carthage/Build/iOS/Crypto.framework; sourceTree = "<group>"; };
 		213598071C1A22FC00200825 /* Crypto.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Crypto.framework.dSYM; path = Carthage/Build/iOS/Crypto.framework.dSYM; sourceTree = "<group>"; };
 		213791C41C1790E2000FACCC /* CanvasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasesViewController.swift; sourceTree = "<group>"; };
+		213FE3181C5973D000D9DFC2 /* CanvasNative.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasNative.xcodeproj; path = Vendor/CanvasNative/CanvasNative.xcodeproj; sourceTree = "<group>"; };
 		2144FB351C503DC500B0CB52 /* CanvasTextView+Folding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CanvasTextView+Folding.swift"; sourceTree = "<group>"; };
 		214F21581C4494A9004832F4 /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		215642111C06B46E00685847 /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mixpanel.framework; path = Carthage/Build/iOS/Mixpanel.framework; sourceTree = "<group>"; };
@@ -369,6 +406,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				213FE3291C5973E400D9DFC2 /* CanvasNative.framework in Frameworks */,
 				212404F91C233E4200BF0C91 /* CanvasKit.framework in Frameworks */,
 				210566EF1C3B1DBC00F4387A /* ISO8601.framework in Frameworks */,
 				212404FA1C233E4200BF0C91 /* CanvasText.framework in Frameworks */,
@@ -464,6 +502,17 @@
 			name = Forms;
 			sourceTree = "<group>";
 		};
+		213FE3191C5973D000D9DFC2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				213FE3201C5973D000D9DFC2 /* CanvasNative.framework */,
+				213FE3221C5973D000D9DFC2 /* CanvasNativeTests.xctest */,
+				213FE3241C5973D000D9DFC2 /* CanvasNative.framework */,
+				213FE3261C5973D000D9DFC2 /* CanvasNativeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		215642261C06C3E900685847 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -532,8 +581,9 @@
 			isa = PBXGroup;
 			children = (
 				21F10F4C1BF138750035057D /* Canvas */,
-				212404D71C233E2500BF0C91 /* CanvasText.xcodeproj */,
 				212404E61C233E2D00BF0C91 /* CanvasKit.xcodeproj */,
+				213FE3181C5973D000D9DFC2 /* CanvasNative.xcodeproj */,
+				212404D71C233E2500BF0C91 /* CanvasText.xcodeproj */,
 				21AE3F391C0423CE00AE5DDC /* Frameworks */,
 				21F10F4B1BF138750035057D /* Products */,
 			);
@@ -662,6 +712,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				213FE3281C5973DF00D9DFC2 /* PBXTargetDependency */,
 				212404F61C233E3C00BF0C91 /* PBXTargetDependency */,
 				212404F81C233E3C00BF0C91 /* PBXTargetDependency */,
 			);
@@ -726,6 +777,10 @@
 				{
 					ProductGroup = 212404E71C233E2D00BF0C91 /* Products */;
 					ProjectRef = 212404E61C233E2D00BF0C91 /* CanvasKit.xcodeproj */;
+				},
+				{
+					ProductGroup = 213FE3191C5973D000D9DFC2 /* Products */;
+					ProjectRef = 213FE3181C5973D000D9DFC2 /* CanvasNative.xcodeproj */;
 				},
 				{
 					ProductGroup = 212404D81C233E2500BF0C91 /* Products */;
@@ -795,6 +850,34 @@
 			fileType = wrapper.cfbundle;
 			path = "CanvasKit-OSXTests.xctest";
 			remoteRef = 212404F31C233E2D00BF0C91 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		213FE3201C5973D000D9DFC2 /* CanvasNative.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CanvasNative.framework;
+			remoteRef = 213FE31F1C5973D000D9DFC2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		213FE3221C5973D000D9DFC2 /* CanvasNativeTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CanvasNativeTests.xctest;
+			remoteRef = 213FE3211C5973D000D9DFC2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		213FE3241C5973D000D9DFC2 /* CanvasNative.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CanvasNative.framework;
+			remoteRef = 213FE3231C5973D000D9DFC2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		213FE3261C5973D000D9DFC2 /* CanvasNativeTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CanvasNativeTests.xctest;
+			remoteRef = 213FE3251C5973D000D9DFC2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1031,6 +1114,11 @@
 			isa = PBXTargetDependency;
 			name = "CanvasKit-iOS";
 			targetProxy = 212404F71C233E3C00BF0C91 /* PBXContainerItemProxy */;
+		};
+		213FE3281C5973DF00D9DFC2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CanvasNative-iOS";
+			targetProxy = 213FE3271C5973DF00D9DFC2 /* PBXContainerItemProxy */;
 		};
 		214F210C1C4494A9004832F4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

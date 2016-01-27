@@ -25,8 +25,6 @@
 		21A8FA931BFE7B870097FCC6 /* TransportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA0D1BFCF4E90097FCC6 /* TransportController.swift */; };
 		21A8FA981BFE7BBA0097FCC6 /* CanvasText.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A8FA971BFE7BBA0097FCC6 /* CanvasText.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21A8FA991BFE7BBE0097FCC6 /* CanvasText.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A8FA971BFE7BBA0097FCC6 /* CanvasText.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		21B1CFC81C594E4B00CC8E7D /* CanvasNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1CFBF1C594E3B00CC8E7D /* CanvasNative.framework */; };
-		21B1CFCB1C594E5400CC8E7D /* CanvasNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1CFC31C594E3B00CC8E7D /* CanvasNative.framework */; };
 		21B1CFE31C596C5400CC8E7D /* FoldingLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B1CFE21C596C5400CC8E7D /* FoldingLayoutManager.swift */; };
 		21B1CFE41C596C5400CC8E7D /* FoldingLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B1CFE21C596C5400CC8E7D /* FoldingLayoutManager.swift */; };
 		21B1CFE81C596C7000CC8E7D /* FoldingLayoutManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B1CFE71C596C7000CC8E7D /* FoldingLayoutManagerTests.swift */; };
@@ -62,48 +60,6 @@
 			remoteGlobalIDString = 21A8FA781BFE7B5A0097FCC6;
 			remoteInfo = CanvasText;
 		};
-		21B1CFBE1C594E3B00CC8E7D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21B1CF7D1C594E3300CC8E7D /* CanvasNative.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 215BAB2D1C52B0C400118C8C;
-			remoteInfo = "CanvasNative-iOS";
-		};
-		21B1CFC01C594E3B00CC8E7D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21B1CF7D1C594E3300CC8E7D /* CanvasNative.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 215BAB371C52B0C400118C8C;
-			remoteInfo = "CanvasNativeTests-iOS";
-		};
-		21B1CFC21C594E3B00CC8E7D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21B1CF7D1C594E3300CC8E7D /* CanvasNative.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 215BAB4C1C52B18B00118C8C;
-			remoteInfo = "CanvasNative-OSX";
-		};
-		21B1CFC41C594E3B00CC8E7D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21B1CF7D1C594E3300CC8E7D /* CanvasNative.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 215BAB551C52B18C00118C8C;
-			remoteInfo = "CanvasNativeTests-OSX";
-		};
-		21B1CFC61C594E4700CC8E7D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21B1CF7D1C594E3300CC8E7D /* CanvasNative.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 215BAB2C1C52B0C400118C8C;
-			remoteInfo = "CanvasNative-iOS";
-		};
-		21B1CFC91C594E4F00CC8E7D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21B1CF7D1C594E3300CC8E7D /* CanvasNative.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 215BAB4B1C52B18B00118C8C;
-			remoteInfo = "CanvasNative-OSX";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -121,7 +77,6 @@
 		21A8FA791BFE7B5A0097FCC6 /* CanvasText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CanvasText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A8FA821BFE7B5A0097FCC6 /* CanvasTextTests-OSX.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CanvasTextTests-OSX.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A8FA971BFE7BBA0097FCC6 /* CanvasText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasText.h; sourceTree = "<group>"; };
-		21B1CF7D1C594E3300CC8E7D /* CanvasNative.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasNative.xcodeproj; path = CanvasNative/CanvasNative.xcodeproj; sourceTree = "<group>"; };
 		21B1CFE21C596C5400CC8E7D /* FoldingLayoutManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoldingLayoutManager.swift; sourceTree = "<group>"; };
 		21B1CFE71C596C7000CC8E7D /* FoldingLayoutManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoldingLayoutManagerTests.swift; sourceTree = "<group>"; };
 		21B742EE1C03C6B900FF293C /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
@@ -138,7 +93,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21B1CFC81C594E4B00CC8E7D /* CanvasNative.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,7 +108,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21B1CFCB1C594E5400CC8E7D /* CanvasNative.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,7 +126,6 @@
 			isa = PBXGroup;
 			children = (
 				21A8F9F21BFCF4BD0097FCC6 /* CanvasText */,
-				21B1CF5F1C594E3300CC8E7D /* Vendor */,
 				21A8FA191BFCF4F80097FCC6 /* Tests */,
 				21A8F9F11BFCF4BD0097FCC6 /* Products */,
 			);
@@ -226,25 +178,6 @@
 			path = CanvasText/Tests;
 			sourceTree = "<group>";
 		};
-		21B1CF5F1C594E3300CC8E7D /* Vendor */ = {
-			isa = PBXGroup;
-			children = (
-				21B1CF7D1C594E3300CC8E7D /* CanvasNative.xcodeproj */,
-			);
-			path = Vendor;
-			sourceTree = "<group>";
-		};
-		21B1CFB81C594E3B00CC8E7D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				21B1CFBF1C594E3B00CC8E7D /* CanvasNative.framework */,
-				21B1CFC11C594E3B00CC8E7D /* CanvasNativeTests.xctest */,
-				21B1CFC31C594E3B00CC8E7D /* CanvasNative.framework */,
-				21B1CFC51C594E3B00CC8E7D /* CanvasNativeTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		21B742F41C03C6F600FF293C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,8 +200,8 @@
 		21B742F91C03CA2E00FF293C /* Text Storage */ = {
 			isa = PBXGroup;
 			children = (
-				21B742F61C03C71600FF293C /* CanvasTextStorage.swift */,
 				21CAFBD01C056FC100B9A3B5 /* ShadowTextStorage.swift */,
+				21B742F61C03C71600FF293C /* CanvasTextStorage.swift */,
 				21B1CFE21C596C5400CC8E7D /* FoldingLayoutManager.swift */,
 			);
 			name = "Text Storage";
@@ -317,7 +250,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				21B1CFC71C594E4700CC8E7D /* PBXTargetDependency */,
 			);
 			name = "CanvasText-iOS";
 			productName = CanvasText;
@@ -354,7 +286,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				21B1CFCA1C594E4F00CC8E7D /* PBXTargetDependency */,
 			);
 			name = "CanvasText-OSX";
 			productName = CanvasText;
@@ -413,12 +344,6 @@
 			mainGroup = 21A8F9E61BFCF4BD0097FCC6;
 			productRefGroup = 21A8F9F11BFCF4BD0097FCC6 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 21B1CFB81C594E3B00CC8E7D /* Products */;
-					ProjectRef = 21B1CF7D1C594E3300CC8E7D /* CanvasNative.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				21A8F9EF1BFCF4BD0097FCC6 /* CanvasText-iOS */,
@@ -428,37 +353,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		21B1CFBF1C594E3B00CC8E7D /* CanvasNative.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CanvasNative.framework;
-			remoteRef = 21B1CFBE1C594E3B00CC8E7D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21B1CFC11C594E3B00CC8E7D /* CanvasNativeTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = CanvasNativeTests.xctest;
-			remoteRef = 21B1CFC01C594E3B00CC8E7D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21B1CFC31C594E3B00CC8E7D /* CanvasNative.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CanvasNative.framework;
-			remoteRef = 21B1CFC21C594E3B00CC8E7D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21B1CFC51C594E3B00CC8E7D /* CanvasNativeTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = CanvasNativeTests.xctest;
-			remoteRef = 21B1CFC41C594E3B00CC8E7D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		21A8F9EE1BFCF4BD0097FCC6 /* Resources */ = {
@@ -564,16 +458,6 @@
 			isa = PBXTargetDependency;
 			target = 21A8FA781BFE7B5A0097FCC6 /* CanvasText-OSX */;
 			targetProxy = 21A8FA841BFE7B5A0097FCC6 /* PBXContainerItemProxy */;
-		};
-		21B1CFC71C594E4700CC8E7D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "CanvasNative-iOS";
-			targetProxy = 21B1CFC61C594E4700CC8E7D /* PBXContainerItemProxy */;
-		};
-		21B1CFCA1C594E4F00CC8E7D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "CanvasNative-OSX";
-			targetProxy = 21B1CFC91C594E4F00CC8E7D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
