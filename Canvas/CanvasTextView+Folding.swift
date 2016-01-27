@@ -17,7 +17,6 @@ extension CanvasTextView {
 	func updateFolding() {
 		guard let layoutManager = textContainer.layoutManager as? FoldingLayoutManager else { return }
 		layoutManager.unfoldedRange = unfoldableRange(displaySelection: selectedRange)
-		updatedFolding = true
 	}
 
 
