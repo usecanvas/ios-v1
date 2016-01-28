@@ -11,6 +11,7 @@ import WebKit
 protocol TransportControllerDelegate: class {
 	func transportController(controller: TransportController, didReceiveSnapshot text: String)
 	func transportController(controller: TransportController, didReceiveOperation operation: Operation)
+	func transportController(controller: TransportController, didReceiveWebErrorMessage errorMessage: String, lineNumber: UInt?, columnNumber: UInt?)
 }
 
 
@@ -74,19 +75,11 @@ class TransportController: NSObject {
 
 	func reload() {
 		let bundle = NSBundle(forClass: TransportController.self)
-		guard let sharePath = bundle.pathForResource("share", ofType: "js"),
-			shareJS = try? String(contentsOfFile: sharePath, encoding: NSUTF8StringEncoding),
-			editorPath = bundle.pathForResource("editor", ofType: "js"),
-			editorJS = try? String(contentsOfFile: editorPath, encoding: NSUTF8StringEncoding),
-			rollbarPath = bundle.pathForResource("rollbar", ofType: "js"),
-			rollbarJS = try? String(contentsOfFile: rollbarPath, encoding: NSUTF8StringEncoding),
-			templatePath = bundle.pathForResource("template", ofType: "html"),
-			template = try? String(contentsOfFile: templatePath, encoding: NSUTF8StringEncoding)
+		guard let editorPath = bundle.pathForResource("editor", ofType: "html"),
+			editor = try? String(contentsOfFile: editorPath, encoding: NSUTF8StringEncoding)
 		else { return }
 
-		let javaScript = rollbarJS + shareJS + editorJS
-		let html = NSString(format: template, javaScript) as String
-		webView.loadHTMLString(html, baseURL: NSURL(string: "https://ios.usecanvas.com/")!)
+		webView.loadHTMLString(editor, baseURL: NSURL(string: "https://ios.usecanvas.com/")!)
 	}
 	
 	
@@ -126,6 +119,7 @@ extension TransportController: WKScriptMessageHandler {
 			delegate?.transportController(self, didReceiveSnapshot: snapshot)
 		} else if let errorMessage = dictionary["error"] as? String {
 			print("[TransportController] Error: \(errorMessage)")
+			delegate?.transportController(self, didReceiveWebErrorMessage: errorMessage, lineNumber: dictionary["lineNumber"] as? UInt, columnNumber: dictionary["columnNumber"] as? UInt)
 			reload()
 		} else {
 			print("[TransportController] Unknown message: \(dictionary)")

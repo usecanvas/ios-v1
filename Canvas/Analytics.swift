@@ -9,6 +9,8 @@
 import Mixpanel
 import CanvasKit
 
+private let mixpanelToken = "447ae99e6cff699db67f168818c1dbf9"
+
 struct Analytics {
 
 	// MARK: - Types
@@ -42,7 +44,7 @@ struct Analytics {
 	// MARK: - Properties
 
 	private static let mixpanel: Mixpanel = {
-		var mp = Mixpanel(token: "447ae99e6cff699db67f168818c1dbf9")
+		var mp = Mixpanel(token: mixpanelToken)
 
 		let uniqueIdentifier: String
 		let key = "Identifier"
@@ -67,12 +69,18 @@ struct Analytics {
 	// MARK: - Tracking
 
 	static func track(event: Event) {
-		var params = event.parameters ?? [:]
+		// Params
+		let params = event.parameters ?? [:]
+		var mixpanelParams = params
+
+		// Current user
 		if let account = AccountController.sharedController.currentAccount {
-			params["id"] = account.user.ID
-			params["$username"] = account.user.username
+			mixpanelParams["id"] = account.user.ID
+			mixpanelParams["$username"] = account.user.username
 		}
-		mixpanel.track(event.name, parameters: params)
+
+		// Mixpanel
+		mixpanel.track(event.name, parameters: mixpanelParams)
 	}
 }
 
