@@ -119,6 +119,7 @@ final class EditorViewController: UIViewController, Accountable {
 	override func viewWillDisappear(animated: Bool) {
 		super.viewWillDisappear(animated)
 		UIApplication.sharedApplication().idleTimerDisabled = false
+		textView.resignFirstResponder()
 	}
 
 	override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
