@@ -78,13 +78,11 @@ class TransportController: NSObject {
 			shareJS = try? String(contentsOfFile: sharePath, encoding: NSUTF8StringEncoding),
 			editorPath = bundle.pathForResource("editor", ofType: "js"),
 			editorJS = try? String(contentsOfFile: editorPath, encoding: NSUTF8StringEncoding),
-			rollbarPath = bundle.pathForResource("rollbar", ofType: "js"),
-			rollbarJS = try? String(contentsOfFile: rollbarPath, encoding: NSUTF8StringEncoding),
 			templatePath = bundle.pathForResource("template", ofType: "html"),
 			template = try? String(contentsOfFile: templatePath, encoding: NSUTF8StringEncoding)
 		else { return }
 
-		let javaScript = rollbarJS + shareJS + editorJS
+		let javaScript = [shareJS, editorJS].joinWithSeparator("\n")
 		let html = NSString(format: template, javaScript) as String
 		webView.loadHTMLString(html, baseURL: NSURL(string: "https://ios.usecanvas.com/")!)
 	}
