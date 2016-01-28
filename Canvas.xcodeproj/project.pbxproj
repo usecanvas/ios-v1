@@ -113,6 +113,8 @@
 		216343F61C0D43BB00916A8B /* CodeBlockBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216343F51C0D43BB00916A8B /* CodeBlockBackgroundView.swift */; };
 		217381411C45E400002F87C5 /* OrganizationAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217381401C45E400002F87C5 /* OrganizationAvatarView.swift */; };
 		217381421C45E400002F87C5 /* OrganizationAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217381401C45E400002F87C5 /* OrganizationAvatarView.swift */; };
+		2179EA131C5A7FE50067A6FA /* TickingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2179EA121C5A7FE50067A6FA /* TickingLabel.swift */; };
+		2179EA1D1C5A7FEB0067A6FA /* TickingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2179EA121C5A7FE50067A6FA /* TickingLabel.swift */; };
 		219334051C0FC6DD000A974B /* Canvas+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219334041C0FC6DD000A974B /* Canvas+Canvas.swift */; };
 		219334131C0FD91D000A974B /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219334121C0FD91D000A974B /* SearchController.swift */; };
 		219DAC8A1C0F819700F39A6F /* NSDate+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DAC891C0F819700F39A6F /* NSDate+Canvas.swift */; };
@@ -338,6 +340,7 @@
 		215642281C06C40000685847 /* ImagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesController.swift; sourceTree = "<group>"; };
 		216343F51C0D43BB00916A8B /* CodeBlockBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeBlockBackgroundView.swift; sourceTree = "<group>"; };
 		217381401C45E400002F87C5 /* OrganizationAvatarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationAvatarView.swift; sourceTree = "<group>"; };
+		2179EA121C5A7FE50067A6FA /* TickingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickingLabel.swift; sourceTree = "<group>"; };
 		219334041C0FC6DD000A974B /* Canvas+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Canvas+Canvas.swift"; sourceTree = "<group>"; };
 		219334121C0FD91D000A974B /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		219DAC891C0F819700F39A6F /* NSDate+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Canvas.swift"; sourceTree = "<group>"; };
@@ -450,6 +453,7 @@
 				217381401C45E400002F87C5 /* OrganizationAvatarView.swift */,
 				210BB9541C484E3300ECADC0 /* TintableView.swift */,
 				210BB9511C484E1600ECADC0 /* CanvasIconView.swift */,
+				2179EA121C5A7FE50067A6FA /* TickingLabel.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1020,6 +1024,7 @@
 				214F21301C4494A9004832F4 /* LightTheme.swift in Sources */,
 				214F21321C4494A9004832F4 /* ModelsViewController.swift in Sources */,
 				214F21331C4494A9004832F4 /* OrganizationCell.swift in Sources */,
+				2179EA1D1C5A7FEB0067A6FA /* TickingLabel.swift in Sources */,
 				214F21341C4494A9004832F4 /* Font.swift in Sources */,
 				214F21351C4494A9004832F4 /* OrganizationCanvasesViewController.swift in Sources */,
 				214F21361C4494A9004832F4 /* Configuration.swift in Sources */,
@@ -1077,6 +1082,7 @@
 				210960D61C091F7800EB8F84 /* LightTheme.swift in Sources */,
 				21B742ED1C03BDF400FF293C /* ModelsViewController.swift in Sources */,
 				21A8FA3D1BFD04F20097FCC6 /* OrganizationCell.swift in Sources */,
+				2179EA131C5A7FE50067A6FA /* TickingLabel.swift in Sources */,
 				210960D41C091CAE00EB8F84 /* Font.swift in Sources */,
 				2129D3121BF568AB0018F255 /* OrganizationCanvasesViewController.swift in Sources */,
 				219DAC921C0F98BD00F39A6F /* Configuration.swift in Sources */,

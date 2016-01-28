@@ -42,13 +42,13 @@ final class CanvasCell: UITableViewCell {
 		return label
 	}()
 
-	let timeLabel: UILabel = {
-		let label = UILabel()
+	let timeLabel: TickingLabel = {
+		let label = TickingLabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.backgroundColor = Color.white
 		label.textColor = Color.gray
 		label.highlightedTextColor = Color.white
-		label.font = Font.sansSerif(size: .Small)
+		label.font = Font.sansSerif(size: .Small).fontWithMonospaceNumbers
 		label.textAlignment = .Right
 		return label
 	}()
@@ -74,7 +74,7 @@ final class CanvasCell: UITableViewCell {
 				summaryLabel.textColor = Color.gray
 			}
 
-			timeLabel.text = canvas.updatedAt.briefTimeAgoInWords
+			timeLabel.date = canvas.updatedAt
 		}
 	}
 	
