@@ -1,3 +1,6 @@
+// Sentry
+Raven.config('https://2a02eec9c50745bea7b5f303cfacdc3e@app.getsentry.com/65179').install()
+
 var Canvas = {};
 window.Canvas = Canvas;
 
