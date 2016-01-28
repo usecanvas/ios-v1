@@ -18,6 +18,8 @@ end
 # TODO: This could be a lot more robust, but should at least help for now.
 desc 'Check for required tools.'
 task :check_tools do
+  next if ENV['SKIP_TOOLS_CHECK']
+
   # Check for Xcode
   unless path = `xcode-select -p`.chomp
     fail "Xcode is not installed. Please install Xcode #{XCODE_SHORT_VERSION} from https://developer.apple.com/xcode/download"
