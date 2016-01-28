@@ -5,6 +5,8 @@
 	<key>com.apple.developer.associated-domains</key>
 	<array>
 		<string>webcredentials:usecanvas.com</string>
+		<string>activitycontinuation:usecanvas.com</string>
+		<string>applinks:usecanvas.com</string>
 	</array>
 	<key>com.apple.security.application-groups</key>
 	<array>

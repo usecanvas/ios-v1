@@ -90,4 +90,13 @@ extension AppDelegate: UIApplicationDelegate {
 			completionHandler(true)
 		}
 	}
+
+	func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
+		if userActivity.activityType == NSUserActivityTypeBrowsingWeb, let URL = userActivity.webpageURL {
+			print("Handoff: \(URL)")
+			return false
+		}
+
+		return true
+	}
 }
