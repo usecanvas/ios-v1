@@ -9,6 +9,7 @@
 import UIKit
 import CanvasKit
 import CanvasText
+import CanvasNative
 
 final class EditorViewController: UIViewController, Accountable {
 	
@@ -90,6 +91,10 @@ final class EditorViewController: UIViewController, Accountable {
 			textView.topAnchor.constraintEqualToAnchor(view.topAnchor),
 			textView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor)
 		])
+
+		if traitCollection.forceTouchCapability == .Available {
+			registerForPreviewingWithDelegate(self, sourceView: textView)
+		}
 	}
 
 	override func viewDidLayoutSubviews() {
@@ -212,3 +217,32 @@ extension EditorViewController: TintableEnvironment {
 	}
 }
 
+
+extension EditorViewController: UIViewControllerPreviewingDelegate {
+	func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+		guard let textRange = textView.characterRangeAtPoint(location) else { return nil }
+
+		let range = NSRange(
+			location: textView.offsetFromPosition(textView.beginningOfDocument, toPosition: textRange.start),
+			length: textView.offsetFromPosition(textRange.start, toPosition: textRange.end)
+		)
+
+		let nodes = textStorage.nodesInBackingRange(textStorage.displayRangeToBackingRange(range))
+
+		guard let index = nodes.indexOf({ $0 is Link }) else { return nil }
+
+		let link = nodes[index] as! Link
+		let string = (textStorage.backingText as NSString).substringWithRange(link.URLRange)
+		guard let URL = NSURL(string: string) else { return nil }
+
+		previewingContext.sourceRect = textView.firstRectForRange(textRange)
+
+		return WebViewController(URL: URL)
+	}
+
+	/// Present the view controller for the "Pop" action.
+	func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+		// Reuse the "Peek" view controller for presentation.
+		presentViewController(viewControllerToCommit, animated: false, completion: nil)
+	}
+}
