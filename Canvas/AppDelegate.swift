@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Raven
+
+private let sentryDSN = "https://790a7fad533f47eaa666a99820de5d04:db580e425bd54c39bf649f3551408901@app.getsentry.com/65177"
 
 @UIApplicationMain final class AppDelegate: UIResponder {
 
@@ -41,6 +44,13 @@ import UIKit
 
 extension AppDelegate: UIApplicationDelegate {
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+		#if DEBUG
+			RavenClient.clientWithDSN("")
+		#else
+			RavenClient.clientWithDSN(sentryDSN)
+			RavenClient.sharedClient?.setupExceptionHandler()
+		#endif
+
 		// Analytics
 		Analytics.track(.LaunchedApp)
 

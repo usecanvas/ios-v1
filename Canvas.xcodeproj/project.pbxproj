@@ -16,6 +16,7 @@
 		210BB9531C484E1600ECADC0 /* CanvasIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210BB9511C484E1600ECADC0 /* CanvasIconView.swift */; };
 		210BB9551C484E3300ECADC0 /* TintableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210BB9541C484E3300ECADC0 /* TintableView.swift */; };
 		210BB9561C484E3300ECADC0 /* TintableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210BB9541C484E3300ECADC0 /* TintableView.swift */; };
+		210CEF691C599309003B4421 /* Raven.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210CEF681C599309003B4421 /* Raven.framework */; };
 		2114833C1C0D68530072F94B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2114833A1C0D68530072F94B /* Main.storyboard */; };
 		212404F91C233E4200BF0C91 /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212404EE1C233E2D00BF0C91 /* CanvasKit.framework */; };
 		212404FA1C233E4200BF0C91 /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212404DF1C233E2500BF0C91 /* CanvasText.framework */; };
@@ -300,14 +301,13 @@
 
 /* Begin PBXFileReference section */
 		210566EB1C3B1DBC00F4387A /* ISO8601.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ISO8601.framework; path = Vendor/CanvasKit/Carthage/Build/iOS/ISO8601.framework; sourceTree = "<group>"; };
-		210566EC1C3B1DBC00F4387A /* ISO8601.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = ISO8601.framework.dSYM; path = Vendor/CanvasKit/Carthage/Build/iOS/ISO8601.framework.dSYM; sourceTree = "<group>"; };
 		210566ED1C3B1DBC00F4387A /* SSKeychain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SSKeychain.framework; path = Vendor/CanvasKit/Carthage/Build/iOS/SSKeychain.framework; sourceTree = "<group>"; };
-		210566EE1C3B1DBC00F4387A /* SSKeychain.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SSKeychain.framework.dSYM; path = Vendor/CanvasKit/Carthage/Build/iOS/SSKeychain.framework.dSYM; sourceTree = "<group>"; };
 		210960C81C08F24F00EB8F84 /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		210960D31C091CAE00EB8F84 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		210960D51C091F7800EB8F84 /* LightTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
 		210BB9511C484E1600ECADC0 /* CanvasIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasIconView.swift; sourceTree = "<group>"; };
 		210BB9541C484E3300ECADC0 /* TintableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TintableView.swift; sourceTree = "<group>"; };
+		210CEF681C599309003B4421 /* Raven.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Raven.framework; path = Carthage/Build/iOS/Raven.framework; sourceTree = "<group>"; };
 		2114833B1C0D68530072F94B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		212404D71C233E2500BF0C91 /* CanvasText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasText.xcodeproj; path = Vendor/CanvasText/CanvasText.xcodeproj; sourceTree = "<group>"; };
 		212404E61C233E2D00BF0C91 /* CanvasKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasKit.xcodeproj; path = Vendor/CanvasKit/CanvasKit.xcodeproj; sourceTree = "<group>"; };
@@ -315,7 +315,6 @@
 		2124050A1C23564100BF0C91 /* LocalizedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
 		2124480F1C45B225008E41A4 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		2124481A1C45BF75008E41A4 /* GradientView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GradientView.framework; path = Carthage/Build/iOS/GradientView.framework; sourceTree = "<group>"; };
-		2124481B1C45BF75008E41A4 /* GradientView.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = GradientView.framework.dSYM; path = Carthage/Build/iOS/GradientView.framework.dSYM; sourceTree = "<group>"; };
 		212448201C45D7F7008E41A4 /* Organization+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Organization+Canvas.swift"; sourceTree = "<group>"; };
 		212448231C45D963008E41A4 /* TintableEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TintableEnvironment.swift; sourceTree = "<group>"; };
 		2129D3091BF55C340018F255 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -327,17 +326,13 @@
 		2134FADE1BFC09E300AE93CC /* BulletView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulletView.swift; sourceTree = "<group>"; };
 		2134FAE01BFC0A6A00AE93CC /* CanvasTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasTextView.swift; sourceTree = "<group>"; };
 		213598021C1A22FC00200825 /* Camo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Camo.framework; path = Carthage/Build/iOS/Camo.framework; sourceTree = "<group>"; };
-		213598031C1A22FC00200825 /* Camo.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Camo.framework.dSYM; path = Carthage/Build/iOS/Camo.framework.dSYM; sourceTree = "<group>"; };
 		213598041C1A22FC00200825 /* CommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonCrypto.framework; path = Carthage/Build/iOS/CommonCrypto.framework; sourceTree = "<group>"; };
-		213598051C1A22FC00200825 /* CommonCrypto.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = CommonCrypto.framework.dSYM; path = Carthage/Build/iOS/CommonCrypto.framework.dSYM; sourceTree = "<group>"; };
 		213598061C1A22FC00200825 /* Crypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crypto.framework; path = Carthage/Build/iOS/Crypto.framework; sourceTree = "<group>"; };
-		213598071C1A22FC00200825 /* Crypto.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Crypto.framework.dSYM; path = Carthage/Build/iOS/Crypto.framework.dSYM; sourceTree = "<group>"; };
 		213791C41C1790E2000FACCC /* CanvasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasesViewController.swift; sourceTree = "<group>"; };
 		213FE3181C5973D000D9DFC2 /* CanvasNative.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasNative.xcodeproj; path = Vendor/CanvasNative/CanvasNative.xcodeproj; sourceTree = "<group>"; };
 		2144FB351C503DC500B0CB52 /* CanvasTextView+Folding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CanvasTextView+Folding.swift"; sourceTree = "<group>"; };
 		214F21581C4494A9004832F4 /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		215642111C06B46E00685847 /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mixpanel.framework; path = Carthage/Build/iOS/Mixpanel.framework; sourceTree = "<group>"; };
-		215642121C06B46E00685847 /* Mixpanel.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Mixpanel.framework.dSYM; path = Carthage/Build/iOS/Mixpanel.framework.dSYM; sourceTree = "<group>"; };
 		2156421E1C06B4ED00685847 /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		215642211C06BBE600685847 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		215642281C06C40000685847 /* ImagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesController.swift; sourceTree = "<group>"; };
@@ -355,9 +350,7 @@
 		21A8FA5E1BFD33EA0097FCC6 /* SafariActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafariActivity.swift; sourceTree = "<group>"; };
 		21A8FA621BFD3E0F0097FCC6 /* Canvas.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Canvas.entitlements; sourceTree = "<group>"; };
 		21AE3F411C0423E300AE5DDC /* OnePasswordExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OnePasswordExtension.framework; path = Carthage/Build/iOS/OnePasswordExtension.framework; sourceTree = "<group>"; };
-		21AE3F421C0423E300AE5DDC /* OnePasswordExtension.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = OnePasswordExtension.framework.dSYM; path = Carthage/Build/iOS/OnePasswordExtension.framework.dSYM; sourceTree = "<group>"; };
 		21AE3F461C0423E300AE5DDC /* Static.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Static.framework; path = Carthage/Build/iOS/Static.framework; sourceTree = "<group>"; };
-		21AE3F471C0423E300AE5DDC /* Static.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Static.framework.dSYM; path = Carthage/Build/iOS/Static.framework.dSYM; sourceTree = "<group>"; };
 		21B1CFCF1C594F2900CC8E7D /* CanvasNative.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = CanvasNative.framework; path = "/Users/soffes/Library/Developer/Xcode/DerivedData/Canvas-dpadicanchsimnfighzmilqitowi/Build/Products/Debug-iphonesimulator/CanvasNative.framework"; sourceTree = "<absolute>"; };
 		21B742C71BFF991600FF293C /* NumberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberView.swift; sourceTree = "<group>"; };
 		21B742D81BFFCFDB00FF293C /* BlockquoteBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockquoteBorderView.swift; sourceTree = "<group>"; };
@@ -408,6 +401,7 @@
 			files = (
 				213FE3291C5973E400D9DFC2 /* CanvasNative.framework in Frameworks */,
 				212404F91C233E4200BF0C91 /* CanvasKit.framework in Frameworks */,
+				210CEF691C599309003B4421 /* Raven.framework in Frameworks */,
 				210566EF1C3B1DBC00F4387A /* ISO8601.framework in Frameworks */,
 				212404FA1C233E4200BF0C91 /* CanvasText.framework in Frameworks */,
 				213598081C1A22FC00200825 /* Camo.framework in Frameworks */,
@@ -544,25 +538,17 @@
 		21AE3F391C0423CE00AE5DDC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				210CEF681C599309003B4421 /* Raven.framework */,
 				21B1CFCF1C594F2900CC8E7D /* CanvasNative.framework */,
 				2124481A1C45BF75008E41A4 /* GradientView.framework */,
-				2124481B1C45BF75008E41A4 /* GradientView.framework.dSYM */,
 				210566EB1C3B1DBC00F4387A /* ISO8601.framework */,
-				210566EC1C3B1DBC00F4387A /* ISO8601.framework.dSYM */,
 				210566ED1C3B1DBC00F4387A /* SSKeychain.framework */,
-				210566EE1C3B1DBC00F4387A /* SSKeychain.framework.dSYM */,
 				213598021C1A22FC00200825 /* Camo.framework */,
-				213598031C1A22FC00200825 /* Camo.framework.dSYM */,
 				213598041C1A22FC00200825 /* CommonCrypto.framework */,
-				213598051C1A22FC00200825 /* CommonCrypto.framework.dSYM */,
 				213598061C1A22FC00200825 /* Crypto.framework */,
-				213598071C1A22FC00200825 /* Crypto.framework.dSYM */,
 				215642111C06B46E00685847 /* Mixpanel.framework */,
-				215642121C06B46E00685847 /* Mixpanel.framework.dSYM */,
 				21AE3F411C0423E300AE5DDC /* OnePasswordExtension.framework */,
-				21AE3F421C0423E300AE5DDC /* OnePasswordExtension.framework.dSYM */,
 				21AE3F461C0423E300AE5DDC /* Static.framework */,
-				21AE3F471C0423E300AE5DDC /* Static.framework.dSYM */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -977,6 +963,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/CommonCrypto.framework",
 				"$(SRCROOT)/Vendor/CanvasKit/Carthage/Build/iOS/ISO8601.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/GradientView.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Raven.framework",
 			);
 			name = "Embed Carthage Frameworks";
 			outputPaths = (
