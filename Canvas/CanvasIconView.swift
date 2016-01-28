@@ -25,7 +25,7 @@ final class CanvasIconView: TintableView {
 
 			iconView.image = canvas.kind.icon.imageWithRenderingMode(.AlwaysTemplate)
 			globeView.hidden = canvas.readOnly
-			globeView.normalTintColor = canvas.organization.color.UIColor
+			globeView.normalTintColor = canvas.organization.color?.UIColor ?? Color.brand
 		}
 	}
 
@@ -75,7 +75,7 @@ final class CanvasIconView: TintableView {
 	override func tintColorDidChange() {
 		super.tintColorDidChange()
 
-		globeView.tintColor = canvas?.organization.color.UIColor
+		globeView.tintColor = canvas?.organization.color?.UIColor ?? Color.brand
 	}
 
 	override func intrinsicContentSize() -> CGSize {

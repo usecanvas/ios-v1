@@ -213,7 +213,7 @@ extension EditorViewController: UITextViewDelegate {
 
 extension EditorViewController: TintableEnvironment {
 	var preferredTintColor: UIColor {
-		return canvas.organization.color.UIColor
+		return canvas.organization.color?.UIColor ?? Color.brand
 	}
 }
 
