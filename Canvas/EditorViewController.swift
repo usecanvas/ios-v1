@@ -82,11 +82,7 @@ final class EditorViewController: UIViewController, Accountable {
 		textView.delegate = self
 		view.addSubview(textView)
 
-		textStorage.connect(accessToken: account.accessToken, organizationID: canvas.organization.ID, canvasID: canvas.UUID, realtimeURL: realtimeURL) { [weak self] webView in
-			guard let this = self else { return }
-//			this.longhouse.join(this.canvas.ID, identity: this.account.user.email)
-			this.view.addSubview(webView)
-		}
+		textStorage.connect(accessToken: account.accessToken, organizationID: canvas.organization.ID, canvasID: canvas.UUID, realtimeURL: realtimeURL)
 		
 		NSLayoutConstraint.activateConstraints([
 			textView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),

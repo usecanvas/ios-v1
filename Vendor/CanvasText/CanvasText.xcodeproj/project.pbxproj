@@ -7,14 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2108F7FF1C599F8D00FD5BBE /* editor.html in Resources */ = {isa = PBXBuildFile; fileRef = 2108F7FE1C599F8D00FD5BBE /* editor.html */; };
 		210CEF5C1C597E72003B4421 /* CanvasNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210CEF5B1C597E72003B4421 /* CanvasNative.framework */; };
 		210CEF5E1C597E76003B4421 /* CanvasNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210CEF5D1C597E76003B4421 /* CanvasNative.framework */; };
-		212669D51BFF836D00DE996F /* share.js in Resources */ = {isa = PBXBuildFile; fileRef = 212669D41BFF836D00DE996F /* share.js */; };
-		212669D61BFF836D00DE996F /* share.js in Resources */ = {isa = PBXBuildFile; fileRef = 212669D41BFF836D00DE996F /* share.js */; };
-		212669D91BFF83C700DE996F /* editor.js in Resources */ = {isa = PBXBuildFile; fileRef = 212669D71BFF83C700DE996F /* editor.js */; };
-		212669DA1BFF83C700DE996F /* editor.js in Resources */ = {isa = PBXBuildFile; fileRef = 212669D71BFF83C700DE996F /* editor.js */; };
-		212669DB1BFF83C700DE996F /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = 212669D81BFF83C700DE996F /* template.html */; };
-		212669DC1BFF83C700DE996F /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = 212669D81BFF83C700DE996F /* template.html */; };
 		21A8F9FB1BFCF4BD0097FCC6 /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A8F9F01BFCF4BD0097FCC6 /* CanvasText.framework */; };
 		21A8FA131BFCF4E90097FCC6 /* NSRange+CanvasText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA0B1BFCF4E90097FCC6 /* NSRange+CanvasText.swift */; };
 		21A8FA141BFCF4E90097FCC6 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA0C1BFCF4E90097FCC6 /* Operation.swift */; };
@@ -63,11 +58,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2108F7FE1C599F8D00FD5BBE /* editor.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = editor.html; sourceTree = "<group>"; };
 		210CEF5B1C597E72003B4421 /* CanvasNative.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CanvasNative.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/Canvas-dpadicanchsimnfighzmilqitowi/Build/Products/Debug-iphoneos/CanvasNative.framework"; sourceTree = "<group>"; };
 		210CEF5D1C597E76003B4421 /* CanvasNative.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CanvasNative.framework; path = ../CanvasNative/build/Debug/CanvasNative.framework; sourceTree = "<group>"; };
-		212669D41BFF836D00DE996F /* share.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = share.js; sourceTree = "<group>"; };
-		212669D71BFF83C700DE996F /* editor.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = editor.js; sourceTree = "<group>"; };
-		212669D81BFF83C700DE996F /* template.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = template.html; sourceTree = "<group>"; };
 		21A8F9F01BFCF4BD0097FCC6 /* CanvasText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CanvasText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A8F9FA1BFCF4BD0097FCC6 /* CanvasTextTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CanvasTextTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A8FA0B1BFCF4E90097FCC6 /* NSRange+CanvasText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSRange+CanvasText.swift"; sourceTree = "<group>"; };
@@ -125,13 +118,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		21A8F9E61BFCF4BD0097FCC6 = {
+		2108F8001C59A29400FD5BBE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				210CEF5D1C597E76003B4421 /* CanvasNative.framework */,
 				210CEF5B1C597E72003B4421 /* CanvasNative.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		21A8F9E61BFCF4BD0097FCC6 = {
+			isa = PBXGroup;
+			children = (
 				21A8F9F21BFCF4BD0097FCC6 /* CanvasText */,
 				21A8FA191BFCF4F80097FCC6 /* Tests */,
+				2108F8001C59A29400FD5BBE /* Frameworks */,
 				21A8F9F11BFCF4BD0097FCC6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -163,10 +164,8 @@
 		21A8FA0E1BFCF4E90097FCC6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				212669D41BFF836D00DE996F /* share.js */,
-				212669D71BFF83C700DE996F /* editor.js */,
-				212669D81BFF83C700DE996F /* template.html */,
 				21A8FA101BFCF4E90097FCC6 /* Info.plist */,
+				2108F7FE1C599F8D00FD5BBE /* editor.html */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -363,9 +362,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				212669D51BFF836D00DE996F /* share.js in Resources */,
-				212669DB1BFF83C700DE996F /* template.html in Resources */,
-				212669D91BFF83C700DE996F /* editor.js in Resources */,
+				2108F7FF1C599F8D00FD5BBE /* editor.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,9 +377,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				212669D61BFF836D00DE996F /* share.js in Resources */,
-				212669DC1BFF83C700DE996F /* template.html in Resources */,
-				212669DA1BFF83C700DE996F /* editor.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
