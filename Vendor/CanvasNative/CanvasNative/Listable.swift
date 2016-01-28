@@ -13,15 +13,13 @@ public enum Indentation: UInt {
 	case One = 1
 	case Two = 2
 	case Three = 3
-	case Four = 4
-	case Five = 5
 
 	public var isFilled: Bool {
 		return rawValue % 2 == 0
 	}
 
 	public var successor: Indentation {
-		if self == .Five {
+		if self == .Three {
 			return self
 		}
 
