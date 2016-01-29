@@ -31,6 +31,8 @@ extension CanvasTextView {
 	}
 	
 	func updateAnnotations() {
+		guard let textStorage = textStorage as? CanvasTextStorage else { return }
+
 		lineNumber = 1
 
 		let origin = CGPoint(x: textContainer.lineFragmentPadding + textContainerInset.left, y: textContainerInset.top)
@@ -44,8 +46,9 @@ extension CanvasTextView {
 		iconView.image = UIImage(named: "description")
 
 		// Placeholder
+
 		// TODO: Use the AST to figure this out
-		if text?.componentsSeparatedByString("\n").first == "" {
+		if let title = textStorage.nodes.first as? Title where title.displayRange.length == 0 {
 			addSubview(placeholderLabel)
 			annotations.append(placeholderLabel)
 
@@ -71,8 +74,6 @@ extension CanvasTextView {
 		layoutManager.ensureLayoutForTextContainer(textContainer)
 
 		var orderedIndentationCounts = [Indentation: UInt]()
-
-		guard let textStorage = textStorage as? CanvasTextStorage else { return }
 
 		let count = textStorage.nodes.count
 		for (i, node) in textStorage.nodes.enumerate() {
