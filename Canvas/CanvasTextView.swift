@@ -102,10 +102,6 @@ class CanvasTextView: UITextView {
 		guard let textStorage = textStorage as? CanvasTextStorage else { return }
 		textStorage.horizontalSizeClass = traitCollection.horizontalSizeClass
 		textStorage.reprocess()
-
-		dispatch_async(dispatch_get_main_queue()) { [weak self] in
-			self?.updateAnnotations()
-		}
 	}
 
 	override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
