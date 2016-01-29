@@ -203,6 +203,7 @@ public class ShadowTextStorage: NSTextStorage {
 		didProcessBackingText(backingText)
 	}
 
+	func willEndEditing() {}
 
 	// MARK: - Private
 

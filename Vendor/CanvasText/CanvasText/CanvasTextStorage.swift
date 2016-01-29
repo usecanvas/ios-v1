@@ -39,6 +39,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 	private var transportController: TransportController?
 	private var loaded = false
+	private var foldableRanges = [NSRange]()
 
 	public private(set) var nodes = [BlockNode]()
 
@@ -165,6 +166,8 @@ public class CanvasTextStorage: ShadowTextStorage {
 			return text
 		}
 
+		foldableRanges.removeAll()
+
 		let count = nodes.count
 		for (i, node) in nodes.enumerate() {
 			let next: Node?
@@ -217,6 +220,12 @@ public class CanvasTextStorage: ShadowTextStorage {
 	public override func didProcessBackingText(backingText: String) {
 		if !loaded {
 			return
+		}
+
+		for layoutManager in layoutManagers {
+			if let layoutManager = layoutManager as? FoldingLayoutManager {
+				layoutManager.foldableRanges = foldableRanges
+			}
 		}
 
 		self.canvasDelegate?.textStorageDidUpdateNodes(self)
@@ -293,10 +302,11 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 		// Foldable attributes
 		if let node = node as? Foldable {
+			foldableRanges += node.foldableRanges
+
 			for folding in node.foldableRanges {
 				let range = backingRangeToDisplayRange(folding)
 				text.addAttributes(theme.foldingAttributes, range: range)
-				text.addAttribute(FoldableAttributeName, value: true, range: range)
 			}
 		}
 

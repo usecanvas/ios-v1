@@ -8,6 +8,6 @@
 
 import Foundation
 
-public protocol Foldable {
+public protocol Foldable: Node {
 	var foldableRanges: [NSRange] { get }
 }

@@ -12,7 +12,7 @@
 	import UIKit
 #endif
 
-public let FoldableAttributeName = "Canvas.Foldable"
+import CanvasNative
 
 public protocol FoldingLayoutManagerDelegate: class {
 	func layoutManager(layoutManager: NSLayoutManager, didInvalidateGlyphs glyphRange: NSRange)
@@ -32,11 +32,41 @@ public class FoldingLayoutManager: NSLayoutManager {
 
 	public weak var layoutDelegate: FoldingLayoutManagerDelegate?
 
-	/// Text inside this range will not fold.
 	public var unfoldedRange: NSRange? {
 		didSet {
-			// TODO: We should intellegently invalidate glyphs are a given range instead of the entire document.
+			if unfoldedRange != nil && unfoldedRange != oldValue {
+				unfolding = true
+				invalidateGlyphs()
+				return
+			}
+
+			if let unfoldedRange = unfoldedRange {
+				unfolding = !foldedIndices.intersect(unfoldedRange.indices).isEmpty
+			} else {
+				unfolding = false
+			}
+
+			invalidateGlyphsIfNeeded()
+		}
+	}
+
+	public var foldableRanges = [NSRange]() {
+		didSet {
+			if let textStorage = textStorage as? CanvasTextStorage {
+				let indicies = foldableRanges.map { textStorage.backingRangeToDisplayRange($0).indices }
+				foldedIndices = Set(indicies.flatten())
+			}
+
 			invalidateGlyphs()
+		}
+	}
+
+	private var needsInvalidateGlyphs = false
+	private var foldedIndices = Set<Int>()
+	private var unfolding = false {
+		didSet {
+			guard unfolding != oldValue else { return }
+			setNeedsInvalidateGlyphs()
 		}
 	}
 
@@ -60,10 +90,22 @@ public class FoldingLayoutManager: NSLayoutManager {
 		delegate = self
 	}
 
+	// TODO: We should intellegently invalidate glyphs are a given range instead of the entire document.
 	private func invalidateGlyphs() {
 		let glyphRange = NSRange(location: 0, length: characterIndexForGlyphAtIndex(numberOfGlyphs - 1))
 		invalidateGlyphsForCharacterRange(glyphRange, changeInLength: 0, actualCharacterRange: nil)
 		layoutDelegate?.layoutManager(self, didInvalidateGlyphs: glyphRange)
+		needsInvalidateGlyphs = false
+	}
+
+	private func setNeedsInvalidateGlyphs() {
+		needsInvalidateGlyphs = true
+	}
+
+	private func invalidateGlyphsIfNeeded() {
+		if needsInvalidateGlyphs {
+			invalidateGlyphs()
+		}
 	}
 }
 
@@ -79,19 +121,12 @@ extension FoldingLayoutManager: NSLayoutManagerDelegate {
 #if os(iOS)
 	extension FoldingLayoutManager {
 		public func layoutManager(layoutManager: NSLayoutManager, shouldGenerateGlyphs glyphs: UnsafePointer<CGGlyph>, properties props: UnsafePointer<NSGlyphProperty>, characterIndexes: UnsafePointer<Int>, font: UIFont, forGlyphRange glyphRange: NSRange) -> Int {
-			guard let textStorage = textStorage else { return 0 }
-
 			let properties = UnsafeMutablePointer<NSGlyphProperty>(props)
-
 
 			for i in 0..<glyphRange.length {
 				let characterIndex = characterIndexes[i]
 
-				if unfoldedRange?.contains(characterIndex) ?? false {
-					continue
-				}
-
-				if textStorage.attributesAtIndex(characterIndex, effectiveRange: nil)[FoldableAttributeName] as? Bool == true {
+				if !(unfoldedRange?.contains(characterIndex) ?? false) && foldedIndices.contains(characterIndex) {
 					properties[i] = .ControlCharacter
 				}
 			}
@@ -101,10 +136,8 @@ extension FoldingLayoutManager: NSLayoutManagerDelegate {
 		}
 
 		public func layoutManager(layoutManager: NSLayoutManager, shouldUseAction action: NSControlCharacterAction, forControlCharacterAtIndex characterIndex: Int) -> NSControlCharacterAction {
-			guard let textStorage = textStorage else { return action }
-
 			// Don't advance if it's a control character we changed
-			if textStorage.attributesAtIndex(characterIndex, effectiveRange: nil)[FoldableAttributeName] as? Bool == true {
+			if foldedIndices.contains(characterIndex) {
 				return .ZeroAdvancement
 			}
 

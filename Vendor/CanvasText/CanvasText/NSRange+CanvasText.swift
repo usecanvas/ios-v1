@@ -27,6 +27,16 @@ extension NSRange: Equatable {
 		]
 	}
 
+	var indices: Set<Int> {
+		var indicies = Set<Int>()
+
+		for i in location..<(location + length) {
+			indicies.insert(Int(i))
+		}
+
+		return indicies
+	}
+
 	
 	// MARK: - Initializers
 

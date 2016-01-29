@@ -47,6 +47,7 @@ class CanvasTextView: UITextView {
 
 	init(textStorage: NSTextStorage) {
 		let layoutManager = FoldingLayoutManager()
+		layoutManager.allowsNonContiguousLayout = false
 
 		let container = NSTextContainer()
 		container.lineFragmentPadding = 0
