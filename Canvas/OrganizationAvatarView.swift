@@ -41,7 +41,6 @@ final class OrganizationAvatarView: UIView {
 		super.init(frame: .zero)
 
 		layer.cornerRadius = 4
-		layer.masksToBounds = true
 
 		addSubview(initialsLabel)
 
