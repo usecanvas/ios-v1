@@ -125,12 +125,24 @@ class CanvasTextView: UITextView {
 
 	// MARK: - UITextInput
 
+	/// Only display the carest in the used rect (if available)
 	override func caretRectForPosition(position: UITextPosition) -> CGRect {
 		var rect = super.caretRectForPosition(position)
 
 		if let layoutManager = textContainer.layoutManager {
+			layoutManager.ensureLayoutForTextContainer(textContainer)
+
 			let characterIndex = offsetFromPosition(beginningOfDocument, toPosition: position)
+			if characterIndex == textStorage.length {
+				return rect
+			}
+
 			let glyphIndex = layoutManager.glyphIndexForCharacterAtIndex(characterIndex)
+
+			if UInt(glyphIndex) == UInt.max - 1 {
+				return rect
+			}
+
 			let height = layoutManager.lineFragmentUsedRectForGlyphAtIndex(glyphIndex, effectiveRange: nil).size.height
 
 			if height > 0 {
@@ -141,6 +153,7 @@ class CanvasTextView: UITextView {
 		return rect
 	}
 
+	/// Omit empty width rect when drawing selection rects
 	override func selectionRectsForRange(range: UITextRange) -> [AnyObject] {
 		let selectionRects = super.selectionRectsForRange(range)
 		return selectionRects.filter({ selection in
