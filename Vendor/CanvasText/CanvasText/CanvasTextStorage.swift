@@ -19,7 +19,10 @@ public protocol CanvasTextStorageDelegate: class {
 	func textStorageWillUpdateNodes(textStorage: CanvasTextStorage)
 	func textStorageDidUpdateNodes(textStorage: CanvasTextStorage)
 	func textStorage(textStorage: CanvasTextStorage, attachmentForAttachable node: Attachable) -> NSTextAttachment?
+}
 
+
+public protocol CanvasWebDelegate: class {
 	func textStorage(textStorage: CanvasTextStorage, willConnectWithWebView webView: WKWebView)
 	func textStorage(textStorage: CanvasTextStorage, didReceiveWebErrorMessage errorMessage: String, lineNumber: UInt?, columnNumber: UInt?)
 }
@@ -36,6 +39,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 	}
 
 	public weak var canvasDelegate: CanvasTextStorageDelegate?
+	public weak var webDelegate: CanvasWebDelegate?
 
 	private var transportController: TransportController?
 	private var loaded = false
@@ -275,7 +279,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 	public func connect(accessToken accessToken: String, organizationID: String, canvasID: String, realtimeURL: NSURL) {
 		let controller = TransportController(serverURL: realtimeURL, accessToken: accessToken, organizationID: organizationID, canvasID: canvasID)
 		controller.delegate = self
-		canvasDelegate?.textStorage(self, willConnectWithWebView: controller.webView)
+		webDelegate?.textStorage(self, willConnectWithWebView: controller.webView)
 		transportController = controller
 		controller.reload()
 	}
@@ -377,6 +381,6 @@ extension CanvasTextStorage: TransportControllerDelegate {
 	}
 
 	func transportController(controller: TransportController, didReceiveWebErrorMessage errorMessage: String, lineNumber: UInt?, columnNumber: UInt?) {
-		canvasDelegate?.textStorage(self, didReceiveWebErrorMessage: errorMessage, lineNumber: lineNumber, columnNumber: columnNumber)
+		webDelegate?.textStorage(self, didReceiveWebErrorMessage: errorMessage, lineNumber: lineNumber, columnNumber: columnNumber)
 	}
 }

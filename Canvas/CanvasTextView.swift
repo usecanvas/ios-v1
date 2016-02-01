@@ -329,14 +329,4 @@ extension CanvasTextView: CanvasTextStorageDelegate {
 
 		return attachment
 	}
-
-	func textStorage(textStorage: CanvasTextStorage, willConnectWithWebView webView: WKWebView) {
-		webView.frame = CGRect(x: 0, y: 0, width: 1, height: 1)
-		addSubview(webView)
-	}
-
-	func textStorage(textStorage: CanvasTextStorage, didReceiveWebErrorMessage errorMessage: String, lineNumber: UInt?, columnNumber: UInt?) {
-//		let line = lineNumber.flatMap({ Int($0) }) ?? 0
-//		RavenClient.sharedClient?.captureMessage(errorMessage, level: .Error, additionalExtra: [:], additionalTags: ["web": "editor"], method: "editor", file: "editor.html", line: line)
-	}
 }

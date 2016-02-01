@@ -66,6 +66,7 @@
 		21C0F36D1C1B81F700328E36 /* CanvasTextView+Annotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C0F36C1C1B81F700328E36 /* CanvasTextView+Annotations.swift */; };
 		21C576951C19002A0015B8A5 /* CanvasesResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C576941C19002A0015B8A5 /* CanvasesResultsViewController.swift */; };
 		21CEC8361C5FE3D4001AEA10 /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CEC8351C5FE3D4001AEA10 /* HockeySDK.framework */; };
+		21CEC8691C6023A7001AEA10 /* EditorViewController+Web.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEC8681C6023A7001AEA10 /* EditorViewController+Web.swift */; };
 		21D0FFEB1C5A894300001542 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0FFEA1C5A894300001542 /* WebViewController.swift */; };
 		21D2B1981C0D0AED003652B7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21D2B1971C0D0AED003652B7 /* Settings.bundle */; };
 		21D37A131C471765004498B1 /* Canvas Dev.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 21D37A121C471765004498B1 /* Canvas Dev.entitlements */; };
@@ -268,6 +269,7 @@
 		21C0F36C1C1B81F700328E36 /* CanvasTextView+Annotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CanvasTextView+Annotations.swift"; sourceTree = "<group>"; };
 		21C576941C19002A0015B8A5 /* CanvasesResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasesResultsViewController.swift; sourceTree = "<group>"; };
 		21CEC8351C5FE3D4001AEA10 /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HockeySDK.framework; path = Carthage/Build/iOS/HockeySDK.framework; sourceTree = "<group>"; };
+		21CEC8681C6023A7001AEA10 /* EditorViewController+Web.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EditorViewController+Web.swift"; sourceTree = "<group>"; };
 		21D0FFEA1C5A894300001542 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		21D2B1971C0D0AED003652B7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		21D37A121C471765004498B1 /* Canvas Dev.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Canvas Dev.entitlements"; sourceTree = "<group>"; };
@@ -445,6 +447,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		21CEC85E1C60239B001AEA10 /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				21F10F4F1BF138750035057D /* EditorViewController.swift */,
+				21CEC8681C6023A7001AEA10 /* EditorViewController+Web.swift */,
+			);
+			name = Editor;
+			sourceTree = "<group>";
+		};
 		21D2B1961C0D0AC7003652B7 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
@@ -516,7 +527,7 @@
 				2129D3111BF568AB0018F255 /* OrganizationCanvasesViewController.swift */,
 				213791C41C1790E2000FACCC /* CanvasesViewController.swift */,
 				21C576941C19002A0015B8A5 /* CanvasesResultsViewController.swift */,
-				21F10F4F1BF138750035057D /* EditorViewController.swift */,
+				21CEC85E1C60239B001AEA10 /* Editor */,
 				21B742DF1C03BD9000FF293C /* TableViewController.swift */,
 				21B742EC1C03BDF400FF293C /* ModelsViewController.swift */,
 				210960C81C08F24F00EB8F84 /* AlertController.swift */,
@@ -828,6 +839,7 @@
 				21A8FA5B1BFD30790097FCC6 /* WebActivity.swift in Sources */,
 				210960C91C08F25000EB8F84 /* AlertController.swift in Sources */,
 				212448211C45D7F7008E41A4 /* Organization+Canvas.swift in Sources */,
+				21CEC8691C6023A7001AEA10 /* EditorViewController+Web.swift in Sources */,
 				21B8D8D91BFC0E0B001ED447 /* CheckboxView.swift in Sources */,
 				216343F61C0D43BB00916A8B /* CodeBlockBackgroundView.swift in Sources */,
 				215642291C06C40000685847 /* ImagesController.swift in Sources */,
