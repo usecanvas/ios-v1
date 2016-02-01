@@ -121,7 +121,7 @@ class CanvasTextView: UITextView {
 
 	// MARK: - UITextInput
 
-	/// Only display the carest in the used rect (if available)
+	// Only display the caret in the used rect (if available).
 	override func caretRectForPosition(position: UITextPosition) -> CGRect {
 		var rect = super.caretRectForPosition(position)
 
@@ -149,7 +149,7 @@ class CanvasTextView: UITextView {
 		return rect
 	}
 
-	/// Omit empty width rect when drawing selection rects
+	// Omit empty width rect when drawing selection rects.
 	override func selectionRectsForRange(range: UITextRange) -> [AnyObject] {
 		let selectionRects = super.selectionRectsForRange(range)
 		return selectionRects.filter({ selection in

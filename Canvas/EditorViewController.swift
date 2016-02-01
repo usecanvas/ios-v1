@@ -1,4 +1,3 @@
-
 //  EditorViewController.swift
 //  Canvas
 //
@@ -214,7 +213,7 @@ extension EditorViewController: UITextViewDelegate {
 
 extension EditorViewController: TintableEnvironment {
 	var preferredTintColor: UIColor {
-		return canvas.organization.color?.UIColor ?? Color.brand
+		return canvas.organization.color?.color ?? Color.brand
 	}
 }
 
@@ -230,9 +229,10 @@ extension EditorViewController: UIViewControllerPreviewingDelegate {
 
 		let nodes = textStorage.nodesInBackingRange(textStorage.displayRangeToBackingRange(range))
 
-		guard let index = nodes.indexOf({ $0 is Link }) else { return nil }
+		guard let index = nodes.indexOf({ $0 is Link }),
+			link = nodes[index] as? Link
+		else { return nil }
 
-		let link = nodes[index] as! Link
 		let string = (textStorage.backingText as NSString).substringWithRange(link.URLRange)
 		guard let URL = NSURL(string: string) else { return nil }
 
@@ -241,9 +241,7 @@ extension EditorViewController: UIViewControllerPreviewingDelegate {
 		return WebViewController(URL: URL)
 	}
 
-	/// Present the view controller for the "Pop" action.
 	func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
-		// Reuse the "Peek" view controller for presentation.
 		presentViewController(viewControllerToCommit, animated: false, completion: nil)
 	}
 }

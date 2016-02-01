@@ -10,7 +10,7 @@ import UIKit
 import CanvasKit
 
 extension CanvasKit.Color {
-	var UIColor: UIKit.UIColor {
-		return UIKit.UIColor(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: CGFloat(alpha))
+	var color: UIColor {
+		return UIColor(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: CGFloat(alpha))
 	}
 }

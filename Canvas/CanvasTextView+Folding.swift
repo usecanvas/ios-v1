@@ -22,7 +22,10 @@ extension CanvasTextView {
 
 	// MARK: - Private
 
-	/// Expand selection to the entire node
+	/// Expand selection to the entire node.
+	///
+	/// - parameter displaySelection: Range of the selected text in the display text
+	/// - returns: Optional range of the expanded selection
 	private func unfoldableRange(displaySelection displaySelection: NSRange) -> NSRange? {
 		guard let textStorage = textStorage as? CanvasTextStorage else { return displaySelection }
 

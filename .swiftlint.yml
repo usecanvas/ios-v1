@@ -1,12 +1,20 @@
+excluded:
+  - Carthage
+  - Vendor
+
 disabled_rules:
   # I really like putting else one a new line in long guard statements.
   - statement_position
 
-  # This is a work in progress project. TODOs are acceptable for now.
+  # I prefer 2 new lines before a MARK.
+  # TODO: Add a custom rule to enforce this.
+  - trailing_whitespace
+
+  # TODO: Remove this (lol)
   - todo
 
-  # I prefer 2 new lines before a MARK
-  - trailing_whitespace
+  # TODO: Remove this
+  - function_body_length
 
 # TODO: Change to 120
 line_length: 256
