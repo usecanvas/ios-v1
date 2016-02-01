@@ -81,4 +81,3 @@ struct Analytics {
 		mixpanel.track(event.name, parameters: mixpanelParams)
 	}
 }
-

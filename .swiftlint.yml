@@ -1,0 +1,12 @@
+disabled_rules:
+  # I really like putting else one a new line in long guard statements.
+  - statement_position
+
+  # This is a work in progress project. TODOs are acceptable for now.
+  - todo
+
+  # I prefer 2 new lines before a MARK
+  - trailing_whitespace
+
+# TODO: Change to 120
+line_length: 256
