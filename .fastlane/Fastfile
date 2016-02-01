@@ -19,6 +19,9 @@ platform :ios do
     ENV["FL_HOCKEY_NOTIFY"] ||= "0"
     ENV["FL_HOCKEY_PUBLIC_IDENTIFIER"] ||= "0d558bb833514f31a4be3f9bfeafc43d"
 
+    # Make sure everything is committed.
+    ensure_git_status_clean
+
     # Build dependencies
     sh 'rake bootstrap' unless ENV["SKIP_CARTHAGE"] == 1
   end
@@ -26,10 +29,10 @@ platform :ios do
   desc "Submit a new beta build to TestFlight"
   lane :beta do
     # Build
-    ipa = gym(scheme: "Canvas")
+    gym(scheme: "Canvas")
 
     # Get version number
-    version = "#{get_ipa_info_plist_value(ipa: ipa, key: "CFBundleShortVersionString")} (#{get_ipa_info_plist_value(ipa: ipa, key: "CFBundleVersion")})"
+    version = "#{get_ipa_info_plist_value(key: "CFBundleShortVersionString")} (#{get_ipa_info_plist_value(key: "CFBundleVersion")})"
 
     # Get changelog
     changelog = prompt(text: "Enter Release Notes for this release:", multi_line_end_keyword: "END").chomp
