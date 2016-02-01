@@ -67,6 +67,7 @@
 		21C576951C19002A0015B8A5 /* CanvasesResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C576941C19002A0015B8A5 /* CanvasesResultsViewController.swift */; };
 		21CEC8361C5FE3D4001AEA10 /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CEC8351C5FE3D4001AEA10 /* HockeySDK.framework */; };
 		21CEC8691C6023A7001AEA10 /* EditorViewController+Web.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEC8681C6023A7001AEA10 /* EditorViewController+Web.swift */; };
+		21CEC86B1C6027C9001AEA10 /* Rollbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEC86A1C6027C9001AEA10 /* Rollbar.swift */; };
 		21D0FFEB1C5A894300001542 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0FFEA1C5A894300001542 /* WebViewController.swift */; };
 		21D2B1981C0D0AED003652B7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21D2B1971C0D0AED003652B7 /* Settings.bundle */; };
 		21D37A131C471765004498B1 /* Canvas Dev.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 21D37A121C471765004498B1 /* Canvas Dev.entitlements */; };
@@ -270,6 +271,7 @@
 		21C576941C19002A0015B8A5 /* CanvasesResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasesResultsViewController.swift; sourceTree = "<group>"; };
 		21CEC8351C5FE3D4001AEA10 /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HockeySDK.framework; path = Carthage/Build/iOS/HockeySDK.framework; sourceTree = "<group>"; };
 		21CEC8681C6023A7001AEA10 /* EditorViewController+Web.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EditorViewController+Web.swift"; sourceTree = "<group>"; };
+		21CEC86A1C6027C9001AEA10 /* Rollbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rollbar.swift; sourceTree = "<group>"; };
 		21D0FFEA1C5A894300001542 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		21D2B1971C0D0AED003652B7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		21D37A121C471765004498B1 /* Canvas Dev.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Canvas Dev.entitlements"; sourceTree = "<group>"; };
@@ -456,6 +458,14 @@
 			name = Editor;
 			sourceTree = "<group>";
 		};
+		21CEC86C1C60284F001AEA10 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				21CEC86A1C6027C9001AEA10 /* Rollbar.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		21D2B1961C0D0AC7003652B7 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
@@ -495,6 +505,7 @@
 				215642271C06C3F300685847 /* Controllers */,
 				21D2B1961C0D0AC7003652B7 /* Styles */,
 				21A8FA501BFD306E0097FCC6 /* Activities */,
+				21CEC86C1C60284F001AEA10 /* Utilities */,
 				215642261C06C3E900685847 /* Protocols */,
 				21FCB5811C0777DA00F78D93 /* Extensions */,
 				21F10F5F1BF13D720035057D /* Resources */,
@@ -850,6 +861,7 @@
 				21F10F4E1BF138750035057D /* AppDelegate.swift in Sources */,
 				210BB9521C484E1600ECADC0 /* CanvasIconView.swift in Sources */,
 				213791C51C1790E2000FACCC /* CanvasesViewController.swift in Sources */,
+				21CEC86B1C6027C9001AEA10 /* Rollbar.swift in Sources */,
 				21C0F3681C1B81B700328E36 /* CanvasTextView+Gestures.swift in Sources */,
 				2134FAE11BFC0A6A00AE93CC /* CanvasTextView.swift in Sources */,
 				217381411C45E400002F87C5 /* OrganizationAvatarView.swift in Sources */,

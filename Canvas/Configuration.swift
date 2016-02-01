@@ -45,8 +45,8 @@ struct Config {
 
 	// MARK: - Analytics & Crash Reporting
 
-	/// Rollbar post_server_item Access Token
-	static let rollbarToken = "f4af677c82a240d588c76265589fc723"
+	/// Rollbar post_client_item Access Token
+	static let rollbarToken = "c8736fff4cc745f0b21187f0128ab233"
 
 	/// Mixpanel token
 	static let mixpanelToken = "447ae99e6cff699db67f168818c1dbf9"
