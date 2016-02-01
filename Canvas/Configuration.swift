@@ -7,27 +7,50 @@
 //
 
 import Foundation
-import Camo
-
-let baseURL = NSURL(string: "https://api.usecanvas.com/")!
-let realtimeURL = NSURL(string: "wss://api.usecanvas.com/realtime")!
-let longhouseURL = NSURL(string: "wss://presence.usecanvas.com/")!
-
-let canvasClientID = "5QdrPgUUYQs2yvGLIUT5PL"
 
 // Obfuscated client secret. The Camo secret is in the front-end website, so no need to obfuscate it here.
-let canvasClientSecretPart4 = "aef895c32"
-let canvasClientSecretPart2 = "f5bd59c7866e85"
-let camoSecret = "a4a8767e694052184df6259377f751977a86513364a3e8d44fb71e16327bd937"
-let canvasClientSecretPart1 = "60ff40c860274eb9afb6"
-let canvasClientSecretPart3 = "97bdcc48ae89946"
-let canvasClientSecret = "\(canvasClientSecretPart1)fb\(canvasClientSecretPart2)2e\(canvasClientSecretPart3)75\(canvasClientSecretPart4)"
+private let canvasClientSecretPart4 = "aef895c32"
+private let canvasClientSecretPart2 = "f5bd59c7866e85"
+private let _camoSecret = "a4a8767e694052184df6259377f751977a86513364a3e8d44fb71e16327bd937"
+private let canvasClientSecretPart1 = "60ff40c860274eb9afb6"
+private let canvasClientSecretPart3 = "97bdcc48ae89946"
 
-let camoURL = NSURL(string: "https://camo.usecanvas.com/")!
+struct Config {
+	// MARK: - Canvas
 
-// Rollbar post_server_item Access Token
-let rollbarToken = "f4af677c82a240d588c76265589fc723"
+	/// Canvas API base URL
+	static let baseURL = NSURL(string: "https://api.usecanvas.com/")!
 
-let mixpanelToken = "447ae99e6cff699db67f168818c1dbf9"
+	/// Canvase realtime base URL
+	static let realtimeURL = NSURL(string: "wss://api.usecanvas.com/realtime")!
 
-let hockeyIdentifier = "0d558bb833514f31a4be3f9bfeafc43d"
+	/// Canvas presence base URL
+	static let presenceURL = NSURL(string: "wss://presence.usecanvas.com/")!
+
+	/// Canvas client ID
+	static let canvasClientID = "5QdrPgUUYQs2yvGLIUT5PL"
+
+	/// Canvas client secret
+	static let canvasClientSecret = "\(canvasClientSecretPart1)fb\(canvasClientSecretPart2)2e\(canvasClientSecretPart3)75\(canvasClientSecretPart4)"
+
+
+	// MARK: - Camp
+
+	/// Camo base URL
+	static let camoURL = NSURL(string: "https://camo.usecanvas.com/")!
+
+	/// Camo secret
+	static let camoSecret = _camoSecret
+
+
+	// MARK: - Analytics & Crash Reporting
+
+	/// Rollbar post_server_item Access Token
+	static let rollbarToken = "f4af677c82a240d588c76265589fc723"
+
+	/// Mixpanel token
+	static let mixpanelToken = "447ae99e6cff699db67f168818c1dbf9"
+
+	/// Hockey app identifier
+	static let hockeyIdentifier = "0d558bb833514f31a4be3f9bfeafc43d"
+}

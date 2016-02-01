@@ -65,7 +65,7 @@ final class ImagesController {
 			}
 
 			// Camo
-			let camo = Camo(secret: camoSecret, baseURL: camoURL)
+			let camo = Camo(secret: Config.camoSecret, baseURL: Config.camoURL)
 			guard let URL = camo.sign(URL: node.URL) else { return }
 
 			// Start download

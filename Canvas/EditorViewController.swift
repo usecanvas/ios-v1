@@ -83,7 +83,7 @@ final class EditorViewController: UIViewController, Accountable {
 		textView.delegate = self
 		view.addSubview(textView)
 
-		textStorage.connect(accessToken: account.accessToken, organizationID: canvas.organization.ID, canvasID: canvas.UUID, realtimeURL: realtimeURL)
+		textStorage.connect(accessToken: account.accessToken, organizationID: canvas.organization.ID, canvasID: canvas.UUID, realtimeURL: Config.realtimeURL)
 		
 		NSLayoutConstraint.activateConstraints([
 			textView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
