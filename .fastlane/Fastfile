@@ -8,7 +8,7 @@ platform :ios do
     ENV["SLACK_URL"] ||= "https://hooks.slack.com/services/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"
     ENV["FL_SLACK_USERNAME"] ||= "TestFlight"
     ENV["FL_SLACK_ICON_URL"] ||= "http://canvas-slack.s3.amazonaws.com/avatars/testflight.png"
-    ENV["FL_SLACK_CHANNEL"] ||= "#test"
+    ENV["FL_SLACK_CHANNEL"] ||= "#general"
 
     # Configure Hockey
     ENV["FL_HOCKEY_API_TOKEN"] ||= "6be9271230f44ea2863409a15eb9a54f"
