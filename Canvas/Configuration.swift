@@ -24,3 +24,10 @@ let canvasClientSecretPart3 = "97bdcc48ae89946"
 let canvasClientSecret = "\(canvasClientSecretPart1)fb\(canvasClientSecretPart2)2e\(canvasClientSecretPart3)75\(canvasClientSecretPart4)"
 
 let camoURL = NSURL(string: "https://camo.usecanvas.com/")!
+
+// Rollbar post_server_item Access Token
+let rollbarToken = "f4af677c82a240d588c76265589fc723"
+
+let mixpanelToken = "447ae99e6cff699db67f168818c1dbf9"
+
+let hockeyIdentifier = "0d558bb833514f31a4be3f9bfeafc43d"

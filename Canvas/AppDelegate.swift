@@ -10,8 +10,6 @@ import UIKit
 import CanvasKit
 import HockeySDK
 
-private let hockeyIdentifier = "0d558bb833514f31a4be3f9bfeafc43d"
-
 @UIApplicationMain final class AppDelegate: UIResponder {
 
 	// MARK: - Properties

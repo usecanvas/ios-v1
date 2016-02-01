@@ -9,8 +9,6 @@
 import Mixpanel
 import CanvasKit
 
-private let mixpanelToken = "447ae99e6cff699db67f168818c1dbf9"
-
 struct Analytics {
 
 	// MARK: - Types
