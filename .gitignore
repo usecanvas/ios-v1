@@ -1,0 +1,21 @@
+# OS X
+.DS_Store
+
+# Xcode
+*xcuserdata/
+*.mode1v3
+*.pbxuser
+*.xcworkspace
+
+# Carthage
+Carthage
+
+# Fastlane
+.fastlane/report.xml
+.fastlane/Preview.html
+.fastlane/screenshots
+.fastlane/test_output
+
+# Products
+*.zip
+*.ipa
