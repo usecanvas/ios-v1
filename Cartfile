@@ -1,6 +1,6 @@
 github "soffes/Camo"
 github "soffes/GradientView"
 github "soffes/Mixpanel"
-github "soffes/Static" "auto-delselect-option"
+github "venmo/Static" "master"
 github "AgileBits/onepassword-app-extension" "add-framework-support"
-github "getsentry/raven-swift"
+github "bitstadium/HockeySDK-iOS"

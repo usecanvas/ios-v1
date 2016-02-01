@@ -14,7 +14,6 @@
 		210960D61C091F7800EB8F84 /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210960D51C091F7800EB8F84 /* LightTheme.swift */; };
 		210BB9521C484E1600ECADC0 /* CanvasIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210BB9511C484E1600ECADC0 /* CanvasIconView.swift */; };
 		210BB9551C484E3300ECADC0 /* TintableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210BB9541C484E3300ECADC0 /* TintableView.swift */; };
-		210CEF691C599309003B4421 /* Raven.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210CEF681C599309003B4421 /* Raven.framework */; };
 		2114833C1C0D68530072F94B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2114833A1C0D68530072F94B /* Main.storyboard */; };
 		212404F91C233E4200BF0C91 /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212404EE1C233E2D00BF0C91 /* CanvasKit.framework */; };
 		212404FA1C233E4200BF0C91 /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212404DF1C233E2500BF0C91 /* CanvasText.framework */; };
@@ -66,6 +65,7 @@
 		21C0F3681C1B81B700328E36 /* CanvasTextView+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C0F3671C1B81B700328E36 /* CanvasTextView+Gestures.swift */; };
 		21C0F36D1C1B81F700328E36 /* CanvasTextView+Annotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C0F36C1C1B81F700328E36 /* CanvasTextView+Annotations.swift */; };
 		21C576951C19002A0015B8A5 /* CanvasesResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C576941C19002A0015B8A5 /* CanvasesResultsViewController.swift */; };
+		21CEC8361C5FE3D4001AEA10 /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CEC8351C5FE3D4001AEA10 /* HockeySDK.framework */; };
 		21D0FFEB1C5A894300001542 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0FFEA1C5A894300001542 /* WebViewController.swift */; };
 		21D2B1981C0D0AED003652B7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21D2B1971C0D0AED003652B7 /* Settings.bundle */; };
 		21D37A131C471765004498B1 /* Canvas Dev.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 21D37A121C471765004498B1 /* Canvas Dev.entitlements */; };
@@ -215,7 +215,6 @@
 		210960D51C091F7800EB8F84 /* LightTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
 		210BB9511C484E1600ECADC0 /* CanvasIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasIconView.swift; sourceTree = "<group>"; };
 		210BB9541C484E3300ECADC0 /* TintableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TintableView.swift; sourceTree = "<group>"; };
-		210CEF681C599309003B4421 /* Raven.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Raven.framework; path = Carthage/Build/iOS/Raven.framework; sourceTree = "<group>"; };
 		2114833B1C0D68530072F94B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		212404D71C233E2500BF0C91 /* CanvasText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasText.xcodeproj; path = Vendor/CanvasText/CanvasText.xcodeproj; sourceTree = "<group>"; };
 		212404E61C233E2D00BF0C91 /* CanvasKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasKit.xcodeproj; path = Vendor/CanvasKit/CanvasKit.xcodeproj; sourceTree = "<group>"; };
@@ -268,6 +267,7 @@
 		21C0F3671C1B81B700328E36 /* CanvasTextView+Gestures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CanvasTextView+Gestures.swift"; sourceTree = "<group>"; };
 		21C0F36C1C1B81F700328E36 /* CanvasTextView+Annotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CanvasTextView+Annotations.swift"; sourceTree = "<group>"; };
 		21C576941C19002A0015B8A5 /* CanvasesResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasesResultsViewController.swift; sourceTree = "<group>"; };
+		21CEC8351C5FE3D4001AEA10 /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HockeySDK.framework; path = Carthage/Build/iOS/HockeySDK.framework; sourceTree = "<group>"; };
 		21D0FFEA1C5A894300001542 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		21D2B1971C0D0AED003652B7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		21D37A121C471765004498B1 /* Canvas Dev.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Canvas Dev.entitlements"; sourceTree = "<group>"; };
@@ -292,7 +292,6 @@
 			files = (
 				213FE3291C5973E400D9DFC2 /* CanvasNative.framework in Frameworks */,
 				212404F91C233E4200BF0C91 /* CanvasKit.framework in Frameworks */,
-				210CEF691C599309003B4421 /* Raven.framework in Frameworks */,
 				210566EF1C3B1DBC00F4387A /* ISO8601.framework in Frameworks */,
 				212404FA1C233E4200BF0C91 /* CanvasText.framework in Frameworks */,
 				213598081C1A22FC00200825 /* Camo.framework in Frameworks */,
@@ -303,6 +302,7 @@
 				21E48B031C0447AC00C9F6AA /* OnePasswordExtension.framework in Frameworks */,
 				210566F11C3B1DBC00F4387A /* SSKeychain.framework in Frameworks */,
 				21E48B061C0447AC00C9F6AA /* Static.framework in Frameworks */,
+				21CEC8361C5FE3D4001AEA10 /* HockeySDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,7 +430,7 @@
 		21AE3F391C0423CE00AE5DDC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				210CEF681C599309003B4421 /* Raven.framework */,
+				21CEC8351C5FE3D4001AEA10 /* HockeySDK.framework */,
 				21B1CFCF1C594F2900CC8E7D /* CanvasNative.framework */,
 				2124481A1C45BF75008E41A4 /* GradientView.framework */,
 				210566EB1C3B1DBC00F4387A /* ISO8601.framework */,
@@ -772,7 +772,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/CommonCrypto.framework",
 				"$(SRCROOT)/Vendor/CanvasKit/Carthage/Build/iOS/ISO8601.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/GradientView.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Raven.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/HockeySDK.framework",
 			);
 			name = "Embed Carthage Frameworks";
 			outputPaths = (

@@ -12,10 +12,6 @@ import CanvasKit
 import CanvasText
 import CanvasNative
 
-#if !DEBUG
-	import Raven
-#endif
-
 class CanvasTextView: UITextView {
 
 	// MARK: - Properties
@@ -340,9 +336,7 @@ extension CanvasTextView: CanvasTextStorageDelegate {
 	}
 
 	func textStorage(textStorage: CanvasTextStorage, didReceiveWebErrorMessage errorMessage: String, lineNumber: UInt?, columnNumber: UInt?) {
-		#if !DEBUG
-			let line = lineNumber.flatMap({ Int($0) }) ?? 0
-			RavenClient.sharedClient?.captureMessage(errorMessage, level: .Error, additionalExtra: [:], additionalTags: ["web": "editor"], method: "editor", file: "editor.html", line: line)
-		#endif
+//		let line = lineNumber.flatMap({ Int($0) }) ?? 0
+//		RavenClient.sharedClient?.captureMessage(errorMessage, level: .Error, additionalExtra: [:], additionalTags: ["web": "editor"], method: "editor", file: "editor.html", line: line)
 	}
 }

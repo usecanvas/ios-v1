@@ -7,12 +7,10 @@
 //
 
 import UIKit
+import CanvasKit
+import HockeySDK
 
-#if !DEBUG
-	import Raven
-#endif
-
-private let sentryDSN = "https://790a7fad533f47eaa666a99820de5d04:db580e425bd54c39bf649f3551408901@app.getsentry.com/65177"
+private let hockeyIdentifier = "0d558bb833514f31a4be3f9bfeafc43d"
 
 @UIApplicationMain final class AppDelegate: UIResponder {
 
@@ -47,10 +45,12 @@ private let sentryDSN = "https://790a7fad533f47eaa666a99820de5d04:db580e425bd54c
 
 extension AppDelegate: UIApplicationDelegate {
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-		#if !DEBUG
-			RavenClient.clientWithDSN(sentryDSN)
-			RavenClient.sharedClient?.setupExceptionHandler()
-		#endif
+
+		// Crash reporting
+		let hockey = BITHockeyManager.sharedHockeyManager()
+		hockey.configureWithIdentifier(hockeyIdentifier, delegate: self)
+		hockey.crashManager.crashManagerStatus = .AutoSend
+		hockey.startManager()
 
 		// Analytics
 		Analytics.track(.LaunchedApp)
@@ -98,5 +98,23 @@ extension AppDelegate: UIApplicationDelegate {
 		}
 
 		return true
+	}
+}
+
+
+extension AppDelegate: BITHockeyManagerDelegate {
+	func userIDForHockeyManager(hockeyManager: BITHockeyManager!, componentManager: BITHockeyBaseManager!) -> String! {
+		let currentAccount = AccountController.sharedController.currentAccount
+		return currentAccount?.user.ID
+	}
+
+	func userNameForHockeyManager(hockeyManager: BITHockeyManager!, componentManager: BITHockeyBaseManager!) -> String! {
+		let currentAccount = AccountController.sharedController.currentAccount
+		return currentAccount?.user.username
+	}
+
+	func userEmailForHockeyManager(hockeyManager: BITHockeyManager!, componentManager: BITHockeyBaseManager!) -> String! {
+		let currentAccount = AccountController.sharedController.currentAccount
+		return currentAccount?.email
 	}
 }

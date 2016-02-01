@@ -8,11 +8,27 @@
 
 import UIKit
 import CanvasKit
-import Raven
 
 final class RootViewController: UIViewController {
 
 	// MARK: - Properties
+
+	var account: Account? {
+		didSet {
+			guard let account = account else {
+				viewController = LoginViewController()
+				return
+			}
+
+			if var viewController = viewController as? Accountable {
+				// TODO: Handle containers
+				viewController.account = account
+				return
+			}
+
+			viewController = NavigationController(rootViewController: OrganizationsViewController(account: account))
+		}
+	}
 
 	private(set) var viewController: UIViewController? {
 		willSet {
@@ -73,23 +89,6 @@ final class RootViewController: UIViewController {
 	// MARK: - Private
 
 	@objc private func accountDidChange(notification: NSNotification?) {
-		guard let account = AccountController.sharedController.currentAccount else {
-			RavenClient.sharedClient?.user = nil
-			viewController = LoginViewController()
-			return
-		}
-
-		RavenClient.sharedClient?.user = [
-			"id": account.user.ID,
-			"username": account.user.username
-		]
-
-		if var viewController = viewController as? Accountable {
-			// TODO: Handle containers
-			viewController.account = account
-			return
-		}
-
-		viewController = NavigationController(rootViewController: OrganizationsViewController(account: account))
+		account = AccountController.sharedController.currentAccount
 	}
 }
