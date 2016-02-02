@@ -38,6 +38,8 @@
 		21CAFBD21C056FC100B9A3B5 /* ShadowTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CAFBD01C056FC100B9A3B5 /* ShadowTextStorage.swift */; };
 		21CAFBD41C05767E00B9A3B5 /* ShadowTextStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CAFBD31C05767E00B9A3B5 /* ShadowTextStorageTests.swift */; };
 		21CAFBD51C05767E00B9A3B5 /* ShadowTextStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CAFBD31C05767E00B9A3B5 /* ShadowTextStorageTests.swift */; };
+		21CEC86E1C6137FB001AEA10 /* TransportMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEC86D1C6137FB001AEA10 /* TransportMessage.swift */; };
+		21CEC86F1C6137FB001AEA10 /* TransportMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEC86D1C6137FB001AEA10 /* TransportMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,7 @@
 		21B7430E1C03D19300FF293C /* FontStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontStyle.swift; sourceTree = "<group>"; };
 		21CAFBD01C056FC100B9A3B5 /* ShadowTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowTextStorage.swift; sourceTree = "<group>"; };
 		21CAFBD31C05767E00B9A3B5 /* ShadowTextStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowTextStorageTests.swift; sourceTree = "<group>"; };
+		21CEC86D1C6137FB001AEA10 /* TransportMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +199,7 @@
 			children = (
 				21A8FA0C1BFCF4E90097FCC6 /* Operation.swift */,
 				21A8FA0D1BFCF4E90097FCC6 /* TransportController.swift */,
+				21CEC86D1C6137FB001AEA10 /* TransportMessage.swift */,
 			);
 			name = "Operation Transport";
 			sourceTree = "<group>";
@@ -399,6 +403,7 @@
 				21CAFBD11C056FC100B9A3B5 /* ShadowTextStorage.swift in Sources */,
 				21B742EF1C03C6B900FF293C /* Font.swift in Sources */,
 				21B742F71C03C71600FF293C /* CanvasTextStorage.swift in Sources */,
+				21CEC86E1C6137FB001AEA10 /* TransportMessage.swift in Sources */,
 				21B1CFE31C596C5400CC8E7D /* FoldingLayoutManager.swift in Sources */,
 				21B742FB1C03CDA500FF293C /* Theme.swift in Sources */,
 				21A8FA141BFCF4E90097FCC6 /* Operation.swift in Sources */,
@@ -425,6 +430,7 @@
 				21CAFBD21C056FC100B9A3B5 /* ShadowTextStorage.swift in Sources */,
 				21B742F01C03C6B900FF293C /* Font.swift in Sources */,
 				21B742F81C03C71600FF293C /* CanvasTextStorage.swift in Sources */,
+				21CEC86F1C6137FB001AEA10 /* TransportMessage.swift in Sources */,
 				21B1CFE41C596C5400CC8E7D /* FoldingLayoutManager.swift in Sources */,
 				21B742FC1C03CDA500FF293C /* Theme.swift in Sources */,
 				21A8FA921BFE7B870097FCC6 /* Operation.swift in Sources */,

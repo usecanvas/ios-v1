@@ -13,13 +13,15 @@ Canvas.connect = function(realtimeURL, accessToken, organizationID, canvasID) {
   share.connect(function onConnect() {
     // Get the current content of the document.
     Canvas._sendMessage({
-      "snapshot": share.content
+      "type": "snapshot",
+      "content": share.content
     });
 
     // Handle an `insert` event from the server.
     share.on('insert', function onInsert(position, text) {
       console.log("Remote Insert:", {"location": position, "string": text});
       Canvas._sendMessage({
+        "type": "op",
         "op": {
           "type": "insert",
           "location": position,
@@ -32,11 +34,21 @@ Canvas.connect = function(realtimeURL, accessToken, organizationID, canvasID) {
     share.on('remove', function onRemove(position, length) {
       console.log("Remote Remove:", {"location": position, "length": length});
       Canvas._sendMessage({
+        "type": "op",
         "op": {
           "type": "remove",
           "location": position,
           "length": length
         }
+      });
+    });
+
+    // Handle disconnect.
+    share.on('disconnect', function onDisconnect(error) {
+      console.log("Disconnect:", error);
+      Canvas._sendMessage({
+        "type": "disconnect",
+        "message": error
       });
     });
   });
@@ -66,7 +78,8 @@ Canvas._sendMessage = function(message) {
 window.onerror = function(errorMessage, url, lineNumber, columnNumber) {
   if (typeof window.webkit != "undefined" && typeof window.webkit.messageHandlers != "undefined") {
     window.webkit.messageHandlers.share.postMessage({
-      "error": errorMessage,
+      "type": "error",
+      "message": errorMessage,
       "lineNumber": lineNumber,
       "columnNumber": columnNumber
     });

@@ -11,7 +11,8 @@ import WebKit
 protocol TransportControllerDelegate: class {
 	func transportController(controller: TransportController, didReceiveSnapshot text: String)
 	func transportController(controller: TransportController, didReceiveOperation operation: Operation)
-	func transportController(controller: TransportController, didReceiveWebErrorMessage errorMessage: String, lineNumber: UInt?, columnNumber: UInt?)
+	func transportController(controller: TransportController, didReceiveWebErrorMessage errorMessage: String?, lineNumber: UInt?, columnNumber: UInt?)
+	func transportController(controller: TransportController, didDisconnectWithErrorMessage errorMessage: String?)
 }
 
 
@@ -110,19 +111,23 @@ class TransportController: NSObject {
 
 
 extension TransportController: WKScriptMessageHandler {
-	func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
-		guard let dictionary = message.body as? [String: AnyObject] else { return }
-		
-		if let dict = dictionary["op"] as? [String: AnyObject], operation = Operation(dictionary: dict) {
+	func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage scriptMessage: WKScriptMessage) {
+		guard let dictionary = scriptMessage.body as? [String: AnyObject],
+			message = TransportMessage(dictionary: dictionary)
+		else {
+			print("[TransportController] Unknown message: \(scriptMessage)")
+			return
+		}
+
+		switch message {
+		case .Operation(let operation):
 			delegate?.transportController(self, didReceiveOperation: operation)
-		} else if let snapshot = dictionary["snapshot"] as? String {
-			delegate?.transportController(self, didReceiveSnapshot: snapshot)
-		} else if let errorMessage = dictionary["error"] as? String {
-			print("[TransportController] Error: \(errorMessage)")
-			delegate?.transportController(self, didReceiveWebErrorMessage: errorMessage, lineNumber: dictionary["lineNumber"] as? UInt, columnNumber: dictionary["columnNumber"] as? UInt)
-			reload()
-		} else {
-			print("[TransportController] Unknown message: \(dictionary)")
+		case .Snapshot(let content):
+			delegate?.transportController(self, didReceiveSnapshot: content)
+		case .Disconnect(let errorMessage):
+			delegate?.transportController(self, didDisconnectWithErrorMessage: errorMessage)
+		case .Error(let errorMessage, let lineNumber, let columnNumber):
+			delegate?.transportController(self, didReceiveWebErrorMessage: errorMessage, lineNumber: lineNumber, columnNumber: columnNumber)
 		}
 	}
 }

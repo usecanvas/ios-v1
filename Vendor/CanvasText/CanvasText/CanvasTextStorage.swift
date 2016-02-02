@@ -24,7 +24,8 @@ public protocol CanvasTextStorageDelegate: class {
 
 public protocol CanvasWebDelegate: class {
 	func textStorage(textStorage: CanvasTextStorage, willConnectWithWebView webView: WKWebView)
-	func textStorage(textStorage: CanvasTextStorage, didReceiveWebErrorMessage errorMessage: String, lineNumber: UInt?, columnNumber: UInt?)
+	func textStorage(textStorage: CanvasTextStorage, didReceiveWebErrorMessage errorMessage: String?, lineNumber: UInt?, columnNumber: UInt?)
+	func textStorage(textStorage: CanvasTextStorage, didDisconnectWithErrorMessage errorMessage: String?)
 }
 
 
@@ -284,6 +285,10 @@ public class CanvasTextStorage: ShadowTextStorage {
 		controller.reload()
 	}
 
+	public func reconnect() {
+		transportController?.reload()
+	}
+
 
 	// MARK: - Private
 
@@ -336,9 +341,9 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 
 extension CanvasTextStorage: TransportControllerDelegate {
-	func transportController(controller: TransportController, didReceiveSnapshot text: String) {
+	func transportController(controller: TransportController, didReceiveSnapshot content: String) {
 		loaded = true
-		backingText = text
+		backingText = content
 	}
 
 	func transportController(controller: TransportController, didReceiveOperation operation: Operation) {
@@ -380,7 +385,11 @@ extension CanvasTextStorage: TransportControllerDelegate {
 		self.backingSelection = backingSelection
 	}
 
-	func transportController(controller: TransportController, didReceiveWebErrorMessage errorMessage: String, lineNumber: UInt?, columnNumber: UInt?) {
+	func transportController(controller: TransportController, didReceiveWebErrorMessage errorMessage: String?, lineNumber: UInt?, columnNumber: UInt?) {
 		webDelegate?.textStorage(self, didReceiveWebErrorMessage: errorMessage, lineNumber: lineNumber, columnNumber: columnNumber)
+	}
+
+	func transportController(controller: TransportController, didDisconnectWithErrorMessage errorMessage: String?) {
+		webDelegate?.textStorage(self, didDisconnectWithErrorMessage: errorMessage)
 	}
 }

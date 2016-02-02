@@ -18,7 +18,7 @@ final class EditorViewController: UIViewController, Accountable {
 	let canvas: Canvas
 
 	let textStorage = CanvasTextStorage(theme: LightTheme())
-	private let textView: CanvasTextView
+	let textView: CanvasTextView
 	private let presenceBarButtonItem = UIBarButtonItem(title: " ", style: .Plain, target: nil, action: nil)
 	private var ignoreSelectionChange = false
 

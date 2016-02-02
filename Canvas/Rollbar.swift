@@ -11,7 +11,7 @@ import CanvasKit
 
 // CanvasText web view specific Rollbar reporting.
 struct Rollbar {
-	static func report(errorMessage errorMessage: String, lineNumber: UInt? = nil, columnNumber: UInt? = nil, account: Account? = nil) {
+	static func report(errorMessage errorMessage: String?, lineNumber: UInt? = nil, columnNumber: UInt? = nil, account: Account? = nil) {
 		#if DEBUG
 			print("[CanvasText] JavaScript error: \(errorMessage), lineNumber: \(lineNumber), columnNumber: \(columnNumber)")
 		#else
@@ -51,7 +51,7 @@ struct Rollbar {
 						],
 						"exception": [
 							"class": "Error",
-							"message": errorMessage
+							"message": errorMessage ?? ""
 						]
 					]
 				]
