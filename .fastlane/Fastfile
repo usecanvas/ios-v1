@@ -32,7 +32,9 @@ platform :ios do
     gym(scheme: "Canvas")
 
     # Get version number
-    version = "#{get_ipa_info_plist_value(key: "CFBundleShortVersionString")} (#{get_ipa_info_plist_value(key: "CFBundleVersion")})"
+    short_version = get_ipa_info_plist_value(key: "CFBundleShortVersionString")
+    version = get_ipa_info_plist_value(key: "CFBundleVersion")
+    full_version = "#{short_version} (#{version})"
 
     # Get changelog
     changelog = prompt(text: "Enter Release Notes for this release:", multi_line_end_keyword: "END").chomp
@@ -43,7 +45,10 @@ platform :ios do
     # Upload to TestFlight
     pilot(changelog: changelog)
 
+    # Create git tag
+    sh "git tag v#{short_version}-#{version} && git push --tags"
+
     # Notify in Slack
-    slack(message: "Version #{version} is available on TestFlight! Release Notes:\n\n#{changelog}\n", success: true)
+    slack(message: "Version #{full_version} is available on TestFlight! Release Notes:\n\n#{changelog}\n", success: true)
   end
 end
