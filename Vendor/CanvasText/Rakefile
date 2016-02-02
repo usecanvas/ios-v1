@@ -3,8 +3,6 @@ require 'open-uri'
 desc 'Compile editor.html'
 task :editor do
   sharejs = open('https://github.com/usecanvas/sharejs-wrapper/raw/master/dist/index.js').read.chomp
-  sharejs.gsub!('</script>', '< /script>')
-
   editor = File.read('CanvasText/Resources/editor.js').chomp
 
   html = %Q{<!DOCTYPE html>
