@@ -21,6 +21,7 @@ final class EditorViewController: UIViewController, Accountable {
 	let textView: CanvasTextView
 	private let presenceBarButtonItem = UIBarButtonItem(title: " ", style: .Plain, target: nil, action: nil)
 	private var ignoreSelectionChange = false
+	var wantsFocus = false
 
 
 	// MARK: - Initializers

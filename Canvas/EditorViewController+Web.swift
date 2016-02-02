@@ -24,9 +24,17 @@ extension EditorViewController: CanvasWebDelegate {
 		showError(errorMessage: errorMessage)
 	}
 
+	func textStorageDidConnect(textStorage: CanvasTextStorage) {
+		if wantsFocus {
+			textView.becomeFirstResponder()
+			wantsFocus = false
+		}
+	}
+
 	private func showError(errorMessage errorMessage: String?, lineNumber: UInt? = nil, columnNumber: UInt? = nil) {
 		// Disable editing
-		textView.editable = false
+		let focused = textView.isFirstResponder()
+		textView.resignFirstResponder()
 
 		// Report error
 		Rollbar.report(errorMessage: errorMessage, lineNumber: lineNumber, columnNumber: columnNumber, account: account)
@@ -35,7 +43,14 @@ extension EditorViewController: CanvasWebDelegate {
 		let alert = UIAlertController(title: "We're still a bit buggy and hit a wall. We've reported the error and disabled the editor to prevent data loss.", message: errorMessage, preferredStyle: .Alert)
 		alert.addAction(UIAlertAction(title: "Reload", style: .Default, handler: { [weak self] _ in
 			self?.textStorage.reconnect()
+			self?.wantsFocus = focused
 		}))
-		presentViewController(alert, animated: true, completion: nil)
+
+		// TODO: Terrible hack to prevent the keyboard from coming back up right after the alert is dismissed.
+		let time = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC / 2))
+		dispatch_after(time, dispatch_get_main_queue()) { [weak self] in
+			self?.textView.editable = false
+			self?.presentViewController(alert, animated: true, completion: nil)
+		}
 	}
 }

@@ -24,6 +24,7 @@ public protocol CanvasTextStorageDelegate: class {
 
 public protocol CanvasWebDelegate: class {
 	func textStorage(textStorage: CanvasTextStorage, willConnectWithWebView webView: WKWebView)
+	func textStorageDidConnect(textStorage: CanvasTextStorage)
 	func textStorage(textStorage: CanvasTextStorage, didReceiveWebErrorMessage errorMessage: String?, lineNumber: UInt?, columnNumber: UInt?)
 	func textStorage(textStorage: CanvasTextStorage, didDisconnectWithErrorMessage errorMessage: String?)
 }
@@ -286,6 +287,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 	}
 
 	public func reconnect() {
+		loaded = false
 		transportController?.reload()
 	}
 
@@ -342,8 +344,13 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 extension CanvasTextStorage: TransportControllerDelegate {
 	func transportController(controller: TransportController, didReceiveSnapshot content: String) {
+		let connected = !loaded
 		loaded = true
 		backingText = content
+
+		if connected {
+			webDelegate?.textStorageDidConnect(self)
+		}
 	}
 
 	func transportController(controller: TransportController, didReceiveOperation operation: Operation) {
