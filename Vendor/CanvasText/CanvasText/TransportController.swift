@@ -115,7 +115,7 @@ extension TransportController: WKScriptMessageHandler {
 		guard let dictionary = scriptMessage.body as? [String: AnyObject],
 			message = TransportMessage(dictionary: dictionary)
 		else {
-			print("[TransportController] Unknown message: \(scriptMessage)")
+			print("[TransportController] Unknown message: \(scriptMessage.body)")
 			return
 		}
 
