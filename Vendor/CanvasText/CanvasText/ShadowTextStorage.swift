@@ -188,15 +188,9 @@ public class ShadowTextStorage: NSTextStorage {
 		didUpdateDisplayText(self.displayText)
 
 		// Update storage
-		beginEditing()
-
 		let range = NSRange(location: 0, length: storage.length)
 		let string = attributedStringForDisplayText(self.displayText)
-
 		storage.replaceCharactersInRange(range, withAttributedString: string)
-
-		endEditing()
-
 		edited([.EditedAttributes, .EditedCharacters], range: range, changeInLength: storage.length - range.length)
 
 		updateSelection()
