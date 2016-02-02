@@ -1,0 +1,23 @@
+desc 'Compile editor.html'
+task :editor do
+  html = %Q{<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Canvas</title>
+    <script>
+#{File.read('CanvasText/Resources/sharejs-wrapper.js').chomp}
+
+////////////////////////////////////////////////////////////////////////////////
+
+#{File.read('CanvasText/Resources/editor.js').chomp}
+    </script>
+  </head>
+  <body></body>
+</html>
+}
+
+  file = File.new('CanvasText/Resources/editor.html', 'w')
+  file.write(html)
+  file.close
+end
