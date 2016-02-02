@@ -8,7 +8,10 @@
 
 import UIKit
 import CanvasKit
-import HockeySDK
+
+#if !DEBUG
+	import HockeySDK
+#endif
 
 @UIApplicationMain final class AppDelegate: UIResponder {
 
@@ -45,10 +48,12 @@ extension AppDelegate: UIApplicationDelegate {
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
 		// Crash reporting
-		let hockey = BITHockeyManager.sharedHockeyManager()
-		hockey.configureWithIdentifier(Config.hockeyIdentifier, delegate: self)
-		hockey.crashManager.crashManagerStatus = .AutoSend
-		hockey.startManager()
+		#if !DEBUG
+			let hockey = BITHockeyManager.sharedHockeyManager()
+			hockey.configureWithIdentifier(Config.hockeyIdentifier, delegate: self)
+			hockey.crashManager.crashManagerStatus = .AutoSend
+			hockey.startManager()
+		#endif
 
 		// Analytics
 		Analytics.track(.LaunchedApp)
@@ -100,19 +105,21 @@ extension AppDelegate: UIApplicationDelegate {
 }
 
 
-extension AppDelegate: BITHockeyManagerDelegate {
-	func userIDForHockeyManager(hockeyManager: BITHockeyManager!, componentManager: BITHockeyBaseManager!) -> String! {
-		let currentAccount = AccountController.sharedController.currentAccount
-		return currentAccount?.user.ID
-	}
+#if !DEBUG
+	extension AppDelegate: BITHockeyManagerDelegate {
+		func userIDForHockeyManager(hockeyManager: BITHockeyManager!, componentManager: BITHockeyBaseManager!) -> String! {
+			let currentAccount = AccountController.sharedController.currentAccount
+			return currentAccount?.user.ID
+		}
 
-	func userNameForHockeyManager(hockeyManager: BITHockeyManager!, componentManager: BITHockeyBaseManager!) -> String! {
-		let currentAccount = AccountController.sharedController.currentAccount
-		return currentAccount?.user.username
-	}
+		func userNameForHockeyManager(hockeyManager: BITHockeyManager!, componentManager: BITHockeyBaseManager!) -> String! {
+			let currentAccount = AccountController.sharedController.currentAccount
+			return currentAccount?.user.username
+		}
 
-	func userEmailForHockeyManager(hockeyManager: BITHockeyManager!, componentManager: BITHockeyBaseManager!) -> String! {
-		let currentAccount = AccountController.sharedController.currentAccount
-		return currentAccount?.email
+		func userEmailForHockeyManager(hockeyManager: BITHockeyManager!, componentManager: BITHockeyBaseManager!) -> String! {
+			let currentAccount = AccountController.sharedController.currentAccount
+			return currentAccount?.email
+		}
 	}
-}
+#endif
