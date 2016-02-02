@@ -1,3 +1,5 @@
+require 'open-uri'
+
 desc 'Compile editor.html'
 task :editor do
   html = %Q{<!DOCTYPE html>
@@ -6,7 +8,7 @@ task :editor do
     <meta charset="utf-8">
     <title>Canvas</title>
     <script>
-#{File.read('CanvasText/Resources/sharejs-wrapper.js').chomp}
+#{open('https://github.com/usecanvas/sharejs-wrapper/raw/master/dist/index.js').read.chomp}
 
 ////////////////////////////////////////////////////////////////////////////////
 
