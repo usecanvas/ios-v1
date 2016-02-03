@@ -57,7 +57,7 @@ struct Rollbar {
 				]
 			} else {
 				data["body"] = [
-					"message": errorMessage
+					"message": errorMessage ?? ""
 				]
 			}
 
