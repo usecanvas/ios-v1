@@ -228,7 +228,7 @@
                             }
                         }
                         if (error) {
-                            this.eventEmitter.emit("disconnected", error);
+                            this.eventEmitter.emit("disconnect", error);
                         }
                     }
                 }, {
@@ -341,7 +341,7 @@
             }
         }, {
             eventemitter3: 2,
-            "share/lib/client": 7
+            "share/lib/client": 16
         } ],
         2: [ function(require, module, exports) {
             "use strict";
@@ -648,6 +648,1363 @@
             }
         }, {} ],
         4: [ function(require, module, exports) {
+            module.exports = bootstrapTransform;
+            function bootstrapTransform(type, transformComponent, checkValidOp, append) {
+                var transformComponentX = function(left, right, destLeft, destRight) {
+                    transformComponent(destLeft, left, right, "left");
+                    transformComponent(destRight, right, left, "right");
+                };
+                var transformX = type.transformX = function(leftOp, rightOp) {
+                    checkValidOp(leftOp);
+                    checkValidOp(rightOp);
+                    var newRightOp = [];
+                    for (var i = 0; i < rightOp.length; i++) {
+                        var rightComponent = rightOp[i];
+                        var newLeftOp = [];
+                        var k = 0;
+                        while (k < leftOp.length) {
+                            var nextC = [];
+                            transformComponentX(leftOp[k], rightComponent, newLeftOp, nextC);
+                            k++;
+                            if (nextC.length === 1) {
+                                rightComponent = nextC[0];
+                            } else if (nextC.length === 0) {
+                                for (var j = k; j < leftOp.length; j++) {
+                                    append(newLeftOp, leftOp[j]);
+                                }
+                                rightComponent = null;
+                                break;
+                            } else {
+                                var pair = transformX(leftOp.slice(k), nextC);
+                                for (var l = 0; l < pair[0].length; l++) {
+                                    append(newLeftOp, pair[0][l]);
+                                }
+                                for (var r = 0; r < pair[1].length; r++) {
+                                    append(newRightOp, pair[1][r]);
+                                }
+                                rightComponent = null;
+                                break;
+                            }
+                        }
+                        if (rightComponent != null) {
+                            append(newRightOp, rightComponent);
+                        }
+                        leftOp = newLeftOp;
+                    }
+                    return [ leftOp, newRightOp ];
+                };
+                type.transform = function(op, otherOp, type) {
+                    if (!(type === "left" || type === "right")) throw new Error("type must be 'left' or 'right'");
+                    if (otherOp.length === 0) return op;
+                    if (op.length === 1 && otherOp.length === 1) return transformComponent([], op[0], otherOp[0], type);
+                    if (type === "left") return transformX(op, otherOp)[0]; else return transformX(otherOp, op)[1];
+                };
+            }
+        }, {} ],
+        5: [ function(require, module, exports) {
+            module.exports = {
+                type: require("./json0")
+            };
+        }, {
+            "./json0": 6
+        } ],
+        6: [ function(require, module, exports) {
+            var isArray = function(obj) {
+                return Object.prototype.toString.call(obj) == "[object Array]";
+            };
+            var isObject = function(obj) {
+                return !!obj && obj.constructor === Object;
+            };
+            var clone = function(o) {
+                return JSON.parse(JSON.stringify(o));
+            };
+            var json = {
+                name: "json0",
+                uri: "http://sharejs.org/types/JSONv0"
+            };
+            var subtypes = {};
+            json.registerSubtype = function(subtype) {
+                subtypes[subtype.name] = subtype;
+            };
+            json.create = function(data) {
+                return data === undefined ? null : clone(data);
+            };
+            json.invertComponent = function(c) {
+                var c_ = {
+                    p: c.p
+                };
+                if (c.t && subtypes[c.t]) {
+                    c_.t = c.t;
+                    c_.o = subtypes[c.t].invert(c.o);
+                }
+                if (c.si !== void 0) c_.sd = c.si;
+                if (c.sd !== void 0) c_.si = c.sd;
+                if (c.oi !== void 0) c_.od = c.oi;
+                if (c.od !== void 0) c_.oi = c.od;
+                if (c.li !== void 0) c_.ld = c.li;
+                if (c.ld !== void 0) c_.li = c.ld;
+                if (c.na !== void 0) c_.na = -c.na;
+                if (c.lm !== void 0) {
+                    c_.lm = c.p[c.p.length - 1];
+                    c_.p = c.p.slice(0, c.p.length - 1).concat([ c.lm ]);
+                }
+                return c_;
+            };
+            json.invert = function(op) {
+                var op_ = op.slice().reverse();
+                var iop = [];
+                for (var i = 0; i < op_.length; i++) {
+                    iop.push(json.invertComponent(op_[i]));
+                }
+                return iop;
+            };
+            json.checkValidOp = function(op) {
+                for (var i = 0; i < op.length; i++) {
+                    if (!isArray(op[i].p)) throw new Error("Missing path");
+                }
+            };
+            json.checkList = function(elem) {
+                if (!isArray(elem)) throw new Error("Referenced element not a list");
+            };
+            json.checkObj = function(elem) {
+                if (!isObject(elem)) {
+                    throw new Error("Referenced element not an object (it was " + JSON.stringify(elem) + ")");
+                }
+            };
+            function convertFromText(c) {
+                c.t = "text0";
+                var o = {
+                    p: c.p.pop()
+                };
+                if (c.si != null) o.i = c.si;
+                if (c.sd != null) o.d = c.sd;
+                c.o = [ o ];
+            }
+            function convertToText(c) {
+                c.p.push(c.o[0].p);
+                if (c.o[0].i != null) c.si = c.o[0].i;
+                if (c.o[0].d != null) c.sd = c.o[0].d;
+                delete c.t;
+                delete c.o;
+            }
+            json.apply = function(snapshot, op) {
+                json.checkValidOp(op);
+                op = clone(op);
+                var container = {
+                    data: snapshot
+                };
+                for (var i = 0; i < op.length; i++) {
+                    var c = op[i];
+                    if (c.si != null || c.sd != null) convertFromText(c);
+                    var parent = null;
+                    var parentKey = null;
+                    var elem = container;
+                    var key = "data";
+                    for (var j = 0; j < c.p.length; j++) {
+                        var p = c.p[j];
+                        parent = elem;
+                        parentKey = key;
+                        elem = elem[key];
+                        key = p;
+                        if (parent == null) throw new Error("Path invalid");
+                    }
+                    if (c.t && c.o !== void 0 && subtypes[c.t]) {
+                        elem[key] = subtypes[c.t].apply(elem[key], c.o);
+                    } else if (c.na !== void 0) {
+                        if (typeof elem[key] != "number") throw new Error("Referenced element not a number");
+                        elem[key] += c.na;
+                    } else if (c.li !== void 0 && c.ld !== void 0) {
+                        json.checkList(elem);
+                        elem[key] = c.li;
+                    } else if (c.li !== void 0) {
+                        json.checkList(elem);
+                        elem.splice(key, 0, c.li);
+                    } else if (c.ld !== void 0) {
+                        json.checkList(elem);
+                        elem.splice(key, 1);
+                    } else if (c.lm !== void 0) {
+                        json.checkList(elem);
+                        if (c.lm != key) {
+                            var e = elem[key];
+                            elem.splice(key, 1);
+                            elem.splice(c.lm, 0, e);
+                        }
+                    } else if (c.oi !== void 0) {
+                        json.checkObj(elem);
+                        elem[key] = c.oi;
+                    } else if (c.od !== void 0) {
+                        json.checkObj(elem);
+                        delete elem[key];
+                    } else {
+                        throw new Error("invalid / missing instruction in op");
+                    }
+                }
+                return container.data;
+            };
+            json.shatter = function(op) {
+                var results = [];
+                for (var i = 0; i < op.length; i++) {
+                    results.push([ op[i] ]);
+                }
+                return results;
+            };
+            json.incrementalApply = function(snapshot, op, _yield) {
+                for (var i = 0; i < op.length; i++) {
+                    var smallOp = [ op[i] ];
+                    snapshot = json.apply(snapshot, smallOp);
+                    _yield(smallOp, snapshot);
+                }
+                return snapshot;
+            };
+            var pathMatches = json.pathMatches = function(p1, p2, ignoreLast) {
+                if (p1.length != p2.length) return false;
+                for (var i = 0; i < p1.length; i++) {
+                    if (p1[i] !== p2[i] && (!ignoreLast || i !== p1.length - 1)) return false;
+                }
+                return true;
+            };
+            json.append = function(dest, c) {
+                c = clone(c);
+                if (dest.length === 0) {
+                    dest.push(c);
+                    return;
+                }
+                var last = dest[dest.length - 1];
+                if ((c.si != null || c.sd != null) && (last.si != null || last.sd != null)) {
+                    convertFromText(c);
+                    convertFromText(last);
+                }
+                if (pathMatches(c.p, last.p)) {
+                    if (c.t && last.t && c.t === last.t && subtypes[c.t]) {
+                        last.o = subtypes[c.t].compose(last.o, c.o);
+                        if (c.si != null || c.sd != null) {
+                            var p = c.p;
+                            for (var i = 0; i < last.o.length - 1; i++) {
+                                c.o = [ last.o.pop() ];
+                                c.p = p.slice();
+                                convertToText(c);
+                                dest.push(c);
+                            }
+                            convertToText(last);
+                        }
+                    } else if (last.na != null && c.na != null) {
+                        dest[dest.length - 1] = {
+                            p: last.p,
+                            na: last.na + c.na
+                        };
+                    } else if (last.li !== undefined && c.li === undefined && c.ld === last.li) {
+                        if (last.ld !== undefined) {
+                            delete last.li;
+                        } else {
+                            dest.pop();
+                        }
+                    } else if (last.od !== undefined && last.oi === undefined && c.oi !== undefined && c.od === undefined) {
+                        last.oi = c.oi;
+                    } else if (last.oi !== undefined && c.od !== undefined) {
+                        if (c.oi !== undefined) {
+                            last.oi = c.oi;
+                        } else if (last.od !== undefined) {
+                            delete last.oi;
+                        } else {
+                            dest.pop();
+                        }
+                    } else if (c.lm !== undefined && c.p[c.p.length - 1] === c.lm) {} else {
+                        dest.push(c);
+                    }
+                } else {
+                    if ((c.si != null || c.sd != null) && (last.si != null || last.sd != null)) {
+                        convertToText(c);
+                        convertToText(last);
+                    }
+                    dest.push(c);
+                }
+            };
+            json.compose = function(op1, op2) {
+                json.checkValidOp(op1);
+                json.checkValidOp(op2);
+                var newOp = clone(op1);
+                for (var i = 0; i < op2.length; i++) {
+                    json.append(newOp, op2[i]);
+                }
+                return newOp;
+            };
+            json.normalize = function(op) {
+                var newOp = [];
+                op = isArray(op) ? op : [ op ];
+                for (var i = 0; i < op.length; i++) {
+                    var c = op[i];
+                    if (c.p == null) c.p = [];
+                    json.append(newOp, c);
+                }
+                return newOp;
+            };
+            json.commonLengthForOps = function(a, b) {
+                var alen = a.p.length;
+                var blen = b.p.length;
+                if (a.na != null || a.t) alen++;
+                if (b.na != null || b.t) blen++;
+                if (alen === 0) return -1;
+                if (blen === 0) return null;
+                alen--;
+                blen--;
+                for (var i = 0; i < alen; i++) {
+                    var p = a.p[i];
+                    if (i >= blen || p !== b.p[i]) return null;
+                }
+                return alen;
+            };
+            json.canOpAffectPath = function(op, path) {
+                return json.commonLengthForOps({
+                    p: path
+                }, op) != null;
+            };
+            json.transformComponent = function(dest, c, otherC, type) {
+                c = clone(c);
+                var common = json.commonLengthForOps(otherC, c);
+                var common2 = json.commonLengthForOps(c, otherC);
+                var cplength = c.p.length;
+                var otherCplength = otherC.p.length;
+                if (c.na != null || c.t) cplength++;
+                if (otherC.na != null || otherC.t) otherCplength++;
+                if (common2 != null && otherCplength > cplength && c.p[common2] == otherC.p[common2]) {
+                    if (c.ld !== void 0) {
+                        var oc = clone(otherC);
+                        oc.p = oc.p.slice(cplength);
+                        c.ld = json.apply(clone(c.ld), [ oc ]);
+                    } else if (c.od !== void 0) {
+                        var oc = clone(otherC);
+                        oc.p = oc.p.slice(cplength);
+                        c.od = json.apply(clone(c.od), [ oc ]);
+                    }
+                }
+                if (common != null) {
+                    var commonOperand = cplength == otherCplength;
+                    var oc = otherC;
+                    if ((c.si != null || c.sd != null) && (otherC.si != null || otherC.sd != null)) {
+                        convertFromText(c);
+                        oc = clone(otherC);
+                        convertFromText(oc);
+                    }
+                    if (oc.t && subtypes[oc.t]) {
+                        if (c.t && c.t === oc.t) {
+                            var res = subtypes[c.t].transform(c.o, oc.o, type);
+                            if (res.length > 0) {
+                                if (c.si != null || c.sd != null) {
+                                    var p = c.p;
+                                    for (var i = 0; i < res.length; i++) {
+                                        c.o = [ res[i] ];
+                                        c.p = p.slice();
+                                        convertToText(c);
+                                        json.append(dest, c);
+                                    }
+                                } else {
+                                    c.o = res;
+                                    json.append(dest, c);
+                                }
+                            }
+                            return dest;
+                        }
+                    } else if (otherC.na !== void 0) {} else if (otherC.li !== void 0 && otherC.ld !== void 0) {
+                        if (otherC.p[common] === c.p[common]) {
+                            if (!commonOperand) {
+                                return dest;
+                            } else if (c.ld !== void 0) {
+                                if (c.li !== void 0 && type === "left") {
+                                    c.ld = clone(otherC.li);
+                                } else {
+                                    return dest;
+                                }
+                            }
+                        }
+                    } else if (otherC.li !== void 0) {
+                        if (c.li !== void 0 && c.ld === undefined && commonOperand && c.p[common] === otherC.p[common]) {
+                            if (type === "right") c.p[common]++;
+                        } else if (otherC.p[common] <= c.p[common]) {
+                            c.p[common]++;
+                        }
+                        if (c.lm !== void 0) {
+                            if (commonOperand) {
+                                if (otherC.p[common] <= c.lm) c.lm++;
+                            }
+                        }
+                    } else if (otherC.ld !== void 0) {
+                        if (c.lm !== void 0) {
+                            if (commonOperand) {
+                                if (otherC.p[common] === c.p[common]) {
+                                    return dest;
+                                }
+                                var p = otherC.p[common];
+                                var from = c.p[common];
+                                var to = c.lm;
+                                if (p < to || p === to && from < to) c.lm--;
+                            }
+                        }
+                        if (otherC.p[common] < c.p[common]) {
+                            c.p[common]--;
+                        } else if (otherC.p[common] === c.p[common]) {
+                            if (otherCplength < cplength) {
+                                return dest;
+                            } else if (c.ld !== void 0) {
+                                if (c.li !== void 0) {
+                                    delete c.ld;
+                                } else {
+                                    return dest;
+                                }
+                            }
+                        }
+                    } else if (otherC.lm !== void 0) {
+                        if (c.lm !== void 0 && cplength === otherCplength) {
+                            var from = c.p[common];
+                            var to = c.lm;
+                            var otherFrom = otherC.p[common];
+                            var otherTo = otherC.lm;
+                            if (otherFrom !== otherTo) {
+                                if (from === otherFrom) {
+                                    if (type === "left") {
+                                        c.p[common] = otherTo;
+                                        if (from === to) c.lm = otherTo;
+                                    } else {
+                                        return dest;
+                                    }
+                                } else {
+                                    if (from > otherFrom) c.p[common]--;
+                                    if (from > otherTo) c.p[common]++; else if (from === otherTo) {
+                                        if (otherFrom > otherTo) {
+                                            c.p[common]++;
+                                            if (from === to) c.lm++;
+                                        }
+                                    }
+                                    if (to > otherFrom) {
+                                        c.lm--;
+                                    } else if (to === otherFrom) {
+                                        if (to > from) c.lm--;
+                                    }
+                                    if (to > otherTo) {
+                                        c.lm++;
+                                    } else if (to === otherTo) {
+                                        if (otherTo > otherFrom && to > from || otherTo < otherFrom && to < from) {
+                                            if (type === "right") c.lm++;
+                                        } else {
+                                            if (to > from) c.lm++; else if (to === otherFrom) c.lm--;
+                                        }
+                                    }
+                                }
+                            }
+                        } else if (c.li !== void 0 && c.ld === undefined && commonOperand) {
+                            var from = otherC.p[common];
+                            var to = otherC.lm;
+                            p = c.p[common];
+                            if (p > from) c.p[common]--;
+                            if (p > to) c.p[common]++;
+                        } else {
+                            var from = otherC.p[common];
+                            var to = otherC.lm;
+                            p = c.p[common];
+                            if (p === from) {
+                                c.p[common] = to;
+                            } else {
+                                if (p > from) c.p[common]--;
+                                if (p > to) c.p[common]++; else if (p === to && from > to) c.p[common]++;
+                            }
+                        }
+                    } else if (otherC.oi !== void 0 && otherC.od !== void 0) {
+                        if (c.p[common] === otherC.p[common]) {
+                            if (c.oi !== void 0 && commonOperand) {
+                                if (type === "right") {
+                                    return dest;
+                                } else {
+                                    c.od = otherC.oi;
+                                }
+                            } else {
+                                return dest;
+                            }
+                        }
+                    } else if (otherC.oi !== void 0) {
+                        if (c.oi !== void 0 && c.p[common] === otherC.p[common]) {
+                            if (type === "left") {
+                                json.append(dest, {
+                                    p: c.p,
+                                    od: otherC.oi
+                                });
+                            } else {
+                                return dest;
+                            }
+                        }
+                    } else if (otherC.od !== void 0) {
+                        if (c.p[common] == otherC.p[common]) {
+                            if (!commonOperand) return dest;
+                            if (c.oi !== void 0) {
+                                delete c.od;
+                            } else {
+                                return dest;
+                            }
+                        }
+                    }
+                }
+                json.append(dest, c);
+                return dest;
+            };
+            require("./bootstrapTransform")(json, json.transformComponent, json.checkValidOp, json.append);
+            var text = require("./text0");
+            json.registerSubtype(text);
+            module.exports = json;
+        }, {
+            "./bootstrapTransform": 4,
+            "./text0": 7
+        } ],
+        7: [ function(require, module, exports) {
+            var text = module.exports = {
+                name: "text0",
+                uri: "http://sharejs.org/types/textv0",
+                create: function(initial) {
+                    if (initial != null && typeof initial !== "string") {
+                        throw new Error("Initial data must be a string");
+                    }
+                    return initial || "";
+                }
+            };
+            var strInject = function(s1, pos, s2) {
+                return s1.slice(0, pos) + s2 + s1.slice(pos);
+            };
+            var checkValidComponent = function(c) {
+                if (typeof c.p !== "number") throw new Error("component missing position field");
+                if (typeof c.i === "string" === (typeof c.d === "string")) throw new Error("component needs an i or d field");
+                if (c.p < 0) throw new Error("position cannot be negative");
+            };
+            var checkValidOp = function(op) {
+                for (var i = 0; i < op.length; i++) {
+                    checkValidComponent(op[i]);
+                }
+            };
+            text.apply = function(snapshot, op) {
+                var deleted;
+                checkValidOp(op);
+                for (var i = 0; i < op.length; i++) {
+                    var component = op[i];
+                    if (component.i != null) {
+                        snapshot = strInject(snapshot, component.p, component.i);
+                    } else {
+                        deleted = snapshot.slice(component.p, component.p + component.d.length);
+                        if (component.d !== deleted) throw new Error("Delete component '" + component.d + "' does not match deleted text '" + deleted + "'");
+                        snapshot = snapshot.slice(0, component.p) + snapshot.slice(component.p + component.d.length);
+                    }
+                }
+                return snapshot;
+            };
+            var append = text._append = function(newOp, c) {
+                if (c.i === "" || c.d === "") return;
+                if (newOp.length === 0) {
+                    newOp.push(c);
+                } else {
+                    var last = newOp[newOp.length - 1];
+                    if (last.i != null && c.i != null && last.p <= c.p && c.p <= last.p + last.i.length) {
+                        newOp[newOp.length - 1] = {
+                            i: strInject(last.i, c.p - last.p, c.i),
+                            p: last.p
+                        };
+                    } else if (last.d != null && c.d != null && c.p <= last.p && last.p <= c.p + c.d.length) {
+                        newOp[newOp.length - 1] = {
+                            d: strInject(c.d, last.p - c.p, last.d),
+                            p: c.p
+                        };
+                    } else {
+                        newOp.push(c);
+                    }
+                }
+            };
+            text.compose = function(op1, op2) {
+                checkValidOp(op1);
+                checkValidOp(op2);
+                var newOp = op1.slice();
+                for (var i = 0; i < op2.length; i++) {
+                    append(newOp, op2[i]);
+                }
+                return newOp;
+            };
+            text.normalize = function(op) {
+                var newOp = [];
+                if (op.i != null || op.p != null) op = [ op ];
+                for (var i = 0; i < op.length; i++) {
+                    var c = op[i];
+                    if (c.p == null) c.p = 0;
+                    append(newOp, c);
+                }
+                return newOp;
+            };
+            var transformPosition = function(pos, c, insertAfter) {
+                if (c.i != null) {
+                    if (c.p < pos || c.p === pos && insertAfter) {
+                        return pos + c.i.length;
+                    } else {
+                        return pos;
+                    }
+                } else {
+                    if (pos <= c.p) {
+                        return pos;
+                    } else if (pos <= c.p + c.d.length) {
+                        return c.p;
+                    } else {
+                        return pos - c.d.length;
+                    }
+                }
+            };
+            text.transformCursor = function(position, op, side) {
+                var insertAfter = side === "right";
+                for (var i = 0; i < op.length; i++) {
+                    position = transformPosition(position, op[i], insertAfter);
+                }
+                return position;
+            };
+            var transformComponent = text._tc = function(dest, c, otherC, side) {
+                checkValidComponent(c);
+                checkValidComponent(otherC);
+                if (c.i != null) {
+                    append(dest, {
+                        i: c.i,
+                        p: transformPosition(c.p, otherC, side === "right")
+                    });
+                } else {
+                    if (otherC.i != null) {
+                        var s = c.d;
+                        if (c.p < otherC.p) {
+                            append(dest, {
+                                d: s.slice(0, otherC.p - c.p),
+                                p: c.p
+                            });
+                            s = s.slice(otherC.p - c.p);
+                        }
+                        if (s !== "") append(dest, {
+                            d: s,
+                            p: c.p + otherC.i.length
+                        });
+                    } else {
+                        if (c.p >= otherC.p + otherC.d.length) append(dest, {
+                            d: c.d,
+                            p: c.p - otherC.d.length
+                        }); else if (c.p + c.d.length <= otherC.p) append(dest, c); else {
+                            var newC = {
+                                d: "",
+                                p: c.p
+                            };
+                            if (c.p < otherC.p) newC.d = c.d.slice(0, otherC.p - c.p);
+                            if (c.p + c.d.length > otherC.p + otherC.d.length) newC.d += c.d.slice(otherC.p + otherC.d.length - c.p);
+                            var intersectStart = Math.max(c.p, otherC.p);
+                            var intersectEnd = Math.min(c.p + c.d.length, otherC.p + otherC.d.length);
+                            var cIntersect = c.d.slice(intersectStart - c.p, intersectEnd - c.p);
+                            var otherIntersect = otherC.d.slice(intersectStart - otherC.p, intersectEnd - otherC.p);
+                            if (cIntersect !== otherIntersect) throw new Error("Delete ops delete different text in the same region of the document");
+                            if (newC.d !== "") {
+                                newC.p = transformPosition(newC.p, otherC);
+                                append(dest, newC);
+                            }
+                        }
+                    }
+                }
+                return dest;
+            };
+            var invertComponent = function(c) {
+                return c.i != null ? {
+                    d: c.i,
+                    p: c.p
+                } : {
+                    i: c.d,
+                    p: c.p
+                };
+            };
+            text.invert = function(op) {
+                op = op.slice().reverse();
+                for (var i = 0; i < op.length; i++) {
+                    op[i] = invertComponent(op[i]);
+                }
+                return op;
+            };
+            require("./bootstrapTransform")(text, transformComponent, checkValidOp, append);
+        }, {
+            "./bootstrapTransform": 4
+        } ],
+        8: [ function(require, module, exports) {
+            module.exports = {
+                type: require("./text-tp2")
+            };
+        }, {
+            "./text-tp2": 9
+        } ],
+        9: [ function(require, module, exports) {
+            var type = module.exports = {
+                name: "text-tp2",
+                tp2: true,
+                uri: "http://sharejs.org/types/text-tp2v1",
+                create: function(initial) {
+                    if (initial == null) {
+                        initial = "";
+                    } else {
+                        if (typeof initial != "string") throw new Error("Initial data must be a string");
+                    }
+                    return {
+                        charLength: initial.length,
+                        totalLength: initial.length,
+                        data: initial.length ? [ initial ] : []
+                    };
+                },
+                serialize: function(doc) {
+                    if (!doc.data) {
+                        throw new Error("invalid doc snapshot");
+                    }
+                    return doc.data;
+                },
+                deserialize: function(data) {
+                    var doc = type.create();
+                    doc.data = data;
+                    for (var i = 0; i < data.length; i++) {
+                        var component = data[i];
+                        if (typeof component === "string") {
+                            doc.charLength += component.length;
+                            doc.totalLength += component.length;
+                        } else {
+                            doc.totalLength += component;
+                        }
+                    }
+                    return doc;
+                }
+            };
+            var isArray = Array.isArray || function(obj) {
+                return Object.prototype.toString.call(obj) == "[object Array]";
+            };
+            var checkOp = function(op) {
+                if (!isArray(op)) throw new Error("Op must be an array of components");
+                var last = null;
+                for (var i = 0; i < op.length; i++) {
+                    var c = op[i];
+                    if (typeof c == "object") {
+                        if (c.i !== undefined) {
+                            if (!(typeof c.i === "string" && c.i.length > 0 || typeof c.i === "number" && c.i > 0)) throw new Error("Inserts must insert a string or a +ive number");
+                        } else if (c.d !== undefined) {
+                            if (!(typeof c.d === "number" && c.d > 0)) throw new Error("Deletes must be a +ive number");
+                        } else throw new Error("Operation component must define .i or .d");
+                    } else {
+                        if (typeof c != "number") throw new Error("Op components must be objects or numbers");
+                        if (c <= 0) throw new Error("Skip components must be a positive number");
+                        if (typeof last === "number") throw new Error("Adjacent skip components should be combined");
+                    }
+                    last = c;
+                }
+            };
+            var takeDoc = type._takeDoc = function(doc, position, maxlength, tombsIndivisible) {
+                if (position.index >= doc.data.length) throw new Error("Operation goes past the end of the document");
+                var part = doc.data[position.index];
+                var result;
+                if (typeof part == "string") {
+                    if (maxlength != null) {
+                        result = part.slice(position.offset, position.offset + maxlength);
+                    } else {
+                        result = part.slice(position.offset);
+                    }
+                } else {
+                    if (maxlength == null || tombsIndivisible) {
+                        result = part - position.offset;
+                    } else {
+                        result = Math.min(maxlength, part - position.offset);
+                    }
+                }
+                var resultLen = result.length || result;
+                if ((part.length || part) - position.offset > resultLen) {
+                    position.offset += resultLen;
+                } else {
+                    position.index++;
+                    position.offset = 0;
+                }
+                return result;
+            };
+            var appendDoc = type._appendDoc = function(doc, p) {
+                if (p === 0 || p === "") return;
+                if (typeof p === "string") {
+                    doc.charLength += p.length;
+                    doc.totalLength += p.length;
+                } else {
+                    doc.totalLength += p;
+                }
+                var data = doc.data;
+                if (data.length === 0) {
+                    data.push(p);
+                } else if (typeof data[data.length - 1] === typeof p) {
+                    data[data.length - 1] += p;
+                } else {
+                    data.push(p);
+                }
+            };
+            type.apply = function(doc, op) {
+                if (doc.totalLength == null || doc.charLength == null || !isArray(doc.data)) {
+                    throw new Error("Snapshot is invalid");
+                }
+                checkOp(op);
+                var newDoc = type.create();
+                var position = {
+                    index: 0,
+                    offset: 0
+                };
+                for (var i = 0; i < op.length; i++) {
+                    var component = op[i];
+                    var remainder, part;
+                    if (typeof component == "number") {
+                        remainder = component;
+                        while (remainder > 0) {
+                            part = takeDoc(doc, position, remainder);
+                            appendDoc(newDoc, part);
+                            remainder -= part.length || part;
+                        }
+                    } else if (component.i !== undefined) {
+                        appendDoc(newDoc, component.i);
+                    } else if (component.d !== undefined) {
+                        remainder = component.d;
+                        while (remainder > 0) {
+                            part = takeDoc(doc, position, remainder);
+                            remainder -= part.length || part;
+                        }
+                        appendDoc(newDoc, component.d);
+                    }
+                }
+                return newDoc;
+            };
+            var append = type._append = function(op, component) {
+                var last;
+                if (component === 0 || component.i === "" || component.i === 0 || component.d === 0) {} else if (op.length === 0) {
+                    op.push(component);
+                } else {
+                    last = op[op.length - 1];
+                    if (typeof component == "number" && typeof last == "number") {
+                        op[op.length - 1] += component;
+                    } else if (component.i != null && last.i != null && typeof last.i === typeof component.i) {
+                        last.i += component.i;
+                    } else if (component.d != null && last.d != null) {
+                        last.d += component.d;
+                    } else {
+                        op.push(component);
+                    }
+                }
+            };
+            var take = function(op, cursor, maxlength, insertsIndivisible) {
+                if (cursor.index === op.length) return null;
+                var e = op[cursor.index];
+                var current;
+                var result;
+                var offset = cursor.offset;
+                if (typeof (current = e) == "number" || typeof (current = e.i) == "number" || (current = e.d) != null) {
+                    var c;
+                    if (maxlength == null || current - offset <= maxlength || insertsIndivisible && e.i != null) {
+                        c = current - offset;
+                        ++cursor.index;
+                        cursor.offset = 0;
+                    } else {
+                        cursor.offset += maxlength;
+                        c = maxlength;
+                    }
+                    if (e.i != null) {
+                        return {
+                            i: c
+                        };
+                    } else if (e.d != null) {
+                        return {
+                            d: c
+                        };
+                    } else {
+                        return c;
+                    }
+                } else {
+                    if (maxlength == null || e.i.length - offset <= maxlength || insertsIndivisible) {
+                        result = {
+                            i: e.i.slice(offset)
+                        };
+                        ++cursor.index;
+                        cursor.offset = 0;
+                    } else {
+                        result = {
+                            i: e.i.slice(offset, offset + maxlength)
+                        };
+                        cursor.offset += maxlength;
+                    }
+                    return result;
+                }
+            };
+            var componentLength = function(component) {
+                if (typeof component === "number") {
+                    return component;
+                } else if (typeof component.i === "string") {
+                    return component.i.length;
+                } else {
+                    return component.d || component.i;
+                }
+            };
+            type.normalize = function(op) {
+                var newOp = [];
+                for (var i = 0; i < op.length; i++) {
+                    append(newOp, op[i]);
+                }
+                return newOp;
+            };
+            var transformer = function(op, otherOp, goForwards, side) {
+                checkOp(op);
+                checkOp(otherOp);
+                var newOp = [];
+                var cursor = {
+                    index: 0,
+                    offset: 0
+                };
+                for (var i = 0; i < otherOp.length; i++) {
+                    var component = otherOp[i];
+                    var len = componentLength(component);
+                    var chunk;
+                    if (component.i != null) {
+                        if (goForwards) {
+                            if (side === "left") {
+                                var next;
+                                while ((next = op[cursor.index]) && next.i != null) {
+                                    append(newOp, take(op, cursor));
+                                }
+                            }
+                            append(newOp, len);
+                        } else {
+                            while (len > 0) {
+                                chunk = take(op, cursor, len, true);
+                                if (chunk === null) throw new Error("The transformed op is invalid");
+                                if (chunk.d != null) throw new Error("The transformed op deletes locally inserted characters - it cannot be purged of the insert.");
+                                if (typeof chunk == "number") len -= chunk; else append(newOp, chunk);
+                            }
+                        }
+                    } else {
+                        while (len > 0) {
+                            chunk = take(op, cursor, len, true);
+                            if (chunk === null) throw new Error("The op traverses more elements than the document has");
+                            append(newOp, chunk);
+                            if (!chunk.i) len -= componentLength(chunk);
+                        }
+                    }
+                }
+                var component;
+                while (component = take(op, cursor)) {
+                    if (component.i === undefined) {
+                        throw new Error("Remaining fragments in the op: " + component);
+                    }
+                    append(newOp, component);
+                }
+                return newOp;
+            };
+            type.transform = function(op, otherOp, side) {
+                if (side != "left" && side != "right") throw new Error("side (" + side + ") should be 'left' or 'right'");
+                return transformer(op, otherOp, true, side);
+            };
+            type.prune = function(op, otherOp) {
+                return transformer(op, otherOp, false);
+            };
+            type.compose = function(op1, op2) {
+                if (op1 == null) return op2;
+                checkOp(op1);
+                checkOp(op2);
+                var result = [];
+                var cursor = {
+                    index: 0,
+                    offset: 0
+                };
+                var component;
+                for (var i = 0; i < op2.length; i++) {
+                    component = op2[i];
+                    var len, chunk;
+                    if (typeof component === "number") {
+                        len = component;
+                        while (len > 0) {
+                            chunk = take(op1, cursor, len);
+                            if (chunk === null) throw new Error("The op traverses more elements than the document has");
+                            append(result, chunk);
+                            len -= componentLength(chunk);
+                        }
+                    } else if (component.i !== undefined) {
+                        append(result, {
+                            i: component.i
+                        });
+                    } else {
+                        len = component.d;
+                        while (len > 0) {
+                            chunk = take(op1, cursor, len);
+                            if (chunk === null) throw new Error("The op traverses more elements than the document has");
+                            var chunkLength = componentLength(chunk);
+                            if (chunk.i !== undefined) append(result, {
+                                i: chunkLength
+                            }); else append(result, {
+                                d: chunkLength
+                            });
+                            len -= chunkLength;
+                        }
+                    }
+                }
+                while (component = take(op1, cursor)) {
+                    if (component.i === undefined) {
+                        throw new Error("Remaining fragments in op1: " + component);
+                    }
+                    append(result, component);
+                }
+                return result;
+            };
+        }, {} ],
+        10: [ function(require, module, exports) {
+            module.exports = api;
+            function api(getSnapshot, submitOp) {
+                return {
+                    get: function() {
+                        return getSnapshot();
+                    },
+                    getLength: function() {
+                        return getSnapshot().length;
+                    },
+                    insert: function(pos, text, callback) {
+                        return submitOp([ pos, text ], callback);
+                    },
+                    remove: function(pos, length, callback) {
+                        return submitOp([ pos, {
+                            d: length
+                        } ], callback);
+                    },
+                    _onOp: function(op) {
+                        var pos = 0;
+                        var spos = 0;
+                        for (var i = 0; i < op.length; i++) {
+                            var component = op[i];
+                            switch (typeof component) {
+                              case "number":
+                                pos += component;
+                                spos += component;
+                                break;
+
+                              case "string":
+                                if (this.onInsert) this.onInsert(pos, component);
+                                pos += component.length;
+                                break;
+
+                              case "object":
+                                if (this.onRemove) this.onRemove(pos, component.d);
+                                spos += component.d;
+                            }
+                        }
+                    }
+                };
+            }
+            api.provides = {
+                text: true
+            };
+        }, {} ],
+        11: [ function(require, module, exports) {
+            var type = require("./text");
+            type.api = require("./api");
+            module.exports = {
+                type: type
+            };
+        }, {
+            "./api": 10,
+            "./text": 12
+        } ],
+        12: [ function(require, module, exports) {
+            exports.name = "text";
+            exports.uri = "http://sharejs.org/types/textv1";
+            exports.create = function(initial) {
+                if (initial != null && typeof initial !== "string") {
+                    throw Error("Initial data must be a string");
+                }
+                return initial || "";
+            };
+            var isArray = Array.isArray || function(obj) {
+                return Object.prototype.toString.call(obj) === "[object Array]";
+            };
+            var checkOp = function(op) {
+                if (!isArray(op)) throw Error("Op must be an array of components");
+                var last = null;
+                for (var i = 0; i < op.length; i++) {
+                    var c = op[i];
+                    switch (typeof c) {
+                      case "object":
+                        if (!(typeof c.d === "number" && c.d > 0)) throw Error("Object components must be deletes of size > 0");
+                        break;
+
+                      case "string":
+                        if (!(c.length > 0)) throw Error("Inserts cannot be empty");
+                        break;
+
+                      case "number":
+                        if (!(c > 0)) throw Error("Skip components must be >0");
+                        if (typeof last === "number") throw Error("Adjacent skip components should be combined");
+                        break;
+                    }
+                    last = c;
+                }
+                if (typeof last === "number") throw Error("Op has a trailing skip");
+            };
+            var checkSelection = function(selection) {
+                if (typeof selection !== "number" && (typeof selection[0] !== "number" || typeof selection[1] !== "number")) throw Error("Invalid selection");
+            };
+            var makeAppend = function(op) {
+                return function(component) {
+                    if (!component || component.d === 0) {} else if (op.length === 0) {
+                        return op.push(component);
+                    } else if (typeof component === typeof op[op.length - 1]) {
+                        if (typeof component === "object") {
+                            return op[op.length - 1].d += component.d;
+                        } else {
+                            return op[op.length - 1] += component;
+                        }
+                    } else {
+                        return op.push(component);
+                    }
+                };
+            };
+            var makeTake = function(op) {
+                var idx = 0;
+                var offset = 0;
+                var take = function(n, indivisableField) {
+                    if (idx === op.length) return n === -1 ? null : n;
+                    var part;
+                    var c = op[idx];
+                    if (typeof c === "number") {
+                        if (n === -1 || c - offset <= n) {
+                            part = c - offset;
+                            ++idx;
+                            offset = 0;
+                            return part;
+                        } else {
+                            offset += n;
+                            return n;
+                        }
+                    } else if (typeof c === "string") {
+                        if (n === -1 || indivisableField === "i" || c.length - offset <= n) {
+                            part = c.slice(offset);
+                            ++idx;
+                            offset = 0;
+                            return part;
+                        } else {
+                            part = c.slice(offset, offset + n);
+                            offset += n;
+                            return part;
+                        }
+                    } else {
+                        if (n === -1 || indivisableField === "d" || c.d - offset <= n) {
+                            part = {
+                                d: c.d - offset
+                            };
+                            ++idx;
+                            offset = 0;
+                            return part;
+                        } else {
+                            offset += n;
+                            return {
+                                d: n
+                            };
+                        }
+                    }
+                };
+                var peekType = function() {
+                    return op[idx];
+                };
+                return [ take, peekType ];
+            };
+            var componentLength = function(c) {
+                if (typeof c === "number") {
+                    return c;
+                } else {
+                    return c.length || c.d;
+                }
+            };
+            var trim = function(op) {
+                if (op.length > 0 && typeof op[op.length - 1] === "number") {
+                    op.pop();
+                }
+                return op;
+            };
+            exports.normalize = function(op) {
+                var newOp = [];
+                var append = makeAppend(newOp);
+                for (var i = 0; i < op.length; i++) {
+                    append(op[i]);
+                }
+                return trim(newOp);
+            };
+            exports.apply = function(str, op) {
+                if (typeof str !== "string") {
+                    throw Error("Snapshot should be a string");
+                }
+                checkOp(op);
+                var newDoc = [];
+                for (var i = 0; i < op.length; i++) {
+                    var component = op[i];
+                    switch (typeof component) {
+                      case "number":
+                        if (component > str.length) throw Error("The op is too long for this document");
+                        newDoc.push(str.slice(0, component));
+                        str = str.slice(component);
+                        break;
+
+                      case "string":
+                        newDoc.push(component);
+                        break;
+
+                      case "object":
+                        str = str.slice(component.d);
+                        break;
+                    }
+                }
+                return newDoc.join("") + str;
+            };
+            exports.transform = function(op, otherOp, side) {
+                if (side != "left" && side != "right") throw Error("side (" + side + ") must be 'left' or 'right'");
+                checkOp(op);
+                checkOp(otherOp);
+                var newOp = [];
+                var append = makeAppend(newOp);
+                var _fns = makeTake(op);
+                var take = _fns[0], peek = _fns[1];
+                for (var i = 0; i < otherOp.length; i++) {
+                    var component = otherOp[i];
+                    var length, chunk;
+                    switch (typeof component) {
+                      case "number":
+                        length = component;
+                        while (length > 0) {
+                            chunk = take(length, "i");
+                            append(chunk);
+                            if (typeof chunk !== "string") {
+                                length -= componentLength(chunk);
+                            }
+                        }
+                        break;
+
+                      case "string":
+                        if (side === "left") {
+                            if (typeof peek() === "string") {
+                                append(take(-1));
+                            }
+                        }
+                        append(component.length);
+                        break;
+
+                      case "object":
+                        length = component.d;
+                        while (length > 0) {
+                            chunk = take(length, "i");
+                            switch (typeof chunk) {
+                              case "number":
+                                length -= chunk;
+                                break;
+
+                              case "string":
+                                append(chunk);
+                                break;
+
+                              case "object":
+                                length -= chunk.d;
+                            }
+                        }
+                        break;
+                    }
+                }
+                while (component = take(-1)) append(component);
+                return trim(newOp);
+            };
+            exports.compose = function(op1, op2) {
+                checkOp(op1);
+                checkOp(op2);
+                var result = [];
+                var append = makeAppend(result);
+                var take = makeTake(op1)[0];
+                for (var i = 0; i < op2.length; i++) {
+                    var component = op2[i];
+                    var length, chunk;
+                    switch (typeof component) {
+                      case "number":
+                        length = component;
+                        while (length > 0) {
+                            chunk = take(length, "d");
+                            append(chunk);
+                            if (typeof chunk !== "object") {
+                                length -= componentLength(chunk);
+                            }
+                        }
+                        break;
+
+                      case "string":
+                        append(component);
+                        break;
+
+                      case "object":
+                        length = component.d;
+                        while (length > 0) {
+                            chunk = take(length, "d");
+                            switch (typeof chunk) {
+                              case "number":
+                                append({
+                                    d: chunk
+                                });
+                                length -= chunk;
+                                break;
+
+                              case "string":
+                                length -= chunk.length;
+                                break;
+
+                              case "object":
+                                append(chunk);
+                            }
+                        }
+                        break;
+                    }
+                }
+                while (component = take(-1)) append(component);
+                return trim(result);
+            };
+            var transformPosition = function(cursor, op) {
+                var pos = 0;
+                for (var i = 0; i < op.length; i++) {
+                    var c = op[i];
+                    if (cursor <= pos) break;
+                    switch (typeof c) {
+                      case "number":
+                        if (cursor <= pos + c) return cursor;
+                        pos += c;
+                        break;
+
+                      case "string":
+                        pos += c.length;
+                        cursor += c.length;
+                        break;
+
+                      case "object":
+                        cursor -= Math.min(c.d, cursor - pos);
+                        break;
+                    }
+                }
+                return cursor;
+            };
+            exports.transformSelection = function(selection, op, isOwnOp) {
+                var pos = 0;
+                if (isOwnOp) {
+                    for (var i = 0; i < op.length; i++) {
+                        var c = op[i];
+                        switch (typeof c) {
+                          case "number":
+                            pos += c;
+                            break;
+
+                          case "string":
+                            pos += c.length;
+                            break;
+                        }
+                    }
+                    return pos;
+                } else {
+                    return typeof selection === "number" ? transformPosition(selection, op) : [ transformPosition(selection[0], op), transformPosition(selection[1], op) ];
+                }
+            };
+            exports.selectionEq = function(c1, c2) {
+                if (c1[0] != null && c1[0] === c1[1]) c1 = c1[0];
+                if (c2[0] != null && c2[0] === c2[1]) c2 = c2[0];
+                return c1 === c2 || c1[0] != null && c2[0] != null && c1[0] === c2[0] && c1[1] == c2[1];
+            };
+        }, {} ],
+        13: [ function(require, module, exports) {
             var Doc = require("./doc").Doc;
             var Query = require("./query").Query;
             var emitter = require("./emitter");
@@ -930,11 +2287,11 @@
                 return this._createQuery("sub", index, q, options, callback);
             };
         }, {
-            "./doc": 5,
-            "./emitter": 6,
-            "./query": 8
+            "./doc": 14,
+            "./emitter": 15,
+            "./query": 17
         } ],
-        5: [ function(require, module, exports) {
+        14: [ function(require, module, exports) {
             var types = require("../types").ottypes;
             var emitter = require("./emitter");
             var Doc = exports.Doc = function(connection, collection, name) {
@@ -1459,10 +2816,10 @@
                 this.editingContexts.length = 0;
             };
         }, {
-            "../types": 10,
-            "./emitter": 6
+            "../types": 19,
+            "./emitter": 15
         } ],
-        6: [ function(require, module, exports) {
+        15: [ function(require, module, exports) {
             var EventEmitter = require("events").EventEmitter;
             exports.EventEmitter = EventEmitter;
             exports.mixin = mixin;
@@ -1474,7 +2831,7 @@
         }, {
             events: 3
         } ],
-        7: [ function(require, module, exports) {
+        16: [ function(require, module, exports) {
             exports.Connection = require("./connection").Connection;
             exports.Doc = require("./doc").Doc;
             require("./textarea");
@@ -1482,12 +2839,12 @@
             exports.ottypes = types.ottypes;
             exports.registerType = types.registerType;
         }, {
-            "../types": 10,
-            "./connection": 4,
-            "./doc": 5,
-            "./textarea": 9
+            "../types": 19,
+            "./connection": 13,
+            "./doc": 14,
+            "./textarea": 18
         } ],
-        8: [ function(require, module, exports) {
+        17: [ function(require, module, exports) {
             var emitter = require("./emitter");
             var Query = exports.Query = function(type, connection, id, collection, query, options, callback) {
                 emitter.EventEmitter.call(this);
@@ -1637,9 +2994,9 @@
                 }
             };
         }, {
-            "./emitter": 6
+            "./emitter": 15
         } ],
-        9: [ function(require, module, exports) {
+        18: [ function(require, module, exports) {
             var Doc = require("./doc").Doc;
             var applyChange = function(ctx, oldval, newval) {
                 if (oldval === newval) return;
@@ -1721,9 +3078,9 @@
                 return ctx;
             };
         }, {
-            "./doc": 5
+            "./doc": 14
         } ],
-        10: [ function(require, module, exports) {
+        19: [ function(require, module, exports) {
             exports.ottypes = {};
             exports.registerType = function(type) {
                 if (type.name) exports.ottypes[type.name] = type;
@@ -1735,13 +3092,13 @@
             require("./text-api");
             require("./text-tp2-api");
         }, {
-            "./text-api": 11,
-            "./text-tp2-api": 12,
-            "ot-json0": 14,
-            "ot-text": 20,
-            "ot-text-tp2": 17
+            "./text-api": 20,
+            "./text-tp2-api": 21,
+            "ot-json0": 5,
+            "ot-text": 11,
+            "ot-text-tp2": 8
         } ],
-        11: [ function(require, module, exports) {
+        20: [ function(require, module, exports) {
             var type = require("ot-text").type;
             type.api = {
                 provides: {
@@ -1789,9 +3146,9 @@
                 }
             };
         }, {
-            "ot-text": 20
+            "ot-text": 11
         } ],
-        12: [ function(require, module, exports) {
+        21: [ function(require, module, exports) {
             var type = require("ot-text-tp2").type;
             var takeDoc = type._takeDoc;
             var append = type._append;
@@ -1898,1365 +3255,8 @@
                 }
             };
         }, {
-            "ot-text-tp2": 17
-        } ],
-        13: [ function(require, module, exports) {
-            module.exports = bootstrapTransform;
-            function bootstrapTransform(type, transformComponent, checkValidOp, append) {
-                var transformComponentX = function(left, right, destLeft, destRight) {
-                    transformComponent(destLeft, left, right, "left");
-                    transformComponent(destRight, right, left, "right");
-                };
-                var transformX = type.transformX = function(leftOp, rightOp) {
-                    checkValidOp(leftOp);
-                    checkValidOp(rightOp);
-                    var newRightOp = [];
-                    for (var i = 0; i < rightOp.length; i++) {
-                        var rightComponent = rightOp[i];
-                        var newLeftOp = [];
-                        var k = 0;
-                        while (k < leftOp.length) {
-                            var nextC = [];
-                            transformComponentX(leftOp[k], rightComponent, newLeftOp, nextC);
-                            k++;
-                            if (nextC.length === 1) {
-                                rightComponent = nextC[0];
-                            } else if (nextC.length === 0) {
-                                for (var j = k; j < leftOp.length; j++) {
-                                    append(newLeftOp, leftOp[j]);
-                                }
-                                rightComponent = null;
-                                break;
-                            } else {
-                                var pair = transformX(leftOp.slice(k), nextC);
-                                for (var l = 0; l < pair[0].length; l++) {
-                                    append(newLeftOp, pair[0][l]);
-                                }
-                                for (var r = 0; r < pair[1].length; r++) {
-                                    append(newRightOp, pair[1][r]);
-                                }
-                                rightComponent = null;
-                                break;
-                            }
-                        }
-                        if (rightComponent != null) {
-                            append(newRightOp, rightComponent);
-                        }
-                        leftOp = newLeftOp;
-                    }
-                    return [ leftOp, newRightOp ];
-                };
-                type.transform = function(op, otherOp, type) {
-                    if (!(type === "left" || type === "right")) throw new Error("type must be 'left' or 'right'");
-                    if (otherOp.length === 0) return op;
-                    if (op.length === 1 && otherOp.length === 1) return transformComponent([], op[0], otherOp[0], type);
-                    if (type === "left") return transformX(op, otherOp)[0]; else return transformX(otherOp, op)[1];
-                };
-            }
-        }, {} ],
-        14: [ function(require, module, exports) {
-            module.exports = {
-                type: require("./json0")
-            };
-        }, {
-            "./json0": 15
-        } ],
-        15: [ function(require, module, exports) {
-            var isArray = function(obj) {
-                return Object.prototype.toString.call(obj) == "[object Array]";
-            };
-            var isObject = function(obj) {
-                return !!obj && obj.constructor === Object;
-            };
-            var clone = function(o) {
-                return JSON.parse(JSON.stringify(o));
-            };
-            var json = {
-                name: "json0",
-                uri: "http://sharejs.org/types/JSONv0"
-            };
-            var subtypes = {};
-            json.registerSubtype = function(subtype) {
-                subtypes[subtype.name] = subtype;
-            };
-            json.create = function(data) {
-                return data === undefined ? null : clone(data);
-            };
-            json.invertComponent = function(c) {
-                var c_ = {
-                    p: c.p
-                };
-                if (c.t && subtypes[c.t]) {
-                    c_.t = c.t;
-                    c_.o = subtypes[c.t].invert(c.o);
-                }
-                if (c.si !== void 0) c_.sd = c.si;
-                if (c.sd !== void 0) c_.si = c.sd;
-                if (c.oi !== void 0) c_.od = c.oi;
-                if (c.od !== void 0) c_.oi = c.od;
-                if (c.li !== void 0) c_.ld = c.li;
-                if (c.ld !== void 0) c_.li = c.ld;
-                if (c.na !== void 0) c_.na = -c.na;
-                if (c.lm !== void 0) {
-                    c_.lm = c.p[c.p.length - 1];
-                    c_.p = c.p.slice(0, c.p.length - 1).concat([ c.lm ]);
-                }
-                return c_;
-            };
-            json.invert = function(op) {
-                var op_ = op.slice().reverse();
-                var iop = [];
-                for (var i = 0; i < op_.length; i++) {
-                    iop.push(json.invertComponent(op_[i]));
-                }
-                return iop;
-            };
-            json.checkValidOp = function(op) {
-                for (var i = 0; i < op.length; i++) {
-                    if (!isArray(op[i].p)) throw new Error("Missing path");
-                }
-            };
-            json.checkList = function(elem) {
-                if (!isArray(elem)) throw new Error("Referenced element not a list");
-            };
-            json.checkObj = function(elem) {
-                if (!isObject(elem)) {
-                    throw new Error("Referenced element not an object (it was " + JSON.stringify(elem) + ")");
-                }
-            };
-            function convertFromText(c) {
-                c.t = "text0";
-                var o = {
-                    p: c.p.pop()
-                };
-                if (c.si != null) o.i = c.si;
-                if (c.sd != null) o.d = c.sd;
-                c.o = [ o ];
-            }
-            function convertToText(c) {
-                c.p.push(c.o[0].p);
-                if (c.o[0].i != null) c.si = c.o[0].i;
-                if (c.o[0].d != null) c.sd = c.o[0].d;
-                delete c.t;
-                delete c.o;
-            }
-            json.apply = function(snapshot, op) {
-                json.checkValidOp(op);
-                op = clone(op);
-                var container = {
-                    data: snapshot
-                };
-                for (var i = 0; i < op.length; i++) {
-                    var c = op[i];
-                    if (c.si != null || c.sd != null) convertFromText(c);
-                    var parent = null;
-                    var parentKey = null;
-                    var elem = container;
-                    var key = "data";
-                    for (var j = 0; j < c.p.length; j++) {
-                        var p = c.p[j];
-                        parent = elem;
-                        parentKey = key;
-                        elem = elem[key];
-                        key = p;
-                        if (parent == null) throw new Error("Path invalid");
-                    }
-                    if (c.t && c.o !== void 0 && subtypes[c.t]) {
-                        elem[key] = subtypes[c.t].apply(elem[key], c.o);
-                    } else if (c.na !== void 0) {
-                        if (typeof elem[key] != "number") throw new Error("Referenced element not a number");
-                        elem[key] += c.na;
-                    } else if (c.li !== void 0 && c.ld !== void 0) {
-                        json.checkList(elem);
-                        elem[key] = c.li;
-                    } else if (c.li !== void 0) {
-                        json.checkList(elem);
-                        elem.splice(key, 0, c.li);
-                    } else if (c.ld !== void 0) {
-                        json.checkList(elem);
-                        elem.splice(key, 1);
-                    } else if (c.lm !== void 0) {
-                        json.checkList(elem);
-                        if (c.lm != key) {
-                            var e = elem[key];
-                            elem.splice(key, 1);
-                            elem.splice(c.lm, 0, e);
-                        }
-                    } else if (c.oi !== void 0) {
-                        json.checkObj(elem);
-                        elem[key] = c.oi;
-                    } else if (c.od !== void 0) {
-                        json.checkObj(elem);
-                        delete elem[key];
-                    } else {
-                        throw new Error("invalid / missing instruction in op");
-                    }
-                }
-                return container.data;
-            };
-            json.shatter = function(op) {
-                var results = [];
-                for (var i = 0; i < op.length; i++) {
-                    results.push([ op[i] ]);
-                }
-                return results;
-            };
-            json.incrementalApply = function(snapshot, op, _yield) {
-                for (var i = 0; i < op.length; i++) {
-                    var smallOp = [ op[i] ];
-                    snapshot = json.apply(snapshot, smallOp);
-                    _yield(smallOp, snapshot);
-                }
-                return snapshot;
-            };
-            var pathMatches = json.pathMatches = function(p1, p2, ignoreLast) {
-                if (p1.length != p2.length) return false;
-                for (var i = 0; i < p1.length; i++) {
-                    if (p1[i] !== p2[i] && (!ignoreLast || i !== p1.length - 1)) return false;
-                }
-                return true;
-            };
-            json.append = function(dest, c) {
-                c = clone(c);
-                if (dest.length === 0) {
-                    dest.push(c);
-                    return;
-                }
-                var last = dest[dest.length - 1];
-                if ((c.si != null || c.sd != null) && (last.si != null || last.sd != null)) {
-                    convertFromText(c);
-                    convertFromText(last);
-                }
-                if (pathMatches(c.p, last.p)) {
-                    if (c.t && last.t && c.t === last.t && subtypes[c.t]) {
-                        last.o = subtypes[c.t].compose(last.o, c.o);
-                        if (c.si != null || c.sd != null) {
-                            var p = c.p;
-                            for (var i = 0; i < last.o.length - 1; i++) {
-                                c.o = [ last.o.pop() ];
-                                c.p = p.slice();
-                                convertToText(c);
-                                dest.push(c);
-                            }
-                            convertToText(last);
-                        }
-                    } else if (last.na != null && c.na != null) {
-                        dest[dest.length - 1] = {
-                            p: last.p,
-                            na: last.na + c.na
-                        };
-                    } else if (last.li !== undefined && c.li === undefined && c.ld === last.li) {
-                        if (last.ld !== undefined) {
-                            delete last.li;
-                        } else {
-                            dest.pop();
-                        }
-                    } else if (last.od !== undefined && last.oi === undefined && c.oi !== undefined && c.od === undefined) {
-                        last.oi = c.oi;
-                    } else if (last.oi !== undefined && c.od !== undefined) {
-                        if (c.oi !== undefined) {
-                            last.oi = c.oi;
-                        } else if (last.od !== undefined) {
-                            delete last.oi;
-                        } else {
-                            dest.pop();
-                        }
-                    } else if (c.lm !== undefined && c.p[c.p.length - 1] === c.lm) {} else {
-                        dest.push(c);
-                    }
-                } else {
-                    if ((c.si != null || c.sd != null) && (last.si != null || last.sd != null)) {
-                        convertToText(c);
-                        convertToText(last);
-                    }
-                    dest.push(c);
-                }
-            };
-            json.compose = function(op1, op2) {
-                json.checkValidOp(op1);
-                json.checkValidOp(op2);
-                var newOp = clone(op1);
-                for (var i = 0; i < op2.length; i++) {
-                    json.append(newOp, op2[i]);
-                }
-                return newOp;
-            };
-            json.normalize = function(op) {
-                var newOp = [];
-                op = isArray(op) ? op : [ op ];
-                for (var i = 0; i < op.length; i++) {
-                    var c = op[i];
-                    if (c.p == null) c.p = [];
-                    json.append(newOp, c);
-                }
-                return newOp;
-            };
-            json.commonLengthForOps = function(a, b) {
-                var alen = a.p.length;
-                var blen = b.p.length;
-                if (a.na != null || a.t) alen++;
-                if (b.na != null || b.t) blen++;
-                if (alen === 0) return -1;
-                if (blen === 0) return null;
-                alen--;
-                blen--;
-                for (var i = 0; i < alen; i++) {
-                    var p = a.p[i];
-                    if (i >= blen || p !== b.p[i]) return null;
-                }
-                return alen;
-            };
-            json.canOpAffectPath = function(op, path) {
-                return json.commonLengthForOps({
-                    p: path
-                }, op) != null;
-            };
-            json.transformComponent = function(dest, c, otherC, type) {
-                c = clone(c);
-                var common = json.commonLengthForOps(otherC, c);
-                var common2 = json.commonLengthForOps(c, otherC);
-                var cplength = c.p.length;
-                var otherCplength = otherC.p.length;
-                if (c.na != null || c.t) cplength++;
-                if (otherC.na != null || otherC.t) otherCplength++;
-                if (common2 != null && otherCplength > cplength && c.p[common2] == otherC.p[common2]) {
-                    if (c.ld !== void 0) {
-                        var oc = clone(otherC);
-                        oc.p = oc.p.slice(cplength);
-                        c.ld = json.apply(clone(c.ld), [ oc ]);
-                    } else if (c.od !== void 0) {
-                        var oc = clone(otherC);
-                        oc.p = oc.p.slice(cplength);
-                        c.od = json.apply(clone(c.od), [ oc ]);
-                    }
-                }
-                if (common != null) {
-                    var commonOperand = cplength == otherCplength;
-                    var oc = otherC;
-                    if ((c.si != null || c.sd != null) && (otherC.si != null || otherC.sd != null)) {
-                        convertFromText(c);
-                        oc = clone(otherC);
-                        convertFromText(oc);
-                    }
-                    if (oc.t && subtypes[oc.t]) {
-                        if (c.t && c.t === oc.t) {
-                            var res = subtypes[c.t].transform(c.o, oc.o, type);
-                            if (res.length > 0) {
-                                if (c.si != null || c.sd != null) {
-                                    var p = c.p;
-                                    for (var i = 0; i < res.length; i++) {
-                                        c.o = [ res[i] ];
-                                        c.p = p.slice();
-                                        convertToText(c);
-                                        json.append(dest, c);
-                                    }
-                                } else {
-                                    c.o = res;
-                                    json.append(dest, c);
-                                }
-                            }
-                            return dest;
-                        }
-                    } else if (otherC.na !== void 0) {} else if (otherC.li !== void 0 && otherC.ld !== void 0) {
-                        if (otherC.p[common] === c.p[common]) {
-                            if (!commonOperand) {
-                                return dest;
-                            } else if (c.ld !== void 0) {
-                                if (c.li !== void 0 && type === "left") {
-                                    c.ld = clone(otherC.li);
-                                } else {
-                                    return dest;
-                                }
-                            }
-                        }
-                    } else if (otherC.li !== void 0) {
-                        if (c.li !== void 0 && c.ld === undefined && commonOperand && c.p[common] === otherC.p[common]) {
-                            if (type === "right") c.p[common]++;
-                        } else if (otherC.p[common] <= c.p[common]) {
-                            c.p[common]++;
-                        }
-                        if (c.lm !== void 0) {
-                            if (commonOperand) {
-                                if (otherC.p[common] <= c.lm) c.lm++;
-                            }
-                        }
-                    } else if (otherC.ld !== void 0) {
-                        if (c.lm !== void 0) {
-                            if (commonOperand) {
-                                if (otherC.p[common] === c.p[common]) {
-                                    return dest;
-                                }
-                                var p = otherC.p[common];
-                                var from = c.p[common];
-                                var to = c.lm;
-                                if (p < to || p === to && from < to) c.lm--;
-                            }
-                        }
-                        if (otherC.p[common] < c.p[common]) {
-                            c.p[common]--;
-                        } else if (otherC.p[common] === c.p[common]) {
-                            if (otherCplength < cplength) {
-                                return dest;
-                            } else if (c.ld !== void 0) {
-                                if (c.li !== void 0) {
-                                    delete c.ld;
-                                } else {
-                                    return dest;
-                                }
-                            }
-                        }
-                    } else if (otherC.lm !== void 0) {
-                        if (c.lm !== void 0 && cplength === otherCplength) {
-                            var from = c.p[common];
-                            var to = c.lm;
-                            var otherFrom = otherC.p[common];
-                            var otherTo = otherC.lm;
-                            if (otherFrom !== otherTo) {
-                                if (from === otherFrom) {
-                                    if (type === "left") {
-                                        c.p[common] = otherTo;
-                                        if (from === to) c.lm = otherTo;
-                                    } else {
-                                        return dest;
-                                    }
-                                } else {
-                                    if (from > otherFrom) c.p[common]--;
-                                    if (from > otherTo) c.p[common]++; else if (from === otherTo) {
-                                        if (otherFrom > otherTo) {
-                                            c.p[common]++;
-                                            if (from === to) c.lm++;
-                                        }
-                                    }
-                                    if (to > otherFrom) {
-                                        c.lm--;
-                                    } else if (to === otherFrom) {
-                                        if (to > from) c.lm--;
-                                    }
-                                    if (to > otherTo) {
-                                        c.lm++;
-                                    } else if (to === otherTo) {
-                                        if (otherTo > otherFrom && to > from || otherTo < otherFrom && to < from) {
-                                            if (type === "right") c.lm++;
-                                        } else {
-                                            if (to > from) c.lm++; else if (to === otherFrom) c.lm--;
-                                        }
-                                    }
-                                }
-                            }
-                        } else if (c.li !== void 0 && c.ld === undefined && commonOperand) {
-                            var from = otherC.p[common];
-                            var to = otherC.lm;
-                            p = c.p[common];
-                            if (p > from) c.p[common]--;
-                            if (p > to) c.p[common]++;
-                        } else {
-                            var from = otherC.p[common];
-                            var to = otherC.lm;
-                            p = c.p[common];
-                            if (p === from) {
-                                c.p[common] = to;
-                            } else {
-                                if (p > from) c.p[common]--;
-                                if (p > to) c.p[common]++; else if (p === to && from > to) c.p[common]++;
-                            }
-                        }
-                    } else if (otherC.oi !== void 0 && otherC.od !== void 0) {
-                        if (c.p[common] === otherC.p[common]) {
-                            if (c.oi !== void 0 && commonOperand) {
-                                if (type === "right") {
-                                    return dest;
-                                } else {
-                                    c.od = otherC.oi;
-                                }
-                            } else {
-                                return dest;
-                            }
-                        }
-                    } else if (otherC.oi !== void 0) {
-                        if (c.oi !== void 0 && c.p[common] === otherC.p[common]) {
-                            if (type === "left") {
-                                json.append(dest, {
-                                    p: c.p,
-                                    od: otherC.oi
-                                });
-                            } else {
-                                return dest;
-                            }
-                        }
-                    } else if (otherC.od !== void 0) {
-                        if (c.p[common] == otherC.p[common]) {
-                            if (!commonOperand) return dest;
-                            if (c.oi !== void 0) {
-                                delete c.od;
-                            } else {
-                                return dest;
-                            }
-                        }
-                    }
-                }
-                json.append(dest, c);
-                return dest;
-            };
-            require("./bootstrapTransform")(json, json.transformComponent, json.checkValidOp, json.append);
-            var text = require("./text0");
-            json.registerSubtype(text);
-            module.exports = json;
-        }, {
-            "./bootstrapTransform": 13,
-            "./text0": 16
-        } ],
-        16: [ function(require, module, exports) {
-            var text = module.exports = {
-                name: "text0",
-                uri: "http://sharejs.org/types/textv0",
-                create: function(initial) {
-                    if (initial != null && typeof initial !== "string") {
-                        throw new Error("Initial data must be a string");
-                    }
-                    return initial || "";
-                }
-            };
-            var strInject = function(s1, pos, s2) {
-                return s1.slice(0, pos) + s2 + s1.slice(pos);
-            };
-            var checkValidComponent = function(c) {
-                if (typeof c.p !== "number") throw new Error("component missing position field");
-                if (typeof c.i === "string" === (typeof c.d === "string")) throw new Error("component needs an i or d field");
-                if (c.p < 0) throw new Error("position cannot be negative");
-            };
-            var checkValidOp = function(op) {
-                for (var i = 0; i < op.length; i++) {
-                    checkValidComponent(op[i]);
-                }
-            };
-            text.apply = function(snapshot, op) {
-                var deleted;
-                checkValidOp(op);
-                for (var i = 0; i < op.length; i++) {
-                    var component = op[i];
-                    if (component.i != null) {
-                        snapshot = strInject(snapshot, component.p, component.i);
-                    } else {
-                        deleted = snapshot.slice(component.p, component.p + component.d.length);
-                        if (component.d !== deleted) throw new Error("Delete component '" + component.d + "' does not match deleted text '" + deleted + "'");
-                        snapshot = snapshot.slice(0, component.p) + snapshot.slice(component.p + component.d.length);
-                    }
-                }
-                return snapshot;
-            };
-            var append = text._append = function(newOp, c) {
-                if (c.i === "" || c.d === "") return;
-                if (newOp.length === 0) {
-                    newOp.push(c);
-                } else {
-                    var last = newOp[newOp.length - 1];
-                    if (last.i != null && c.i != null && last.p <= c.p && c.p <= last.p + last.i.length) {
-                        newOp[newOp.length - 1] = {
-                            i: strInject(last.i, c.p - last.p, c.i),
-                            p: last.p
-                        };
-                    } else if (last.d != null && c.d != null && c.p <= last.p && last.p <= c.p + c.d.length) {
-                        newOp[newOp.length - 1] = {
-                            d: strInject(c.d, last.p - c.p, last.d),
-                            p: c.p
-                        };
-                    } else {
-                        newOp.push(c);
-                    }
-                }
-            };
-            text.compose = function(op1, op2) {
-                checkValidOp(op1);
-                checkValidOp(op2);
-                var newOp = op1.slice();
-                for (var i = 0; i < op2.length; i++) {
-                    append(newOp, op2[i]);
-                }
-                return newOp;
-            };
-            text.normalize = function(op) {
-                var newOp = [];
-                if (op.i != null || op.p != null) op = [ op ];
-                for (var i = 0; i < op.length; i++) {
-                    var c = op[i];
-                    if (c.p == null) c.p = 0;
-                    append(newOp, c);
-                }
-                return newOp;
-            };
-            var transformPosition = function(pos, c, insertAfter) {
-                if (c.i != null) {
-                    if (c.p < pos || c.p === pos && insertAfter) {
-                        return pos + c.i.length;
-                    } else {
-                        return pos;
-                    }
-                } else {
-                    if (pos <= c.p) {
-                        return pos;
-                    } else if (pos <= c.p + c.d.length) {
-                        return c.p;
-                    } else {
-                        return pos - c.d.length;
-                    }
-                }
-            };
-            text.transformCursor = function(position, op, side) {
-                var insertAfter = side === "right";
-                for (var i = 0; i < op.length; i++) {
-                    position = transformPosition(position, op[i], insertAfter);
-                }
-                return position;
-            };
-            var transformComponent = text._tc = function(dest, c, otherC, side) {
-                checkValidComponent(c);
-                checkValidComponent(otherC);
-                if (c.i != null) {
-                    append(dest, {
-                        i: c.i,
-                        p: transformPosition(c.p, otherC, side === "right")
-                    });
-                } else {
-                    if (otherC.i != null) {
-                        var s = c.d;
-                        if (c.p < otherC.p) {
-                            append(dest, {
-                                d: s.slice(0, otherC.p - c.p),
-                                p: c.p
-                            });
-                            s = s.slice(otherC.p - c.p);
-                        }
-                        if (s !== "") append(dest, {
-                            d: s,
-                            p: c.p + otherC.i.length
-                        });
-                    } else {
-                        if (c.p >= otherC.p + otherC.d.length) append(dest, {
-                            d: c.d,
-                            p: c.p - otherC.d.length
-                        }); else if (c.p + c.d.length <= otherC.p) append(dest, c); else {
-                            var newC = {
-                                d: "",
-                                p: c.p
-                            };
-                            if (c.p < otherC.p) newC.d = c.d.slice(0, otherC.p - c.p);
-                            if (c.p + c.d.length > otherC.p + otherC.d.length) newC.d += c.d.slice(otherC.p + otherC.d.length - c.p);
-                            var intersectStart = Math.max(c.p, otherC.p);
-                            var intersectEnd = Math.min(c.p + c.d.length, otherC.p + otherC.d.length);
-                            var cIntersect = c.d.slice(intersectStart - c.p, intersectEnd - c.p);
-                            var otherIntersect = otherC.d.slice(intersectStart - otherC.p, intersectEnd - otherC.p);
-                            if (cIntersect !== otherIntersect) throw new Error("Delete ops delete different text in the same region of the document");
-                            if (newC.d !== "") {
-                                newC.p = transformPosition(newC.p, otherC);
-                                append(dest, newC);
-                            }
-                        }
-                    }
-                }
-                return dest;
-            };
-            var invertComponent = function(c) {
-                return c.i != null ? {
-                    d: c.i,
-                    p: c.p
-                } : {
-                    i: c.d,
-                    p: c.p
-                };
-            };
-            text.invert = function(op) {
-                op = op.slice().reverse();
-                for (var i = 0; i < op.length; i++) {
-                    op[i] = invertComponent(op[i]);
-                }
-                return op;
-            };
-            require("./bootstrapTransform")(text, transformComponent, checkValidOp, append);
-        }, {
-            "./bootstrapTransform": 13
-        } ],
-        17: [ function(require, module, exports) {
-            module.exports = {
-                type: require("./text-tp2")
-            };
-        }, {
-            "./text-tp2": 18
-        } ],
-        18: [ function(require, module, exports) {
-            var type = module.exports = {
-                name: "text-tp2",
-                tp2: true,
-                uri: "http://sharejs.org/types/text-tp2v1",
-                create: function(initial) {
-                    if (initial == null) {
-                        initial = "";
-                    } else {
-                        if (typeof initial != "string") throw new Error("Initial data must be a string");
-                    }
-                    return {
-                        charLength: initial.length,
-                        totalLength: initial.length,
-                        data: initial.length ? [ initial ] : []
-                    };
-                },
-                serialize: function(doc) {
-                    if (!doc.data) {
-                        throw new Error("invalid doc snapshot");
-                    }
-                    return doc.data;
-                },
-                deserialize: function(data) {
-                    var doc = type.create();
-                    doc.data = data;
-                    for (var i = 0; i < data.length; i++) {
-                        var component = data[i];
-                        if (typeof component === "string") {
-                            doc.charLength += component.length;
-                            doc.totalLength += component.length;
-                        } else {
-                            doc.totalLength += component;
-                        }
-                    }
-                    return doc;
-                }
-            };
-            var isArray = Array.isArray || function(obj) {
-                return Object.prototype.toString.call(obj) == "[object Array]";
-            };
-            var checkOp = function(op) {
-                if (!isArray(op)) throw new Error("Op must be an array of components");
-                var last = null;
-                for (var i = 0; i < op.length; i++) {
-                    var c = op[i];
-                    if (typeof c == "object") {
-                        if (c.i !== undefined) {
-                            if (!(typeof c.i === "string" && c.i.length > 0 || typeof c.i === "number" && c.i > 0)) throw new Error("Inserts must insert a string or a +ive number");
-                        } else if (c.d !== undefined) {
-                            if (!(typeof c.d === "number" && c.d > 0)) throw new Error("Deletes must be a +ive number");
-                        } else throw new Error("Operation component must define .i or .d");
-                    } else {
-                        if (typeof c != "number") throw new Error("Op components must be objects or numbers");
-                        if (c <= 0) throw new Error("Skip components must be a positive number");
-                        if (typeof last === "number") throw new Error("Adjacent skip components should be combined");
-                    }
-                    last = c;
-                }
-            };
-            var takeDoc = type._takeDoc = function(doc, position, maxlength, tombsIndivisible) {
-                if (position.index >= doc.data.length) throw new Error("Operation goes past the end of the document");
-                var part = doc.data[position.index];
-                var result;
-                if (typeof part == "string") {
-                    if (maxlength != null) {
-                        result = part.slice(position.offset, position.offset + maxlength);
-                    } else {
-                        result = part.slice(position.offset);
-                    }
-                } else {
-                    if (maxlength == null || tombsIndivisible) {
-                        result = part - position.offset;
-                    } else {
-                        result = Math.min(maxlength, part - position.offset);
-                    }
-                }
-                var resultLen = result.length || result;
-                if ((part.length || part) - position.offset > resultLen) {
-                    position.offset += resultLen;
-                } else {
-                    position.index++;
-                    position.offset = 0;
-                }
-                return result;
-            };
-            var appendDoc = type._appendDoc = function(doc, p) {
-                if (p === 0 || p === "") return;
-                if (typeof p === "string") {
-                    doc.charLength += p.length;
-                    doc.totalLength += p.length;
-                } else {
-                    doc.totalLength += p;
-                }
-                var data = doc.data;
-                if (data.length === 0) {
-                    data.push(p);
-                } else if (typeof data[data.length - 1] === typeof p) {
-                    data[data.length - 1] += p;
-                } else {
-                    data.push(p);
-                }
-            };
-            type.apply = function(doc, op) {
-                if (doc.totalLength == null || doc.charLength == null || !isArray(doc.data)) {
-                    throw new Error("Snapshot is invalid");
-                }
-                checkOp(op);
-                var newDoc = type.create();
-                var position = {
-                    index: 0,
-                    offset: 0
-                };
-                for (var i = 0; i < op.length; i++) {
-                    var component = op[i];
-                    var remainder, part;
-                    if (typeof component == "number") {
-                        remainder = component;
-                        while (remainder > 0) {
-                            part = takeDoc(doc, position, remainder);
-                            appendDoc(newDoc, part);
-                            remainder -= part.length || part;
-                        }
-                    } else if (component.i !== undefined) {
-                        appendDoc(newDoc, component.i);
-                    } else if (component.d !== undefined) {
-                        remainder = component.d;
-                        while (remainder > 0) {
-                            part = takeDoc(doc, position, remainder);
-                            remainder -= part.length || part;
-                        }
-                        appendDoc(newDoc, component.d);
-                    }
-                }
-                return newDoc;
-            };
-            var append = type._append = function(op, component) {
-                var last;
-                if (component === 0 || component.i === "" || component.i === 0 || component.d === 0) {} else if (op.length === 0) {
-                    op.push(component);
-                } else {
-                    last = op[op.length - 1];
-                    if (typeof component == "number" && typeof last == "number") {
-                        op[op.length - 1] += component;
-                    } else if (component.i != null && last.i != null && typeof last.i === typeof component.i) {
-                        last.i += component.i;
-                    } else if (component.d != null && last.d != null) {
-                        last.d += component.d;
-                    } else {
-                        op.push(component);
-                    }
-                }
-            };
-            var take = function(op, cursor, maxlength, insertsIndivisible) {
-                if (cursor.index === op.length) return null;
-                var e = op[cursor.index];
-                var current;
-                var result;
-                var offset = cursor.offset;
-                if (typeof (current = e) == "number" || typeof (current = e.i) == "number" || (current = e.d) != null) {
-                    var c;
-                    if (maxlength == null || current - offset <= maxlength || insertsIndivisible && e.i != null) {
-                        c = current - offset;
-                        ++cursor.index;
-                        cursor.offset = 0;
-                    } else {
-                        cursor.offset += maxlength;
-                        c = maxlength;
-                    }
-                    if (e.i != null) {
-                        return {
-                            i: c
-                        };
-                    } else if (e.d != null) {
-                        return {
-                            d: c
-                        };
-                    } else {
-                        return c;
-                    }
-                } else {
-                    if (maxlength == null || e.i.length - offset <= maxlength || insertsIndivisible) {
-                        result = {
-                            i: e.i.slice(offset)
-                        };
-                        ++cursor.index;
-                        cursor.offset = 0;
-                    } else {
-                        result = {
-                            i: e.i.slice(offset, offset + maxlength)
-                        };
-                        cursor.offset += maxlength;
-                    }
-                    return result;
-                }
-            };
-            var componentLength = function(component) {
-                if (typeof component === "number") {
-                    return component;
-                } else if (typeof component.i === "string") {
-                    return component.i.length;
-                } else {
-                    return component.d || component.i;
-                }
-            };
-            type.normalize = function(op) {
-                var newOp = [];
-                for (var i = 0; i < op.length; i++) {
-                    append(newOp, op[i]);
-                }
-                return newOp;
-            };
-            var transformer = function(op, otherOp, goForwards, side) {
-                checkOp(op);
-                checkOp(otherOp);
-                var newOp = [];
-                var cursor = {
-                    index: 0,
-                    offset: 0
-                };
-                for (var i = 0; i < otherOp.length; i++) {
-                    var component = otherOp[i];
-                    var len = componentLength(component);
-                    var chunk;
-                    if (component.i != null) {
-                        if (goForwards) {
-                            if (side === "left") {
-                                var next;
-                                while ((next = op[cursor.index]) && next.i != null) {
-                                    append(newOp, take(op, cursor));
-                                }
-                            }
-                            append(newOp, len);
-                        } else {
-                            while (len > 0) {
-                                chunk = take(op, cursor, len, true);
-                                if (chunk === null) throw new Error("The transformed op is invalid");
-                                if (chunk.d != null) throw new Error("The transformed op deletes locally inserted characters - it cannot be purged of the insert.");
-                                if (typeof chunk == "number") len -= chunk; else append(newOp, chunk);
-                            }
-                        }
-                    } else {
-                        while (len > 0) {
-                            chunk = take(op, cursor, len, true);
-                            if (chunk === null) throw new Error("The op traverses more elements than the document has");
-                            append(newOp, chunk);
-                            if (!chunk.i) len -= componentLength(chunk);
-                        }
-                    }
-                }
-                var component;
-                while (component = take(op, cursor)) {
-                    if (component.i === undefined) {
-                        throw new Error("Remaining fragments in the op: " + component);
-                    }
-                    append(newOp, component);
-                }
-                return newOp;
-            };
-            type.transform = function(op, otherOp, side) {
-                if (side != "left" && side != "right") throw new Error("side (" + side + ") should be 'left' or 'right'");
-                return transformer(op, otherOp, true, side);
-            };
-            type.prune = function(op, otherOp) {
-                return transformer(op, otherOp, false);
-            };
-            type.compose = function(op1, op2) {
-                if (op1 == null) return op2;
-                checkOp(op1);
-                checkOp(op2);
-                var result = [];
-                var cursor = {
-                    index: 0,
-                    offset: 0
-                };
-                var component;
-                for (var i = 0; i < op2.length; i++) {
-                    component = op2[i];
-                    var len, chunk;
-                    if (typeof component === "number") {
-                        len = component;
-                        while (len > 0) {
-                            chunk = take(op1, cursor, len);
-                            if (chunk === null) throw new Error("The op traverses more elements than the document has");
-                            append(result, chunk);
-                            len -= componentLength(chunk);
-                        }
-                    } else if (component.i !== undefined) {
-                        append(result, {
-                            i: component.i
-                        });
-                    } else {
-                        len = component.d;
-                        while (len > 0) {
-                            chunk = take(op1, cursor, len);
-                            if (chunk === null) throw new Error("The op traverses more elements than the document has");
-                            var chunkLength = componentLength(chunk);
-                            if (chunk.i !== undefined) append(result, {
-                                i: chunkLength
-                            }); else append(result, {
-                                d: chunkLength
-                            });
-                            len -= chunkLength;
-                        }
-                    }
-                }
-                while (component = take(op1, cursor)) {
-                    if (component.i === undefined) {
-                        throw new Error("Remaining fragments in op1: " + component);
-                    }
-                    append(result, component);
-                }
-                return result;
-            };
-        }, {} ],
-        19: [ function(require, module, exports) {
-            module.exports = api;
-            function api(getSnapshot, submitOp) {
-                return {
-                    get: function() {
-                        return getSnapshot();
-                    },
-                    getLength: function() {
-                        return getSnapshot().length;
-                    },
-                    insert: function(pos, text, callback) {
-                        return submitOp([ pos, text ], callback);
-                    },
-                    remove: function(pos, length, callback) {
-                        return submitOp([ pos, {
-                            d: length
-                        } ], callback);
-                    },
-                    _onOp: function(op) {
-                        var pos = 0;
-                        var spos = 0;
-                        for (var i = 0; i < op.length; i++) {
-                            var component = op[i];
-                            switch (typeof component) {
-                              case "number":
-                                pos += component;
-                                spos += component;
-                                break;
-
-                              case "string":
-                                if (this.onInsert) this.onInsert(pos, component);
-                                pos += component.length;
-                                break;
-
-                              case "object":
-                                if (this.onRemove) this.onRemove(pos, component.d);
-                                spos += component.d;
-                            }
-                        }
-                    }
-                };
-            }
-            api.provides = {
-                text: true
-            };
-        }, {} ],
-        20: [ function(require, module, exports) {
-            var type = require("./text");
-            type.api = require("./api");
-            module.exports = {
-                type: type
-            };
-        }, {
-            "./api": 19,
-            "./text": 21
-        } ],
-        21: [ function(require, module, exports) {
-            exports.name = "text";
-            exports.uri = "http://sharejs.org/types/textv1";
-            exports.create = function(initial) {
-                if (initial != null && typeof initial !== "string") {
-                    throw Error("Initial data must be a string");
-                }
-                return initial || "";
-            };
-            var isArray = Array.isArray || function(obj) {
-                return Object.prototype.toString.call(obj) === "[object Array]";
-            };
-            var checkOp = function(op) {
-                if (!isArray(op)) throw Error("Op must be an array of components");
-                var last = null;
-                for (var i = 0; i < op.length; i++) {
-                    var c = op[i];
-                    switch (typeof c) {
-                      case "object":
-                        if (!(typeof c.d === "number" && c.d > 0)) throw Error("Object components must be deletes of size > 0");
-                        break;
-
-                      case "string":
-                        if (!(c.length > 0)) throw Error("Inserts cannot be empty");
-                        break;
-
-                      case "number":
-                        if (!(c > 0)) throw Error("Skip components must be >0");
-                        if (typeof last === "number") throw Error("Adjacent skip components should be combined");
-                        break;
-                    }
-                    last = c;
-                }
-                if (typeof last === "number") throw Error("Op has a trailing skip");
-            };
-            var checkSelection = function(selection) {
-                if (typeof selection !== "number" && (typeof selection[0] !== "number" || typeof selection[1] !== "number")) throw Error("Invalid selection");
-            };
-            var makeAppend = function(op) {
-                return function(component) {
-                    if (!component || component.d === 0) {} else if (op.length === 0) {
-                        return op.push(component);
-                    } else if (typeof component === typeof op[op.length - 1]) {
-                        if (typeof component === "object") {
-                            return op[op.length - 1].d += component.d;
-                        } else {
-                            return op[op.length - 1] += component;
-                        }
-                    } else {
-                        return op.push(component);
-                    }
-                };
-            };
-            var makeTake = function(op) {
-                var idx = 0;
-                var offset = 0;
-                var take = function(n, indivisableField) {
-                    if (idx === op.length) return n === -1 ? null : n;
-                    var part;
-                    var c = op[idx];
-                    if (typeof c === "number") {
-                        if (n === -1 || c - offset <= n) {
-                            part = c - offset;
-                            ++idx;
-                            offset = 0;
-                            return part;
-                        } else {
-                            offset += n;
-                            return n;
-                        }
-                    } else if (typeof c === "string") {
-                        if (n === -1 || indivisableField === "i" || c.length - offset <= n) {
-                            part = c.slice(offset);
-                            ++idx;
-                            offset = 0;
-                            return part;
-                        } else {
-                            part = c.slice(offset, offset + n);
-                            offset += n;
-                            return part;
-                        }
-                    } else {
-                        if (n === -1 || indivisableField === "d" || c.d - offset <= n) {
-                            part = {
-                                d: c.d - offset
-                            };
-                            ++idx;
-                            offset = 0;
-                            return part;
-                        } else {
-                            offset += n;
-                            return {
-                                d: n
-                            };
-                        }
-                    }
-                };
-                var peekType = function() {
-                    return op[idx];
-                };
-                return [ take, peekType ];
-            };
-            var componentLength = function(c) {
-                if (typeof c === "number") {
-                    return c;
-                } else {
-                    return c.length || c.d;
-                }
-            };
-            var trim = function(op) {
-                if (op.length > 0 && typeof op[op.length - 1] === "number") {
-                    op.pop();
-                }
-                return op;
-            };
-            exports.normalize = function(op) {
-                var newOp = [];
-                var append = makeAppend(newOp);
-                for (var i = 0; i < op.length; i++) {
-                    append(op[i]);
-                }
-                return trim(newOp);
-            };
-            exports.apply = function(str, op) {
-                if (typeof str !== "string") {
-                    throw Error("Snapshot should be a string");
-                }
-                checkOp(op);
-                var newDoc = [];
-                for (var i = 0; i < op.length; i++) {
-                    var component = op[i];
-                    switch (typeof component) {
-                      case "number":
-                        if (component > str.length) throw Error("The op is too long for this document");
-                        newDoc.push(str.slice(0, component));
-                        str = str.slice(component);
-                        break;
-
-                      case "string":
-                        newDoc.push(component);
-                        break;
-
-                      case "object":
-                        str = str.slice(component.d);
-                        break;
-                    }
-                }
-                return newDoc.join("") + str;
-            };
-            exports.transform = function(op, otherOp, side) {
-                if (side != "left" && side != "right") throw Error("side (" + side + ") must be 'left' or 'right'");
-                checkOp(op);
-                checkOp(otherOp);
-                var newOp = [];
-                var append = makeAppend(newOp);
-                var _fns = makeTake(op);
-                var take = _fns[0], peek = _fns[1];
-                for (var i = 0; i < otherOp.length; i++) {
-                    var component = otherOp[i];
-                    var length, chunk;
-                    switch (typeof component) {
-                      case "number":
-                        length = component;
-                        while (length > 0) {
-                            chunk = take(length, "i");
-                            append(chunk);
-                            if (typeof chunk !== "string") {
-                                length -= componentLength(chunk);
-                            }
-                        }
-                        break;
-
-                      case "string":
-                        if (side === "left") {
-                            if (typeof peek() === "string") {
-                                append(take(-1));
-                            }
-                        }
-                        append(component.length);
-                        break;
-
-                      case "object":
-                        length = component.d;
-                        while (length > 0) {
-                            chunk = take(length, "i");
-                            switch (typeof chunk) {
-                              case "number":
-                                length -= chunk;
-                                break;
-
-                              case "string":
-                                append(chunk);
-                                break;
-
-                              case "object":
-                                length -= chunk.d;
-                            }
-                        }
-                        break;
-                    }
-                }
-                while (component = take(-1)) append(component);
-                return trim(newOp);
-            };
-            exports.compose = function(op1, op2) {
-                checkOp(op1);
-                checkOp(op2);
-                var result = [];
-                var append = makeAppend(result);
-                var take = makeTake(op1)[0];
-                for (var i = 0; i < op2.length; i++) {
-                    var component = op2[i];
-                    var length, chunk;
-                    switch (typeof component) {
-                      case "number":
-                        length = component;
-                        while (length > 0) {
-                            chunk = take(length, "d");
-                            append(chunk);
-                            if (typeof chunk !== "object") {
-                                length -= componentLength(chunk);
-                            }
-                        }
-                        break;
-
-                      case "string":
-                        append(component);
-                        break;
-
-                      case "object":
-                        length = component.d;
-                        while (length > 0) {
-                            chunk = take(length, "d");
-                            switch (typeof chunk) {
-                              case "number":
-                                append({
-                                    d: chunk
-                                });
-                                length -= chunk;
-                                break;
-
-                              case "string":
-                                length -= chunk.length;
-                                break;
-
-                              case "object":
-                                append(chunk);
-                            }
-                        }
-                        break;
-                    }
-                }
-                while (component = take(-1)) append(component);
-                return trim(result);
-            };
-            var transformPosition = function(cursor, op) {
-                var pos = 0;
-                for (var i = 0; i < op.length; i++) {
-                    var c = op[i];
-                    if (cursor <= pos) break;
-                    switch (typeof c) {
-                      case "number":
-                        if (cursor <= pos + c) return cursor;
-                        pos += c;
-                        break;
-
-                      case "string":
-                        pos += c.length;
-                        cursor += c.length;
-                        break;
-
-                      case "object":
-                        cursor -= Math.min(c.d, cursor - pos);
-                        break;
-                    }
-                }
-                return cursor;
-            };
-            exports.transformSelection = function(selection, op, isOwnOp) {
-                var pos = 0;
-                if (isOwnOp) {
-                    for (var i = 0; i < op.length; i++) {
-                        var c = op[i];
-                        switch (typeof c) {
-                          case "number":
-                            pos += c;
-                            break;
-
-                          case "string":
-                            pos += c.length;
-                            break;
-                        }
-                    }
-                    return pos;
-                } else {
-                    return typeof selection === "number" ? transformPosition(selection, op) : [ transformPosition(selection[0], op), transformPosition(selection[1], op) ];
-                }
-            };
-            exports.selectionEq = function(c1, c2) {
-                if (c1[0] != null && c1[0] === c1[1]) c1 = c1[0];
-                if (c2[0] != null && c2[0] === c2[1]) c2 = c2[0];
-                return c1 === c2 || c1[0] != null && c2[0] != null && c1[0] === c2[0] && c1[1] == c2[1];
-            };
-        }, {} ]
+            "ot-text-tp2": 8
+        } ]
     }, {}, [ 1 ])(1);
 });
 
