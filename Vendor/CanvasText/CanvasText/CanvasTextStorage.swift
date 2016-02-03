@@ -174,42 +174,23 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 		foldableRanges.removeAll()
 
-		let count = nodes.count
-		for (i, node) in nodes.enumerate() {
-			let next: Node?
-			if i < count - 1 {
-				next = nodes[i + 1]
-			} else {
-				next = nil
-			}
-
-			let originalRange = backingRangeToDisplayRange(node.displayRange)
-			var range = originalRange
-
-			// Extend the range to include the trailing new line if present
-			if next != nil && range.max < text.length {
-				range.length += 1
-			}
+		for node in nodes {
+			let range = backingRangeToDisplayRange(node.displayRange)
 
 			// Attachables
 			if let node = node as? Attachable, attachment = canvasDelegate?.textStorage(self, attachmentForAttachable: node) {
 				// Use the attachment character
-				text.replaceCharactersInRange(originalRange, withString: String(Character(UnicodeScalar(NSAttachmentCharacter))))
-
-				// Add space after the attachment
-				let paragraph = NSMutableParagraphStyle()
-				paragraph.paragraphSpacing = theme.paragraphSpacing
+				text.replaceCharactersInRange(range, withString: String(Character(UnicodeScalar(NSAttachmentCharacter))))
 
 				// Add the attributes
 				text.addAttributes([
-					NSParagraphStyleAttributeName: paragraph,
 					NSAttachmentAttributeName: attachment
 				], range: range)
 				continue
 			}
 
 			// Apply attributes
-			applyAttributes(text: text, node: node, nextSibling: next)
+			applyAttributes(text: text, node: node)
 		}
 
 		return text
@@ -307,21 +288,17 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 	// MARK: - Private
 
-	private func applyAttributes(text text: NSMutableAttributedString, node: Node, nextSibling: Node? = nil) {
+	private func applyAttributes(text text: NSMutableAttributedString, node: Node) {
 		// Skip text nodes
 		if node is Text {
 			return
 		}
 
 		// Extend the range to include the trailing new line if present
-		let originalRange = backingRangeToDisplayRange(node.displayRange)
-		var range = originalRange
-		if nextSibling != nil && range.max < text.length {
-			range.length += 1
-		}
+		let range = backingRangeToDisplayRange(node.displayRange)
 
 		// Normal elements
-		let attributes = theme.attributesForNode(node, nextSibling: nextSibling, horizontalSizeClass: horizontalSizeClass)
+		let attributes = theme.attributesForNode(node)
 		text.addAttributes(attributes, range: range)
 
 		// Foldable attributes

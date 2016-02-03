@@ -219,7 +219,7 @@ extension CanvasTextView {
 				rect.size.width = textContainer.size.width
 			}
 
-			var position = CodeBlockBackgroundView.Position()
+			let position = CodeBlockBackgroundView.Position()
 			let originalTop = rect.origin.y
 
 			// Find the bottom of line (to handle wrapping)
@@ -234,17 +234,17 @@ extension CanvasTextView {
 			}
 
 			// Top
-			if !(previousSibling is CodeBlock) {
-				position = position.union([.Top])
-				rect.origin.y -= theme.paragraphSpacing / 4
-				rect.size.height += theme.paragraphSpacing / 4
-			}
+//			if !(previousSibling is CodeBlock) {
+//				position = position.union([.Top])
+//				rect.origin.y -= theme.paragraphSpacing / 4
+//				rect.size.height += theme.paragraphSpacing / 4
+//			}
 
 			// Bottom
-			if !(nextSibling is CodeBlock) {
-				position = position.union([.Bottom])
-				rect.size.height += theme.paragraphSpacing / 2
-			}
+//			if !(nextSibling is CodeBlock) {
+//				position = position.union([.Bottom])
+//				rect.size.height += theme.paragraphSpacing / 2
+//			}
 
 			let view = CodeBlockBackgroundView(frame: rect.floor, theme: textStorage.theme, lineNumber: lineNumber, position: position)
 

@@ -145,5 +145,13 @@ extension FoldingLayoutManager: NSLayoutManagerDelegate {
 			// Default action for things we didn't change
 			return action
 		}
+
+		public func layoutManager(layoutManager: NSLayoutManager, paragraphSpacingAfterGlyphAtIndex glyphIndex: Int, withProposedLineFragmentRect rect: CGRect) -> CGFloat {
+			let characterIndex = characterIndexForGlyphAtIndex(glyphIndex)
+			guard let textStorage = textStorage as? CanvasTextStorage, node = textStorage.blockNodeAtDisplayLocation(characterIndex) else { return 0 }
+
+			// TODO: Get next sibling
+			return textStorage.theme.blockSpacing(node: node, nextSibling: nil, horizontalSizeClass: textStorage.horizontalSizeClass).marginBottom
+		}
 	}
 #endif

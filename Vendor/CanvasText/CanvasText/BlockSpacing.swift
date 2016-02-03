@@ -23,12 +23,12 @@ public struct BlockSpacing {
 	public var marginTop: CGFloat
 	public var marginBottom: CGFloat
 
-	public static let zero = BlockSpacing(paddingLeft: 0, paddingRight: 0, marginTop: 0, marginBottom: 0)
+	public static let zero = BlockSpacing()
 
 
 	// MARK: - Initializers
 
-	public init(paddingLeft: CGFloat, paddingRight: CGFloat, marginTop: CGFloat, marginBottom: CGFloat) {
+	public init(paddingLeft: CGFloat = 0, paddingRight: CGFloat = 0, marginTop: CGFloat = 0, marginBottom: CGFloat = 0) {
 		self.paddingLeft = paddingLeft
 		self.paddingRight = paddingRight
 		self.marginTop = marginTop
@@ -38,7 +38,7 @@ public struct BlockSpacing {
 
 	// MARK: - Utilities
 
-	public func apply(rect: CGRect) -> CGRect {
+	public func applyPadding(rect: CGRect) -> CGRect {
 		var output = rect
 
 		// Padding left
@@ -48,6 +48,12 @@ public struct BlockSpacing {
 		// Padding right
 		output.size.width -= paddingRight
 
+		return output
+	}
+
+	public func applyMargins(rect: CGRect) -> CGRect {
+		var output = rect
+
 		// Margin top
 		output.origin.y += marginTop
 
@@ -55,5 +61,9 @@ public struct BlockSpacing {
 		output.size.height += marginBottom
 
 		return output
+	}
+
+	public func apply(rect: CGRect) -> CGRect {
+		return applyMargins(applyPadding(rect))
 	}
 }

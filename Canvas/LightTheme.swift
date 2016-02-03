@@ -38,7 +38,6 @@ struct LightTheme: Theme {
 	private var baseParagraph: NSMutableParagraphStyle {
 		let paragraph = NSMutableParagraphStyle()
 		paragraph.lineHeightMultiple = lineHeightMultiple
-		paragraph.paragraphSpacing = paragraphSpacing
 		return paragraph
 	}
 
@@ -60,12 +59,6 @@ struct LightTheme: Theme {
 		var attributes = baseAttributes
 		attributes[NSForegroundColorAttributeName] = UIColor.blackColor()
 		attributes[NSFontAttributeName] = fontOfSize(fontSize * 1.7, style: [.Bold])
-
-		let paragraph = attributes[NSParagraphStyleAttributeName] as? NSMutableParagraphStyle ?? baseParagraph
-		paragraph.firstLineHeadIndent = 32
-		paragraph.headIndent = 32
-		attributes[NSParagraphStyleAttributeName] = paragraph
-
 		return attributes
 	}
 
@@ -81,12 +74,62 @@ struct LightTheme: Theme {
 		return Font.sansSerif(pointSize: fontSize)
 	}
 
-	func blockSpacing(node: BlockNode) -> BlockSpacing {
-		return .zero
+	func blockSpacing(node node: BlockNode, nextSibling: BlockNode?, horizontalSizeClass: UserInterfaceSizeClass) -> BlockSpacing {
+		var spacing = BlockSpacing(marginBottom: fontSize * 1.5)
+
+		// Large left padding on title for icon
+		if node is Title {
+			spacing.paddingLeft = 32
+			return spacing
+		}
+
+		// Smaller bottom margin if the next block isn’t a heading
+		if node is Heading && !(nextSibling is Heading) {
+			spacing.marginBottom /= 2
+			return spacing
+		}
+
+		if let listable = node as? Listable {
+			// Indentation
+			spacing.paddingLeft = listIndentation * CGFloat(listable.indentation.rawValue + 1)
+
+			// Smaller bottom margin if the next block is a list type
+			if nextSibling is Listable {
+				spacing.marginBottom /= 2
+			}
+			return spacing
+		}
+
+		if node is CodeBlock {
+			// TODO: Top margin if first or single
+			// TODO: Left margin
+			// TODO: Bottom margin if last or single
+
+//			if horizontalSizeClass == .Regular {
+//				// TODO: Use a constant
+//				paragraph.firstLineHeadIndent = 48
+//				paragraph.headIndent = 48 + listIndentation
+//			} else {
+//				paragraph.headIndent = listIndentation
+//			}
+
+			// No bottom margin if the next block is a code block
+			if nextSibling is CodeBlock {
+				spacing.marginBottom = 0
+			}
+
+			return spacing
+		}
+
+		if node is Blockquote {
+			spacing.paddingLeft = listIndentation
+			return spacing
+		}
+
+		return spacing
 	}
 
-	func attributesForNode(node: Node, nextSibling: Node? = nil, horizontalSizeClass: UserInterfaceSizeClass) -> Attributes {
-
+	func attributesForNode(node: Node) -> Attributes {
 		if node is Title {
 			return titleAttributes
 		}
@@ -115,54 +158,21 @@ struct LightTheme: Theme {
 			case .Six:
 				attributes[NSForegroundColorAttributeName] = UIColor(white: 0.6, alpha: 1)
 			}
-
-			// Smaller bottom margin if the next block isn’t a heading
-			if let nextSibling = nextSibling where !(nextSibling is Heading) {
-				paragraph.paragraphSpacing = smallParagraphSpacing
-			}
 		}
 
 		else if node is CodeBlock {
 			attributes[NSForegroundColorAttributeName] = mediumGray
 			attributes[NSFontAttributeName] = monospaceFontOfSize(fontSize)
-
-			if horizontalSizeClass == .Regular {
-				// TODO: Use a constant
-				paragraph.firstLineHeadIndent = 48
-				paragraph.headIndent = 48 + listIndentation
-			} else {
-				paragraph.headIndent = listIndentation
-			}
-
-			// No bottom margin if the next block is a code block
-			if nextSibling is CodeBlock {
-				paragraph.paragraphSpacing = 0
-			} else {
-				paragraph.paragraphSpacing += paragraphSpacing / 2
-			}
 		}
 
 		else if node is Blockquote {
 			attributes[NSForegroundColorAttributeName] = mediumGray
-			paragraph.firstLineHeadIndent = listIndentation
-			paragraph.headIndent = listIndentation
-		}
-
-		else if let listable = node as? Listable {
-			let indent = listIndentation * CGFloat(listable.indentation.rawValue + 1)
-			paragraph.firstLineHeadIndent = indent
-			paragraph.headIndent = indent
-
-			// Smaller bottom margin if the next block is a list type
-			if let nextSibling = nextSibling where nextSibling is Listable {
-				paragraph.paragraphSpacing = smallParagraphSpacing
-			}
 		}
 
 		else if node is CodeSpan {
 			attributes[NSFontAttributeName] = monospaceFontOfSize(fontSize)
-			attributes[NSForegroundColorAttributeName] = UIColor(red:0.494,  green:0.494,  blue:0.510, alpha:1)
-			attributes[NSBackgroundColorAttributeName] = UIColor(red:0.961,  green:0.961,  blue:0.965, alpha:1)
+			attributes[NSForegroundColorAttributeName] = UIColor(red: 0.494, green: 0.494, blue: 0.510, alpha: 1)
+			attributes[NSBackgroundColorAttributeName] = UIColor(red: 0.961, green: 0.961, blue: 0.965, alpha: 1)
 		}
 
 		else if node is DoubleEmphasis {
@@ -175,10 +185,6 @@ struct LightTheme: Theme {
 
 		else if node is Link {
 			attributes[NSForegroundColorAttributeName] = tintColor
-		}
-
-		if !(node is CodeBlock) && nextSibling is CodeBlock {
-			paragraph.paragraphSpacing += paragraphSpacing / 2
 		}
 
 		if node is BlockNode {
