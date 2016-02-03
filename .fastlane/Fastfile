@@ -23,7 +23,7 @@ platform :ios do
     ensure_git_status_clean
 
     # Build dependencies
-    sh 'rake bootstrap' unless ENV["SKIP_CARTHAGE"] == 1
+    sh 'rake bootstrap' unless ENV["SKIP_CARTHAGE"] == "1"
   end
 
   desc "Submit a new beta build to TestFlight"
