@@ -81,6 +81,10 @@ struct LightTheme: Theme {
 		return Font.sansSerif(pointSize: fontSize)
 	}
 
+	func blockSpacing(node: BlockNode) -> BlockSpacing {
+		return .zero
+	}
+
 	func attributesForNode(node: Node, nextSibling: Node? = nil, horizontalSizeClass: UserInterfaceSizeClass) -> Attributes {
 
 		if node is Title {
