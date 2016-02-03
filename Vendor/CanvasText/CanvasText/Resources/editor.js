@@ -49,7 +49,7 @@ Canvas.connect = function(realtimeURL, accessToken, organizationID, canvasID) {
     console.log("Disconnect:", error);
     Canvas._sendMessage({
       "type": "disconnect",
-      "message": error
+      "message": error.message
     });
   });
 
