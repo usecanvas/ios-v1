@@ -198,6 +198,7 @@ public class ShadowTextStorage: NSTextStorage {
 	}
 
 	func willEndEditing() {}
+	
 
 	// MARK: - Private
 

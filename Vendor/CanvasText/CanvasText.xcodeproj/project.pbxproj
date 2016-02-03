@@ -40,6 +40,7 @@
 		21CAFBD51C05767E00B9A3B5 /* ShadowTextStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CAFBD31C05767E00B9A3B5 /* ShadowTextStorageTests.swift */; };
 		21CEC86E1C6137FB001AEA10 /* TransportMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEC86D1C6137FB001AEA10 /* TransportMessage.swift */; };
 		21CEC86F1C6137FB001AEA10 /* TransportMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEC86D1C6137FB001AEA10 /* TransportMessage.swift */; };
+		21CEC8741C6188A4001AEA10 /* CanvasTextContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEC8731C6188A4001AEA10 /* CanvasTextContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		21CAFBD01C056FC100B9A3B5 /* ShadowTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowTextStorage.swift; sourceTree = "<group>"; };
 		21CAFBD31C05767E00B9A3B5 /* ShadowTextStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowTextStorageTests.swift; sourceTree = "<group>"; };
 		21CEC86D1C6137FB001AEA10 /* TransportMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportMessage.swift; sourceTree = "<group>"; };
+		21CEC8731C6188A4001AEA10 /* CanvasTextContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasTextContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +212,7 @@
 				21CAFBD01C056FC100B9A3B5 /* ShadowTextStorage.swift */,
 				21B742F61C03C71600FF293C /* CanvasTextStorage.swift */,
 				21B1CFE21C596C5400CC8E7D /* FoldingLayoutManager.swift */,
+				21CEC8731C6188A4001AEA10 /* CanvasTextContainer.swift */,
 			);
 			name = "Text Storage";
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				21CEC86E1C6137FB001AEA10 /* TransportMessage.swift in Sources */,
 				21B1CFE31C596C5400CC8E7D /* FoldingLayoutManager.swift in Sources */,
 				21B742FB1C03CDA500FF293C /* Theme.swift in Sources */,
+				21CEC8741C6188A4001AEA10 /* CanvasTextContainer.swift in Sources */,
 				21A8FA141BFCF4E90097FCC6 /* Operation.swift in Sources */,
 				21B742F21C03C6CB00FF293C /* Color.swift in Sources */,
 				21B7430F1C03D19300FF293C /* FontStyle.swift in Sources */,

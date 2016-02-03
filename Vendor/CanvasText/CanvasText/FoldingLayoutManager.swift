@@ -92,11 +92,11 @@ public class FoldingLayoutManager: NSLayoutManager {
 
 	// TODO: We should intellegently invalidate glyphs are a given range instead of the entire document.
 	private func invalidateGlyphs() {
-		guard numberOfGlyphs > 0 else { return }
-		let glyphRange = NSRange(location: 0, length: characterIndexForGlyphAtIndex(numberOfGlyphs - 1))
-		invalidateGlyphsForCharacterRange(glyphRange, changeInLength: 0, actualCharacterRange: nil)
-		layoutDelegate?.layoutManager(self, didInvalidateGlyphs: glyphRange)
-		needsInvalidateGlyphs = false
+//		let glyphRange = NSRange(location: 0, length: numberOfGlyphs)
+//		let characterRange = characterRangeForGlyphRange(glyphRange, actualGlyphRange: nil)
+//		invalidateGlyphsForCharacterRange(characterRange, changeInLength: 0, actualCharacterRange: nil)
+//		layoutDelegate?.layoutManager(self, didInvalidateGlyphs: glyphRange)
+//		needsInvalidateGlyphs = false
 	}
 
 	private func setNeedsInvalidateGlyphs() {

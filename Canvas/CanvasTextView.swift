@@ -45,7 +45,7 @@ class CanvasTextView: UITextView {
 		let layoutManager = FoldingLayoutManager()
 		layoutManager.allowsNonContiguousLayout = false
 
-		let container = NSTextContainer()
+		let container = CanvasTextContainer()
 		container.lineFragmentPadding = 0
 		container.widthTracksTextView = true
 		layoutManager.addTextContainer(container)

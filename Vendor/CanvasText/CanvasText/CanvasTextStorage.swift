@@ -253,6 +253,19 @@ public class CanvasTextStorage: ShadowTextStorage {
 		return nil
 	}
 
+	public func blockNodeAtDisplayLocation(displayLocation: Int) -> BlockNode? {
+		for node in nodes {
+			var range = backingRangeToDisplayRange(node.displayRange)
+			range.length += 1
+
+			if range.contains(displayLocation) {
+				return node
+			}
+		}
+
+		return nil
+	}
+
 	/// This returns all nodes that are contained in the backing range. Most consumers will filter the results. If a
 	/// node is partially contained, it will be included in the results.
 	public func nodesInBackingRange(backingRange: NSRange) -> [Node] {
