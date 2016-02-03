@@ -42,14 +42,14 @@ Canvas.connect = function(realtimeURL, accessToken, organizationID, canvasID) {
         }
       });
     });
+  });
 
-    // Handle disconnect.
-    share.on('disconnect', function onDisconnect(error) {
-      console.log("Disconnect:", error);
-      Canvas._sendMessage({
-        "type": "disconnect",
-        "message": error
-      });
+  // Handle disconnect.
+  share.on('disconnect', function onDisconnect(error) {
+    console.log("Disconnect:", error);
+    Canvas._sendMessage({
+      "type": "disconnect",
+      "message": error
     });
   });
 
