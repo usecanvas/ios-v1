@@ -109,13 +109,16 @@ public struct Parser {
 		}
 
 		for (i, node) in nodes.enumerate() {
-			guard let positionable = node as? Positionable else { continue }
+			guard let positionable = node as? Positionable else {
+				applyPositions(i)
+				continue
+			}
 
 			if positionableType != positionable.dynamicType {
 				applyPositions(i)
+				positionableType = positionable.dynamicType
 			}
 
-			positionableType = positionable.dynamicType
 			positionables.append(positionable)
 		}
 
