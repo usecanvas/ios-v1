@@ -149,9 +149,7 @@ extension FoldingLayoutManager: NSLayoutManagerDelegate {
 		public func layoutManager(layoutManager: NSLayoutManager, paragraphSpacingAfterGlyphAtIndex glyphIndex: Int, withProposedLineFragmentRect rect: CGRect) -> CGFloat {
 			let characterIndex = characterIndexForGlyphAtIndex(glyphIndex)
 			guard let textStorage = textStorage as? CanvasTextStorage, node = textStorage.blockNodeAtDisplayLocation(characterIndex) else { return 0 }
-
-			let nextSibling = textStorage.nextBlockNodeAfterBlockAtDisplayLocation(characterIndex)
-			return textStorage.theme.blockSpacing(node: node, nextSibling: nextSibling, horizontalSizeClass: textStorage.horizontalSizeClass).marginBottom
+			return textStorage.theme.blockSpacing(node: node, horizontalSizeClass: textStorage.horizontalSizeClass).marginBottom
 		}
 	}
 #endif

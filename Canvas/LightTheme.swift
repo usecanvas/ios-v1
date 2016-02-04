@@ -74,7 +74,7 @@ struct LightTheme: Theme {
 		return Font.sansSerif(pointSize: fontSize)
 	}
 
-	func blockSpacing(node node: BlockNode, nextSibling: BlockNode?, horizontalSizeClass: UserInterfaceSizeClass) -> BlockSpacing {
+	func blockSpacing(node node: BlockNode, horizontalSizeClass: UserInterfaceSizeClass) -> BlockSpacing {
 		var spacing = BlockSpacing(marginBottom: fontSize * 1.5)
 
 		// Large left padding on title for icon
@@ -83,21 +83,25 @@ struct LightTheme: Theme {
 			return spacing
 		}
 
-		// Smaller bottom margin if the next block isn’t a heading
-		if node is Heading && !(nextSibling is Heading) {
-			spacing.marginBottom /= 2
-			return spacing
+		if let p = node as? Positionable {
+			print("\(node.dynamicType): \(p.position)")
 		}
+
+		// Smaller bottom margin if the next block isn’t a heading
+//		if node is Heading && !(nextSibling is Heading) {
+//			spacing.marginBottom /= 2
+//			return spacing
+//		}
 
 		if let listable = node as? Listable {
 			// Indentation
 			spacing.paddingLeft = listIndentation * CGFloat(listable.indentation.rawValue + 1)
 
 			// No bottom margin if the next block is a different list type (excluding checklists)
-			if node is UnorderedListItem && (nextSibling is UnorderedListItem || nextSibling is ChecklistItem) || node is OrderedListItem && (nextSibling is OrderedListItem || nextSibling is ChecklistItem) {
-				spacing.marginBottom = 0
-			}
-			
+//			if node is UnorderedListItem && (nextSibling is UnorderedListItem || nextSibling is ChecklistItem) || node is OrderedListItem && (nextSibling is OrderedListItem || nextSibling is ChecklistItem) {
+//				spacing.marginBottom = 0
+//			}
+
 			return spacing
 		}
 
@@ -114,9 +118,9 @@ struct LightTheme: Theme {
 			}
 
 			// No bottom margin if the next block is a code block
-			if nextSibling is CodeBlock {
-				spacing.marginBottom = 0
-			}
+//			if nextSibling is CodeBlock {
+//				spacing.marginBottom = 0
+//			}
 
 			return spacing
 		}
