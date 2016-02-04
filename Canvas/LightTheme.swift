@@ -83,8 +83,11 @@ struct LightTheme: Theme {
 			return spacing
 		}
 
-		if let p = node as? Positionable {
-			print("\(node.dynamicType): \(p.position)")
+		// No margin if it's not at the bottom of a positionable list
+		if let node = node as? Positionable {
+			if !node.position.isBottom {
+				spacing.marginBottom = 0
+			}
 		}
 
 		// Smaller bottom margin if the next block isn’t a heading
@@ -93,21 +96,21 @@ struct LightTheme: Theme {
 //			return spacing
 //		}
 
+		// Indentation
 		if let listable = node as? Listable {
-			// Indentation
 			spacing.paddingLeft = listIndentation * CGFloat(listable.indentation.rawValue + 1)
-
-			// No bottom margin if the next block is a different list type (excluding checklists)
-//			if node is UnorderedListItem && (nextSibling is UnorderedListItem || nextSibling is ChecklistItem) || node is OrderedListItem && (nextSibling is OrderedListItem || nextSibling is ChecklistItem) {
-//				spacing.marginBottom = 0
-//			}
-
 			return spacing
 		}
 
-		if node is CodeBlock {
-			// TODO: Top margin if first or single
-			// TODO: Bottom margin if last or single
+		if let node = node as? CodeBlock {
+			// Top margin
+			if node.position.isTop {
+				spacing.marginTop += 4
+			}
+
+			if node.position.isBottom {
+				spacing.marginBottom += 4
+			}
 
 			// Indent
 			if horizontalSizeClass == .Regular {
@@ -116,12 +119,7 @@ struct LightTheme: Theme {
 			} else {
 				spacing.paddingLeft = listIndentation
 			}
-
-			// No bottom margin if the next block is a code block
-//			if nextSibling is CodeBlock {
-//				spacing.marginBottom = 0
-//			}
-
+			
 			return spacing
 		}
 

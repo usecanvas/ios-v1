@@ -210,7 +210,7 @@ extension CanvasTextView {
 		}
 
 		// Code block
-		if node is CodeBlock {
+		if let node = node as? CodeBlock {
 			if traitCollection.horizontalSizeClass == .Compact {
 				rect.origin.x = 0
 				rect.size.width = bounds.width
@@ -219,7 +219,6 @@ extension CanvasTextView {
 				rect.size.width = textContainer.size.width
 			}
 
-			let position = CodeBlockBackgroundView.Position()
 			let originalTop = rect.origin.y
 
 			// Find the bottom of line (to handle wrapping)
@@ -246,9 +245,9 @@ extension CanvasTextView {
 //				rect.size.height += theme.paragraphSpacing / 2
 //			}
 
-			let view = CodeBlockBackgroundView(frame: rect.floor, theme: textStorage.theme, lineNumber: lineNumber, position: position)
+			let view = CodeBlockBackgroundView(frame: rect.floor, theme: textStorage.theme, lineNumber: lineNumber, position: node.position)
 
-			if position.contains(.Bottom) {
+			if node.position.isBottom {
 				lineNumber = 1
 			} else {
 				lineNumber += 1
