@@ -17,6 +17,7 @@ public struct UnorderedListItem: Listable, NodeContainer {
 	public var displayRange: NSRange
 	public var indentationRange: NSRange
 	public var indentation: Indentation
+	public var position: Position = .Single
 
 	public var hasAnnotation: Bool {
 		return true

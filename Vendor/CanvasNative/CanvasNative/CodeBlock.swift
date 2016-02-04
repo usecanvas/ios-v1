@@ -8,13 +8,14 @@
 
 import Foundation
 
-public struct CodeBlock: NativePrefixable {
+public struct CodeBlock: NativePrefixable, Positionable {
 
 	// MARK: - Properties
 
 	public var range: NSRange
 	public var nativePrefixRange: NSRange
 	public var displayRange: NSRange
+	public var position: Position = .Single
 
 	public let hasAnnotation = true
 

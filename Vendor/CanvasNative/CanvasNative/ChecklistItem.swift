@@ -38,6 +38,7 @@ public struct ChecklistItem: Listable, NodeContainer {
 	public var indentation: Indentation
 	public var completedRange: NSRange
 	public var completion: Completion
+	public var position: Position = .Single
 
 	public var hasAnnotation: Bool {
 		return true

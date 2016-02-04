@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2109989C1C62E268000C34B2 /* Positionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2109989B1C62E268000C34B2 /* Positionable.swift */; };
 		215BAB311C52B0C400118C8C /* CanvasNative.h in Headers */ = {isa = PBXBuildFile; fileRef = 215BAB301C52B0C400118C8C /* CanvasNative.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		215BAB381C52B0C400118C8C /* CanvasNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 215BAB2D1C52B0C400118C8C /* CanvasNative.framework */; };
 		215BAB561C52B18C00118C8C /* CanvasNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 215BAB4C1C52B18B00118C8C /* CanvasNative.framework */; };
@@ -92,6 +93,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2109989B1C62E268000C34B2 /* Positionable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Positionable.swift; sourceTree = "<group>"; };
 		215BAB2D1C52B0C400118C8C /* CanvasNative.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CanvasNative.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		215BAB301C52B0C400118C8C /* CanvasNative.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CanvasNative.h; sourceTree = "<group>"; };
 		215BAB321C52B0C400118C8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				215BABA41C52B32B00118C8C /* NodeContainer.swift */,
 				215BABA81C52B32B00118C8C /* SpanNode.swift */,
 				215BABE01C52B44800118C8C /* SpanNodeParseable.swift */,
+				2109989B1C62E268000C34B2 /* Positionable.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				215BABAC1C52B32B00118C8C /* Attachable.swift in Sources */,
 				215BABBF1C52B32B00118C8C /* SpanNode.swift in Sources */,
 				215BABB51C52B32B00118C8C /* Heading.swift in Sources */,
+				2109989C1C62E268000C34B2 /* Positionable.swift in Sources */,
 				215BABBD1C52B32B00118C8C /* Paragraph.swift in Sources */,
 				215BABBA1C52B32B00118C8C /* Node.swift in Sources */,
 				215BABBB1C52B32B00118C8C /* NodeContainer.swift in Sources */,
