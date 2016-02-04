@@ -61,6 +61,9 @@ extension NSRange {
 	}
 
 	/// Returns nil if they don't intersect. Their intersection may be 0 if one of the ranges has a zero length.
+	///
+	/// - parameter range: The range to check for intersection with the receiver.
+	/// - return: The length of intersection if they intersect or nil if they don't.
 	func intersection(range: NSRange) -> Int? {
 		if range.length == 0 {
 			return NSLocationInRange(range.location, self) ? 0 : nil

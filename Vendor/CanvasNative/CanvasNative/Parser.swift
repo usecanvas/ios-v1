@@ -59,10 +59,15 @@ public struct Parser {
 
 				if var container = node as? NodeContainer {
 					container.subnodes = self.parseInline(container)
-					node = container as! BlockNode
+
+					// TODO: There has to be a better way to do this
+					if let container = container as? BlockNode {
+						node = container
+					}
 				}
 
 				nodes.append(node)
+
 				return
 			}
 

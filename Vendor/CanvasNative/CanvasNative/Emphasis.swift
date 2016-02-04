@@ -58,7 +58,7 @@ public struct Emphasis: SpanNode, Foldable, NodeContainer {
 
 
 extension Emphasis: SpanNodeParseable {
-	static let regularExpression = try! NSRegularExpression(pattern: "(?:\\s|^)(\\*|_)(?=\\S)(.+?)(?<=\\S)(\\1)", options: [])
+	static let regularExpression: NSRegularExpression! = try? NSRegularExpression(pattern: "(?:\\s|^)(\\*|_)(?=\\S)(.+?)(?<=\\S)(\\1)", options: [])
 
 	init?(match: NSTextCheckingResult) {
 		if match.numberOfRanges != 4 {

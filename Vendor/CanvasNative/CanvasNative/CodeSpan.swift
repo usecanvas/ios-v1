@@ -58,7 +58,7 @@ public struct CodeSpan: SpanNode, Foldable, NodeContainer {
 
 
 extension CodeSpan: SpanNodeParseable {
-	static let regularExpression = try! NSRegularExpression(pattern: "(`+)(.+?)(?<!`)(\\1)(?!`)", options: [])
+	static let regularExpression: NSRegularExpression! = try? NSRegularExpression(pattern: "(`+)(.+?)(?<!`)(\\1)(?!`)", options: [])
 
 	init?(match: NSTextCheckingResult) {
 		if match.numberOfRanges != 4 {

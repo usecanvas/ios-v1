@@ -86,6 +86,6 @@ public struct Image: Attachable, Hashable {
 }
 
 
-public func ==(lhs: Image, rhs: Image) -> Bool {
+public func == (lhs: Image, rhs: Image) -> Bool {
 	return lhs.ID == rhs.ID
 }

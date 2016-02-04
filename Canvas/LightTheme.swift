@@ -82,6 +82,7 @@ struct LightTheme: Theme {
 	}
 
 	func attributesForNode(node: Node, nextSibling: Node? = nil, horizontalSizeClass: UserInterfaceSizeClass) -> Attributes {
+
 		if node is Title {
 			return titleAttributes
 		}

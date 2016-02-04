@@ -128,7 +128,7 @@ public struct Link: SpanNode, Foldable, NodeContainer {
 
 
 extension Link: SpanNodeParseable {
-	static let regularExpression = try! NSRegularExpression(pattern: "(\\[)((?:(?:\\\\.)|[^\\[\\]])+)(\\])(\\()([^\\(\\)\\s]+(?:\\(\\S*?\\))??[^\\(\\)\\s]*?)(?:\\s+(['‘’\"“”])(.*?)(\\6))?(\\))", options: [])
+	static let regularExpression: NSRegularExpression! = try? NSRegularExpression(pattern: "(\\[)((?:(?:\\\\.)|[^\\[\\]])+)(\\])(\\()([^\\(\\)\\s]+(?:\\(\\S*?\\))??[^\\(\\)\\s]*?)(?:\\s+(['‘’\"“”])(.*?)(\\6))?(\\))", options: [])
 
 	public init?(match: NSTextCheckingResult) {
 		if match.numberOfRanges != 10 {
