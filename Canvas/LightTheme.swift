@@ -102,16 +102,15 @@ struct LightTheme: Theme {
 
 		if node is CodeBlock {
 			// TODO: Top margin if first or single
-			// TODO: Left margin
 			// TODO: Bottom margin if last or single
 
-//			if horizontalSizeClass == .Regular {
-//				// TODO: Use a constant
-//				paragraph.firstLineHeadIndent = 48
-//				paragraph.headIndent = 48 + listIndentation
-//			} else {
-//				paragraph.headIndent = listIndentation
-//			}
+			// Indent
+			if horizontalSizeClass == .Regular {
+				// TODO: Use a constant
+				spacing.paddingLeft = 48
+			} else {
+				spacing.paddingLeft = listIndentation
+			}
 
 			// No bottom margin if the next block is a code block
 			if nextSibling is CodeBlock {
