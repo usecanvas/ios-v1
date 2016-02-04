@@ -247,6 +247,23 @@ public class CanvasTextStorage: ShadowTextStorage {
 		return nil
 	}
 
+	// TODO: I'm not happy about this
+	public func nextBlockNodeAfterBlockAtDisplayLocation(displayLocation: Int) -> BlockNode? {
+		for (i, node) in nodes.enumerate() {
+			var range = backingRangeToDisplayRange(node.displayRange)
+			range.length += 1
+
+			if range.contains(displayLocation) {
+				if i + 1 < nodes.count {
+					return nodes[i + 1]
+				}
+				return nil
+			}
+		}
+
+		return nil
+	}
+
 	/// This returns all nodes that are contained in the backing range. Most consumers will filter the results. If a
 	/// node is partially contained, it will be included in the results.
 	public func nodesInBackingRange(backingRange: NSRange) -> [Node] {

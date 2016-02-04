@@ -93,10 +93,11 @@ struct LightTheme: Theme {
 			// Indentation
 			spacing.paddingLeft = listIndentation * CGFloat(listable.indentation.rawValue + 1)
 
-			// Smaller bottom margin if the next block is a list type
-			if nextSibling is Listable {
-				spacing.marginBottom /= 2
+			// No bottom margin if the next block is a different list type (excluding checklists)
+			if node is UnorderedListItem && (nextSibling is UnorderedListItem || nextSibling is ChecklistItem) || node is OrderedListItem && (nextSibling is OrderedListItem || nextSibling is ChecklistItem) {
+				spacing.marginBottom = 0
 			}
+			
 			return spacing
 		}
 

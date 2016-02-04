@@ -150,8 +150,8 @@ extension FoldingLayoutManager: NSLayoutManagerDelegate {
 			let characterIndex = characterIndexForGlyphAtIndex(glyphIndex)
 			guard let textStorage = textStorage as? CanvasTextStorage, node = textStorage.blockNodeAtDisplayLocation(characterIndex) else { return 0 }
 
-			// TODO: Get next sibling
-			return textStorage.theme.blockSpacing(node: node, nextSibling: nil, horizontalSizeClass: textStorage.horizontalSizeClass).marginBottom
+			let nextSibling = textStorage.nextBlockNodeAfterBlockAtDisplayLocation(characterIndex)
+			return textStorage.theme.blockSpacing(node: node, nextSibling: nextSibling, horizontalSizeClass: textStorage.horizontalSizeClass).marginBottom
 		}
 	}
 #endif

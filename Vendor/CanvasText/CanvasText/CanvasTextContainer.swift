@@ -19,9 +19,8 @@ public class CanvasTextContainer: NSTextContainer {
 		var rect = proposedRect
 
 		if let textStorage = layoutManager?.textStorage as? CanvasTextStorage, node = textStorage.blockNodeAtDisplayLocation(index) {
-			// TODO: Next sibling
-			let spacing = textStorage.theme.blockSpacing(node: node, nextSibling: nil, horizontalSizeClass: textStorage.horizontalSizeClass)
-			print("node: \(node.dynamicType), spacing: \(spacing)")
+			let nextSibling = textStorage.nextBlockNodeAfterBlockAtDisplayLocation(index)
+			let spacing = textStorage.theme.blockSpacing(node: node, nextSibling: nextSibling, horizontalSizeClass: textStorage.horizontalSizeClass)
 			rect = spacing.applyPadding(rect)
 		}
 
