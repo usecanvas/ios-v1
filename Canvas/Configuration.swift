@@ -34,7 +34,7 @@ struct Config {
 	static let canvasClientSecret = "\(canvasClientSecretPart1)fb\(canvasClientSecretPart2)2e\(canvasClientSecretPart3)75\(canvasClientSecretPart4)"
 
 
-	// MARK: - Camp
+	// MARK: - Camo
 
 	/// Camo base URL
 	static let camoURL = NSURL(string: "https://camo.usecanvas.com/")!
