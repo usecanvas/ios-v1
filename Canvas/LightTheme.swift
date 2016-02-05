@@ -165,6 +165,8 @@ struct LightTheme: Theme {
 		else if node is CodeBlock {
 			attributes[NSForegroundColorAttributeName] = mediumGray
 			attributes[NSFontAttributeName] = monospaceFontOfSize(fontSize)
+
+			paragraph.headIndent = fontSize
 		}
 
 		else if node is Blockquote {
