@@ -57,6 +57,9 @@ extension CanvasTextView {
 			var frame = placeholderLabel.frame
 			frame.origin = origin
 
+			// TODO: Align with new annotation system
+			frame.origin.x = iconView.frame.maxX + 7.5
+
 			// TODO: Properly size to fit
 			frame.size.width = bounds.size.width
 
