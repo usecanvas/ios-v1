@@ -35,7 +35,7 @@ class OrganizationCell: PersonalOrganizationCell {
 		let verticalSpacing: CGFloat = 2
 
 		NSLayoutConstraint.activateConstraints([
-			contentView.heightAnchor.constraintEqualToConstant(66),
+			contentView.heightAnchor.constraintGreaterThanOrEqualToConstant(66),
 
 			NSLayoutConstraint(item: avatarView, attribute: .Leading, relatedBy: .Equal, toItem: contentView, attribute: .LeadingMargin, multiplier: 1, constant: 0),
 			avatarView.widthAnchor.constraintEqualToConstant(32),

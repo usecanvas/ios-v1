@@ -76,7 +76,7 @@ class PersonalOrganizationCell: UITableViewCell, CellType {
 
 	func setupConstraints() {
 		NSLayoutConstraint.activateConstraints([
-			contentView.heightAnchor.constraintEqualToConstant(56),
+			contentView.heightAnchor.constraintGreaterThanOrEqualToConstant(56),
 
 			NSLayoutConstraint(item: avatarView, attribute: .Leading, relatedBy: .Equal, toItem: contentView, attribute: .LeadingMargin, multiplier: 1, constant: 0),
 			avatarView.widthAnchor.constraintEqualToConstant(32),
