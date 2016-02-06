@@ -52,6 +52,7 @@
 		219DAC8A1C0F819700F39A6F /* NSDate+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DAC891C0F819700F39A6F /* NSDate+Canvas.swift */; };
 		219DAC921C0F98BD00F39A6F /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DAC911C0F98BD00F39A6F /* Configuration.swift */; };
 		219DFC761C46D22C006101DA /* PersonalOrganizationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219DFC751C46D22C006101DA /* PersonalOrganizationCell.swift */; };
+		21A0BBF21C656FC20063102F /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A0BBF11C656FC20063102F /* NavigationBar.swift */; };
 		21A8FA3D1BFD04F20097FCC6 /* OrganizationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA3C1BFD04F20097FCC6 /* OrganizationCell.swift */; };
 		21A8FA4A1BFD085F0097FCC6 /* CanvasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA491BFD085F0097FCC6 /* CanvasCell.swift */; };
 		21A8FA5B1BFD30790097FCC6 /* WebActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8FA5A1BFD30790097FCC6 /* WebActivity.swift */; };
@@ -252,6 +253,7 @@
 		219DAC891C0F819700F39A6F /* NSDate+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Canvas.swift"; sourceTree = "<group>"; };
 		219DAC911C0F98BD00F39A6F /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		219DFC751C46D22C006101DA /* PersonalOrganizationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalOrganizationCell.swift; sourceTree = "<group>"; };
+		21A0BBF11C656FC20063102F /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		21A8FA3C1BFD04F20097FCC6 /* OrganizationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationCell.swift; sourceTree = "<group>"; };
 		21A8FA491BFD085F0097FCC6 /* CanvasCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasCell.swift; sourceTree = "<group>"; };
 		21A8FA5A1BFD30790097FCC6 /* WebActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebActivity.swift; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 				210BB9541C484E3300ECADC0 /* TintableView.swift */,
 				210BB9511C484E1600ECADC0 /* CanvasIconView.swift */,
 				2179EA121C5A7FE50067A6FA /* TickingLabel.swift */,
+				21A0BBF11C656FC20063102F /* NavigationBar.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -830,6 +833,7 @@
 				219DFC761C46D22C006101DA /* PersonalOrganizationCell.swift in Sources */,
 				213139201C22104000B09904 /* UIFont+Canvas.swift in Sources */,
 				21B742C81BFF991600FF293C /* NumberView.swift in Sources */,
+				21A0BBF21C656FC20063102F /* NavigationBar.swift in Sources */,
 				21C576951C19002A0015B8A5 /* CanvasesResultsViewController.swift in Sources */,
 				21FB6AB01BF53B8E003C82BB /* RootViewController.swift in Sources */,
 				21F10F501BF138750035057D /* EditorViewController.swift in Sources */,

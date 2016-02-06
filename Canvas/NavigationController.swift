@@ -19,11 +19,9 @@ final class NavigationController: UINavigationController {
 	// MARK: - Initializers
 
 	override init(rootViewController: UIViewController) {
-		super.init(rootViewController: rootViewController)
+		super.init(navigationBarClass: NavigationBar.self, toolbarClass: nil)
 
-		navigationBar.barTintColor = .whiteColor()
-		navigationBar.translucent = false
-		navigationBar.shadowImage = UIImage()
+		viewControllers = [rootViewController]
 
 		updateTintColor(view.tintColor)
 
@@ -49,14 +47,12 @@ final class NavigationController: UINavigationController {
 
 	private func updateTintColor(tintColor: UIColor?) {
 		let itemsColor = tintColor ?? defaultTintColor
-		let titleColor = tintColor ?? defaultTitleColor
-
 		view.tintColor = itemsColor
 		navigationBar.tintColor = itemsColor
-		navigationBar.titleTextAttributes = [
-			NSFontAttributeName: Font.sansSerif(weight: .Bold),
-			NSForegroundColorAttributeName: titleColor
-		]
+
+		if let navigationBar = navigationBar as? NavigationBar {
+			navigationBar.titleColor = tintColor ?? defaultTitleColor
+		}
 	}
 }
 

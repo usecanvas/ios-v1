@@ -57,16 +57,23 @@ final class OrganizationAvatarView: UIView {
 	}
 
 
+	// MARK: - UIView
+
+	override func tintColorDidChange() {
+		backgroundColor = tintColor
+	}
+
+
 	// MARK: - Private
 
 	private func updateUI() {
 		guard let organization = organization else {
 			initialsLabel.text = nil
-			backgroundColor = highlighted ? .whiteColor() : Color.gray
+			tintColor = highlighted ? .whiteColor() : Color.gray
 			return
 		}
 
-		backgroundColor = highlighted ? .whiteColor() : organization.color?.color ?? Color.gray
+		tintColor = highlighted ? .whiteColor() : organization.color?.color ?? Color.gray
 
 		let name = organization.name
 		initialsLabel.text = name.substringToIndex(name.startIndex.advancedBy(2))

@@ -219,7 +219,6 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 	func createCanvas() {
 		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 		
-		// TODO: Avoid sending canvas-native here once the API is fixed
 		APIClient(accessToken: account.accessToken, baseURL: Config.baseURL).createCanvas(organization: organization) { [weak self] result in
 			dispatch_async(dispatch_get_main_queue()) {
 				UIApplication.sharedApplication().networkActivityIndicatorVisible = false
