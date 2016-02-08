@@ -96,13 +96,6 @@ extension CanvasTextView {
 				next = nil
 			}
 
-			let previous: Node?
-			if i > 0 {
-				previous = textStorage.nodes[i - 1]
-			} else {
-				previous = nil
-			}
-
 			if node is Listable {
 				if let node = node as? OrderedListItem {
 					let value = orderedIndentationCounts[node.indentation] ?? 0
@@ -112,7 +105,7 @@ extension CanvasTextView {
 				orderedIndentationCounts.removeAll()
 			}
 
-			if node.hasAnnotation, let annotation = annotationForNode(node, nextSibling: next, previousSibling: previous, orderedIndentationCounts: orderedIndentationCounts) {
+			if node.hasAnnotation, let annotation = annotationForNode(node, nextSibling: next, orderedIndentationCounts: orderedIndentationCounts) {
 				addAnnotation(annotation)
 			}
 		}
@@ -130,7 +123,7 @@ extension CanvasTextView {
 		insertSubview(annotation, atIndex: 0)
 	}
 
-	private func annotationForNode(node: Node, nextSibling: Node? = nil, previousSibling: Node? = nil, orderedIndentationCounts: [Indentation: UInt]) -> UIView? {
+	private func annotationForNode(node: Node, nextSibling: Node? = nil, orderedIndentationCounts: [Indentation: UInt]) -> UIView? {
 		guard let textStorage = textStorage as? CanvasTextStorage else { return nil }
 
 		guard var rect = firstRectForNode(node) else { return nil }
@@ -234,19 +227,6 @@ extension CanvasTextView {
 			if let lastRect = firstRectForDisplayRange(displayRange) where lastRect.origin.y > originalTop {
 				rect.size.height += lastRect.origin.y - originalTop
 			}
-
-			// Top
-//			if !(previousSibling is CodeBlock) {
-//				position = position.union([.Top])
-//				rect.origin.y -= theme.paragraphSpacing / 4
-//				rect.size.height += theme.paragraphSpacing / 4
-//			}
-
-			// Bottom
-//			if !(nextSibling is CodeBlock) {
-//				position = position.union([.Bottom])
-//				rect.size.height += theme.paragraphSpacing / 2
-//			}
 
 			let view = CodeBlockBackgroundView(frame: rect.floor, theme: textStorage.theme, lineNumber: lineNumber, position: node.position)
 
