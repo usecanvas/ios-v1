@@ -15,7 +15,7 @@
 import CanvasNative
 
 public protocol FoldingLayoutManagerDelegate: class {
-	func layoutManager(layoutManager: NSLayoutManager, didInvalidateGlyphs glyphRange: NSRange)
+	func layoutManagerDidInvalidateGlyphs(layoutManager: NSLayoutManager)
 	func layoutManager(layoutManager: NSLayoutManager, didCompleteLayoutForTextContainer textContainer: NSTextContainer)
 }
 
@@ -92,11 +92,11 @@ public class FoldingLayoutManager: NSLayoutManager {
 
 	// TODO: We should intellegently invalidate glyphs are a given range instead of the entire document.
 	private func invalidateGlyphs() {
-//		let glyphRange = NSRange(location: 0, length: numberOfGlyphs)
-//		let characterRange = characterRangeForGlyphRange(glyphRange, actualGlyphRange: nil)
-//		invalidateGlyphsForCharacterRange(characterRange, changeInLength: 0, actualCharacterRange: nil)
-//		layoutDelegate?.layoutManager(self, didInvalidateGlyphs: glyphRange)
-//		needsInvalidateGlyphs = false
+		guard let characterLength = textStorage?.length else { return }
+		let characterRange = NSRange(location: 0, length: characterLength)
+		invalidateGlyphsForCharacterRange(characterRange, changeInLength: 0, actualCharacterRange: nil)
+		layoutDelegate?.layoutManagerDidInvalidateGlyphs(self)
+		needsInvalidateGlyphs = false
 	}
 
 	private func setNeedsInvalidateGlyphs() {

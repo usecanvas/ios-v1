@@ -209,9 +209,14 @@ public class CanvasTextStorage: ShadowTextStorage {
 			return
 		}
 
+		let foldableRanges = self.foldableRanges
 		for layoutManager in layoutManagers {
 			if let layoutManager = layoutManager as? FoldingLayoutManager {
-				layoutManager.foldableRanges = foldableRanges
+
+				// TODO: Hack to make this work. Not sure how to fix otherwise.
+				dispatch_async(dispatch_get_main_queue()) {
+					layoutManager.foldableRanges = foldableRanges
+				}
 			}
 		}
 
