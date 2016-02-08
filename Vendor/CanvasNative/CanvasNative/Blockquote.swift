@@ -8,13 +8,14 @@
 
 import Foundation
 
-public struct Blockquote: NativePrefixable {
+public struct Blockquote: NativePrefixable, Positionable {
 
 	// MARK: - Properties
 
 	public var range: NSRange
 	public var nativePrefixRange: NSRange
 	public var displayRange: NSRange
+	public var position: Position = .Single
 
 	public var hasAnnotation: Bool {
 		return true

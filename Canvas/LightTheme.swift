@@ -84,17 +84,11 @@ struct LightTheme: Theme {
 		}
 
 		// No margin if it's not at the bottom of a positionable list
-		if let node = node as? Positionable {
+		if let node = node as? Positionable where !(node is Blockquote) {
 			if !node.position.isBottom {
 				spacing.marginBottom = 0
 			}
 		}
-
-		// Smaller bottom margin if the next block isn’t a heading
-//		if node is Heading && !(nextSibling is Heading) {
-//			spacing.marginBottom /= 2
-//			return spacing
-//		}
 
 		// Indentation
 		if let listable = node as? Listable {

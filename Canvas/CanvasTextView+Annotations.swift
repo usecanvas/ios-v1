@@ -89,13 +89,6 @@ extension CanvasTextView {
 				}
 			}
 
-			let next: Node?
-			if i < count - 1 {
-				next = textStorage.nodes[i + 1]
-			} else {
-				next = nil
-			}
-
 			if node is Listable {
 				if let node = node as? OrderedListItem {
 					let value = orderedIndentationCounts[node.indentation] ?? 0
@@ -105,7 +98,7 @@ extension CanvasTextView {
 				orderedIndentationCounts.removeAll()
 			}
 
-			if node.hasAnnotation, let annotation = annotationForNode(node, nextSibling: next, orderedIndentationCounts: orderedIndentationCounts) {
+			if node.hasAnnotation, let annotation = annotationForNode(node, orderedIndentationCounts: orderedIndentationCounts) {
 				addAnnotation(annotation)
 			}
 		}
@@ -123,7 +116,7 @@ extension CanvasTextView {
 		insertSubview(annotation, atIndex: 0)
 	}
 
-	private func annotationForNode(node: Node, nextSibling: Node? = nil, orderedIndentationCounts: [Indentation: UInt]) -> UIView? {
+	private func annotationForNode(node: Node, orderedIndentationCounts: [Indentation: UInt]) -> UIView? {
 		guard let textStorage = textStorage as? CanvasTextStorage else { return nil }
 
 		guard var rect = firstRectForNode(node) else { return nil }
@@ -190,12 +183,12 @@ extension CanvasTextView {
 			rect.size.width = 4
 
 			// Extend vertically if the next node is also a blockquote
-			if let next = nextSibling as? Blockquote, let nextRect = firstRectForNode(next) {
-				rect.size.height = nextRect.origin.y - rect.origin.y
-			}
+//			if let next = nextSibling as? Blockquote, let nextRect = firstRectForNode(next) {
+//				rect.size.height = nextRect.origin.y - rect.origin.y
+//			}
 
 			// Extend to the end of the node
-			else if let last = lastRectForNode(node) {
+			if let last = lastRectForNode(node) {
 				rect.size.height = last.maxY - rect.origin.y
 			}
 
