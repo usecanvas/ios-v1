@@ -27,6 +27,7 @@ public protocol Theme {
 
 	var fontSize: CGFloat { get }
 
+	// TODO: Remove
 	var listIndentation: CGFloat { get }
 
 	var backgroundColor: Color { get }
@@ -38,20 +39,18 @@ public protocol Theme {
 	var titleAttributes: Attributes { get }
 
 	var lineHeightMultiple: CGFloat { get }
-	var paragraphSpacing: CGFloat { get }
 
 	func fontOfSize(fontSize: CGFloat, style: FontStyle) -> Font
 	func monospaceFontOfSize(fontSize: CGFloat, style: FontStyle) -> Font
 
-	func attributesForNode(node: Node, nextSibling: Node?, horizontalSizeClass: UserInterfaceSizeClass) -> Attributes
+	func attributesForNode(node: Node) -> Attributes
+
+	func blockSpacing(node node: BlockNode, horizontalSizeClass: UserInterfaceSizeClass) -> BlockSpacing
 }
 
 
 extension Theme {
-	public var paragraphSpacing: CGFloat {
-		return fontSize * 1.5
-	}
-
+	// TODO: Remove
 	public var listIndentation: CGFloat {
 		return round(fontSize * 1.1)
 	}

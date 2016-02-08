@@ -15,7 +15,7 @@
 import CanvasNative
 
 public protocol FoldingLayoutManagerDelegate: class {
-	func layoutManager(layoutManager: NSLayoutManager, didInvalidateGlyphs glyphRange: NSRange)
+	func layoutManagerDidInvalidateGlyphs(layoutManager: NSLayoutManager)
 	func layoutManager(layoutManager: NSLayoutManager, didCompleteLayoutForTextContainer textContainer: NSTextContainer)
 }
 
@@ -92,10 +92,10 @@ public class FoldingLayoutManager: NSLayoutManager {
 
 	// TODO: We should intellegently invalidate glyphs are a given range instead of the entire document.
 	private func invalidateGlyphs() {
-		guard numberOfGlyphs > 0 else { return }
-		let glyphRange = NSRange(location: 0, length: characterIndexForGlyphAtIndex(numberOfGlyphs - 1))
-		invalidateGlyphsForCharacterRange(glyphRange, changeInLength: 0, actualCharacterRange: nil)
-		layoutDelegate?.layoutManager(self, didInvalidateGlyphs: glyphRange)
+		guard let characterLength = textStorage?.length else { return }
+		let characterRange = NSRange(location: 0, length: characterLength)
+		invalidateGlyphsForCharacterRange(characterRange, changeInLength: 0, actualCharacterRange: nil)
+		layoutDelegate?.layoutManagerDidInvalidateGlyphs(self)
 		needsInvalidateGlyphs = false
 	}
 
@@ -144,6 +144,12 @@ extension FoldingLayoutManager: NSLayoutManagerDelegate {
 
 			// Default action for things we didn't change
 			return action
+		}
+
+		public func layoutManager(layoutManager: NSLayoutManager, paragraphSpacingAfterGlyphAtIndex glyphIndex: Int, withProposedLineFragmentRect rect: CGRect) -> CGFloat {
+			let characterIndex = characterIndexForGlyphAtIndex(glyphIndex)
+			guard let textStorage = textStorage as? CanvasTextStorage, node = textStorage.blockNodeAtDisplayLocation(characterIndex) else { return 0 }
+			return textStorage.theme.blockSpacing(node: node, horizontalSizeClass: textStorage.horizontalSizeClass).marginBottom
 		}
 	}
 #endif

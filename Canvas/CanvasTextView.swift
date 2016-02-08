@@ -45,7 +45,7 @@ class CanvasTextView: UITextView {
 		let layoutManager = FoldingLayoutManager()
 		layoutManager.allowsNonContiguousLayout = false
 
-		let container = NSTextContainer()
+		let container = CanvasTextContainer()
 		container.lineFragmentPadding = 0
 		container.widthTracksTextView = true
 		layoutManager.addTextContainer(container)
@@ -248,15 +248,13 @@ class CanvasTextView: UITextView {
 		}
 	}
 
+	// TODO: Don't special case Title
 	private func updateTypingAttributes() {
 		guard let textStorage = textStorage as? CanvasTextStorage else { return }
 
 		// Set the typing attributes for the current node if there is one
 		if let node = textStorage.blockNodeAtBackingLocation(textStorage.displayRangeToBackingRange(selectedRange).location) {
-			// TODO: Next sibling
-			let sizeClass = traitCollection.horizontalSizeClass
-			let attributes = textStorage.theme.attributesForNode(node, nextSibling: nil, horizontalSizeClass: sizeClass)
-			typingAttributes = attributes
+			typingAttributes = textStorage.theme.attributesForNode(node)
 			return
 		}
 
