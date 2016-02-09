@@ -12,4 +12,5 @@ public struct FontStyle: OptionSetType {
 
 	public static let Bold = FontStyle(rawValue: 1)
 	public static let Italic = FontStyle(rawValue: 2)
+	public static let BoldItalic = [Bold, Italic]
 }

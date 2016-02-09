@@ -62,18 +62,6 @@ struct LightTheme: Theme {
 		return attributes
 	}
 
-	func fontOfSize(fontSize: CGFloat, style: FontStyle = []) -> CanvasText.Font {
-		if style == [.Bold] {
-			return Font.sansSerif(weight: .Bold, pointSize: fontSize)
-		}
-
-		if style == [.Italic] {
-			return Font.italicSansSerif(size: fontSize)
-		}
-
-		return Font.sansSerif(pointSize: fontSize)
-	}
-
 	func blockSpacing(node node: BlockNode, horizontalSizeClass: UserInterfaceSizeClass) -> BlockSpacing {
 		var spacing = BlockSpacing(marginBottom: fontSize * 1.5)
 

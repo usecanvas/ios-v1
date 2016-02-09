@@ -41,7 +41,7 @@ public protocol Theme {
 	var lineHeightMultiple: CGFloat { get }
 
 	func fontOfSize(fontSize: CGFloat, style: FontStyle) -> Font
-	func monospaceFontOfSize(fontSize: CGFloat, style: FontStyle) -> Font
+	func monospaceFontOfSize(fontSize: CGFloat) -> Font
 
 	func attributesForNode(node: Node) -> Attributes
 
@@ -74,35 +74,29 @@ extension Theme {
 	}
 
 	public func fontOfSize(fontSize: CGFloat, style: FontStyle = []) -> Font {
-		if style == [.Bold] {
-			return Font.boldSystemFontOfSize(fontSize)
-		}
+		var font = Font.systemFontOfSize(fontSize)
 
-		// TODO: Italic on OS X
 		#if !os(OSX)
-			if style == [.Italic] {
-				return Font.italicSystemFontOfSize(fontSize)
+			if style != [] {
+				var descriptor = font.fontDescriptor()
+
+				if style.contains(.Bold) {
+					descriptor = descriptor.fontDescriptorWithSymbolicTraits([.TraitBold])
+				}
+
+				if style.contains(.Italic) {
+					descriptor = descriptor.fontDescriptorWithSymbolicTraits([.TraitItalic])
+				}
+
+				font = UIFont(descriptor: descriptor, size: font.pointSize)
 			}
 		#endif
 
-		// TODO: Bold italic
-
-		return Font.systemFontOfSize(fontSize)
+		return font
 	}
 
-	public func monospaceFontOfSize(fontSize: CGFloat, style: FontStyle = []) -> Font {
-		let font: Font?
-
-		if style == [.Bold] {
-			font = Font(name: "Menlo-Bold", size: fontSize)
-		} else if style == [.Italic] {
-			font = Font(name: "Menlo-Italic", size: fontSize)
-		} else if style == [.Bold, .Italic] {
-			font = Font(name: "Menlo-BoldItalic", size: fontSize)
-		} else {
-			font = Font(name: "Menlo", size: fontSize)
-		}
-
-		return font ?? fontOfSize(fontSize, style: style)
+	public func monospaceFontOfSize(fontSize: CGFloat) -> Font {
+		let font = Font(name: "Menlo", size: fontSize)
+		return font ?? fontOfSize(fontSize)
 	}
 }
