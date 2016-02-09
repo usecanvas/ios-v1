@@ -122,7 +122,7 @@ public struct Parser {
 			positionables.append(positionable)
 		}
 
-		applyPositions(nodes.count - 1)
+		applyPositions(nodes.count)
 
 		return nodes
 	}
