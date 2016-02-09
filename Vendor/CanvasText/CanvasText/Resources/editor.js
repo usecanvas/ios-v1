@@ -21,8 +21,8 @@ Canvas.connect = function(realtimeURL, accessToken, organizationID, canvasID) {
     share.on('insert', function onInsert(position, text) {
       console.log("Remote Insert:", {"location": position, "string": text});
       Canvas._sendMessage({
-        "type": "op",
-        "op": {
+        "type": "operation",
+        "operation": {
           "type": "insert",
           "location": position,
           "text": text
@@ -34,8 +34,8 @@ Canvas.connect = function(realtimeURL, accessToken, organizationID, canvasID) {
     share.on('remove', function onRemove(position, length) {
       console.log("Remote Remove:", {"location": position, "length": length});
       Canvas._sendMessage({
-        "type": "op",
-        "op": {
+        "type": "operation",
+        "operation": {
           "type": "remove",
           "location": position,
           "length": length
