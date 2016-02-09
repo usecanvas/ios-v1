@@ -113,10 +113,12 @@ struct LightTheme: Theme {
 		return spacing
 	}
 
-	func attributesForNode(node: Node) -> Attributes {
+	func attributesForNode(node: Node, currentFont: CanvasText.Font?) -> Attributes {
 		if node is Title {
 			return titleAttributes
 		}
+
+		let fontSize = currentFont?.pointSize ?? self.fontSize
 
 		var attributes = baseAttributes
 		attributes[NSParagraphStyleAttributeName] = nil
@@ -162,11 +164,27 @@ struct LightTheme: Theme {
 		}
 
 		else if node is DoubleEmphasis {
-			attributes[NSFontAttributeName] = fontOfSize(fontSize, style: .Bold)
+			var style = FontStyle.Bold
+
+			#if !os(OSX)
+				if let traits = currentFont?.fontDescriptor().symbolicTraits where traits.contains(.TraitItalic) {
+					style.insert(.Italic)
+				}
+			#endif
+
+			attributes[NSFontAttributeName] = fontOfSize(fontSize, style: style)
 		}
 
 		else if node is Emphasis {
-			attributes[NSFontAttributeName] = fontOfSize(fontSize, style: .Italic)
+			var style = FontStyle.Italic
+
+			#if !os(OSX)
+				if let traits = currentFont?.fontDescriptor().symbolicTraits where traits.contains(.TraitBold) {
+					style.insert(.Bold)
+				}
+			#endif
+
+			attributes[NSFontAttributeName] = fontOfSize(fontSize, style: style)
 		}
 
 		else if node is Link {

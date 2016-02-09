@@ -185,7 +185,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 			}
 
 			// Apply attributes
-			applyAttributes(text: text, node: node)
+			applyAttributes(text: text, node: node, currentFont: nil)
 		}
 
 		return text
@@ -288,17 +288,20 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 	// MARK: - Private
 
-	private func applyAttributes(text text: NSMutableAttributedString, node: Node) {
+	private func applyAttributes(text text: NSMutableAttributedString, node: Node, currentFont: Font?) -> Font? {
 		// Skip text nodes
 		if node is Text {
-			return
+			return nil
 		}
+
+		print("node: \(node.dynamicType), font: \(currentFont)")
 
 		// Extend the range to include the trailing new line if present
 		let range = backingRangeToDisplayRange(node.displayRange)
 
 		// Normal elements
-		let attributes = theme.attributesForNode(node)
+		let attributes = theme.attributesForNode(node, currentFont: currentFont)
+		let font = attributes[NSFontAttributeName] as? Font
 		text.addAttributes(attributes, range: range)
 
 		// Foldable attributes
@@ -324,10 +327,13 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 		// Recurse
 		if let node = node as? NodeContainer {
+			let innerFont = font ?? currentFont
 			for child in node.subnodes {
-				applyAttributes(text: text, node: child)
+				applyAttributes(text: text, node: child, currentFont: innerFont)
 			}
 		}
+
+		return font
 	}
 }
 

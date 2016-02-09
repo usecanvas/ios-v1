@@ -43,7 +43,7 @@ public protocol Theme {
 	func fontOfSize(fontSize: CGFloat, style: FontStyle) -> Font
 	func monospaceFontOfSize(fontSize: CGFloat) -> Font
 
-	func attributesForNode(node: Node) -> Attributes
+	func attributesForNode(node: Node, currentFont: Font?) -> Attributes
 
 	func blockSpacing(node node: BlockNode, horizontalSizeClass: UserInterfaceSizeClass) -> BlockSpacing
 }
@@ -80,11 +80,11 @@ extension Theme {
 			if style != [] {
 				var descriptor = font.fontDescriptor()
 
-				if style.contains(.Bold) {
+				if style.contains(.Bold) && style.contains(.Italic) {
+					descriptor = descriptor.fontDescriptorWithSymbolicTraits([.TraitBold, .TraitItalic])
+				} else if style.contains(.Bold) {
 					descriptor = descriptor.fontDescriptorWithSymbolicTraits([.TraitBold])
-				}
-
-				if style.contains(.Italic) {
+				} else if style.contains(.Italic) {
 					descriptor = descriptor.fontDescriptorWithSymbolicTraits([.TraitItalic])
 				}
 

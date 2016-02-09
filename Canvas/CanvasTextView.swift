@@ -254,7 +254,7 @@ class CanvasTextView: UITextView {
 
 		// Set the typing attributes for the current node if there is one
 		if let node = textStorage.blockNodeAtBackingLocation(textStorage.displayRangeToBackingRange(selectedRange).location) {
-			typingAttributes = textStorage.theme.attributesForNode(node)
+			typingAttributes = textStorage.theme.attributesForNode(node, currentFont: nil)
 			return
 		}
 
