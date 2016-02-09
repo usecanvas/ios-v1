@@ -294,8 +294,6 @@ public class CanvasTextStorage: ShadowTextStorage {
 			return nil
 		}
 
-		print("node: \(node.dynamicType), font: \(currentFont)")
-
 		// Extend the range to include the trailing new line if present
 		let range = backingRangeToDisplayRange(node.displayRange)
 
