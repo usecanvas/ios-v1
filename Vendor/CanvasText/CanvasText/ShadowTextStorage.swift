@@ -44,6 +44,8 @@ public class ShadowTextStorage: NSTextStorage {
 		}
 	}
 
+	public private(set) var isProcessing = false
+
 	/// Hidden regions from the backing text
 	private private(set) var shadows = [NSRange]()
 
@@ -100,9 +102,16 @@ public class ShadowTextStorage: NSTextStorage {
 
 	// MARK: - Manipulation
 
-	public func replaceBackingCharactersInRange(range: NSRange, withString str: String) {
-		let backingRange = range
+	public func replaceBackingCharactersInRange(backingRange: NSRange, withString str: String) {
+		isProcessing = true
 		backingText = (backingText as NSString).stringByReplacingCharactersInRange(backingRange, withString: str)
+
+		// Update selection
+		var backingSelection = self.backingSelection
+		backingSelection.location += (str as NSString).length
+		backingSelection.location -= backingRange.length
+		self.backingSelection = backingSelection
+		isProcessing = false
 	}
 
 

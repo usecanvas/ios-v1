@@ -121,11 +121,6 @@ public class CanvasTextStorage: ShadowTextStorage {
 		// Replace backing text
 		super.replaceBackingCharactersInRange(backingRange, withString: replacement)
 
-		// Update the selection if we messed with things
-		if backingRange != range || replacement != str {
-			backingSelection = NSRange(location: backingRange.max, length: 0)
-		}
-
 		// Ensure transport controller is available
 		guard let transportController = transportController else {
 			print("[CanvasText.TextStorage] Tried to submit operation without transport controller.")
