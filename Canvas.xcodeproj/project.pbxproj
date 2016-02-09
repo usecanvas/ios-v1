@@ -30,6 +30,7 @@
 		2129D30E1BF561400018F255 /* OrganizationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D30D1BF561400018F255 /* OrganizationsViewController.swift */; };
 		2129D3101BF5634A0018F255 /* Accountable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D30F1BF5634A0018F255 /* Accountable.swift */; };
 		2129D3121BF568AB0018F255 /* OrganizationCanvasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D3111BF568AB0018F255 /* OrganizationCanvasesViewController.swift */; };
+		2130184D1C6A91EA00E67755 /* SearchBarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2130184C1C6A91EA00E67755 /* SearchBarContainer.swift */; };
 		213139201C22104000B09904 /* UIFont+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2131391F1C22104000B09904 /* UIFont+Canvas.swift */; };
 		2134FADF1BFC09E300AE93CC /* BulletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2134FADE1BFC09E300AE93CC /* BulletView.swift */; };
 		2134FAE11BFC0A6A00AE93CC /* CanvasTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2134FAE01BFC0A6A00AE93CC /* CanvasTextView.swift */; };
@@ -232,6 +233,7 @@
 		2129D30D1BF561400018F255 /* OrganizationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsViewController.swift; sourceTree = "<group>"; };
 		2129D30F1BF5634A0018F255 /* Accountable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accountable.swift; sourceTree = "<group>"; };
 		2129D3111BF568AB0018F255 /* OrganizationCanvasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationCanvasesViewController.swift; sourceTree = "<group>"; };
+		2130184C1C6A91EA00E67755 /* SearchBarContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarContainer.swift; sourceTree = "<group>"; };
 		2131391F1C22104000B09904 /* UIFont+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Canvas.swift"; sourceTree = "<group>"; };
 		2134FADE1BFC09E300AE93CC /* BulletView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulletView.swift; sourceTree = "<group>"; };
 		2134FAE01BFC0A6A00AE93CC /* CanvasTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasTextView.swift; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 				210BB9511C484E1600ECADC0 /* CanvasIconView.swift */,
 				2179EA121C5A7FE50067A6FA /* TickingLabel.swift */,
 				21A0BBF11C656FC20063102F /* NavigationBar.swift */,
+				2130184C1C6A91EA00E67755 /* SearchBarContainer.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -881,6 +884,7 @@
 				21FCB58D1C07929A00F78D93 /* NSCache+Canvas.swift in Sources */,
 				21B742D91BFFCFDB00FF293C /* BlockquoteBorderView.swift in Sources */,
 				21E39CEE1C56DB09005C1FF3 /* Color+Canvas.swift in Sources */,
+				2130184D1C6A91EA00E67755 /* SearchBarContainer.swift in Sources */,
 				219334051C0FC6DD000A974B /* Canvas+Canvas.swift in Sources */,
 				215642221C06BBE600685847 /* Button.swift in Sources */,
 			);

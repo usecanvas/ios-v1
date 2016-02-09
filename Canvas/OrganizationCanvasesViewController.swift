@@ -77,12 +77,6 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		let results = CanvasesResultsViewController(account: account)
 		searchViewController = UISearchController(searchResultsController: results)
 
-		let searchBar = searchViewController.searchBar
-		searchBar.barTintColor = .whiteColor()
-		searchBar.layer.borderColor = UIColor.whiteColor().CGColor
-		searchBar.layer.borderWidth = 1
-		searchBar.backgroundColor = .whiteColor()
-
 		super.init(account: account, style: .Plain)
 
 		title = organization.name
@@ -134,20 +128,7 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		// http://stackoverflow.com/a/33734661/118631
 		searchViewController.loadViewIfNeeded()
 
-		var frame = searchViewController.searchBar.bounds
-		frame.size.height += 2
-		let header = GradientView(frame: frame)
-		header.backgroundColor = .whiteColor()
-		header.topBorderColor = tableView.separatorColor
-		header.bottomBorderColor = tableView.separatorColor
-		searchViewController.searchBar.autoresizingMask = [.FlexibleWidth]
-
-		frame = searchViewController.searchBar.bounds
-		frame.origin.y += 1
-		searchViewController.searchBar.frame = frame
-		header.addSubview(searchViewController.searchBar)
-
-		tableView.tableHeaderView = header
+		tableView.tableHeaderView = SearchBarContainer(searchBar: searchViewController.searchBar)
 
 		let topView = UIView(frame: CGRect(x: 0, y: -400, width: view.bounds.width, height: 400))
 		topView.autoresizingMask = [.FlexibleWidth, .FlexibleBottomMargin]
