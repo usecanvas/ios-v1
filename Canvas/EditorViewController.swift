@@ -117,9 +117,15 @@ final class EditorViewController: UIViewController, Accountable {
 		updatePreventSleep()
 	}
 
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
+		textStorage.enabled = true
+	}
+
 	override func viewWillDisappear(animated: Bool) {
 		super.viewWillDisappear(animated)
 		UIApplication.sharedApplication().idleTimerDisabled = false
+		textStorage.enabled = false
 		textView.resignFirstResponder()
 	}
 

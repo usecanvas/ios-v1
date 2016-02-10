@@ -24,6 +24,8 @@ public class ShadowTextStorage: NSTextStorage {
 
 	private let storage = NSMutableAttributedString()
 
+	public var enabled = false
+
 	public var backingText = "" {
 		didSet {
 			reprocess()
@@ -180,6 +182,8 @@ public class ShadowTextStorage: NSTextStorage {
 	}
 
 	public func reprocess() {
+		guard enabled else { return }
+		
 		// Get hidden ranges
 		shadows = shadowsForBackingText(backingText)
 
