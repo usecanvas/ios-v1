@@ -78,8 +78,7 @@ extension CanvasTextView {
 
 		var orderedIndentationCounts = [Indentation: UInt]()
 
-		let count = textStorage.nodes.count
-		for (i, node) in textStorage.nodes.enumerate() {
+		for node in textStorage.nodes {
 			if node is Title {
 				for word in node.contentInString(textStorage.backingText).componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) {
 					if let imageName = keywordMap[word.lowercaseString] {
