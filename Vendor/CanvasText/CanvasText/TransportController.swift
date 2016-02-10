@@ -80,7 +80,7 @@ class TransportController: NSObject {
 			editor = try? String(contentsOfFile: editorPath, encoding: NSUTF8StringEncoding)
 		else { return }
 
-		webView.loadHTMLString(editor, baseURL: NSURL(string: "https://ios.usecanvas.com/")!)
+		webView.loadHTMLString(editor, baseURL: serverURL)
 	}
 	
 	

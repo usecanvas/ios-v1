@@ -110,16 +110,13 @@ final class EditorViewController: UIViewController, Accountable {
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 
+		textStorage.enabled = true
+
 		if canvas.summary == nil {
 			textView.becomeFirstResponder()
 		}
 
 		updatePreventSleep()
-	}
-
-	override func viewDidAppear(animated: Bool) {
-		super.viewDidAppear(animated)
-		textStorage.enabled = true
 	}
 
 	override func viewWillDisappear(animated: Bool) {
