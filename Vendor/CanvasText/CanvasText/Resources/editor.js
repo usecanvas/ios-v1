@@ -80,8 +80,8 @@ window.onerror = function(errorMessage, url, lineNumber, columnNumber) {
     window.webkit.messageHandlers.share.postMessage({
       "type": "error",
       "message": errorMessage,
-      "lineNumber": lineNumber,
-      "columnNumber": columnNumber
+      "line_number": lineNumber,
+      "column_number": columnNumber
     });
   }
 };
