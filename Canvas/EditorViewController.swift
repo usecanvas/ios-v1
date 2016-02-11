@@ -217,6 +217,11 @@ extension EditorViewController: UITextViewDelegate {
 		textStorage.backingSelection = textView.isFirstResponder() ? textStorage.displayRangeToBackingRange(textView.selectedRange) : nil
 		self.textView.updateFolding()
 	}
+
+	func textViewDidEndEditing(textView: UITextView) {
+		textStorage.backingSelection = nil
+		self.textView.updateFolding()
+	}
 }
 
 
