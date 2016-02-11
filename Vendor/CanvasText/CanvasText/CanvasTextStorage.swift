@@ -179,13 +179,10 @@ public class CanvasTextStorage: ShadowTextStorage {
 	}
 
 	/// Optionally add attributes to the display version of the text.
-	public override func attributedStringForDisplayText(displayText: String) -> NSAttributedString {
-		let text = NSMutableAttributedString(string: displayText, attributes: theme.baseAttributes)
+	public override func updateAttributes() {
+		guard loaded else { return }
 
-		if !loaded {
-			return text
-		}
-
+		setAttributes(theme.baseAttributes, range: NSRange(location: 0, length: length))
 		foldableRanges.removeAll()
 
 		for node in nodes {
@@ -194,20 +191,18 @@ public class CanvasTextStorage: ShadowTextStorage {
 			// Attachables
 			if let node = node as? Attachable, attachment = canvasDelegate?.textStorage(self, attachmentForAttachable: node) {
 				// Use the attachment character
-				text.replaceCharactersInRange(range, withString: String(Character(UnicodeScalar(NSAttachmentCharacter))))
+				replaceCharactersInRange(range, withString: String(Character(UnicodeScalar(NSAttachmentCharacter))))
 
 				// Add the attributes
-				text.addAttributes([
+				addAttributes([
 					NSAttachmentAttributeName: attachment
 				], range: range)
 				continue
 			}
 
 			// Apply attributes
-			applyAttributes(text: text, node: node, currentFont: nil)
+			applyAttributes(node: node, currentFont: nil)
 		}
-
-		return text
 	}
 
 	public override func didUpdateDisplayText(displayText: String) {
@@ -307,7 +302,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 	// MARK: - Private
 
-	private func applyAttributes(text text: NSMutableAttributedString, node: Node, currentFont: Font?) -> Font? {
+	private func applyAttributes(node node: Node, currentFont: Font?) -> Font? {
 		// Skip text nodes
 		if node is Text {
 			return nil
@@ -319,7 +314,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 		// Normal elements
 		let attributes = theme.attributesForNode(node, currentFont: currentFont)
 		let font = attributes[NSFontAttributeName] as? Font
-		text.addAttributes(attributes, range: range)
+		addAttributes(attributes, range: range)
 
 		// Foldable attributes
 		if let node = node as? Foldable {
@@ -327,18 +322,17 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 			for folding in node.foldableRanges {
 				let range = backingRangeToDisplayRange(folding)
-				text.addAttributes(theme.foldingAttributes, range: range)
+				addAttributes(theme.foldingAttributes, range: range)
 			}
 		}
 
 		if let node = node as? Link {
 			// TODO: Derive from theme
 			let color = Color(red: 0.420, green: 0.420, blue: 0.447, alpha: 1)
-
-			text.addAttribute(NSForegroundColorAttributeName, value: color, range: backingRangeToDisplayRange(node.URLRange))
+			addAttribute(NSForegroundColorAttributeName, value: color, range: backingRangeToDisplayRange(node.URLRange))
 
 			if let title = node.title {
-				text.addAttribute(NSForegroundColorAttributeName, value: color, range: backingRangeToDisplayRange(title.textRange))
+				addAttribute(NSForegroundColorAttributeName, value: color, range: backingRangeToDisplayRange(title.textRange))
 			}
 		}
 
@@ -346,7 +340,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 		if let node = node as? NodeContainer {
 			let innerFont = font ?? currentFont
 			for child in node.subnodes {
-				applyAttributes(text: text, node: child, currentFont: innerFont)
+				applyAttributes(node: child, currentFont: innerFont)
 			}
 		}
 

@@ -101,6 +101,13 @@ public class ShadowTextStorage: NSTextStorage {
 		storage.setAttributes(attrs, range: range)
 	}
 
+	public override func processEditing() {
+		super.processEditing()
+
+		updateAttributes()
+		updateSelection()
+		didProcessBackingText(backingText)
+	}
 
 	// MARK: - Manipulation
 
@@ -171,8 +178,8 @@ public class ShadowTextStorage: NSTextStorage {
 	}
 
 	/// Optionally add attributes to the display version of the text.
-	public func attributedStringForDisplayText(displayText: String) -> NSAttributedString {
-		return NSAttributedString(string: displayText)
+	public func updateAttributes() {
+		// Do nothing
 	}
 
 	public func didUpdateDisplayText(displayText: String) {
@@ -204,12 +211,8 @@ public class ShadowTextStorage: NSTextStorage {
 
 		// Update storage
 		let range = NSRange(location: 0, length: storage.length)
-		let string = attributedStringForDisplayText(self.displayText)
-		storage.replaceCharactersInRange(range, withAttributedString: string)
+		storage.replaceCharactersInRange(range, withString: self.displayText)
 		edited([.EditedAttributes, .EditedCharacters], range: range, changeInLength: storage.length - range.length)
-
-		updateSelection()
-		didProcessBackingText(backingText)
 	}
 
 	func willEndEditing() {}
