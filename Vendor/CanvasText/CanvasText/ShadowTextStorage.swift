@@ -102,9 +102,9 @@ public class ShadowTextStorage: NSTextStorage {
 	}
 
 	public override func processEditing() {
-		super.processEditing()
-
 		updateAttributes()
+		super.processEditing()
+		
 		updateSelection()
 		didProcessBackingText(backingText)
 	}
