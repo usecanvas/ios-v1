@@ -371,11 +371,9 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 		text.enumerateSubstringsInRange(searchRange, options: .ByLines) { [weak self] string, range, enclosingRange, _ in
 			guard let string = string,
-				this = self,
-				node = this.blockNodeAtDisplayLocation(range.location)
+				node = self?.blockNodeAtDisplayLocation(range.location),
+				backingRange = self?.displayRangeToBackingRange(NSRange(location: range.location, length: displayRange.max - range.location + 1))
 			else { return }
-
-			let backingRange = this.displayRangeToBackingRange(NSRange(location: range.location, length: displayRange.max - range.location + 1	))
 
 			var replacementRange = backingRange
 			let replacement: String
@@ -420,8 +418,8 @@ public class CanvasTextStorage: ShadowTextStorage {
 				return
 			}
 
-			this.replaceBackingCharactersInRange(replacementRange, withString: replacement)
-			this.adjustDisplaySelection(-1)
+			self?.replaceBackingCharactersInRange(replacementRange, withString: replacement)
+			self?.adjustDisplaySelection(-1)
 		}
 	}
 }
