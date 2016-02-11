@@ -377,102 +377,51 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 			let backingRange = this.displayRangeToBackingRange(NSRange(location: range.location, length: displayRange.max - range.location + 1	))
 
+			var replacementRange = backingRange
+			let replacement: String
+
 			if let node = node as? UnorderedListItem {
-				let replaceRange = node.nativePrefixRange.union(backingRange)
+				replacementRange = node.nativePrefixRange.union(backingRange)
 
 				// Checklist item
 				if string.hasPrefix("[] ") || string.hasPrefix("[ ] ") {
-					let native = ChecklistItem.nativeRepresentation(indentation: node.indentation, completion: .Incomplete)
-					this.replaceBackingCharactersInRange(replaceRange, withString: native)
-					this.adjustDisplaySelection(-1)
-					return
+					replacement = ChecklistItem.nativeRepresentation(indentation: node.indentation, completion: .Incomplete)
 				}
 
-				// Complete checklist item
-				if string.hasPrefix("[x] ") {
-					let native = ChecklistItem.nativeRepresentation(indentation: node.indentation, completion: .Complete)
-					this.replaceBackingCharactersInRange(replaceRange, withString: native)
-					this.adjustDisplaySelection(-1)
+				// Completed checklist item
+				else if string.hasPrefix("[x] ") {
+					replacement = ChecklistItem.nativeRepresentation(indentation: node.indentation, completion: .Complete)
+				} else {
 					return
 				}
-				return
-			}
-
-			if node is Paragraph {
-				// H1
-				if string.hasPrefix("# ") {
-					let native = Heading.nativeRepresentation(level: .One)
-					this.replaceBackingCharactersInRange(backingRange, withString: native)
-					return
-				}
-
-				// H2
-				if string.hasPrefix("## ") {
-					let native = Heading.nativeRepresentation(level: .Two)
-					this.replaceBackingCharactersInRange(backingRange, withString: native)
-					return
-				}
-
-				// H3
-				if string.hasPrefix("### ") {
-					let native = Heading.nativeRepresentation(level: .Three)
-					this.replaceBackingCharactersInRange(backingRange, withString: native)
-					return
-				}
-
-				// H4
-				if string.hasPrefix("#### ") {
-					let native = Heading.nativeRepresentation(level: .Four)
-					this.replaceBackingCharactersInRange(backingRange, withString: native)
-					return
-				}
-
-				// H5
-				if string.hasPrefix("##### ") {
-					let native = Heading.nativeRepresentation(level: .Five)
-					this.replaceBackingCharactersInRange(backingRange, withString: native)
-					return
-				}
-
-				// H6
-				if string.hasPrefix("####### ") {
-					let native = Heading.nativeRepresentation(level: .Six)
-					this.replaceBackingCharactersInRange(backingRange, withString: native)
-					return
-				}
-
+			} else if node is Paragraph {
 				// Unordered list
 				if string.hasPrefix("- ") || string.hasPrefix("* ") {
-					let native = UnorderedListItem.nativeRepresentation(indentation: .Zero)
-					this.replaceBackingCharactersInRange(backingRange, withString: native)
-					this.adjustDisplaySelection(-1)
-					return
+					replacement = UnorderedListItem.nativeRepresentation(indentation: .Zero)
 				}
 
 				// Blockquote
-				if string.hasPrefix("> ") {
-					let native = Blockquote.nativeRepresentation()
-					this.replaceBackingCharactersInRange(backingRange, withString: native)
-					this.adjustDisplaySelection(-1)
-					return
+				else if string.hasPrefix("> ") {
+					replacement = Blockquote.nativeRepresentation()
 				}
 
 				// Checklist item
-				if string.hasPrefix("-[] ") || string.hasPrefix("-[ ] ") || string.hasPrefix("*[] ") || string.hasPrefix("*[ ] "){
-					let native = ChecklistItem.nativeRepresentation(indentation: .Zero, completion: .Incomplete)
-					this.replaceBackingCharactersInRange(backingRange, withString: native)
-					this.adjustDisplaySelection(-1)
-					return
+				else if string.hasPrefix("-[] ") || string.hasPrefix("-[ ] ") || string.hasPrefix("*[] ") || string.hasPrefix("*[ ] "){
+					replacement = ChecklistItem.nativeRepresentation(indentation: .Zero, completion: .Incomplete)
 				}
 
-				// Complete checklist item
-				if string.hasPrefix("-[x] ") || string.hasPrefix("*[x] ") {
-					let native = ChecklistItem.nativeRepresentation(indentation: .Zero, completion: .Complete)
-					this.replaceBackingCharactersInRange(backingRange, withString: native)
-					this.adjustDisplaySelection(-1)
+				// Completed checklist item
+				else if string.hasPrefix("-[x] ") || string.hasPrefix("*[x] ") {
+					replacement = ChecklistItem.nativeRepresentation(indentation: .Zero, completion: .Complete)
+				} else {
 					return
 				}
+			} else {
+				return
 			}
+
+			this.replaceBackingCharactersInRange(replacementRange, withString: replacement)
+			this.adjustDisplaySelection(-1)
 		}
 	}
 }
