@@ -353,6 +353,13 @@ public class CanvasTextStorage: ShadowTextStorage {
 		return font
 	}
 
+	private func adjustDisplaySelection(offset: Int) {
+		var displaySelection = self.displaySelection
+		displaySelection.location = min(length - displaySelection.length, max(0, displaySelection.location + offset))
+
+		backingSelection = displayRangeToBackingRange(displaySelection)
+	}
+
 	private func markdownCompletion(displayRange: NSRange) {
 		let text = string as NSString
 
@@ -368,24 +375,28 @@ public class CanvasTextStorage: ShadowTextStorage {
 				node = this.blockNodeAtDisplayLocation(range.location)
 			else { return }
 
+			let backingRange = this.displayRangeToBackingRange(NSRange(location: range.location, length: displayRange.max - range.location + 1	))
+
 			if let node = node as? UnorderedListItem {
+				let replaceRange = node.nativePrefixRange.union(backingRange)
+
 				// Checklist item
 				if string.hasPrefix("[] ") || string.hasPrefix("[ ] ") {
 					let native = ChecklistItem.nativeRepresentation(indentation: node.indentation, completion: .Incomplete)
-					this.replaceBackingCharactersInRange(node.range, withString: native)
+					this.replaceBackingCharactersInRange(replaceRange, withString: native)
+					this.adjustDisplaySelection(-1)
 					return
 				}
 
 				// Complete checklist item
 				if string.hasPrefix("[x] ") {
 					let native = ChecklistItem.nativeRepresentation(indentation: node.indentation, completion: .Complete)
-					this.replaceBackingCharactersInRange(node.range, withString: native)
+					this.replaceBackingCharactersInRange(replaceRange, withString: native)
+					this.adjustDisplaySelection(-1)
 					return
 				}
 				return
 			}
-
-			let backingRange = this.displayRangeToBackingRange(range)
 
 			if node is Paragraph {
 				// H1
@@ -434,6 +445,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 				if string.hasPrefix("- ") || string.hasPrefix("* ") {
 					let native = UnorderedListItem.nativeRepresentation(indentation: .Zero)
 					this.replaceBackingCharactersInRange(backingRange, withString: native)
+					this.adjustDisplaySelection(-1)
 					return
 				}
 
@@ -441,6 +453,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 				if string.hasPrefix("> ") {
 					let native = Blockquote.nativeRepresentation()
 					this.replaceBackingCharactersInRange(backingRange, withString: native)
+					this.adjustDisplaySelection(-1)
 					return
 				}
 
@@ -448,6 +461,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 				if string.hasPrefix("-[] ") || string.hasPrefix("-[ ] ") || string.hasPrefix("*[] ") || string.hasPrefix("*[ ] "){
 					let native = ChecklistItem.nativeRepresentation(indentation: .Zero, completion: .Incomplete)
 					this.replaceBackingCharactersInRange(backingRange, withString: native)
+					this.adjustDisplaySelection(-1)
 					return
 				}
 
@@ -455,6 +469,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 				if string.hasPrefix("-[x] ") || string.hasPrefix("*[x] ") {
 					let native = ChecklistItem.nativeRepresentation(indentation: .Zero, completion: .Complete)
 					this.replaceBackingCharactersInRange(backingRange, withString: native)
+					this.adjustDisplaySelection(-1)
 					return
 				}
 			}
