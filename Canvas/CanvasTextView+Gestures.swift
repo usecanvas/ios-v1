@@ -75,12 +75,12 @@ extension CanvasTextView {
 		if let node = node as? Heading {
 			// Convert to Paragraph
 			if node.level == .Three {
-				textStorage.replaceBackingCharactersInRange(node.hashesRange, withString: "")
+				textStorage.replaceBackingCharactersInRange(node.leadingDelimiterRange, withString: "")
 				return
 			}
 
 			let string = Heading.nativeRepresentation(level: node.level.successor)
-			textStorage.replaceBackingCharactersInRange(node.hashesRange, withString: string)
+			textStorage.replaceBackingCharactersInRange(node.leadingDelimiterRange, withString: string)
 			return
 		}
 	}
@@ -124,7 +124,7 @@ extension CanvasTextView {
 		// Increase Heading level
 		if let node = node as? Heading where node.level != .One {
 			let string = Heading.nativeRepresentation(level: node.level.predecessor)
-			textStorage.replaceBackingCharactersInRange(node.hashesRange, withString: string)
+			textStorage.replaceBackingCharactersInRange(node.leadingDelimiterRange, withString: string)
 			return
 		}
 	}

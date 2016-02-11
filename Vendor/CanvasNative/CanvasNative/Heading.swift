@@ -43,13 +43,10 @@ public struct Heading: BlockNode, NodeContainer, Foldable {
 	public var range: NSRange
 	public var displayRange: NSRange
 	public var foldableRanges: [NSRange]
+	public var leadingDelimiterRange: NSRange
+	public var textRange: NSRange
 	public var level: Level
 	public let allowsReturnCompletion = false
-	public var hashesRange: NSRange
-
-	public var textRange: NSRange {
-		return displayRange
-	}
 
 	public var subnodes = [Node]()
 
@@ -73,12 +70,13 @@ public struct Heading: BlockNode, NodeContainer, Foldable {
 			return nil
 		}
 
-		hashesRange = NSRange(location: enclosingRange.location, length: scanner.scanLocation)
-		foldableRanges = [hashesRange]
+		leadingDelimiterRange = NSRange(location: enclosingRange.location, length: scanner.scanLocation)
+		foldableRanges = [leadingDelimiterRange]
 
 		// Content
-		displayRange = NSRange(location: enclosingRange.location + scanner.scanLocation, length: enclosingRange.length - scanner.scanLocation)
+		textRange = NSRange(location: enclosingRange.location + scanner.scanLocation, length: enclosingRange.length - scanner.scanLocation)
 		range = enclosingRange
+		displayRange = range
 	}
 
 
