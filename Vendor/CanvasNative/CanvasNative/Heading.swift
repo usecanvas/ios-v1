@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Heading: NativePrefixable, NodeContainer {
+public struct Heading: BlockNode, NodeContainer, Foldable {
 
 	// MARK: - Types
 
@@ -41,10 +41,11 @@ public struct Heading: NativePrefixable, NodeContainer {
 	// MARK: - Properties
 
 	public var range: NSRange
-	public var nativePrefixRange: NSRange
 	public var displayRange: NSRange
+	public var foldableRanges: [NSRange]
 	public var level: Level
 	public let allowsReturnCompletion = false
+	public var hashesRange: NSRange
 
 	public var textRange: NSRange {
 		return displayRange
@@ -72,7 +73,8 @@ public struct Heading: NativePrefixable, NodeContainer {
 			return nil
 		}
 
-		nativePrefixRange = NSRange(location: enclosingRange.location, length: scanner.scanLocation)
+		hashesRange = NSRange(location: enclosingRange.location, length: scanner.scanLocation)
+		foldableRanges = [hashesRange]
 
 		// Content
 		displayRange = NSRange(location: enclosingRange.location + scanner.scanLocation, length: enclosingRange.length - scanner.scanLocation)
