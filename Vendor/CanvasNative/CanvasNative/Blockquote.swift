@@ -31,4 +31,11 @@ public struct Blockquote: NativePrefixable, Positionable {
 		self.nativePrefixRange = nativePrefixRange.union(prefixRange)
 		self.displayRange = displayRange
 	}
+
+
+	// MARK: - Native
+
+	public static func nativeRepresentation() -> String {
+		return "\(leadingNativePrefix)blockquote\(trailingNativePrefix)> "
+	}
 }
