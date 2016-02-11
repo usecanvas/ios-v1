@@ -78,6 +78,13 @@ struct LightTheme: Theme {
 			}
 		}
 
+		// Heading spacing
+		if node is Heading {
+			spacing.marginTop = spacing.marginBottom * 0.25
+			spacing.marginBottom /= 2
+			return spacing
+		}
+
 		// Indentation
 		if let listable = node as? Listable {
 			spacing.paddingLeft = listIndentation * CGFloat(listable.indentation.rawValue + 1)
