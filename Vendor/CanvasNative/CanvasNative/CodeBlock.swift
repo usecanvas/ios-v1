@@ -29,4 +29,11 @@ public struct CodeBlock: NativePrefixable, Positionable {
 		self.nativePrefixRange = nativePrefixRange
 		self.displayRange = displayRange
 	}
+
+
+	// MARK: - Native
+
+	public static func nativeRepresentation() -> String {
+		return "\(leadingNativePrefix)code\(trailingNativePrefix)"
+	}
 }

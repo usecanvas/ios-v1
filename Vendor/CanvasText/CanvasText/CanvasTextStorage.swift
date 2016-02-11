@@ -107,18 +107,32 @@ public class CanvasTextStorage: ShadowTextStorage {
 		var replacement = str
 
 		// Return completion
-		if replacement == "\n", let node = blockNodeAtBackingLocation(backingRange.location) where node.allowsReturnCompletion {
-			// Bust out of completion
-			if node.displayRange.length == 0 {
-				backingRange = node.range
-				replacement = ""
-			} else {
-				// Complete the node
-				if let node = node as? NativePrefixable {
-					replacement += (backingText as NSString).substringWithRange(node.nativePrefixRange)
+		if replacement == "\n" {
+			// Continue the previous node
+			if let node = blockNodeAtBackingLocation(backingRange.location) where node.allowsReturnCompletion {
+				// Bust out of completion
+				if node.displayRange.length == 0 {
+					backingRange = node.range
+					replacement = ""
+				} else {
+					// Complete the node
+					if let node = node as? NativePrefixable {
+						replacement += (backingText as NSString).substringWithRange(node.nativePrefixRange)
 
-					// Make checkboxes unchecked by default
-					replacement = replacement.stringByReplacingOccurrencesOfString("- [x] ", withString: "- [ ] ")
+						// Make checkboxes unchecked by default
+						replacement = replacement.stringByReplacingOccurrencesOfString("- [x] ", withString: "- [ ] ")
+					}
+				}
+			}
+
+			// Code block
+			else {
+				let text = backingText as NSString
+				let line = text.lineRangeForRange(range)
+
+				if text.substringWithRange(line) == "```" {
+					backingRange = line.union(range)
+					replacement = CodeBlock.nativeRepresentation()
 				}
 			}
 		}
