@@ -93,12 +93,12 @@ public class ShadowTextStorage: NSTextStorage {
 		replaceBackingCharactersInRange(backingRange, withString: str)
 	}
 
-	public override func setAttributes(attrs: [String : AnyObject]?, range: NSRange) {
+	public override func setAttributes(attributes: [String : AnyObject]?, range: NSRange) {
 		if range.max > (string as NSString).length {
 			print("WARNING: Skipping applying invalid attribute.")
 			return
 		}
-		storage.setAttributes(attrs, range: range)
+		storage.setAttributes(attributes, range: range)
 	}
 
 	public override func processEditing() {
@@ -107,6 +107,7 @@ public class ShadowTextStorage: NSTextStorage {
 		
 		updateSelection()
 		didProcessBackingText(backingText)
+		didUpdateDisplayText(self.displayText)
 	}
 
 	// MARK: - Manipulation
@@ -206,8 +207,6 @@ public class ShadowTextStorage: NSTextStorage {
 			offset += range.length
 		}
 		self.displayText = displayText as String
-
-		didUpdateDisplayText(self.displayText)
 
 		// Update storage
 		let range = NSRange(location: 0, length: storage.length)

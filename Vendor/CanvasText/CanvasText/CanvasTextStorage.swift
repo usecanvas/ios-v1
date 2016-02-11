@@ -93,10 +93,10 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 		super.replaceCharactersInRange(displayRange, withString: str)
 
-		if !str.isEmpty {
-			// Look for Markdown prefixes
-			markdownCompletion(displayRange)
-		}
+//		if !str.isEmpty {
+//			// Look for Markdown prefixes
+//			markdownCompletion(displayRange)
+//		}
 	}
 
 
