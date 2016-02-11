@@ -198,7 +198,7 @@ extension EditorViewController: ShadowTextStorageSelectionDelegate {
 			return
 		}
 
-		textView.selectedRange = textStorage.displaySelection
+		textView.selectedRange = textStorage.displaySelection ?? .zero
 	}
 }
 
@@ -214,7 +214,7 @@ extension EditorViewController: UITextViewDelegate {
 			return
 		}
 
-		textStorage.backingSelection = textStorage.displayRangeToBackingRange(textView.selectedRange)
+		textStorage.backingSelection = textView.isFirstResponder() ? textStorage.displayRangeToBackingRange(textView.selectedRange) : nil
 		self.textView.updateFolding()
 	}
 }

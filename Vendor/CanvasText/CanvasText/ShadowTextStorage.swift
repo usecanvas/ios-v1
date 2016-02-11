@@ -32,7 +32,7 @@ public class ShadowTextStorage: NSTextStorage {
 		}
 	}
 
-	public var backingSelection: NSRange = .zero {
+	public var backingSelection: NSRange? {
 		didSet {
 			updateSelection()
 		}
@@ -40,7 +40,7 @@ public class ShadowTextStorage: NSTextStorage {
 
 	public private(set) var displayText = ""
 
-	public private(set) var displaySelection: NSRange = .zero {
+	public private(set) var displaySelection: NSRange? {
 		didSet {
 			selectionDelegate?.textStorageDidUpdateSelection(self)
 		}
@@ -109,10 +109,12 @@ public class ShadowTextStorage: NSTextStorage {
 		backingText = (backingText as NSString).stringByReplacingCharactersInRange(backingRange, withString: str)
 
 		// Update selection
-		var backingSelection = self.backingSelection
-		backingSelection.location += (str as NSString).length
-		backingSelection.location -= backingRange.length
-		self.backingSelection = backingSelection
+		if var backingSelection = self.backingSelection {
+			backingSelection.location += (str as NSString).length
+			backingSelection.location -= backingRange.length
+			self.backingSelection = backingSelection
+		}
+
 		isProcessing = false
 	}
 
@@ -216,6 +218,11 @@ public class ShadowTextStorage: NSTextStorage {
 	// MARK: - Private
 
 	private func updateSelection() {
+		guard let backingSelection = backingSelection else {
+			displaySelection = nil
+			return
+		}
+
 		let updatedDisplaySelection = backingRangeToDisplayRange(backingSelection)
 		if updatedDisplaySelection != displaySelection {
 			displaySelection = updatedDisplaySelection

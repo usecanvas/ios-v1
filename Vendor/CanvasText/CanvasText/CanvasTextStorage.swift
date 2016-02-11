@@ -354,9 +354,9 @@ public class CanvasTextStorage: ShadowTextStorage {
 	}
 
 	private func adjustDisplaySelection(offset: Int) {
-		var displaySelection = self.displaySelection
-		displaySelection.location = min(length - displaySelection.length, max(0, displaySelection.location + offset))
+		guard var displaySelection = self.displaySelection else { return }
 
+		displaySelection.location = min(length - displaySelection.length, max(0, displaySelection.location + offset))
 		backingSelection = displayRangeToBackingRange(displaySelection)
 	}
 
@@ -438,31 +438,36 @@ extension CanvasTextStorage: TransportControllerDelegate {
 
 	func transportController(controller: TransportController, didReceiveOperation operation: Operation) {
 		var backingText = self.backingText
-		var backingSelection = self.backingSelection
 
 		switch operation {
 		case .Insert(let location, let string):
-			// Shift selection
-			let length = string.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
-			if Int(location) < backingSelection.location {
-				backingSelection.location += string.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
-			}
+			if var backingSelection = self.backingSelection {
+				// Shift selection
+				let length = string.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
+				if Int(location) < backingSelection.location {
+					backingSelection.location += string.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
+				}
 
-			// Extend selection
-			backingSelection.length += NSIntersectionRange(backingSelection, NSRange(location: location, length: length)).length
+				// Extend selection
+				backingSelection.length += NSIntersectionRange(backingSelection, NSRange(location: location, length: length)).length
+				self.backingSelection = backingSelection
+			}
 
 			// Update text
 			let index = backingText.startIndex.advancedBy(Int(location))
 			let range = index..<index
 			backingText = backingText.stringByReplacingCharactersInRange(range, withString: string)
 		case .Remove(let location, let length):
-			// Shift selection
-			if Int(location) < backingSelection.location {
-				backingSelection.location -= Int(length)
-			}
+			if var backingSelection = self.backingSelection {
+				// Shift selection
+				if Int(location) < backingSelection.location {
+					backingSelection.location -= Int(length)
+				}
 
-			// Extend selection
-			backingSelection.length -= NSIntersectionRange(backingSelection, NSRange(location: location, length: length)).length
+				// Extend selection
+				backingSelection.length -= NSIntersectionRange(backingSelection, NSRange(location: location, length: length)).length
+				self.backingSelection = backingSelection
+			}
 
 			// Update text
 			let index = backingText.startIndex.advancedBy(Int(location))
