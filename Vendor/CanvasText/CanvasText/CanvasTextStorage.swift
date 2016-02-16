@@ -75,7 +75,9 @@ public class CanvasTextStorage: ShadowTextStorage {
 	public override func replaceCharactersInRange(range: NSRange, withString str: String) {
 		var displayRange = range
 
-		if str.isEmpty {
+		let isDeleting = str.isEmpty
+
+		if isDeleting {
 			// TODO: If at the end of a line and the next line has an attachment, delete the entire next line
 			// TODO: If at the beginning of a line and the previous line has an attachment, delete the entire previous line
 
@@ -93,10 +95,21 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 		super.replaceCharactersInRange(displayRange, withString: str)
 
-//		if !str.isEmpty {
-//			// Look for Markdown prefixes
-//			markdownCompletion(displayRange)
-//		}
+		if !isDeleting {
+			// Look for Markdown prefixes
+			markdownCompletion(displayRange)
+		}
+	}
+
+	public override func processEditing() {
+		super.processEditing()
+
+		// Invalidate the layout
+		// TODO: Only do this if we need to
+		let bounds = NSRange(location: 0, length: length)
+		dispatch_async(dispatch_get_main_queue()) { [weak self] in
+			self?.layoutManagers.forEach { $0.invalidateLayoutForCharacterRange(bounds, actualCharacterRange: nil) }
+		}
 	}
 
 
