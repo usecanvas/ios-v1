@@ -71,6 +71,9 @@ extension NSRange: Equatable {
 	}
 
 	/// Returns nil if they don't intersect. Their intersection may be 0 if one of the ranges has a zero length.
+	///
+	/// - parameter range: A range to check intersection with the receiver
+	/// - returns: Length of intersection or nil.
 	public func intersection(range: NSRange) -> Int? {
 		if range.length == 0 {
 			return NSLocationInRange(range.location, self) ? 0 : nil

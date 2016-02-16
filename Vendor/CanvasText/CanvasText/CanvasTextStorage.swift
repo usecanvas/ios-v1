@@ -276,6 +276,9 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 	/// This returns all nodes that are contained in the backing range. Most consumers will filter the results. If a
 	/// node is partially contained, it will be included in the results.
+	///
+	/// - parameter backingRange: A range in the backing string
+	/// - returns: An array of nodes in the backing string for the given range.
 	public func nodesInBackingRange(backingRange: NSRange) -> [Node] {
 		return nodesInBackingRange(backingRange, inNodes: nodes.map({ $0 as Node }))
 	}
@@ -412,7 +415,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 				}
 
 				// Checklist item
-				else if string.hasPrefix("-[] ") || string.hasPrefix("-[ ] ") || string.hasPrefix("*[] ") || string.hasPrefix("*[ ] "){
+				else if string.hasPrefix("-[] ") || string.hasPrefix("-[ ] ") || string.hasPrefix("*[] ") || string.hasPrefix("*[ ] ") {
 					replacement = ChecklistItem.nativeRepresentation(indentation: .Zero, completion: .Incomplete)
 				}
 

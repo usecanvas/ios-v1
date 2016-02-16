@@ -1,6 +1,6 @@
 excluded:
   - Carthage
-  - Vendor
+  - Vendor/CanvasKit
 
 disabled_rules:
   # I really like putting else one a new line in long guard statements.
@@ -9,12 +9,17 @@ disabled_rules:
   # I prefer 2 new lines before a MARK.
   # TODO: Add a custom rule to enforce this.
   - trailing_whitespace
+  - operator_whitespace
 
-  # TODO: Remove this (lol)
+  # TODO: Remove these
   - todo
-
-  # TODO: Remove this
   - function_body_length
+  - variable_name
+  - cyclomatic_complexity
+  - function_parameter_count
 
 # TODO: Change to 120
-line_length: 256
+line_length: 260
+
+# TODO: Remove
+file_length: 550

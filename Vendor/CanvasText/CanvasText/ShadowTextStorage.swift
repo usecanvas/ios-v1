@@ -174,6 +174,9 @@ public class ShadowTextStorage: NSTextStorage {
 	// MARK: - Processing
 
 	/// Calculate the hidden ranges for a given backing text.
+	///
+	/// - parameter backingText: Backing text for calculating shadows
+	/// - returns: Array of ranges
 	public func shadowsForBackingText(backingText: String) -> [NSRange] {
 		return []
 	}
