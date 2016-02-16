@@ -46,6 +46,6 @@ public struct OrderedListItem: Listable, NodeContainer {
 	// MARK: - Native
 
 	public static func nativeRepresentation(indentation indentation: Indentation = .Zero) -> String {
-		return "\(leadingNativePrefix)ordered-\(indentation.string)\(trailingNativePrefix)1. "
+		return "\(leadingNativePrefix)ordered-list-\(indentation.string)\(trailingNativePrefix)1. "
 	}
 }

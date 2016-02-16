@@ -380,6 +380,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 			guard let string = string,
 				node = self?.blockNodeAtDisplayLocation(range.location),
 				backingRange = self?.displayRangeToBackingRange(NSRange(location: range.location, length: displayRange.max - range.location + 1))
+			where (string as NSString).length > 0
 			else { return }
 
 			var replacementRange = backingRange
@@ -418,8 +419,16 @@ public class CanvasTextStorage: ShadowTextStorage {
 				// Completed checklist item
 				else if string.hasPrefix("-[x] ") || string.hasPrefix("*[x] ") {
 					replacement = ChecklistItem.nativeRepresentation(indentation: .Zero, completion: .Complete)
-				} else {
-					return
+				}
+
+				// Ordered list
+				else {
+					let scanner = NSScanner(string: string)
+					if scanner.scanHexInt(nil) && scanner.scanString(". ", intoString: nil) {
+						replacement = OrderedListItem.nativeRepresentation(indentation: .Zero)
+					} else {
+						return
+					}
 				}
 			} else {
 				return
