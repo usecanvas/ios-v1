@@ -129,17 +129,25 @@ class CanvasTextView: UITextView {
 			layoutManager.ensureLayoutForTextContainer(textContainer)
 
 			let characterIndex = offsetFromPosition(beginningOfDocument, toPosition: position)
-			if characterIndex == textStorage.length {
-				return rect
+
+			let height: CGFloat
+
+			if characterIndex == 0 {
+				// Hack for empty document
+				height = 43.82015625
+			} else {
+				if characterIndex == textStorage.length {
+					return rect
+				}
+
+				let glyphIndex = layoutManager.glyphIndexForCharacterAtIndex(characterIndex)
+
+				if UInt(glyphIndex) == UInt.max - 1 {
+					return rect
+				}
+
+				height = layoutManager.lineFragmentUsedRectForGlyphAtIndex(glyphIndex, effectiveRange: nil).size.height
 			}
-
-			let glyphIndex = layoutManager.glyphIndexForCharacterAtIndex(characterIndex)
-
-			if UInt(glyphIndex) == UInt.max - 1 {
-				return rect
-			}
-
-			let height = layoutManager.lineFragmentUsedRectForGlyphAtIndex(glyphIndex, effectiveRange: nil).size.height
 
 			if height > 0 {
 				rect.size.height = height
