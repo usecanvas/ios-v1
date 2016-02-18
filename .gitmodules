@@ -1,3 +1,6 @@
 [submodule "Vendor/CanvasKit"]
 	path = Vendor/CanvasKit
 	url = https://github.com/usecanvas/CanvasKit
+[submodule "Vendor/CanvasNative"]
+	path = Vendor/CanvasNative
+	url = https://github.com/usecanvas/canvas-native-swift
