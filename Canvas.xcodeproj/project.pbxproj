@@ -493,6 +493,7 @@
 				21F10F4B1BF138750035057D /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 		21F10F4B1BF138750035057D /* Products */ = {
 			isa = PBXGroup;
