@@ -28,7 +28,7 @@ class TickingLabel: UILabel {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: "tick", name: self.dynamicType.tickNotificationName, object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TickingLabel.tick), name: self.dynamicType.tickNotificationName, object: nil)
 
 		dispatch_once(&self.dynamicType.setupToken) {
 			self.dynamicType.setupTimer()
@@ -47,8 +47,8 @@ class TickingLabel: UILabel {
 	// MARK: - Private
 
 	private class func setupTimer() {
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationWillResignActive", name: UIApplicationWillResignActiveNotification, object: nil)
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidBecomeActive", name: UIApplicationDidBecomeActiveNotification, object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TickingLabel.applicationWillResignActive), name: UIApplicationWillResignActiveNotification, object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TickingLabel.applicationDidBecomeActive), name: UIApplicationDidBecomeActiveNotification, object: nil)
 		applicationDidBecomeActive()
 	}
 
@@ -62,7 +62,7 @@ class TickingLabel: UILabel {
 	}
 
 	@objc private class func applicationDidBecomeActive() {
-		let timer = NSTimer(timeInterval: 1, target: self, selector: "fire", userInfo: nil, repeats: true)
+		let timer = NSTimer(timeInterval: 1, target: self, selector: #selector(TickingLabel.fire), userInfo: nil, repeats: true)
 		NSRunLoop.mainRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
 		timer.fire()
 		self.timer = timer

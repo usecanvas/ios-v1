@@ -169,7 +169,7 @@ class CanvasTextView: UITextView {
 
 	// MARK: - Actions
 
-	@objc private func toggleCheckbox(sender: CheckboxView?) {
+	func toggleCheckbox(sender: CheckboxView?) {
 		guard let node = sender?.checklist, textStorage = textStorage as? CanvasTextStorage else { return }
 
 		let string = node.completion.opposite.string

@@ -38,7 +38,7 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 	override var keyCommands: [UIKeyCommand] {
 		var commands = super.keyCommands ?? []
 		commands += [
-			UIKeyCommand(input: "Q", modifierFlags: [.Shift, .Command], action: "logOut", discoverabilityTitle: LocalizedString.LogOutButton.string)
+			UIKeyCommand(input: "Q", modifierFlags: [.Shift, .Command], action: #selector(OrganizationsViewController.logOut), discoverabilityTitle: LocalizedString.LogOutButton.string)
 		]
 		return commands
 	}
@@ -51,7 +51,7 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 
 		tableView.estimatedRowHeight = 66
 		 
-		navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Settings"), style: .Plain, target: self, action: "showSettings:")
+		navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Settings"), style: .Plain, target: self, action: #selector(OrganizationsViewController.showSettings(_:)))
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
 	}
 

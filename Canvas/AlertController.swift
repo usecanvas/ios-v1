@@ -24,8 +24,8 @@ final class AlertController: UIAlertController {
 
 	override var keyCommands: [UIKeyCommand]? {
 		return (super.keyCommands ?? []) + [
-			UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: "cancel:"),
-			UIKeyCommand(input: "\r", modifierFlags: [], action: "selectFirstAction:")
+			UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: #selector(AlertController.cancel(_:))),
+			UIKeyCommand(input: "\r", modifierFlags: [], action: #selector(AlertController.selectFirstAction(_:)))
 		]
 	}
 

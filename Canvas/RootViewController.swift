@@ -73,7 +73,7 @@ final class RootViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: "accountDidChange:", name: AccountController.accountDidChangeNotificationName, object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RootViewController.accountDidChange(_:)), name: AccountController.accountDidChangeNotificationName, object: nil)
 		accountDidChange(nil)
 	}
 

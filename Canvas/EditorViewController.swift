@@ -39,7 +39,7 @@ final class EditorViewController: UIViewController, Accountable {
 		textStorage.selectionDelegate = self
 		textStorage.webDelegate = self
 
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillChangeFrame:", name: UIKeyboardWillChangeFrameNotification, object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(EditorViewController.keyboardWillChangeFrame(_:)), name: UIKeyboardWillChangeFrameNotification, object: nil)
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: "updatePreventSleep", name: NSUserDefaultsDidChangeNotification, object: nil)
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: "updatePreventSleep", name: UIApplicationDidBecomeActiveNotification, object: nil)
 	}

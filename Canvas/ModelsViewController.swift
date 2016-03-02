@@ -40,13 +40,13 @@ class ModelsViewController: TableViewController {
 			let backTitle = previousTitle.flatMap { "Back to \($0)" } ?? "Back"
 
 			commands += [
-				UIKeyCommand(input: UIKeyInputLeftArrow, modifierFlags: [], action: "goBack", discoverabilityTitle: backTitle),
-				UIKeyCommand(input: "w", modifierFlags: [.Command], action: "goBack")
+				UIKeyCommand(input: UIKeyInputLeftArrow, modifierFlags: [], action: #selector(ModelsViewController.goBack), discoverabilityTitle: backTitle),
+				UIKeyCommand(input: "w", modifierFlags: [.Command], action: #selector(ModelsViewController.goBack))
 			]
 		}
 
 		if canRefresh {
-			commands.append(UIKeyCommand(input: "R", modifierFlags: [.Command], action: "refresh", discoverabilityTitle: "Refresh"))
+			commands.append(UIKeyCommand(input: "R", modifierFlags: [.Command], action: #selector(ModelsViewController.refresh), discoverabilityTitle: "Refresh"))
 		}
 
 		return commands

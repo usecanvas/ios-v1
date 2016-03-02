@@ -105,10 +105,8 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		var commands = super.keyCommands ?? []
 
 		commands += [
-			UIKeyCommand(input: "/", modifierFlags: [], action: "search", discoverabilityTitle: LocalizedString.SearchCommand.string),
-			UIKeyCommand(input: "n", modifierFlags: [.Command], action: "newCanvas", discoverabilityTitle: LocalizedString.NewCanvasCommand.string),
-			UIKeyCommand(input: "e", modifierFlags: [.Command], action: "archiveSelectedCanvas", discoverabilityTitle: LocalizedString.ArchiveSelectedCanvasCommand.string),
-			UIKeyCommand(input: "\u{8}", modifierFlags: [.Command], action: "deleteSelectedCanvas", discoverabilityTitle: LocalizedString.DeleteSelectedCanvasCommand.string)
+			UIKeyCommand(input: "/", modifierFlags: [], action: #selector(OrganizationCanvasesViewController.search), discoverabilityTitle: LocalizedString.SearchCommand.string),
+			UIKeyCommand(input: "n", modifierFlags: [.Command], action: #selector(createCanvas), discoverabilityTitle: LocalizedString.NewCanvasCommand.string)
 		]
 
 		return commands
@@ -136,7 +134,7 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		topView.alpha = 0.1
 		tableView.addSubview(topView)
 
-		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Create Canvas"), style: .Plain, target: self, action: "createCanvas")
+		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Create Canvas"), style: .Plain, target: self, action: #selector(OrganizationCanvasesViewController.createCanvas))
 	}
 
 	override func viewDidAppear(animated: Bool) {
