@@ -122,9 +122,9 @@ public class CanvasTextStorage: ShadowTextStorage {
 		// Return completion
 		if replacement == "\n" {
 			// Continue the previous node
-			if let node = blockNodeAtBackingLocation(backingRange.location) where node.allowsReturnCompletion {
+			if let node = blockNodeAtBackingLocation(backingRange.location) where node is ReturnCompletable {
 				// Bust out of completion
-				if node.displayRange.length == 0 {
+				if node.visibleRange.length == 0 {
 					backingRange = node.range
 					replacement = ""
 				} else {
@@ -181,8 +181,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 		}
 
 		// Parse nodes
-		let parser = Parser(string: backingText)
-		nodes = parser.parse()
+		nodes = Parser.parse(backingText)
 
 		// Derive shadows from nodes
 		return nodes.flatMap { node in
@@ -199,7 +198,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 		foldableRanges.removeAll()
 
 		for node in nodes {
-			let range = backingRangeToDisplayRange(node.displayRange)
+			let range = backingRangeToDisplayRange(node.visibleRange)
 
 			// Attachables
 			if let node = node as? Attachable, attachment = canvasDelegate?.textStorage(self, attachmentForAttachable: node) {
@@ -263,7 +262,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 
 	public func blockNodeAtDisplayLocation(displayLocation: Int) -> BlockNode? {
 		for node in nodes {
-			var range = backingRangeToDisplayRange(node.displayRange)
+			var range = backingRangeToDisplayRange(node.visibleRange)
 			range.length += 1
 
 			if range.contains(displayLocation) {
@@ -291,7 +290,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 				results.append(node)
 
 				if let node = node as? NodeContainer {
-					results += nodesInBackingRange(backingRange, inNodes: node.subnodes)
+					results += nodesInBackingRange(backingRange, inNodes: node.subnodes.map { $0 as Node })
 				}
 			}
 		}
@@ -325,7 +324,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 		}
 
 		// Extend the range to include the trailing new line if present
-		let range = backingRangeToDisplayRange(node.displayRange)
+		let range = backingRangeToDisplayRange(node.visibleRange)
 
 		// Normal elements
 		let attributes = theme.attributesForNode(node, currentFont: currentFont)
@@ -345,7 +344,7 @@ public class CanvasTextStorage: ShadowTextStorage {
 		if let node = node as? Link {
 			// TODO: Derive from theme
 			let color = Color(red: 0.420, green: 0.420, blue: 0.447, alpha: 1)
-			addAttribute(NSForegroundColorAttributeName, value: color, range: backingRangeToDisplayRange(node.URLRange))
+			addAttribute(NSForegroundColorAttributeName, value: color, range: backingRangeToDisplayRange(node.urlRange))
 
 			if let title = node.title {
 				addAttribute(NSForegroundColorAttributeName, value: color, range: backingRangeToDisplayRange(title.textRange))

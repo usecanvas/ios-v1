@@ -52,7 +52,7 @@ final class ImagesController {
 	// MARK: - Accessing
 
 	func fetchImage(node node: Image, size: CGSize, scale: CGFloat, completion: Completion) -> UIImage? {
-		if let image = imageCache[node.ID] as? UIImage {
+		if let image = imageCache[node.identifier] as? UIImage {
 			return image
 		}
 
@@ -66,7 +66,7 @@ final class ImagesController {
 
 			// Camo
 			let camo = Camo(secret: Config.camoSecret, baseURL: Config.camoURL)
-			guard let URL = camo.sign(URL: node.URL) else { return }
+			guard let URL = camo.sign(URL: node.url) else { return }
 
 			// Start download
 			self.downloading[node] = [completion]
@@ -91,7 +91,7 @@ final class ImagesController {
 		let data = location.flatMap { NSData(contentsOfURL: $0) }
 		let image = data.flatMap { UIImage(data: $0) }
 
-		imageCache[node.ID] = image
+		imageCache[node.identifier] = image
 
 		coordinate {
 			if let completions = self.downloading[node] {

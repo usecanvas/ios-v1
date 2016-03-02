@@ -43,7 +43,7 @@ extension CanvasTextView {
 		// Convert paragraph to unordered list
 		if node is Paragraph {
 			let string = ChecklistItem.nativeRepresentation()
-			var range = node.displayRange
+			var range = node.visibleRange
 			range.length = 0
 			textStorage.replaceBackingCharactersInRange(range, withString: string)
 			return
@@ -115,7 +115,7 @@ extension CanvasTextView {
 		// Convert Paragraph to Heading
 		if node is Paragraph {
 			let string = Heading.nativeRepresentation(level: .Three)
-			var range = node.displayRange
+			var range = node.visibleRange
 			range.length = 0
 			textStorage.replaceBackingCharactersInRange(range, withString: string)
 			return

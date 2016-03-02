@@ -40,8 +40,8 @@ final class EditorViewController: UIViewController, Accountable {
 		textStorage.webDelegate = self
 
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(EditorViewController.keyboardWillChangeFrame(_:)), name: UIKeyboardWillChangeFrameNotification, object: nil)
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: "updatePreventSleep", name: NSUserDefaultsDidChangeNotification, object: nil)
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: "updatePreventSleep", name: UIApplicationDidBecomeActiveNotification, object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(EditorViewController.updatePreventSleep), name: NSUserDefaultsDidChangeNotification, object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(EditorViewController.updatePreventSleep), name: UIApplicationDidBecomeActiveNotification, object: nil)
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -63,8 +63,8 @@ final class EditorViewController: UIViewController, Accountable {
 
 	override var keyCommands: [UIKeyCommand] {
 		return [
-			UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: "dismissKeyboard:", discoverabilityTitle: LocalizedString.DismissKeyboardCommand.string),
-			UIKeyCommand(input: "w", modifierFlags: [.Command], action: "close:", discoverabilityTitle: LocalizedString.CloseCommand.string)
+			UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: #selector(EditorViewController.dismissKeyboard(_:)), discoverabilityTitle: LocalizedString.DismissKeyboardCommand.string),
+			UIKeyCommand(input: "w", modifierFlags: [.Command], action: #selector(EditorViewController.close(_:)), discoverabilityTitle: LocalizedString.CloseCommand.string)
 		]
 	}
 
@@ -77,7 +77,7 @@ final class EditorViewController: UIViewController, Accountable {
 		view.backgroundColor = Color.white
 
 		navigationItem.rightBarButtonItems = [
-			UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "share:"),
+			UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(EditorViewController.share(_:))),
 			presenceBarButtonItem
 		]
 
@@ -247,7 +247,7 @@ extension EditorViewController: UIViewControllerPreviewingDelegate {
 			link = nodes[index] as? Link
 		else { return nil }
 
-		let string = (textStorage.backingText as NSString).substringWithRange(link.URLRange)
+		let string = (textStorage.backingText as NSString).substringWithRange(link.urlRange)
 		guard let URL = NSURL(string: string) else { return nil }
 
 		previewingContext.sourceRect = textView.firstRectForRange(textRange)

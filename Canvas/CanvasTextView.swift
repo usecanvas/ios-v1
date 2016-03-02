@@ -207,11 +207,11 @@ class CanvasTextView: UITextView {
 	}
 
 	func firstRectForNode(node: Node) -> CGRect? {
-		return firstRectForBackingRange(node.displayRange)
+		return firstRectForBackingRange(node.visibleRange)
 	}
 
 	func lastRectForNode(node: Node) -> CGRect? {
-		return lastRectForBackingRange(node.displayRange)
+		return lastRectForBackingRange(node.visibleRange)
 	}
 
 	func lastRectForDisplayRange(displayRange: NSRange) -> CGRect? {
@@ -315,7 +315,7 @@ extension CanvasTextView: CanvasTextStorageDelegate {
 				textStorage = self?.textStorage as? CanvasTextStorage
 			else { return }
 
-			let range = textStorage.backingRangeToDisplayRange(node.displayRange)
+			let range = textStorage.backingRangeToDisplayRange(node.visibleRange)
 			var attributes = textStorage.attributesAtIndex(range.location, effectiveRange: nil)
 
 			let size = image.size

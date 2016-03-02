@@ -48,7 +48,7 @@ extension CanvasTextView {
 		// Placeholder
 
 		// TODO: Use the AST to figure this out
-		if let title = textStorage.nodes.first as? Title where title.displayRange.length == 0 {
+		if let title = textStorage.nodes.first as? Title where title.visibleRange.length == 0 {
 			addSubview(placeholderLabel)
 			annotations.append(placeholderLabel)
 
@@ -97,7 +97,7 @@ extension CanvasTextView {
 				orderedIndentationCounts.removeAll()
 			}
 
-			if node.hasAnnotation, let annotation = annotationForNode(node, orderedIndentationCounts: orderedIndentationCounts) {
+			if node is Annotatable, let annotation = annotationForNode(node, orderedIndentationCounts: orderedIndentationCounts) {
 				addAnnotation(annotation)
 			}
 		}
@@ -166,7 +166,7 @@ extension CanvasTextView {
 			rect.origin.y = floor(rect.origin.y + font.ascender - (size.height / 2))
 
 			// TODO: Hack
-			if node.displayRange.length == 0 {
+			if node.visibleRange.length == 0 {
 				rect.origin.y -= 1
 			}
 
@@ -210,7 +210,7 @@ extension CanvasTextView {
 			let originalTop = rect.origin.y
 
 			// Find the bottom of line (to handle wrapping)
-			var displayRange = textStorage.backingRangeToDisplayRange(node.displayRange)
+			var displayRange = textStorage.backingRangeToDisplayRange(node.visibleRange)
 			if displayRange.length > 1 {
 				displayRange.location += displayRange.length - 1
 				displayRange.length = 1
