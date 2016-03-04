@@ -13,11 +13,11 @@ import CanvasNative
 extension CanvasTextView {
 
 	func registerGestureRecognizers() {
-		indentGestureRecognizer.addTarget(self, action: #selector(CanvasTextView.increaseBlockLevelWithGesture(_:)))
+		indentGestureRecognizer.addTarget(self, action: #selector(increaseBlockLevelWithGesture))
 		indentGestureRecognizer.delegate = self
 		addGestureRecognizer(indentGestureRecognizer)
 
-		outdentGestureRecognizer.addTarget(self, action: #selector(CanvasTextView.decreaseBlockLevelWithGesture(_:)))
+		outdentGestureRecognizer.addTarget(self, action: #selector(decreaseBlockLevelWithGesture))
 		outdentGestureRecognizer.delegate = self
 		addGestureRecognizer(outdentGestureRecognizer)
 	}

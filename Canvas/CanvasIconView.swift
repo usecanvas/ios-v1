@@ -24,7 +24,7 @@ final class CanvasIconView: TintableView {
 			guard let canvas = canvas else { return }
 
 			iconView.image = canvas.kind.icon.imageWithRenderingMode(.AlwaysTemplate)
-			globeView.hidden = canvas.readOnly
+			globeView.hidden = !canvas.isPublicWritable
 			globeView.normalTintColor = canvas.organization.color?.color ?? Color.brand
 		}
 	}

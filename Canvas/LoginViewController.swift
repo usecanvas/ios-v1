@@ -80,7 +80,7 @@ final class LoginViewController: UIViewController {
 			let button = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 44))
 			button.setImage(UIImage(named: "OnePassword"), forState: .Normal)
 			button.imageView?.tintColor = Color.white
-			button.addTarget(self, action: #selector(LoginViewController.onePassword(_:)), forControlEvents: .TouchUpInside)
+			button.addTarget(self, action: #selector(onePassword), forControlEvents: .TouchUpInside)
 			usernameTextField.rightView = button
 			usernameTextField.rightViewMode = .Always
 		}
@@ -88,7 +88,7 @@ final class LoginViewController: UIViewController {
 		usernameTextField.delegate = self
 		passwordTextField.delegate = self
 
-		submitButton.addTarget(self, action: #selector(LoginViewController.signIn), forControlEvents: .TouchUpInside)
+		submitButton.addTarget(self, action: #selector(signIn), forControlEvents: .TouchUpInside)
 
 		view.addSubview(backgroundView)
 

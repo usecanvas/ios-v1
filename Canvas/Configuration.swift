@@ -19,10 +19,10 @@ struct Config {
 	// MARK: - Canvas
 
 	/// Canvas API base URL
-	static let baseURL = NSURL(string: "https://api.usecanvas.com/")!
+	static let baseURL = NSURL(string: "https://api.usecanvas.com/v1/")!
 
 	/// Canvase realtime base URL
-	static let realtimeURL = NSURL(string: "wss://api.usecanvas.com/realtime")!
+	static let realtimeURL = NSURL(string: "wss://realtime.usecanvas.com/")!
 
 	/// Canvas presence base URL
 	static let presenceURL = NSURL(string: "wss://presence.usecanvas.com/")!

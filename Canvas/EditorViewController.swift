@@ -39,9 +39,9 @@ final class EditorViewController: UIViewController, Accountable {
 		textStorage.selectionDelegate = self
 		textStorage.webDelegate = self
 
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(EditorViewController.keyboardWillChangeFrame(_:)), name: UIKeyboardWillChangeFrameNotification, object: nil)
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(EditorViewController.updatePreventSleep), name: NSUserDefaultsDidChangeNotification, object: nil)
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(EditorViewController.updatePreventSleep), name: UIApplicationDidBecomeActiveNotification, object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillChangeFrame), name: UIKeyboardWillChangeFrameNotification, object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updatePreventSleep), name: NSUserDefaultsDidChangeNotification, object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updatePreventSleep), name: UIApplicationDidBecomeActiveNotification, object: nil)
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -63,8 +63,8 @@ final class EditorViewController: UIViewController, Accountable {
 
 	override var keyCommands: [UIKeyCommand] {
 		return [
-			UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: #selector(EditorViewController.dismissKeyboard(_:)), discoverabilityTitle: LocalizedString.DismissKeyboardCommand.string),
-			UIKeyCommand(input: "w", modifierFlags: [.Command], action: #selector(EditorViewController.close(_:)), discoverabilityTitle: LocalizedString.CloseCommand.string)
+			UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: #selector(dismissKeyboard), discoverabilityTitle: LocalizedString.DismissKeyboardCommand.string),
+			UIKeyCommand(input: "w", modifierFlags: [.Command], action: #selector(close), discoverabilityTitle: LocalizedString.CloseCommand.string)
 		]
 	}
 
@@ -77,14 +77,14 @@ final class EditorViewController: UIViewController, Accountable {
 		view.backgroundColor = Color.white
 
 		navigationItem.rightBarButtonItems = [
-			UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(EditorViewController.share(_:))),
+			UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(share)),
 			presenceBarButtonItem
 		]
 
 		textView.delegate = self
 		view.addSubview(textView)
 
-		textStorage.connect(accessToken: account.accessToken, organizationID: canvas.organization.ID, canvasID: canvas.UUID, realtimeURL: Config.realtimeURL)
+		textStorage.connect(accessToken: account.accessToken, organizationID: canvas.organization.ID, canvasID: canvas.ID, realtimeURL: Config.realtimeURL)
 		
 		NSLayoutConstraint.activateConstraints([
 			textView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
@@ -112,7 +112,7 @@ final class EditorViewController: UIViewController, Accountable {
 
 		textStorage.enabled = true
 
-		if canvas.summary == nil {
+		if canvas.isEmpty {
 			textView.becomeFirstResponder()
 		}
 
