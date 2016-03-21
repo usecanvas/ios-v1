@@ -97,7 +97,7 @@ extension CanvasTextView {
 				orderedIndentationCounts.removeAll()
 			}
 
-			if node is Annotatable, let annotation = annotationForNode(node, orderedIndentationCounts: orderedIndentationCounts) {
+			if isAnnotatable(node), let annotation = annotationForNode(node, orderedIndentationCounts: orderedIndentationCounts) {
 				addAnnotation(annotation)
 			}
 		}
@@ -109,6 +109,12 @@ extension CanvasTextView {
 
 
 	// MARK: - Private
+
+	// Temporary until new CanvasText is merged
+	private func isAnnotatable(block: BlockNode) -> Bool {
+		return block is UnorderedListItem || block is OrderedListItem || block is ChecklistItem ||
+			block is Blockquote || block is CodeBlock
+	}
 
 	private func addAnnotation(annotation: UIView) {
 		annotations.append(annotation)

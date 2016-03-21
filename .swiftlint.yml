@@ -1,6 +1,6 @@
 excluded:
   - Carthage
-  - Vendor/CanvasKit
+  - Vendor
 
 disabled_rules:
   # I really like putting else one a new line in long guard statements.
