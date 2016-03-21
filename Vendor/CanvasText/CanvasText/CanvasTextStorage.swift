@@ -203,12 +203,13 @@ public class CanvasTextStorage: ShadowTextStorage {
 			// Attachables
 			if let node = node as? Attachable, attachment = canvasDelegate?.textStorage(self, attachmentForAttachable: node) {
 				// Use the attachment character
-				replaceCharactersInRange(range, withString: String(Character(UnicodeScalar(NSAttachmentCharacter))))
+				storage.replaceCharactersInRange(range, withString: String(Character(UnicodeScalar(NSAttachmentCharacter))))
 
 				// Add the attributes
 				addAttributes([
 					NSAttachmentAttributeName: attachment
 				], range: range)
+				
 				continue
 			}
 

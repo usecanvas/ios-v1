@@ -22,7 +22,7 @@ public class ShadowTextStorage: NSTextStorage {
 
 	// MARK: - Properties
 
-	private let storage = NSMutableAttributedString()
+	let storage = NSMutableAttributedString()
 
 	public var enabled = false
 
