@@ -1,6 +1,6 @@
 CARTHAGE_VERSION = '0.15.2'
-XCODE_VERSION = '10179.1'
-XCODE_SHORT_VERSION = '7.3 beta 5'
+XCODE_VERSION = '10183.3'
+XCODE_SHORT_VERSION = '7.3'
 
 desc 'Build the project’s dependencies'
 task :bootstrap => [:check_tools, :clean] do
