@@ -193,6 +193,27 @@
 			remoteGlobalIDString = 215BAB2C1C52B0C400118C8C;
 			remoteInfo = "CanvasNative-iOS";
 		};
+		2159032A1CA5EC0D00127E5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 213FE3181C5973D000D9DFC2 /* CanvasNative.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 21632D161C92366600C40D7D;
+			remoteInfo = "CanvasNative-tvOS";
+		};
+		2159032C1CA5EC0D00127E5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 213FE3181C5973D000D9DFC2 /* CanvasNative.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 21632D1F1C92366600C40D7D;
+			remoteInfo = "CanvasNativeTests-tvOS";
+		};
+		2159032E1CA5EC0D00127E5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 213FE3181C5973D000D9DFC2 /* CanvasNative.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 21632CEA1C9235E400C40D7D;
+			remoteInfo = "CanvasNative-watchOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -405,6 +426,9 @@
 				213FE3221C5973D000D9DFC2 /* CanvasNativeTests.xctest */,
 				213FE3241C5973D000D9DFC2 /* CanvasNative.framework */,
 				213FE3261C5973D000D9DFC2 /* CanvasNativeTests.xctest */,
+				2159032B1CA5EC0D00127E5D /* CanvasNative.framework */,
+				2159032D1CA5EC0D00127E5D /* CanvasNativeTests.xctest */,
+				2159032F1CA5EC0D00127E5D /* CanvasNative.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -631,7 +655,7 @@
 								enabled = 1;
 							};
 							com.apple.SafariKeychain = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -752,6 +776,27 @@
 			fileType = wrapper.cfbundle;
 			path = CanvasNativeTests.xctest;
 			remoteRef = 213FE3251C5973D000D9DFC2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2159032B1CA5EC0D00127E5D /* CanvasNative.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CanvasNative.framework;
+			remoteRef = 2159032A1CA5EC0D00127E5D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2159032D1CA5EC0D00127E5D /* CanvasNativeTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CanvasNativeTests.xctest;
+			remoteRef = 2159032C1CA5EC0D00127E5D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2159032F1CA5EC0D00127E5D /* CanvasNative.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CanvasNative.framework;
+			remoteRef = 2159032E1CA5EC0D00127E5D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
