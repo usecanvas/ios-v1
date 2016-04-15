@@ -1,8 +1,9 @@
 github "usecanvas/CanvasKit" "master"
 github "usecanvas/CanvasText" "master"
 
-github "soffes/GradientView"
-github "soffes/Mixpanel"
-github "venmo/Static"
-github "AgileBits/onepassword-app-extension" "add-framework-support"
-github "bitstadium/HockeySDK-iOS"
+github "soffes/GradientView" "master"
+github "soffes/Mixpanel" "master"
+github "venmo/Static" "master"
+
+github "usecanvas/onepassword-app-extension" "add-framework-support"
+github "usecanvas/HockeySDK-iOS" "master"

@@ -10,7 +10,6 @@ end
 desc 'Update the project’s dependencies.'
 task :update => :check_tools do
   system 'carthage update --no-build --use-submodules'
-  Rake::Task['bootstrap'].invoke
 end
 
 # TODO: This could be a lot more robust, but should at least help for now.
