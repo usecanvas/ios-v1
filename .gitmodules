@@ -1,0 +1,33 @@
+[submodule "Carthage/Checkouts/CanvasNative"]
+	path = Carthage/Checkouts/CanvasNative
+	url = https://github.com/usecanvas/CanvasNative.git
+[submodule "Carthage/Checkouts/GradientView"]
+	path = Carthage/Checkouts/GradientView
+	url = https://github.com/soffes/GradientView.git
+[submodule "Carthage/Checkouts/HockeySDK-iOS"]
+	path = Carthage/Checkouts/HockeySDK-iOS
+	url = https://github.com/bitstadium/HockeySDK-iOS.git
+[submodule "Carthage/Checkouts/ISO8601"]
+	path = Carthage/Checkouts/ISO8601
+	url = https://github.com/soffes/ISO8601.git
+[submodule "Carthage/Checkouts/Mixpanel"]
+	path = Carthage/Checkouts/Mixpanel
+	url = https://github.com/soffes/Mixpanel.git
+[submodule "Carthage/Checkouts/onepassword-app-extension"]
+	path = Carthage/Checkouts/onepassword-app-extension
+	url = https://github.com/AgileBits/onepassword-app-extension.git
+[submodule "Carthage/Checkouts/OperationTransport"]
+	path = Carthage/Checkouts/OperationTransport
+	url = https://github.com/usecanvas/OperationTransport.git
+[submodule "Carthage/Checkouts/CanvasText"]
+	path = Carthage/Checkouts/CanvasText
+	url = https://github.com/usecanvas/CanvasText.git
+[submodule "Carthage/Checkouts/sskeychain"]
+	path = Carthage/Checkouts/sskeychain
+	url = https://github.com/soffes/sskeychain.git
+[submodule "Carthage/Checkouts/CanvasKit"]
+	path = Carthage/Checkouts/CanvasKit
+	url = https://github.com/usecanvas/CanvasKit.git
+[submodule "Carthage/Checkouts/Static"]
+	path = Carthage/Checkouts/Static
+	url = https://github.com/venmo/Static.git

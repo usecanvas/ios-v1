@@ -7,13 +7,10 @@ Canvas client for iOS.
 
 1. Clone the code.
 
-        $ git clone https://github.com/usecanvas/canvas-ios && cd canvas-ios
+        $ git clone --recursive https://github.com/usecanvas/ios
+        $ cd ios
 
-2. Get the dependencies with [Carthage](https://github.com/carthage/carthage). (You can install Carthage with `brew install carthage`. Version 0.10 or higher is required.) You'll also need to setup your Apple ID in Xcode. Follow the instructions in [Running on Your Device](#running-on-your-device) (steps 1–7).
-
-        $ rake bootstrap
-
-2. Open in Xcode 7.1
+2. Open in Xcode 7.3
 
 3. Click ▶️
 

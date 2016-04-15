@@ -4,12 +4,12 @@ XCODE_SHORT_VERSION = '7.3'
 
 desc 'Build the project’s dependencies'
 task :bootstrap => [:check_tools, :clean] do
-  system 'carthage bootstrap --platform iOS --no-use-binaries'
+  system 'carthage bootstrap --no-build --use-submodules'
 end
 
 desc 'Update the project’s dependencies.'
 task :update => :check_tools do
-  system 'carthage update --no-build'
+  system 'carthage update --no-build --use-submodules'
   Rake::Task['bootstrap'].invoke
 end
 
