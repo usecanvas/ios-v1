@@ -1,12 +1,10 @@
-CARTHAGE_VERSION = '0.15.2'
+CARTHAGE_VERSION = '0.16.2'
 XCODE_VERSION = '10183.3'
 XCODE_SHORT_VERSION = '7.3'
 
 desc 'Build the project’s dependencies'
 task :bootstrap => [:check_tools, :clean] do
   system 'carthage bootstrap --platform iOS --no-use-binaries'
-  system 'git submodule update --init --recursive'
-  system 'cd Vendor/CanvasKit && carthage bootstrap --platform iOS --no-use-binaries'
 end
 
 desc 'Update the project’s dependencies.'
