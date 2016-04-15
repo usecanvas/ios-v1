@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WebKit
 import CanvasKit
 import CanvasText
 import CanvasNative
@@ -17,11 +18,10 @@ final class EditorViewController: UIViewController, Accountable {
 	var account: Account
 	let canvas: Canvas
 
-	let textStorage = CanvasTextStorage(theme: LightTheme())
-	let textView: CanvasTextView
-	private let presenceBarButtonItem = UIBarButtonItem(title: " ", style: .Plain, target: nil, action: nil)
+	let textController = TextController()
+	let textView: UITextView
+	
 	private var ignoreSelectionChange = false
-	var wantsFocus = false
 
 
 	// MARK: - Initializers
@@ -30,14 +30,17 @@ final class EditorViewController: UIViewController, Accountable {
 		self.account = account
 		self.canvas = canvas
 
-		textView = CanvasTextView(textStorage: textStorage)
+		let textView = TextView(frame: .zero, textContainer: textController.textContainer)
 		textView.translatesAutoresizingMaskIntoConstraints = false
-		textView.contentInset = .zero
-
+		textView.alwaysBounceVertical = true
+		self.textView = textView
+		
 		super.init(nibName: nil, bundle: nil)
-
-		textStorage.selectionDelegate = self
-		textStorage.webDelegate = self
+		
+		textController.connectionDelegate = self
+		textController.selectionDelegate = self
+		textController.annotationDelegate = textView
+		textView.delegate = self
 
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillChangeFrame), name: UIKeyboardWillChangeFrameNotification, object: nil)
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updatePreventSleep), name: NSUserDefaultsDidChangeNotification, object: nil)
@@ -48,11 +51,9 @@ final class EditorViewController: UIViewController, Accountable {
 	    fatalError("init(coder:) has not been implemented")
 	}
 
-
 	deinit {
 		NSNotificationCenter.defaultCenter().removeObserver(self)
 	}
-
 
 
 	// MARK: - UIResponder
@@ -77,14 +78,18 @@ final class EditorViewController: UIViewController, Accountable {
 		view.backgroundColor = Color.white
 
 		navigationItem.rightBarButtonItems = [
-			UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(share)),
-			presenceBarButtonItem
+			UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(share))
 		]
 
 		textView.delegate = self
 		view.addSubview(textView)
 
-		textStorage.connect(accessToken: account.accessToken, organizationID: canvas.organization.ID, canvasID: canvas.ID, realtimeURL: Config.realtimeURL)
+		textController.connect(
+			serverURL: Config.realtimeURL,
+			accessToken: account.accessToken,
+			organizationID: canvas.organization.ID,
+			canvasID: canvas.ID
+		)
 		
 		NSLayoutConstraint.activateConstraints([
 			textView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
@@ -101,16 +106,14 @@ final class EditorViewController: UIViewController, Accountable {
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
 
-		let maxWidth = textStorage.theme.fontSize * 36
-
+		let maxWidth: CGFloat = 640
 		let padding = max(16 - textView.textContainer.lineFragmentPadding, (textView.bounds.width - maxWidth) / 2)
 		textView.textContainerInset = UIEdgeInsets(top: 16, left: padding, bottom: 32, right: padding)
+		textController.textContainerInset = textView.textContainerInset
 	}
 
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
-
-		textStorage.enabled = true
 
 		if canvas.isEmpty {
 			textView.becomeFirstResponder()
@@ -122,18 +125,12 @@ final class EditorViewController: UIViewController, Accountable {
 	override func viewWillDisappear(animated: Bool) {
 		super.viewWillDisappear(animated)
 		UIApplication.sharedApplication().idleTimerDisabled = false
-		textStorage.enabled = false
 		textView.resignFirstResponder()
 	}
-
-	override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-		coordinator.animateAlongsideTransition(nil) { [weak self] _ in
-			dispatch_async(dispatch_get_main_queue()) {
-				self?.textStorage.reprocess()
-			}
-		}
-
-		super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+	
+	override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
+		super.traitCollectionDidChange(previousTraitCollection)
+		textController.horizontalSizeClass = traitCollection.horizontalSizeClass
 	}
 	
 
@@ -187,18 +184,39 @@ final class EditorViewController: UIViewController, Accountable {
 }
 
 
-extension EditorViewController: ShadowTextStorageSelectionDelegate {
-	func textStorageDidUpdateSelection(textStorage: ShadowTextStorage) {
-		if ignoreSelectionChange {
-			ignoreSelectionChange = false
-			return
-		}
+extension EditorViewController: TintableEnvironment {
+	var preferredTintColor: UIColor {
+		return canvas.organization.color?.color ?? Color.brand
+	}
+}
 
-		if textView.selectedRange == textStorage.displaySelection {
-			return
-		}
 
-		textView.selectedRange = textStorage.displaySelection ?? .zero
+extension EditorViewController: UIViewControllerPreviewingDelegate {
+	func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location:CGPoint) -> UIViewController? {
+//		guard let textRange = textView.characterRangeAtPoint(location) else { return nil }
+//
+//		let range = NSRange(
+//			location: textView.offsetFromPosition(textView.beginningOfDocument, toPosition: textRange.start),
+//			length: textView.offsetFromPosition(textRange.start, toPosition: textRange.end)
+//		)
+//
+//		let nodes = textStorage.nodesInBackingRange(textStorage.displayRangeToBackingRange(range))
+//
+//		guard let index = nodes.indexOf({ $0 is Link }),
+//			link = nodes[index] as? Link
+//		else { return nil }
+//
+//		let string = (textStorage.backingText as NSString).substringWithRange(link.urlRange)
+//		guard let URL = NSURL(string: string) else { return nil }
+//
+//		previewingContext.sourceRect = textView.firstRectForRange(textRange)
+//
+//		return WebViewController(URL: URL)
+		return nil
+	}
+
+	func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+		presentViewController(viewControllerToCommit, animated: false, completion: nil)
 	}
 }
 
@@ -210,52 +228,37 @@ extension EditorViewController: UITextViewDelegate {
 	}
 	
 	func textViewDidChangeSelection(textView: UITextView) {
-		if textStorage.isProcessing {
+		textController.presentationSelectedRange = textView.isFirstResponder() ? textView.selectedRange : nil
+	}
+	
+	func textViewDidEndEditing(textView: UITextView) {
+		textController.presentationSelectedRange = nil
+	}
+}
+
+
+extension EditorViewController: TextControllerSelectionDelegate {
+	func textControllerDidUpdateSelectedRange(textController: TextController) {
+		if ignoreSelectionChange {
+			ignoreSelectionChange = false
 			return
 		}
-
-		textStorage.backingSelection = textView.isFirstResponder() ? textStorage.displayRangeToBackingRange(textView.selectedRange) : nil
-		self.textView.updateFolding()
-	}
-
-	func textViewDidEndEditing(textView: UITextView) {
-		textStorage.backingSelection = nil
-		self.textView.updateFolding()
-	}
-}
-
-
-extension EditorViewController: TintableEnvironment {
-	var preferredTintColor: UIColor {
-		return canvas.organization.color?.color ?? Color.brand
+		
+		guard let selectedRange = textController.presentationSelectedRange else {
+			textView.selectedRange = NSRange(location: 0, length: 0)
+			return
+		}
+		
+		if !NSEqualRanges(textView.selectedRange, selectedRange) {
+			textView.selectedRange = selectedRange
+		}
 	}
 }
 
 
-extension EditorViewController: UIViewControllerPreviewingDelegate {
-	func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-		guard let textRange = textView.characterRangeAtPoint(location) else { return nil }
-
-		let range = NSRange(
-			location: textView.offsetFromPosition(textView.beginningOfDocument, toPosition: textRange.start),
-			length: textView.offsetFromPosition(textRange.start, toPosition: textRange.end)
-		)
-
-		let nodes = textStorage.nodesInBackingRange(textStorage.displayRangeToBackingRange(range))
-
-		guard let index = nodes.indexOf({ $0 is Link }),
-			link = nodes[index] as? Link
-		else { return nil }
-
-		let string = (textStorage.backingText as NSString).substringWithRange(link.urlRange)
-		guard let URL = NSURL(string: string) else { return nil }
-
-		previewingContext.sourceRect = textView.firstRectForRange(textRange)
-
-		return WebViewController(URL: URL)
-	}
-
-	func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
-		presentViewController(viewControllerToCommit, animated: false, completion: nil)
+extension EditorViewController: TextControllerConnectionDelegate {
+	func textController(textController: TextController, willConnectWithWebView webView: WKWebView) {
+		webView.frame = CGRect(x: 0, y: 0, width: 1, height: 1)
+		view.addSubview(webView)
 	}
 }

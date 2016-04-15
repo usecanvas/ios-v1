@@ -8,10 +8,9 @@
 
 import Foundation
 
-// Obfuscated client secret. The Camo secret is in the front-end website, so no need to obfuscate it here.
+// Obfuscated client secret
 private let canvasClientSecretPart4 = "aef895c32"
 private let canvasClientSecretPart2 = "f5bd59c7866e85"
-private let _camoSecret = "a4a8767e694052184df6259377f751977a86513364a3e8d44fb71e16327bd937"
 private let canvasClientSecretPart1 = "60ff40c860274eb9afb6"
 private let canvasClientSecretPart3 = "97bdcc48ae89946"
 
@@ -34,19 +33,7 @@ struct Config {
 	static let canvasClientSecret = "\(canvasClientSecretPart1)fb\(canvasClientSecretPart2)2e\(canvasClientSecretPart3)75\(canvasClientSecretPart4)"
 
 
-	// MARK: - Camo
-
-	/// Camo base URL
-	static let camoURL = NSURL(string: "https://camo.usecanvas.com/")!
-
-	/// Camo secret
-	static let camoSecret = _camoSecret
-
-
 	// MARK: - Analytics & Crash Reporting
-
-	/// Rollbar post_client_item Access Token
-	static let rollbarToken = "c8736fff4cc745f0b21187f0128ab233"
 
 	/// Mixpanel token
 	static let mixpanelToken = "447ae99e6cff699db67f168818c1dbf9"

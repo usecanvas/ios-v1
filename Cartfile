@@ -1,7 +1,6 @@
 github "usecanvas/CanvasKit" "master"
 github "usecanvas/CanvasText" "master"
 
-github "soffes/Camo"
 github "soffes/GradientView"
 github "soffes/Mixpanel"
 github "venmo/Static"
