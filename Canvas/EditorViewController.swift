@@ -192,7 +192,7 @@ extension EditorViewController: TintableEnvironment {
 
 
 extension EditorViewController: UIViewControllerPreviewingDelegate {
-	func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location:CGPoint) -> UIViewController? {
+	func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
 //		guard let textRange = textView.characterRangeAtPoint(location) else { return nil }
 //
 //		let range = NSRange(
