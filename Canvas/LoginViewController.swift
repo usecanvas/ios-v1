@@ -141,7 +141,7 @@ final class LoginViewController: UIViewController {
 
 		loading = true
 
-		let client = AuthorizationClient(clientID: Config.canvasClientID, clientSecret: Config.canvasClientSecret, baseURL: Config.baseURL)
+		let client = AuthorizationClient(clientID: config.canvasClientID, clientSecret: config.canvasClientSecret, baseURL: config.baseURL)
 		client.createAccessToken(username: username, password: password) { [weak self] in
 			switch $0 {
 			case .Success(let account):

@@ -42,7 +42,7 @@ struct Analytics {
 	// MARK: - Properties
 
 	private static let mixpanel: Mixpanel = {
-		var mp = Mixpanel(token: Config.mixpanelToken)
+		var mp = Mixpanel(token: config.mixpanelToken)
 
 		let uniqueIdentifier: String
 		let key = "Identifier"

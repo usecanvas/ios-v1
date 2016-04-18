@@ -158,7 +158,7 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 
 		loading = true
 
-		APIClient(accessToken: account.accessToken, baseURL: Config.baseURL).listCanvases(organization: organization) { [weak self] result in
+		APIClient(accessToken: account.accessToken, baseURL: config.baseURL).listCanvases(organization: organization) { [weak self] result in
 			switch result {
 			case .Success(let canvases):
 				dispatch_async(dispatch_get_main_queue()) {
@@ -198,7 +198,7 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 	func createCanvas() {
 		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 		
-		APIClient(accessToken: account.accessToken, baseURL: Config.baseURL).createCanvas(organization: organization) { [weak self] result in
+		APIClient(accessToken: account.accessToken, baseURL: config.baseURL).createCanvas(organization: organization) { [weak self] result in
 			dispatch_async(dispatch_get_main_queue()) {
 				UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 
@@ -222,7 +222,7 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 
 		let delete = { [weak self] in
 			guard let accessToken = self?.account.accessToken else { return }
-			APIClient(accessToken: accessToken, baseURL: Config.baseURL).destroyCanvas(canvas: canvas) { _ in
+			APIClient(accessToken: accessToken, baseURL: config.baseURL).destroyCanvas(canvas: canvas) { _ in
 				dispatch_async(dispatch_get_main_queue()) {
 					self?.refresh()
 				}
@@ -242,7 +242,7 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 
 		let archive = { [weak self] in
 			guard let accessToken = self?.account.accessToken else { return }
-			APIClient(accessToken: accessToken, baseURL: Config.baseURL).archiveCanvas(canvas: canvas) { _ in
+			APIClient(accessToken: accessToken, baseURL: config.baseURL).archiveCanvas(canvas: canvas) { _ in
 				dispatch_async(dispatch_get_main_queue()) {
 					self?.refresh()
 				}

@@ -92,7 +92,7 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 
 		loading = true
 
-		APIClient(accessToken: account.accessToken, baseURL: Config.baseURL).listOrganizations { [weak self] result in
+		APIClient(accessToken: account.accessToken, baseURL: config.baseURL).listOrganizations { [weak self] result in
 			dispatch_async(dispatch_get_main_queue()) {
 				switch result {
 				case .Success(let organizations):

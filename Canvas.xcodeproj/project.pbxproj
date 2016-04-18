@@ -22,7 +22,6 @@
 		2129D30E1BF561400018F255 /* OrganizationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D30D1BF561400018F255 /* OrganizationsViewController.swift */; };
 		2129D3101BF5634A0018F255 /* Accountable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D30F1BF5634A0018F255 /* Accountable.swift */; };
 		2129D3121BF568AB0018F255 /* OrganizationCanvasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2129D3111BF568AB0018F255 /* OrganizationCanvasesViewController.swift */; };
-		212D41521CC588BA00331327 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212D41511CC588BA00331327 /* Environment.swift */; };
 		2130184D1C6A91EA00E67755 /* SearchBarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2130184C1C6A91EA00E67755 /* SearchBarContainer.swift */; };
 		213139201C22104000B09904 /* UIFont+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2131391F1C22104000B09904 /* UIFont+Canvas.swift */; };
 		213791C51C1790E2000FACCC /* CanvasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213791C41C1790E2000FACCC /* CanvasesViewController.swift */; };
@@ -508,7 +507,6 @@
 		2129D30D1BF561400018F255 /* OrganizationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsViewController.swift; sourceTree = "<group>"; };
 		2129D30F1BF5634A0018F255 /* Accountable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accountable.swift; sourceTree = "<group>"; };
 		2129D3111BF568AB0018F255 /* OrganizationCanvasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationCanvasesViewController.swift; sourceTree = "<group>"; };
-		212D41511CC588BA00331327 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		2130184C1C6A91EA00E67755 /* SearchBarContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarContainer.swift; sourceTree = "<group>"; };
 		2131391F1C22104000B09904 /* UIFont+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Canvas.swift"; sourceTree = "<group>"; };
 		213791C41C1790E2000FACCC /* CanvasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasesViewController.swift; sourceTree = "<group>"; };
@@ -876,7 +874,6 @@
 				2156421E1C06B4ED00685847 /* Analytics.swift */,
 				2124050A1C23564100BF0C91 /* LocalizedString.swift */,
 				219DAC911C0F98BD00F39A6F /* Configuration.swift */,
-				212D41511CC588BA00331327 /* Environment.swift */,
 			);
 			name = Application;
 			sourceTree = "<group>";
@@ -1403,7 +1400,6 @@
 				21B742E01C03BD9000FF293C /* TableViewController.swift in Sources */,
 				219DFC761C46D22C006101DA /* PersonalOrganizationCell.swift in Sources */,
 				213139201C22104000B09904 /* UIFont+Canvas.swift in Sources */,
-				212D41521CC588BA00331327 /* Environment.swift in Sources */,
 				21A0BBF21C656FC20063102F /* NavigationBar.swift in Sources */,
 				21C576951C19002A0015B8A5 /* CanvasesResultsViewController.swift in Sources */,
 				21FB6AB01BF53B8E003C82BB /* RootViewController.swift in Sources */,

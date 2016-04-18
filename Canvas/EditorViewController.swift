@@ -85,7 +85,7 @@ final class EditorViewController: UIViewController, Accountable {
 		view.addSubview(textView)
 
 		textController.connect(
-			serverURL: Config.realtimeURL,
+			serverURL: config.realtimeURL,
 			accessToken: account.accessToken,
 			organizationID: canvas.organization.ID,
 			canvasID: canvas.ID
