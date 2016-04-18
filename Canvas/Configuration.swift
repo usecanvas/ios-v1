@@ -16,27 +16,31 @@ private let canvasClientSecretPart3 = "97bdcc48ae89946"
 
 
 private enum Environment: String {
-	case Production
+	case Development
 	case Staging
+	case Production
 
 	var baseURL: NSURL {
 		switch self {
-		case .Production: return NSURL(string: "https://api.usecanvas.com/v1/")!
+		case .Development: return NSURL(string: "http://localhost:5001/v1/")!
 		case .Staging: return NSURL(string: "https://canvas-api-staging.herokuapp.com/v1/")!
+		case .Production: return NSURL(string: "https://api.usecanvas.com/v1/")!
 		}
 	}
 
 	var realtimeURL: NSURL {
 		switch self {
-		case .Production: return NSURL(string: "wss://realtime.usecanvas.com/")!
+		case .Development: return NSURL(string: "ws://localhost:5002/")!
 		case .Staging: return NSURL(string: "wss://canvas-realtime-staging.herokuapp.com/")!
+		case .Production: return NSURL(string: "wss://realtime.usecanvas.com/")!
 		}
 	}
 
 	var presenceURL: NSURL {
 		switch self {
-		case .Production: return NSURL(string: "wss://presence.usecanvas.com/")!
+		case .Development: return NSURL(string: "ws://localhost:5003/")!
 		case .Staging: return NSURL(string: "wss://canvas-presence-staging.herokuapp.com/")!
+		case .Production: return NSURL(string: "wss://presence.usecanvas.com/")!
 		}
 	}
 }
