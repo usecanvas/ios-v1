@@ -17,7 +17,12 @@ Canvas client for iOS.
 If you have trouble building, try selecting *Clean* from the *Product* menu in the menu bar. If you are still having trouble, ask @soffes in Slack.
 
 
-## Running on Your Device
+## Running
+
+By default, the app will use the staging services. You can change this in `Configuration.swift` at the bottom.
+
+
+## Installing on Your Device
 
 1. Open *Preferences* in Xcode
 2. Choose the *Accounts* tab
