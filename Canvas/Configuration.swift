@@ -14,17 +14,45 @@ private let canvasClientSecretPart2 = "f5bd59c7866e85"
 private let canvasClientSecretPart1 = "60ff40c860274eb9afb6"
 private let canvasClientSecretPart3 = "97bdcc48ae89946"
 
+private enum Environment: String {
+	case Production
+	case Staging
+
+	var baseURL: NSURL {
+		switch self {
+		case .Production: return NSURL(string: "https://api.usecanvas.com/v1/")!
+		case .Staging: return NSURL(string: "https://canvas-api-staging.herokuapp.com/v1/")!
+		}
+	}
+
+	var realtimeURL: NSURL {
+		switch self {
+		case .Production: return NSURL(string: "wss://realtime.usecanvas.com/")!
+		case .Staging: return NSURL(string: "wss://canvas-realtime-staging.herokuapp.com/")!
+		}
+	}
+
+	var presenceURL: NSURL {
+		switch self {
+		case .Production: return NSURL(string: "wss://presence.usecanvas.com/")!
+		case .Staging: return NSURL(string: "wss://canvas-presence-staging.herokuapp.com/")!
+		}
+	}
+}
+
+private let env = Environment.Staging
+
 struct Config {
 	// MARK: - Canvas
 
 	/// Canvas API base URL
-	static let baseURL = NSURL(string: "https://api.usecanvas.com/v1/")!
+	static let baseURL = env.baseURL
 
 	/// Canvase realtime base URL
-	static let realtimeURL = NSURL(string: "wss://realtime.usecanvas.com/")!
+	static let realtimeURL = env.realtimeURL
 
 	/// Canvas presence base URL
-	static let presenceURL = NSURL(string: "wss://presence.usecanvas.com/")!
+	static let presenceURL = env.presenceURL
 
 	/// Canvas client ID
 	static let canvasClientID = "5QdrPgUUYQs2yvGLIUT5PL"
