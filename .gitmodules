@@ -6,7 +6,7 @@
 	url = https://github.com/soffes/GradientView.git
 [submodule "Carthage/Checkouts/HockeySDK-iOS"]
 	path = Carthage/Checkouts/HockeySDK-iOS
-	url = https://github.com/canvas/HockeySDK-iOS.git
+	url = https://github.com/usecanvas/HockeySDK-iOS.git
 [submodule "Carthage/Checkouts/ISO8601"]
 	path = Carthage/Checkouts/ISO8601
 	url = https://github.com/soffes/ISO8601.git
@@ -15,7 +15,7 @@
 	url = https://github.com/soffes/Mixpanel.git
 [submodule "Carthage/Checkouts/onepassword-app-extension"]
 	path = Carthage/Checkouts/onepassword-app-extension
-	url = https://github.com/canvas/onepassword-app-extension.git
+	url = https://github.com/usecanvas/onepassword-app-extension.git
 [submodule "Carthage/Checkouts/OperationTransport"]
 	path = Carthage/Checkouts/OperationTransport
 	url = https://github.com/usecanvas/OperationTransport.git
