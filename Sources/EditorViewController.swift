@@ -30,9 +30,8 @@ final class EditorViewController: UIViewController, Accountable {
 		self.account = account
 		self.canvas = canvas
 
-		let textView = TextView(frame: .zero, textContainer: textController.textContainer)
+		let textView = CanvasTextView(frame: .zero, textContainer: textController.textContainer)
 		textView.translatesAutoresizingMaskIntoConstraints = false
-		textView.alwaysBounceVertical = true
 		self.textView = textView
 		
 		super.init(nibName: nil, bundle: nil)
@@ -41,6 +40,7 @@ final class EditorViewController: UIViewController, Accountable {
 		textController.selectionDelegate = self
 		textController.annotationDelegate = textView
 		textView.delegate = self
+		textView.formattingDelegate = self
 
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillChangeFrame), name: UIKeyboardWillChangeFrameNotification, object: nil)
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updatePreventSleep), name: NSUserDefaultsDidChangeNotification, object: nil)
@@ -67,6 +67,10 @@ final class EditorViewController: UIViewController, Accountable {
 			UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: #selector(dismissKeyboard), discoverabilityTitle: LocalizedString.DismissKeyboardCommand.string),
 			UIKeyCommand(input: "w", modifierFlags: [.Command], action: #selector(close), discoverabilityTitle: LocalizedString.CloseCommand.string),
 
+			UIKeyCommand(input: "b", modifierFlags: [.Command], action: #selector(bold), discoverabilityTitle: LocalizedString.BoldCommand.string),
+			UIKeyCommand(input: "i", modifierFlags: [.Command], action: #selector(italic), discoverabilityTitle: LocalizedString.ItalicCommand.string),
+			UIKeyCommand(input: "d", modifierFlags: [.Command], action: #selector(inlineCode), discoverabilityTitle: LocalizedString.InlineCodeCommand.string),
+
 			UIKeyCommand(input: "]", modifierFlags: [.Command], action: #selector(indent), discoverabilityTitle: LocalizedString.IndentCommand.string),
 			UIKeyCommand(input: "\t", modifierFlags: [], action: #selector(indent)),
 			UIKeyCommand(input: "[", modifierFlags: [.Command], action: #selector(outdent), discoverabilityTitle: LocalizedString.OutdentCommand.string),
@@ -85,7 +89,7 @@ final class EditorViewController: UIViewController, Accountable {
 			checkTitle = LocalizedString.MarkAsCheckedCommand.string
 		}
 
-		let check = UIKeyCommand(input: "u", modifierFlags: [.Command, .Shift], action: #selector(toggledChecked), discoverabilityTitle: checkTitle)
+		let check = UIKeyCommand(input: "u", modifierFlags: [.Command, .Shift], action: #selector(self.check), discoverabilityTitle: checkTitle)
 		commands.append(check)
 
 		return commands
@@ -182,7 +186,7 @@ final class EditorViewController: UIViewController, Accountable {
 		presentViewController(viewController, animated: true, completion: nil)
 	}
 
-	func toggledChecked() {
+	func check() {
 		textController.toggleChecked()
 	}
 
@@ -192,6 +196,18 @@ final class EditorViewController: UIViewController, Accountable {
 
 	func outdent() {
 		textController.outdent()
+	}
+
+	func bold() {
+		textController.bold()
+	}
+
+	func italic() {
+		textController.italic()
+	}
+
+	func inlineCode() {
+		textController.inlineCode()
 	}
 
 
@@ -294,5 +310,16 @@ extension EditorViewController: TextControllerConnectionDelegate {
 	func textController(textController: TextController, willConnectWithWebView webView: WKWebView) {
 		webView.frame = CGRect(x: 0, y: 0, width: 1, height: 1)
 		view.addSubview(webView)
+	}
+}
+
+
+extension EditorViewController: CanvasTextViewFormattingDelegate {
+	func textViewDidToggleBoldface(textView: CanvasTextView, sender: AnyObject?) {
+		bold()
+	}
+
+	func textViewDidToggleItalics(textView: CanvasTextView, sender: AnyObject?) {
+		italic()
 	}
 }

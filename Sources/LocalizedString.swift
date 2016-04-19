@@ -39,6 +39,9 @@ enum LocalizedString {
 	case MarkAsUncheckedCommand
 	case IndentCommand
 	case OutdentCommand
+	case BoldCommand
+	case ItalicCommand
+	case InlineCodeCommand
 
 	case Loading
 
@@ -72,6 +75,9 @@ enum LocalizedString {
 		case .MarkAsUncheckedCommand: return localizedString("MARK_AS_UNCHECKED_COMMAND")
 		case .IndentCommand: return localizedString("INDENT_COMMAND")
 		case .OutdentCommand: return localizedString("OUTDENT_COMMAND")
+		case .BoldCommand: return localizedString("BOLD_COMMAND")
+		case .ItalicCommand: return localizedString("ITALIC_COMMAND")
+		case .InlineCodeCommand: return localizedString("INLINE_CODE_COMMAND")
 
 		case .Loading: return localizedString("LOADING")
 		}

@@ -56,6 +56,7 @@
 		2107D3321CC58F7B001963B7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2FD1CC58F7B001963B7 /* Localizable.strings */; };
 		2107D3341CC58F7B001963B7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2107D3001CC58F7B001963B7 /* Settings.bundle */; };
 		2107D33E1CC5B190001963B7 /* HockeySDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216458EF1CC145D700033B7F /* HockeySDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		214F9FF71CC6DE4600927A07 /* CanvasTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214F9FF61CC6DE4600927A07 /* CanvasTextView.swift */; };
 		216459531CC1461D00033B7F /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216458B91CC145BF00033B7F /* CanvasKit.framework */; };
 		216459541CC1461D00033B7F /* CanvasNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216458CA1CC145C400033B7F /* CanvasNative.framework */; };
 		216459551CC1461D00033B7F /* GradientView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216458DE1CC145CD00033B7F /* GradientView.framework */; };
@@ -543,6 +544,7 @@
 		2107D2FE1CC58F7B001963B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2107D2FF1CC58F7B001963B7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2107D3001CC58F7B001963B7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		214F9FF61CC6DE4600927A07 /* CanvasTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasTextView.swift; sourceTree = "<group>"; };
 		216453851CC145B400033B7F /* CanvasKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasKit.xcodeproj; path = CanvasKit/CanvasKit.xcodeproj; sourceTree = "<group>"; };
 		216453AC1CC145B400033B7F /* CanvasNative.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasNative.xcodeproj; path = CanvasNative/CanvasNative.xcodeproj; sourceTree = "<group>"; };
 		216453EB1CC145B400033B7F /* CanvasText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasText.xcodeproj; path = CanvasText/CanvasText.xcodeproj; sourceTree = "<group>"; };
@@ -683,6 +685,7 @@
 				2107D2E71CC58F7B001963B7 /* PersonalOrganizationCell.swift */,
 				2107D2EA1CC58F7B001963B7 /* SearchBarContainer.swift */,
 				2107D2ED1CC58F7B001963B7 /* TextView.swift */,
+				214F9FF61CC6DE4600927A07 /* CanvasTextView.swift */,
 				2107D2EE1CC58F7B001963B7 /* TickingLabel.swift */,
 				2107D2F01CC58F7B001963B7 /* TintableView.swift */,
 			);
@@ -1388,6 +1391,7 @@
 				2107D31E1CC58F7B001963B7 /* OrganizationsViewController.swift in Sources */,
 				2107D3241CC58F7B001963B7 /* TableViewController.swift in Sources */,
 				2107D3161CC58F7B001963B7 /* NavigationBar.swift in Sources */,
+				214F9FF71CC6DE4600927A07 /* CanvasTextView.swift in Sources */,
 				2107D3091CC58F7B001963B7 /* CanvasesViewController.swift in Sources */,
 				2107D30F1CC58F7B001963B7 /* Configuration.swift in Sources */,
 				2107D3191CC58F7B001963B7 /* NSDate+Canvas.swift in Sources */,

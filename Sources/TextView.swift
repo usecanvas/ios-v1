@@ -9,7 +9,7 @@
 import UIKit
 import CanvasText
 
-final class TextView: UITextView {
+class TextView: UITextView {
 
 	// MARK: - UIView
 
@@ -23,7 +23,7 @@ final class TextView: UITextView {
 
 		return super.hitTest(point, withEvent: event)
 	}
-
+	
 
 	// MARK: - UITextInput
 
@@ -70,12 +70,5 @@ final class TextView: UITextView {
 			guard let selection = selection as? UITextSelectionRect else { return false }
 			return selection.rect.size.width > 0
 		})
-	}
-}
-
-
-extension TextView: TextControllerAnnotationDelegate {
-	func textController(textController: TextController, willAddAnnotation annotation: Annotation) {
-		insertSubview(annotation.view, atIndex: 0)
 	}
 }

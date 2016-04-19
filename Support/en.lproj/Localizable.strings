@@ -42,5 +42,8 @@
 "MARK_AS_UNCHECKED_COMMAND" = "Mark as Unchecked";
 "INDENT_COMMAND" = "Indent";
 "OUTDENT_COMMAND" = "Outdent";
+"BOLD_COMMAND" = "Bold";
+"ITALIC_COMMAND" = "Italic";
+"INLINE_CODE_COMMAND" = "Inline Code";
 
 "LOADING" = "Loading…";
