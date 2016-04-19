@@ -10,6 +10,23 @@ import UIKit
 import CanvasText
 
 final class TextView: UITextView {
+
+	// MARK: - UIView
+
+	// Allow subviews to receive user input
+	override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
+		for view in subviews {
+			if view.userInteractionEnabled && view.frame.contains(point) {
+				return view
+			}
+		}
+
+		return super.hitTest(point, withEvent: event)
+	}
+
+
+	// MARK: - UITextInput
+
 	// Only display the caret in the used rect (if available).
 	override func caretRectForPosition(position: UITextPosition) -> CGRect {
 		var rect = super.caretRectForPosition(position)

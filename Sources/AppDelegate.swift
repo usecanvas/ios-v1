@@ -50,7 +50,7 @@ extension AppDelegate: UIApplicationDelegate {
 		// Crash reporting
 		#if !DEBUG
 			let hockey = BITHockeyManager.sharedHockeyManager()
-			hockey.configureWithIdentifier(Config.hockeyIdentifier, delegate: self)
+			hockey.configureWithIdentifier(config.hockeyIdentifier, delegate: self)
 			hockey.crashManager.crashManagerStatus = .AutoSend
 			hockey.startManager()
 		#endif

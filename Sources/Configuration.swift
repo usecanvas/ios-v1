@@ -85,4 +85,4 @@ struct Configuration {
 }
 
 /// Setup configuration with the desired environment
-let config = Configuration(.Staging)
+let config = Configuration(.Production)
