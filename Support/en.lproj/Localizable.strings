@@ -38,5 +38,7 @@
 "CANVAS_TITLE_PLACEHOLDER" = "Give me a name…";
 "CLOSE_COMMAND" = "Close";
 "DISMISS_KEYBOARD_COMMAND" = "Dismiss Keyboard";
+"MARK_AS_CHECKED_COMMAND" = "Mark as Checked";
+"MARK_AS_UNCHECKED_COMMAND" = "Mark as Unchecked";
 
 "LOADING" = "Loading…";

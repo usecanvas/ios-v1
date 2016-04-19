@@ -63,10 +63,18 @@ final class EditorViewController: UIViewController, Accountable {
 	}
 
 	override var keyCommands: [UIKeyCommand] {
-		return [
+		var commands: [UIKeyCommand] = [
 			UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: #selector(dismissKeyboard), discoverabilityTitle: LocalizedString.DismissKeyboardCommand.string),
 			UIKeyCommand(input: "w", modifierFlags: [.Command], action: #selector(close), discoverabilityTitle: LocalizedString.CloseCommand.string)
 		]
+
+		if let block = textController.focusedBlock as? ChecklistItem {
+			let title = block.state == .Checked ? LocalizedString.MarkAsUncheckedCommand.string : LocalizedString.MarkAsCheckedCommand.string
+			let command = UIKeyCommand(input: "u", modifierFlags: [.Command, .Shift], action: #selector(toggledChecked), discoverabilityTitle: title)
+			commands.append(command)
+		}
+
+		return commands
 	}
 
 	
@@ -158,6 +166,10 @@ final class EditorViewController: UIViewController, Accountable {
 		}
 
 		presentViewController(viewController, animated: true, completion: nil)
+	}
+
+	func toggledChecked() {
+		textController.toggleChecked()
 	}
 
 

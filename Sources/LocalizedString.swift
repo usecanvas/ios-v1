@@ -35,6 +35,8 @@ enum LocalizedString {
 	case CanvasTitlePlaceholder
 	case CloseCommand
 	case DismissKeyboardCommand
+	case MarkAsCheckedCommand
+	case MarkAsUncheckedCommand
 
 	case Loading
 
@@ -64,6 +66,8 @@ enum LocalizedString {
 		case .CanvasTitlePlaceholder: return localizedString("CANVAS_TITLE_PLACEHOLDER")
 		case .CloseCommand: return localizedString("CLOSE_COMMAND")
 		case .DismissKeyboardCommand: return localizedString("DISMISS_KEYBOARD_COMMAND")
+		case .MarkAsCheckedCommand: return localizedString("MARK_AS_CHECKED_COMMAND")
+		case .MarkAsUncheckedCommand: return localizedString("MARK_AS_UNCHECKED_COMMAND")
 
 		case .Loading: return localizedString("LOADING")
 		}
