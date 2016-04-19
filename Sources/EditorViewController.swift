@@ -65,14 +65,28 @@ final class EditorViewController: UIViewController, Accountable {
 	override var keyCommands: [UIKeyCommand] {
 		var commands: [UIKeyCommand] = [
 			UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: #selector(dismissKeyboard), discoverabilityTitle: LocalizedString.DismissKeyboardCommand.string),
-			UIKeyCommand(input: "w", modifierFlags: [.Command], action: #selector(close), discoverabilityTitle: LocalizedString.CloseCommand.string)
+			UIKeyCommand(input: "w", modifierFlags: [.Command], action: #selector(close), discoverabilityTitle: LocalizedString.CloseCommand.string),
+
+			UIKeyCommand(input: "]", modifierFlags: [.Command], action: #selector(indent), discoverabilityTitle: LocalizedString.IndentCommand.string),
+			UIKeyCommand(input: "\t", modifierFlags: [], action: #selector(indent)),
+			UIKeyCommand(input: "[", modifierFlags: [.Command], action: #selector(outdent), discoverabilityTitle: LocalizedString.OutdentCommand.string),
+			UIKeyCommand(input: "\t", modifierFlags: [.Shift], action: #selector(outdent))
 		]
 
-		if let block = textController.focusedBlock as? ChecklistItem {
-			let title = block.state == .Checked ? LocalizedString.MarkAsUncheckedCommand.string : LocalizedString.MarkAsCheckedCommand.string
-			let command = UIKeyCommand(input: "u", modifierFlags: [.Command, .Shift], action: #selector(toggledChecked), discoverabilityTitle: title)
-			commands.append(command)
+//		if let block = textController.focusedBlock as? Listable {
+			// TODO: Add indent
+			// TODO: Add outdent
+//		}
+
+		let checkTitle: String
+		if let block = textController.focusedBlock as? ChecklistItem where block.state == .Checked {
+			checkTitle = LocalizedString.MarkAsUncheckedCommand.string
+		} else {
+			checkTitle = LocalizedString.MarkAsCheckedCommand.string
 		}
+
+		let check = UIKeyCommand(input: "u", modifierFlags: [.Command, .Shift], action: #selector(toggledChecked), discoverabilityTitle: checkTitle)
+		commands.append(check)
 
 		return commands
 	}
@@ -170,6 +184,14 @@ final class EditorViewController: UIViewController, Accountable {
 
 	func toggledChecked() {
 		textController.toggleChecked()
+	}
+
+	func indent() {
+		textController.indent()
+	}
+
+	func outdent() {
+		textController.outdent()
 	}
 
 

@@ -37,6 +37,8 @@ enum LocalizedString {
 	case DismissKeyboardCommand
 	case MarkAsCheckedCommand
 	case MarkAsUncheckedCommand
+	case IndentCommand
+	case OutdentCommand
 
 	case Loading
 
@@ -68,6 +70,8 @@ enum LocalizedString {
 		case .DismissKeyboardCommand: return localizedString("DISMISS_KEYBOARD_COMMAND")
 		case .MarkAsCheckedCommand: return localizedString("MARK_AS_CHECKED_COMMAND")
 		case .MarkAsUncheckedCommand: return localizedString("MARK_AS_UNCHECKED_COMMAND")
+		case .IndentCommand: return localizedString("INDENT_COMMAND")
+		case .OutdentCommand: return localizedString("OUTDENT_COMMAND")
 
 		case .Loading: return localizedString("LOADING")
 		}

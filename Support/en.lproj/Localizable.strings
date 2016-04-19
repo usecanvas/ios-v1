@@ -40,5 +40,7 @@
 "DISMISS_KEYBOARD_COMMAND" = "Dismiss Keyboard";
 "MARK_AS_CHECKED_COMMAND" = "Mark as Checked";
 "MARK_AS_UNCHECKED_COMMAND" = "Mark as Unchecked";
+"INDENT_COMMAND" = "Indent";
+"OUTDENT_COMMAND" = "Outdent";
 
 "LOADING" = "Loading…";
