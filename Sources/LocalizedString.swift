@@ -42,6 +42,8 @@ enum LocalizedString {
 	case BoldCommand
 	case ItalicCommand
 	case InlineCodeCommand
+	case InsertLineAfter
+	case InsertLineBefore
 
 	case Loading
 
@@ -78,6 +80,8 @@ enum LocalizedString {
 		case .BoldCommand: return localizedString("BOLD_COMMAND")
 		case .ItalicCommand: return localizedString("ITALIC_COMMAND")
 		case .InlineCodeCommand: return localizedString("INLINE_CODE_COMMAND")
+		case .InsertLineAfter: return localizedString("INSERT_LINE_AFTER_COMMAND")
+		case .InsertLineBefore: return localizedString("INSERT_LINE_BEFORE_COMMAND")
 
 		case .Loading: return localizedString("LOADING")
 		}

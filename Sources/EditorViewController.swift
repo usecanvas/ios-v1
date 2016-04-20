@@ -77,11 +77,6 @@ final class EditorViewController: UIViewController, Accountable {
 			UIKeyCommand(input: "\t", modifierFlags: [.Shift], action: #selector(outdent))
 		]
 
-//		if let block = textController.focusedBlock as? Listable {
-			// TODO: Add indent
-			// TODO: Add outdent
-//		}
-
 		let checkTitle: String
 		if let block = textController.focusedBlock as? ChecklistItem where block.state == .Checked {
 			checkTitle = LocalizedString.MarkAsUncheckedCommand.string
@@ -92,6 +87,11 @@ final class EditorViewController: UIViewController, Accountable {
 		let check = UIKeyCommand(input: "u", modifierFlags: [.Command, .Shift], action: #selector(self.check), discoverabilityTitle: checkTitle)
 		commands.append(check)
 
+		commands += [
+			UIKeyCommand(input: "\r", modifierFlags: [.Command, .Shift], action: #selector(insertLineBefore), discoverabilityTitle: LocalizedString.InsertLineBefore.string),
+			UIKeyCommand(input: "\r", modifierFlags: [.Command], action: #selector(insertLineAfter), discoverabilityTitle: LocalizedString.InsertLineAfter.string)
+		]
+		
 		return commands
 	}
 
@@ -210,6 +210,14 @@ final class EditorViewController: UIViewController, Accountable {
 
 	func inlineCode() {
 		textController.inlineCode()
+	}
+	
+	func insertLineAfter() {
+		textController.insertLineAfter()
+	}
+	
+	func insertLineBefore() {
+		textController.insertLineBefore()
 	}
 
 

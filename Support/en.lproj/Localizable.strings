@@ -45,5 +45,7 @@
 "BOLD_COMMAND" = "Bold";
 "ITALIC_COMMAND" = "Italic";
 "INLINE_CODE_COMMAND" = "Inline Code";
+"INSERT_LINE_AFTER_COMMAND" = "Insert Line After";
+"INSERT_LINE_BEFORE_COMMAND" = "Insert Line Before";
 
 "LOADING" = "Loading…";
