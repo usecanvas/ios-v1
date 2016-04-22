@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "21501D431CCAA2B900B02FC5"
-               BuildableName = "Canvas Dev.app"
+               BuildableName = "Canvsa.app"
                BlueprintName = "Canvas Dev"
                ReferencedContainer = "container:Canvas.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "21501D431CCAA2B900B02FC5"
-            BuildableName = "Canvas Dev.app"
+            BuildableName = "Canvsa.app"
             BlueprintName = "Canvas Dev"
             ReferencedContainer = "container:Canvas.xcodeproj">
          </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "21501D431CCAA2B900B02FC5"
-            BuildableName = "Canvas Dev.app"
+            BuildableName = "Canvsa.app"
             BlueprintName = "Canvas Dev"
             ReferencedContainer = "container:Canvas.xcodeproj">
          </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "21501D431CCAA2B900B02FC5"
-            BuildableName = "Canvas Dev.app"
+            BuildableName = "Canvsa.app"
             BlueprintName = "Canvas Dev"
             ReferencedContainer = "container:Canvas.xcodeproj">
          </BuildableReference>

@@ -25,7 +25,7 @@ final class CanvasTextView: TextView {
 
 	override init(frame: CGRect, textContainer: NSTextContainer?) {
 		super.init(frame: frame, textContainer: textContainer)
-		allowsEditingTextAttributes = true
+//		allowsEditingTextAttributes = true
 		alwaysBounceVertical = true
 	}
 	
