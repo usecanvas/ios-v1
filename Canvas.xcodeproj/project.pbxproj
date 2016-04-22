@@ -57,6 +57,77 @@
 		2107D3341CC58F7B001963B7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2107D3001CC58F7B001963B7 /* Settings.bundle */; };
 		2107D33E1CC5B190001963B7 /* HockeySDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216458EF1CC145D700033B7F /* HockeySDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		214F9FF71CC6DE4600927A07 /* CanvasTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214F9FF61CC6DE4600927A07 /* CanvasTextView.swift */; };
+		21501D5B1CCAA2B900B02FC5 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CD1CC58F7A001963B7 /* Button.swift */; };
+		21501D5C1CCAA2B900B02FC5 /* PersonalOrganizationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2E71CC58F7B001963B7 /* PersonalOrganizationCell.swift */; };
+		21501D5D1CCAA2B900B02FC5 /* Canvas+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CE1CC58F7A001963B7 /* Canvas+Canvas.swift */; };
+		21501D5E1CCAA2B900B02FC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CC1CC58F7A001963B7 /* AppDelegate.swift */; };
+		21501D5F1CCAA2B900B02FC5 /* CanvasesResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2D01CC58F7A001963B7 /* CanvasesResultsViewController.swift */; };
+		21501D601CCAA2B900B02FC5 /* UIEdgeInsets+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2F11CC58F7B001963B7 /* UIEdgeInsets+Canvas.swift */; };
+		21501D611CCAA2B900B02FC5 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2ED1CC58F7B001963B7 /* TextView.swift */; };
+		21501D621CCAA2B900B02FC5 /* Color+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2D51CC58F7A001963B7 /* Color+Canvas.swift */; };
+		21501D631CCAA2B900B02FC5 /* OrganizationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2E61CC58F7B001963B7 /* OrganizationsViewController.swift */; };
+		21501D641CCAA2B900B02FC5 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2EC1CC58F7B001963B7 /* TableViewController.swift */; };
+		21501D651CCAA2B900B02FC5 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2DE1CC58F7A001963B7 /* NavigationBar.swift */; };
+		21501D661CCAA2B900B02FC5 /* CanvasTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214F9FF61CC6DE4600927A07 /* CanvasTextView.swift */; };
+		21501D671CCAA2B900B02FC5 /* CanvasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2D11CC58F7A001963B7 /* CanvasesViewController.swift */; };
+		21501D681CCAA2B900B02FC5 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2D71CC58F7A001963B7 /* Configuration.swift */; };
+		21501D691CCAA2B900B02FC5 /* NSDate+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2E11CC58F7A001963B7 /* NSDate+Canvas.swift */; };
+		21501D6A1CCAA2B900B02FC5 /* CGRect+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2D31CC58F7A001963B7 /* CGRect+Canvas.swift */; };
+		21501D6B1CCAA2B900B02FC5 /* Organization+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2E21CC58F7B001963B7 /* Organization+Canvas.swift */; };
+		21501D6C1CCAA2B900B02FC5 /* OrganizationCanvasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2E41CC58F7B001963B7 /* OrganizationCanvasesViewController.swift */; };
+		21501D6D1CCAA2B900B02FC5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2DC1CC58F7A001963B7 /* LoginViewController.swift */; };
+		21501D6E1CCAA2B900B02FC5 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2DA1CC58F7A001963B7 /* LocalizedString.swift */; };
+		21501D6F1CCAA2B900B02FC5 /* TickingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2EE1CC58F7B001963B7 /* TickingLabel.swift */; };
+		21501D701CCAA2B900B02FC5 /* CanvasIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2D21CC58F7A001963B7 /* CanvasIconView.swift */; };
+		21501D711CCAA2B900B02FC5 /* CanvasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CF1CC58F7A001963B7 /* CanvasCell.swift */; };
+		21501D721CCAA2B900B02FC5 /* TintableEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2EF1CC58F7B001963B7 /* TintableEnvironment.swift */; };
+		21501D731CCAA2B900B02FC5 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2F41CC58F7B001963B7 /* WebViewController.swift */; };
+		21501D741CCAA2B900B02FC5 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2D61CC58F7A001963B7 /* Color.swift */; };
+		21501D751CCAA2B900B02FC5 /* WebActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2F31CC58F7B001963B7 /* WebActivity.swift */; };
+		21501D761CCAA2B900B02FC5 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2D81CC58F7A001963B7 /* EditorViewController.swift */; };
+		21501D771CCAA2B900B02FC5 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2DF1CC58F7A001963B7 /* NavigationController.swift */; };
+		21501D781CCAA2B900B02FC5 /* ModelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2DD1CC58F7A001963B7 /* ModelsViewController.swift */; };
+		21501D791CCAA2B900B02FC5 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2E81CC58F7B001963B7 /* RootViewController.swift */; };
+		21501D7A1CCAA2B900B02FC5 /* TintableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2F01CC58F7B001963B7 /* TintableView.swift */; };
+		21501D7B1CCAA2B900B02FC5 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2D91CC58F7A001963B7 /* Font.swift */; };
+		21501D7C1CCAA2B900B02FC5 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CA1CC58F7A001963B7 /* AlertController.swift */; };
+		21501D7D1CCAA2B900B02FC5 /* SafariActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2E91CC58F7B001963B7 /* SafariActivity.swift */; };
+		21501D7E1CCAA2B900B02FC5 /* Accountable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2C91CC58F7A001963B7 /* Accountable.swift */; };
+		21501D7F1CCAA2B900B02FC5 /* ChromeActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2D41CC58F7A001963B7 /* ChromeActivity.swift */; };
+		21501D801CCAA2B900B02FC5 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CB1CC58F7A001963B7 /* Analytics.swift */; };
+		21501D811CCAA2B900B02FC5 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2DB1CC58F7A001963B7 /* LoginTextField.swift */; };
+		21501D821CCAA2B900B02FC5 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2EB1CC58F7B001963B7 /* SearchController.swift */; };
+		21501D831CCAA2B900B02FC5 /* SearchBarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2EA1CC58F7B001963B7 /* SearchBarContainer.swift */; };
+		21501D841CCAA2B900B02FC5 /* OrganizationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2E51CC58F7B001963B7 /* OrganizationCell.swift */; };
+		21501D851CCAA2B900B02FC5 /* UIFont+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2F21CC58F7B001963B7 /* UIFont+Canvas.swift */; };
+		21501D861CCAA2B900B02FC5 /* OrganizationAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2E31CC58F7B001963B7 /* OrganizationAvatarView.swift */; };
+		21501D881CCAA2B900B02FC5 /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216459951CC1465D00033B7F /* CanvasText.framework */; };
+		21501D891CCAA2B900B02FC5 /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216459841CC1465D00033B7F /* OnePasswordExtension.framework */; };
+		21501D8A1CCAA2B900B02FC5 /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216458B91CC145BF00033B7F /* CanvasKit.framework */; };
+		21501D8B1CCAA2B900B02FC5 /* CanvasNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216458CA1CC145C400033B7F /* CanvasNative.framework */; };
+		21501D8C1CCAA2B900B02FC5 /* GradientView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216458DE1CC145CD00033B7F /* GradientView.framework */; };
+		21501D8D1CCAA2B900B02FC5 /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216458EF1CC145D700033B7F /* HockeySDK.framework */; };
+		21501D8E1CCAA2B900B02FC5 /* ISO8601.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216458F91CC145DD00033B7F /* ISO8601.framework */; };
+		21501D8F1CCAA2B900B02FC5 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216459081CC145E100033B7F /* Mixpanel.framework */; };
+		21501D901CCAA2B900B02FC5 /* OperationTransport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216459181CC145E900033B7F /* OperationTransport.framework */; };
+		21501D911CCAA2B900B02FC5 /* SSKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216459291CC145EE00033B7F /* SSKeychain.framework */; };
+		21501D921CCAA2B900B02FC5 /* Static.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2164593C1CC145F100033B7F /* Static.framework */; };
+		21501D941CCAA2B900B02FC5 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2107D3001CC58F7B001963B7 /* Settings.bundle */; };
+		21501D951CCAA2B900B02FC5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2FD1CC58F7B001963B7 /* Localizable.strings */; };
+		21501D961CCAA2B900B02FC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2F91CC58F7B001963B7 /* Main.storyboard */; };
+		21501D971CCAA2B900B02FC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2F61CC58F7B001963B7 /* Assets.xcassets */; };
+		21501D981CCAA2B900B02FC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2F71CC58F7B001963B7 /* LaunchScreen.storyboard */; };
+		21501D9A1CCAA2B900B02FC5 /* HockeySDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216458EF1CC145D700033B7F /* HockeySDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		21501D9B1CCAA2B900B02FC5 /* CanvasKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216458B91CC145BF00033B7F /* CanvasKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		21501D9C1CCAA2B900B02FC5 /* CanvasNative.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216458CA1CC145C400033B7F /* CanvasNative.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		21501D9D1CCAA2B900B02FC5 /* CanvasText.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216459951CC1465D00033B7F /* CanvasText.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		21501D9E1CCAA2B900B02FC5 /* GradientView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216458DE1CC145CD00033B7F /* GradientView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		21501D9F1CCAA2B900B02FC5 /* ISO8601.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216458F91CC145DD00033B7F /* ISO8601.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		21501DA01CCAA2B900B02FC5 /* Mixpanel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216459081CC145E100033B7F /* Mixpanel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		21501DA11CCAA2B900B02FC5 /* OnePasswordExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216459841CC1465D00033B7F /* OnePasswordExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		21501DA21CCAA2B900B02FC5 /* OperationTransport.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216459181CC145E900033B7F /* OperationTransport.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		21501DA31CCAA2B900B02FC5 /* SSKeychain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216459291CC145EE00033B7F /* SSKeychain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		21501DA41CCAA2B900B02FC5 /* Static.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2164593C1CC145F100033B7F /* Static.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		216459531CC1461D00033B7F /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216458B91CC145BF00033B7F /* CanvasKit.framework */; };
 		216459541CC1461D00033B7F /* CanvasNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216458CA1CC145C400033B7F /* CanvasNative.framework */; };
 		216459551CC1461D00033B7F /* GradientView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216458DE1CC145CD00033B7F /* GradientView.framework */; };
@@ -81,6 +152,83 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		21501D451CCAA2B900B02FC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 216455EC1CC145B500033B7F /* OnePasswordExtension.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C3F4D8B1A59ACDC004B3ECE;
+			remoteInfo = OnePasswordExtension;
+		};
+		21501D471CCAA2B900B02FC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 216453EB1CC145B400033B7F /* CanvasText.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 211483C31C8A3034002CA206;
+			remoteInfo = "CanvasText-iOS";
+		};
+		21501D491CCAA2B900B02FC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 216453851CC145B400033B7F /* CanvasKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 21FB6ABA1BF53C9D003C82BB;
+			remoteInfo = "CanvasKit-iOS";
+		};
+		21501D4B1CCAA2B900B02FC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 216453AC1CC145B400033B7F /* CanvasNative.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 215BAB2C1C52B0C400118C8C;
+			remoteInfo = "CanvasNative-iOS";
+		};
+		21501D4D1CCAA2B900B02FC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 216454851CC145B400033B7F /* Gradient View.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2163BA1F1A25FBFD00610B0C;
+			remoteInfo = GradientView;
+		};
+		21501D4F1CCAA2B900B02FC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 216455421CC145B400033B7F /* HockeySDK.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 1EB6173E1B0A30480035A986;
+			remoteInfo = "HockeySDK Framework";
+		};
+		21501D511CCAA2B900B02FC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 216455811CC145B500033B7F /* ISO8601.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 21B3A3D619894F4600322041;
+			remoteInfo = "ISO8601-iOS";
+		};
+		21501D531CCAA2B900B02FC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2164559B1CC145B500033B7F /* Mixpanel.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 210B32411B37DDE2005F43F3;
+			remoteInfo = "Mixpanel-iOS";
+		};
+		21501D551CCAA2B900B02FC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 216455FC1CC145B500033B7F /* OperationTransport.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 215E6D241C7520BD00126FE9;
+			remoteInfo = "OperationTransport-iOS";
+		};
+		21501D571CCAA2B900B02FC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2164560E1CC145B500033B7F /* SSKeychain.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E8A666331A844CC400287CA3;
+			remoteInfo = "SSKeychain-iOS";
+		};
+		21501D591CCAA2B900B02FC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2164563A1CC145B500033B7F /* Static.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 21826AA91B3F51A100AA9641;
+			remoteInfo = "Static-iOS";
+		};
 		216458B81CC145BF00033B7F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 216453851CC145B400033B7F /* CanvasKit.xcodeproj */;
@@ -469,6 +617,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		21501D991CCAA2B900B02FC5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				21501D9A1CCAA2B900B02FC5 /* HockeySDK.framework in Embed Frameworks */,
+				21501D9B1CCAA2B900B02FC5 /* CanvasKit.framework in Embed Frameworks */,
+				21501D9C1CCAA2B900B02FC5 /* CanvasNative.framework in Embed Frameworks */,
+				21501D9D1CCAA2B900B02FC5 /* CanvasText.framework in Embed Frameworks */,
+				21501D9E1CCAA2B900B02FC5 /* GradientView.framework in Embed Frameworks */,
+				21501D9F1CCAA2B900B02FC5 /* ISO8601.framework in Embed Frameworks */,
+				21501DA01CCAA2B900B02FC5 /* Mixpanel.framework in Embed Frameworks */,
+				21501DA11CCAA2B900B02FC5 /* OnePasswordExtension.framework in Embed Frameworks */,
+				21501DA21CCAA2B900B02FC5 /* OperationTransport.framework in Embed Frameworks */,
+				21501DA31CCAA2B900B02FC5 /* SSKeychain.framework in Embed Frameworks */,
+				21501DA41CCAA2B900B02FC5 /* Static.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2164599E1CC1468F00033B7F /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -545,6 +714,7 @@
 		2107D2FF1CC58F7B001963B7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2107D3001CC58F7B001963B7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		214F9FF61CC6DE4600927A07 /* CanvasTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasTextView.swift; sourceTree = "<group>"; };
+		21501DAA1CCAA2B900B02FC5 /* Canvas Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Canvas Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		216453851CC145B400033B7F /* CanvasKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasKit.xcodeproj; path = CanvasKit/CanvasKit.xcodeproj; sourceTree = "<group>"; };
 		216453AC1CC145B400033B7F /* CanvasNative.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasNative.xcodeproj; path = CanvasNative/CanvasNative.xcodeproj; sourceTree = "<group>"; };
 		216453EB1CC145B400033B7F /* CanvasText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasText.xcodeproj; path = CanvasText/CanvasText.xcodeproj; sourceTree = "<group>"; };
@@ -560,6 +730,24 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		21501D871CCAA2B900B02FC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21501D881CCAA2B900B02FC5 /* CanvasText.framework in Frameworks */,
+				21501D891CCAA2B900B02FC5 /* OnePasswordExtension.framework in Frameworks */,
+				21501D8A1CCAA2B900B02FC5 /* CanvasKit.framework in Frameworks */,
+				21501D8B1CCAA2B900B02FC5 /* CanvasNative.framework in Frameworks */,
+				21501D8C1CCAA2B900B02FC5 /* GradientView.framework in Frameworks */,
+				21501D8D1CCAA2B900B02FC5 /* HockeySDK.framework in Frameworks */,
+				21501D8E1CCAA2B900B02FC5 /* ISO8601.framework in Frameworks */,
+				21501D8F1CCAA2B900B02FC5 /* Mixpanel.framework in Frameworks */,
+				21501D901CCAA2B900B02FC5 /* OperationTransport.framework in Frameworks */,
+				21501D911CCAA2B900B02FC5 /* SSKeychain.framework in Frameworks */,
+				21501D921CCAA2B900B02FC5 /* Static.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		21F10F471BF138750035057D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -874,6 +1062,7 @@
 			isa = PBXGroup;
 			children = (
 				21F10F4A1BF138750035057D /* Canvas.app */,
+				21501DAA1CCAA2B900B02FC5 /* Canvas Dev.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -881,6 +1070,37 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		21501D431CCAA2B900B02FC5 /* Canvas Dev */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21501DA71CCAA2B900B02FC5 /* Build configuration list for PBXNativeTarget "Canvas Dev" */;
+			buildPhases = (
+				21501D5A1CCAA2B900B02FC5 /* Sources */,
+				21501D871CCAA2B900B02FC5 /* Frameworks */,
+				21501D931CCAA2B900B02FC5 /* Resources */,
+				21501D991CCAA2B900B02FC5 /* Embed Frameworks */,
+				21501DA51CCAA2B900B02FC5 /* Set Version */,
+				21501DA61CCAA2B900B02FC5 /* Swift Lint */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				21501D441CCAA2B900B02FC5 /* PBXTargetDependency */,
+				21501D461CCAA2B900B02FC5 /* PBXTargetDependency */,
+				21501D481CCAA2B900B02FC5 /* PBXTargetDependency */,
+				21501D4A1CCAA2B900B02FC5 /* PBXTargetDependency */,
+				21501D4C1CCAA2B900B02FC5 /* PBXTargetDependency */,
+				21501D4E1CCAA2B900B02FC5 /* PBXTargetDependency */,
+				21501D501CCAA2B900B02FC5 /* PBXTargetDependency */,
+				21501D521CCAA2B900B02FC5 /* PBXTargetDependency */,
+				21501D541CCAA2B900B02FC5 /* PBXTargetDependency */,
+				21501D561CCAA2B900B02FC5 /* PBXTargetDependency */,
+				21501D581CCAA2B900B02FC5 /* PBXTargetDependency */,
+			);
+			name = "Canvas Dev";
+			productName = Canvas;
+			productReference = 21501DAA1CCAA2B900B02FC5 /* Canvas Dev.app */;
+			productType = "com.apple.product-type.application";
+		};
 		21F10F491BF138750035057D /* Canvas */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21F10F5C1BF138750035057D /* Build configuration list for PBXNativeTarget "Canvas" */;
@@ -922,6 +1142,17 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Canvas Labs, Inc.";
 				TargetAttributes = {
+					21501D431CCAA2B900B02FC5 = {
+						DevelopmentTeam = 676PZY29MZ;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+						};
+					};
 					21F10F491BF138750035057D = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = 676PZY29MZ;
@@ -1014,6 +1245,7 @@
 			projectRoot = "";
 			targets = (
 				21F10F491BF138750035057D /* Canvas */,
+				21501D431CCAA2B900B02FC5 /* Canvas Dev */,
 			);
 		};
 /* End PBXProject section */
@@ -1330,6 +1562,18 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		21501D931CCAA2B900B02FC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21501D941CCAA2B900B02FC5 /* Settings.bundle in Resources */,
+				21501D951CCAA2B900B02FC5 /* Localizable.strings in Resources */,
+				21501D961CCAA2B900B02FC5 /* Main.storyboard in Resources */,
+				21501D971CCAA2B900B02FC5 /* Assets.xcassets in Resources */,
+				21501D981CCAA2B900B02FC5 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		21F10F481BF138750035057D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1345,6 +1589,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		21501DA51CCAA2B900B02FC5 /* Set Version */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Set Version";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = "/usr/bin/env ruby";
+			shellScript = "git = `sh /etc/profile; which git`.chomp\napp_build = `#{git} rev-list HEAD --count`.chomp.to_i\n`/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion #{app_build}\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"`\nputs \"Updated #{ENV['TARGET_BUILD_DIR']}/#{ENV['INFOPLIST_PATH']}\"";
+		};
+		21501DA61CCAA2B900B02FC5 /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
 		21A8FA601BFD3D160097FCC6 /* Set Version */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1376,6 +1648,57 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		21501D5A1CCAA2B900B02FC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21501D5B1CCAA2B900B02FC5 /* Button.swift in Sources */,
+				21501D5C1CCAA2B900B02FC5 /* PersonalOrganizationCell.swift in Sources */,
+				21501D5D1CCAA2B900B02FC5 /* Canvas+Canvas.swift in Sources */,
+				21501D5E1CCAA2B900B02FC5 /* AppDelegate.swift in Sources */,
+				21501D5F1CCAA2B900B02FC5 /* CanvasesResultsViewController.swift in Sources */,
+				21501D601CCAA2B900B02FC5 /* UIEdgeInsets+Canvas.swift in Sources */,
+				21501D611CCAA2B900B02FC5 /* TextView.swift in Sources */,
+				21501D621CCAA2B900B02FC5 /* Color+Canvas.swift in Sources */,
+				21501D631CCAA2B900B02FC5 /* OrganizationsViewController.swift in Sources */,
+				21501D641CCAA2B900B02FC5 /* TableViewController.swift in Sources */,
+				21501D651CCAA2B900B02FC5 /* NavigationBar.swift in Sources */,
+				21501D661CCAA2B900B02FC5 /* CanvasTextView.swift in Sources */,
+				21501D671CCAA2B900B02FC5 /* CanvasesViewController.swift in Sources */,
+				21501D681CCAA2B900B02FC5 /* Configuration.swift in Sources */,
+				21501D691CCAA2B900B02FC5 /* NSDate+Canvas.swift in Sources */,
+				21501D6A1CCAA2B900B02FC5 /* CGRect+Canvas.swift in Sources */,
+				21501D6B1CCAA2B900B02FC5 /* Organization+Canvas.swift in Sources */,
+				21501D6C1CCAA2B900B02FC5 /* OrganizationCanvasesViewController.swift in Sources */,
+				21501D6D1CCAA2B900B02FC5 /* LoginViewController.swift in Sources */,
+				21501D6E1CCAA2B900B02FC5 /* LocalizedString.swift in Sources */,
+				21501D6F1CCAA2B900B02FC5 /* TickingLabel.swift in Sources */,
+				21501D701CCAA2B900B02FC5 /* CanvasIconView.swift in Sources */,
+				21501D711CCAA2B900B02FC5 /* CanvasCell.swift in Sources */,
+				21501D721CCAA2B900B02FC5 /* TintableEnvironment.swift in Sources */,
+				21501D731CCAA2B900B02FC5 /* WebViewController.swift in Sources */,
+				21501D741CCAA2B900B02FC5 /* Color.swift in Sources */,
+				21501D751CCAA2B900B02FC5 /* WebActivity.swift in Sources */,
+				21501D761CCAA2B900B02FC5 /* EditorViewController.swift in Sources */,
+				21501D771CCAA2B900B02FC5 /* NavigationController.swift in Sources */,
+				21501D781CCAA2B900B02FC5 /* ModelsViewController.swift in Sources */,
+				21501D791CCAA2B900B02FC5 /* RootViewController.swift in Sources */,
+				21501D7A1CCAA2B900B02FC5 /* TintableView.swift in Sources */,
+				21501D7B1CCAA2B900B02FC5 /* Font.swift in Sources */,
+				21501D7C1CCAA2B900B02FC5 /* AlertController.swift in Sources */,
+				21501D7D1CCAA2B900B02FC5 /* SafariActivity.swift in Sources */,
+				21501D7E1CCAA2B900B02FC5 /* Accountable.swift in Sources */,
+				21501D7F1CCAA2B900B02FC5 /* ChromeActivity.swift in Sources */,
+				21501D801CCAA2B900B02FC5 /* Analytics.swift in Sources */,
+				21501D811CCAA2B900B02FC5 /* LoginTextField.swift in Sources */,
+				21501D821CCAA2B900B02FC5 /* SearchController.swift in Sources */,
+				21501D831CCAA2B900B02FC5 /* SearchBarContainer.swift in Sources */,
+				21501D841CCAA2B900B02FC5 /* OrganizationCell.swift in Sources */,
+				21501D851CCAA2B900B02FC5 /* UIFont+Canvas.swift in Sources */,
+				21501D861CCAA2B900B02FC5 /* OrganizationAvatarView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		21F10F461BF138750035057D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1430,6 +1753,61 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		21501D441CCAA2B900B02FC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OnePasswordExtension;
+			targetProxy = 21501D451CCAA2B900B02FC5 /* PBXContainerItemProxy */;
+		};
+		21501D461CCAA2B900B02FC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CanvasText-iOS";
+			targetProxy = 21501D471CCAA2B900B02FC5 /* PBXContainerItemProxy */;
+		};
+		21501D481CCAA2B900B02FC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CanvasKit-iOS";
+			targetProxy = 21501D491CCAA2B900B02FC5 /* PBXContainerItemProxy */;
+		};
+		21501D4A1CCAA2B900B02FC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CanvasNative-iOS";
+			targetProxy = 21501D4B1CCAA2B900B02FC5 /* PBXContainerItemProxy */;
+		};
+		21501D4C1CCAA2B900B02FC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GradientView;
+			targetProxy = 21501D4D1CCAA2B900B02FC5 /* PBXContainerItemProxy */;
+		};
+		21501D4E1CCAA2B900B02FC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "HockeySDK Framework";
+			targetProxy = 21501D4F1CCAA2B900B02FC5 /* PBXContainerItemProxy */;
+		};
+		21501D501CCAA2B900B02FC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ISO8601-iOS";
+			targetProxy = 21501D511CCAA2B900B02FC5 /* PBXContainerItemProxy */;
+		};
+		21501D521CCAA2B900B02FC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Mixpanel-iOS";
+			targetProxy = 21501D531CCAA2B900B02FC5 /* PBXContainerItemProxy */;
+		};
+		21501D541CCAA2B900B02FC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "OperationTransport-iOS";
+			targetProxy = 21501D551CCAA2B900B02FC5 /* PBXContainerItemProxy */;
+		};
+		21501D561CCAA2B900B02FC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SSKeychain-iOS";
+			targetProxy = 21501D571CCAA2B900B02FC5 /* PBXContainerItemProxy */;
+		};
+		21501D581CCAA2B900B02FC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Static-iOS";
+			targetProxy = 21501D591CCAA2B900B02FC5 /* PBXContainerItemProxy */;
+		};
 		216459421CC1460800033B7F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "CanvasKit-iOS";
@@ -1515,6 +1893,71 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		21501DA81CCAA2B900B02FC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Dev";
+				BUNDLE_DISPLAY_NAME = "Canvas ß";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Support/Canvas Dev.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Vendor/CanvasKit/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Checkouts/HockeySDK-iOS/Support/HockeySDKTests/Vendor",
+					"$(PROJECT_DIR)/Carthage/Checkouts/HockeySDK-iOS/Vendor",
+					"$(PROJECT_DIR)/Carthage/Checkouts/CanvasText/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Carthage/Checkouts/onepassword-app-extension/build/Debug-iphoneos",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Support/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Checkouts/HockeySDK-iOS/Support/HockeySDKTests/Vendor/OCMock",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.usecanvas.canvas.dev;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		21501DA91CCAA2B900B02FC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Dev";
+				BUNDLE_DISPLAY_NAME = "Canvas ß";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Support/Canvas Dev.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Vendor/CanvasKit/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Checkouts/HockeySDK-iOS/Support/HockeySDKTests/Vendor",
+					"$(PROJECT_DIR)/Carthage/Checkouts/HockeySDK-iOS/Vendor",
+					"$(PROJECT_DIR)/Carthage/Checkouts/CanvasText/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Carthage/Checkouts/onepassword-app-extension/build/Debug-iphoneos",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Support/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Checkouts/HockeySDK-iOS/Support/HockeySDKTests/Vendor/OCMock",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.usecanvas.canvas.dev;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
 		21F10F5A1BF138750035057D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1667,6 +2110,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		21501DA71CCAA2B900B02FC5 /* Build configuration list for PBXNativeTarget "Canvas Dev" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21501DA81CCAA2B900B02FC5 /* Debug */,
+				21501DA91CCAA2B900B02FC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		21F10F451BF138750035057D /* Build configuration list for PBXProject "Canvas" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
