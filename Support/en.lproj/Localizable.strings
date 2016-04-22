@@ -47,5 +47,6 @@
 "INLINE_CODE_COMMAND" = "Inline Code";
 "INSERT_LINE_AFTER_COMMAND" = "Insert Line After";
 "INSERT_LINE_BEFORE_COMMAND" = "Insert Line Before";
+"DELETE_LINE_COMMAND" = "Delete Line";
 
 "LOADING" = "Loading…";

@@ -88,8 +88,9 @@ final class EditorViewController: UIViewController, Accountable {
 		commands.append(check)
 
 		commands += [
-			UIKeyCommand(input: "\r", modifierFlags: [.Command, .Shift], action: #selector(insertLineBefore), discoverabilityTitle: LocalizedString.InsertLineBefore.string),
-			UIKeyCommand(input: "\r", modifierFlags: [.Command], action: #selector(insertLineAfter), discoverabilityTitle: LocalizedString.InsertLineAfter.string)
+			UIKeyCommand(input: "k", modifierFlags: [.Control, .Shift], action: #selector(deleteLine), discoverabilityTitle: LocalizedString.DeleteLineCommand.string),
+			UIKeyCommand(input: "\r", modifierFlags: [.Command, .Shift], action: #selector(insertLineBefore), discoverabilityTitle: LocalizedString.InsertLineBeforeCommand.string),
+			UIKeyCommand(input: "\r", modifierFlags: [.Command], action: #selector(insertLineAfter), discoverabilityTitle: LocalizedString.InsertLineAfterCommand.string)
 		]
 		
 		return commands
@@ -218,6 +219,10 @@ final class EditorViewController: UIViewController, Accountable {
 	
 	func insertLineBefore() {
 		textController.insertLineBefore()
+	}
+	
+	func deleteLine() {
+		textController.deleteLine()
 	}
 
 
