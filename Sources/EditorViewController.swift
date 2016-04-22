@@ -64,17 +64,17 @@ final class EditorViewController: UIViewController, Accountable {
 
 	override var keyCommands: [UIKeyCommand] {
 		var commands: [UIKeyCommand] = [
-			UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: #selector(dismissKeyboard), discoverabilityTitle: LocalizedString.DismissKeyboardCommand.string),
+			UIKeyCommand(input: UIKeyInputEscape, modifierFlags: [], action: #selector(dismissKeyboard)),
 			UIKeyCommand(input: "w", modifierFlags: [.Command], action: #selector(close), discoverabilityTitle: LocalizedString.CloseCommand.string),
 
 			UIKeyCommand(input: "b", modifierFlags: [.Command], action: #selector(bold), discoverabilityTitle: LocalizedString.BoldCommand.string),
 			UIKeyCommand(input: "i", modifierFlags: [.Command], action: #selector(italic), discoverabilityTitle: LocalizedString.ItalicCommand.string),
 			UIKeyCommand(input: "d", modifierFlags: [.Command], action: #selector(inlineCode), discoverabilityTitle: LocalizedString.InlineCodeCommand.string),
 
-			UIKeyCommand(input: "]", modifierFlags: [.Command], action: #selector(indent), discoverabilityTitle: LocalizedString.IndentCommand.string),
-			UIKeyCommand(input: "\t", modifierFlags: [], action: #selector(indent)),
-			UIKeyCommand(input: "[", modifierFlags: [.Command], action: #selector(outdent), discoverabilityTitle: LocalizedString.OutdentCommand.string),
-			UIKeyCommand(input: "\t", modifierFlags: [.Shift], action: #selector(outdent))
+//			UIKeyCommand(input: "]", modifierFlags: [.Command], action: #selector(indent), discoverabilityTitle: LocalizedString.IndentCommand.string),
+//			UIKeyCommand(input: "\t", modifierFlags: [], action: #selector(indent)),
+//			UIKeyCommand(input: "[", modifierFlags: [.Command], action: #selector(outdent), discoverabilityTitle: LocalizedString.OutdentCommand.string),
+//			UIKeyCommand(input: "\t", modifierFlags: [.Shift], action: #selector(outdent))
 		]
 
 		let checkTitle: String
