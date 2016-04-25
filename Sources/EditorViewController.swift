@@ -18,7 +18,7 @@ final class EditorViewController: UIViewController, Accountable {
 	var account: Account
 	let canvas: Canvas
 
-	let textController = TextController()
+	let textController: TextController
 	let textView: UITextView
 	
 	private var ignoreSelectionChange = false
@@ -29,6 +29,13 @@ final class EditorViewController: UIViewController, Accountable {
 	init(account: Account, canvas: Canvas) {
 		self.account = account
 		self.canvas = canvas
+
+		textController = TextController(
+			serverURL: config.realtimeURL,
+			accessToken: account.accessToken,
+			organizationID: canvas.organization.ID,
+			canvasID: canvas.ID
+		)
 
 		let textView = CanvasTextView(frame: .zero, textContainer: textController.textContainer)
 		textView.translatesAutoresizingMaskIntoConstraints = false
@@ -41,6 +48,7 @@ final class EditorViewController: UIViewController, Accountable {
 		textController.annotationDelegate = textView
 		textView.delegate = self
 		textView.formattingDelegate = self
+		textView.editable = false
 
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillChangeFrame), name: UIKeyboardWillChangeFrameNotification, object: nil)
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updatePreventSleep), name: NSUserDefaultsDidChangeNotification, object: nil)
@@ -111,12 +119,7 @@ final class EditorViewController: UIViewController, Accountable {
 		textView.delegate = self
 		view.addSubview(textView)
 
-		textController.connect(
-			serverURL: config.realtimeURL,
-			accessToken: account.accessToken,
-			organizationID: canvas.organization.ID,
-			canvasID: canvas.ID
-		)
+		textController.connect()
 		
 		NSLayoutConstraint.activateConstraints([
 			textView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
@@ -141,11 +144,6 @@ final class EditorViewController: UIViewController, Accountable {
 
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
-
-		if canvas.isEmpty {
-			textView.becomeFirstResponder()
-		}
-
 		updatePreventSleep()
 	}
 
@@ -163,15 +161,15 @@ final class EditorViewController: UIViewController, Accountable {
 
 	// MARK: - Actions
 
-	func close(sender: AnyObject) {
+	@objc private func close(sender: UIAlertAction? = nil) {
 		navigationController?.popViewControllerAnimated(true)
 	}
 
-	func dismissKeyboard(sender: AnyObject?) {
+	@objc private func dismissKeyboard(sender: AnyObject?) {
 		textView.resignFirstResponder()
 	}
 
-	func share(sender: AnyObject?) {
+	@objc private func share(sender: AnyObject?) {
 		dismissKeyboard(sender)
 		
 		guard let URL = canvas.URL else { return }
@@ -189,40 +187,44 @@ final class EditorViewController: UIViewController, Accountable {
 		presentViewController(viewController, animated: true, completion: nil)
 	}
 
-	func check() {
+	@objc private func check() {
 		textController.toggleChecked()
 	}
 
-	func indent() {
+	@objc private func indent() {
 		textController.indent()
 	}
 
-	func outdent() {
+	@objc private func outdent() {
 		textController.outdent()
 	}
 
-	func bold() {
+	@objc private func bold() {
 		textController.bold()
 	}
 
-	func italic() {
+	@objc private func italic() {
 		textController.italic()
 	}
 
-	func inlineCode() {
+	@objc private func inlineCode() {
 		textController.inlineCode()
 	}
 	
-	func insertLineAfter() {
+	@objc private func insertLineAfter() {
 		textController.insertLineAfter()
 	}
 	
-	func insertLineBefore() {
+	@objc private func insertLineBefore() {
 		textController.insertLineBefore()
 	}
 	
-	func deleteLine() {
+	@objc private func deleteLine() {
 		textController.deleteLine()
+	}
+
+	@objc private func reload(sender: UIAlertAction? = nil) {
+		textController.connect()
 	}
 
 
@@ -325,6 +327,20 @@ extension EditorViewController: TextControllerConnectionDelegate {
 	func textController(textController: TextController, willConnectWithWebView webView: WKWebView) {
 		webView.frame = CGRect(x: 0, y: 0, width: 1, height: 1)
 		view.addSubview(webView)
+	}
+
+	func textControllerDidConnect(textController: TextController) {
+		textView.editable = true
+		textView.becomeFirstResponder()
+	}
+
+	func textController(textController: TextController, didDisconnectWithErrorMessage errorMessage: String?) {
+		textView.editable = false
+
+		let alert = UIAlertController(title: "Disconnected", message: "The connection to Canvas was lost. We will attempt to reconnect automatically.", preferredStyle: .Alert)
+		alert.addAction(UIAlertAction(title: "Close Canvas", style: .Destructive, handler: close))
+		alert.addAction(UIAlertAction(title: "Retry", style: .Default, handler: reload))
+		presentViewController(alert, animated: true, completion: nil)
 	}
 }
 

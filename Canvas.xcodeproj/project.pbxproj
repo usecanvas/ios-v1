@@ -714,7 +714,7 @@
 		2107D2FF1CC58F7B001963B7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2107D3001CC58F7B001963B7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		214F9FF61CC6DE4600927A07 /* CanvasTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasTextView.swift; sourceTree = "<group>"; };
-		21501DAA1CCAA2B900B02FC5 /* Canvsa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvsa.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		21501DAA1CCAA2B900B02FC5 /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		216453851CC145B400033B7F /* CanvasKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasKit.xcodeproj; path = CanvasKit/CanvasKit.xcodeproj; sourceTree = "<group>"; };
 		216453AC1CC145B400033B7F /* CanvasNative.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasNative.xcodeproj; path = CanvasNative/CanvasNative.xcodeproj; sourceTree = "<group>"; };
 		216453EB1CC145B400033B7F /* CanvasText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasText.xcodeproj; path = CanvasText/CanvasText.xcodeproj; sourceTree = "<group>"; };
@@ -1062,7 +1062,7 @@
 			isa = PBXGroup;
 			children = (
 				21F10F4A1BF138750035057D /* Canvas.app */,
-				21501DAA1CCAA2B900B02FC5 /* Canvsa.app */,
+				21501DAA1CCAA2B900B02FC5 /* Canvas.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1098,7 +1098,7 @@
 			);
 			name = "Canvas Dev";
 			productName = Canvas;
-			productReference = 21501DAA1CCAA2B900B02FC5 /* Canvsa.app */;
+			productReference = 21501DAA1CCAA2B900B02FC5 /* Canvas.app */;
 			productType = "com.apple.product-type.application";
 		};
 		21F10F491BF138750035057D /* Canvas */ = {
@@ -1920,7 +1920,7 @@
 					"$(PROJECT_DIR)/Carthage/Checkouts/HockeySDK-iOS/Support/HockeySDKTests/Vendor/OCMock",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.usecanvas.canvas.dev;
-				PRODUCT_NAME = Canvsa;
+				PRODUCT_NAME = Canvas;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1953,7 +1953,7 @@
 					"$(PROJECT_DIR)/Carthage/Checkouts/HockeySDK-iOS/Support/HockeySDKTests/Vendor/OCMock",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.usecanvas.canvas.dev;
-				PRODUCT_NAME = Canvsa;
+				PRODUCT_NAME = Canvas;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
