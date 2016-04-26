@@ -59,4 +59,16 @@ extension CanvasTextView: TextControllerAnnotationDelegate {
 	func textController(textController: TextController, willAddAnnotation annotation: Annotation) {
 		insertSubview(annotation.view, atIndex: 0)
 	}
+
+	func textController(textController: TextController, firstRectForRange range: NSRange) -> CGRect? {
+		guard let start = positionFromPosition(beginningOfDocument, offset: range.location),
+			end = positionFromPosition(start, offset: range.length),
+			textRange = textRangeFromPosition(start, toPosition: end)
+		else { return nil }
+
+		var rect = firstRectForRange(textRange)
+		rect.origin.y -= textContainerInset.top
+		rect.origin.x -= textContainerInset.left
+		return rect
+	}
 }
