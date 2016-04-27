@@ -49,6 +49,14 @@ final class LoginViewController: UIViewController {
 		return field
 	}()
 
+	let resetPasswordButton: UIButton = {
+		let button = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 44))
+		button.setImage(UIImage(named: "help"), forState: .Normal)
+		button.tintColor = .whiteColor()
+		button.adjustsImageWhenHighlighted = false
+		return button
+	}()
+
 	let submitButton: UIButton = {
 		let button = Button()
 		button.translatesAutoresizingMaskIntoConstraints = false
@@ -87,6 +95,10 @@ final class LoginViewController: UIViewController {
 
 		usernameTextField.delegate = self
 		passwordTextField.delegate = self
+
+		passwordTextField.rightViewMode = .Always
+		passwordTextField.rightView = resetPasswordButton
+		resetPasswordButton.addTarget(self, action: #selector(resetPassword), forControlEvents: .TouchUpInside)
 
 		submitButton.addTarget(self, action: #selector(signIn), forControlEvents: .TouchUpInside)
 
@@ -158,6 +170,11 @@ final class LoginViewController: UIViewController {
 				}
 			}
 		}
+	}
+
+	@objc private func resetPassword() {
+		let URL = NSURL(string: "https://usecanvas.com/password-reset")!
+		UIApplication.sharedApplication().openURL(URL)
 	}
 }
 
