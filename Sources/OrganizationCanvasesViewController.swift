@@ -83,7 +83,7 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 
 		results.delegate = self
 
-		searchViewController.searchBar.placeholder = LocalizedString.SearchIn(organizationName: organization.name).string
+		searchViewController.searchBar.placeholder = LocalizedString.SearchIn(organizationName: organization.displayName).string
 		searchViewController.searchResultsUpdater = searchController
 
 		searchController.callback = { [weak self] canvases in

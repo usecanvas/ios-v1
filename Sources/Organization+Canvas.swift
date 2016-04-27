@@ -11,6 +11,15 @@ import CanvasKit
 import Static
 
 extension Organization {
+	var isPersonalNotes: Bool {
+		guard let account = AccountController.sharedController.currentAccount else { return false }
+		return slug == account.user.username
+	}
+
+	var displayName: String {
+		return isPersonalNotes ? "Personal Notes" : name
+	}
+	
 	var row: Row {
 		// TODO: Localize
 		var detailText = "\(membersCount) member"
@@ -19,7 +28,7 @@ extension Organization {
 		}
 
 		return  Row(
-			text: name,
+			text: displayName,
 			detailText: detailText,
 			context: [
 				"organization": self

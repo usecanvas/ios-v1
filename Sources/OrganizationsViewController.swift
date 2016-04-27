@@ -152,7 +152,6 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 		orgs.removeAtIndex(personalIndex)
 
 		var personalRow = rowForOrganization(personal)
-		personalRow.text = "Personal Notes"
 		personalRow.cellClass = PersonalOrganizationCell.self
 
 		var sections = [
@@ -161,6 +160,8 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 
 		if orgs.count > 0 {
 			let rows = orgs.map { rowForOrganization($0) }
+
+			// TODO: Localize
 			sections.append(Section(header: "Organizations", rows: rows))
 		}
 
