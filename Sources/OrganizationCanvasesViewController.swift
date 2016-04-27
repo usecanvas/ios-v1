@@ -237,23 +237,11 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 	}
 
 	private func archiveCanvas(canvas: Canvas) {
-		let style: UIAlertControllerStyle = traitCollection.userInterfaceIdiom == .Pad ? .Alert : .ActionSheet
-		let actionSheet = AlertController(title: LocalizedString.ArchiveConfirmationMessage(canvasTitle: canvas.displayTitle).string, message: nil, preferredStyle: style)
-
-		let archive = { [weak self] in
-			guard let accessToken = self?.account.accessToken else { return }
-			APIClient(accessToken: accessToken, baseURL: config.baseURL).archiveCanvas(canvas: canvas) { _ in
-				dispatch_async(dispatch_get_main_queue()) {
-					self?.refresh()
-				}
+		APIClient(accessToken: account.accessToken, baseURL: config.baseURL).archiveCanvas(canvas: canvas) { _ in
+			dispatch_async(dispatch_get_main_queue()) { [weak self] in
+				self?.refresh()
 			}
 		}
-
-		actionSheet.addAction(UIAlertAction(title: LocalizedString.ArchiveButton.string, style: .Destructive) { _ in archive() })
-		actionSheet.addAction(UIAlertAction(title: LocalizedString.CancelButton.string, style: .Cancel, handler: nil))
-		actionSheet.primaryAction = archive
-
-		presentViewController(actionSheet, animated: true, completion: nil)
 	}
 
 
