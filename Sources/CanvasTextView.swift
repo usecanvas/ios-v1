@@ -109,7 +109,7 @@ final class CanvasTextView: TextView {
 			var frame = view.frame
 			frame.origin.x = sender.translationInView(self).x
 			view.frame = frame
-		case .Ended:
+		case .Ended, .Cancelled:
 			let cleanUp = { [weak self] in
 				self?.draggingBackgroundView?.removeFromSuperview()
 				self?.draggingBackgroundView = nil
