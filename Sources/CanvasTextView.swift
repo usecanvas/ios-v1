@@ -57,7 +57,12 @@ final class CanvasTextView: TextView {
 
 extension CanvasTextView: TextControllerAnnotationDelegate {
 	func textController(textController: TextController, willAddAnnotation annotation: Annotation) {
+		managedSubviews.insert(annotation.view)
 		insertSubview(annotation.view, atIndex: 0)
+	}
+
+	func textController(textController: TextController, willRemoveAnnotation annotation: Annotation) {
+		managedSubviews.remove(annotation.view)
 	}
 
 	func textController(textController: TextController, firstRectForRange range: NSRange) -> CGRect? {

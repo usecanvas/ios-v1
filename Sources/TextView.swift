@@ -11,12 +11,17 @@ import CanvasText
 
 class TextView: UITextView {
 
+	// MARK: - Properties
+
+	var managedSubviews = Set<UIView>()
+
+
 	// MARK: - UIView
 
 	// Allow subviews to receive user input
 	override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
-		for view in subviews {
-			if view.userInteractionEnabled && view.frame.contains(point) {
+		for view in managedSubviews {
+			if view.superview == self && view.userInteractionEnabled && view.frame.contains(point) {
 				return view
 			}
 		}
