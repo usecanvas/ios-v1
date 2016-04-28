@@ -260,26 +260,26 @@ extension EditorViewController: TintableEnvironment {
 
 extension EditorViewController: UIViewControllerPreviewingDelegate {
 	func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-//		guard let textRange = textView.characterRangeAtPoint(location) else { return nil }
-//
-//		let range = NSRange(
-//			location: textView.offsetFromPosition(textView.beginningOfDocument, toPosition: textRange.start),
-//			length: textView.offsetFromPosition(textRange.start, toPosition: textRange.end)
-//		)
-//
-//		let nodes = textStorage.nodesInBackingRange(textStorage.displayRangeToBackingRange(range))
-//
-//		guard let index = nodes.indexOf({ $0 is Link }),
-//			link = nodes[index] as? Link
-//		else { return nil }
-//
-//		let string = (textStorage.backingText as NSString).substringWithRange(link.urlRange)
-//		guard let URL = NSURL(string: string) else { return nil }
-//
-//		previewingContext.sourceRect = textView.firstRectForRange(textRange)
-//
-//		return WebViewController(URL: URL)
-		return nil
+		guard let textRange = textView.characterRangeAtPoint(location) else { return nil }
+
+		let range = NSRange(
+			location: textView.offsetFromPosition(textView.beginningOfDocument, toPosition: textRange.start),
+			length: textView.offsetFromPosition(textRange.start, toPosition: textRange.end)
+		)
+
+		let document = textController.currentDocument
+		let nodes = document.nodesIn(backingRange: document.backingRange(presentationRange: range))
+
+		guard let index = nodes.indexOf({ $0 is Link }),
+			link = nodes[index] as? Link
+		else { return nil }
+
+		let string = (document.backingString as NSString).substringWithRange(link.urlRange)
+		guard let URL = NSURL(string: string) else { return nil }
+
+		previewingContext.sourceRect = textView.firstRectForRange(textRange)
+
+		return WebViewController(URL: URL)
 	}
 
 	func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
