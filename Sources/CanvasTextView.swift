@@ -23,7 +23,6 @@ final class CanvasTextView: TextView {
 	private let gestureRecognizer: UIPanGestureRecognizer
 	private var draggingView: UIView?
 	private var draggingBackgroundView: UIView?
-	private var dragStartX: CGFloat = 0
 
 
 	// MARK: - Initializers
@@ -88,7 +87,9 @@ final class CanvasTextView: TextView {
 				rects = (selectionRectsForRange(lineTextRange) as? [UITextSelectionRect])?.map({ $0.rect })
 			else { return }
 
-			let rect = rects.filter { $0.size.width > 0 }.reduce(rects[0]) { CGRectUnion($0, $1) }
+			var rect = rects.filter { $0.size.width > 0 }.reduce(rects[0]) { CGRectUnion($0, $1) }
+			rect.origin.x = 0
+			rect.size.width = bounds.size.width
 
 			let background = UIView(frame: rect)
 			background.backgroundColor = .whiteColor()
@@ -103,18 +104,30 @@ final class CanvasTextView: TextView {
 			view.layer.mask = mask
 			draggingView = view
 			addSubview(view)
-
-			dragStartX = rect.origin.x
 		case .Changed:
 			guard let view = draggingView else { return }
 			var frame = view.frame
-			frame.origin.x = dragStartX + sender.translationInView(self).x
+			frame.origin.x = sender.translationInView(self).x
 			view.frame = frame
-		default:
-			draggingBackgroundView?.removeFromSuperview()
-			draggingBackgroundView = nil
-			draggingView?.removeFromSuperview()
-			draggingView = nil
+		case .Ended:
+			let cleanUp = { [weak self] in
+				self?.draggingBackgroundView?.removeFromSuperview()
+				self?.draggingBackgroundView = nil
+				self?.draggingView?.removeFromSuperview()
+				self?.draggingView = nil
+			}
+
+			guard let draggingView = draggingView else {
+				cleanUp()
+				return
+			}
+
+			UIView.animateWithDuration(0.2, delay: 0, options: [], animations: {
+				var frame = draggingView.frame
+				frame.origin.x = 0
+				draggingView.frame = frame
+			}, completion: { _ in cleanUp() })
+		default: return
 		}
 	}
 }
