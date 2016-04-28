@@ -20,14 +20,26 @@ final class CanvasTextView: TextView {
 
 	weak var formattingDelegate: CanvasTextViewFormattingDelegate?
 
+	private let gestureRecognizer: UIPanGestureRecognizer
+	private var draggingView: UIView?
+	private var draggingBackgroundView: UIView?
+	private var dragStartX: CGFloat = 0
+
 
 	// MARK: - Initializers
 
 	override init(frame: CGRect, textContainer: NSTextContainer?) {
+		gestureRecognizer = UIPanGestureRecognizer()
+
 		super.init(frame: frame, textContainer: textContainer)
+
 //		allowsEditingTextAttributes = true
 		alwaysBounceVertical = true
 		keyboardDismissMode = .Interactive
+
+		gestureRecognizer.addTarget(self, action: #selector(pan))
+		gestureRecognizer.delegate = self
+		addGestureRecognizer(gestureRecognizer)
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -53,6 +65,58 @@ final class CanvasTextView: TextView {
 
 		return super.canPerformAction(action, withSender: sender)
 	}
+
+
+	// MARK: - Private
+
+	@objc private func pan(sender: UIPanGestureRecognizer) {
+		switch sender.state {
+		case .Began:
+			let point = sender.locationInView(self)
+			guard let textRange = characterRangeAtPoint(point) else { return }
+
+			let range = NSRange(
+				location: offsetFromPosition(beginningOfDocument, toPosition: textRange.start),
+				length: 0
+			)
+
+			let lineRange = (text as NSString).lineRangeForRange(range)
+
+			guard let start = positionFromPosition(beginningOfDocument, offset: lineRange.location),
+				end = positionFromPosition(start, offset: lineRange.length),
+				lineTextRange = textRangeFromPosition(start, toPosition: end),
+				rects = (selectionRectsForRange(lineTextRange) as? [UITextSelectionRect])?.map({ $0.rect })
+			else { return }
+
+			let rect = rects.filter { $0.size.width > 0 }.reduce(rects[0]) { CGRectUnion($0, $1) }
+
+			let background = UIView(frame: rect)
+			background.backgroundColor = .whiteColor()
+			draggingBackgroundView = background
+			addSubview(background)
+
+			let view = snapshotViewAfterScreenUpdates(false)
+			let mask = CAShapeLayer()
+			mask.frame = view.layer.bounds
+			mask.path = UIBezierPath(rect: rect).CGPath
+
+			view.layer.mask = mask
+			draggingView = view
+			addSubview(view)
+
+			dragStartX = rect.origin.x
+		case .Changed:
+			guard let view = draggingView else { return }
+			var frame = view.frame
+			frame.origin.x = dragStartX + sender.translationInView(self).x
+			view.frame = frame
+		default:
+			draggingBackgroundView?.removeFromSuperview()
+			draggingBackgroundView = nil
+			draggingView?.removeFromSuperview()
+			draggingView = nil
+		}
+	}
 }
 
 
@@ -76,5 +140,16 @@ extension CanvasTextView: TextControllerAnnotationDelegate {
 		rect.origin.y -= textContainerInset.top
 		rect.origin.x -= textContainerInset.left
 		return rect
+	}
+}
+
+
+extension CanvasTextView: UIGestureRecognizerDelegate {
+	override func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+		if gestureRecognizer == self.gestureRecognizer {
+			return selectedRange.length == 0
+		}
+
+		return true
 	}
 }
