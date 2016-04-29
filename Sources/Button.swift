@@ -9,6 +9,18 @@
 import UIKit
 
 final class Button: UIButton {
+	
+	// MARK: - Properties
+	
+	var automaticallyAdjustsTitleColor = true {
+		didSet {
+			tintColorDidChange()
+		}
+	}
+	
+	
+	// MARK: - Initializers
+	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 
@@ -19,5 +31,16 @@ final class Button: UIButton {
 
 	required init?(coder aDecoder: NSCoder) {
 	    fatalError("init(coder:) has not been implemented")
+	}
+	
+	
+	// MARK: - UIView
+	
+	override func tintColorDidChange() {
+		super.tintColorDidChange()
+		
+		if automaticallyAdjustsTitleColor {
+			setTitleColor(tintColor, forState: .Normal)
+		}
 	}
 }

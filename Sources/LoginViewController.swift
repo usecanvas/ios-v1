@@ -61,7 +61,6 @@ final class LoginViewController: UIViewController {
 		let button = Button()
 		button.translatesAutoresizingMaskIntoConstraints = false
 		button.backgroundColor = Color.white
-		button.setTitleColor(Color.brand, forState: .Normal)
 		button.setTitle(LocalizedString.LoginButton.string, forState: .Normal)
 		return button
 	}()
