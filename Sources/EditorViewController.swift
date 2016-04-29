@@ -155,7 +155,7 @@ final class EditorViewController: UIViewController, Accountable {
 	
 	override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
 		super.traitCollectionDidChange(previousTraitCollection)
-		textController.horizontalSizeClass = traitCollection.horizontalSizeClass
+		textController.traitCollection = traitCollection
 	}
 	
 
