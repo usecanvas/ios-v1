@@ -163,10 +163,13 @@ final class LoginViewController: UIViewController {
 					Analytics.track(.LoggedIn)
 				}
 			case .Failure(let errorMessage):
-				print("Login error: \(errorMessage)")
 				dispatch_async(dispatch_get_main_queue()) { [weak self] in
 					self?.loading = false
 					self?.passwordTextField.becomeFirstResponder()
+					
+					let alert = UIAlertController(title: errorMessage, message: nil, preferredStyle: .Alert)
+					alert.addAction(UIAlertAction(title: LocalizedString.OK.string, style: .Cancel, handler: nil))
+					self?.presentViewController(alert, animated: true, completion: nil)
 				}
 			}
 		}
