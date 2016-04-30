@@ -100,466 +100,434 @@
 		21501D841CCAA2B900B02FC5 /* OrganizationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2E51CC58F7B001963B7 /* OrganizationCell.swift */; };
 		21501D851CCAA2B900B02FC5 /* UIFont+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2F21CC58F7B001963B7 /* UIFont+Canvas.swift */; };
 		21501D861CCAA2B900B02FC5 /* OrganizationAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2E31CC58F7B001963B7 /* OrganizationAvatarView.swift */; };
-		21501D881CCAA2B900B02FC5 /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216459951CC1465D00033B7F /* CanvasText.framework */; };
-		21501D891CCAA2B900B02FC5 /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216459841CC1465D00033B7F /* OnePasswordExtension.framework */; };
-		21501D8A1CCAA2B900B02FC5 /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216458B91CC145BF00033B7F /* CanvasKit.framework */; };
-		21501D8B1CCAA2B900B02FC5 /* CanvasNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216458CA1CC145C400033B7F /* CanvasNative.framework */; };
-		21501D8C1CCAA2B900B02FC5 /* GradientView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216458DE1CC145CD00033B7F /* GradientView.framework */; };
-		21501D8E1CCAA2B900B02FC5 /* ISO8601.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216458F91CC145DD00033B7F /* ISO8601.framework */; };
-		21501D8F1CCAA2B900B02FC5 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216459081CC145E100033B7F /* Mixpanel.framework */; };
-		21501D901CCAA2B900B02FC5 /* OperationTransport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216459181CC145E900033B7F /* OperationTransport.framework */; };
-		21501D911CCAA2B900B02FC5 /* SSKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216459291CC145EE00033B7F /* SSKeychain.framework */; };
-		21501D921CCAA2B900B02FC5 /* Static.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2164593C1CC145F100033B7F /* Static.framework */; };
 		21501D941CCAA2B900B02FC5 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2107D3001CC58F7B001963B7 /* Settings.bundle */; };
 		21501D951CCAA2B900B02FC5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2FD1CC58F7B001963B7 /* Localizable.strings */; };
 		21501D961CCAA2B900B02FC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2F91CC58F7B001963B7 /* Main.storyboard */; };
 		21501D971CCAA2B900B02FC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2F61CC58F7B001963B7 /* Assets.xcassets */; };
 		21501D981CCAA2B900B02FC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2F71CC58F7B001963B7 /* LaunchScreen.storyboard */; };
-		21501D9B1CCAA2B900B02FC5 /* CanvasKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216458B91CC145BF00033B7F /* CanvasKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		21501D9C1CCAA2B900B02FC5 /* CanvasNative.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216458CA1CC145C400033B7F /* CanvasNative.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		21501D9D1CCAA2B900B02FC5 /* CanvasText.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216459951CC1465D00033B7F /* CanvasText.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		21501D9E1CCAA2B900B02FC5 /* GradientView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216458DE1CC145CD00033B7F /* GradientView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		21501D9F1CCAA2B900B02FC5 /* ISO8601.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216458F91CC145DD00033B7F /* ISO8601.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		21501DA01CCAA2B900B02FC5 /* Mixpanel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216459081CC145E100033B7F /* Mixpanel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		21501DA11CCAA2B900B02FC5 /* OnePasswordExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216459841CC1465D00033B7F /* OnePasswordExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		21501DA21CCAA2B900B02FC5 /* OperationTransport.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216459181CC145E900033B7F /* OperationTransport.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		21501DA31CCAA2B900B02FC5 /* SSKeychain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216459291CC145EE00033B7F /* SSKeychain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		21501DA41CCAA2B900B02FC5 /* Static.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2164593C1CC145F100033B7F /* Static.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		216459531CC1461D00033B7F /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216458B91CC145BF00033B7F /* CanvasKit.framework */; };
-		216459541CC1461D00033B7F /* CanvasNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216458CA1CC145C400033B7F /* CanvasNative.framework */; };
-		216459551CC1461D00033B7F /* GradientView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216458DE1CC145CD00033B7F /* GradientView.framework */; };
-		216459571CC1461D00033B7F /* ISO8601.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216458F91CC145DD00033B7F /* ISO8601.framework */; };
-		216459581CC1461D00033B7F /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216459081CC145E100033B7F /* Mixpanel.framework */; };
-		216459591CC1461D00033B7F /* OperationTransport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216459181CC145E900033B7F /* OperationTransport.framework */; };
-		2164595A1CC1461D00033B7F /* SSKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216459291CC145EE00033B7F /* SSKeychain.framework */; };
-		2164595B1CC1461D00033B7F /* Static.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2164593C1CC145F100033B7F /* Static.framework */; };
-		2164599C1CC1467400033B7F /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216459951CC1465D00033B7F /* CanvasText.framework */; };
-		2164599D1CC1467400033B7F /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216459841CC1465D00033B7F /* OnePasswordExtension.framework */; };
-		2164599F1CC146AC00033B7F /* CanvasKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216458B91CC145BF00033B7F /* CanvasKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		216459A01CC146AC00033B7F /* CanvasNative.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216458CA1CC145C400033B7F /* CanvasNative.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		216459A11CC146AC00033B7F /* CanvasText.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216459951CC1465D00033B7F /* CanvasText.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		216459A21CC146AC00033B7F /* GradientView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216458DE1CC145CD00033B7F /* GradientView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		216459A31CC146AC00033B7F /* ISO8601.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216458F91CC145DD00033B7F /* ISO8601.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		216459A41CC146AC00033B7F /* Mixpanel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216459081CC145E100033B7F /* Mixpanel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		216459A51CC146AC00033B7F /* OnePasswordExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216459841CC1465D00033B7F /* OnePasswordExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		216459A61CC146AC00033B7F /* OperationTransport.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216459181CC145E900033B7F /* OperationTransport.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		216459A71CC146AC00033B7F /* SSKeychain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216459291CC145EE00033B7F /* SSKeychain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		216459A81CC146AC00033B7F /* Static.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2164593C1CC145F100033B7F /* Static.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		218383A11CD5177100F7AA24 /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9721CD516B800E2902C /* CanvasKit.framework */; };
+		218383A21CD5177100F7AA24 /* CanvasNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9831CD516BE00E2902C /* CanvasNative.framework */; };
+		218383A31CD5177100F7AA24 /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218383721CD5174800F7AA24 /* CanvasText.framework */; };
+		218383A41CD5177100F7AA24 /* ISO8601.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9971CD516C600E2902C /* ISO8601.framework */; };
+		218383A51CD5177100F7AA24 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9A61CD516CA00E2902C /* Mixpanel.framework */; };
+		218383A61CD5177100F7AA24 /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218383801CD5174800F7AA24 /* OnePasswordExtension.framework */; };
+		218383A71CD5177100F7AA24 /* OperationTransport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9B61CD516D500E2902C /* OperationTransport.framework */; };
+		218383A81CD5177100F7AA24 /* SSKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9C71CD516D900E2902C /* SSKeychain.framework */; };
+		218383A91CD5177100F7AA24 /* Static.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9DA1CD516DD00E2902C /* Static.framework */; };
+		218383AA1CD5178500F7AA24 /* CanvasKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9721CD516B800E2902C /* CanvasKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		218383AB1CD5178500F7AA24 /* CanvasNative.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9831CD516BE00E2902C /* CanvasNative.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		218383AC1CD5178500F7AA24 /* CanvasText.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 218383721CD5174800F7AA24 /* CanvasText.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		218383AD1CD5178500F7AA24 /* ISO8601.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9971CD516C600E2902C /* ISO8601.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		218383AE1CD5178500F7AA24 /* Mixpanel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9A61CD516CA00E2902C /* Mixpanel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		218383AF1CD5178500F7AA24 /* OnePasswordExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 218383801CD5174800F7AA24 /* OnePasswordExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		218383B01CD5178500F7AA24 /* OperationTransport.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9B61CD516D500E2902C /* OperationTransport.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		218383B11CD5178500F7AA24 /* SSKeychain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9C71CD516D900E2902C /* SSKeychain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		218383B21CD5178500F7AA24 /* Static.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9DA1CD516DD00E2902C /* Static.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		218383C51CD517D300F7AA24 /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9721CD516B800E2902C /* CanvasKit.framework */; };
+		218383C61CD517D300F7AA24 /* CanvasNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9831CD516BE00E2902C /* CanvasNative.framework */; };
+		218383C71CD517D300F7AA24 /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218383721CD5174800F7AA24 /* CanvasText.framework */; };
+		218383C81CD517D300F7AA24 /* ISO8601.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9971CD516C600E2902C /* ISO8601.framework */; };
+		218383C91CD517D300F7AA24 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9A61CD516CA00E2902C /* Mixpanel.framework */; };
+		218383CA1CD517D300F7AA24 /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218383801CD5174800F7AA24 /* OnePasswordExtension.framework */; };
+		218383CB1CD517D300F7AA24 /* OperationTransport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9B61CD516D500E2902C /* OperationTransport.framework */; };
+		218383CC1CD517D300F7AA24 /* SSKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9C71CD516D900E2902C /* SSKeychain.framework */; };
+		218383CD1CD517D300F7AA24 /* Static.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9DA1CD516DD00E2902C /* Static.framework */; };
+		218383CE1CD517E400F7AA24 /* CanvasKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9721CD516B800E2902C /* CanvasKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		218383CF1CD517E400F7AA24 /* CanvasNative.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9831CD516BE00E2902C /* CanvasNative.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		218383D01CD517E400F7AA24 /* CanvasText.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 218383721CD5174800F7AA24 /* CanvasText.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		218383D11CD517E400F7AA24 /* ISO8601.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9971CD516C600E2902C /* ISO8601.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		218383D21CD517E400F7AA24 /* Mixpanel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9A61CD516CA00E2902C /* Mixpanel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		218383D31CD517E400F7AA24 /* OnePasswordExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 218383801CD5174800F7AA24 /* OnePasswordExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		218383D41CD517E400F7AA24 /* OperationTransport.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9B61CD516D500E2902C /* OperationTransport.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		218383D51CD517E400F7AA24 /* SSKeychain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9C71CD516D900E2902C /* SSKeychain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		218383D61CD517E400F7AA24 /* Static.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9DA1CD516DD00E2902C /* Static.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		21501D451CCAA2B900B02FC5 /* PBXContainerItemProxy */ = {
+		218383711CD5174800F7AA24 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 216455EC1CC145B500033B7F /* OnePasswordExtension.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 9C3F4D8B1A59ACDC004B3ECE;
-			remoteInfo = OnePasswordExtension;
-		};
-		21501D471CCAA2B900B02FC5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216453EB1CC145B400033B7F /* CanvasText.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 211483C31C8A3034002CA206;
-			remoteInfo = "CanvasText-iOS";
-		};
-		21501D491CCAA2B900B02FC5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216453851CC145B400033B7F /* CanvasKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 21FB6ABA1BF53C9D003C82BB;
-			remoteInfo = "CanvasKit-iOS";
-		};
-		21501D4B1CCAA2B900B02FC5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216453AC1CC145B400033B7F /* CanvasNative.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 215BAB2C1C52B0C400118C8C;
-			remoteInfo = "CanvasNative-iOS";
-		};
-		21501D4D1CCAA2B900B02FC5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216454851CC145B400033B7F /* Gradient View.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 2163BA1F1A25FBFD00610B0C;
-			remoteInfo = GradientView;
-		};
-		21501D511CCAA2B900B02FC5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216455811CC145B500033B7F /* ISO8601.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 21B3A3D619894F4600322041;
-			remoteInfo = "ISO8601-iOS";
-		};
-		21501D531CCAA2B900B02FC5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2164559B1CC145B500033B7F /* Mixpanel.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 210B32411B37DDE2005F43F3;
-			remoteInfo = "Mixpanel-iOS";
-		};
-		21501D551CCAA2B900B02FC5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216455FC1CC145B500033B7F /* OperationTransport.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 215E6D241C7520BD00126FE9;
-			remoteInfo = "OperationTransport-iOS";
-		};
-		21501D571CCAA2B900B02FC5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2164560E1CC145B500033B7F /* SSKeychain.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = E8A666331A844CC400287CA3;
-			remoteInfo = "SSKeychain-iOS";
-		};
-		21501D591CCAA2B900B02FC5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2164563A1CC145B500033B7F /* Static.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 21826AA91B3F51A100AA9641;
-			remoteInfo = "Static-iOS";
-		};
-		216458B81CC145BF00033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216453851CC145B400033B7F /* CanvasKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21FB6ABB1BF53C9D003C82BB;
-			remoteInfo = "CanvasKit-iOS";
-		};
-		216458BA1CC145BF00033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216453851CC145B400033B7F /* CanvasKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21FB6AC51BF53C9D003C82BB;
-			remoteInfo = "CanvasKit-iOSTests";
-		};
-		216458BC1CC145BF00033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216453851CC145B400033B7F /* CanvasKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 216C4B971BF54AB100260B8E;
-			remoteInfo = "CanvasKit-OSX";
-		};
-		216458BE1CC145BF00033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216453851CC145B400033B7F /* CanvasKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 216C4BA01BF54AB100260B8E;
-			remoteInfo = "CanvasKit-OSXTests";
-		};
-		216458C91CC145C400033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216453AC1CC145B400033B7F /* CanvasNative.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 215BAB2D1C52B0C400118C8C;
-			remoteInfo = "CanvasNative-iOS";
-		};
-		216458CB1CC145C400033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216453AC1CC145B400033B7F /* CanvasNative.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 215BAB371C52B0C400118C8C;
-			remoteInfo = "CanvasNativeTests-iOS";
-		};
-		216458CD1CC145C400033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216453AC1CC145B400033B7F /* CanvasNative.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 215BAB4C1C52B18B00118C8C;
-			remoteInfo = "CanvasNative-OSX";
-		};
-		216458CF1CC145C400033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216453AC1CC145B400033B7F /* CanvasNative.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 215BAB551C52B18C00118C8C;
-			remoteInfo = "CanvasNativeTests-OSX";
-		};
-		216458D11CC145C400033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216453AC1CC145B400033B7F /* CanvasNative.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21632D161C92366600C40D7D;
-			remoteInfo = "CanvasNative-tvOS";
-		};
-		216458D31CC145C400033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216453AC1CC145B400033B7F /* CanvasNative.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21632D1F1C92366600C40D7D;
-			remoteInfo = "CanvasNativeTests-tvOS";
-		};
-		216458D51CC145C400033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216453AC1CC145B400033B7F /* CanvasNative.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21632CEA1C9235E400C40D7D;
-			remoteInfo = "CanvasNative-watchOS";
-		};
-		216458DB1CC145CD00033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216454851CC145B400033B7F /* Gradient View.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2163B9F61A25FBF000610B0C;
-			remoteInfo = Example;
-		};
-		216458DD1CC145CD00033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216454851CC145B400033B7F /* Gradient View.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2163BA201A25FBFD00610B0C;
-			remoteInfo = GradientView;
-		};
-		216458F81CC145DD00033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216455811CC145B500033B7F /* ISO8601.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21B3A3D719894F4600322041;
-			remoteInfo = "ISO8601-iOS";
-		};
-		216458FA1CC145DD00033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216455811CC145B500033B7F /* ISO8601.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21B3A3E219894F4600322041;
-			remoteInfo = "ISO8601-iOSTests";
-		};
-		216458FC1CC145DD00033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216455811CC145B500033B7F /* ISO8601.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 212539B61B1595FD00F29EF3;
-			remoteInfo = "ISO8601-OSX";
-		};
-		216458FE1CC145DD00033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216455811CC145B500033B7F /* ISO8601.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 212539C01B1595FD00F29EF3;
-			remoteInfo = "ISO8601-OSXTests";
-		};
-		216459071CC145E100033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2164559B1CC145B500033B7F /* Mixpanel.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 210B32421B37DDE2005F43F3;
-			remoteInfo = "Mixpanel-iOS";
-		};
-		216459091CC145E100033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2164559B1CC145B500033B7F /* Mixpanel.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 210B324C1B37DDE2005F43F3;
-			remoteInfo = "MixpanelTests-iOS";
-		};
-		2164590B1CC145E100033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2164559B1CC145B500033B7F /* Mixpanel.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 210B32631B37DE5B005F43F3;
-			remoteInfo = "Mixpanel-OSX";
-		};
-		2164590D1CC145E100033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2164559B1CC145B500033B7F /* Mixpanel.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 210B326C1B37DE5B005F43F3;
-			remoteInfo = "MixpanelTests-OSX";
-		};
-		2164590F1CC145E100033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2164559B1CC145B500033B7F /* Mixpanel.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 210B32871B37DED0005F43F3;
-			remoteInfo = "Mixpanel-watchOS";
-		};
-		216459171CC145E900033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216455FC1CC145B500033B7F /* OperationTransport.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 215E6D251C7520BD00126FE9;
-			remoteInfo = "OperationTransport-iOS";
-		};
-		216459191CC145E900033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216455FC1CC145B500033B7F /* OperationTransport.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 215E6D2F1C7520BD00126FE9;
-			remoteInfo = "OperationTransportTests-iOS";
-		};
-		2164591B1CC145E900033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216455FC1CC145B500033B7F /* OperationTransport.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 215E6D531C7532E200126FE9;
-			remoteInfo = "OperationTransport-OSX";
-		};
-		2164591D1CC145E900033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216455FC1CC145B500033B7F /* OperationTransport.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 215E6D5C1C7532E200126FE9;
-			remoteInfo = "OperationTransportTests-OSX";
-		};
-		216459281CC145EE00033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2164560E1CC145B500033B7F /* SSKeychain.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E8A666341A844CC400287CA3;
-			remoteInfo = "SSKeychain-iOS";
-		};
-		2164592A1CC145EE00033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2164560E1CC145B500033B7F /* SSKeychain.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E8A666551A844D3A00287CA3;
-			remoteInfo = "SSKeychainTests-iOS";
-		};
-		2164592C1CC145EE00033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2164560E1CC145B500033B7F /* SSKeychain.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E8A6666F1A844E4100287CA3;
-			remoteInfo = "SSKeychain-OSX";
-		};
-		2164592E1CC145EE00033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2164560E1CC145B500033B7F /* SSKeychain.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E8A666791A844E4100287CA3;
-			remoteInfo = "SSKeychainTests-OSX";
-		};
-		216459301CC145EE00033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2164560E1CC145B500033B7F /* SSKeychain.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21632D981C925A3C00C40D7D;
-			remoteInfo = "SSKeychain-tvOS";
-		};
-		216459321CC145EE00033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2164560E1CC145B500033B7F /* SSKeychain.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21632DA11C925A3C00C40D7D;
-			remoteInfo = "SSKeychainTests-tvOS";
-		};
-		216459341CC145EE00033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2164560E1CC145B500033B7F /* SSKeychain.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21632DBC1C925B1F00C40D7D;
-			remoteInfo = "SSKeychain-watchOS";
-		};
-		2164593B1CC145F100033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2164563A1CC145B500033B7F /* Static.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21826AAA1B3F51A100AA9641;
-			remoteInfo = "Static-iOS";
-		};
-		2164593D1CC145F100033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2164563A1CC145B500033B7F /* Static.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21826AB41B3F51A100AA9641;
-			remoteInfo = StaticTests;
-		};
-		2164593F1CC145F100033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2164563A1CC145B500033B7F /* Static.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 36748D4F1B5034EC0046F207;
-			remoteInfo = Example;
-		};
-		216459411CC1460800033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216453851CC145B400033B7F /* CanvasKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 21FB6ABA1BF53C9D003C82BB;
-			remoteInfo = "CanvasKit-iOS";
-		};
-		216459431CC1460800033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216453AC1CC145B400033B7F /* CanvasNative.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 215BAB2C1C52B0C400118C8C;
-			remoteInfo = "CanvasNative-iOS";
-		};
-		216459451CC1460800033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216454851CC145B400033B7F /* Gradient View.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 2163BA1F1A25FBFD00610B0C;
-			remoteInfo = GradientView;
-		};
-		216459491CC1460800033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216455811CC145B500033B7F /* ISO8601.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 21B3A3D619894F4600322041;
-			remoteInfo = "ISO8601-iOS";
-		};
-		2164594B1CC1460800033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2164559B1CC145B500033B7F /* Mixpanel.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 210B32411B37DDE2005F43F3;
-			remoteInfo = "Mixpanel-iOS";
-		};
-		2164594D1CC1460800033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216455FC1CC145B500033B7F /* OperationTransport.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 215E6D241C7520BD00126FE9;
-			remoteInfo = "OperationTransport-iOS";
-		};
-		2164594F1CC1460800033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2164560E1CC145B500033B7F /* SSKeychain.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = E8A666331A844CC400287CA3;
-			remoteInfo = "SSKeychain-iOS";
-		};
-		216459511CC1460800033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2164563A1CC145B500033B7F /* Static.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 21826AA91B3F51A100AA9641;
-			remoteInfo = "Static-iOS";
-		};
-		216459831CC1465D00033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216455EC1CC145B500033B7F /* OnePasswordExtension.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9C3F4D8C1A59ACDC004B3ECE;
-			remoteInfo = OnePasswordExtension;
-		};
-		216459941CC1465D00033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216453EB1CC145B400033B7F /* CanvasText.xcodeproj */;
+			containerPortal = 21B1E6F51CD516B000E2902C /* CanvasText.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 211483C41C8A3034002CA206;
 			remoteInfo = "CanvasText-iOS";
 		};
-		216459961CC1465D00033B7F /* PBXContainerItemProxy */ = {
+		218383731CD5174800F7AA24 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 216453EB1CC145B400033B7F /* CanvasText.xcodeproj */;
+			containerPortal = 21B1E6F51CD516B000E2902C /* CanvasText.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 211483CE1C8A3034002CA206;
 			remoteInfo = "CanvasTextTests-iOS";
 		};
-		216459981CC1466800033B7F /* PBXContainerItemProxy */ = {
+		2183837F1CD5174800F7AA24 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 216453EB1CC145B400033B7F /* CanvasText.xcodeproj */;
+			containerPortal = 21B1E9E31CD5170400E2902C /* OnePasswordExtension.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9C3F4D8C1A59ACDC004B3ECE;
+			remoteInfo = OnePasswordExtension;
+		};
+		2183838F1CD5175A00F7AA24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E68C1CD516B000E2902C /* CanvasKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 21FB6ABA1BF53C9D003C82BB;
+			remoteInfo = "CanvasKit-iOS";
+		};
+		218383911CD5175A00F7AA24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E6B21CD516B000E2902C /* CanvasNative.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 215BAB2C1C52B0C400118C8C;
+			remoteInfo = "CanvasNative-iOS";
+		};
+		218383931CD5175A00F7AA24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E6F51CD516B000E2902C /* CanvasText.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 211483C31C8A3034002CA206;
 			remoteInfo = "CanvasText-iOS";
 		};
-		2164599A1CC1466E00033B7F /* PBXContainerItemProxy */ = {
+		218383951CD5175A00F7AA24 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 216455EC1CC145B500033B7F /* OnePasswordExtension.xcodeproj */;
+			containerPortal = 21B1E73D1CD516B000E2902C /* ISO8601.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 21B3A3D619894F4600322041;
+			remoteInfo = "ISO8601-iOS";
+		};
+		218383971CD5175A00F7AA24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E75F1CD516B000E2902C /* Mixpanel.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 210B32411B37DDE2005F43F3;
+			remoteInfo = "Mixpanel-iOS";
+		};
+		218383991CD5175A00F7AA24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E9E31CD5170400E2902C /* OnePasswordExtension.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 9C3F4D8B1A59ACDC004B3ECE;
 			remoteInfo = OnePasswordExtension;
+		};
+		2183839B1CD5175A00F7AA24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E7B81CD516B000E2902C /* OperationTransport.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 215E6D241C7520BD00126FE9;
+			remoteInfo = "OperationTransport-iOS";
+		};
+		2183839D1CD5175A00F7AA24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E7CA1CD516B000E2902C /* SSKeychain.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E8A666331A844CC400287CA3;
+			remoteInfo = "SSKeychain-iOS";
+		};
+		2183839F1CD5175A00F7AA24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E7F61CD516B000E2902C /* Static.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 21826AA91B3F51A100AA9641;
+			remoteInfo = "Static-iOS";
+		};
+		218383B31CD517C800F7AA24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E68C1CD516B000E2902C /* CanvasKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 21FB6ABA1BF53C9D003C82BB;
+			remoteInfo = "CanvasKit-iOS";
+		};
+		218383B51CD517C800F7AA24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E6B21CD516B000E2902C /* CanvasNative.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 215BAB2C1C52B0C400118C8C;
+			remoteInfo = "CanvasNative-iOS";
+		};
+		218383B71CD517C800F7AA24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E6F51CD516B000E2902C /* CanvasText.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 211483C31C8A3034002CA206;
+			remoteInfo = "CanvasText-iOS";
+		};
+		218383B91CD517C800F7AA24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E73D1CD516B000E2902C /* ISO8601.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 21B3A3D619894F4600322041;
+			remoteInfo = "ISO8601-iOS";
+		};
+		218383BB1CD517C800F7AA24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E75F1CD516B000E2902C /* Mixpanel.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 210B32411B37DDE2005F43F3;
+			remoteInfo = "Mixpanel-iOS";
+		};
+		218383BD1CD517C800F7AA24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E9E31CD5170400E2902C /* OnePasswordExtension.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C3F4D8B1A59ACDC004B3ECE;
+			remoteInfo = OnePasswordExtension;
+		};
+		218383BF1CD517C800F7AA24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E7B81CD516B000E2902C /* OperationTransport.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 215E6D241C7520BD00126FE9;
+			remoteInfo = "OperationTransport-iOS";
+		};
+		218383C11CD517C800F7AA24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E7CA1CD516B000E2902C /* SSKeychain.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E8A666331A844CC400287CA3;
+			remoteInfo = "SSKeychain-iOS";
+		};
+		218383C31CD517C800F7AA24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E7F61CD516B000E2902C /* Static.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 21826AA91B3F51A100AA9641;
+			remoteInfo = "Static-iOS";
+		};
+		21B1E9711CD516B800E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E68C1CD516B000E2902C /* CanvasKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 21FB6ABB1BF53C9D003C82BB;
+			remoteInfo = "CanvasKit-iOS";
+		};
+		21B1E9731CD516B800E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E68C1CD516B000E2902C /* CanvasKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 21FB6AC51BF53C9D003C82BB;
+			remoteInfo = "CanvasKit-iOSTests";
+		};
+		21B1E9751CD516B800E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E68C1CD516B000E2902C /* CanvasKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 216C4B971BF54AB100260B8E;
+			remoteInfo = "CanvasKit-OSX";
+		};
+		21B1E9771CD516B800E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E68C1CD516B000E2902C /* CanvasKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 216C4BA01BF54AB100260B8E;
+			remoteInfo = "CanvasKit-OSXTests";
+		};
+		21B1E9821CD516BE00E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E6B21CD516B000E2902C /* CanvasNative.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 215BAB2D1C52B0C400118C8C;
+			remoteInfo = "CanvasNative-iOS";
+		};
+		21B1E9841CD516BE00E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E6B21CD516B000E2902C /* CanvasNative.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 215BAB371C52B0C400118C8C;
+			remoteInfo = "CanvasNativeTests-iOS";
+		};
+		21B1E9861CD516BE00E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E6B21CD516B000E2902C /* CanvasNative.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 215BAB4C1C52B18B00118C8C;
+			remoteInfo = "CanvasNative-OSX";
+		};
+		21B1E9881CD516BE00E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E6B21CD516B000E2902C /* CanvasNative.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 215BAB551C52B18C00118C8C;
+			remoteInfo = "CanvasNativeTests-OSX";
+		};
+		21B1E98A1CD516BE00E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E6B21CD516B000E2902C /* CanvasNative.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 21632D161C92366600C40D7D;
+			remoteInfo = "CanvasNative-tvOS";
+		};
+		21B1E98C1CD516BE00E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E6B21CD516B000E2902C /* CanvasNative.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 21632D1F1C92366600C40D7D;
+			remoteInfo = "CanvasNativeTests-tvOS";
+		};
+		21B1E98E1CD516BE00E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E6B21CD516B000E2902C /* CanvasNative.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 21632CEA1C9235E400C40D7D;
+			remoteInfo = "CanvasNative-watchOS";
+		};
+		21B1E9961CD516C600E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E73D1CD516B000E2902C /* ISO8601.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 21B3A3D719894F4600322041;
+			remoteInfo = "ISO8601-iOS";
+		};
+		21B1E9981CD516C600E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E73D1CD516B000E2902C /* ISO8601.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 21B3A3E219894F4600322041;
+			remoteInfo = "ISO8601Tests-iOS";
+		};
+		21B1E99A1CD516C600E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E73D1CD516B000E2902C /* ISO8601.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 212539B61B1595FD00F29EF3;
+			remoteInfo = "ISO8601-OSX";
+		};
+		21B1E99C1CD516C600E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E73D1CD516B000E2902C /* ISO8601.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 212539C01B1595FD00F29EF3;
+			remoteInfo = "ISO8601Tests-OSX";
+		};
+		21B1E9A51CD516CA00E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E75F1CD516B000E2902C /* Mixpanel.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 210B32421B37DDE2005F43F3;
+			remoteInfo = "Mixpanel-iOS";
+		};
+		21B1E9A71CD516CA00E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E75F1CD516B000E2902C /* Mixpanel.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 210B324C1B37DDE2005F43F3;
+			remoteInfo = "MixpanelTests-iOS";
+		};
+		21B1E9A91CD516CA00E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E75F1CD516B000E2902C /* Mixpanel.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 210B32631B37DE5B005F43F3;
+			remoteInfo = "Mixpanel-OSX";
+		};
+		21B1E9AB1CD516CA00E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E75F1CD516B000E2902C /* Mixpanel.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 210B326C1B37DE5B005F43F3;
+			remoteInfo = "MixpanelTests-OSX";
+		};
+		21B1E9AD1CD516CA00E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E75F1CD516B000E2902C /* Mixpanel.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 210B32871B37DED0005F43F3;
+			remoteInfo = "Mixpanel-watchOS";
+		};
+		21B1E9B51CD516D500E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E7B81CD516B000E2902C /* OperationTransport.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 215E6D251C7520BD00126FE9;
+			remoteInfo = "OperationTransport-iOS";
+		};
+		21B1E9B71CD516D500E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E7B81CD516B000E2902C /* OperationTransport.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 215E6D2F1C7520BD00126FE9;
+			remoteInfo = "OperationTransportTests-iOS";
+		};
+		21B1E9B91CD516D500E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E7B81CD516B000E2902C /* OperationTransport.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 215E6D531C7532E200126FE9;
+			remoteInfo = "OperationTransport-OSX";
+		};
+		21B1E9BB1CD516D500E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E7B81CD516B000E2902C /* OperationTransport.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 215E6D5C1C7532E200126FE9;
+			remoteInfo = "OperationTransportTests-OSX";
+		};
+		21B1E9C61CD516D900E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E7CA1CD516B000E2902C /* SSKeychain.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E8A666341A844CC400287CA3;
+			remoteInfo = "SSKeychain-iOS";
+		};
+		21B1E9C81CD516D900E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E7CA1CD516B000E2902C /* SSKeychain.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E8A666551A844D3A00287CA3;
+			remoteInfo = "SSKeychainTests-iOS";
+		};
+		21B1E9CA1CD516D900E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E7CA1CD516B000E2902C /* SSKeychain.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E8A6666F1A844E4100287CA3;
+			remoteInfo = "SSKeychain-OSX";
+		};
+		21B1E9CC1CD516D900E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E7CA1CD516B000E2902C /* SSKeychain.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E8A666791A844E4100287CA3;
+			remoteInfo = "SSKeychainTests-OSX";
+		};
+		21B1E9CE1CD516D900E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E7CA1CD516B000E2902C /* SSKeychain.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 21632D981C925A3C00C40D7D;
+			remoteInfo = "SSKeychain-tvOS";
+		};
+		21B1E9D01CD516D900E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E7CA1CD516B000E2902C /* SSKeychain.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 21632DA11C925A3C00C40D7D;
+			remoteInfo = "SSKeychainTests-tvOS";
+		};
+		21B1E9D21CD516D900E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E7CA1CD516B000E2902C /* SSKeychain.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 21632DBC1C925B1F00C40D7D;
+			remoteInfo = "SSKeychain-watchOS";
+		};
+		21B1E9D91CD516DD00E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E7F61CD516B000E2902C /* Static.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 21826AAA1B3F51A100AA9641;
+			remoteInfo = "Static-iOS";
+		};
+		21B1E9DB1CD516DD00E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E7F61CD516B000E2902C /* Static.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 21826AB41B3F51A100AA9641;
+			remoteInfo = StaticTests;
+		};
+		21B1E9DD1CD516DD00E2902C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E7F61CD516B000E2902C /* Static.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 36748D4F1B5034EC0046F207;
+			remoteInfo = Example;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -570,16 +538,15 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				21501D9B1CCAA2B900B02FC5 /* CanvasKit.framework in Embed Frameworks */,
-				21501D9C1CCAA2B900B02FC5 /* CanvasNative.framework in Embed Frameworks */,
-				21501D9D1CCAA2B900B02FC5 /* CanvasText.framework in Embed Frameworks */,
-				21501D9E1CCAA2B900B02FC5 /* GradientView.framework in Embed Frameworks */,
-				21501D9F1CCAA2B900B02FC5 /* ISO8601.framework in Embed Frameworks */,
-				21501DA01CCAA2B900B02FC5 /* Mixpanel.framework in Embed Frameworks */,
-				21501DA11CCAA2B900B02FC5 /* OnePasswordExtension.framework in Embed Frameworks */,
-				21501DA21CCAA2B900B02FC5 /* OperationTransport.framework in Embed Frameworks */,
-				21501DA31CCAA2B900B02FC5 /* SSKeychain.framework in Embed Frameworks */,
-				21501DA41CCAA2B900B02FC5 /* Static.framework in Embed Frameworks */,
+				218383CE1CD517E400F7AA24 /* CanvasKit.framework in Embed Frameworks */,
+				218383CF1CD517E400F7AA24 /* CanvasNative.framework in Embed Frameworks */,
+				218383D01CD517E400F7AA24 /* CanvasText.framework in Embed Frameworks */,
+				218383D11CD517E400F7AA24 /* ISO8601.framework in Embed Frameworks */,
+				218383D21CD517E400F7AA24 /* Mixpanel.framework in Embed Frameworks */,
+				218383D31CD517E400F7AA24 /* OnePasswordExtension.framework in Embed Frameworks */,
+				218383D41CD517E400F7AA24 /* OperationTransport.framework in Embed Frameworks */,
+				218383D51CD517E400F7AA24 /* SSKeychain.framework in Embed Frameworks */,
+				218383D61CD517E400F7AA24 /* Static.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -590,16 +557,15 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2164599F1CC146AC00033B7F /* CanvasKit.framework in Embed Frameworks */,
-				216459A01CC146AC00033B7F /* CanvasNative.framework in Embed Frameworks */,
-				216459A11CC146AC00033B7F /* CanvasText.framework in Embed Frameworks */,
-				216459A21CC146AC00033B7F /* GradientView.framework in Embed Frameworks */,
-				216459A31CC146AC00033B7F /* ISO8601.framework in Embed Frameworks */,
-				216459A41CC146AC00033B7F /* Mixpanel.framework in Embed Frameworks */,
-				216459A51CC146AC00033B7F /* OnePasswordExtension.framework in Embed Frameworks */,
-				216459A61CC146AC00033B7F /* OperationTransport.framework in Embed Frameworks */,
-				216459A71CC146AC00033B7F /* SSKeychain.framework in Embed Frameworks */,
-				216459A81CC146AC00033B7F /* Static.framework in Embed Frameworks */,
+				218383AA1CD5178500F7AA24 /* CanvasKit.framework in Embed Frameworks */,
+				218383AB1CD5178500F7AA24 /* CanvasNative.framework in Embed Frameworks */,
+				218383AC1CD5178500F7AA24 /* CanvasText.framework in Embed Frameworks */,
+				218383AD1CD5178500F7AA24 /* ISO8601.framework in Embed Frameworks */,
+				218383AE1CD5178500F7AA24 /* Mixpanel.framework in Embed Frameworks */,
+				218383AF1CD5178500F7AA24 /* OnePasswordExtension.framework in Embed Frameworks */,
+				218383B01CD5178500F7AA24 /* OperationTransport.framework in Embed Frameworks */,
+				218383B11CD5178500F7AA24 /* SSKeychain.framework in Embed Frameworks */,
+				218383B21CD5178500F7AA24 /* Static.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -660,16 +626,15 @@
 		2107D3001CC58F7B001963B7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		214F9FF61CC6DE4600927A07 /* CanvasTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasTextView.swift; sourceTree = "<group>"; };
 		21501DAA1CCAA2B900B02FC5 /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		216453851CC145B400033B7F /* CanvasKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasKit.xcodeproj; path = CanvasKit/CanvasKit.xcodeproj; sourceTree = "<group>"; };
-		216453AC1CC145B400033B7F /* CanvasNative.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasNative.xcodeproj; path = CanvasNative/CanvasNative.xcodeproj; sourceTree = "<group>"; };
-		216453EB1CC145B400033B7F /* CanvasText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasText.xcodeproj; path = CanvasText/CanvasText.xcodeproj; sourceTree = "<group>"; };
-		216454851CC145B400033B7F /* Gradient View.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Gradient View.xcodeproj"; path = "GradientView/Gradient View.xcodeproj"; sourceTree = "<group>"; };
-		216455811CC145B500033B7F /* ISO8601.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ISO8601.xcodeproj; path = ISO8601/ISO8601.xcodeproj; sourceTree = "<group>"; };
-		2164559B1CC145B500033B7F /* Mixpanel.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Mixpanel.xcodeproj; path = Mixpanel/Mixpanel.xcodeproj; sourceTree = "<group>"; };
-		216455EC1CC145B500033B7F /* OnePasswordExtension.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OnePasswordExtension.xcodeproj; path = "onepassword-app-extension/OnePasswordExtension.xcodeproj"; sourceTree = "<group>"; };
-		216455FC1CC145B500033B7F /* OperationTransport.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OperationTransport.xcodeproj; path = OperationTransport/OperationTransport.xcodeproj; sourceTree = "<group>"; };
-		2164560E1CC145B500033B7F /* SSKeychain.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSKeychain.xcodeproj; path = sskeychain/SSKeychain.xcodeproj; sourceTree = "<group>"; };
-		2164563A1CC145B500033B7F /* Static.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Static.xcodeproj; path = Static/Static.xcodeproj; sourceTree = "<group>"; };
+		21B1E68C1CD516B000E2902C /* CanvasKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasKit.xcodeproj; path = CanvasKit/CanvasKit.xcodeproj; sourceTree = "<group>"; };
+		21B1E6B21CD516B000E2902C /* CanvasNative.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasNative.xcodeproj; path = CanvasNative/CanvasNative.xcodeproj; sourceTree = "<group>"; };
+		21B1E6F51CD516B000E2902C /* CanvasText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasText.xcodeproj; path = CanvasText/CanvasText.xcodeproj; sourceTree = "<group>"; };
+		21B1E73D1CD516B000E2902C /* ISO8601.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ISO8601.xcodeproj; path = ISO8601/ISO8601.xcodeproj; sourceTree = "<group>"; };
+		21B1E75F1CD516B000E2902C /* Mixpanel.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Mixpanel.xcodeproj; path = Mixpanel/Mixpanel.xcodeproj; sourceTree = "<group>"; };
+		21B1E7B81CD516B000E2902C /* OperationTransport.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OperationTransport.xcodeproj; path = OperationTransport/OperationTransport.xcodeproj; sourceTree = "<group>"; };
+		21B1E7CA1CD516B000E2902C /* SSKeychain.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSKeychain.xcodeproj; path = SSKeychain/SSKeychain.xcodeproj; sourceTree = "<group>"; };
+		21B1E7F61CD516B000E2902C /* Static.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Static.xcodeproj; path = Static/Static.xcodeproj; sourceTree = "<group>"; };
+		21B1E9E31CD5170400E2902C /* OnePasswordExtension.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OnePasswordExtension.xcodeproj; path = OnePassword/OnePasswordExtension.xcodeproj; sourceTree = "<group>"; };
 		21F10F4A1BF138750035057D /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -678,16 +643,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21501D881CCAA2B900B02FC5 /* CanvasText.framework in Frameworks */,
-				21501D891CCAA2B900B02FC5 /* OnePasswordExtension.framework in Frameworks */,
-				21501D8A1CCAA2B900B02FC5 /* CanvasKit.framework in Frameworks */,
-				21501D8B1CCAA2B900B02FC5 /* CanvasNative.framework in Frameworks */,
-				21501D8C1CCAA2B900B02FC5 /* GradientView.framework in Frameworks */,
-				21501D8E1CCAA2B900B02FC5 /* ISO8601.framework in Frameworks */,
-				21501D8F1CCAA2B900B02FC5 /* Mixpanel.framework in Frameworks */,
-				21501D901CCAA2B900B02FC5 /* OperationTransport.framework in Frameworks */,
-				21501D911CCAA2B900B02FC5 /* SSKeychain.framework in Frameworks */,
-				21501D921CCAA2B900B02FC5 /* Static.framework in Frameworks */,
+				218383C51CD517D300F7AA24 /* CanvasKit.framework in Frameworks */,
+				218383C61CD517D300F7AA24 /* CanvasNative.framework in Frameworks */,
+				218383C71CD517D300F7AA24 /* CanvasText.framework in Frameworks */,
+				218383C81CD517D300F7AA24 /* ISO8601.framework in Frameworks */,
+				218383C91CD517D300F7AA24 /* Mixpanel.framework in Frameworks */,
+				218383CA1CD517D300F7AA24 /* OnePasswordExtension.framework in Frameworks */,
+				218383CB1CD517D300F7AA24 /* OperationTransport.framework in Frameworks */,
+				218383CC1CD517D300F7AA24 /* SSKeychain.framework in Frameworks */,
+				218383CD1CD517D300F7AA24 /* Static.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -695,16 +659,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2164599C1CC1467400033B7F /* CanvasText.framework in Frameworks */,
-				2164599D1CC1467400033B7F /* OnePasswordExtension.framework in Frameworks */,
-				216459531CC1461D00033B7F /* CanvasKit.framework in Frameworks */,
-				216459541CC1461D00033B7F /* CanvasNative.framework in Frameworks */,
-				216459551CC1461D00033B7F /* GradientView.framework in Frameworks */,
-				216459571CC1461D00033B7F /* ISO8601.framework in Frameworks */,
-				216459581CC1461D00033B7F /* Mixpanel.framework in Frameworks */,
-				216459591CC1461D00033B7F /* OperationTransport.framework in Frameworks */,
-				2164595A1CC1461D00033B7F /* SSKeychain.framework in Frameworks */,
-				2164595B1CC1461D00033B7F /* Static.framework in Frameworks */,
+				218383A11CD5177100F7AA24 /* CanvasKit.framework in Frameworks */,
+				218383A21CD5177100F7AA24 /* CanvasNative.framework in Frameworks */,
+				218383A31CD5177100F7AA24 /* CanvasText.framework in Frameworks */,
+				218383A41CD5177100F7AA24 /* ISO8601.framework in Frameworks */,
+				218383A51CD5177100F7AA24 /* Mixpanel.framework in Frameworks */,
+				218383A61CD5177100F7AA24 /* OnePasswordExtension.framework in Frameworks */,
+				218383A71CD5177100F7AA24 /* OperationTransport.framework in Frameworks */,
+				218383A81CD5177100F7AA24 /* SSKeychain.framework in Frameworks */,
+				218383A91CD5177100F7AA24 /* Static.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -849,129 +812,118 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		216453821CC145B400033B7F /* Vendor */ = {
+		218383601CD5174800F7AA24 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				216453851CC145B400033B7F /* CanvasKit.xcodeproj */,
-				216453AC1CC145B400033B7F /* CanvasNative.xcodeproj */,
-				216453EB1CC145B400033B7F /* CanvasText.xcodeproj */,
-				216454851CC145B400033B7F /* Gradient View.xcodeproj */,
-				216455811CC145B500033B7F /* ISO8601.xcodeproj */,
-				2164559B1CC145B500033B7F /* Mixpanel.xcodeproj */,
-				216455EC1CC145B500033B7F /* OnePasswordExtension.xcodeproj */,
-				216455FC1CC145B500033B7F /* OperationTransport.xcodeproj */,
-				2164560E1CC145B500033B7F /* SSKeychain.xcodeproj */,
-				2164563A1CC145B500033B7F /* Static.xcodeproj */,
-			);
-			name = Vendor;
-			path = Carthage/Checkouts;
-			sourceTree = "<group>";
-		};
-		216458B21CC145BF00033B7F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				216458B91CC145BF00033B7F /* CanvasKit.framework */,
-				216458BB1CC145BF00033B7F /* CanvasKit-iOSTests.xctest */,
-				216458BD1CC145BF00033B7F /* CanvasKit.framework */,
-				216458BF1CC145BF00033B7F /* CanvasKit-OSXTests.xctest */,
+				218383801CD5174800F7AA24 /* OnePasswordExtension.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		216458C01CC145C400033B7F /* Products */ = {
+		218383621CD5174800F7AA24 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				216458CA1CC145C400033B7F /* CanvasNative.framework */,
-				216458CC1CC145C400033B7F /* CanvasNativeTests.xctest */,
-				216458CE1CC145C400033B7F /* CanvasNative.framework */,
-				216458D01CC145C400033B7F /* CanvasNativeTests.xctest */,
-				216458D21CC145C400033B7F /* CanvasNative.framework */,
-				216458D41CC145C400033B7F /* CanvasNativeTests.xctest */,
-				216458D61CC145C400033B7F /* CanvasNative.framework */,
+				218383721CD5174800F7AA24 /* CanvasText.framework */,
+				218383741CD5174800F7AA24 /* CanvasTextTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		216458D71CC145CD00033B7F /* Products */ = {
+		21B1E6891CD516B000E2902C /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				216458DC1CC145CD00033B7F /* Example.app */,
-				216458DE1CC145CD00033B7F /* GradientView.framework */,
+				21B1E68C1CD516B000E2902C /* CanvasKit.xcodeproj */,
+				21B1E6B21CD516B000E2902C /* CanvasNative.xcodeproj */,
+				21B1E6F51CD516B000E2902C /* CanvasText.xcodeproj */,
+				21B1E73D1CD516B000E2902C /* ISO8601.xcodeproj */,
+				21B1E75F1CD516B000E2902C /* Mixpanel.xcodeproj */,
+				21B1E9E31CD5170400E2902C /* OnePasswordExtension.xcodeproj */,
+				21B1E7B81CD516B000E2902C /* OperationTransport.xcodeproj */,
+				21B1E7CA1CD516B000E2902C /* SSKeychain.xcodeproj */,
+				21B1E7F61CD516B000E2902C /* Static.xcodeproj */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		21B1E96B1CD516B800E2902C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				21B1E9721CD516B800E2902C /* CanvasKit.framework */,
+				21B1E9741CD516B800E2902C /* CanvasKit-iOSTests.xctest */,
+				21B1E9761CD516B800E2902C /* CanvasKit.framework */,
+				21B1E9781CD516B800E2902C /* CanvasKit-OSXTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		216458F21CC145DD00033B7F /* Products */ = {
+		21B1E9791CD516BE00E2902C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				216458F91CC145DD00033B7F /* ISO8601.framework */,
-				216458FB1CC145DD00033B7F /* ISO8601Tests-iOS.xctest */,
-				216458FD1CC145DD00033B7F /* ISO8601.framework */,
-				216458FF1CC145DD00033B7F /* ISO8601Tests-OSX.xctest */,
+				21B1E9831CD516BE00E2902C /* CanvasNative.framework */,
+				21B1E9851CD516BE00E2902C /* CanvasNativeTests.xctest */,
+				21B1E9871CD516BE00E2902C /* CanvasNative.framework */,
+				21B1E9891CD516BE00E2902C /* CanvasNativeTests.xctest */,
+				21B1E98B1CD516BE00E2902C /* CanvasNative.framework */,
+				21B1E98D1CD516BE00E2902C /* CanvasNativeTests.xctest */,
+				21B1E98F1CD516BE00E2902C /* CanvasNative.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		216459001CC145E100033B7F /* Products */ = {
+		21B1E9901CD516C600E2902C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				216459081CC145E100033B7F /* Mixpanel.framework */,
-				2164590A1CC145E100033B7F /* MixpanelTests-iOS.xctest */,
-				2164590C1CC145E100033B7F /* Mixpanel.framework */,
-				2164590E1CC145E100033B7F /* MixpanelTests-OSX.xctest */,
-				216459101CC145E100033B7F /* Mixpanel.framework */,
+				21B1E9971CD516C600E2902C /* ISO8601.framework */,
+				21B1E9991CD516C600E2902C /* ISO8601Tests-iOS.xctest */,
+				21B1E99B1CD516C600E2902C /* ISO8601.framework */,
+				21B1E99D1CD516C600E2902C /* ISO8601Tests-OSX.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		216459111CC145E900033B7F /* Products */ = {
+		21B1E99E1CD516CA00E2902C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				216459181CC145E900033B7F /* OperationTransport.framework */,
-				2164591A1CC145E900033B7F /* OperationTransportTests.xctest */,
-				2164591C1CC145E900033B7F /* OperationTransport.framework */,
-				2164591E1CC145E900033B7F /* OperationTransportTests.xctest */,
+				21B1E9A61CD516CA00E2902C /* Mixpanel.framework */,
+				21B1E9A81CD516CA00E2902C /* MixpanelTests-iOS.xctest */,
+				21B1E9AA1CD516CA00E2902C /* Mixpanel.framework */,
+				21B1E9AC1CD516CA00E2902C /* MixpanelTests-OSX.xctest */,
+				21B1E9AE1CD516CA00E2902C /* Mixpanel.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2164591F1CC145EE00033B7F /* Products */ = {
+		21B1E9AF1CD516D500E2902C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				216459291CC145EE00033B7F /* SSKeychain.framework */,
-				2164592B1CC145EE00033B7F /* SSKeychainTests-iOS.xctest */,
-				2164592D1CC145EE00033B7F /* SSKeychain.framework */,
-				2164592F1CC145EE00033B7F /* SSKeychainTests-OSX.xctest */,
-				216459311CC145EE00033B7F /* SSKeychain.framework */,
-				216459331CC145EE00033B7F /* SSKeychainTests.xctest */,
-				216459351CC145EE00033B7F /* SSKeychain.framework */,
+				21B1E9B61CD516D500E2902C /* OperationTransport.framework */,
+				21B1E9B81CD516D500E2902C /* OperationTransportTests.xctest */,
+				21B1E9BA1CD516D500E2902C /* OperationTransport.framework */,
+				21B1E9BC1CD516D500E2902C /* OperationTransportTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		216459361CC145F100033B7F /* Products */ = {
+		21B1E9BD1CD516D900E2902C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2164593C1CC145F100033B7F /* Static.framework */,
-				2164593E1CC145F100033B7F /* StaticTests.xctest */,
-				216459401CC145F100033B7F /* Example.app */,
+				21B1E9C71CD516D900E2902C /* SSKeychain.framework */,
+				21B1E9C91CD516D900E2902C /* SSKeychainTests-iOS.xctest */,
+				21B1E9CB1CD516D900E2902C /* SSKeychain.framework */,
+				21B1E9CD1CD516D900E2902C /* SSKeychainTests-OSX.xctest */,
+				21B1E9CF1CD516D900E2902C /* SSKeychain.framework */,
+				21B1E9D11CD516D900E2902C /* SSKeychainTests.xctest */,
+				21B1E9D31CD516D900E2902C /* SSKeychain.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		216459691CC1465D00033B7F /* Products */ = {
+		21B1E9D41CD516DD00E2902C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				216459841CC1465D00033B7F /* OnePasswordExtension.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		216459901CC1465D00033B7F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				216459951CC1465D00033B7F /* CanvasText.framework */,
-				216459971CC1465D00033B7F /* CanvasTextTests.xctest */,
+				21B1E9DA1CD516DD00E2902C /* Static.framework */,
+				21B1E9DC1CD516DD00E2902C /* StaticTests.xctest */,
+				21B1E9DE1CD516DD00E2902C /* Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -981,7 +933,7 @@
 			children = (
 				2107D2C81CC58F7A001963B7 /* Sources */,
 				2107D2F51CC58F7B001963B7 /* Support */,
-				216453821CC145B400033B7F /* Vendor */,
+				21B1E6891CD516B000E2902C /* Vendor */,
 				21F10F4B1BF138750035057D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -1013,16 +965,15 @@
 			buildRules = (
 			);
 			dependencies = (
-				21501D441CCAA2B900B02FC5 /* PBXTargetDependency */,
-				21501D461CCAA2B900B02FC5 /* PBXTargetDependency */,
-				21501D481CCAA2B900B02FC5 /* PBXTargetDependency */,
-				21501D4A1CCAA2B900B02FC5 /* PBXTargetDependency */,
-				21501D4C1CCAA2B900B02FC5 /* PBXTargetDependency */,
-				21501D501CCAA2B900B02FC5 /* PBXTargetDependency */,
-				21501D521CCAA2B900B02FC5 /* PBXTargetDependency */,
-				21501D541CCAA2B900B02FC5 /* PBXTargetDependency */,
-				21501D561CCAA2B900B02FC5 /* PBXTargetDependency */,
-				21501D581CCAA2B900B02FC5 /* PBXTargetDependency */,
+				218383B41CD517C800F7AA24 /* PBXTargetDependency */,
+				218383B61CD517C800F7AA24 /* PBXTargetDependency */,
+				218383B81CD517C800F7AA24 /* PBXTargetDependency */,
+				218383BA1CD517C800F7AA24 /* PBXTargetDependency */,
+				218383BC1CD517C800F7AA24 /* PBXTargetDependency */,
+				218383BE1CD517C800F7AA24 /* PBXTargetDependency */,
+				218383C01CD517C800F7AA24 /* PBXTargetDependency */,
+				218383C21CD517C800F7AA24 /* PBXTargetDependency */,
+				218383C41CD517C800F7AA24 /* PBXTargetDependency */,
 			);
 			name = "Canvas Dev";
 			productName = Canvas;
@@ -1043,16 +994,15 @@
 			buildRules = (
 			);
 			dependencies = (
-				2164599B1CC1466E00033B7F /* PBXTargetDependency */,
-				216459991CC1466800033B7F /* PBXTargetDependency */,
-				216459421CC1460800033B7F /* PBXTargetDependency */,
-				216459441CC1460800033B7F /* PBXTargetDependency */,
-				216459461CC1460800033B7F /* PBXTargetDependency */,
-				2164594A1CC1460800033B7F /* PBXTargetDependency */,
-				2164594C1CC1460800033B7F /* PBXTargetDependency */,
-				2164594E1CC1460800033B7F /* PBXTargetDependency */,
-				216459501CC1460800033B7F /* PBXTargetDependency */,
-				216459521CC1460800033B7F /* PBXTargetDependency */,
+				218383901CD5175A00F7AA24 /* PBXTargetDependency */,
+				218383921CD5175A00F7AA24 /* PBXTargetDependency */,
+				218383941CD5175A00F7AA24 /* PBXTargetDependency */,
+				218383961CD5175A00F7AA24 /* PBXTargetDependency */,
+				218383981CD5175A00F7AA24 /* PBXTargetDependency */,
+				2183839A1CD5175A00F7AA24 /* PBXTargetDependency */,
+				2183839C1CD5175A00F7AA24 /* PBXTargetDependency */,
+				2183839E1CD5175A00F7AA24 /* PBXTargetDependency */,
+				218383A01CD5175A00F7AA24 /* PBXTargetDependency */,
 			);
 			name = Canvas;
 			productName = Canvas;
@@ -1125,44 +1075,40 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 216458B21CC145BF00033B7F /* Products */;
-					ProjectRef = 216453851CC145B400033B7F /* CanvasKit.xcodeproj */;
+					ProductGroup = 21B1E96B1CD516B800E2902C /* Products */;
+					ProjectRef = 21B1E68C1CD516B000E2902C /* CanvasKit.xcodeproj */;
 				},
 				{
-					ProductGroup = 216458C01CC145C400033B7F /* Products */;
-					ProjectRef = 216453AC1CC145B400033B7F /* CanvasNative.xcodeproj */;
+					ProductGroup = 21B1E9791CD516BE00E2902C /* Products */;
+					ProjectRef = 21B1E6B21CD516B000E2902C /* CanvasNative.xcodeproj */;
 				},
 				{
-					ProductGroup = 216459901CC1465D00033B7F /* Products */;
-					ProjectRef = 216453EB1CC145B400033B7F /* CanvasText.xcodeproj */;
+					ProductGroup = 218383621CD5174800F7AA24 /* Products */;
+					ProjectRef = 21B1E6F51CD516B000E2902C /* CanvasText.xcodeproj */;
 				},
 				{
-					ProductGroup = 216458D71CC145CD00033B7F /* Products */;
-					ProjectRef = 216454851CC145B400033B7F /* Gradient View.xcodeproj */;
+					ProductGroup = 21B1E9901CD516C600E2902C /* Products */;
+					ProjectRef = 21B1E73D1CD516B000E2902C /* ISO8601.xcodeproj */;
 				},
 				{
-					ProductGroup = 216458F21CC145DD00033B7F /* Products */;
-					ProjectRef = 216455811CC145B500033B7F /* ISO8601.xcodeproj */;
+					ProductGroup = 21B1E99E1CD516CA00E2902C /* Products */;
+					ProjectRef = 21B1E75F1CD516B000E2902C /* Mixpanel.xcodeproj */;
 				},
 				{
-					ProductGroup = 216459001CC145E100033B7F /* Products */;
-					ProjectRef = 2164559B1CC145B500033B7F /* Mixpanel.xcodeproj */;
+					ProductGroup = 218383601CD5174800F7AA24 /* Products */;
+					ProjectRef = 21B1E9E31CD5170400E2902C /* OnePasswordExtension.xcodeproj */;
 				},
 				{
-					ProductGroup = 216459691CC1465D00033B7F /* Products */;
-					ProjectRef = 216455EC1CC145B500033B7F /* OnePasswordExtension.xcodeproj */;
+					ProductGroup = 21B1E9AF1CD516D500E2902C /* Products */;
+					ProjectRef = 21B1E7B81CD516B000E2902C /* OperationTransport.xcodeproj */;
 				},
 				{
-					ProductGroup = 216459111CC145E900033B7F /* Products */;
-					ProjectRef = 216455FC1CC145B500033B7F /* OperationTransport.xcodeproj */;
+					ProductGroup = 21B1E9BD1CD516D900E2902C /* Products */;
+					ProjectRef = 21B1E7CA1CD516B000E2902C /* SSKeychain.xcodeproj */;
 				},
 				{
-					ProductGroup = 2164591F1CC145EE00033B7F /* Products */;
-					ProjectRef = 2164560E1CC145B500033B7F /* SSKeychain.xcodeproj */;
-				},
-				{
-					ProductGroup = 216459361CC145F100033B7F /* Products */;
-					ProjectRef = 2164563A1CC145B500033B7F /* Static.xcodeproj */;
+					ProductGroup = 21B1E9D41CD516DD00E2902C /* Products */;
+					ProjectRef = 21B1E7F61CD516B000E2902C /* Static.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1174,277 +1120,263 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		216458B91CC145BF00033B7F /* CanvasKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CanvasKit.framework;
-			remoteRef = 216458B81CC145BF00033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216458BB1CC145BF00033B7F /* CanvasKit-iOSTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "CanvasKit-iOSTests.xctest";
-			remoteRef = 216458BA1CC145BF00033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216458BD1CC145BF00033B7F /* CanvasKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CanvasKit.framework;
-			remoteRef = 216458BC1CC145BF00033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216458BF1CC145BF00033B7F /* CanvasKit-OSXTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "CanvasKit-OSXTests.xctest";
-			remoteRef = 216458BE1CC145BF00033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216458CA1CC145C400033B7F /* CanvasNative.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CanvasNative.framework;
-			remoteRef = 216458C91CC145C400033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216458CC1CC145C400033B7F /* CanvasNativeTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = CanvasNativeTests.xctest;
-			remoteRef = 216458CB1CC145C400033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216458CE1CC145C400033B7F /* CanvasNative.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CanvasNative.framework;
-			remoteRef = 216458CD1CC145C400033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216458D01CC145C400033B7F /* CanvasNativeTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = CanvasNativeTests.xctest;
-			remoteRef = 216458CF1CC145C400033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216458D21CC145C400033B7F /* CanvasNative.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CanvasNative.framework;
-			remoteRef = 216458D11CC145C400033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216458D41CC145C400033B7F /* CanvasNativeTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = CanvasNativeTests.xctest;
-			remoteRef = 216458D31CC145C400033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216458D61CC145C400033B7F /* CanvasNative.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CanvasNative.framework;
-			remoteRef = 216458D51CC145C400033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216458DC1CC145CD00033B7F /* Example.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = Example.app;
-			remoteRef = 216458DB1CC145CD00033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216458DE1CC145CD00033B7F /* GradientView.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = GradientView.framework;
-			remoteRef = 216458DD1CC145CD00033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216458F91CC145DD00033B7F /* ISO8601.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ISO8601.framework;
-			remoteRef = 216458F81CC145DD00033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216458FB1CC145DD00033B7F /* ISO8601Tests-iOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "ISO8601Tests-iOS.xctest";
-			remoteRef = 216458FA1CC145DD00033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216458FD1CC145DD00033B7F /* ISO8601.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ISO8601.framework;
-			remoteRef = 216458FC1CC145DD00033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216458FF1CC145DD00033B7F /* ISO8601Tests-OSX.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "ISO8601Tests-OSX.xctest";
-			remoteRef = 216458FE1CC145DD00033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216459081CC145E100033B7F /* Mixpanel.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Mixpanel.framework;
-			remoteRef = 216459071CC145E100033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2164590A1CC145E100033B7F /* MixpanelTests-iOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "MixpanelTests-iOS.xctest";
-			remoteRef = 216459091CC145E100033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2164590C1CC145E100033B7F /* Mixpanel.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Mixpanel.framework;
-			remoteRef = 2164590B1CC145E100033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2164590E1CC145E100033B7F /* MixpanelTests-OSX.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "MixpanelTests-OSX.xctest";
-			remoteRef = 2164590D1CC145E100033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216459101CC145E100033B7F /* Mixpanel.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Mixpanel.framework;
-			remoteRef = 2164590F1CC145E100033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216459181CC145E900033B7F /* OperationTransport.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = OperationTransport.framework;
-			remoteRef = 216459171CC145E900033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2164591A1CC145E900033B7F /* OperationTransportTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = OperationTransportTests.xctest;
-			remoteRef = 216459191CC145E900033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2164591C1CC145E900033B7F /* OperationTransport.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = OperationTransport.framework;
-			remoteRef = 2164591B1CC145E900033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2164591E1CC145E900033B7F /* OperationTransportTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = OperationTransportTests.xctest;
-			remoteRef = 2164591D1CC145E900033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216459291CC145EE00033B7F /* SSKeychain.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SSKeychain.framework;
-			remoteRef = 216459281CC145EE00033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2164592B1CC145EE00033B7F /* SSKeychainTests-iOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "SSKeychainTests-iOS.xctest";
-			remoteRef = 2164592A1CC145EE00033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2164592D1CC145EE00033B7F /* SSKeychain.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SSKeychain.framework;
-			remoteRef = 2164592C1CC145EE00033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2164592F1CC145EE00033B7F /* SSKeychainTests-OSX.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "SSKeychainTests-OSX.xctest";
-			remoteRef = 2164592E1CC145EE00033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216459311CC145EE00033B7F /* SSKeychain.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SSKeychain.framework;
-			remoteRef = 216459301CC145EE00033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216459331CC145EE00033B7F /* SSKeychainTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = SSKeychainTests.xctest;
-			remoteRef = 216459321CC145EE00033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216459351CC145EE00033B7F /* SSKeychain.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SSKeychain.framework;
-			remoteRef = 216459341CC145EE00033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2164593C1CC145F100033B7F /* Static.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Static.framework;
-			remoteRef = 2164593B1CC145F100033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2164593E1CC145F100033B7F /* StaticTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = StaticTests.xctest;
-			remoteRef = 2164593D1CC145F100033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216459401CC145F100033B7F /* Example.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = Example.app;
-			remoteRef = 2164593F1CC145F100033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216459841CC1465D00033B7F /* OnePasswordExtension.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = OnePasswordExtension.framework;
-			remoteRef = 216459831CC1465D00033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216459951CC1465D00033B7F /* CanvasText.framework */ = {
+		218383721CD5174800F7AA24 /* CanvasText.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = CanvasText.framework;
-			remoteRef = 216459941CC1465D00033B7F /* PBXContainerItemProxy */;
+			remoteRef = 218383711CD5174800F7AA24 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		216459971CC1465D00033B7F /* CanvasTextTests.xctest */ = {
+		218383741CD5174800F7AA24 /* CanvasTextTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = CanvasTextTests.xctest;
-			remoteRef = 216459961CC1465D00033B7F /* PBXContainerItemProxy */;
+			remoteRef = 218383731CD5174800F7AA24 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		218383801CD5174800F7AA24 /* OnePasswordExtension.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OnePasswordExtension.framework;
+			remoteRef = 2183837F1CD5174800F7AA24 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E9721CD516B800E2902C /* CanvasKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CanvasKit.framework;
+			remoteRef = 21B1E9711CD516B800E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E9741CD516B800E2902C /* CanvasKit-iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "CanvasKit-iOSTests.xctest";
+			remoteRef = 21B1E9731CD516B800E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E9761CD516B800E2902C /* CanvasKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CanvasKit.framework;
+			remoteRef = 21B1E9751CD516B800E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E9781CD516B800E2902C /* CanvasKit-OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "CanvasKit-OSXTests.xctest";
+			remoteRef = 21B1E9771CD516B800E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E9831CD516BE00E2902C /* CanvasNative.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CanvasNative.framework;
+			remoteRef = 21B1E9821CD516BE00E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E9851CD516BE00E2902C /* CanvasNativeTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CanvasNativeTests.xctest;
+			remoteRef = 21B1E9841CD516BE00E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E9871CD516BE00E2902C /* CanvasNative.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CanvasNative.framework;
+			remoteRef = 21B1E9861CD516BE00E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E9891CD516BE00E2902C /* CanvasNativeTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CanvasNativeTests.xctest;
+			remoteRef = 21B1E9881CD516BE00E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E98B1CD516BE00E2902C /* CanvasNative.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CanvasNative.framework;
+			remoteRef = 21B1E98A1CD516BE00E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E98D1CD516BE00E2902C /* CanvasNativeTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CanvasNativeTests.xctest;
+			remoteRef = 21B1E98C1CD516BE00E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E98F1CD516BE00E2902C /* CanvasNative.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CanvasNative.framework;
+			remoteRef = 21B1E98E1CD516BE00E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E9971CD516C600E2902C /* ISO8601.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ISO8601.framework;
+			remoteRef = 21B1E9961CD516C600E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E9991CD516C600E2902C /* ISO8601Tests-iOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "ISO8601Tests-iOS.xctest";
+			remoteRef = 21B1E9981CD516C600E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E99B1CD516C600E2902C /* ISO8601.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ISO8601.framework;
+			remoteRef = 21B1E99A1CD516C600E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E99D1CD516C600E2902C /* ISO8601Tests-OSX.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "ISO8601Tests-OSX.xctest";
+			remoteRef = 21B1E99C1CD516C600E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E9A61CD516CA00E2902C /* Mixpanel.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Mixpanel.framework;
+			remoteRef = 21B1E9A51CD516CA00E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E9A81CD516CA00E2902C /* MixpanelTests-iOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "MixpanelTests-iOS.xctest";
+			remoteRef = 21B1E9A71CD516CA00E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E9AA1CD516CA00E2902C /* Mixpanel.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Mixpanel.framework;
+			remoteRef = 21B1E9A91CD516CA00E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E9AC1CD516CA00E2902C /* MixpanelTests-OSX.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "MixpanelTests-OSX.xctest";
+			remoteRef = 21B1E9AB1CD516CA00E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E9AE1CD516CA00E2902C /* Mixpanel.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Mixpanel.framework;
+			remoteRef = 21B1E9AD1CD516CA00E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E9B61CD516D500E2902C /* OperationTransport.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OperationTransport.framework;
+			remoteRef = 21B1E9B51CD516D500E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E9B81CD516D500E2902C /* OperationTransportTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = OperationTransportTests.xctest;
+			remoteRef = 21B1E9B71CD516D500E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E9BA1CD516D500E2902C /* OperationTransport.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OperationTransport.framework;
+			remoteRef = 21B1E9B91CD516D500E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E9BC1CD516D500E2902C /* OperationTransportTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = OperationTransportTests.xctest;
+			remoteRef = 21B1E9BB1CD516D500E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E9C71CD516D900E2902C /* SSKeychain.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SSKeychain.framework;
+			remoteRef = 21B1E9C61CD516D900E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E9C91CD516D900E2902C /* SSKeychainTests-iOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SSKeychainTests-iOS.xctest";
+			remoteRef = 21B1E9C81CD516D900E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E9CB1CD516D900E2902C /* SSKeychain.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SSKeychain.framework;
+			remoteRef = 21B1E9CA1CD516D900E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E9CD1CD516D900E2902C /* SSKeychainTests-OSX.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SSKeychainTests-OSX.xctest";
+			remoteRef = 21B1E9CC1CD516D900E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E9CF1CD516D900E2902C /* SSKeychain.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SSKeychain.framework;
+			remoteRef = 21B1E9CE1CD516D900E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E9D11CD516D900E2902C /* SSKeychainTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SSKeychainTests.xctest;
+			remoteRef = 21B1E9D01CD516D900E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E9D31CD516D900E2902C /* SSKeychain.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SSKeychain.framework;
+			remoteRef = 21B1E9D21CD516D900E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E9DA1CD516DD00E2902C /* Static.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Static.framework;
+			remoteRef = 21B1E9D91CD516DD00E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E9DC1CD516DD00E2902C /* StaticTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = StaticTests.xctest;
+			remoteRef = 21B1E9DB1CD516DD00E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21B1E9DE1CD516DD00E2902C /* Example.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Example.app;
+			remoteRef = 21B1E9DD1CD516DD00E2902C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1641,105 +1573,95 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		21501D441CCAA2B900B02FC5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = OnePasswordExtension;
-			targetProxy = 21501D451CCAA2B900B02FC5 /* PBXContainerItemProxy */;
-		};
-		21501D461CCAA2B900B02FC5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "CanvasText-iOS";
-			targetProxy = 21501D471CCAA2B900B02FC5 /* PBXContainerItemProxy */;
-		};
-		21501D481CCAA2B900B02FC5 /* PBXTargetDependency */ = {
+		218383901CD5175A00F7AA24 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "CanvasKit-iOS";
-			targetProxy = 21501D491CCAA2B900B02FC5 /* PBXContainerItemProxy */;
+			targetProxy = 2183838F1CD5175A00F7AA24 /* PBXContainerItemProxy */;
 		};
-		21501D4A1CCAA2B900B02FC5 /* PBXTargetDependency */ = {
+		218383921CD5175A00F7AA24 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "CanvasNative-iOS";
-			targetProxy = 21501D4B1CCAA2B900B02FC5 /* PBXContainerItemProxy */;
+			targetProxy = 218383911CD5175A00F7AA24 /* PBXContainerItemProxy */;
 		};
-		21501D4C1CCAA2B900B02FC5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = GradientView;
-			targetProxy = 21501D4D1CCAA2B900B02FC5 /* PBXContainerItemProxy */;
-		};
-		21501D501CCAA2B900B02FC5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "ISO8601-iOS";
-			targetProxy = 21501D511CCAA2B900B02FC5 /* PBXContainerItemProxy */;
-		};
-		21501D521CCAA2B900B02FC5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Mixpanel-iOS";
-			targetProxy = 21501D531CCAA2B900B02FC5 /* PBXContainerItemProxy */;
-		};
-		21501D541CCAA2B900B02FC5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "OperationTransport-iOS";
-			targetProxy = 21501D551CCAA2B900B02FC5 /* PBXContainerItemProxy */;
-		};
-		21501D561CCAA2B900B02FC5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "SSKeychain-iOS";
-			targetProxy = 21501D571CCAA2B900B02FC5 /* PBXContainerItemProxy */;
-		};
-		21501D581CCAA2B900B02FC5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Static-iOS";
-			targetProxy = 21501D591CCAA2B900B02FC5 /* PBXContainerItemProxy */;
-		};
-		216459421CC1460800033B7F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "CanvasKit-iOS";
-			targetProxy = 216459411CC1460800033B7F /* PBXContainerItemProxy */;
-		};
-		216459441CC1460800033B7F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "CanvasNative-iOS";
-			targetProxy = 216459431CC1460800033B7F /* PBXContainerItemProxy */;
-		};
-		216459461CC1460800033B7F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = GradientView;
-			targetProxy = 216459451CC1460800033B7F /* PBXContainerItemProxy */;
-		};
-		2164594A1CC1460800033B7F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "ISO8601-iOS";
-			targetProxy = 216459491CC1460800033B7F /* PBXContainerItemProxy */;
-		};
-		2164594C1CC1460800033B7F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Mixpanel-iOS";
-			targetProxy = 2164594B1CC1460800033B7F /* PBXContainerItemProxy */;
-		};
-		2164594E1CC1460800033B7F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "OperationTransport-iOS";
-			targetProxy = 2164594D1CC1460800033B7F /* PBXContainerItemProxy */;
-		};
-		216459501CC1460800033B7F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "SSKeychain-iOS";
-			targetProxy = 2164594F1CC1460800033B7F /* PBXContainerItemProxy */;
-		};
-		216459521CC1460800033B7F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Static-iOS";
-			targetProxy = 216459511CC1460800033B7F /* PBXContainerItemProxy */;
-		};
-		216459991CC1466800033B7F /* PBXTargetDependency */ = {
+		218383941CD5175A00F7AA24 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "CanvasText-iOS";
-			targetProxy = 216459981CC1466800033B7F /* PBXContainerItemProxy */;
+			targetProxy = 218383931CD5175A00F7AA24 /* PBXContainerItemProxy */;
 		};
-		2164599B1CC1466E00033B7F /* PBXTargetDependency */ = {
+		218383961CD5175A00F7AA24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ISO8601-iOS";
+			targetProxy = 218383951CD5175A00F7AA24 /* PBXContainerItemProxy */;
+		};
+		218383981CD5175A00F7AA24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Mixpanel-iOS";
+			targetProxy = 218383971CD5175A00F7AA24 /* PBXContainerItemProxy */;
+		};
+		2183839A1CD5175A00F7AA24 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = OnePasswordExtension;
-			targetProxy = 2164599A1CC1466E00033B7F /* PBXContainerItemProxy */;
+			targetProxy = 218383991CD5175A00F7AA24 /* PBXContainerItemProxy */;
+		};
+		2183839C1CD5175A00F7AA24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "OperationTransport-iOS";
+			targetProxy = 2183839B1CD5175A00F7AA24 /* PBXContainerItemProxy */;
+		};
+		2183839E1CD5175A00F7AA24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SSKeychain-iOS";
+			targetProxy = 2183839D1CD5175A00F7AA24 /* PBXContainerItemProxy */;
+		};
+		218383A01CD5175A00F7AA24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Static-iOS";
+			targetProxy = 2183839F1CD5175A00F7AA24 /* PBXContainerItemProxy */;
+		};
+		218383B41CD517C800F7AA24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CanvasKit-iOS";
+			targetProxy = 218383B31CD517C800F7AA24 /* PBXContainerItemProxy */;
+		};
+		218383B61CD517C800F7AA24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CanvasNative-iOS";
+			targetProxy = 218383B51CD517C800F7AA24 /* PBXContainerItemProxy */;
+		};
+		218383B81CD517C800F7AA24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CanvasText-iOS";
+			targetProxy = 218383B71CD517C800F7AA24 /* PBXContainerItemProxy */;
+		};
+		218383BA1CD517C800F7AA24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ISO8601-iOS";
+			targetProxy = 218383B91CD517C800F7AA24 /* PBXContainerItemProxy */;
+		};
+		218383BC1CD517C800F7AA24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Mixpanel-iOS";
+			targetProxy = 218383BB1CD517C800F7AA24 /* PBXContainerItemProxy */;
+		};
+		218383BE1CD517C800F7AA24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OnePasswordExtension;
+			targetProxy = 218383BD1CD517C800F7AA24 /* PBXContainerItemProxy */;
+		};
+		218383C01CD517C800F7AA24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "OperationTransport-iOS";
+			targetProxy = 218383BF1CD517C800F7AA24 /* PBXContainerItemProxy */;
+		};
+		218383C21CD517C800F7AA24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SSKeychain-iOS";
+			targetProxy = 218383C11CD517C800F7AA24 /* PBXContainerItemProxy */;
+		};
+		218383C41CD517C800F7AA24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Static-iOS";
+			targetProxy = 218383C31CD517C800F7AA24 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

@@ -1,8 +1,0 @@
-github "usecanvas/CanvasKit" "master"
-github "usecanvas/CanvasText" "master"
-
-github "soffes/GradientView" "master"
-github "soffes/Mixpanel" "master"
-github "venmo/Static" "master"
-
-github "usecanvas/onepassword-app-extension" "add-framework-support"

@@ -9,7 +9,6 @@
 import UIKit
 import Static
 import CanvasKit
-import GradientView
 
 final class OrganizationCanvasesViewController: CanvasesViewController {
 
