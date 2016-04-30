@@ -9,10 +9,6 @@
 import UIKit
 import CanvasKit
 
-#if !DEBUG
-	import HockeySDK
-#endif
-
 @UIApplicationMain final class AppDelegate: UIResponder {
 
 	// MARK: - Properties
@@ -46,14 +42,6 @@ import CanvasKit
 
 extension AppDelegate: UIApplicationDelegate {
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-
-		// Crash reporting
-		#if !DEBUG
-			let hockey = BITHockeyManager.sharedHockeyManager()
-			hockey.configureWithIdentifier(config.hockeyIdentifier, delegate: self)
-			hockey.crashManager.crashManagerStatus = .AutoSend
-			hockey.startManager()
-		#endif
 
 		// Analytics
 		Analytics.track(.LaunchedApp)
@@ -103,23 +91,3 @@ extension AppDelegate: UIApplicationDelegate {
 		return true
 	}
 }
-
-
-#if !DEBUG
-	extension AppDelegate: BITHockeyManagerDelegate {
-		func userIDForHockeyManager(hockeyManager: BITHockeyManager!, componentManager: BITHockeyBaseManager!) -> String! {
-			let currentAccount = AccountController.sharedController.currentAccount
-			return currentAccount?.user.ID
-		}
-
-		func userNameForHockeyManager(hockeyManager: BITHockeyManager!, componentManager: BITHockeyBaseManager!) -> String! {
-			let currentAccount = AccountController.sharedController.currentAccount
-			return currentAccount?.user.username
-		}
-
-		func userEmailForHockeyManager(hockeyManager: BITHockeyManager!, componentManager: BITHockeyBaseManager!) -> String! {
-			let currentAccount = AccountController.sharedController.currentAccount
-			return currentAccount?.email
-		}
-	}
-#endif

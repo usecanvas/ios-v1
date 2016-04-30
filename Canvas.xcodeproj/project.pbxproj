@@ -55,7 +55,6 @@
 		2107D32F1CC58F7B001963B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2F91CC58F7B001963B7 /* Main.storyboard */; };
 		2107D3321CC58F7B001963B7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2FD1CC58F7B001963B7 /* Localizable.strings */; };
 		2107D3341CC58F7B001963B7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2107D3001CC58F7B001963B7 /* Settings.bundle */; };
-		2107D33E1CC5B190001963B7 /* HockeySDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216458EF1CC145D700033B7F /* HockeySDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		214F9FF71CC6DE4600927A07 /* CanvasTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214F9FF61CC6DE4600927A07 /* CanvasTextView.swift */; };
 		21501D5B1CCAA2B900B02FC5 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CD1CC58F7A001963B7 /* Button.swift */; };
 		21501D5C1CCAA2B900B02FC5 /* PersonalOrganizationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2E71CC58F7B001963B7 /* PersonalOrganizationCell.swift */; };
@@ -106,7 +105,6 @@
 		21501D8A1CCAA2B900B02FC5 /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216458B91CC145BF00033B7F /* CanvasKit.framework */; };
 		21501D8B1CCAA2B900B02FC5 /* CanvasNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216458CA1CC145C400033B7F /* CanvasNative.framework */; };
 		21501D8C1CCAA2B900B02FC5 /* GradientView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216458DE1CC145CD00033B7F /* GradientView.framework */; };
-		21501D8D1CCAA2B900B02FC5 /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216458EF1CC145D700033B7F /* HockeySDK.framework */; };
 		21501D8E1CCAA2B900B02FC5 /* ISO8601.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216458F91CC145DD00033B7F /* ISO8601.framework */; };
 		21501D8F1CCAA2B900B02FC5 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216459081CC145E100033B7F /* Mixpanel.framework */; };
 		21501D901CCAA2B900B02FC5 /* OperationTransport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216459181CC145E900033B7F /* OperationTransport.framework */; };
@@ -117,7 +115,6 @@
 		21501D961CCAA2B900B02FC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2F91CC58F7B001963B7 /* Main.storyboard */; };
 		21501D971CCAA2B900B02FC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2F61CC58F7B001963B7 /* Assets.xcassets */; };
 		21501D981CCAA2B900B02FC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2F71CC58F7B001963B7 /* LaunchScreen.storyboard */; };
-		21501D9A1CCAA2B900B02FC5 /* HockeySDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216458EF1CC145D700033B7F /* HockeySDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21501D9B1CCAA2B900B02FC5 /* CanvasKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216458B91CC145BF00033B7F /* CanvasKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21501D9C1CCAA2B900B02FC5 /* CanvasNative.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216458CA1CC145C400033B7F /* CanvasNative.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21501D9D1CCAA2B900B02FC5 /* CanvasText.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 216459951CC1465D00033B7F /* CanvasText.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -131,7 +128,6 @@
 		216459531CC1461D00033B7F /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216458B91CC145BF00033B7F /* CanvasKit.framework */; };
 		216459541CC1461D00033B7F /* CanvasNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216458CA1CC145C400033B7F /* CanvasNative.framework */; };
 		216459551CC1461D00033B7F /* GradientView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216458DE1CC145CD00033B7F /* GradientView.framework */; };
-		216459561CC1461D00033B7F /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216458EF1CC145D700033B7F /* HockeySDK.framework */; };
 		216459571CC1461D00033B7F /* ISO8601.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216458F91CC145DD00033B7F /* ISO8601.framework */; };
 		216459581CC1461D00033B7F /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216459081CC145E100033B7F /* Mixpanel.framework */; };
 		216459591CC1461D00033B7F /* OperationTransport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216459181CC145E900033B7F /* OperationTransport.framework */; };
@@ -186,13 +182,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 2163BA1F1A25FBFD00610B0C;
 			remoteInfo = GradientView;
-		};
-		21501D4F1CCAA2B900B02FC5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216455421CC145B400033B7F /* HockeySDK.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 1EB6173E1B0A30480035A986;
-			remoteInfo = "HockeySDK Framework";
 		};
 		21501D511CCAA2B900B02FC5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -319,41 +308,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 2163BA201A25FBFD00610B0C;
 			remoteInfo = GradientView;
-		};
-		216458E81CC145D700033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216455421CC145B400033B7F /* HockeySDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1E5954F215B6F24A00A03429;
-			remoteInfo = HockeySDK;
-		};
-		216458EA1CC145D700033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216455421CC145B400033B7F /* HockeySDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1E5A459016F0DFC200B55C04;
-			remoteInfo = HockeySDKTests;
-		};
-		216458EC1CC145D700033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216455421CC145B400033B7F /* HockeySDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1E59550A15B6F45800A03429;
-			remoteInfo = HockeySDKResources;
-		};
-		216458EE1CC145D700033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216455421CC145B400033B7F /* HockeySDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1EB6173F1B0A30480035A986;
-			remoteInfo = "HockeySDK Framework";
-		};
-		216458F01CC145D700033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216455421CC145B400033B7F /* HockeySDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1EB617491B0A30480035A986;
-			remoteInfo = "HockeySDK FrameworkTests";
 		};
 		216458F81CC145DD00033B7F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -537,13 +491,6 @@
 			remoteGlobalIDString = 2163BA1F1A25FBFD00610B0C;
 			remoteInfo = GradientView;
 		};
-		216459471CC1460800033B7F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 216455421CC145B400033B7F /* HockeySDK.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 1EB6173E1B0A30480035A986;
-			remoteInfo = "HockeySDK Framework";
-		};
 		216459491CC1460800033B7F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 216455811CC145B500033B7F /* ISO8601.xcodeproj */;
@@ -623,7 +570,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				21501D9A1CCAA2B900B02FC5 /* HockeySDK.framework in Embed Frameworks */,
 				21501D9B1CCAA2B900B02FC5 /* CanvasKit.framework in Embed Frameworks */,
 				21501D9C1CCAA2B900B02FC5 /* CanvasNative.framework in Embed Frameworks */,
 				21501D9D1CCAA2B900B02FC5 /* CanvasText.framework in Embed Frameworks */,
@@ -644,7 +590,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2107D33E1CC5B190001963B7 /* HockeySDK.framework in Embed Frameworks */,
 				2164599F1CC146AC00033B7F /* CanvasKit.framework in Embed Frameworks */,
 				216459A01CC146AC00033B7F /* CanvasNative.framework in Embed Frameworks */,
 				216459A11CC146AC00033B7F /* CanvasText.framework in Embed Frameworks */,
@@ -719,7 +664,6 @@
 		216453AC1CC145B400033B7F /* CanvasNative.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasNative.xcodeproj; path = CanvasNative/CanvasNative.xcodeproj; sourceTree = "<group>"; };
 		216453EB1CC145B400033B7F /* CanvasText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasText.xcodeproj; path = CanvasText/CanvasText.xcodeproj; sourceTree = "<group>"; };
 		216454851CC145B400033B7F /* Gradient View.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Gradient View.xcodeproj"; path = "GradientView/Gradient View.xcodeproj"; sourceTree = "<group>"; };
-		216455421CC145B400033B7F /* HockeySDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HockeySDK.xcodeproj; path = "HockeySDK-iOS/Support/HockeySDK.xcodeproj"; sourceTree = "<group>"; };
 		216455811CC145B500033B7F /* ISO8601.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ISO8601.xcodeproj; path = ISO8601/ISO8601.xcodeproj; sourceTree = "<group>"; };
 		2164559B1CC145B500033B7F /* Mixpanel.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Mixpanel.xcodeproj; path = Mixpanel/Mixpanel.xcodeproj; sourceTree = "<group>"; };
 		216455EC1CC145B500033B7F /* OnePasswordExtension.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OnePasswordExtension.xcodeproj; path = "onepassword-app-extension/OnePasswordExtension.xcodeproj"; sourceTree = "<group>"; };
@@ -739,7 +683,6 @@
 				21501D8A1CCAA2B900B02FC5 /* CanvasKit.framework in Frameworks */,
 				21501D8B1CCAA2B900B02FC5 /* CanvasNative.framework in Frameworks */,
 				21501D8C1CCAA2B900B02FC5 /* GradientView.framework in Frameworks */,
-				21501D8D1CCAA2B900B02FC5 /* HockeySDK.framework in Frameworks */,
 				21501D8E1CCAA2B900B02FC5 /* ISO8601.framework in Frameworks */,
 				21501D8F1CCAA2B900B02FC5 /* Mixpanel.framework in Frameworks */,
 				21501D901CCAA2B900B02FC5 /* OperationTransport.framework in Frameworks */,
@@ -757,7 +700,6 @@
 				216459531CC1461D00033B7F /* CanvasKit.framework in Frameworks */,
 				216459541CC1461D00033B7F /* CanvasNative.framework in Frameworks */,
 				216459551CC1461D00033B7F /* GradientView.framework in Frameworks */,
-				216459561CC1461D00033B7F /* HockeySDK.framework in Frameworks */,
 				216459571CC1461D00033B7F /* ISO8601.framework in Frameworks */,
 				216459581CC1461D00033B7F /* Mixpanel.framework in Frameworks */,
 				216459591CC1461D00033B7F /* OperationTransport.framework in Frameworks */,
@@ -914,7 +856,6 @@
 				216453AC1CC145B400033B7F /* CanvasNative.xcodeproj */,
 				216453EB1CC145B400033B7F /* CanvasText.xcodeproj */,
 				216454851CC145B400033B7F /* Gradient View.xcodeproj */,
-				216455421CC145B400033B7F /* HockeySDK.xcodeproj */,
 				216455811CC145B500033B7F /* ISO8601.xcodeproj */,
 				2164559B1CC145B500033B7F /* Mixpanel.xcodeproj */,
 				216455EC1CC145B500033B7F /* OnePasswordExtension.xcodeproj */,
@@ -956,18 +897,6 @@
 			children = (
 				216458DC1CC145CD00033B7F /* Example.app */,
 				216458DE1CC145CD00033B7F /* GradientView.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		216458DF1CC145D700033B7F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				216458E91CC145D700033B7F /* libHockeySDK.a */,
-				216458EB1CC145D700033B7F /* HockeySDKTests.xctest */,
-				216458ED1CC145D700033B7F /* HockeySDKResources.bundle */,
-				216458EF1CC145D700033B7F /* HockeySDK.framework */,
-				216458F11CC145D700033B7F /* HockeySDK FrameworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1089,7 +1018,6 @@
 				21501D481CCAA2B900B02FC5 /* PBXTargetDependency */,
 				21501D4A1CCAA2B900B02FC5 /* PBXTargetDependency */,
 				21501D4C1CCAA2B900B02FC5 /* PBXTargetDependency */,
-				21501D4E1CCAA2B900B02FC5 /* PBXTargetDependency */,
 				21501D501CCAA2B900B02FC5 /* PBXTargetDependency */,
 				21501D521CCAA2B900B02FC5 /* PBXTargetDependency */,
 				21501D541CCAA2B900B02FC5 /* PBXTargetDependency */,
@@ -1120,7 +1048,6 @@
 				216459421CC1460800033B7F /* PBXTargetDependency */,
 				216459441CC1460800033B7F /* PBXTargetDependency */,
 				216459461CC1460800033B7F /* PBXTargetDependency */,
-				216459481CC1460800033B7F /* PBXTargetDependency */,
 				2164594A1CC1460800033B7F /* PBXTargetDependency */,
 				2164594C1CC1460800033B7F /* PBXTargetDependency */,
 				2164594E1CC1460800033B7F /* PBXTargetDependency */,
@@ -1212,10 +1139,6 @@
 				{
 					ProductGroup = 216458D71CC145CD00033B7F /* Products */;
 					ProjectRef = 216454851CC145B400033B7F /* Gradient View.xcodeproj */;
-				},
-				{
-					ProductGroup = 216458DF1CC145D700033B7F /* Products */;
-					ProjectRef = 216455421CC145B400033B7F /* HockeySDK.xcodeproj */;
 				},
 				{
 					ProductGroup = 216458F21CC145DD00033B7F /* Products */;
@@ -1340,41 +1263,6 @@
 			fileType = wrapper.framework;
 			path = GradientView.framework;
 			remoteRef = 216458DD1CC145CD00033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216458E91CC145D700033B7F /* libHockeySDK.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libHockeySDK.a;
-			remoteRef = 216458E81CC145D700033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216458EB1CC145D700033B7F /* HockeySDKTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = HockeySDKTests.xctest;
-			remoteRef = 216458EA1CC145D700033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216458ED1CC145D700033B7F /* HockeySDKResources.bundle */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = HockeySDKResources.bundle;
-			remoteRef = 216458EC1CC145D700033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216458EF1CC145D700033B7F /* HockeySDK.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = HockeySDK.framework;
-			remoteRef = 216458EE1CC145D700033B7F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		216458F11CC145D700033B7F /* HockeySDK FrameworkTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "HockeySDK FrameworkTests.xctest";
-			remoteRef = 216458F01CC145D700033B7F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		216458F91CC145DD00033B7F /* ISO8601.framework */ = {
@@ -1778,11 +1666,6 @@
 			name = GradientView;
 			targetProxy = 21501D4D1CCAA2B900B02FC5 /* PBXContainerItemProxy */;
 		};
-		21501D4E1CCAA2B900B02FC5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "HockeySDK Framework";
-			targetProxy = 21501D4F1CCAA2B900B02FC5 /* PBXContainerItemProxy */;
-		};
 		21501D501CCAA2B900B02FC5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "ISO8601-iOS";
@@ -1822,11 +1705,6 @@
 			isa = PBXTargetDependency;
 			name = GradientView;
 			targetProxy = 216459451CC1460800033B7F /* PBXContainerItemProxy */;
-		};
-		216459481CC1460800033B7F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "HockeySDK Framework";
-			targetProxy = 216459471CC1460800033B7F /* PBXContainerItemProxy */;
 		};
 		2164594A1CC1460800033B7F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1904,21 +1782,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Vendor/CanvasKit/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Checkouts/HockeySDK-iOS/Support/HockeySDKTests/Vendor",
-					"$(PROJECT_DIR)/Carthage/Checkouts/HockeySDK-iOS/Vendor",
-					"$(PROJECT_DIR)/Carthage/Checkouts/CanvasText/build/Debug-iphoneos",
-					"$(PROJECT_DIR)/Carthage/Checkouts/onepassword-app-extension/build/Debug-iphoneos",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Checkouts/HockeySDK-iOS/Support/HockeySDKTests/Vendor/OCMock",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.usecanvas.canvas.dev;
 				PRODUCT_NAME = Canvas;
 				PROVISIONING_PROFILE = "";
@@ -1937,21 +1802,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Vendor/CanvasKit/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Checkouts/HockeySDK-iOS/Support/HockeySDKTests/Vendor",
-					"$(PROJECT_DIR)/Carthage/Checkouts/HockeySDK-iOS/Vendor",
-					"$(PROJECT_DIR)/Carthage/Checkouts/CanvasText/build/Debug-iphoneos",
-					"$(PROJECT_DIR)/Carthage/Checkouts/onepassword-app-extension/build/Debug-iphoneos",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Checkouts/HockeySDK-iOS/Support/HockeySDKTests/Vendor/OCMock",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.usecanvas.canvas.dev;
 				PRODUCT_NAME = Canvas;
 				PROVISIONING_PROFILE = "";
@@ -2053,21 +1905,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Vendor/CanvasKit/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Checkouts/HockeySDK-iOS/Support/HockeySDKTests/Vendor",
-					"$(PROJECT_DIR)/Carthage/Checkouts/HockeySDK-iOS/Vendor",
-					"$(PROJECT_DIR)/Carthage/Checkouts/CanvasText/build/Debug-iphoneos",
-					"$(PROJECT_DIR)/Carthage/Checkouts/onepassword-app-extension/build/Debug-iphoneos",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Checkouts/HockeySDK-iOS/Support/HockeySDKTests/Vendor/OCMock",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.usecanvas.canvas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -2086,21 +1925,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Vendor/CanvasKit/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Checkouts/HockeySDK-iOS/Support/HockeySDKTests/Vendor",
-					"$(PROJECT_DIR)/Carthage/Checkouts/HockeySDK-iOS/Vendor",
-					"$(PROJECT_DIR)/Carthage/Checkouts/CanvasText/build/Debug-iphoneos",
-					"$(PROJECT_DIR)/Carthage/Checkouts/onepassword-app-extension/build/Debug-iphoneos",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Checkouts/HockeySDK-iOS/Support/HockeySDKTests/Vendor/OCMock",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.usecanvas.canvas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

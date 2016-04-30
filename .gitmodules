@@ -4,9 +4,6 @@
 [submodule "Carthage/Checkouts/GradientView"]
 	path = Carthage/Checkouts/GradientView
 	url = https://github.com/soffes/GradientView.git
-[submodule "Carthage/Checkouts/HockeySDK-iOS"]
-	path = Carthage/Checkouts/HockeySDK-iOS
-	url = https://github.com/usecanvas/HockeySDK-iOS.git
 [submodule "Carthage/Checkouts/ISO8601"]
 	path = Carthage/Checkouts/ISO8601
 	url = https://github.com/soffes/ISO8601.git

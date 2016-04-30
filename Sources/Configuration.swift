@@ -71,9 +71,6 @@ struct Configuration {
 	/// Mixpanel token
 	let mixpanelToken = "447ae99e6cff699db67f168818c1dbf9"
 
-	/// Hockey app identifier
-	let hockeyIdentifier = "0d558bb833514f31a4be3f9bfeafc43d"
-
 
 	// MARK: - Initializers
 
