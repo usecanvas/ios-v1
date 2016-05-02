@@ -295,11 +295,12 @@ extension EditorViewController: UITextViewDelegate {
 	}
 	
 	func textViewDidChangeSelection(textView: UITextView) {
-		textController.presentationSelectedRange = textView.isFirstResponder() ? textView.selectedRange : nil
+		let selection: NSRange? = textView.isFirstResponder() ? textView.selectedRange : nil
+		textController.setPresentationSelectedRange(selection)
 	}
 	
 	func textViewDidEndEditing(textView: UITextView) {
-		textController.presentationSelectedRange = nil
+		textController.setPresentationSelectedRange(nil)
 	}
 }
 
