@@ -27,6 +27,8 @@ final class Button: UIButton {
 		backgroundColor = Color.brand
 		layer.cornerRadius = 4
 		titleLabel?.font = Font.sansSerif(weight: .Bold)
+
+		tintColorDidChange()
 	}
 
 	required init?(coder aDecoder: NSCoder) {
