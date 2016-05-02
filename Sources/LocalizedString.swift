@@ -47,7 +47,7 @@ enum LocalizedString {
 	case DeleteLineCommand
 
 	case Loading
-	case OK
+	case Okay
 
 
 	// MARK: - Properties
@@ -87,7 +87,7 @@ enum LocalizedString {
 		case .DeleteLineCommand: return localizedString("DELETE_LINE_COMMAND")
 
 		case .Loading: return localizedString("LOADING")
-		case .OK: return localizedString("OK")
+		case .Okay: return localizedString("OK")
 		}
 	}
 

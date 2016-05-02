@@ -167,7 +167,7 @@ final class LoginViewController: UIViewController {
 					self?.passwordTextField.becomeFirstResponder()
 					
 					let alert = UIAlertController(title: errorMessage, message: nil, preferredStyle: .Alert)
-					alert.addAction(UIAlertAction(title: LocalizedString.OK.string, style: .Cancel, handler: nil))
+					alert.addAction(UIAlertAction(title: LocalizedString.Okay.string, style: .Cancel, handler: nil))
 					self?.presentViewController(alert, animated: true, completion: nil)
 				}
 			}
