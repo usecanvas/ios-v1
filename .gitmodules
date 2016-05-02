@@ -7,9 +7,6 @@
 [submodule "Vendor/Mixpanel"]
 	path = Vendor/Mixpanel
 	url = https://github.com/soffes/Mixpanel.git
-[submodule "Vendor/OnePassword"]
-	path = Vendor/OnePassword
-	url = https://github.com/usecanvas/onepassword-app-extension.git
 [submodule "Vendor/OperationTransport"]
 	path = Vendor/OperationTransport
 	url = https://github.com/usecanvas/OperationTransport.git
@@ -25,3 +22,6 @@
 [submodule "Vendor/Static"]
 	path = Vendor/Static
 	url = https://github.com/venmo/Static.git
+[submodule "Vendor/OnePassword"]
+	path = Vendor/OnePassword
+	url = https://github.com/AgileBits/onepassword-app-extension.git
