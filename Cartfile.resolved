@@ -1,3 +1,5 @@
+github "kstenerud/KSCrash" "1.5.6"
 github "soffes/Mixpanel" "v0.1.0"
 github "venmo/Static" "v1.1.0"
 github "AgileBits/onepassword-app-extension" "82fb2e2d6bcf9d7e946482bb3c16742b93fecd06"
+github "getsentry/sentry-swift" "dd3537e9faddbb4eddce4eb807590e18a206d28f"

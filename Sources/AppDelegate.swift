@@ -8,6 +8,7 @@
 
 import UIKit
 import CanvasKit
+import SentrySwift
 
 @UIApplicationMain final class AppDelegate: UIResponder {
 
@@ -42,6 +43,10 @@ import CanvasKit
 
 extension AppDelegate: UIApplicationDelegate {
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+
+		// Crash Reporting
+		SentryClient.shared = SentryClient(dsnString: "https://1bc50d7449e448029db4c5cb79d89c51:2648877a36ae4f5cb6ca51ba9dc82a3e@app.getsentry.com/76374")
+		SentryClient.shared?.startCrashHandler()
 
 		// Analytics
 		Analytics.track(.LaunchedApp)

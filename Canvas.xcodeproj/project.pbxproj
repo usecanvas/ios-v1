@@ -139,6 +139,10 @@
 		21F7EF2E1CD91D70004E80E2 /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF291CD91D70004E80E2 /* OnePasswordExtension.framework */; };
 		21F7EF2F1CD91D70004E80E2 /* Static.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF2A1CD91D70004E80E2 /* Static.framework */; };
 		21F7EF301CD91D70004E80E2 /* Static.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF2A1CD91D70004E80E2 /* Static.framework */; };
+		21F7EF351CD91F75004E80E2 /* KSCrash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF331CD91F75004E80E2 /* KSCrash.framework */; };
+		21F7EF361CD91F75004E80E2 /* KSCrash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF331CD91F75004E80E2 /* KSCrash.framework */; };
+		21F7EF371CD91F75004E80E2 /* SentrySwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF341CD91F75004E80E2 /* SentrySwift.framework */; };
+		21F7EF381CD91F75004E80E2 /* SentrySwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF341CD91F75004E80E2 /* SentrySwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -525,6 +529,8 @@
 		21F7EF281CD91D70004E80E2 /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mixpanel.framework; path = Carthage/Build/iOS/Mixpanel.framework; sourceTree = "<group>"; };
 		21F7EF291CD91D70004E80E2 /* OnePasswordExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OnePasswordExtension.framework; path = Carthage/Build/iOS/OnePasswordExtension.framework; sourceTree = "<group>"; };
 		21F7EF2A1CD91D70004E80E2 /* Static.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Static.framework; path = Carthage/Build/iOS/Static.framework; sourceTree = "<group>"; };
+		21F7EF331CD91F75004E80E2 /* KSCrash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KSCrash.framework; path = Carthage/Build/iOS/KSCrash.framework; sourceTree = "<group>"; };
+		21F7EF341CD91F75004E80E2 /* SentrySwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SentrySwift.framework; path = Carthage/Build/iOS/SentrySwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -539,7 +545,9 @@
 				218383C81CD517D300F7AA24 /* ISO8601.framework in Frameworks */,
 				21F7EF2E1CD91D70004E80E2 /* OnePasswordExtension.framework in Frameworks */,
 				218383CB1CD517D300F7AA24 /* OperationTransport.framework in Frameworks */,
+				21F7EF381CD91F75004E80E2 /* SentrySwift.framework in Frameworks */,
 				218383CC1CD517D300F7AA24 /* SSKeychain.framework in Frameworks */,
+				21F7EF361CD91F75004E80E2 /* KSCrash.framework in Frameworks */,
 				21F7EF2C1CD91D70004E80E2 /* Mixpanel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -555,7 +563,9 @@
 				218383A41CD5177100F7AA24 /* ISO8601.framework in Frameworks */,
 				21F7EF2D1CD91D70004E80E2 /* OnePasswordExtension.framework in Frameworks */,
 				218383A71CD5177100F7AA24 /* OperationTransport.framework in Frameworks */,
+				21F7EF371CD91F75004E80E2 /* SentrySwift.framework in Frameworks */,
 				218383A81CD5177100F7AA24 /* SSKeychain.framework in Frameworks */,
+				21F7EF351CD91F75004E80E2 /* KSCrash.framework in Frameworks */,
 				21F7EF2B1CD91D70004E80E2 /* Mixpanel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -810,6 +820,8 @@
 		21F7EF271CD91D58004E80E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				21F7EF331CD91F75004E80E2 /* KSCrash.framework */,
+				21F7EF341CD91F75004E80E2 /* SentrySwift.framework */,
 				21F7EF281CD91D70004E80E2 /* Mixpanel.framework */,
 				21F7EF291CD91D70004E80E2 /* OnePasswordExtension.framework */,
 				21F7EF2A1CD91D70004E80E2 /* Static.framework */,
@@ -1264,6 +1276,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Mixpanel.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/OnePasswordExtension.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Static.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/KSCrash.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SentrySwift.framework",
 			);
 			name = "Embed Carthage Frameworks";
 			outputPaths = (
@@ -1281,6 +1295,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Mixpanel.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/OnePasswordExtension.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Static.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/KSCrash.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SentrySwift.framework",
 			);
 			name = "Embed Carthage Frameworks";
 			outputPaths = (
