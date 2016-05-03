@@ -336,32 +336,52 @@ extension EditorViewController: TextControllerConnectionDelegate {
 	}
 
 	func textController(textController: TextController, didReceiveWebErrorMessage errorMessage: String?, lineNumber: UInt?, columnNumber: UInt?) {
+		textView.editable = false
+		
+		var dictionary = [String: AnyObject]()
+		var message = errorMessage ?? "Unknown error."
+		message += " "
+
+		if let lineNumber = lineNumber {
+			dictionary["line_number"] = lineNumber
+			message += "\(lineNumber):"
+		} else {
+			message += "?:"
+		}
+
+		if let columnNumber = columnNumber {
+			dictionary["column_number"] = columnNumber
+			message += "\(columnNumber)"
+		} else {
+			message += "?"
+		}
+
+		let completion = { [weak self] in
+			self?.textController.disconnect(reason: "wrapper-error")
+		}
+
 		#if INTERNAL
-			var message = errorMessage ?? "Unknown error."
-			message += " "
-
-			if let lineNumber = lineNumber {
-				message += "\(lineNumber):"
-			} else {
-				message += "?:"
-			}
-
-			if let columnNumber = columnNumber {
-				message += "\(columnNumber)"
-			} else {
-				message += "?"
-			}
-
 			let alert = UIAlertController(title: "CanvasNativeWrapper Error", message: message, preferredStyle: .Alert)
-			alert.addAction(UIAlertAction(title: LocalizedString.Okay.string, style: .Cancel, handler: nil))
+			alert.addAction(UIAlertAction(title: LocalizedString.Okay.string, style: .Cancel) { _ in
+				completion()
+			})
 			presentViewController(alert, animated: true, completion: nil)
+		#else
+			completion()
 		#endif
 	}
 
 	func textController(textController: TextController, didDisconnectWithErrorMessage errorMessage: String?) {
 		textView.editable = false
 
-		let alert = UIAlertController(title: "Disconnected", message: "The connection to Canvas was lost. We will attempt to reconnect automatically.", preferredStyle: .Alert)
+		let message: String
+		if errorMessage == "wrapper-error" {
+			message = "We’re still a bit buggy and hit a wall. We’ve reported the error."
+		} else {
+			message = "The connection to Canvas was lost."
+		}
+
+		let alert = UIAlertController(title: "Disconnected", message: message, preferredStyle: .Alert)
 		alert.addAction(UIAlertAction(title: "Close Canvas", style: .Destructive, handler: close))
 		alert.addAction(UIAlertAction(title: "Retry", style: .Default, handler: reload))
 		presentViewController(alert, animated: true, completion: nil)
