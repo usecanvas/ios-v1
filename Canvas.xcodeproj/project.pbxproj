@@ -1496,6 +1496,7 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-DINTERNAL -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.usecanvas.canvas.dev;
 				PRODUCT_NAME = Canvas;
 				PROVISIONING_PROFILE = "";
@@ -1520,6 +1521,7 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-DINTERNAL";
 				PRODUCT_BUNDLE_IDENTIFIER = com.usecanvas.canvas.dev;
 				PRODUCT_NAME = Canvas;
 				PROVISIONING_PROFILE = "";

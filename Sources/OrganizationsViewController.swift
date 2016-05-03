@@ -115,6 +115,18 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 		let style: UIAlertControllerStyle = traitCollection.userInterfaceIdiom == .Pad ? .Alert : .ActionSheet
 		let actionSheet = AlertController(title:nil, message: nil, preferredStyle: style)
 
+		#if INTERNAL
+			actionSheet.addAction(UIAlertAction(title: "Swift 💣", style: .Destructive) { _ in
+				let foo: [Int]! = nil
+				foo.count
+			})
+
+			actionSheet.addAction(UIAlertAction(title: "Objective-C 💣", style: .Destructive) { _ in
+				let foo = "" as NSString
+				foo.substringFromIndex(10)
+			})
+		#endif
+
 		actionSheet.addAction(UIAlertAction(title: LocalizedString.LogOutButton.string, style: .Destructive) { _ in self.logOut() })
 		actionSheet.addAction(UIAlertAction(title: LocalizedString.CancelButton.string, style: .Cancel, handler: nil))
 		actionSheet.primaryAction = logOut
