@@ -71,6 +71,9 @@ struct Configuration {
 	/// Mixpanel token
 	let mixpanelToken = "447ae99e6cff699db67f168818c1dbf9"
 
+	/// Sentry
+	let sentryDSN = "https://1bc50d7449e448029db4c5cb79d89c51:2648877a36ae4f5cb6ca51ba9dc82a3e@app.getsentry.com/76374"
+
 
 	// MARK: - Initializers
 

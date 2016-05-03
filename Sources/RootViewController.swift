@@ -8,6 +8,7 @@
 
 import UIKit
 import CanvasKit
+import SentrySwift
 
 final class RootViewController: UIViewController {
 
@@ -16,9 +17,13 @@ final class RootViewController: UIViewController {
 	var account: Account? {
 		didSet {
 			guard let account = account else {
+				SentryClient.shared?.user = nil
 				viewController = LoginViewController()
 				return
 			}
+
+			// Update Sentry
+			SentryClient.shared?.user = User(id: account.user.ID, email: account.email, username: account.user.username)
 
 			if var viewController = viewController as? Accountable {
 				// TODO: Handle containers
