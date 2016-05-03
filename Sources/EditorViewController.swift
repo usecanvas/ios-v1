@@ -10,6 +10,7 @@ import WebKit
 import CanvasKit
 import CanvasText
 import CanvasNative
+import SentrySwift
 
 final class EditorViewController: UIViewController, Accountable {
 	
@@ -356,6 +357,30 @@ extension EditorViewController: TextControllerConnectionDelegate {
 		} else {
 			message += "?"
 		}
+
+		let event = Event.build("CanvasNativeWrapper Error") {
+			$0.level = .Error
+
+			var dictionary = [String: AnyObject]()
+
+			if let errorMessage = errorMessage {
+				dictionary["error_message"] = errorMessage
+			}
+
+			if let lineNumber = lineNumber {
+				dictionary["line_number"] = lineNumber
+			}
+
+			if let columnNumber = columnNumber {
+				dictionary["column_number"] = columnNumber
+			}
+
+			if !dictionary.isEmpty {
+				$0.extra = dictionary
+			}
+		}
+
+		SentryClient.shared?.captureEvent(event)
 
 		let completion = { [weak self] in
 			self?.textController.disconnect(reason: "wrapper-error")
