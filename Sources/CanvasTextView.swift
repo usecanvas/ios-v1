@@ -26,6 +26,7 @@ final class CanvasTextView: TextView {
 	private var draggingView: UIView?
 	private var draggingBackgroundView: UIView?
 	private let dragThreshold: CGFloat = 60
+	private var draggingBlock: BlockNode?
 
 
 	// MARK: - Initializers
@@ -138,9 +139,19 @@ final class CanvasTextView: TextView {
 	}
 
 	private func dragChanged() {
-		guard let view = draggingView else { return }
+		guard let view = draggingView, block = draggingBlock else { return }
 
-		let translation = gestureRecognizer.translationInView(self).x
+		var translation = gestureRecognizer.translationInView(self).x
+
+		// Prevent dragging h1s left
+		if let heading = block as? Heading where heading.level.isMinimum {
+			translation = max(0, translation)
+		}
+
+		// Prevent dragging lists right at the end
+		else if let listItem = block as? Listable where listItem.indentation.isMaximum {
+			translation = min(0, translation)
+		}
 
 		var frame = view.frame
 		frame.origin.x = translation
@@ -148,24 +159,18 @@ final class CanvasTextView: TextView {
 
 		// Increase block level
 		if translation >= dragThreshold {
-			let point = gestureRecognizer.locationInView(self)
-			if let block = blockAt(point: point) {
-				textController?.increaseBlockLevel(block: block)
+			textController?.increaseBlockLevel(block: block)
 
-				gestureRecognizer.enabled = false
-				gestureRecognizer.enabled = true
-			}
+			gestureRecognizer.enabled = false
+			gestureRecognizer.enabled = true
 		}
 
 		// Decrease block level
 		else if translation <= -dragThreshold {
-			let point = gestureRecognizer.locationInView(self)
-			if let block = blockAt(point: point) {
-				textController?.decreaseBlockLevel(block: block)
+			textController?.decreaseBlockLevel(block: block)
 
-				gestureRecognizer.enabled = false
-				gestureRecognizer.enabled = true
-			}
+			gestureRecognizer.enabled = false
+			gestureRecognizer.enabled = true
 		}
 	}
 
@@ -175,6 +180,7 @@ final class CanvasTextView: TextView {
 			self?.draggingBackgroundView = nil
 			self?.draggingView?.removeFromSuperview()
 			self?.draggingView = nil
+			self?.draggingBlock = nil
 		}
 
 		guard let draggingView = draggingView else {
@@ -220,20 +226,29 @@ extension CanvasTextView: UIGestureRecognizerDelegate {
 		// Make sure we don't mess with internal UITextView gesture recognizers.
 		guard sender == gestureRecognizer else { return super.gestureRecognizerShouldBegin(sender) }
 
+		// If there are multiple characters selected, disable the drag since the text view uses that event to adjust the
+		// selection.
+		if selectedRange.length > 0 {
+			return false
+		}
+
 		// Ensure it's a horizontal drag
 		let velocity = gestureRecognizer.velocityInView(self)
 		if abs(velocity.y) > abs(velocity.x) {
 			return false
 		}
 
-		// Disable dragging in the title
+		// Get the block
 		let point = gestureRecognizer.locationInView(self)
-		if let block = blockAt(point: point) where block is Title {
+		guard let block = blockAt(point: point) else { return false }
+
+		// Disable dragging in the title
+		if block is Title {
 			return false
 		}
 
-		// If there are multiple characters selected, disable the drag since the text view uses that event to adjust the
-		// selection.
-		return selectedRange.length == 0
+		draggingBlock = block
+
+		return true
 	}
 }
