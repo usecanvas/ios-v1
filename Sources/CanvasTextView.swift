@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CanvasNative
 import CanvasText
 
 protocol CanvasTextViewFormattingDelegate: class {
@@ -18,6 +19,7 @@ final class CanvasTextView: TextView {
 
 	// MARK: - Properties
 
+	weak var textController: TextController?
 	weak var formattingDelegate: CanvasTextViewFormattingDelegate?
 
 	private let gestureRecognizer: UIPanGestureRecognizer
@@ -67,6 +69,15 @@ final class CanvasTextView: TextView {
 
 
 	// MARK: - Private
+
+	private func blockAt(point point: CGPoint) -> BlockNode? {
+		guard let textRange = characterRangeAtPoint(point),
+			textController = textController
+		else { return nil }
+
+		let location = offsetFromPosition(beginningOfDocument, toPosition: textRange.start)
+		return textController.blockAt(presentationLocation: location)
+	}
 
 	@objc private func pan(sender: UIPanGestureRecognizer) {
 		switch sender.state {
@@ -158,11 +169,24 @@ extension CanvasTextView: TextControllerAnnotationDelegate {
 
 
 extension CanvasTextView: UIGestureRecognizerDelegate {
-	override func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
-		if gestureRecognizer == self.gestureRecognizer {
-			return selectedRange.length == 0
+	override func gestureRecognizerShouldBegin(sender: UIGestureRecognizer) -> Bool {
+		// Make sure we don't mess with internal UITextView gesture recognizers.
+		guard sender == gestureRecognizer else { return true }
+
+		// Ensure it's a horizontal drag
+		let velocity = gestureRecognizer.velocityInView(self)
+		if abs(velocity.y) > abs(velocity.x) {
+			return false
 		}
 
-		return true
+		// Disable dragging in the title
+		let point = gestureRecognizer.locationInView(self)
+		if let block = blockAt(point: point) where block is Title {
+			return false
+		}
+
+		// If there are multiple characters selected, disable the drag since the text view uses that event to adjust the
+		// selection.
+		return selectedRange.length == 0
 	}
 }

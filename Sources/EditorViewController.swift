@@ -46,6 +46,7 @@ final class EditorViewController: UIViewController, Accountable {
 		textController.connectionDelegate = self
 		textController.selectionDelegate = self
 		textController.annotationDelegate = textView
+		textView.textController = textController
 		textView.delegate = self
 		textView.formattingDelegate = self
 		textView.editable = false
