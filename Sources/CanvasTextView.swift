@@ -100,7 +100,12 @@ final class CanvasTextView: TextView {
 
 			var rect = rects.filter { $0.size.width > 0 }.reduce(rects[0]) { CGRectUnion($0, $1) }
 			rect.origin.x = 0
+			rect.origin.y -= contentOffset.y
 			rect.size.width = bounds.size.width
+
+			let maskRect = rect
+
+			rect.origin.y += contentOffset.y
 
 			let background = UIView(frame: rect)
 			background.backgroundColor = .whiteColor()
@@ -110,7 +115,11 @@ final class CanvasTextView: TextView {
 			let view = snapshotViewAfterScreenUpdates(false)
 			let mask = CAShapeLayer()
 			mask.frame = view.layer.bounds
-			mask.path = UIBezierPath(rect: rect).CGPath
+			mask.path = UIBezierPath(rect: maskRect).CGPath
+
+			rect = view.frame
+			rect.origin.y += contentOffset.y
+			view.frame = rect
 
 			view.layer.mask = mask
 			draggingView = view
