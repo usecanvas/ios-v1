@@ -27,6 +27,7 @@ final class CanvasTextView: TextView {
 		super.init(frame: frame, textContainer: textContainer)
 //		allowsEditingTextAttributes = true
 		alwaysBounceVertical = true
+		keyboardDismissMode = .Interactive
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
