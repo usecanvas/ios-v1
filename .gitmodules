@@ -4,9 +4,6 @@
 [submodule "Vendor/ISO8601"]
 	path = Vendor/ISO8601
 	url = https://github.com/soffes/ISO8601.git
-[submodule "Vendor/Mixpanel"]
-	path = Vendor/Mixpanel
-	url = https://github.com/soffes/Mixpanel.git
 [submodule "Vendor/OperationTransport"]
 	path = Vendor/OperationTransport
 	url = https://github.com/usecanvas/OperationTransport.git
@@ -19,9 +16,3 @@
 [submodule "Vendor/CanvasKit"]
 	path = Vendor/CanvasKit
 	url = https://github.com/usecanvas/CanvasKit.git
-[submodule "Vendor/Static"]
-	path = Vendor/Static
-	url = https://github.com/venmo/Static.git
-[submodule "Vendor/OnePassword"]
-	path = Vendor/OnePassword
-	url = https://github.com/AgileBits/onepassword-app-extension.git

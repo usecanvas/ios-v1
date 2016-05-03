@@ -109,38 +109,32 @@
 		218383A21CD5177100F7AA24 /* CanvasNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9831CD516BE00E2902C /* CanvasNative.framework */; };
 		218383A31CD5177100F7AA24 /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218383721CD5174800F7AA24 /* CanvasText.framework */; };
 		218383A41CD5177100F7AA24 /* ISO8601.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9971CD516C600E2902C /* ISO8601.framework */; };
-		218383A51CD5177100F7AA24 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9A61CD516CA00E2902C /* Mixpanel.framework */; };
-		218383A61CD5177100F7AA24 /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218383801CD5174800F7AA24 /* OnePasswordExtension.framework */; };
 		218383A71CD5177100F7AA24 /* OperationTransport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9B61CD516D500E2902C /* OperationTransport.framework */; };
 		218383A81CD5177100F7AA24 /* SSKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9C71CD516D900E2902C /* SSKeychain.framework */; };
-		218383A91CD5177100F7AA24 /* Static.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9DA1CD516DD00E2902C /* Static.framework */; };
 		218383AA1CD5178500F7AA24 /* CanvasKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9721CD516B800E2902C /* CanvasKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		218383AB1CD5178500F7AA24 /* CanvasNative.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9831CD516BE00E2902C /* CanvasNative.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		218383AC1CD5178500F7AA24 /* CanvasText.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 218383721CD5174800F7AA24 /* CanvasText.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		218383AD1CD5178500F7AA24 /* ISO8601.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9971CD516C600E2902C /* ISO8601.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		218383AE1CD5178500F7AA24 /* Mixpanel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9A61CD516CA00E2902C /* Mixpanel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		218383AF1CD5178500F7AA24 /* OnePasswordExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 218383801CD5174800F7AA24 /* OnePasswordExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		218383B01CD5178500F7AA24 /* OperationTransport.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9B61CD516D500E2902C /* OperationTransport.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		218383B11CD5178500F7AA24 /* SSKeychain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9C71CD516D900E2902C /* SSKeychain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		218383B21CD5178500F7AA24 /* Static.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9DA1CD516DD00E2902C /* Static.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		218383C51CD517D300F7AA24 /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9721CD516B800E2902C /* CanvasKit.framework */; };
 		218383C61CD517D300F7AA24 /* CanvasNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9831CD516BE00E2902C /* CanvasNative.framework */; };
 		218383C71CD517D300F7AA24 /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218383721CD5174800F7AA24 /* CanvasText.framework */; };
 		218383C81CD517D300F7AA24 /* ISO8601.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9971CD516C600E2902C /* ISO8601.framework */; };
-		218383C91CD517D300F7AA24 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9A61CD516CA00E2902C /* Mixpanel.framework */; };
-		218383CA1CD517D300F7AA24 /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218383801CD5174800F7AA24 /* OnePasswordExtension.framework */; };
 		218383CB1CD517D300F7AA24 /* OperationTransport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9B61CD516D500E2902C /* OperationTransport.framework */; };
 		218383CC1CD517D300F7AA24 /* SSKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9C71CD516D900E2902C /* SSKeychain.framework */; };
-		218383CD1CD517D300F7AA24 /* Static.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9DA1CD516DD00E2902C /* Static.framework */; };
 		218383CE1CD517E400F7AA24 /* CanvasKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9721CD516B800E2902C /* CanvasKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		218383CF1CD517E400F7AA24 /* CanvasNative.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9831CD516BE00E2902C /* CanvasNative.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		218383D01CD517E400F7AA24 /* CanvasText.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 218383721CD5174800F7AA24 /* CanvasText.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		218383D11CD517E400F7AA24 /* ISO8601.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9971CD516C600E2902C /* ISO8601.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		218383D21CD517E400F7AA24 /* Mixpanel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9A61CD516CA00E2902C /* Mixpanel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		218383D31CD517E400F7AA24 /* OnePasswordExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 218383801CD5174800F7AA24 /* OnePasswordExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		218383D41CD517E400F7AA24 /* OperationTransport.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9B61CD516D500E2902C /* OperationTransport.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		218383D51CD517E400F7AA24 /* SSKeychain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9C71CD516D900E2902C /* SSKeychain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		218383D61CD517E400F7AA24 /* Static.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9DA1CD516DD00E2902C /* Static.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		21F7EF2B1CD91D70004E80E2 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF281CD91D70004E80E2 /* Mixpanel.framework */; };
+		21F7EF2C1CD91D70004E80E2 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF281CD91D70004E80E2 /* Mixpanel.framework */; };
+		21F7EF2D1CD91D70004E80E2 /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF291CD91D70004E80E2 /* OnePasswordExtension.framework */; };
+		21F7EF2E1CD91D70004E80E2 /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF291CD91D70004E80E2 /* OnePasswordExtension.framework */; };
+		21F7EF2F1CD91D70004E80E2 /* Static.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF2A1CD91D70004E80E2 /* Static.framework */; };
+		21F7EF301CD91D70004E80E2 /* Static.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF2A1CD91D70004E80E2 /* Static.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,13 +151,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 211483CE1C8A3034002CA206;
 			remoteInfo = "CanvasTextTests-iOS";
-		};
-		2183837F1CD5174800F7AA24 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21B1E9E31CD5170400E2902C /* OnePasswordExtension.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9C3F4D8C1A59ACDC004B3ECE;
-			remoteInfo = OnePasswordExtension;
 		};
 		2183838F1CD5175A00F7AA24 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -193,20 +180,6 @@
 			remoteGlobalIDString = 21B3A3D619894F4600322041;
 			remoteInfo = "ISO8601-iOS";
 		};
-		218383971CD5175A00F7AA24 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21B1E75F1CD516B000E2902C /* Mixpanel.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 210B32411B37DDE2005F43F3;
-			remoteInfo = "Mixpanel-iOS";
-		};
-		218383991CD5175A00F7AA24 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21B1E9E31CD5170400E2902C /* OnePasswordExtension.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 9C3F4D8B1A59ACDC004B3ECE;
-			remoteInfo = OnePasswordExtension;
-		};
 		2183839B1CD5175A00F7AA24 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 21B1E7B81CD516B000E2902C /* OperationTransport.xcodeproj */;
@@ -220,13 +193,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = E8A666331A844CC400287CA3;
 			remoteInfo = "SSKeychain-iOS";
-		};
-		2183839F1CD5175A00F7AA24 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21B1E7F61CD516B000E2902C /* Static.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 21826AA91B3F51A100AA9641;
-			remoteInfo = "Static-iOS";
 		};
 		218383B31CD517C800F7AA24 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -256,20 +222,6 @@
 			remoteGlobalIDString = 21B3A3D619894F4600322041;
 			remoteInfo = "ISO8601-iOS";
 		};
-		218383BB1CD517C800F7AA24 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21B1E75F1CD516B000E2902C /* Mixpanel.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 210B32411B37DDE2005F43F3;
-			remoteInfo = "Mixpanel-iOS";
-		};
-		218383BD1CD517C800F7AA24 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21B1E9E31CD5170400E2902C /* OnePasswordExtension.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 9C3F4D8B1A59ACDC004B3ECE;
-			remoteInfo = OnePasswordExtension;
-		};
 		218383BF1CD517C800F7AA24 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 21B1E7B81CD516B000E2902C /* OperationTransport.xcodeproj */;
@@ -283,13 +235,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = E8A666331A844CC400287CA3;
 			remoteInfo = "SSKeychain-iOS";
-		};
-		218383C31CD517C800F7AA24 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21B1E7F61CD516B000E2902C /* Static.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 21826AA91B3F51A100AA9641;
-			remoteInfo = "Static-iOS";
 		};
 		21B1E9711CD516B800E2902C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -396,41 +341,6 @@
 			remoteGlobalIDString = 212539C01B1595FD00F29EF3;
 			remoteInfo = "ISO8601Tests-OSX";
 		};
-		21B1E9A51CD516CA00E2902C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21B1E75F1CD516B000E2902C /* Mixpanel.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 210B32421B37DDE2005F43F3;
-			remoteInfo = "Mixpanel-iOS";
-		};
-		21B1E9A71CD516CA00E2902C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21B1E75F1CD516B000E2902C /* Mixpanel.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 210B324C1B37DDE2005F43F3;
-			remoteInfo = "MixpanelTests-iOS";
-		};
-		21B1E9A91CD516CA00E2902C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21B1E75F1CD516B000E2902C /* Mixpanel.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 210B32631B37DE5B005F43F3;
-			remoteInfo = "Mixpanel-OSX";
-		};
-		21B1E9AB1CD516CA00E2902C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21B1E75F1CD516B000E2902C /* Mixpanel.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 210B326C1B37DE5B005F43F3;
-			remoteInfo = "MixpanelTests-OSX";
-		};
-		21B1E9AD1CD516CA00E2902C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21B1E75F1CD516B000E2902C /* Mixpanel.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 210B32871B37DED0005F43F3;
-			remoteInfo = "Mixpanel-watchOS";
-		};
 		21B1E9B51CD516D500E2902C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 21B1E7B81CD516B000E2902C /* OperationTransport.xcodeproj */;
@@ -508,27 +418,6 @@
 			remoteGlobalIDString = 21632DBC1C925B1F00C40D7D;
 			remoteInfo = "SSKeychain-watchOS";
 		};
-		21B1E9D91CD516DD00E2902C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21B1E7F61CD516B000E2902C /* Static.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21826AAA1B3F51A100AA9641;
-			remoteInfo = "Static-iOS";
-		};
-		21B1E9DB1CD516DD00E2902C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21B1E7F61CD516B000E2902C /* Static.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21826AB41B3F51A100AA9641;
-			remoteInfo = StaticTests;
-		};
-		21B1E9DD1CD516DD00E2902C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21B1E7F61CD516B000E2902C /* Static.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 36748D4F1B5034EC0046F207;
-			remoteInfo = Example;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -542,11 +431,8 @@
 				218383CF1CD517E400F7AA24 /* CanvasNative.framework in Embed Frameworks */,
 				218383D01CD517E400F7AA24 /* CanvasText.framework in Embed Frameworks */,
 				218383D11CD517E400F7AA24 /* ISO8601.framework in Embed Frameworks */,
-				218383D21CD517E400F7AA24 /* Mixpanel.framework in Embed Frameworks */,
-				218383D31CD517E400F7AA24 /* OnePasswordExtension.framework in Embed Frameworks */,
 				218383D41CD517E400F7AA24 /* OperationTransport.framework in Embed Frameworks */,
 				218383D51CD517E400F7AA24 /* SSKeychain.framework in Embed Frameworks */,
-				218383D61CD517E400F7AA24 /* Static.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -561,11 +447,8 @@
 				218383AB1CD5178500F7AA24 /* CanvasNative.framework in Embed Frameworks */,
 				218383AC1CD5178500F7AA24 /* CanvasText.framework in Embed Frameworks */,
 				218383AD1CD5178500F7AA24 /* ISO8601.framework in Embed Frameworks */,
-				218383AE1CD5178500F7AA24 /* Mixpanel.framework in Embed Frameworks */,
-				218383AF1CD5178500F7AA24 /* OnePasswordExtension.framework in Embed Frameworks */,
 				218383B01CD5178500F7AA24 /* OperationTransport.framework in Embed Frameworks */,
 				218383B11CD5178500F7AA24 /* SSKeychain.framework in Embed Frameworks */,
-				218383B21CD5178500F7AA24 /* Static.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -630,12 +513,12 @@
 		21B1E6B21CD516B000E2902C /* CanvasNative.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasNative.xcodeproj; path = CanvasNative/CanvasNative.xcodeproj; sourceTree = "<group>"; };
 		21B1E6F51CD516B000E2902C /* CanvasText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasText.xcodeproj; path = CanvasText/CanvasText.xcodeproj; sourceTree = "<group>"; };
 		21B1E73D1CD516B000E2902C /* ISO8601.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ISO8601.xcodeproj; path = ISO8601/ISO8601.xcodeproj; sourceTree = "<group>"; };
-		21B1E75F1CD516B000E2902C /* Mixpanel.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Mixpanel.xcodeproj; path = Mixpanel/Mixpanel.xcodeproj; sourceTree = "<group>"; };
 		21B1E7B81CD516B000E2902C /* OperationTransport.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OperationTransport.xcodeproj; path = OperationTransport/OperationTransport.xcodeproj; sourceTree = "<group>"; };
 		21B1E7CA1CD516B000E2902C /* SSKeychain.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSKeychain.xcodeproj; path = SSKeychain/SSKeychain.xcodeproj; sourceTree = "<group>"; };
-		21B1E7F61CD516B000E2902C /* Static.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Static.xcodeproj; path = Static/Static.xcodeproj; sourceTree = "<group>"; };
-		21B1E9E31CD5170400E2902C /* OnePasswordExtension.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OnePasswordExtension.xcodeproj; path = OnePassword/OnePasswordExtension.xcodeproj; sourceTree = "<group>"; };
 		21F10F4A1BF138750035057D /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		21F7EF281CD91D70004E80E2 /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mixpanel.framework; path = Carthage/Build/iOS/Mixpanel.framework; sourceTree = "<group>"; };
+		21F7EF291CD91D70004E80E2 /* OnePasswordExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OnePasswordExtension.framework; path = Carthage/Build/iOS/OnePasswordExtension.framework; sourceTree = "<group>"; };
+		21F7EF2A1CD91D70004E80E2 /* Static.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Static.framework; path = Carthage/Build/iOS/Static.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -643,15 +526,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21F7EF301CD91D70004E80E2 /* Static.framework in Frameworks */,
 				218383C51CD517D300F7AA24 /* CanvasKit.framework in Frameworks */,
 				218383C61CD517D300F7AA24 /* CanvasNative.framework in Frameworks */,
 				218383C71CD517D300F7AA24 /* CanvasText.framework in Frameworks */,
 				218383C81CD517D300F7AA24 /* ISO8601.framework in Frameworks */,
-				218383C91CD517D300F7AA24 /* Mixpanel.framework in Frameworks */,
-				218383CA1CD517D300F7AA24 /* OnePasswordExtension.framework in Frameworks */,
+				21F7EF2E1CD91D70004E80E2 /* OnePasswordExtension.framework in Frameworks */,
 				218383CB1CD517D300F7AA24 /* OperationTransport.framework in Frameworks */,
 				218383CC1CD517D300F7AA24 /* SSKeychain.framework in Frameworks */,
-				218383CD1CD517D300F7AA24 /* Static.framework in Frameworks */,
+				21F7EF2C1CD91D70004E80E2 /* Mixpanel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,15 +542,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21F7EF2F1CD91D70004E80E2 /* Static.framework in Frameworks */,
 				218383A11CD5177100F7AA24 /* CanvasKit.framework in Frameworks */,
 				218383A21CD5177100F7AA24 /* CanvasNative.framework in Frameworks */,
 				218383A31CD5177100F7AA24 /* CanvasText.framework in Frameworks */,
 				218383A41CD5177100F7AA24 /* ISO8601.framework in Frameworks */,
-				218383A51CD5177100F7AA24 /* Mixpanel.framework in Frameworks */,
-				218383A61CD5177100F7AA24 /* OnePasswordExtension.framework in Frameworks */,
+				21F7EF2D1CD91D70004E80E2 /* OnePasswordExtension.framework in Frameworks */,
 				218383A71CD5177100F7AA24 /* OperationTransport.framework in Frameworks */,
 				218383A81CD5177100F7AA24 /* SSKeychain.framework in Frameworks */,
-				218383A91CD5177100F7AA24 /* Static.framework in Frameworks */,
+				21F7EF2B1CD91D70004E80E2 /* Mixpanel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -812,14 +695,6 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		218383601CD5174800F7AA24 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				218383801CD5174800F7AA24 /* OnePasswordExtension.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		218383621CD5174800F7AA24 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -836,11 +711,8 @@
 				21B1E6B21CD516B000E2902C /* CanvasNative.xcodeproj */,
 				21B1E6F51CD516B000E2902C /* CanvasText.xcodeproj */,
 				21B1E73D1CD516B000E2902C /* ISO8601.xcodeproj */,
-				21B1E75F1CD516B000E2902C /* Mixpanel.xcodeproj */,
-				21B1E9E31CD5170400E2902C /* OnePasswordExtension.xcodeproj */,
 				21B1E7B81CD516B000E2902C /* OperationTransport.xcodeproj */,
 				21B1E7CA1CD516B000E2902C /* SSKeychain.xcodeproj */,
-				21B1E7F61CD516B000E2902C /* Static.xcodeproj */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
@@ -881,18 +753,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		21B1E99E1CD516CA00E2902C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				21B1E9A61CD516CA00E2902C /* Mixpanel.framework */,
-				21B1E9A81CD516CA00E2902C /* MixpanelTests-iOS.xctest */,
-				21B1E9AA1CD516CA00E2902C /* Mixpanel.framework */,
-				21B1E9AC1CD516CA00E2902C /* MixpanelTests-OSX.xctest */,
-				21B1E9AE1CD516CA00E2902C /* Mixpanel.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		21B1E9AF1CD516D500E2902C /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -918,22 +778,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		21B1E9D41CD516DD00E2902C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				21B1E9DA1CD516DD00E2902C /* Static.framework */,
-				21B1E9DC1CD516DD00E2902C /* StaticTests.xctest */,
-				21B1E9DE1CD516DD00E2902C /* Example.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		21F10F411BF138750035057D = {
 			isa = PBXGroup;
 			children = (
 				2107D2C81CC58F7A001963B7 /* Sources */,
 				2107D2F51CC58F7B001963B7 /* Support */,
 				21B1E6891CD516B000E2902C /* Vendor */,
+				21F7EF271CD91D58004E80E2 /* Frameworks */,
 				21F10F4B1BF138750035057D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -948,6 +799,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		21F7EF271CD91D58004E80E2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				21F7EF281CD91D70004E80E2 /* Mixpanel.framework */,
+				21F7EF291CD91D70004E80E2 /* OnePasswordExtension.framework */,
+				21F7EF2A1CD91D70004E80E2 /* Static.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -959,6 +820,7 @@
 				21501D871CCAA2B900B02FC5 /* Frameworks */,
 				21501D931CCAA2B900B02FC5 /* Resources */,
 				21501D991CCAA2B900B02FC5 /* Embed Frameworks */,
+				21F7EF311CD91DDB004E80E2 /* Embed Carthage Frameworks */,
 				21501DA51CCAA2B900B02FC5 /* Set Version */,
 				21501DA61CCAA2B900B02FC5 /* Swift Lint */,
 			);
@@ -969,11 +831,8 @@
 				218383B61CD517C800F7AA24 /* PBXTargetDependency */,
 				218383B81CD517C800F7AA24 /* PBXTargetDependency */,
 				218383BA1CD517C800F7AA24 /* PBXTargetDependency */,
-				218383BC1CD517C800F7AA24 /* PBXTargetDependency */,
-				218383BE1CD517C800F7AA24 /* PBXTargetDependency */,
 				218383C01CD517C800F7AA24 /* PBXTargetDependency */,
 				218383C21CD517C800F7AA24 /* PBXTargetDependency */,
-				218383C41CD517C800F7AA24 /* PBXTargetDependency */,
 			);
 			name = "Canvas Dev";
 			productName = Canvas;
@@ -988,6 +847,7 @@
 				21F10F471BF138750035057D /* Frameworks */,
 				21F10F481BF138750035057D /* Resources */,
 				2164599E1CC1468F00033B7F /* Embed Frameworks */,
+				21F7EF321CD91E74004E80E2 /* Embed Carthage Frameworks */,
 				21A8FA601BFD3D160097FCC6 /* Set Version */,
 				21CEC8431C601BD9001AEA10 /* Swift Lint */,
 			);
@@ -998,11 +858,8 @@
 				218383921CD5175A00F7AA24 /* PBXTargetDependency */,
 				218383941CD5175A00F7AA24 /* PBXTargetDependency */,
 				218383961CD5175A00F7AA24 /* PBXTargetDependency */,
-				218383981CD5175A00F7AA24 /* PBXTargetDependency */,
-				2183839A1CD5175A00F7AA24 /* PBXTargetDependency */,
 				2183839C1CD5175A00F7AA24 /* PBXTargetDependency */,
 				2183839E1CD5175A00F7AA24 /* PBXTargetDependency */,
-				218383A01CD5175A00F7AA24 /* PBXTargetDependency */,
 			);
 			name = Canvas;
 			productName = Canvas;
@@ -1091,24 +948,12 @@
 					ProjectRef = 21B1E73D1CD516B000E2902C /* ISO8601.xcodeproj */;
 				},
 				{
-					ProductGroup = 21B1E99E1CD516CA00E2902C /* Products */;
-					ProjectRef = 21B1E75F1CD516B000E2902C /* Mixpanel.xcodeproj */;
-				},
-				{
-					ProductGroup = 218383601CD5174800F7AA24 /* Products */;
-					ProjectRef = 21B1E9E31CD5170400E2902C /* OnePasswordExtension.xcodeproj */;
-				},
-				{
 					ProductGroup = 21B1E9AF1CD516D500E2902C /* Products */;
 					ProjectRef = 21B1E7B81CD516B000E2902C /* OperationTransport.xcodeproj */;
 				},
 				{
 					ProductGroup = 21B1E9BD1CD516D900E2902C /* Products */;
 					ProjectRef = 21B1E7CA1CD516B000E2902C /* SSKeychain.xcodeproj */;
-				},
-				{
-					ProductGroup = 21B1E9D41CD516DD00E2902C /* Products */;
-					ProjectRef = 21B1E7F61CD516B000E2902C /* Static.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1132,13 +977,6 @@
 			fileType = wrapper.cfbundle;
 			path = CanvasTextTests.xctest;
 			remoteRef = 218383731CD5174800F7AA24 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		218383801CD5174800F7AA24 /* OnePasswordExtension.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = OnePasswordExtension.framework;
-			remoteRef = 2183837F1CD5174800F7AA24 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		21B1E9721CD516B800E2902C /* CanvasKit.framework */ = {
@@ -1246,41 +1084,6 @@
 			remoteRef = 21B1E99C1CD516C600E2902C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		21B1E9A61CD516CA00E2902C /* Mixpanel.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Mixpanel.framework;
-			remoteRef = 21B1E9A51CD516CA00E2902C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21B1E9A81CD516CA00E2902C /* MixpanelTests-iOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "MixpanelTests-iOS.xctest";
-			remoteRef = 21B1E9A71CD516CA00E2902C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21B1E9AA1CD516CA00E2902C /* Mixpanel.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Mixpanel.framework;
-			remoteRef = 21B1E9A91CD516CA00E2902C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21B1E9AC1CD516CA00E2902C /* MixpanelTests-OSX.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "MixpanelTests-OSX.xctest";
-			remoteRef = 21B1E9AB1CD516CA00E2902C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21B1E9AE1CD516CA00E2902C /* Mixpanel.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Mixpanel.framework;
-			remoteRef = 21B1E9AD1CD516CA00E2902C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		21B1E9B61CD516D500E2902C /* OperationTransport.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -1356,27 +1159,6 @@
 			fileType = wrapper.framework;
 			path = SSKeychain.framework;
 			remoteRef = 21B1E9D21CD516D900E2902C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21B1E9DA1CD516DD00E2902C /* Static.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Static.framework;
-			remoteRef = 21B1E9D91CD516DD00E2902C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21B1E9DC1CD516DD00E2902C /* StaticTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = StaticTests.xctest;
-			remoteRef = 21B1E9DB1CD516DD00E2902C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21B1E9DE1CD516DD00E2902C /* Example.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = Example.app;
-			remoteRef = 21B1E9DD1CD516DD00E2902C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1464,6 +1246,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		21F7EF311CD91DDB004E80E2 /* Embed Carthage Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Mixpanel.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/OnePasswordExtension.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Static.framework",
+			);
+			name = "Embed Carthage Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		21F7EF321CD91E74004E80E2 /* Embed Carthage Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Mixpanel.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/OnePasswordExtension.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Static.framework",
+			);
+			name = "Embed Carthage Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1593,16 +1409,6 @@
 			name = "ISO8601-iOS";
 			targetProxy = 218383951CD5175A00F7AA24 /* PBXContainerItemProxy */;
 		};
-		218383981CD5175A00F7AA24 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Mixpanel-iOS";
-			targetProxy = 218383971CD5175A00F7AA24 /* PBXContainerItemProxy */;
-		};
-		2183839A1CD5175A00F7AA24 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = OnePasswordExtension;
-			targetProxy = 218383991CD5175A00F7AA24 /* PBXContainerItemProxy */;
-		};
 		2183839C1CD5175A00F7AA24 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "OperationTransport-iOS";
@@ -1612,11 +1418,6 @@
 			isa = PBXTargetDependency;
 			name = "SSKeychain-iOS";
 			targetProxy = 2183839D1CD5175A00F7AA24 /* PBXContainerItemProxy */;
-		};
-		218383A01CD5175A00F7AA24 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Static-iOS";
-			targetProxy = 2183839F1CD5175A00F7AA24 /* PBXContainerItemProxy */;
 		};
 		218383B41CD517C800F7AA24 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1638,16 +1439,6 @@
 			name = "ISO8601-iOS";
 			targetProxy = 218383B91CD517C800F7AA24 /* PBXContainerItemProxy */;
 		};
-		218383BC1CD517C800F7AA24 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Mixpanel-iOS";
-			targetProxy = 218383BB1CD517C800F7AA24 /* PBXContainerItemProxy */;
-		};
-		218383BE1CD517C800F7AA24 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = OnePasswordExtension;
-			targetProxy = 218383BD1CD517C800F7AA24 /* PBXContainerItemProxy */;
-		};
 		218383C01CD517C800F7AA24 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "OperationTransport-iOS";
@@ -1657,11 +1448,6 @@
 			isa = PBXTargetDependency;
 			name = "SSKeychain-iOS";
 			targetProxy = 218383C11CD517C800F7AA24 /* PBXContainerItemProxy */;
-		};
-		218383C41CD517C800F7AA24 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Static-iOS";
-			targetProxy = 218383C31CD517C800F7AA24 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1704,6 +1490,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.usecanvas.canvas.dev;
@@ -1724,6 +1514,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.usecanvas.canvas.dev;
@@ -1827,6 +1621,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.usecanvas.canvas;
@@ -1847,6 +1645,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.usecanvas.canvas;
