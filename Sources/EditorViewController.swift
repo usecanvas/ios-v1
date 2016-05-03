@@ -335,6 +335,29 @@ extension EditorViewController: TextControllerConnectionDelegate {
 		textView.becomeFirstResponder()
 	}
 
+	func textController(textController: TextController, didReceiveWebErrorMessage errorMessage: String?, lineNumber: UInt?, columnNumber: UInt?) {
+		#if INTERNAL
+			var message = errorMessage ?? "Unknown error."
+			message += " "
+
+			if let lineNumber = lineNumber {
+				message += "\(lineNumber):"
+			} else {
+				message += "?:"
+			}
+
+			if let columnNumber = columnNumber {
+				message += "\(columnNumber)"
+			} else {
+				message += "?"
+			}
+
+			let alert = UIAlertController(title: "CanvasNativeWrapper Error", message: message, preferredStyle: .Alert)
+			alert.addAction(UIAlertAction(title: LocalizedString.Okay.string, style: .Cancel, handler: nil))
+			presentViewController(alert, animated: true, completion: nil)
+		#endif
+	}
+
 	func textController(textController: TextController, didDisconnectWithErrorMessage errorMessage: String?) {
 		textView.editable = false
 
