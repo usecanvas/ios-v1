@@ -104,7 +104,7 @@ extension CanvasTextView {
 	private func blockAt(point point: CGPoint) -> BlockNode? {
 		guard let textRange = characterRangeAtPoint(point),
 			textController = textController
-			else { return nil }
+		else { return nil }
 
 		let location = offsetFromPosition(beginningOfDocument, toPosition: textRange.start)
 		return textController.blockAt(presentationLocation: location)
