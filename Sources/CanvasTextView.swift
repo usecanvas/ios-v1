@@ -76,16 +76,4 @@ extension CanvasTextView: TextControllerAnnotationDelegate {
 	func textController(textController: TextController, willRemoveAnnotation annotation: Annotation) {
 		managedSubviews.remove(annotation.view)
 	}
-
-	func textController(textController: TextController, firstRectForRange range: NSRange) -> CGRect? {
-		guard let start = positionFromPosition(beginningOfDocument, offset: range.location),
-			end = positionFromPosition(start, offset: range.length),
-			textRange = textRangeFromPosition(start, toPosition: end)
-		else { return nil }
-
-		var rect = firstRectForRange(textRange)
-		rect.origin.y -= textContainerInset.top
-		rect.origin.x -= textContainerInset.left
-		return rect
-	}
 }
