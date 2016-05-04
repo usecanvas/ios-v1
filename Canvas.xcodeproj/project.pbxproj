@@ -57,6 +57,8 @@
 		2107D3341CC58F7B001963B7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2107D3001CC58F7B001963B7 /* Settings.bundle */; };
 		2147A2E31CDA586E008A2709 /* CanvasTextView+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147A2E21CDA586E008A2709 /* CanvasTextView+Gestures.swift */; };
 		2147A2FA1CDA5908008A2709 /* CanvasTextView+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147A2E21CDA586E008A2709 /* CanvasTextView+Gestures.swift */; };
+		2147A2FC1CDA7B2E008A2709 /* DragContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147A2FB1CDA7B2E008A2709 /* DragContext.swift */; };
+		2147A2FD1CDA7B35008A2709 /* DragContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147A2FB1CDA7B2E008A2709 /* DragContext.swift */; };
 		214F9FF71CC6DE4600927A07 /* CanvasTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214F9FF61CC6DE4600927A07 /* CanvasTextView.swift */; };
 		21501D5B1CCAA2B900B02FC5 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CD1CC58F7A001963B7 /* Button.swift */; };
 		21501D5C1CCAA2B900B02FC5 /* PersonalOrganizationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2E71CC58F7B001963B7 /* PersonalOrganizationCell.swift */; };
@@ -510,6 +512,7 @@
 		2107D2FF1CC58F7B001963B7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2107D3001CC58F7B001963B7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		2147A2E21CDA586E008A2709 /* CanvasTextView+Gestures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CanvasTextView+Gestures.swift"; sourceTree = "<group>"; };
+		2147A2FB1CDA7B2E008A2709 /* DragContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragContext.swift; sourceTree = "<group>"; };
 		214F9FF61CC6DE4600927A07 /* CanvasTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasTextView.swift; sourceTree = "<group>"; };
 		21501DAA1CCAA2B900B02FC5 /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21B1E68C1CD516B000E2902C /* CanvasKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasKit.xcodeproj; path = CanvasKit/CanvasKit.xcodeproj; sourceTree = "<group>"; };
@@ -687,6 +690,7 @@
 			children = (
 				2107D2D61CC58F7A001963B7 /* Color.swift */,
 				2107D2D91CC58F7A001963B7 /* Font.swift */,
+				2147A2FB1CDA7B2E008A2709 /* DragContext.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1303,6 +1307,7 @@
 				21501D631CCAA2B900B02FC5 /* OrganizationsViewController.swift in Sources */,
 				21501D641CCAA2B900B02FC5 /* TableViewController.swift in Sources */,
 				21501D651CCAA2B900B02FC5 /* NavigationBar.swift in Sources */,
+				2147A2FD1CDA7B35008A2709 /* DragContext.swift in Sources */,
 				21501D661CCAA2B900B02FC5 /* CanvasTextView.swift in Sources */,
 				21501D671CCAA2B900B02FC5 /* CanvasesViewController.swift in Sources */,
 				21501D681CCAA2B900B02FC5 /* Configuration.swift in Sources */,
@@ -1355,6 +1360,7 @@
 				2107D31E1CC58F7B001963B7 /* OrganizationsViewController.swift in Sources */,
 				2107D3241CC58F7B001963B7 /* TableViewController.swift in Sources */,
 				2107D3161CC58F7B001963B7 /* NavigationBar.swift in Sources */,
+				2147A2FC1CDA7B2E008A2709 /* DragContext.swift in Sources */,
 				214F9FF71CC6DE4600927A07 /* CanvasTextView.swift in Sources */,
 				2107D3091CC58F7B001963B7 /* CanvasesViewController.swift in Sources */,
 				2107D30F1CC58F7B001963B7 /* Configuration.swift in Sources */,
