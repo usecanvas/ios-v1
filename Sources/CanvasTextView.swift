@@ -26,13 +26,6 @@ final class CanvasTextView: TextView {
 	let dragThreshold: CGFloat = 60
 	var dragContext: DragContext?
 
-	override var contentOffset: CGPoint {
-		didSet {
-			// TODO: Debug
-			print("contentOffset: \(contentOffset)")
-		}
-	}
-
 
 	// MARK: - Initializers
 

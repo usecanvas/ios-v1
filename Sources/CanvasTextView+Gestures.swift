@@ -48,8 +48,7 @@ extension CanvasTextView {
 			translation = min(0, translation)
 		}
 
-		context.contentView.frame = context.rectForContentView(x: translation)
-
+		context.translate(x: translation)
 
 		// Calculate block level
 		if translation >= dragThreshold {
@@ -67,7 +66,7 @@ extension CanvasTextView {
 		guard let context = dragContext else { return }
 
 		UIView.animateWithDuration(0.15, delay: 0, options: [], animations: {
-			context.contentView.frame = context.rectForContentView(x: 0)
+			context.translate(x: 0)
 		}, completion: { [weak self] _ in
 			context.tearDown()
 
@@ -144,24 +143,18 @@ extension CanvasTextView: UIGestureRecognizerDelegate {
 		// Content
 		let contentView = snapshotViewAfterScreenUpdates(false)
 
+		// Background
+		let background = UIView()
+		background.backgroundColor = backgroundColor
+
 		// Setup context
 		let context = DragContext(
 			block: block,
 			contentView: contentView,
+			backgroundView: background,
 			rect: rect,
 			yContentOffset: contentOffset.y
 		)
-
-		// Layout views
-		contentView.frame = context.rectForContentView(x: 0)
-		context.backgroundView.backgroundColor = backgroundColor
-		context.backgroundView.frame = context.rectForBackgroundView()
-
-		// Setup mask
-		let mask = CAShapeLayer()
-		mask.frame = contentView.layer.bounds
-		mask.path = UIBezierPath(rect: context.rectForContentViewMask()).CGPath
-		contentView.layer.mask = mask
 
 		dragContext = context
 
