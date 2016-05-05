@@ -81,32 +81,10 @@ extension CanvasTextView {
 		})
 	}
 
-	private func blockRect(point point: CGPoint) -> CGRect? {
-		guard let textRange = characterRangeAtPoint(point) else { return nil }
-
-		let range = NSRange(
-			location: offsetFromPosition(beginningOfDocument, toPosition: textRange.start),
-			length: 0
-		)
-
-		let lineRange = (text as NSString).lineRangeForRange(range)
-
-		guard let start = positionFromPosition(beginningOfDocument, offset: lineRange.location),
-			end = positionFromPosition(start, offset: lineRange.length),
-			lineTextRange = textRangeFromPosition(start, toPosition: end),
-			rects = (selectionRectsForRange(lineTextRange) as? [UITextSelectionRect])?.map({ $0.rect })
-		else { return nil }
-
-		return rects.filter { $0.size.width > 0 }.reduce(rects[0]) { CGRectUnion($0, $1) }
-	}
-
 	private func blockAt(point point: CGPoint) -> BlockNode? {
-		guard let textRange = characterRangeAtPoint(point),
-			textController = textController
-		else { return nil }
-
-		let location = offsetFromPosition(beginningOfDocument, toPosition: textRange.start)
-		return textController.blockAt(presentationLocation: location)
+		guard let textController = textController else { return nil }
+		let location = layoutManager.characterIndexForPoint(point, inTextContainer: textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
+		return textController.currentDocument.blockAt(presentationLocation: location)
 	}
 }
 
@@ -114,7 +92,7 @@ extension CanvasTextView {
 extension CanvasTextView: UIGestureRecognizerDelegate {
 	override func gestureRecognizerShouldBegin(sender: UIGestureRecognizer) -> Bool {
 		// Make sure we don't mess with internal UITextView gesture recognizers.
-		guard sender == dragGestureRecognizer else { return super.gestureRecognizerShouldBegin(sender) }
+		guard sender == dragGestureRecognizer, let textController = textController else { return super.gestureRecognizerShouldBegin(sender) }
 
 		// If there are multiple characters selected, disable the drag since the text view uses that event to adjust the
 		// selection.
@@ -137,8 +115,12 @@ extension CanvasTextView: UIGestureRecognizerDelegate {
 			return false
 		}
 
-		// Get the rect
-		guard let rect = blockRect(point: point) else { return false }
+		// Get the block rect
+		let characterRange = textController.currentDocument.presentationRange(backingRange: block.visibleRange)
+		let glyphRange = layoutManager.glyphRangeForCharacterRange(characterRange, actualCharacterRange: nil)
+		var rect = layoutManager.boundingRectForGlyphRange(glyphRange, inTextContainer: textContainer)
+		rect.origin.x += textContainerInset.left
+		rect.origin.y += textContainerInset.top
 
 		// Content
 		let contentView = snapshotViewAfterScreenUpdates(false)
