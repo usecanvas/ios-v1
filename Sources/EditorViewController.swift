@@ -289,6 +289,9 @@ extension EditorViewController: UIViewControllerPreviewingDelegate {
 
 extension EditorViewController: UITextViewDelegate {
 	func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+		if (textView.text as NSString).length - range.length + (text as NSString).length == 0 {
+			textView.typingAttributes = textController.theme.titleAttributes
+		}
 		return true
 	}
 	
@@ -325,6 +328,11 @@ extension EditorViewController: TextControllerConnectionDelegate {
 
 	func textControllerDidConnect(textController: TextController) {
 		textView.editable = true
+
+		if textView.text.isEmpty {
+			textView.typingAttributes = textController.theme.titleAttributes
+		}
+
 		textView.becomeFirstResponder()
 	}
 
