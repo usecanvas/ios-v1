@@ -21,8 +21,6 @@ final class EditorViewController: UIViewController, Accountable {
 	let textController: TextController
 	let textView: UITextView
 	
-	private var ignoreSelectionChange = false
-
 
 	// MARK: - Initializers
 
@@ -291,7 +289,6 @@ extension EditorViewController: UIViewControllerPreviewingDelegate {
 
 extension EditorViewController: UITextViewDelegate {
 	func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-		ignoreSelectionChange = true
 		return true
 	}
 	
@@ -308,11 +305,6 @@ extension EditorViewController: UITextViewDelegate {
 
 extension EditorViewController: TextControllerSelectionDelegate {
 	func textControllerDidUpdateSelectedRange(textController: TextController) {
-		if ignoreSelectionChange {
-			ignoreSelectionChange = false
-			return
-		}
-		
 		guard let selectedRange = textController.presentationSelectedRange else {
 			textView.selectedRange = NSRange(location: 0, length: 0)
 			return
