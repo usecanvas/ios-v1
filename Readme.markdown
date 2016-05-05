@@ -12,7 +12,7 @@ Canvas client for iOS.
 
 2. You also need [Carthage](https://github.com/carthage/carthage). You can install with `brew install carthage`. Once you have Carthage, run the following:
 
-        $ carthage bootstrap --no-use-binaries --platform ios
+        $ rake bootstrap
 
 3. Open in Xcode 7.3
 
