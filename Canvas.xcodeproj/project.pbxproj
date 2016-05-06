@@ -55,6 +55,12 @@
 		2107D32F1CC58F7B001963B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2F91CC58F7B001963B7 /* Main.storyboard */; };
 		2107D3321CC58F7B001963B7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2FD1CC58F7B001963B7 /* Localizable.strings */; };
 		2107D3341CC58F7B001963B7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2107D3001CC58F7B001963B7 /* Settings.bundle */; };
+		21213A9C1CDC2F8A0044D6BE /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21213A9A1CDC2F8A0044D6BE /* CommonCrypto.framework */; };
+		21213A9D1CDC2F8A0044D6BE /* Crypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21213A9B1CDC2F8A0044D6BE /* Crypto.framework */; };
+		21213AB41CDC2F930044D6BE /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21213A9A1CDC2F8A0044D6BE /* CommonCrypto.framework */; };
+		21213AB51CDC2F930044D6BE /* Crypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21213A9B1CDC2F8A0044D6BE /* Crypto.framework */; };
+		21213AB71CDC36600044D6BE /* Imgix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21213AB61CDC36600044D6BE /* Imgix.swift */; };
+		21213AB81CDC36600044D6BE /* Imgix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21213AB61CDC36600044D6BE /* Imgix.swift */; };
 		2147A2E31CDA586E008A2709 /* CanvasTextView+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147A2E21CDA586E008A2709 /* CanvasTextView+Gestures.swift */; };
 		2147A2FA1CDA5908008A2709 /* CanvasTextView+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147A2E21CDA586E008A2709 /* CanvasTextView+Gestures.swift */; };
 		2147A2FC1CDA7B2E008A2709 /* DragContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147A2FB1CDA7B2E008A2709 /* DragContext.swift */; };
@@ -111,8 +117,8 @@
 		21501D981CCAA2B900B02FC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2F71CC58F7B001963B7 /* LaunchScreen.storyboard */; };
 		215CD8621CE293FF0093C545 /* PlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CD8611CE293FF0093C545 /* PlaceholderViewController.swift */; };
 		215CD8631CE293FF0093C545 /* PlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CD8611CE293FF0093C545 /* PlaceholderViewController.swift */; };
-		216A2A6D1CDD881C00A8F35E /* EditorViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216A2A6C1CDD881C00A8F35E /* EditorViewController+Actions.swift */; };
-		216A2A841CDD881F00A8F35E /* EditorViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216A2A6C1CDD881C00A8F35E /* EditorViewController+Actions.swift */; };
+		215CD89C1CE2A26F0093C545 /* EditorViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B28BF51CDC6049009B9D8F /* EditorViewController+Actions.swift */; };
+		215CD89D1CE2A26F0093C545 /* EditorViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B28BF51CDC6049009B9D8F /* EditorViewController+Actions.swift */; };
 		218383A11CD5177100F7AA24 /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9721CD516B800E2902C /* CanvasKit.framework */; };
 		218383A21CD5177100F7AA24 /* CanvasNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9831CD516BE00E2902C /* CanvasNative.framework */; };
 		218383A31CD5177100F7AA24 /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218383721CD5174800F7AA24 /* CanvasText.framework */; };
@@ -519,18 +525,21 @@
 		2107D2FE1CC58F7B001963B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2107D2FF1CC58F7B001963B7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2107D3001CC58F7B001963B7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		21213A9A1CDC2F8A0044D6BE /* CommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonCrypto.framework; path = Carthage/Build/iOS/CommonCrypto.framework; sourceTree = "<group>"; };
+		21213A9B1CDC2F8A0044D6BE /* Crypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crypto.framework; path = Carthage/Build/iOS/Crypto.framework; sourceTree = "<group>"; };
+		21213AB61CDC36600044D6BE /* Imgix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Imgix.swift; sourceTree = "<group>"; };
 		2147A2E21CDA586E008A2709 /* CanvasTextView+Gestures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CanvasTextView+Gestures.swift"; sourceTree = "<group>"; };
 		2147A2FB1CDA7B2E008A2709 /* DragContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragContext.swift; sourceTree = "<group>"; };
 		214F9FF61CC6DE4600927A07 /* CanvasTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasTextView.swift; sourceTree = "<group>"; };
 		21501DAA1CCAA2B900B02FC5 /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		215CD8611CE293FF0093C545 /* PlaceholderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderViewController.swift; sourceTree = "<group>"; };
-		216A2A6C1CDD881C00A8F35E /* EditorViewController+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EditorViewController+Actions.swift"; sourceTree = "<group>"; };
 		21B1E68C1CD516B000E2902C /* CanvasKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasKit.xcodeproj; path = CanvasKit/CanvasKit.xcodeproj; sourceTree = "<group>"; };
 		21B1E6B21CD516B000E2902C /* CanvasNative.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasNative.xcodeproj; path = CanvasNative/CanvasNative.xcodeproj; sourceTree = "<group>"; };
 		21B1E6F51CD516B000E2902C /* CanvasText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasText.xcodeproj; path = CanvasText/CanvasText.xcodeproj; sourceTree = "<group>"; };
 		21B1E73D1CD516B000E2902C /* ISO8601.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ISO8601.xcodeproj; path = ISO8601/ISO8601.xcodeproj; sourceTree = "<group>"; };
 		21B1E7B81CD516B000E2902C /* OperationTransport.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OperationTransport.xcodeproj; path = OperationTransport/OperationTransport.xcodeproj; sourceTree = "<group>"; };
 		21B1E7CA1CD516B000E2902C /* SSKeychain.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSKeychain.xcodeproj; path = SSKeychain/SSKeychain.xcodeproj; sourceTree = "<group>"; };
+		21B28BF51CDC6049009B9D8F /* EditorViewController+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EditorViewController+Actions.swift"; sourceTree = "<group>"; };
 		21F10F4A1BF138750035057D /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F7EF281CD91D70004E80E2 /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mixpanel.framework; path = Carthage/Build/iOS/Mixpanel.framework; sourceTree = "<group>"; };
 		21F7EF291CD91D70004E80E2 /* OnePasswordExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OnePasswordExtension.framework; path = Carthage/Build/iOS/OnePasswordExtension.framework; sourceTree = "<group>"; };
@@ -548,6 +557,8 @@
 				218383C51CD517D300F7AA24 /* CanvasKit.framework in Frameworks */,
 				218383C61CD517D300F7AA24 /* CanvasNative.framework in Frameworks */,
 				218383C71CD517D300F7AA24 /* CanvasText.framework in Frameworks */,
+				21213AB51CDC2F930044D6BE /* Crypto.framework in Frameworks */,
+				21213AB41CDC2F930044D6BE /* CommonCrypto.framework in Frameworks */,
 				218383C81CD517D300F7AA24 /* ISO8601.framework in Frameworks */,
 				21F7EF2E1CD91D70004E80E2 /* OnePasswordExtension.framework in Frameworks */,
 				218383CB1CD517D300F7AA24 /* OperationTransport.framework in Frameworks */,
@@ -566,6 +577,8 @@
 				218383A11CD5177100F7AA24 /* CanvasKit.framework in Frameworks */,
 				218383A21CD5177100F7AA24 /* CanvasNative.framework in Frameworks */,
 				218383A31CD5177100F7AA24 /* CanvasText.framework in Frameworks */,
+				21213A9D1CDC2F8A0044D6BE /* Crypto.framework in Frameworks */,
+				21213A9C1CDC2F8A0044D6BE /* CommonCrypto.framework in Frameworks */,
 				218383A41CD5177100F7AA24 /* ISO8601.framework in Frameworks */,
 				21F7EF2D1CD91D70004E80E2 /* OnePasswordExtension.framework in Frameworks */,
 				218383A71CD5177100F7AA24 /* OperationTransport.framework in Frameworks */,
@@ -638,6 +651,7 @@
 			children = (
 				2107D2CB1CC58F7A001963B7 /* Analytics.swift */,
 				2107D2DA1CC58F7A001963B7 /* LocalizedString.swift */,
+				21213AB61CDC36600044D6BE /* Imgix.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -660,7 +674,7 @@
 				2107D2D01CC58F7A001963B7 /* CanvasesResultsViewController.swift */,
 				2107D2D11CC58F7A001963B7 /* CanvasesViewController.swift */,
 				2107D2D81CC58F7A001963B7 /* EditorViewController.swift */,
-				216A2A6C1CDD881C00A8F35E /* EditorViewController+Actions.swift */,
+				21B28BF51CDC6049009B9D8F /* EditorViewController+Actions.swift */,
 				2107D2DC1CC58F7A001963B7 /* LoginViewController.swift */,
 				2107D2DD1CC58F7A001963B7 /* ModelsViewController.swift */,
 				2107D2E41CC58F7B001963B7 /* OrganizationCanvasesViewController.swift */,
@@ -828,6 +842,8 @@
 		21F7EF271CD91D58004E80E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				21213A9A1CDC2F8A0044D6BE /* CommonCrypto.framework */,
+				21213A9B1CDC2F8A0044D6BE /* Crypto.framework */,
 				21F7EF331CD91F75004E80E2 /* KSCrash.framework */,
 				21F7EF341CD91F75004E80E2 /* SentrySwift.framework */,
 				21F7EF281CD91D70004E80E2 /* Mixpanel.framework */,
@@ -1286,6 +1302,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Static.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/KSCrash.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SentrySwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Crypto.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CommonCrypto.framework",
 			);
 			name = "Embed Carthage Frameworks";
 			outputPaths = (
@@ -1305,6 +1323,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Static.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/KSCrash.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SentrySwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Crypto.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CommonCrypto.framework",
 			);
 			name = "Embed Carthage Frameworks";
 			outputPaths = (
@@ -1325,11 +1345,11 @@
 				21501D5D1CCAA2B900B02FC5 /* Canvas+Canvas.swift in Sources */,
 				21501D5E1CCAA2B900B02FC5 /* AppDelegate.swift in Sources */,
 				21501D5F1CCAA2B900B02FC5 /* CanvasesResultsViewController.swift in Sources */,
-				216A2A841CDD881F00A8F35E /* EditorViewController+Actions.swift in Sources */,
 				21501D601CCAA2B900B02FC5 /* UIEdgeInsets+Canvas.swift in Sources */,
 				21501D611CCAA2B900B02FC5 /* TextView.swift in Sources */,
 				21501D621CCAA2B900B02FC5 /* Color+Canvas.swift in Sources */,
 				21501D631CCAA2B900B02FC5 /* OrganizationsViewController.swift in Sources */,
+				21213AB81CDC36600044D6BE /* Imgix.swift in Sources */,
 				21501D641CCAA2B900B02FC5 /* TableViewController.swift in Sources */,
 				21501D651CCAA2B900B02FC5 /* NavigationBar.swift in Sources */,
 				2147A2FD1CDA7B35008A2709 /* DragContext.swift in Sources */,
@@ -1355,6 +1375,7 @@
 				21501D781CCAA2B900B02FC5 /* ModelsViewController.swift in Sources */,
 				21501D791CCAA2B900B02FC5 /* RootViewController.swift in Sources */,
 				21501D7A1CCAA2B900B02FC5 /* TintableView.swift in Sources */,
+				215CD89C1CE2A26F0093C545 /* EditorViewController+Actions.swift in Sources */,
 				21501D7B1CCAA2B900B02FC5 /* Font.swift in Sources */,
 				21501D7C1CCAA2B900B02FC5 /* AlertController.swift in Sources */,
 				2147A2FA1CDA5908008A2709 /* CanvasTextView+Gestures.swift in Sources */,
@@ -1380,11 +1401,11 @@
 				2107D3061CC58F7B001963B7 /* Canvas+Canvas.swift in Sources */,
 				2107D3041CC58F7B001963B7 /* AppDelegate.swift in Sources */,
 				2107D3081CC58F7B001963B7 /* CanvasesResultsViewController.swift in Sources */,
-				216A2A6D1CDD881C00A8F35E /* EditorViewController+Actions.swift in Sources */,
 				2107D3291CC58F7B001963B7 /* UIEdgeInsets+Canvas.swift in Sources */,
 				2107D3251CC58F7B001963B7 /* TextView.swift in Sources */,
 				2107D30D1CC58F7B001963B7 /* Color+Canvas.swift in Sources */,
 				2107D31E1CC58F7B001963B7 /* OrganizationsViewController.swift in Sources */,
+				21213AB71CDC36600044D6BE /* Imgix.swift in Sources */,
 				2107D3241CC58F7B001963B7 /* TableViewController.swift in Sources */,
 				2107D3161CC58F7B001963B7 /* NavigationBar.swift in Sources */,
 				2147A2FC1CDA7B2E008A2709 /* DragContext.swift in Sources */,
@@ -1410,6 +1431,7 @@
 				2107D3151CC58F7B001963B7 /* ModelsViewController.swift in Sources */,
 				2107D3201CC58F7B001963B7 /* RootViewController.swift in Sources */,
 				2107D3281CC58F7B001963B7 /* TintableView.swift in Sources */,
+				215CD89D1CE2A26F0093C545 /* EditorViewController+Actions.swift in Sources */,
 				2107D3111CC58F7B001963B7 /* Font.swift in Sources */,
 				2107D3021CC58F7B001963B7 /* AlertController.swift in Sources */,
 				2147A2E31CDA586E008A2709 /* CanvasTextView+Gestures.swift in Sources */,

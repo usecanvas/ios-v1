@@ -1,3 +1,4 @@
+github "soffes/Crypto" "v0.3.0"
 github "kstenerud/KSCrash" "1.5.6"
 github "soffes/Mixpanel" "v0.1.0"
 github "venmo/Static" "v1.1.0"
