@@ -183,6 +183,29 @@ final class EditorViewController: UIViewController, Accountable {
 			UIApplication.sharedApplication().idleTimerDisabled = true
 		}
 	}
+	
+	private func imgixURL(URL: NSURL) -> NSURL? {
+		let defaultParameters = [
+			NSURLQueryItem(name: "dpr", value: "\(Int(traitCollection.displayScale))"),
+			NSURLQueryItem(name: "fm", value: "jpg"),
+			NSURLQueryItem(name: "q", value: "80"),
+			NSURLQueryItem(name: "cs", value: "adobergb1998"),
+			NSURLQueryItem(name: "w", value: "\(Int(view.bounds.width))")
+		]
+		
+		// Uploaded image
+		let uploadPrefix = "https://canvas-files-prod.s3.amazonaws.com/uploads/"
+		if URL.absoluteString.hasPrefix(uploadPrefix) {
+			let imgix = Imgix(host: config.imgixUploadHost, secret: config.imgixUploadSecret, defaultParameters: defaultParameters)
+			let path = (URL.absoluteString as NSString).substringFromIndex((uploadPrefix as NSString).length)
+			return imgix.signPath(path)
+		}
+		
+		// Linked image
+		let imgix = Imgix(host: config.imgixProxyHost, secret: config.imgixProxySecret, defaultParameters: defaultParameters)
+		let path = URL.absoluteString.stringByAddingPercentEncodingWithAllowedCharacters(.URLPathAllowedCharacterSet())
+		return path.flatMap { imgix.signPath($0) }
+	}
 }
 
 
