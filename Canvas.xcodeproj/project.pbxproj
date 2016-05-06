@@ -153,6 +153,18 @@
 		21F7EF361CD91F75004E80E2 /* KSCrash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF331CD91F75004E80E2 /* KSCrash.framework */; };
 		21F7EF371CD91F75004E80E2 /* SentrySwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF341CD91F75004E80E2 /* SentrySwift.framework */; };
 		21F7EF381CD91F75004E80E2 /* SentrySwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF341CD91F75004E80E2 /* SentrySwift.framework */; };
+		21FE8FF71CDD14C500DDA485 /* MemoryCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE8FF61CDD14C500DDA485 /* MemoryCache.swift */; };
+		21FE8FF81CDD14C500DDA485 /* MemoryCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE8FF61CDD14C500DDA485 /* MemoryCache.swift */; };
+		21FE90101CDD160600DDA485 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE900F1CDD160600DDA485 /* Box.swift */; };
+		21FE90111CDD160600DDA485 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE900F1CDD160600DDA485 /* Box.swift */; };
+		21FE90131CDD16B800DDA485 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE90121CDD16B800DDA485 /* Cache.swift */; };
+		21FE90141CDD16B800DDA485 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE90121CDD16B800DDA485 /* Cache.swift */; };
+		21FE90161CDD174D00DDA485 /* DiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE90151CDD174D00DDA485 /* DiskCache.swift */; };
+		21FE90171CDD174D00DDA485 /* DiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE90151CDD174D00DDA485 /* DiskCache.swift */; };
+		21FE90191CDD1C1000DDA485 /* MultiCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE90181CDD1C1000DDA485 /* MultiCache.swift */; };
+		21FE901A1CDD1C1000DDA485 /* MultiCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE90181CDD1C1000DDA485 /* MultiCache.swift */; };
+		21FE901C1CDD3A2800DDA485 /* AnyCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE901B1CDD3A2800DDA485 /* AnyCache.swift */; };
+		21FE901D1CDD3A2800DDA485 /* AnyCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE901B1CDD3A2800DDA485 /* AnyCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -546,6 +558,12 @@
 		21F7EF2A1CD91D70004E80E2 /* Static.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Static.framework; path = Carthage/Build/iOS/Static.framework; sourceTree = "<group>"; };
 		21F7EF331CD91F75004E80E2 /* KSCrash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KSCrash.framework; path = Carthage/Build/iOS/KSCrash.framework; sourceTree = "<group>"; };
 		21F7EF341CD91F75004E80E2 /* SentrySwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SentrySwift.framework; path = Carthage/Build/iOS/SentrySwift.framework; sourceTree = "<group>"; };
+		21FE8FF61CDD14C500DDA485 /* MemoryCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryCache.swift; sourceTree = "<group>"; };
+		21FE900F1CDD160600DDA485 /* Box.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		21FE90121CDD16B800DDA485 /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		21FE90151CDD174D00DDA485 /* DiskCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiskCache.swift; sourceTree = "<group>"; };
+		21FE90181CDD1C1000DDA485 /* MultiCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiCache.swift; sourceTree = "<group>"; };
+		21FE901B1CDD3A2800DDA485 /* AnyCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -601,6 +619,7 @@
 				2107D33C1CC591DB001963B7 /* Models */,
 				2107D33D1CC591EA001963B7 /* Controllers */,
 				2107D3371CC5918C001963B7 /* Utilities */,
+				21FE901E1CDD46B600DDA485 /* Cache */,
 				2107D33B1CC591CD001963B7 /* Share Activities */,
 				2107D3381CC5919B001963B7 /* Protocols */,
 				2107D3351CC590BE001963B7 /* Extensions */,
@@ -851,6 +870,19 @@
 				21F7EF2A1CD91D70004E80E2 /* Static.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		21FE901E1CDD46B600DDA485 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				21FE90121CDD16B800DDA485 /* Cache.swift */,
+				21FE901B1CDD3A2800DDA485 /* AnyCache.swift */,
+				21FE8FF61CDD14C500DDA485 /* MemoryCache.swift */,
+				21FE90151CDD174D00DDA485 /* DiskCache.swift */,
+				21FE90181CDD1C1000DDA485 /* MultiCache.swift */,
+				21FE900F1CDD160600DDA485 /* Box.swift */,
+			);
+			name = Cache;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1344,6 +1376,7 @@
 				21501D5C1CCAA2B900B02FC5 /* PersonalOrganizationCell.swift in Sources */,
 				21501D5D1CCAA2B900B02FC5 /* Canvas+Canvas.swift in Sources */,
 				21501D5E1CCAA2B900B02FC5 /* AppDelegate.swift in Sources */,
+				21FE90141CDD16B800DDA485 /* Cache.swift in Sources */,
 				21501D5F1CCAA2B900B02FC5 /* CanvasesResultsViewController.swift in Sources */,
 				21501D601CCAA2B900B02FC5 /* UIEdgeInsets+Canvas.swift in Sources */,
 				21501D611CCAA2B900B02FC5 /* TextView.swift in Sources */,
@@ -1360,6 +1393,7 @@
 				21501D6A1CCAA2B900B02FC5 /* CGRect+Canvas.swift in Sources */,
 				21501D6B1CCAA2B900B02FC5 /* Organization+Canvas.swift in Sources */,
 				21501D6C1CCAA2B900B02FC5 /* OrganizationCanvasesViewController.swift in Sources */,
+				21FE901A1CDD1C1000DDA485 /* MultiCache.swift in Sources */,
 				21501D6D1CCAA2B900B02FC5 /* LoginViewController.swift in Sources */,
 				21501D6E1CCAA2B900B02FC5 /* LocalizedString.swift in Sources */,
 				21501D6F1CCAA2B900B02FC5 /* TickingLabel.swift in Sources */,
@@ -1373,6 +1407,7 @@
 				21501D761CCAA2B900B02FC5 /* EditorViewController.swift in Sources */,
 				21501D771CCAA2B900B02FC5 /* NavigationController.swift in Sources */,
 				21501D781CCAA2B900B02FC5 /* ModelsViewController.swift in Sources */,
+				21FE90171CDD174D00DDA485 /* DiskCache.swift in Sources */,
 				21501D791CCAA2B900B02FC5 /* RootViewController.swift in Sources */,
 				21501D7A1CCAA2B900B02FC5 /* TintableView.swift in Sources */,
 				215CD89C1CE2A26F0093C545 /* EditorViewController+Actions.swift in Sources */,
@@ -1381,7 +1416,10 @@
 				2147A2FA1CDA5908008A2709 /* CanvasTextView+Gestures.swift in Sources */,
 				21501D7D1CCAA2B900B02FC5 /* SafariActivity.swift in Sources */,
 				21501D7E1CCAA2B900B02FC5 /* Accountable.swift in Sources */,
+				21FE90111CDD160600DDA485 /* Box.swift in Sources */,
+				21FE8FF81CDD14C500DDA485 /* MemoryCache.swift in Sources */,
 				21501D7F1CCAA2B900B02FC5 /* ChromeActivity.swift in Sources */,
+				21FE901D1CDD3A2800DDA485 /* AnyCache.swift in Sources */,
 				21501D801CCAA2B900B02FC5 /* Analytics.swift in Sources */,
 				21501D811CCAA2B900B02FC5 /* LoginTextField.swift in Sources */,
 				21501D821CCAA2B900B02FC5 /* SearchController.swift in Sources */,
@@ -1400,6 +1438,7 @@
 				2107D31F1CC58F7B001963B7 /* PersonalOrganizationCell.swift in Sources */,
 				2107D3061CC58F7B001963B7 /* Canvas+Canvas.swift in Sources */,
 				2107D3041CC58F7B001963B7 /* AppDelegate.swift in Sources */,
+				21FE90131CDD16B800DDA485 /* Cache.swift in Sources */,
 				2107D3081CC58F7B001963B7 /* CanvasesResultsViewController.swift in Sources */,
 				2107D3291CC58F7B001963B7 /* UIEdgeInsets+Canvas.swift in Sources */,
 				2107D3251CC58F7B001963B7 /* TextView.swift in Sources */,
@@ -1416,6 +1455,7 @@
 				2107D30B1CC58F7B001963B7 /* CGRect+Canvas.swift in Sources */,
 				2107D31A1CC58F7B001963B7 /* Organization+Canvas.swift in Sources */,
 				2107D31C1CC58F7B001963B7 /* OrganizationCanvasesViewController.swift in Sources */,
+				21FE90191CDD1C1000DDA485 /* MultiCache.swift in Sources */,
 				2107D3141CC58F7B001963B7 /* LoginViewController.swift in Sources */,
 				2107D3121CC58F7B001963B7 /* LocalizedString.swift in Sources */,
 				2107D3261CC58F7B001963B7 /* TickingLabel.swift in Sources */,
@@ -1429,6 +1469,7 @@
 				2107D3101CC58F7B001963B7 /* EditorViewController.swift in Sources */,
 				2107D3171CC58F7B001963B7 /* NavigationController.swift in Sources */,
 				2107D3151CC58F7B001963B7 /* ModelsViewController.swift in Sources */,
+				21FE90161CDD174D00DDA485 /* DiskCache.swift in Sources */,
 				2107D3201CC58F7B001963B7 /* RootViewController.swift in Sources */,
 				2107D3281CC58F7B001963B7 /* TintableView.swift in Sources */,
 				215CD89D1CE2A26F0093C545 /* EditorViewController+Actions.swift in Sources */,
@@ -1437,7 +1478,10 @@
 				2147A2E31CDA586E008A2709 /* CanvasTextView+Gestures.swift in Sources */,
 				2107D3211CC58F7B001963B7 /* SafariActivity.swift in Sources */,
 				2107D3011CC58F7B001963B7 /* Accountable.swift in Sources */,
+				21FE90101CDD160600DDA485 /* Box.swift in Sources */,
+				21FE8FF71CDD14C500DDA485 /* MemoryCache.swift in Sources */,
 				2107D30C1CC58F7B001963B7 /* ChromeActivity.swift in Sources */,
+				21FE901C1CDD3A2800DDA485 /* AnyCache.swift in Sources */,
 				2107D3031CC58F7B001963B7 /* Analytics.swift in Sources */,
 				2107D3131CC58F7B001963B7 /* LoginTextField.swift in Sources */,
 				2107D3231CC58F7B001963B7 /* SearchController.swift in Sources */,
