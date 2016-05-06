@@ -64,6 +64,15 @@ struct Configuration {
 
 	/// Canvas client secret
 	let canvasClientSecret = "\(canvasClientSecretPart1)fb\(canvasClientSecretPart2)2e\(canvasClientSecretPart3)75\(canvasClientSecretPart4)"
+	
+	
+	// MARK: - Proxies
+	
+	/// Imgix host
+	let imgixHost = "canvas-proxy.imgix.net"
+	
+	/// Imgix secret
+	let imgixSecret = "dKSsF9Z87FCvTOY7"
 
 
 	// MARK: - Analytics & Crash Reporting
