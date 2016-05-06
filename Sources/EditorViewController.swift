@@ -159,75 +159,6 @@ final class EditorViewController: UIViewController, Accountable {
 		super.traitCollectionDidChange(previousTraitCollection)
 		textController.traitCollection = traitCollection
 	}
-	
-
-	// MARK: - Actions
-
-	@objc private func close(sender: UIAlertAction? = nil) {
-		navigationController?.popViewControllerAnimated(true)
-	}
-
-	@objc private func dismissKeyboard(sender: AnyObject?) {
-		textView.resignFirstResponder()
-	}
-
-	@objc private func share(sender: AnyObject?) {
-		dismissKeyboard(sender)
-		
-		guard let URL = canvas.URL else { return }
-		let activities = [SafariActivity(), ChromeActivity()]
-		let viewController = UIActivityViewController(activityItems: [URL], applicationActivities: activities)
-
-		if let popover = viewController.popoverPresentationController {
-			if let button = sender as? UIBarButtonItem {
-				popover.barButtonItem = button
-			} else {
-				popover.sourceView = view
-			}
-		}
-
-		presentViewController(viewController, animated: true, completion: nil)
-	}
-
-	@objc private func check() {
-		textController.toggleChecked()
-	}
-
-	@objc private func indent() {
-		textController.indent()
-	}
-
-	@objc private func outdent() {
-		textController.outdent()
-	}
-
-	@objc private func bold() {
-		textController.bold()
-	}
-
-	@objc private func italic() {
-		textController.italic()
-	}
-
-	@objc private func inlineCode() {
-		textController.inlineCode()
-	}
-	
-	@objc private func insertLineAfter() {
-		textController.insertLineAfter()
-	}
-	
-	@objc private func insertLineBefore() {
-		textController.insertLineBefore()
-	}
-	
-	@objc private func deleteLine() {
-		textController.deleteLine()
-	}
-
-	@objc private func reload(sender: UIAlertAction? = nil) {
-		textController.connect()
-	}
 
 
 	// MARK: - Private
@@ -249,6 +180,26 @@ final class EditorViewController: UIViewController, Accountable {
 		if NSUserDefaults.standardUserDefaults().boolForKey("PreventSleep") {
 			UIApplication.sharedApplication().idleTimerDisabled = true
 		}
+	}
+	
+	private func imgixURL(URL: NSURL) -> NSURL? {
+		let defaultParameters = [
+			NSURLQueryItem(name: "dpr", value: "\(Int(traitCollection.displayScale))"),
+			NSURLQueryItem(name: "fm", value: "jpg"),
+			NSURLQueryItem(name: "q", value: "80"),
+			NSURLQueryItem(name: "cs", value: "adobergb1998"),
+			NSURLQueryItem(name: "w", value: "\(Int(view.bounds.width))")
+		]
+		
+		let uploadPrefix = "https://canvas-files-prod.s3.amazonaws.com/uploads/"
+		if URL.absoluteString.hasPrefix(uploadPrefix) {
+			let imgix = Imgix(host: config.imgixUploadHost, secret: config.imgixUploadSecret, defaultParameters: defaultParameters)
+			let path = (URL.absoluteString as NSString).substringFromIndex((uploadPrefix as NSString).length)
+			return imgix.signPath(path)
+		}
+		
+		// TODO: Support linked images
+		return nil
 	}
 }
 
