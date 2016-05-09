@@ -43,7 +43,7 @@ extension CanvasTextView {
 			translation = max(0, translation)
 		}
 
-		// Prevent dragging lists right at the end
+			// Prevent dragging lists right at the end
 		else if let listItem = context.block as? Listable where listItem.indentation.isMaximum {
 			translation = min(0, translation)
 		}
@@ -67,18 +67,18 @@ extension CanvasTextView {
 
 		UIView.animateWithDuration(0.15, delay: 0, options: [], animations: {
 			context.translate(x: 0)
-		}, completion: { [weak self] _ in
-			context.tearDown()
+			}, completion: { [weak self] _ in
+				context.tearDown()
 
-			if applyAction, let action = self?.dragContext?.dragAction, textController = self?.textController {
-				switch action {
-				case .Increase: textController.increaseBlockLevel(block: context.block)
-				case .Decrease: textController.decreaseBlockLevel(block: context.block)
+				if applyAction, let action = self?.dragContext?.dragAction, textController = self?.textController {
+					switch action {
+					case .Increase: textController.increaseBlockLevel(block: context.block)
+					case .Decrease: textController.decreaseBlockLevel(block: context.block)
+					}
 				}
-			}
 
-			self?.dragContext = nil
-		})
+				self?.dragContext = nil
+			})
 	}
 
 	private func blockAt(point point: CGPoint) -> BlockNode? {
@@ -110,8 +110,8 @@ extension CanvasTextView: UIGestureRecognizerDelegate {
 		let point = dragGestureRecognizer.locationInView(self)
 		guard let block = blockAt(point: point) else { return false }
 
-		// Disable dragging in the title
-		if block is Title {
+		// Disable dragging if unsupported
+		if !(block is Paragraph) && !(block is Heading) && !(block is Listable) {
 			return false
 		}
 
@@ -137,9 +137,9 @@ extension CanvasTextView: UIGestureRecognizerDelegate {
 			rect: rect,
 			yContentOffset: contentOffset.y
 		)
-
+		
 		dragContext = context
-
+		
 		return true
 	}
 }
