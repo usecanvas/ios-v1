@@ -21,7 +21,8 @@ final class EditorViewController: UIViewController, Accountable {
 
 	let textController: TextController
 	let textView: UITextView
-	
+
+	private var scrollPosition: CGPoint?
 	private var ignoreSelectionChange = false
 
 
@@ -257,6 +258,17 @@ extension EditorViewController: TextControllerDisplayDelegate {
 
 	func textController(textController: TextController, didUpdateTitle title: String?) {
 		self.title = title
+	}
+
+	func textControllerWillProcessRemoteEdit(textController: TextController) {
+		scrollPosition = textView.contentOffset
+	}
+
+	func textControllerDidProcessRemoteEdit(textController: TextController) {
+		if let scrollPosition = scrollPosition {
+			textView.contentOffset = scrollPosition
+			self.scrollPosition = nil
+		}
 	}
 }
 
