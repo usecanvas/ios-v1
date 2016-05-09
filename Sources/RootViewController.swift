@@ -87,7 +87,7 @@ final class RootViewController: UIViewController {
 	}
 
 	override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-		return traitCollection.userInterfaceIdiom == .Pad ? .All : .AllButUpsideDown
+		return traitCollection.userInterfaceIdiom == .Pad ? .All : .Portrait
 	}
 
 
