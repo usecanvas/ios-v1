@@ -17,6 +17,7 @@ enum LocalizedString {
 
 	// Organizations
 	case OrganizationsTitle
+	case AccountButton
 	case LogOutButton
 
 	// Canvases
@@ -59,6 +60,7 @@ enum LocalizedString {
 		case .LoginButton: return localizedString("LOGIN_BUTTON")
 
 		case .OrganizationsTitle: return localizedString("ORGANIZATIONS_TITLE")
+		case .AccountButton: return localizedString("ACCOUNT_BUTTON")
 		case .LogOutButton: return localizedString("LOG_OUT_BUTTON")
 
 		case .SearchIn(let organizationName): return String(format: localizedString("SEARCH_IN_ORGANIZATION"), arguments: [organizationName])

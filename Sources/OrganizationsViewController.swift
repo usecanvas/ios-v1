@@ -127,11 +127,17 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 			})
 		#endif
 
+		actionSheet.addAction(UIAlertAction(title: LocalizedString.AccountButton.string, style: .Default) { _ in self.openAccount() })
 		actionSheet.addAction(UIAlertAction(title: LocalizedString.LogOutButton.string, style: .Destructive) { _ in self.logOut() })
 		actionSheet.addAction(UIAlertAction(title: LocalizedString.CancelButton.string, style: .Cancel, handler: nil))
 		actionSheet.primaryAction = logOut
 
 		presentViewController(actionSheet, animated: true, completion: nil)
+	}
+
+	func openAccount() {
+		let URL = NSURL(string: "https://usecanvas.com/account")!
+		UIApplication.sharedApplication().openURL(URL)
 	}
 
 	func logOut() {
