@@ -45,7 +45,7 @@ final class EditorViewController: UIViewController, Accountable {
 		super.init(nibName: nil, bundle: nil)
 		
 		textController.connectionDelegate = self
-		textController.selectionDelegate = self
+		textController.displayDelegate = self
 		textController.annotationDelegate = textView
 		textView.textController = textController
 		textView.delegate = self
@@ -243,21 +243,20 @@ extension EditorViewController: UITextViewDelegate {
 }
 
 
-extension EditorViewController: TextControllerSelectionDelegate {
-	func textControllerDidUpdateSelectedRange(textController: TextController) {
+extension EditorViewController: TextControllerDisplayDelegate {
+	func textController(textController: TextController, didUpdateSelectedRange selectedRange: NSRange) {
 		if ignoreSelectionChange {
 			ignoreSelectionChange = false
 			return
 		}
-		
-		guard let selectedRange = textController.presentationSelectedRange else {
-			textView.selectedRange = NSRange(location: 0, length: 0)
-			return
-		}
-		
+
 		if !NSEqualRanges(textView.selectedRange, selectedRange) {
 			textView.selectedRange = selectedRange
 		}
+	}
+
+	func textController(textController: TextController, didUpdateTitle title: String?) {
+		self.title = title
 	}
 }
 
