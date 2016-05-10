@@ -33,7 +33,7 @@
 "CANCEL_BUTTON" = "Cancel";
 "DELETE_CONFIRMATION_MESSAGE" = "Are you sure you want to delete “%@”?";
 "ARCHIVE_CONFIRMATION_MESSAGE" = "Are you sure you want to archive “%@”?";
-"UNSUPPORTED_TITLE" = "Unsupport Canvas";
+"UNSUPPORTED_TITLE" = "Unsupported Canvas";
 "UNSUPPORTED_MESSAGE" = "It looks like this canvas uses some new features not supported in this version of Canvas for iOS yet.";
 "CHECK_FOR_UPDATES_BUTTON" = "Check for Updates";
 "OPEN_IN_SAFARI_BUTTON" = "Open in Safari";
