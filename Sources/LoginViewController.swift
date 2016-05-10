@@ -151,11 +151,12 @@ final class LoginViewController: UIViewController {
 		view.addSubview(stackView)
 
 		let width = stackView.widthAnchor.constraintEqualToAnchor(view.widthAnchor, multiplier: 0.8)
+		width.priority = UILayoutPriorityDefaultHigh
 
 		let top = stackView.topAnchor.constraintGreaterThanOrEqualToAnchor(view.topAnchor, constant: 64)
 		top.priority = UILayoutPriorityDefaultLow
 
-		var constraints: [NSLayoutConstraint] = [
+		NSLayoutConstraint.activateConstraints([
 			backgroundView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
 			backgroundView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor),
 			backgroundView.topAnchor.constraintEqualToAnchor(view.topAnchor),
@@ -164,20 +165,9 @@ final class LoginViewController: UIViewController {
 			stackView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor),
 			top,
 			width,
+			stackView.widthAnchor.constraintLessThanOrEqualToConstant(400),
 			submitButton.heightAnchor.constraintEqualToAnchor(usernameTextField.heightAnchor)
-		]
-
-		if traitCollection.userInterfaceIdiom == .Pad {
-			width.priority = UILayoutPriorityDefaultLow
-
-			let maxWidth = stackView.widthAnchor.constraintEqualToConstant(400)
-			maxWidth.priority = UILayoutPriorityDefaultHigh
-			constraints.append(maxWidth)
-		}
-
-		NSLayoutConstraint.activateConstraints(constraints)
-
-		view.layoutIfNeeded()
+		])
 	}
 
 	override func viewWillAppear(animated: Bool) {
