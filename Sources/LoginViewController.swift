@@ -65,6 +65,37 @@ final class LoginViewController: UIViewController {
 		return button
 	}()
 
+	private var centerYConstraint: NSLayoutConstraint? {
+		willSet {
+			guard let old = centerYConstraint else { return }
+			NSLayoutConstraint.deactivateConstraints([old])
+		}
+
+		didSet {
+			guard let new = centerYConstraint else { return }
+			NSLayoutConstraint.activateConstraints([new])
+		}
+	}
+
+	private var keyboardFrame: CGRect? {
+		didSet {
+			guard let keyboardFrame = keyboardFrame else {
+				centerYConstraint = nil
+				return
+			}
+
+			var rect = view.bounds
+			rect.size.height -= rect.intersect(keyboardFrame).height
+			rect.origin.y += UIApplication.sharedApplication().statusBarFrame.size.height
+			rect.size.height -= UIApplication.sharedApplication().statusBarFrame.size.height
+
+			let contstraint = stackView.centerYAnchor.constraintEqualToAnchor(view.topAnchor, constant: rect.midY)
+			contstraint.priority = UILayoutPriorityDefaultHigh
+
+			centerYConstraint = contstraint
+		}
+	}
+
 	private var loading = false {
 		didSet {
 			usernameTextField.enabled = !loading
@@ -75,12 +106,21 @@ final class LoginViewController: UIViewController {
 	}
 
 
+	// MARK: - Initializers
+
+	deinit {
+		NSNotificationCenter.defaultCenter().removeObserver(self)
+	}
+
+
 	// MARK: - UIViewController
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
 		view.backgroundColor = Color.brand
+
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillChangeFrame), name: UIKeyboardWillChangeFrameNotification, object: nil)
 
 		// 1Password
 		if OnePasswordExtension.sharedExtension().isAppExtensionAvailable() {
@@ -108,17 +148,34 @@ final class LoginViewController: UIViewController {
 		stackView.addArrangedSubview(submitButton)
 		view.addSubview(stackView)
 
-		NSLayoutConstraint.activateConstraints([
+		let width = stackView.widthAnchor.constraintEqualToAnchor(view.widthAnchor, multiplier: 0.8)
+
+		let top = stackView.topAnchor.constraintGreaterThanOrEqualToAnchor(view.topAnchor, constant: 64)
+		top.priority = UILayoutPriorityDefaultLow
+
+		var constraints: [NSLayoutConstraint] = [
 			backgroundView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
 			backgroundView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor),
 			backgroundView.topAnchor.constraintEqualToAnchor(view.topAnchor),
 			backgroundView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor),
 
 			stackView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor),
-			stackView.widthAnchor.constraintEqualToAnchor(view.widthAnchor, multiplier: 0.8),
-			stackView.topAnchor.constraintEqualToAnchor(view.topAnchor, constant: 64),
+			top,
+			width,
 			submitButton.heightAnchor.constraintEqualToAnchor(usernameTextField.heightAnchor)
-		])
+		]
+
+		if traitCollection.userInterfaceIdiom == .Pad {
+			width.priority = UILayoutPriorityDefaultLow
+
+			let maxWidth = stackView.widthAnchor.constraintEqualToConstant(400)
+			maxWidth.priority = UILayoutPriorityDefaultHigh
+			constraints.append(maxWidth)
+		}
+
+		NSLayoutConstraint.activateConstraints(constraints)
+
+		view.layoutIfNeeded()
 	}
 
 	override func viewWillAppear(animated: Bool) {
@@ -177,6 +234,23 @@ final class LoginViewController: UIViewController {
 	@objc private func resetPassword() {
 		let URL = NSURL(string: "https://usecanvas.com/password-reset")!
 		UIApplication.sharedApplication().openURL(URL)
+	}
+
+	@objc private func keyboardWillChangeFrame(notification: NSNotification) {
+		guard let dictionary = notification.userInfo as? [String: AnyObject],
+			duration = dictionary[UIKeyboardAnimationDurationUserInfoKey] as? NSTimeInterval,
+			curve = (dictionary[UIKeyboardAnimationCurveUserInfoKey] as? Int).flatMap(UIViewAnimationCurve.init),
+			rect = (dictionary[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue()
+		else { return }
+
+		let frame = view.convertRect(rect, fromView: nil)
+
+		UIView.beginAnimations(nil, context: nil)
+		UIView.setAnimationDuration(duration)
+		UIView.setAnimationCurve(curve)
+		keyboardFrame = frame
+		view.layoutIfNeeded()
+		UIView.commitAnimations()
 	}
 }
 
