@@ -105,6 +105,8 @@ final class LoginViewController: UIViewController {
 		}
 	}
 
+	private var visible = false
+
 
 	// MARK: - Initializers
 
@@ -183,6 +185,19 @@ final class LoginViewController: UIViewController {
 		usernameTextField.becomeFirstResponder()
 	}
 
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
+
+		dispatch_async(dispatch_get_main_queue()) { [weak self] in
+			self?.visible = true
+		}
+	}
+
+	override func viewDidDisappear(animated: Bool) {
+		super.viewDidDisappear(animated)
+		visible = false
+	}
+
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {
 		return .LightContent
 	}
@@ -245,12 +260,20 @@ final class LoginViewController: UIViewController {
 
 		let frame = view.convertRect(rect, fromView: nil)
 
-		UIView.beginAnimations(nil, context: nil)
-		UIView.setAnimationDuration(duration)
-		UIView.setAnimationCurve(curve)
-		keyboardFrame = frame
-		view.layoutIfNeeded()
-		UIView.commitAnimations()
+		let change = { [weak self] in
+			self?.keyboardFrame = frame
+			self?.view.layoutIfNeeded()
+		}
+
+		if visible {
+			UIView.beginAnimations(nil, context: nil)
+			UIView.setAnimationDuration(duration)
+			UIView.setAnimationCurve(curve)
+			change()
+			UIView.commitAnimations()
+		} else {
+			UIView.performWithoutAnimation(change)
+		}
 	}
 }
 
