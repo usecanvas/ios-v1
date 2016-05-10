@@ -38,8 +38,29 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 	override var keyCommands: [UIKeyCommand] {
 		var commands = super.keyCommands ?? []
 		commands += [
-			UIKeyCommand(input: "Q", modifierFlags: [.Shift, .Command], action: #selector(logOut), discoverabilityTitle: LocalizedString.LogOutButton.string)
+			UIKeyCommand(input: "Q", modifierFlags: [.Shift, .Command], action: #selector(logOut), discoverabilityTitle: LocalizedString.LogOutButton.string),
+			UIKeyCommand(input: "1", modifierFlags: [.Command], action: #selector(openOrganization1), discoverabilityTitle: "Personal Notes")
 		]
+
+		let organizationSelectors: [Selector] = [
+			#selector(openOrganization2),
+			#selector(openOrganization3),
+			#selector(openOrganization4),
+			#selector(openOrganization5),
+			#selector(openOrganization6),
+			#selector(openOrganization7),
+			#selector(openOrganization8),
+			#selector(openOrganization9)
+		]
+
+		if dataSource.sections.count > 1 {
+			for (i, row) in dataSource.sections[1].rows.enumerate() {
+				guard i < 8, let name = row.text else { continue }
+				let command = UIKeyCommand(input: "\(i + 2)", modifierFlags: [.Command], action: organizationSelectors[i], discoverabilityTitle: name)
+				commands.append(command)
+			}
+		}
+
 		return commands
 	}
 
@@ -159,6 +180,42 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 		completion?()
 	}
 
+	func openOrganization1() {
+		dataSource.sections.first?.rows.first?.selection?()
+	}
+
+	func openOrganization2() {
+		openOrganization(2)
+	}
+
+	func openOrganization3() {
+		openOrganization(3)
+	}
+
+	func openOrganization4() {
+		openOrganization(4)
+	}
+
+	func openOrganization5() {
+		openOrganization(5)
+	}
+
+	func openOrganization6() {
+		openOrganization(6)
+	}
+
+	func openOrganization7() {
+		openOrganization(7)
+	}
+
+	func openOrganization8() {
+		openOrganization(8)
+	}
+
+	func openOrganization9() {
+		openOrganization(9)
+	}
+
 
 	// MARK: - Private
 
@@ -184,5 +241,13 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 		}
 
 		dataSource.sections = sections
+	}
+
+
+	private func openOrganization(number: Int) {
+		guard dataSource.sections.count >= 2 else { return }
+		let section = dataSource.sections[1]
+		guard section.rows.count >= number - 1 else { return }
+		section.rows[number - 2].selection?()
 	}
 }
