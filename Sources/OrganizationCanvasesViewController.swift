@@ -130,7 +130,7 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		let topView = UIView(frame: CGRect(x: 0, y: -400, width: view.bounds.width, height: 400))
 		topView.autoresizingMask = [.FlexibleWidth, .FlexibleBottomMargin]
 		topView.backgroundColor = UIColor(patternImage: UIImage(named: "Illustration")!)
-		topView.alpha = 0.1
+		topView.alpha = 0.03
 		tableView.addSubview(topView)
 
 		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Create Canvas"), style: .Plain, target: self, action: #selector(createCanvas))

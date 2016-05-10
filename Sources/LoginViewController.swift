@@ -18,7 +18,7 @@ final class LoginViewController: UIViewController {
 		let view = UIView()
 		view.translatesAutoresizingMaskIntoConstraints = false
 		view.backgroundColor = UIColor(patternImage: UIImage(named: "Illustration")!)
-		view.alpha = 0.2
+		view.alpha = 0.07
 		return view
 	}()
 
@@ -170,13 +170,10 @@ final class LoginViewController: UIViewController {
 		])
 	}
 
-	override func viewWillAppear(animated: Bool) {
-		super.viewWillAppear(animated)
-		usernameTextField.becomeFirstResponder()
-	}
-
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
+
+		usernameTextField.becomeFirstResponder()
 
 		dispatch_async(dispatch_get_main_queue()) { [weak self] in
 			self?.visible = true
@@ -276,5 +273,10 @@ extension LoginViewController: UITextFieldDelegate {
 			signIn()
 		}
 		return false
+	}
+
+	func textFieldDidEndEditing(textField: UITextField) {
+		// Workaround iOS bug that causes text to flicker when you lose focus
+		textField.layoutIfNeeded()
 	}
 }
