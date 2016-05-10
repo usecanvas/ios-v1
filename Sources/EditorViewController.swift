@@ -294,7 +294,9 @@ extension EditorViewController: TextControllerConnectionDelegate {
 			(textView as? CanvasTextView)?.placeholderLabel.hidden = false
 		}
 
-		textView.becomeFirstResponder()
+		if textView.editable {
+			textView.becomeFirstResponder()
+		}
 	}
 
 	func textController(textController: TextController, didReceiveWebErrorMessage errorMessage: String?, lineNumber: UInt?, columnNumber: UInt?) {
