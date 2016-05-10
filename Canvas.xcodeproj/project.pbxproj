@@ -109,6 +109,8 @@
 		21501D961CCAA2B900B02FC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2F91CC58F7B001963B7 /* Main.storyboard */; };
 		21501D971CCAA2B900B02FC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2F61CC58F7B001963B7 /* Assets.xcassets */; };
 		21501D981CCAA2B900B02FC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2F71CC58F7B001963B7 /* LaunchScreen.storyboard */; };
+		215CD8621CE293FF0093C545 /* PlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CD8611CE293FF0093C545 /* PlaceholderViewController.swift */; };
+		215CD8631CE293FF0093C545 /* PlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CD8611CE293FF0093C545 /* PlaceholderViewController.swift */; };
 		216A2A6D1CDD881C00A8F35E /* EditorViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216A2A6C1CDD881C00A8F35E /* EditorViewController+Actions.swift */; };
 		216A2A841CDD881F00A8F35E /* EditorViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216A2A6C1CDD881C00A8F35E /* EditorViewController+Actions.swift */; };
 		218383A11CD5177100F7AA24 /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9721CD516B800E2902C /* CanvasKit.framework */; };
@@ -521,6 +523,7 @@
 		2147A2FB1CDA7B2E008A2709 /* DragContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragContext.swift; sourceTree = "<group>"; };
 		214F9FF61CC6DE4600927A07 /* CanvasTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasTextView.swift; sourceTree = "<group>"; };
 		21501DAA1CCAA2B900B02FC5 /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		215CD8611CE293FF0093C545 /* PlaceholderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderViewController.swift; sourceTree = "<group>"; };
 		216A2A6C1CDD881C00A8F35E /* EditorViewController+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EditorViewController+Actions.swift"; sourceTree = "<group>"; };
 		21B1E68C1CD516B000E2902C /* CanvasKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasKit.xcodeproj; path = CanvasKit/CanvasKit.xcodeproj; sourceTree = "<group>"; };
 		21B1E6B21CD516B000E2902C /* CanvasNative.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasNative.xcodeproj; path = CanvasNative/CanvasNative.xcodeproj; sourceTree = "<group>"; };
@@ -662,6 +665,7 @@
 				2107D2DD1CC58F7A001963B7 /* ModelsViewController.swift */,
 				2107D2E41CC58F7B001963B7 /* OrganizationCanvasesViewController.swift */,
 				2107D2E61CC58F7B001963B7 /* OrganizationsViewController.swift */,
+				215CD8611CE293FF0093C545 /* PlaceholderViewController.swift */,
 				2107D2EC1CC58F7B001963B7 /* TableViewController.swift */,
 				2107D2F41CC58F7B001963B7 /* WebViewController.swift */,
 			);
@@ -1344,6 +1348,7 @@
 				21501D721CCAA2B900B02FC5 /* TintableEnvironment.swift in Sources */,
 				21501D731CCAA2B900B02FC5 /* WebViewController.swift in Sources */,
 				21501D741CCAA2B900B02FC5 /* Color.swift in Sources */,
+				215CD8631CE293FF0093C545 /* PlaceholderViewController.swift in Sources */,
 				21501D751CCAA2B900B02FC5 /* WebActivity.swift in Sources */,
 				21501D761CCAA2B900B02FC5 /* EditorViewController.swift in Sources */,
 				21501D771CCAA2B900B02FC5 /* NavigationController.swift in Sources */,
@@ -1398,6 +1403,7 @@
 				2107D3271CC58F7B001963B7 /* TintableEnvironment.swift in Sources */,
 				2107D32C1CC58F7B001963B7 /* WebViewController.swift in Sources */,
 				2107D30E1CC58F7B001963B7 /* Color.swift in Sources */,
+				215CD8621CE293FF0093C545 /* PlaceholderViewController.swift in Sources */,
 				2107D32B1CC58F7B001963B7 /* WebActivity.swift in Sources */,
 				2107D3101CC58F7B001963B7 /* EditorViewController.swift in Sources */,
 				2107D3171CC58F7B001963B7 /* NavigationController.swift in Sources */,

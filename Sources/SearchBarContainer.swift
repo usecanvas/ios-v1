@@ -27,7 +27,7 @@ class SearchBarContainer: UIView {
 		searchBar.layer.borderWidth = 1
 		searchBar.backgroundColor = .whiteColor()
 		searchBar.translucent = false
-
+		searchBar.translatesAutoresizingMaskIntoConstraints = false
 		addSubview(searchBar)
 
 		let topLine = UIView()
@@ -47,6 +47,11 @@ class SearchBarContainer: UIView {
 			topLine.leadingAnchor.constraintEqualToAnchor(leadingAnchor),
 			topLine.trailingAnchor.constraintEqualToAnchor(trailingAnchor),
 			topLine.heightAnchor.constraintEqualToConstant(1 / scale),
+
+			searchBar.topAnchor.constraintEqualToAnchor(topAnchor),
+			searchBar.leadingAnchor.constraintEqualToAnchor(leadingAnchor),
+			searchBar.trailingAnchor.constraintEqualToAnchor(trailingAnchor),
+			searchBar.bottomAnchor.constraintEqualToAnchor(bottomAnchor),
 
 			bottomLine.bottomAnchor.constraintEqualToAnchor(bottomAnchor),
 			bottomLine.leadingAnchor.constraintEqualToAnchor(leadingAnchor),

@@ -16,8 +16,6 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 
 	var account: Account
 
-	private var animatePush = true
-
 
 	// MARK: - Initializers
 
@@ -98,8 +96,7 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 		opening = true
 		Analytics.track(.ChangedOrganization(organization: organization))
 		let viewController = OrganizationCanvasesViewController(account: account, organization: organization)
-		navigationController?.pushViewController(viewController, animated: animatePush)
-		animatePush = true
+		showViewController(viewController, sender: self)
 	}
 
 	override func refresh() {
@@ -175,7 +172,6 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 			return
 		}
 
-		animatePush = false
 		selection()
 		completion?()
 	}

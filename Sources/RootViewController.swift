@@ -31,7 +31,15 @@ final class RootViewController: UIViewController {
 				return
 			}
 
-			viewController = NavigationController(rootViewController: OrganizationsViewController(account: account))
+			let split = UISplitViewController()
+			split.preferredDisplayMode = .AllVisible
+			split.delegate = self
+			split.viewControllers = [
+				NavigationController(rootViewController: OrganizationsViewController(account: account)),
+				NavigationController(rootViewController: PlaceholderViewController())
+			]
+
+			viewController = split
 		}
 	}
 
@@ -95,5 +103,28 @@ final class RootViewController: UIViewController {
 
 	@objc private func accountDidChange(notification: NSNotification?) {
 		account = AccountController.sharedController.currentAccount
+	}
+}
+
+
+extension RootViewController: UISplitViewControllerDelegate {
+	func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
+		let isEmpty: Bool
+		if let secondaryNavigationController = secondaryViewController as? UINavigationController {
+			isEmpty = secondaryNavigationController.topViewController is PlaceholderViewController
+		} else {
+			isEmpty = false
+		}
+
+		return isEmpty
+	}
+
+	func splitViewController(splitViewController: UISplitViewController, showDetailViewController viewController: UIViewController, sender: AnyObject?) -> Bool {
+		guard splitViewController.viewControllers.count == 2 else { return false }
+
+		UIView.performWithoutAnimation {
+			splitViewController.viewControllers[1] = NavigationController(rootViewController: viewController)
+		}
+		return true
 	}
 }

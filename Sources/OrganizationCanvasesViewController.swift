@@ -125,7 +125,9 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		// http://stackoverflow.com/a/33734661/118631
 		searchViewController.loadViewIfNeeded()
 
-		tableView.tableHeaderView = SearchBarContainer(searchBar: searchViewController.searchBar)
+		let header = SearchBarContainer(searchBar: searchViewController.searchBar)
+		header.autoresizingMask = [.FlexibleWidth]
+		tableView.tableHeaderView = header
 
 		let topView = UIView(frame: CGRect(x: 0, y: -400, width: view.bounds.width, height: 400))
 		topView.autoresizingMask = [.FlexibleWidth, .FlexibleBottomMargin]
@@ -146,6 +148,15 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 			}
 		}
 	}
+
+//	override func viewDidLayoutSubviews() {
+//		super.viewDidLayoutSubviews()
+//
+//		guard let header = tableView.tableHeaderView else { return }
+//		var frame = header.frame
+//		frame.size.width = tableView.bounds.width
+//		header.frame = frame
+//	}
 
 
 	// MARK: - ModelsViewController

@@ -74,7 +74,11 @@ class CanvasesViewController: ModelsViewController, Accountable {
 
 		Analytics.track(.OpenedCanvas)
 		let viewController = EditorViewController(account: account, canvas: canvas)
-		navigationController?.pushViewController(viewController, animated: true)
+		showDetailViewController(viewController, sender: self)
+
+		dispatch_async(dispatch_get_main_queue()) { [weak self] in
+			self?.opening = false
+		}
 	}
 
 
