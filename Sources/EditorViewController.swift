@@ -112,7 +112,8 @@ final class EditorViewController: UIViewController, Accountable {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+
+		title = LocalizedString.Loading.string
 		view.backgroundColor = Color.white
 
 		navigationItem.rightBarButtonItems = [
@@ -226,9 +227,13 @@ extension EditorViewController: UITextViewDelegate {
 	func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
 		ignoreSelectionChange = true
 
-		if (textView.text as NSString).length - range.length + (text as NSString).length == 0 {
+		let empty = (textView.text as NSString).length - range.length + (text as NSString).length == 0
+
+		if empty {
 			textView.typingAttributes = textController.theme.titleAttributes
 		}
+
+		(textView as? CanvasTextView)?.placeholderLabel.hidden = !empty
 		
 		return true
 	}
@@ -284,6 +289,7 @@ extension EditorViewController: TextControllerConnectionDelegate {
 
 		if textView.text.isEmpty {
 			textView.typingAttributes = textController.theme.titleAttributes
+			(textView as? CanvasTextView)?.placeholderLabel.hidden = false
 		}
 
 		textView.becomeFirstResponder()

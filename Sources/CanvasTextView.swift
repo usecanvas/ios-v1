@@ -19,12 +19,32 @@ final class CanvasTextView: TextView {
 
 	// MARK: - Properties
 
-	weak var textController: TextController?
+	weak var textController: TextController? {
+		didSet {
+			guard let theme = textController?.theme else { return }
+
+			var attributes = theme.titleAttributes
+			attributes[NSForegroundColorAttributeName] = theme.placeholderColor
+
+			placeholderLabel.attributedText = NSAttributedString(
+				string: LocalizedString.CanvasTitlePlaceholder.string,
+				attributes: attributes
+			)
+		}
+	}
+
 	weak var formattingDelegate: CanvasTextViewFormattingDelegate?
 
 	let dragGestureRecognizer: UIPanGestureRecognizer
 	let dragThreshold: CGFloat = 60
 	var dragContext: DragContext?
+
+	let placeholderLabel: UILabel = {
+		let label = UILabel()
+		label.userInteractionEnabled = false
+		label.hidden = true
+		return label
+	}()
 
 
 	// MARK: - Initializers
@@ -39,6 +59,9 @@ final class CanvasTextView: TextView {
 		keyboardDismissMode = .Interactive
 
 		registerGestureRecognizers()
+
+		managedSubviews.insert(placeholderLabel)
+		addSubview(placeholderLabel)
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -63,6 +86,26 @@ final class CanvasTextView: TextView {
 		}
 
 		return super.canPerformAction(action, withSender: sender)
+	}
+
+
+	// MARK: - UIView
+
+	override func layoutSubviews() {
+		super.layoutSubviews()
+		layoutPlaceholder()
+	}
+
+
+	// MARK: - Private
+
+	private func layoutPlaceholder() {
+		placeholderLabel.sizeToFit()
+
+		var frame = placeholderLabel.frame
+		frame.origin.x = textContainerInset.left
+		frame.origin.y = textContainerInset.top
+		placeholderLabel.frame = frame
 	}
 }
 
