@@ -32,6 +32,10 @@ enum LocalizedString {
 	case CancelButton
 	case DeleteConfirmationMessage(canvasTitle: String)
 	case ArchiveConfirmationMessage(canvasTitle: String)
+	case UnsupportedTitle
+	case UnsupportedMessage
+	case CheckForUpdatesButton
+	case OpenInSafariButton
 
 	// Editor
 	case CanvasTitlePlaceholder
@@ -50,6 +54,7 @@ enum LocalizedString {
 
 	case Loading
 	case Okay
+	case Cancel
 
 
 	// MARK: - Properties
@@ -75,6 +80,10 @@ enum LocalizedString {
 		case .CancelButton: return string("CANCEL_BUTTON")
 		case .DeleteConfirmationMessage(let canvasTitle): return String(format: string("DELETE_CONFIRMATION_MESSAGE"), arguments: [canvasTitle])
 		case .ArchiveConfirmationMessage(let canvasTitle): return String(format: string("ARCHIVE_CONFIRMATION_MESSAGE"), arguments: [canvasTitle])
+		case .UnsupportedTitle: return string("UNSUPPORTED_TITLE")
+		case .UnsupportedMessage: return string("UNSUPPORTED_MESSAGE")
+		case .CheckForUpdatesButton: return string("CHECK_FOR_UPDATES_BUTTON")
+		case .OpenInSafariButton: return string("OPEN_IN_SAFARI_BUTTON")
 
 		case .CanvasTitlePlaceholder: return string("CANVAS_TITLE_PLACEHOLDER")
 		case .CloseCommand: return string("CLOSE_COMMAND")
@@ -92,6 +101,7 @@ enum LocalizedString {
 
 		case .Loading: return string("LOADING")
 		case .Okay: return string("OK")
+		case .Cancel: return string("CANCEL")
 		}
 	}
 

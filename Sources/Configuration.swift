@@ -75,6 +75,17 @@ struct Configuration {
 	let sentryDSN = "https://1bc50d7449e448029db4c5cb79d89c51:2648877a36ae4f5cb6ca51ba9dc82a3e@app.getsentry.com/76374"
 
 
+	// MARK: - Applications
+
+	#if INTERNAL
+		let updatesURL = NSURL(string: "https://beta.itunes.apple.com/v1/app/1106990374")!
+	#elseif BETA
+		let updatesURL = NSURL(string: "https://beta.itunes.apple.com/v1/app/1060281423")!
+	#else
+		let updatesURL = NSURL(string: "https://itunes.apple.com/app/canvas-for-ios/id1060281423?ls=1&mt=8")!
+	#endif
+
+
 	// MARK: - Initializers
 
 	private init(_ environment: Environment) {

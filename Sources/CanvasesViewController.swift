@@ -9,6 +9,7 @@
 import UIKit
 import Static
 import CanvasKit
+import CanvasNative
 
 class CanvasesViewController: ModelsViewController, Accountable {
 
@@ -47,6 +48,26 @@ class CanvasesViewController: ModelsViewController, Accountable {
 	func openCanvas(canvas: Canvas) {
 		guard !opening else { return }
 		opening = true
+
+		if canvas.nativeVersion != CanvasNative.nativeVersion {
+			if let indexPath = tableView.indexPathForSelectedRow {
+				tableView.deselectRowAtIndexPath(indexPath, animated: true)
+			}
+
+			let alert = UIAlertController(title: LocalizedString.UnsupportedTitle.string, message: LocalizedString.UnsupportedMessage.string, preferredStyle: .Alert)
+			alert.addAction(UIAlertAction(title: LocalizedString.CheckForUpdatesButton.string, style: .Default, handler: { _ in
+				UIApplication.sharedApplication().openURL(config.updatesURL)
+			}))
+			alert.addAction(UIAlertAction(title: LocalizedString.OpenInSafariButton.string, style: .Default, handler: { _ in
+				guard let URL = canvas.URL else { return }
+				UIApplication.sharedApplication().openURL(URL)
+			}))
+			alert.addAction(UIAlertAction(title: LocalizedString.Cancel.string, style: .Cancel, handler: nil))
+			presentViewController(alert, animated: true, completion: nil)
+
+			return
+		}
+
 		Analytics.track(.OpenedCanvas)
 		let viewController = EditorViewController(account: account, canvas: canvas)
 		navigationController?.pushViewController(viewController, animated: true)
