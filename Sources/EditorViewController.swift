@@ -239,7 +239,7 @@ extension EditorViewController: UITextViewDelegate {
 	}
 	
 	func textViewDidChangeSelection(textView: UITextView) {
-		let selection: NSRange? = textView.isFirstResponder() ? textView.selectedRange : nil
+		let selection: NSRange? = !textView.isFirstResponder() && textView.selectedRange.length == 0 ? nil : textView.selectedRange
 		textController.setPresentationSelectedRange(selection)
 	}
 	
@@ -285,7 +285,9 @@ extension EditorViewController: TextControllerConnectionDelegate {
 	}
 
 	func textControllerDidConnect(textController: TextController) {
-		textView.editable = true
+		if canvas.isWritable {
+			textView.editable = true
+		}
 
 		if textView.text.isEmpty {
 			textView.typingAttributes = textController.theme.titleAttributes
