@@ -78,7 +78,7 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 
 		super.init(account: account, style: .Plain)
 
-		title = organization.name
+		title = organization.displayName
 
 		results.delegate = self
 

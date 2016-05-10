@@ -16,6 +16,7 @@
 // ----- Organizations -----
 
 "ORGANIZATIONS_TITLE" = "Organizations";
+"PERSONAL_NOTES" = "Personal Notes";
 "LOG_OUT_BUTTON" = "Log Out";
 "ACCOUNT_BUTTON" = "Account";
 

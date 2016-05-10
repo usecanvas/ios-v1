@@ -39,7 +39,7 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 		var commands = super.keyCommands ?? []
 		commands += [
 			UIKeyCommand(input: "Q", modifierFlags: [.Shift, .Command], action: #selector(logOut), discoverabilityTitle: LocalizedString.LogOutButton.string),
-			UIKeyCommand(input: "1", modifierFlags: [.Command], action: #selector(openOrganization1), discoverabilityTitle: "Personal Notes")
+			UIKeyCommand(input: "1", modifierFlags: [.Command], action: #selector(openOrganization1), discoverabilityTitle: LocalizedString.PersonalNotes.string)
 		]
 
 		let organizationSelectors: [Selector] = [

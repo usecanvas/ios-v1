@@ -17,7 +17,7 @@ extension Organization {
 	}
 
 	var displayName: String {
-		return isPersonalNotes ? "Personal Notes" : name
+		return isPersonalNotes ? LocalizedString.PersonalNotes.string : name
 	}
 	
 	var row: Row {

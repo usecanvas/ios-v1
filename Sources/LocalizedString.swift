@@ -17,6 +17,7 @@ enum LocalizedString {
 
 	// Organizations
 	case OrganizationsTitle
+	case PersonalNotes
 	case AccountButton
 	case LogOutButton
 
@@ -55,48 +56,49 @@ enum LocalizedString {
 
 	var string: String {
 		switch self {
-		case .UsernamePlaceholder: return localizedString("USERNAME_PLACEHOLDER")
-		case .PasswordPlaceholder: return localizedString("PASSWORD_PLACEHOLDER")
-		case .LoginButton: return localizedString("LOGIN_BUTTON")
+		case .UsernamePlaceholder: return string("USERNAME_PLACEHOLDER")
+		case .PasswordPlaceholder: return string("PASSWORD_PLACEHOLDER")
+		case .LoginButton: return string("LOGIN_BUTTON")
 
-		case .OrganizationsTitle: return localizedString("ORGANIZATIONS_TITLE")
-		case .AccountButton: return localizedString("ACCOUNT_BUTTON")
-		case .LogOutButton: return localizedString("LOG_OUT_BUTTON")
+		case .OrganizationsTitle: return string("ORGANIZATIONS_TITLE")
+		case .PersonalNotes: return string("PERSONAL_NOTES")
+		case .AccountButton: return string("ACCOUNT_BUTTON")
+		case .LogOutButton: return string("LOG_OUT_BUTTON")
 
-		case .SearchIn(let organizationName): return String(format: localizedString("SEARCH_IN_ORGANIZATION"), arguments: [organizationName])
-		case .SearchCommand: return localizedString("SEARCH_COMMAND")
-		case .NewCanvasCommand: return localizedString("NEW_CANVAS_COMMAND")
-		case .ArchiveSelectedCanvasCommand: return localizedString("ARCHIVE_SELECTED_CANVAS_COMMAND")
-		case .DeleteSelectedCanvasCommand: return localizedString("DELETE_SELECTED_CANVAS_COMMAND")
-		case .ArchiveButton: return localizedString("ARCHIVE_BUTTON")
-		case .DeleteButton: return localizedString("DELETE_BUTTON")
-		case .CancelButton: return localizedString("CANCEL_BUTTON")
-		case .DeleteConfirmationMessage(let canvasTitle): return String(format: localizedString("DELETE_CONFIRMATION_MESSAGE"), arguments: [canvasTitle])
-		case .ArchiveConfirmationMessage(let canvasTitle): return String(format: localizedString("ARCHIVE_CONFIRMATION_MESSAGE"), arguments: [canvasTitle])
+		case .SearchIn(let organizationName): return String(format: string("SEARCH_IN_ORGANIZATION"), arguments: [organizationName])
+		case .SearchCommand: return string("SEARCH_COMMAND")
+		case .NewCanvasCommand: return string("NEW_CANVAS_COMMAND")
+		case .ArchiveSelectedCanvasCommand: return string("ARCHIVE_SELECTED_CANVAS_COMMAND")
+		case .DeleteSelectedCanvasCommand: return string("DELETE_SELECTED_CANVAS_COMMAND")
+		case .ArchiveButton: return string("ARCHIVE_BUTTON")
+		case .DeleteButton: return string("DELETE_BUTTON")
+		case .CancelButton: return string("CANCEL_BUTTON")
+		case .DeleteConfirmationMessage(let canvasTitle): return String(format: string("DELETE_CONFIRMATION_MESSAGE"), arguments: [canvasTitle])
+		case .ArchiveConfirmationMessage(let canvasTitle): return String(format: string("ARCHIVE_CONFIRMATION_MESSAGE"), arguments: [canvasTitle])
 
-		case .CanvasTitlePlaceholder: return localizedString("CANVAS_TITLE_PLACEHOLDER")
-		case .CloseCommand: return localizedString("CLOSE_COMMAND")
-		case .DismissKeyboardCommand: return localizedString("DISMISS_KEYBOARD_COMMAND")
-		case .MarkAsCheckedCommand: return localizedString("MARK_AS_CHECKED_COMMAND")
-		case .MarkAsUncheckedCommand: return localizedString("MARK_AS_UNCHECKED_COMMAND")
-		case .IndentCommand: return localizedString("INDENT_COMMAND")
-		case .OutdentCommand: return localizedString("OUTDENT_COMMAND")
-		case .BoldCommand: return localizedString("BOLD_COMMAND")
-		case .ItalicCommand: return localizedString("ITALIC_COMMAND")
-		case .InlineCodeCommand: return localizedString("INLINE_CODE_COMMAND")
-		case .InsertLineAfterCommand: return localizedString("INSERT_LINE_AFTER_COMMAND")
-		case .InsertLineBeforeCommand: return localizedString("INSERT_LINE_BEFORE_COMMAND")
-		case .DeleteLineCommand: return localizedString("DELETE_LINE_COMMAND")
+		case .CanvasTitlePlaceholder: return string("CANVAS_TITLE_PLACEHOLDER")
+		case .CloseCommand: return string("CLOSE_COMMAND")
+		case .DismissKeyboardCommand: return string("DISMISS_KEYBOARD_COMMAND")
+		case .MarkAsCheckedCommand: return string("MARK_AS_CHECKED_COMMAND")
+		case .MarkAsUncheckedCommand: return string("MARK_AS_UNCHECKED_COMMAND")
+		case .IndentCommand: return string("INDENT_COMMAND")
+		case .OutdentCommand: return string("OUTDENT_COMMAND")
+		case .BoldCommand: return string("BOLD_COMMAND")
+		case .ItalicCommand: return string("ITALIC_COMMAND")
+		case .InlineCodeCommand: return string("INLINE_CODE_COMMAND")
+		case .InsertLineAfterCommand: return string("INSERT_LINE_AFTER_COMMAND")
+		case .InsertLineBeforeCommand: return string("INSERT_LINE_BEFORE_COMMAND")
+		case .DeleteLineCommand: return string("DELETE_LINE_COMMAND")
 
-		case .Loading: return localizedString("LOADING")
-		case .Okay: return localizedString("OK")
+		case .Loading: return string("LOADING")
+		case .Okay: return string("OK")
 		}
 	}
 
 
 	// MARK: - Private
 
-	private func localizedString(key: String) -> String {
+	private func string(key: String) -> String {
 		return NSLocalizedString(key, comment: "")
 	}
 }
