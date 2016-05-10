@@ -25,6 +25,10 @@ final class NavigationController: UINavigationController {
 
 		updateTintColor(view.tintColor)
 
+		if let navigationBar = navigationBar as? NavigationBar {
+			navigationBar.titleColor = defaultTitleColor
+		}
+
 		delegate = self
 	}
 
@@ -49,10 +53,6 @@ final class NavigationController: UINavigationController {
 		let itemsColor = tintColor ?? defaultTintColor
 		view.tintColor = itemsColor
 		navigationBar.tintColor = itemsColor
-
-		if let navigationBar = navigationBar as? NavigationBar {
-			navigationBar.titleColor = tintColor ?? defaultTitleColor
-		}
 	}
 }
 
