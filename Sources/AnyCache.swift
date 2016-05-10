@@ -44,4 +44,3 @@ struct AnyCache<T>: Cache {
 		_removeAll(completion)
 	}
 }
-
