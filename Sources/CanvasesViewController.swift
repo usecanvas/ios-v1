@@ -55,9 +55,13 @@ class CanvasesViewController: ModelsViewController, Accountable {
 			}
 
 			let alert = UIAlertController(title: LocalizedString.UnsupportedTitle.string, message: LocalizedString.UnsupportedMessage.string, preferredStyle: .Alert)
+
+			#if !APP_STORE
 			alert.addAction(UIAlertAction(title: LocalizedString.CheckForUpdatesButton.string, style: .Default, handler: { _ in
 				UIApplication.sharedApplication().openURL(config.updatesURL)
 			}))
+			#endif
+
 			alert.addAction(UIAlertAction(title: LocalizedString.OpenInSafariButton.string, style: .Default, handler: { _ in
 				guard let URL = canvas.URL else { return }
 				UIApplication.sharedApplication().openURL(URL)
