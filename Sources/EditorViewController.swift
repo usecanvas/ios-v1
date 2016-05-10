@@ -257,7 +257,7 @@ extension EditorViewController: TextControllerDisplayDelegate {
 	}
 
 	func textController(textController: TextController, didUpdateTitle title: String?) {
-		self.title = title
+		self.title = title ?? LocalizedString.Untitled.string
 	}
 
 	func textControllerWillProcessRemoteEdit(textController: TextController) {

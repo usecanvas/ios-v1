@@ -35,4 +35,8 @@ extension Canvas {
 	var kind: Kind {
 		return isEmpty ? .Blank : .Document
 	}
+
+	var displayTitle: String {
+		return title.isEmpty ? LocalizedString.Untitled.string : title
+	}
 }

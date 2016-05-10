@@ -55,6 +55,7 @@ enum LocalizedString {
 	case Loading
 	case Okay
 	case Cancel
+	case Untitled
 
 
 	// MARK: - Properties
@@ -102,6 +103,7 @@ enum LocalizedString {
 		case .Loading: return string("LOADING")
 		case .Okay: return string("OK")
 		case .Cancel: return string("CANCEL")
+		case .Untitled: return string("UNTITLED")
 		}
 	}
 
