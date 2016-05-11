@@ -223,6 +223,8 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 
 		let delete = { [weak self] in
 			self?.showDetailViewController(PlaceholderViewController(), sender: self)
+			self?.removeCanvas(canvas)
+			
 			guard let accessToken = self?.account.accessToken else { return }
 			APIClient(accessToken: accessToken, baseURL: config.baseURL).destroyCanvas(canvas: canvas) { _ in
 				dispatch_async(dispatch_get_main_queue()) {
@@ -240,6 +242,8 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 
 	private func archiveCanvas(canvas: Canvas) {
 		showDetailViewController(PlaceholderViewController(), sender: self)
+		removeCanvas(canvas)
+
 		APIClient(accessToken: account.accessToken, baseURL: config.baseURL).archiveCanvas(canvas: canvas) { _ in
 			dispatch_async(dispatch_get_main_queue()) { [weak self] in
 				self?.refresh()
@@ -249,6 +253,24 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 
 
 	// MARK: - Private
+
+	private func removeCanvas(canvas: Canvas) {
+		for (s, var section) in dataSource.sections.enumerate() {
+			for (r, row) in section.rows.enumerate() {
+				if let rowCanvas = row.context?["canvas"] as? Canvas where rowCanvas.ID == canvas.ID {
+					section.rows.removeAtIndex(r)
+
+					if section.rows.isEmpty {
+						dataSource.sections.removeAtIndex(s)
+					} else {
+						dataSource.sections[s] = section
+					}
+
+					return
+				}
+			}
+		}
+	}
 
 	private func updateCanvases(canvases: [Canvas]) {
 		var groups = [Group: [Canvas]]()
