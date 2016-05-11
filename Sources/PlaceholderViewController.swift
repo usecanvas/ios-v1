@@ -35,8 +35,5 @@ class PlaceholderViewController: UIViewController {
 			textLabel.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor),
 			textLabel.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor),
 		])
-
-		navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem()
-		navigationItem.leftItemsSupplementBackButton = true
 	}
 }
