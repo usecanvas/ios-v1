@@ -135,6 +135,9 @@ final class EditorViewController: UIViewController, Accountable {
 		if traitCollection.forceTouchCapability == .Available {
 			registerForPreviewingWithDelegate(self, sourceView: textView)
 		}
+
+		navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem()
+		navigationItem.leftItemsSupplementBackButton = true
 	}
 
 	override func viewDidLayoutSubviews() {

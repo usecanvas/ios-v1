@@ -46,6 +46,12 @@ final class RootViewController: UIViewController {
 	private(set) var viewController: UIViewController? {
 		willSet {
 			guard let viewController = viewController else { return }
+
+			// Collapse the primary view controller if it's displaying
+			if let splitViewController = viewController as? UISplitViewController {
+				splitViewController.preferredDisplayMode = .PrimaryHidden
+			}
+
 			viewController.viewWillDisappear(false)
 			viewController.view.removeFromSuperview()
 			viewController.viewDidDisappear(false)
