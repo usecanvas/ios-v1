@@ -149,15 +149,6 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		}
 	}
 
-//	override func viewDidLayoutSubviews() {
-//		super.viewDidLayoutSubviews()
-//
-//		guard let header = tableView.tableHeaderView else { return }
-//		var frame = header.frame
-//		frame.size.width = tableView.bounds.width
-//		header.frame = frame
-//	}
-
 
 	// MARK: - ModelsViewController
 
@@ -231,6 +222,7 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		let actionSheet = AlertController(title: LocalizedString.DeleteConfirmationMessage(canvasTitle: canvas.displayTitle).string, message: nil, preferredStyle: style)
 
 		let delete = { [weak self] in
+			self?.showDetailViewController(PlaceholderViewController(), sender: self)
 			guard let accessToken = self?.account.accessToken else { return }
 			APIClient(accessToken: accessToken, baseURL: config.baseURL).destroyCanvas(canvas: canvas) { _ in
 				dispatch_async(dispatch_get_main_queue()) {
@@ -247,6 +239,7 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 	}
 
 	private func archiveCanvas(canvas: Canvas) {
+		showDetailViewController(PlaceholderViewController(), sender: self)
 		APIClient(accessToken: account.accessToken, baseURL: config.baseURL).archiveCanvas(canvas: canvas) { _ in
 			dispatch_async(dispatch_get_main_queue()) { [weak self] in
 				self?.refresh()

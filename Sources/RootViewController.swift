@@ -121,8 +121,10 @@ extension RootViewController: UISplitViewControllerDelegate {
 	func splitViewController(splitViewController: UISplitViewController, showDetailViewController viewController: UIViewController, sender: AnyObject?) -> Bool {
 		guard splitViewController.viewControllers.count == 2 else { return false }
 
-		viewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
-		viewController.navigationItem.leftItemsSupplementBackButton = true
+		if !(viewController is PlaceholderViewController) {
+			viewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
+			viewController.navigationItem.leftItemsSupplementBackButton = true
+		}
 
 		UIView.performWithoutAnimation {
 			splitViewController.viewControllers[1] = NavigationController(rootViewController: viewController)
