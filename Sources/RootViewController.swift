@@ -32,12 +32,12 @@ final class RootViewController: UIViewController {
 			}
 
 			let split = UISplitViewController()
-			split.preferredDisplayMode = .AllVisible
-			split.delegate = self
 			split.viewControllers = [
 				NavigationController(rootViewController: OrganizationsViewController(account: account)),
 				NavigationController(rootViewController: PlaceholderViewController())
 			]
+			split.preferredDisplayMode = .Automatic
+			split.delegate = self
 
 			viewController = split
 		}

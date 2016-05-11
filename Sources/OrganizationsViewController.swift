@@ -129,9 +129,8 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 
 	// MARK: - Actions
 
-	func showSettings(sender: AnyObject?) {
-		let style: UIAlertControllerStyle = traitCollection.userInterfaceIdiom == .Pad ? .Alert : .ActionSheet
-		let actionSheet = AlertController(title:nil, message: nil, preferredStyle: style)
+	func showSettings(sender: UIBarButtonItem?) {
+		let actionSheet = AlertController(title:nil, message: nil, preferredStyle: .ActionSheet)
 
 		#if INTERNAL
 			actionSheet.addAction(UIAlertAction(title: "Swift 💣", style: .Destructive) { _ in
@@ -148,6 +147,7 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 		actionSheet.addAction(UIAlertAction(title: LocalizedString.AccountButton.string, style: .Default) { _ in self.openAccount() })
 		actionSheet.addAction(UIAlertAction(title: LocalizedString.LogOutButton.string, style: .Destructive) { _ in self.logOut() })
 		actionSheet.addAction(UIAlertAction(title: LocalizedString.CancelButton.string, style: .Cancel, handler: nil))
+		actionSheet.popoverPresentationController?.barButtonItem = sender
 		actionSheet.primaryAction = logOut
 
 		presentViewController(actionSheet, animated: true, completion: nil)
@@ -159,7 +159,7 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 	}
 
 	func logOut() {
-		Analytics.track(.LoggedIn)
+		Analytics.track(.LoggedOut)
 		AccountController.sharedController.currentAccount = nil
 	}
 
