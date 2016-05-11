@@ -22,9 +22,9 @@ private enum Environment: String {
 
 	var baseURL: NSURL {
 		switch self {
-		case .Development: return NSURL(string: "http://localhost:5001/v1/")!
-		case .Staging: return NSURL(string: "https://canvas-api-staging.herokuapp.com/v1/")!
-		case .Production: return NSURL(string: "https://api.usecanvas.com/v1/")!
+		case .Development: return NSURL(string: "http://localhost:5001/")!
+		case .Staging: return NSURL(string: "https://canvas-api-staging.herokuapp.com/")!
+		case .Production: return NSURL(string: "https://api.usecanvas.com/")!
 		}
 	}
 
