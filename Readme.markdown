@@ -14,7 +14,7 @@ Canvas client for iOS.
 
         $ rake bootstrap
 
-3. Open in Xcode 7.3
+3. Open in Xcode 7.3.1
 
 4. Click ▶️
 
