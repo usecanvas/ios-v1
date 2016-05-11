@@ -24,6 +24,7 @@ final class EditorViewController: UIViewController, Accountable {
 	let textController: TextController
 	let textView: UITextView
 
+	private var usingKeyboard = false
 	private var scrollPosition: CGPoint?
 	private var ignoreSelectionChange = false
 
@@ -267,6 +268,10 @@ extension EditorViewController: UITextViewDelegate {
 		let selection: NSRange? = !textView.isFirstResponder() && textView.selectedRange.length == 0 ? nil : textView.selectedRange
 		textController.setPresentationSelectedRange(selection)
 	}
+
+	func textViewDidBeginEditing(textView: UITextView) {
+		usingKeyboard = true
+	}
 	
 	func textViewDidEndEditing(textView: UITextView) {
 		textController.setPresentationSelectedRange(nil)
@@ -319,7 +324,7 @@ extension EditorViewController: TextControllerConnectionDelegate {
 			(textView as? CanvasTextView)?.placeholderLabel.hidden = false
 		}
 
-		if textView.editable {
+		if textView.editable && (usingKeyboard || textView.text.isEmpty) {
 			textView.becomeFirstResponder()
 		}
 	}
@@ -385,7 +390,9 @@ extension EditorViewController: TextControllerConnectionDelegate {
 	}
 
 	func textController(textController: TextController, didDisconnectWithErrorMessage errorMessage: String?) {
+		let state = usingKeyboard
 		textView.editable = false
+		usingKeyboard = state
 
 		let message: String
 		if errorMessage == "wrapper-error" {
