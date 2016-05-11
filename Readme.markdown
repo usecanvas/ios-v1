@@ -20,7 +20,7 @@ You will need [Xcode](https://itunes.apple.com/app/xcode/id497799835) 7.3.1 and 
 
 3. Open `Canvas.xcodeproj` and click ▶️
 
-If you have trouble building, try selecting *Clean* from the *Product* menu in the menu bar. If you are still having trouble, ask @soffes in Slack.
+If you have trouble building, quit Xcode, run `rake clean bootstrap`, and open Xcode again. If you are still having trouble, ask @soffes in Slack.
 
 
 ## Running

@@ -28,12 +28,12 @@ class String
 end
 
 desc 'Build the project’s dependencies'
-task :bootstrap => [:clean] do
+task :bootstrap do
   Rake::Task['check_tools'].invoke unless ENV['SKIP_TOOLS_CHECK']
   puts "Getting Carthage dependencies…".bold.blue
   system 'carthage bootstrap --platform iOS --no-use-binaries'
 
-  puts "\nGetting git dependencies…".bold.blue
+  puts "\nGetting submodule dependencies…".bold.blue
   system 'git submodule update --init'
 
   puts "\nYou're ready to go! Open Canvas.xcodeproj and click ▶".bold.green
@@ -68,10 +68,16 @@ task :check_tools do
   end
 end
 
-desc 'Clean Carthage'
+desc 'Clean Carthage and submodules'
 task :clean do
   puts "Cleaning Carthage dependencies…".bold.blue
   system 'rm -rf Carthage'
+
+  puts "Cleaning submodule dependencies…".bold.blue
+  system 'rm -rf Vendor'
+  system 'git checkout Vendor'
+
+  puts "Clean!".bold.green
 end
 
 namespace :sentry do
