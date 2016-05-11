@@ -91,10 +91,16 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 				Section(rows: canvases.map({ this.rowForCanvas($0) }))
 			]
 		}
+
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(willCloseEditor), name: EditorViewController.willCloseNotificationName, object: nil)
 	}
 
 	required init?(coder aDecoder: NSCoder) {
 	    fatalError("init(coder:) has not been implemented")
+	}
+
+	deinit {
+		NSNotificationCenter.defaultCenter().removeObserver(self)
 	}
 
 
@@ -224,7 +230,7 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		let delete = { [weak self] in
 			self?.showDetailViewController(PlaceholderViewController(), sender: self)
 			self?.removeCanvas(canvas)
-			
+
 			guard let accessToken = self?.account.accessToken else { return }
 			APIClient(accessToken: accessToken, baseURL: config.baseURL).destroyCanvas(canvas: canvas) { _ in
 				dispatch_async(dispatch_get_main_queue()) {
@@ -295,6 +301,12 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		}
 
 		dataSource.sections = sections
+	}
+
+	@objc private func willCloseEditor() {
+		if let indexPath = tableView.indexPathForSelectedRow {
+			tableView.deselectRowAtIndexPath(indexPath, animated: false)
+		}
 	}
 }
 

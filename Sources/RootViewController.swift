@@ -36,7 +36,7 @@ final class RootViewController: UIViewController {
 				NavigationController(rootViewController: OrganizationsViewController(account: account)),
 				NavigationController(rootViewController: PlaceholderViewController())
 			]
-			split.preferredDisplayMode = .Automatic
+			split.preferredDisplayMode = .AllVisible
 			split.delegate = self
 
 			viewController = split
@@ -119,16 +119,22 @@ extension RootViewController: UISplitViewControllerDelegate {
 	}
 
 	func splitViewController(splitViewController: UISplitViewController, showDetailViewController viewController: UIViewController, sender: AnyObject?) -> Bool {
-		guard splitViewController.viewControllers.count == 2 else { return false }
-
-		if !(viewController is PlaceholderViewController) {
+		let isPlaceholder = viewController is PlaceholderViewController
+		if !isPlaceholder {
 			viewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
 			viewController.navigationItem.leftItemsSupplementBackButton = true
 		}
 
-		UIView.performWithoutAnimation {
-			splitViewController.viewControllers[1] = NavigationController(rootViewController: viewController)
+		UIView.animateWithDuration(0.2) {
+			splitViewController.preferredDisplayMode = isPlaceholder ? .AllVisible : .Automatic
 		}
+
+		guard splitViewController.viewControllers.count == 2,
+			let navigationController = splitViewController.viewControllers.last as? UINavigationController
+		else { return false }
+
+		navigationController.setViewControllers([viewController], animated: false)
+
 		return true
 	}
 

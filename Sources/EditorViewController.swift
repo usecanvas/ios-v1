@@ -16,6 +16,8 @@ final class EditorViewController: UIViewController, Accountable {
 	
 	// MARK: - Properties
 
+	static let willCloseNotificationName = "EditorViewController.willCloseNotificationName"
+
 	var account: Account
 	let canvas: Canvas
 

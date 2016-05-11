@@ -10,7 +10,8 @@ import UIKit
 
 extension EditorViewController {
 	func close(sender: UIAlertAction? = nil) {
-		navigationController?.popViewControllerAnimated(true)
+		NSNotificationCenter.defaultCenter().postNotificationName(EditorViewController.willCloseNotificationName, object: nil)
+		dismissDetailViewController(self)
 	}
 	
 	func dismissKeyboard(sender: AnyObject?) {
