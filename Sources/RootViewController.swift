@@ -115,14 +115,7 @@ final class RootViewController: UIViewController {
 
 extension RootViewController: UISplitViewControllerDelegate {
 	func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
-		let isEmpty: Bool
-		if let secondaryNavigationController = secondaryViewController as? UINavigationController {
-			isEmpty = secondaryNavigationController.topViewController is PlaceholderViewController
-		} else {
-			isEmpty = false
-		}
-
-		return isEmpty
+		return splitViewControllerIsEmpty(splitViewController, secondaryViewController: secondaryViewController)
 	}
 
 	func splitViewController(splitViewController: UISplitViewController, showDetailViewController viewController: UIViewController, sender: AnyObject?) -> Bool {
@@ -132,5 +125,21 @@ extension RootViewController: UISplitViewControllerDelegate {
 			splitViewController.viewControllers[1] = NavigationController(rootViewController: viewController)
 		}
 		return true
+	}
+
+	func targetDisplayModeForActionInSplitViewController(splitViewController: UISplitViewController) -> UISplitViewControllerDisplayMode {
+		switch splitViewController.displayMode {
+		case .PrimaryOverlay, .PrimaryHidden: return .AllVisible
+		default: return .PrimaryHidden
+		}
+	}
+
+	private func splitViewControllerIsEmpty(splitViewController: UISplitViewController, secondaryViewController: UIViewController? = nil) -> Bool {
+		let viewController = secondaryViewController ?? splitViewController.viewControllers.last
+		if let secondaryNavigationController = viewController as? UINavigationController {
+			return secondaryNavigationController.topViewController is PlaceholderViewController
+		}
+
+		return false
 	}
 }
