@@ -36,6 +36,7 @@ final class RootViewController: UIViewController {
 				NavigationController(rootViewController: OrganizationsViewController(account: account)),
 				NavigationController(rootViewController: PlaceholderViewController())
 			]
+			split.maximumPrimaryColumnWidth = 375
 			split.preferredDisplayMode = .AllVisible
 			split.delegate = self
 
@@ -119,23 +120,22 @@ extension RootViewController: UISplitViewControllerDelegate {
 	}
 
 	func splitViewController(splitViewController: UISplitViewController, showDetailViewController viewController: UIViewController, sender: AnyObject?) -> Bool {
-		let isPlaceholder = viewController is PlaceholderViewController
+		var detail = viewController
+		if let top = (detail as? UINavigationController)?.topViewController {
+			detail = top
+		}
+
+		let isPlaceholder = detail is PlaceholderViewController
 		if !isPlaceholder {
-			viewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
-			viewController.navigationItem.leftItemsSupplementBackButton = true
+			detail.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
+			detail.navigationItem.leftItemsSupplementBackButton = true
 		}
 
 		UIView.animateWithDuration(0.2) {
 			splitViewController.preferredDisplayMode = isPlaceholder ? .AllVisible : .Automatic
 		}
 
-		guard splitViewController.viewControllers.count == 2,
-			let navigationController = splitViewController.viewControllers.last as? UINavigationController
-		else { return false }
-
-		navigationController.setViewControllers([viewController], animated: false)
-
-		return true
+		return false
 	}
 
 	func targetDisplayModeForActionInSplitViewController(splitViewController: UISplitViewController) -> UISplitViewControllerDisplayMode {

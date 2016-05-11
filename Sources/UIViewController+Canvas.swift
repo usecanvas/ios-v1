@@ -31,6 +31,6 @@ extension UINavigationController {
 
 extension UISplitViewController {
 	override func dismissDetailViewController(sender: AnyObject?) {
-		showDetailViewController(PlaceholderViewController(), sender: sender)
+		showDetailViewController(NavigationController(rootViewController: PlaceholderViewController()), sender: sender)
 	}
 }

@@ -228,7 +228,7 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		let actionSheet = AlertController(title: LocalizedString.DeleteConfirmationMessage(canvasTitle: canvas.displayTitle).string, message: nil, preferredStyle: style)
 
 		let delete = { [weak self] in
-			self?.showDetailViewController(PlaceholderViewController(), sender: self)
+			self?.showDetailViewController(NavigationController(rootViewController: PlaceholderViewController()), sender: self)
 			self?.removeCanvas(canvas)
 
 			guard let accessToken = self?.account.accessToken else { return }
@@ -247,7 +247,7 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 	}
 
 	private func archiveCanvas(canvas: Canvas) {
-		showDetailViewController(PlaceholderViewController(), sender: self)
+		showDetailViewController(NavigationController(rootViewController: PlaceholderViewController()), sender: self)
 		removeCanvas(canvas)
 
 		APIClient(accessToken: account.accessToken, baseURL: config.baseURL).archiveCanvas(canvas: canvas) { _ in
