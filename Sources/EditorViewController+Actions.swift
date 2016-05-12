@@ -73,6 +73,7 @@ extension EditorViewController {
 	}
 	
 	func reload(sender: UIAlertAction? = nil) {
+		title = LocalizedString.Connecting.string
 		textController.connect()
 	}
 }

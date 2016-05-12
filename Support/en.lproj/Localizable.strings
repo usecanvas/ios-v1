@@ -54,8 +54,9 @@
 "INSERT_LINE_AFTER_COMMAND" = "Insert Line After";
 "INSERT_LINE_BEFORE_COMMAND" = "Insert Line Before";
 "DELETE_LINE_COMMAND" = "Delete Line";
+"CONNECTING" = "Connecting…";
+"DISCONNECTED" = "Disconnected";
 
-"LOADING" = "Loading…";
 "OK" = "OK";
 "CANCEL" = "Cancel";
 "UNTITLED" = "Untitled";

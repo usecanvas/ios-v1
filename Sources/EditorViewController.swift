@@ -116,7 +116,7 @@ final class EditorViewController: UIViewController, Accountable {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		title = LocalizedString.Loading.string
+		title = LocalizedString.Connecting.string
 		view.backgroundColor = Color.white
 
 		navigationItem.rightBarButtonItems = [
@@ -390,6 +390,8 @@ extension EditorViewController: TextControllerConnectionDelegate {
 	}
 
 	func textController(textController: TextController, didDisconnectWithErrorMessage errorMessage: String?) {
+		title = LocalizedString.Disconnected.string
+
 		let state = usingKeyboard
 		textView.editable = false
 		usingKeyboard = state

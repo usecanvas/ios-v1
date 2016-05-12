@@ -51,8 +51,9 @@ enum LocalizedString {
 	case InsertLineAfterCommand
 	case InsertLineBeforeCommand
 	case DeleteLineCommand
+	case Connecting
+	case Disconnected
 
-	case Loading
 	case Okay
 	case Cancel
 	case Untitled
@@ -99,8 +100,9 @@ enum LocalizedString {
 		case .InsertLineAfterCommand: return string("INSERT_LINE_AFTER_COMMAND")
 		case .InsertLineBeforeCommand: return string("INSERT_LINE_BEFORE_COMMAND")
 		case .DeleteLineCommand: return string("DELETE_LINE_COMMAND")
+		case .Connecting: return string("CONNECTING")
+		case .Disconnected: return string("DISCONNECTED")
 
-		case .Loading: return string("LOADING")
 		case .Okay: return string("OK")
 		case .Cancel: return string("CANCEL")
 		case .Untitled: return string("UNTITLED")
