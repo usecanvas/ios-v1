@@ -305,6 +305,10 @@ extension EditorViewController: TextControllerDisplayDelegate {
 			self.scrollPosition = nil
 		}
 	}
+	
+	func textController(textController: TextController, URLForImage block: Image) -> NSURL? {
+		return imgixURL(block.url)
+	}
 }
 
 
