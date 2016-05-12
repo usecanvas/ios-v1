@@ -36,7 +36,6 @@ final class RootViewController: UIViewController {
 				NavigationController(rootViewController: OrganizationsViewController(account: account)),
 				NavigationController(rootViewController: PlaceholderViewController())
 			]
-			split.maximumPrimaryColumnWidth = 375
 			split.preferredDisplayMode = .AllVisible
 			split.delegate = self
 
@@ -103,6 +102,25 @@ final class RootViewController: UIViewController {
 
 	override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
 		return traitCollection.userInterfaceIdiom == .Pad ? .All : .Portrait
+	}
+
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+
+		// Work around wrong automatic primary column calculatations by UISplitViewController
+		guard let window = view.window, splitViewController = viewController as? UISplitViewController else { return }
+
+		let screen = window.screen
+		let width: CGFloat
+
+		if window.bounds.width < screen.bounds.width {
+			width = 258
+		} else {
+			width = 375
+		}
+
+		splitViewController.minimumPrimaryColumnWidth = width
+		splitViewController.maximumPrimaryColumnWidth = width
 	}
 
 
