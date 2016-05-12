@@ -24,6 +24,11 @@ extension UIViewController {
 
 extension UINavigationController {
 	override func dismissDetailViewController(sender: AnyObject?) {
+		// Hack to fix nested navigation controllers that split view makes. Ugh.
+		if viewControllers.count == 1 {
+			navigationController?.popViewControllerAnimated(true)
+			return
+		}
 		popViewControllerAnimated(true)
 	}
 }
