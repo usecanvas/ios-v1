@@ -57,8 +57,8 @@ final class LoginViewController: UIViewController {
 		return button
 	}()
 
-	let submitButton: UIButton = {
-		let button = Button()
+	let submitButton: IndicatorButton = {
+		let button = IndicatorButton()
 		button.translatesAutoresizingMaskIntoConstraints = false
 		button.backgroundColor = Color.white
 		button.setTitle(LocalizedString.LoginButton.string, forState: .Normal)
@@ -101,6 +101,7 @@ final class LoginViewController: UIViewController {
 			usernameTextField.enabled = !loading
 			passwordTextField.enabled = !loading
 			submitButton.enabled = !loading
+			submitButton.loading = loading
 			UIApplication.sharedApplication().networkActivityIndicatorVisible = loading
 		}
 	}
@@ -166,6 +167,7 @@ final class LoginViewController: UIViewController {
 			top,
 			width,
 			stackView.widthAnchor.constraintLessThanOrEqualToConstant(400),
+			passwordTextField.heightAnchor.constraintEqualToAnchor(usernameTextField.heightAnchor),
 			submitButton.heightAnchor.constraintEqualToAnchor(usernameTextField.heightAnchor)
 		])
 	}

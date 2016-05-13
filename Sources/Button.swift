@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class Button: UIButton {
+class Button: UIButton {
 	
 	// MARK: - Properties
 	

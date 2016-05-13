@@ -63,6 +63,8 @@
 		21213AB81CDC36600044D6BE /* Imgix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21213AB61CDC36600044D6BE /* Imgix.swift */; };
 		212299B81CE3E79C00033D94 /* UIViewController+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212299B71CE3E79C00033D94 /* UIViewController+Canvas.swift */; };
 		212299CF1CE3E7F200033D94 /* UIViewController+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212299B71CE3E79C00033D94 /* UIViewController+Canvas.swift */; };
+		212D8EC61CE62AE00039A3EE /* IndicatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212D8EC51CE62AE00039A3EE /* IndicatorButton.swift */; };
+		212D8EC71CE62AE00039A3EE /* IndicatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212D8EC51CE62AE00039A3EE /* IndicatorButton.swift */; };
 		2147A2E31CDA586E008A2709 /* CanvasTextView+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147A2E21CDA586E008A2709 /* CanvasTextView+Gestures.swift */; };
 		2147A2FA1CDA5908008A2709 /* CanvasTextView+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147A2E21CDA586E008A2709 /* CanvasTextView+Gestures.swift */; };
 		2147A2FC1CDA7B2E008A2709 /* DragContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147A2FB1CDA7B2E008A2709 /* DragContext.swift */; };
@@ -531,6 +533,7 @@
 		21213A9B1CDC2F8A0044D6BE /* Crypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crypto.framework; path = Carthage/Build/iOS/Crypto.framework; sourceTree = "<group>"; };
 		21213AB61CDC36600044D6BE /* Imgix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Imgix.swift; sourceTree = "<group>"; };
 		212299B71CE3E79C00033D94 /* UIViewController+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Canvas.swift"; sourceTree = "<group>"; };
+		212D8EC51CE62AE00039A3EE /* IndicatorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorButton.swift; sourceTree = "<group>"; };
 		2147A2E21CDA586E008A2709 /* CanvasTextView+Gestures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CanvasTextView+Gestures.swift"; sourceTree = "<group>"; };
 		2147A2FB1CDA7B2E008A2709 /* DragContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragContext.swift; sourceTree = "<group>"; };
 		214F9FF61CC6DE4600927A07 /* CanvasTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasTextView.swift; sourceTree = "<group>"; };
@@ -694,6 +697,7 @@
 			isa = PBXGroup;
 			children = (
 				2107D2CD1CC58F7A001963B7 /* Button.swift */,
+				212D8EC51CE62AE00039A3EE /* IndicatorButton.swift */,
 				2107D2CF1CC58F7A001963B7 /* CanvasCell.swift */,
 				2107D2D21CC58F7A001963B7 /* CanvasIconView.swift */,
 				2107D2DB1CC58F7A001963B7 /* LoginTextField.swift */,
@@ -1349,6 +1353,7 @@
 				21501D5D1CCAA2B900B02FC5 /* Canvas+Canvas.swift in Sources */,
 				21501D5E1CCAA2B900B02FC5 /* AppDelegate.swift in Sources */,
 				21501D5F1CCAA2B900B02FC5 /* CanvasesResultsViewController.swift in Sources */,
+				212D8EC71CE62AE00039A3EE /* IndicatorButton.swift in Sources */,
 				21501D601CCAA2B900B02FC5 /* UIEdgeInsets+Canvas.swift in Sources */,
 				21501D611CCAA2B900B02FC5 /* TextView.swift in Sources */,
 				21501D621CCAA2B900B02FC5 /* Color+Canvas.swift in Sources */,
@@ -1406,6 +1411,7 @@
 				2107D3061CC58F7B001963B7 /* Canvas+Canvas.swift in Sources */,
 				2107D3041CC58F7B001963B7 /* AppDelegate.swift in Sources */,
 				2107D3081CC58F7B001963B7 /* CanvasesResultsViewController.swift in Sources */,
+				212D8EC61CE62AE00039A3EE /* IndicatorButton.swift in Sources */,
 				2107D3291CC58F7B001963B7 /* UIEdgeInsets+Canvas.swift in Sources */,
 				2107D3251CC58F7B001963B7 /* TextView.swift in Sources */,
 				2107D30D1CC58F7B001963B7 /* Color+Canvas.swift in Sources */,
