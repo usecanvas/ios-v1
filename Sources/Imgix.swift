@@ -29,10 +29,10 @@ struct Imgix {
 	
 	// MARK: - Building URLs
 	
-	func signPath(path: String) -> NSURL? {
+	func signPath(input: String) -> NSURL? {
 		// Get components
-		let slash = path.hasPrefix("/") ? "" : "/"
-		guard let components = NSURLComponents(string: "https://\(host + slash + path)") else { return nil }
+		let path = (input.hasPrefix("/") ? "" : "/") + input
+		guard let components = NSURLComponents(string: "https://\(host + path)") else { return nil }
 		
 		// Apply default query items
 		var queryItems = components.queryItems ?? []
@@ -42,8 +42,6 @@ struct Imgix {
 		}
 		
 		// Calculate signature
-		guard let path = components.path else { return nil }
-		
 		var base = secret + path
 		if let query = components.query where !query.isEmpty {
 			base += "?\(query)"
