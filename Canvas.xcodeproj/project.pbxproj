@@ -125,6 +125,8 @@
 		215CD89D1CE2A26F0093C545 /* EditorViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B28BF51CDC6049009B9D8F /* EditorViewController+Actions.swift */; };
 		2178CB521CEA7B0100E9A4B2 /* SpaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178CB511CEA7B0100E9A4B2 /* SpaceView.swift */; };
 		2178CB531CEA7B0100E9A4B2 /* SpaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178CB511CEA7B0100E9A4B2 /* SpaceView.swift */; };
+		2178CBB91CEA891100E9A4B2 /* SessionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178CBB81CEA891100E9A4B2 /* SessionsViewController.swift */; };
+		2178CBBA1CEA891100E9A4B2 /* SessionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178CBB81CEA891100E9A4B2 /* SessionsViewController.swift */; };
 		218383A11CD5177100F7AA24 /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9721CD516B800E2902C /* CanvasKit.framework */; };
 		218383A21CD5177100F7AA24 /* CanvasNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9831CD516BE00E2902C /* CanvasNative.framework */; };
 		218383A31CD5177100F7AA24 /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218383721CD5174800F7AA24 /* CanvasText.framework */; };
@@ -569,6 +571,7 @@
 		21501DAA1CCAA2B900B02FC5 /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		215CD8611CE293FF0093C545 /* PlaceholderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderViewController.swift; sourceTree = "<group>"; };
 		2178CB511CEA7B0100E9A4B2 /* SpaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceView.swift; sourceTree = "<group>"; };
+		2178CBB81CEA891100E9A4B2 /* SessionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionsViewController.swift; sourceTree = "<group>"; };
 		21B1E68C1CD516B000E2902C /* CanvasKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasKit.xcodeproj; path = CanvasKit/CanvasKit.xcodeproj; sourceTree = "<group>"; };
 		21B1E6B21CD516B000E2902C /* CanvasNative.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasNative.xcodeproj; path = CanvasNative/CanvasNative.xcodeproj; sourceTree = "<group>"; };
 		21B1E6F51CD516B000E2902C /* CanvasText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasText.xcodeproj; path = CanvasText/CanvasText.xcodeproj; sourceTree = "<group>"; };
@@ -715,7 +718,7 @@
 				2107D2D11CC58F7A001963B7 /* CanvasesViewController.swift */,
 				2107D2D81CC58F7A001963B7 /* EditorViewController.swift */,
 				21B28BF51CDC6049009B9D8F /* EditorViewController+Actions.swift */,
-				2107D2DC1CC58F7A001963B7 /* LoginViewController.swift */,
+				2178CBB71CEA890900E9A4B2 /* Sessions */,
 				2107D2DD1CC58F7A001963B7 /* ModelsViewController.swift */,
 				2107D2E41CC58F7B001963B7 /* OrganizationCanvasesViewController.swift */,
 				2107D2E61CC58F7B001963B7 /* OrganizationsViewController.swift */,
@@ -775,6 +778,15 @@
 				2107D2EB1CC58F7B001963B7 /* SearchController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		2178CBB71CEA890900E9A4B2 /* Sessions */ = {
+			isa = PBXGroup;
+			children = (
+				2178CBB81CEA891100E9A4B2 /* SessionsViewController.swift */,
+				2107D2DC1CC58F7A001963B7 /* LoginViewController.swift */,
+			);
+			name = Sessions;
 			sourceTree = "<group>";
 		};
 		218383621CD5174800F7AA24 /* Products */ = {
@@ -1404,6 +1416,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2178CBBA1CEA891100E9A4B2 /* SessionsViewController.swift in Sources */,
 				21501D5B1CCAA2B900B02FC5 /* Button.swift in Sources */,
 				21501D5C1CCAA2B900B02FC5 /* PersonalOrganizationCell.swift in Sources */,
 				21501D5D1CCAA2B900B02FC5 /* Canvas+Canvas.swift in Sources */,
@@ -1463,6 +1476,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2178CBB91CEA891100E9A4B2 /* SessionsViewController.swift in Sources */,
 				2107D3051CC58F7B001963B7 /* Button.swift in Sources */,
 				2107D31F1CC58F7B001963B7 /* PersonalOrganizationCell.swift in Sources */,
 				2107D3061CC58F7B001963B7 /* Canvas+Canvas.swift in Sources */,

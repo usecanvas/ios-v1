@@ -10,24 +10,9 @@ import UIKit
 import CanvasKit
 import OnePasswordExtension
 
-final class LoginViewController: UIViewController {
+final class LoginViewController: SessionsViewController {
 
 	// MARK: - Properties
-
-	let backgroundView: UIView = {
-		let view = UIView()
-		view.translatesAutoresizingMaskIntoConstraints = false
-		view.backgroundColor = UIColor(patternImage: UIImage(named: "Illustration")!)
-		view.alpha = 0.07
-		return view
-	}()
-
-	let stackView: UIStackView = {
-		let view = UIStackView()
-		view.translatesAutoresizingMaskIntoConstraints = false
-		view.axis = .Vertical
-		return view
-	}()
 
 	let loginTextField: UITextField = {
 		let field = LoginTextField()
@@ -36,74 +21,12 @@ final class LoginViewController: UIViewController {
 		field.autocapitalizationType = .None
 		field.autocorrectionType = .No
 		field.returnKeyType = .Next
+		field.keyboardType = .EmailAddress
 		return field
 	}()
 
-	let passwordTextField: UITextField = {
-		let field = LoginTextField()
-		field.translatesAutoresizingMaskIntoConstraints = false
-		field.secureTextEntry = true
-		field.placeholder = LocalizedString.PasswordPlaceholder.string
-		field.returnKeyType = .Go
-		return field
-	}()
-
-	let submitButton: IndicatorButton = {
-		let button = IndicatorButton()
-		button.translatesAutoresizingMaskIntoConstraints = false
-		button.backgroundColor = Color.white
-		button.setTitle(LocalizedString.LoginButton.string, forState: .Normal)
-		return button
-	}()
-
-	private var centerYConstraint: NSLayoutConstraint? {
-		willSet {
-			guard let old = centerYConstraint else { return }
-			NSLayoutConstraint.deactivateConstraints([old])
-		}
-
-		didSet {
-			guard let new = centerYConstraint else { return }
-			NSLayoutConstraint.activateConstraints([new])
-		}
-	}
-
-	private var keyboardFrame: CGRect? {
-		didSet {
-			guard let keyboardFrame = keyboardFrame else {
-				centerYConstraint = nil
-				return
-			}
-
-			var rect = view.bounds
-			rect.size.height -= rect.intersect(keyboardFrame).height
-			rect.origin.y += UIApplication.sharedApplication().statusBarFrame.size.height
-			rect.size.height -= UIApplication.sharedApplication().statusBarFrame.size.height
-
-			let contstraint = stackView.centerYAnchor.constraintEqualToAnchor(view.topAnchor, constant: rect.midY)
-			contstraint.priority = UILayoutPriorityDefaultHigh
-
-			centerYConstraint = contstraint
-		}
-	}
-
-	private var loading = false {
-		didSet {
-			loginTextField.enabled = !loading
-			passwordTextField.enabled = !loading
-			submitButton.enabled = !loading
-			submitButton.loading = loading
-			UIApplication.sharedApplication().networkActivityIndicatorVisible = loading
-		}
-	}
-
-	private var visible = false
-
-
-	// MARK: - Initializers
-
-	deinit {
-		NSNotificationCenter.defaultCenter().removeObserver(self)
+	override var textFields: [UITextField] {
+		return [loginTextField, passwordTextField]
 	}
 
 
@@ -111,10 +34,6 @@ final class LoginViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
-		view.backgroundColor = Color.brand
-
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillChangeFrame), name: UIKeyboardWillChangeFrameNotification, object: nil)
 
 		// 1Password
 		if OnePasswordExtension.sharedExtension().isAppExtensionAvailable() {
@@ -126,9 +45,6 @@ final class LoginViewController: UIViewController {
 			loginTextField.rightViewMode = .Always
 		}
 
-		loginTextField.delegate = self
-		passwordTextField.delegate = self
-
 		let resetPasswordButton = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 44))
 		resetPasswordButton.setImage(UIImage(named: "help"), forState: .Normal)
 		resetPasswordButton.tintColor = .whiteColor()
@@ -138,9 +54,7 @@ final class LoginViewController: UIViewController {
 		passwordTextField.rightView = resetPasswordButton
 		resetPasswordButton.addTarget(self, action: #selector(resetPassword), forControlEvents: .TouchUpInside)
 
-		submitButton.addTarget(self, action: #selector(signIn), forControlEvents: .TouchUpInside)
-
-		view.addSubview(backgroundView)
+		submitButton.setTitle(LocalizedString.LoginButton.string, forState: .Normal)
 
 		func label(text: String) -> UILabel {
 			let label = UILabel()
@@ -179,46 +93,10 @@ final class LoginViewController: UIViewController {
 
 		stackView.addArrangedSubview(signUpLabel)
 
-		view.addSubview(stackView)
-
-		let width = stackView.widthAnchor.constraintEqualToAnchor(view.widthAnchor, multiplier: 0.8)
-		width.priority = UILayoutPriorityDefaultHigh
-
-		let top = stackView.topAnchor.constraintGreaterThanOrEqualToAnchor(view.topAnchor, constant: 64)
-		top.priority = UILayoutPriorityDefaultLow
-
 		NSLayoutConstraint.activateConstraints([
-			backgroundView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
-			backgroundView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor),
-			backgroundView.topAnchor.constraintEqualToAnchor(view.topAnchor),
-			backgroundView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor),
-
-			stackView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor),
-			top,
-			width,
-			stackView.widthAnchor.constraintLessThanOrEqualToConstant(400),
 			passwordTextField.heightAnchor.constraintEqualToAnchor(loginTextField.heightAnchor),
 			submitButton.heightAnchor.constraintEqualToAnchor(loginTextField.heightAnchor)
 		])
-	}
-
-	override func viewDidAppear(animated: Bool) {
-		super.viewDidAppear(animated)
-
-		loginTextField.becomeFirstResponder()
-
-		dispatch_async(dispatch_get_main_queue()) { [weak self] in
-			self?.visible = true
-		}
-	}
-
-	override func viewDidDisappear(animated: Bool) {
-		super.viewDidDisappear(animated)
-		visible = false
-	}
-
-	override func preferredStatusBarStyle() -> UIStatusBarStyle {
-		return .LightContent
 	}
 
 
@@ -234,11 +112,11 @@ final class LoginViewController: UIViewController {
 				self?.passwordTextField.text = password
 			}
 
-			self?.signIn()
+			self?.submit()
 		}
 	}
 
-	@objc private func signIn() {
+	override func submit() {
 		guard let username = loginTextField.text, password = passwordTextField.text else { return }
 
 		loading = true
@@ -268,47 +146,5 @@ final class LoginViewController: UIViewController {
 	@objc private func resetPassword() {
 		let URL = NSURL(string: "https://usecanvas.com/password-reset")!
 		UIApplication.sharedApplication().openURL(URL)
-	}
-
-	@objc private func keyboardWillChangeFrame(notification: NSNotification) {
-		guard let dictionary = notification.userInfo as? [String: AnyObject],
-			duration = dictionary[UIKeyboardAnimationDurationUserInfoKey] as? NSTimeInterval,
-			curve = (dictionary[UIKeyboardAnimationCurveUserInfoKey] as? Int).flatMap(UIViewAnimationCurve.init),
-			rect = (dictionary[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue()
-		else { return }
-
-		let frame = view.convertRect(rect, fromView: nil)
-
-		let change = { [weak self] in
-			self?.keyboardFrame = frame
-			self?.view.layoutIfNeeded()
-		}
-
-		if visible {
-			UIView.beginAnimations(nil, context: nil)
-			UIView.setAnimationDuration(duration)
-			UIView.setAnimationCurve(curve)
-			change()
-			UIView.commitAnimations()
-		} else {
-			UIView.performWithoutAnimation(change)
-		}
-	}
-}
-
-
-extension LoginViewController: UITextFieldDelegate {
-	func textFieldShouldReturn(textField: UITextField) -> Bool {
-		if textField == loginTextField {
-			passwordTextField.becomeFirstResponder()
-		} else if textField == passwordTextField {
-			signIn()
-		}
-		return false
-	}
-
-	func textFieldDidEndEditing(textField: UITextField) {
-		// Workaround iOS bug that causes text to flicker when you lose focus
-		textField.layoutIfNeeded()
 	}
 }
