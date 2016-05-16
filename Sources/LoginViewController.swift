@@ -132,7 +132,7 @@ final class LogInViewController: SessionsViewController {
 	}
 
 	@objc private func signUp() {
-		guard let rootViewController = parentViewController as? RootViewController else { return }
-		rootViewController.viewController = SignUpViewController()
+		let URL = NSURL(string: "https://usecanvas.com/signup")!
+		UIApplication.sharedApplication().openURL(URL)
 	}
 }
