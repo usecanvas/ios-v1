@@ -23,10 +23,11 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 
 		var title: String {
 			switch self {
-			case .Week: return "This Week"
-			case . Month: return "This Month"
-			case .Forever: return "Older"
-			default: return rawValue
+			case .Today: return LocalizedString.TodayTitle.string
+			case .Recent: return LocalizedString.RecentTitle.string
+			case .Week: return LocalizedString.ThisWeekTitle.string
+			case .Month: return LocalizedString.ThisMonthTitle.string
+			case .Forever: return LocalizedString.OlderTitle.string
 			}
 		}
 

@@ -38,6 +38,11 @@ enum LocalizedString {
 	case UnsupportedMessage
 	case CheckForUpdatesButton
 	case OpenInSafariButton
+	case TodayTitle
+	case RecentTitle
+	case ThisWeekTitle
+	case ThisMonthTitle
+	case OlderTitle
 
 	// Editor
 	case CanvasTitlePlaceholder
@@ -90,6 +95,11 @@ enum LocalizedString {
 		case .UnsupportedMessage: return string("UNSUPPORTED_MESSAGE")
 		case .CheckForUpdatesButton: return string("CHECK_FOR_UPDATES_BUTTON")
 		case .OpenInSafariButton: return string("OPEN_IN_SAFARI_BUTTON")
+		case .TodayTitle: return string("TODAY_TITLE")
+		case .RecentTitle: return string("RECENT_TITLE")
+		case .ThisWeekTitle: return string("THIS_WEEK_TITLE")
+		case .ThisMonthTitle: return string("THIS_MONTH_TITLE")
+		case .OlderTitle: return string("OLDER_TITLE")
 
 		case .CanvasTitlePlaceholder: return string("CANVAS_TITLE_PLACEHOLDER")
 		case .CloseCommand: return string("CLOSE_COMMAND")

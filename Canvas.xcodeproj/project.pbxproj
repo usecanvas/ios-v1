@@ -714,20 +714,11 @@
 		2107D3391CC591AF001963B7 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2107D2DF1CC58F7A001963B7 /* NavigationController.swift */,
-				2107D2E81CC58F7B001963B7 /* RootViewController.swift */,
-				2107D2CA1CC58F7A001963B7 /* AlertController.swift */,
-				2107D2D01CC58F7A001963B7 /* CanvasesResultsViewController.swift */,
-				2107D2D11CC58F7A001963B7 /* CanvasesViewController.swift */,
-				2107D2D81CC58F7A001963B7 /* EditorViewController.swift */,
-				21B28BF51CDC6049009B9D8F /* EditorViewController+Actions.swift */,
+				2178CBCC1CEA92EF00E9A4B2 /* Utility */,
+				2178CBE31CEA92F900E9A4B2 /* Canvases */,
+				2178CBE41CEA930000E9A4B2 /* Editor */,
 				2178CBB71CEA890900E9A4B2 /* Sessions */,
-				2107D2DD1CC58F7A001963B7 /* ModelsViewController.swift */,
-				2107D2E41CC58F7B001963B7 /* OrganizationCanvasesViewController.swift */,
-				2107D2E61CC58F7B001963B7 /* OrganizationsViewController.swift */,
-				215CD8611CE293FF0093C545 /* PlaceholderViewController.swift */,
-				2107D2EC1CC58F7B001963B7 /* TableViewController.swift */,
-				2107D2F41CC58F7B001963B7 /* WebViewController.swift */,
+				2178CBE51CEA930400E9A4B2 /* Organizations */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -791,6 +782,47 @@
 				2178CBBB1CEA8B2200E9A4B2 /* SignUpViewController.swift */,
 			);
 			name = Sessions;
+			sourceTree = "<group>";
+		};
+		2178CBCC1CEA92EF00E9A4B2 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				2107D2DF1CC58F7A001963B7 /* NavigationController.swift */,
+				2107D2E81CC58F7B001963B7 /* RootViewController.swift */,
+				2107D2CA1CC58F7A001963B7 /* AlertController.swift */,
+				2107D2DD1CC58F7A001963B7 /* ModelsViewController.swift */,
+				2107D2EC1CC58F7B001963B7 /* TableViewController.swift */,
+				2107D2F41CC58F7B001963B7 /* WebViewController.swift */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
+		2178CBE31CEA92F900E9A4B2 /* Canvases */ = {
+			isa = PBXGroup;
+			children = (
+				2107D2D11CC58F7A001963B7 /* CanvasesViewController.swift */,
+				2107D2E41CC58F7B001963B7 /* OrganizationCanvasesViewController.swift */,
+				2107D2D01CC58F7A001963B7 /* CanvasesResultsViewController.swift */,
+				215CD8611CE293FF0093C545 /* PlaceholderViewController.swift */,
+			);
+			name = Canvases;
+			sourceTree = "<group>";
+		};
+		2178CBE41CEA930000E9A4B2 /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				2107D2D81CC58F7A001963B7 /* EditorViewController.swift */,
+				21B28BF51CDC6049009B9D8F /* EditorViewController+Actions.swift */,
+			);
+			name = Editor;
+			sourceTree = "<group>";
+		};
+		2178CBE51CEA930400E9A4B2 /* Organizations */ = {
+			isa = PBXGroup;
+			children = (
+				2107D2E61CC58F7B001963B7 /* OrganizationsViewController.swift */,
+			);
+			name = Organizations;
 			sourceTree = "<group>";
 		};
 		218383621CD5174800F7AA24 /* Products */ = {
