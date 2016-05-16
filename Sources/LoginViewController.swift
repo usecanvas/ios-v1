@@ -26,14 +26,13 @@ final class LoginViewController: UIViewController {
 		let view = UIStackView()
 		view.translatesAutoresizingMaskIntoConstraints = false
 		view.axis = .Vertical
-		view.spacing = 16
 		return view
 	}()
 
-	let usernameTextField: UITextField = {
+	let loginTextField: UITextField = {
 		let field = LoginTextField()
 		field.translatesAutoresizingMaskIntoConstraints = false
-		field.placeholder = LocalizedString.UsernamePlaceholder.string
+		field.placeholder = LocalizedString.LoginPlaceholder.string
 		field.autocapitalizationType = .None
 		field.autocorrectionType = .No
 		field.returnKeyType = .Next
@@ -47,14 +46,6 @@ final class LoginViewController: UIViewController {
 		field.placeholder = LocalizedString.PasswordPlaceholder.string
 		field.returnKeyType = .Go
 		return field
-	}()
-
-	let resetPasswordButton: UIButton = {
-		let button = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 44))
-		button.setImage(UIImage(named: "help"), forState: .Normal)
-		button.tintColor = .whiteColor()
-		button.adjustsImageWhenHighlighted = false
-		return button
 	}()
 
 	let submitButton: IndicatorButton = {
@@ -98,7 +89,7 @@ final class LoginViewController: UIViewController {
 
 	private var loading = false {
 		didSet {
-			usernameTextField.enabled = !loading
+			loginTextField.enabled = !loading
 			passwordTextField.enabled = !loading
 			submitButton.enabled = !loading
 			submitButton.loading = loading
@@ -131,12 +122,17 @@ final class LoginViewController: UIViewController {
 			button.setImage(UIImage(named: "OnePassword"), forState: .Normal)
 			button.imageView?.tintColor = Color.white
 			button.addTarget(self, action: #selector(onePassword), forControlEvents: .TouchUpInside)
-			usernameTextField.rightView = button
-			usernameTextField.rightViewMode = .Always
+			loginTextField.rightView = button
+			loginTextField.rightViewMode = .Always
 		}
 
-		usernameTextField.delegate = self
+		loginTextField.delegate = self
 		passwordTextField.delegate = self
+
+		let resetPasswordButton = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 44))
+		resetPasswordButton.setImage(UIImage(named: "help"), forState: .Normal)
+		resetPasswordButton.tintColor = .whiteColor()
+		resetPasswordButton.adjustsImageWhenHighlighted = false
 
 		passwordTextField.rightViewMode = .Always
 		passwordTextField.rightView = resetPasswordButton
@@ -146,9 +142,43 @@ final class LoginViewController: UIViewController {
 
 		view.addSubview(backgroundView)
 
-		stackView.addArrangedSubview(usernameTextField)
+		func label(text: String) -> UILabel {
+			let label = UILabel()
+			label.text = text
+			label.font = Font.sansSerif(weight: .Bold, size: .Subtitle)
+			label.textColor = .whiteColor()
+			return label
+		}
+
+		let usernameLabel = label(LocalizedString.LoginLabel.string)
+		let passwordLabel = label(LocalizedString.PasswordLabel.string)
+
+		stackView.addArrangedSubview(usernameLabel)
+		stackView.addSpace(4)
+		stackView.addArrangedSubview(loginTextField)
+		stackView.addSpace(16)
+
+		stackView.addArrangedSubview(passwordLabel)
+		stackView.addSpace(4)
 		stackView.addArrangedSubview(passwordTextField)
+		stackView.addSpace(16)
+
 		stackView.addArrangedSubview(submitButton)
+		stackView.addSpace(16)
+
+		let signUpLabel = UILabel()
+		signUpLabel.textAlignment = .Center
+
+		let text = NSMutableAttributedString(string: "Don’t have an account yet? Sign up.", attributes: [
+			NSFontAttributeName: Font.sansSerif(weight: .Bold, size: .Subtitle),
+			NSForegroundColorAttributeName: UIColor(white: 1, alpha: 0.7)
+		])
+
+		text.addAttribute(NSForegroundColorAttributeName, value: UIColor.whiteColor(), range: NSRange(location: 27, length: 7))
+		signUpLabel.attributedText = text
+
+		stackView.addArrangedSubview(signUpLabel)
+
 		view.addSubview(stackView)
 
 		let width = stackView.widthAnchor.constraintEqualToAnchor(view.widthAnchor, multiplier: 0.8)
@@ -167,15 +197,15 @@ final class LoginViewController: UIViewController {
 			top,
 			width,
 			stackView.widthAnchor.constraintLessThanOrEqualToConstant(400),
-			passwordTextField.heightAnchor.constraintEqualToAnchor(usernameTextField.heightAnchor),
-			submitButton.heightAnchor.constraintEqualToAnchor(usernameTextField.heightAnchor)
+			passwordTextField.heightAnchor.constraintEqualToAnchor(loginTextField.heightAnchor),
+			submitButton.heightAnchor.constraintEqualToAnchor(loginTextField.heightAnchor)
 		])
 	}
 
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
 
-		usernameTextField.becomeFirstResponder()
+		loginTextField.becomeFirstResponder()
 
 		dispatch_async(dispatch_get_main_queue()) { [weak self] in
 			self?.visible = true
@@ -197,7 +227,7 @@ final class LoginViewController: UIViewController {
 	@objc private func onePassword(sender: AnyObject?) {
 		OnePasswordExtension.sharedExtension().findLoginForURLString("https://usecanvas.com", forViewController: self, sender: sender) { [weak self] loginDictionary, _ in
 			if let username = loginDictionary?[AppExtensionUsernameKey] as? String {
-				self?.usernameTextField.text = username
+				self?.loginTextField.text = username
 			}
 
 			if let password = loginDictionary?[AppExtensionPasswordKey] as? String {
@@ -209,7 +239,7 @@ final class LoginViewController: UIViewController {
 	}
 
 	@objc private func signIn() {
-		guard let username = usernameTextField.text, password = passwordTextField.text else { return }
+		guard let username = loginTextField.text, password = passwordTextField.text else { return }
 
 		loading = true
 
@@ -269,7 +299,7 @@ final class LoginViewController: UIViewController {
 
 extension LoginViewController: UITextFieldDelegate {
 	func textFieldShouldReturn(textField: UITextField) -> Bool {
-		if textField == usernameTextField {
+		if textField == loginTextField {
 			passwordTextField.becomeFirstResponder()
 		} else if textField == passwordTextField {
 			signIn()

@@ -11,7 +11,9 @@ import Foundation
 enum LocalizedString {
 	
 	// Login
-	case UsernamePlaceholder
+	case LoginLabel
+	case LoginPlaceholder
+	case PasswordLabel
 	case PasswordPlaceholder
 	case LoginButton
 
@@ -63,7 +65,9 @@ enum LocalizedString {
 
 	var string: String {
 		switch self {
-		case .UsernamePlaceholder: return string("USERNAME_PLACEHOLDER")
+		case .LoginLabel: return string("LOGIN_LABEL")
+		case .LoginPlaceholder: return string("LOGIN_PLACEHOLDER")
+		case .PasswordLabel: return string("PASSWORD_LABEL")
 		case .PasswordPlaceholder: return string("PASSWORD_PLACEHOLDER")
 		case .LoginButton: return string("LOGIN_BUTTON")
 
