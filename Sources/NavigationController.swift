@@ -45,7 +45,14 @@ final class NavigationController: UINavigationController {
 	// MARK: - Private
 
 	private func updateTintColor(viewController: UIViewController) {
-		let tintColor = (viewController as? TintableEnvironment)?.preferredTintColor
+		var target = viewController
+
+		// Handle nested navigation controllers for when the split view is collapsed
+		if let top = (viewController as? UINavigationController)?.topViewController {
+			target = top
+		}
+
+		let tintColor = (target as? TintableEnvironment)?.preferredTintColor
 		updateTintColor(tintColor)
 	}
 
