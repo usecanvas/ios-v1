@@ -14,6 +14,9 @@ class SearchBarContainer: UIView {
 
 	let searchBar: UISearchBar
 
+	private let topBorderView = UIView()
+	private let bottomBorderView = UIView()
+
 
 	// MARK: - Initializers
 
@@ -22,42 +25,21 @@ class SearchBarContainer: UIView {
 
 		super.init(frame: searchBar.bounds)
 
+		autoresizingMask = [.FlexibleWidth]
+
 		searchBar.barTintColor = .whiteColor()
 		searchBar.layer.borderColor = UIColor.whiteColor().CGColor
 		searchBar.layer.borderWidth = 1
 		searchBar.backgroundColor = .whiteColor()
 		searchBar.translucent = false
-		searchBar.translatesAutoresizingMaskIntoConstraints = false
+		searchBar.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
 		addSubview(searchBar)
 
-		let topLine = UIView()
-		topLine.translatesAutoresizingMaskIntoConstraints = false
-		topLine.backgroundColor = UIColor(red: 0.784, green: 0.780, blue: 0.800, alpha: 1)
-		addSubview(topLine)
+		topBorderView.backgroundColor = UIColor(red: 0.784, green: 0.780, blue: 0.800, alpha: 1)
+		addSubview(topBorderView)
 
-		let bottomLine = UIView()
-		bottomLine.translatesAutoresizingMaskIntoConstraints = false
-		bottomLine.backgroundColor = topLine.backgroundColor
-		addSubview(bottomLine)
-
-		let scale = UIScreen.mainScreen().scale
-
-		NSLayoutConstraint.activateConstraints([
-			topLine.topAnchor.constraintEqualToAnchor(topAnchor),
-			topLine.leadingAnchor.constraintEqualToAnchor(leadingAnchor),
-			topLine.trailingAnchor.constraintEqualToAnchor(trailingAnchor),
-			topLine.heightAnchor.constraintEqualToConstant(1 / scale),
-
-			searchBar.topAnchor.constraintEqualToAnchor(topAnchor),
-			searchBar.leadingAnchor.constraintEqualToAnchor(leadingAnchor),
-			searchBar.trailingAnchor.constraintEqualToAnchor(trailingAnchor),
-			searchBar.bottomAnchor.constraintEqualToAnchor(bottomAnchor),
-
-			bottomLine.bottomAnchor.constraintEqualToAnchor(bottomAnchor),
-			bottomLine.leadingAnchor.constraintEqualToAnchor(leadingAnchor),
-			bottomLine.trailingAnchor.constraintEqualToAnchor(trailingAnchor),
-			bottomLine.heightAnchor.constraintEqualToConstant(1 / scale)
-		])
+		bottomBorderView.backgroundColor = UIColor(red: 0.784, green: 0.780, blue: 0.800, alpha: 1)
+		addSubview(bottomBorderView)
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -75,5 +57,21 @@ class SearchBarContainer: UIView {
 		if view == searchBar {
 			sendSubviewToBack(view)
 		}
+	}
+
+	override func sizeThatFits(size: CGSize) -> CGSize {
+		return CGSize(width: size.width, height: 44)
+	}
+
+	override func layoutSubviews() {
+		let borderHeight = 1 / traitCollection.displayScale
+
+		topBorderView.frame = CGRect(x: 0, y: 0, width: bounds.width, height: borderHeight)
+		bottomBorderView.frame = CGRect(x: 0, y: bounds.height - borderHeight, width: bounds.width, height: borderHeight)
+	}
+
+	override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
+		super.traitCollectionDidChange(previousTraitCollection)
+		setNeedsLayout()
 	}
 }

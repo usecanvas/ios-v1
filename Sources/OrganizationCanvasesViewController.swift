@@ -132,7 +132,6 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		searchViewController.loadViewIfNeeded()
 
 		let header = SearchBarContainer(searchBar: searchViewController.searchBar)
-		header.autoresizingMask = [.FlexibleWidth]
 		tableView.tableHeaderView = header
 
 		let topView = UIView(frame: CGRect(x: 0, y: -400, width: view.bounds.width, height: 400))
