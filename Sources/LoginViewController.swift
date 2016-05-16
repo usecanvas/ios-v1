@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  LogInViewController.swift
 //  Canvas
 //
 //  Created by Sam Soffes on 11/12/15.
@@ -10,7 +10,7 @@ import UIKit
 import CanvasKit
 import OnePasswordExtension
 
-final class LoginViewController: SessionsViewController {
+final class LogInViewController: SessionsViewController {
 
 	// MARK: - Properties
 
@@ -56,14 +56,6 @@ final class LoginViewController: SessionsViewController {
 
 		submitButton.setTitle(LocalizedString.LoginButton.string, forState: .Normal)
 
-		func label(text: String) -> UILabel {
-			let label = UILabel()
-			label.text = text
-			label.font = Font.sansSerif(weight: .Bold, size: .Subtitle)
-			label.textColor = .whiteColor()
-			return label
-		}
-
 		let usernameLabel = label(LocalizedString.LoginLabel.string)
 		let passwordLabel = label(LocalizedString.PasswordLabel.string)
 
@@ -80,18 +72,9 @@ final class LoginViewController: SessionsViewController {
 		stackView.addArrangedSubview(submitButton)
 		stackView.addSpace(16)
 
-		let signUpLabel = UILabel()
-		signUpLabel.textAlignment = .Center
-
-		let text = NSMutableAttributedString(string: "Don’t have an account yet? Sign up.", attributes: [
-			NSFontAttributeName: Font.sansSerif(weight: .Bold, size: .Subtitle),
-			NSForegroundColorAttributeName: UIColor(white: 1, alpha: 0.7)
-		])
-
-		text.addAttribute(NSForegroundColorAttributeName, value: UIColor.whiteColor(), range: NSRange(location: 27, length: 7))
-		signUpLabel.attributedText = text
-
-		stackView.addArrangedSubview(signUpLabel)
+		let signUpButton = secondaryButton(title: "Don’t have an account yet? Sign up.", emphasizedRange: NSRange(location: 27, length: 7))
+		signUpButton.addTarget(self, action: #selector(signUp), forControlEvents: .TouchUpInside)
+		stackView.addArrangedSubview(signUpButton)
 
 		NSLayoutConstraint.activateConstraints([
 			passwordTextField.heightAnchor.constraintEqualToAnchor(loginTextField.heightAnchor),
@@ -146,5 +129,10 @@ final class LoginViewController: SessionsViewController {
 	@objc private func resetPassword() {
 		let URL = NSURL(string: "https://usecanvas.com/password-reset")!
 		UIApplication.sharedApplication().openURL(URL)
+	}
+
+	@objc private func signUp() {
+		guard let rootViewController = parentViewController as? RootViewController else { return }
+		rootViewController.viewController = SignUpViewController()
 	}
 }

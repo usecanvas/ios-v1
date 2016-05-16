@@ -183,6 +183,37 @@ class SessionsViewController: UIViewController {
 			UIView.performWithoutAnimation(change)
 		}
 	}
+
+
+	// MARK: - Factory
+
+	func label(text: String) -> UILabel {
+		let label = UILabel()
+		label.text = text
+		label.font = Font.sansSerif(weight: .Bold, size: .Subtitle)
+		label.textColor = .whiteColor()
+		return label
+	}
+
+	func secondaryButton(title title: String, emphasizedRange: NSRange) -> UIButton {
+		let button = UIButton()
+
+		let text = NSMutableAttributedString(string: title, attributes: [
+			NSFontAttributeName: Font.sansSerif(weight: .Bold, size: .Subtitle),
+			NSForegroundColorAttributeName: UIColor(white: 1, alpha: 0.7)
+		])
+
+		text.addAttribute(NSForegroundColorAttributeName, value: UIColor.whiteColor(), range: emphasizedRange)
+		button.setAttributedTitle(text, forState: .Normal)
+
+		if let highlightedText = text.mutableCopy() as? NSMutableAttributedString {
+			highlightedText.addAttribute(NSForegroundColorAttributeName, value: UIColor(white: 1, alpha: 0.9), range: NSRange(location: 0, length: highlightedText.length))
+			highlightedText.addAttribute(NSForegroundColorAttributeName, value: UIColor.whiteColor(), range: emphasizedRange)
+			button.setAttributedTitle(highlightedText, forState: .Highlighted)
+		}
+
+		return button
+	}
 }
 
 

@@ -18,7 +18,7 @@ final class RootViewController: UIViewController {
 		didSet {
 			guard let account = account else {
 				SentryClient.shared?.user = nil
-				viewController = LoginViewController()
+				viewController = LogInViewController()
 				return
 			}
 
@@ -43,7 +43,7 @@ final class RootViewController: UIViewController {
 		}
 	}
 
-	private(set) var viewController: UIViewController? {
+	var viewController: UIViewController? {
 		willSet {
 			guard let viewController = viewController else { return }
 
