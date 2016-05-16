@@ -147,6 +147,10 @@
 		218383D11CD517E400F7AA24 /* ISO8601.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9971CD516C600E2902C /* ISO8601.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		218383D41CD517E400F7AA24 /* OperationTransport.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9B61CD516D500E2902C /* OperationTransport.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		218383D51CD517E400F7AA24 /* SSKeychain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9C71CD516D900E2902C /* SSKeychain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		21E8794D1CEA6D930046ACE2 /* Cache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E879341CEA6D7F0046ACE2 /* Cache.framework */; };
+		21E8794E1CEA6D990046ACE2 /* Cache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21E879341CEA6D7F0046ACE2 /* Cache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		21E879511CEA6DA20046ACE2 /* Cache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E879341CEA6D7F0046ACE2 /* Cache.framework */; };
+		21E879521CEA6DA60046ACE2 /* Cache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21E879341CEA6D7F0046ACE2 /* Cache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21F7EF2B1CD91D70004E80E2 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF281CD91D70004E80E2 /* Mixpanel.framework */; };
 		21F7EF2C1CD91D70004E80E2 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF281CD91D70004E80E2 /* Mixpanel.framework */; };
 		21F7EF2D1CD91D70004E80E2 /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF291CD91D70004E80E2 /* OnePasswordExtension.framework */; };
@@ -440,6 +444,27 @@
 			remoteGlobalIDString = 21632DBC1C925B1F00C40D7D;
 			remoteInfo = "SSKeychain-watchOS";
 		};
+		21E879331CEA6D7F0046ACE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21E8792F1CEA6D7F0046ACE2 /* Cache.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 21256E2A1CEA6CCD003B9F67;
+			remoteInfo = "Cache-iOS";
+		};
+		21E8794B1CEA6D8E0046ACE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21E8792F1CEA6D7F0046ACE2 /* Cache.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 21256E291CEA6CCD003B9F67;
+			remoteInfo = "Cache-iOS";
+		};
+		21E8794F1CEA6D9E0046ACE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21E8792F1CEA6D7F0046ACE2 /* Cache.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 21256E291CEA6CCD003B9F67;
+			remoteInfo = "Cache-iOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -449,6 +474,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				21E879521CEA6DA60046ACE2 /* Cache.framework in Embed Frameworks */,
 				218383CE1CD517E400F7AA24 /* CanvasKit.framework in Embed Frameworks */,
 				218383CF1CD517E400F7AA24 /* CanvasNative.framework in Embed Frameworks */,
 				218383D01CD517E400F7AA24 /* CanvasText.framework in Embed Frameworks */,
@@ -465,6 +491,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				21E8794E1CEA6D990046ACE2 /* Cache.framework in Embed Frameworks */,
 				218383AA1CD5178500F7AA24 /* CanvasKit.framework in Embed Frameworks */,
 				218383AB1CD5178500F7AA24 /* CanvasNative.framework in Embed Frameworks */,
 				218383AC1CD5178500F7AA24 /* CanvasText.framework in Embed Frameworks */,
@@ -546,6 +573,7 @@
 		21B1E7B81CD516B000E2902C /* OperationTransport.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OperationTransport.xcodeproj; path = OperationTransport/OperationTransport.xcodeproj; sourceTree = "<group>"; };
 		21B1E7CA1CD516B000E2902C /* SSKeychain.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSKeychain.xcodeproj; path = SSKeychain/SSKeychain.xcodeproj; sourceTree = "<group>"; };
 		21B28BF51CDC6049009B9D8F /* EditorViewController+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EditorViewController+Actions.swift"; sourceTree = "<group>"; };
+		21E8792F1CEA6D7F0046ACE2 /* Cache.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Cache.xcodeproj; path = Cache/Cache.xcodeproj; sourceTree = "<group>"; };
 		21F10F4A1BF138750035057D /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F7EF281CD91D70004E80E2 /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mixpanel.framework; path = Carthage/Build/iOS/Mixpanel.framework; sourceTree = "<group>"; };
 		21F7EF291CD91D70004E80E2 /* OnePasswordExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OnePasswordExtension.framework; path = Carthage/Build/iOS/OnePasswordExtension.framework; sourceTree = "<group>"; };
@@ -559,6 +587,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21E879511CEA6DA20046ACE2 /* Cache.framework in Frameworks */,
 				21F7EF301CD91D70004E80E2 /* Static.framework in Frameworks */,
 				218383C51CD517D300F7AA24 /* CanvasKit.framework in Frameworks */,
 				218383C61CD517D300F7AA24 /* CanvasNative.framework in Frameworks */,
@@ -579,6 +608,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21E8794D1CEA6D930046ACE2 /* Cache.framework in Frameworks */,
 				21F7EF2F1CD91D70004E80E2 /* Static.framework in Frameworks */,
 				218383A11CD5177100F7AA24 /* CanvasKit.framework in Frameworks */,
 				218383A21CD5177100F7AA24 /* CanvasNative.framework in Frameworks */,
@@ -761,6 +791,7 @@
 				21B1E73D1CD516B000E2902C /* ISO8601.xcodeproj */,
 				21B1E7B81CD516B000E2902C /* OperationTransport.xcodeproj */,
 				21B1E7CA1CD516B000E2902C /* SSKeychain.xcodeproj */,
+				21E8792F1CEA6D7F0046ACE2 /* Cache.xcodeproj */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
@@ -826,6 +857,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		21E879301CEA6D7F0046ACE2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				21E879341CEA6D7F0046ACE2 /* Cache.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		21F10F411BF138750035057D = {
 			isa = PBXGroup;
 			children = (
@@ -879,6 +918,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				21E879501CEA6D9E0046ACE2 /* PBXTargetDependency */,
 				218383B41CD517C800F7AA24 /* PBXTargetDependency */,
 				218383B61CD517C800F7AA24 /* PBXTargetDependency */,
 				218383B81CD517C800F7AA24 /* PBXTargetDependency */,
@@ -906,6 +946,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				21E8794C1CEA6D8E0046ACE2 /* PBXTargetDependency */,
 				218383901CD5175A00F7AA24 /* PBXTargetDependency */,
 				218383921CD5175A00F7AA24 /* PBXTargetDependency */,
 				218383941CD5175A00F7AA24 /* PBXTargetDependency */,
@@ -983,6 +1024,10 @@
 			productRefGroup = 21F10F4B1BF138750035057D /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = 21E879301CEA6D7F0046ACE2 /* Products */;
+					ProjectRef = 21E8792F1CEA6D7F0046ACE2 /* Cache.xcodeproj */;
+				},
 				{
 					ProductGroup = 21B1E96B1CD516B800E2902C /* Products */;
 					ProjectRef = 21B1E68C1CD516B000E2902C /* CanvasKit.xcodeproj */;
@@ -1211,6 +1256,13 @@
 			fileType = wrapper.framework;
 			path = SSKeychain.framework;
 			remoteRef = 21B1E9D21CD516D900E2902C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21E879341CEA6D7F0046ACE2 /* Cache.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Cache.framework;
+			remoteRef = 21E879331CEA6D7F0046ACE2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1522,6 +1574,16 @@
 			isa = PBXTargetDependency;
 			name = "SSKeychain-iOS";
 			targetProxy = 218383C11CD517C800F7AA24 /* PBXContainerItemProxy */;
+		};
+		21E8794C1CEA6D8E0046ACE2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Cache-iOS";
+			targetProxy = 21E8794B1CEA6D8E0046ACE2 /* PBXContainerItemProxy */;
+		};
+		21E879501CEA6D9E0046ACE2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Cache-iOS";
+			targetProxy = 21E8794F1CEA6D9E0046ACE2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

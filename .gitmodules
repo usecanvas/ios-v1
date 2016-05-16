@@ -16,3 +16,6 @@
 [submodule "Vendor/CanvasKit"]
 	path = Vendor/CanvasKit
 	url = https://github.com/usecanvas/CanvasKit.git
+[submodule "Vendor/Cache"]
+	path = Vendor/Cache
+	url = https://github.com/soffes/Cache.git
