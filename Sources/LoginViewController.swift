@@ -72,7 +72,7 @@ final class LogInViewController: SessionsViewController {
 		stackView.addArrangedSubview(submitButton)
 		stackView.addSpace(16)
 
-		let signUpButton = secondaryButton(title: "Don’t have an account yet? Sign up.", emphasizedRange: NSRange(location: 27, length: 7))
+		let signUpButton = secondaryButton(title: "Don’t have an account yet? Sign\u{202F}up.", emphasizedRange: NSRange(location: 27, length: 7))
 		signUpButton.addTarget(self, action: #selector(signUp), forControlEvents: .TouchUpInside)
 		stackView.addArrangedSubview(signUpButton)
 

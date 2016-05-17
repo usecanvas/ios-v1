@@ -197,6 +197,8 @@ class SessionsViewController: UIViewController {
 
 	func secondaryButton(title title: String, emphasizedRange: NSRange) -> UIButton {
 		let button = UIButton()
+		button.titleLabel?.numberOfLines = 0
+		button.titleLabel?.textAlignment = .Center
 
 		let text = NSMutableAttributedString(string: title, attributes: [
 			NSFontAttributeName: Font.sansSerif(weight: .Bold, size: .Subtitle),
