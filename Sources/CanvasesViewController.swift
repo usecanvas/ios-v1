@@ -47,6 +47,11 @@ class CanvasesViewController: ModelsViewController, Accountable {
 
 	func openCanvas(canvas: Canvas) {
 		guard !opening else { return }
+
+		if let editor = currentEditor() where editor.canvas.ID == canvas.ID {
+			return
+		}
+
 		opening = true
 
 		if canvas.nativeVersion != CanvasNative.nativeVersion {
@@ -82,7 +87,12 @@ class CanvasesViewController: ModelsViewController, Accountable {
 	}
 
 
-	// MARK: - Rows
+	// MARK: - Utilities
+
+	func currentEditor() -> EditorViewController? {
+		guard let splitViewController = splitViewController where splitViewController.viewControllers.count == 2 else { return nil }
+		return (splitViewController.viewControllers.last as? UINavigationController)?.topViewController as? EditorViewController
+	}
 
 	func rowForCanvas(canvas: Canvas) -> Row {
 		var row = canvas.row

@@ -228,7 +228,7 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		let actionSheet = AlertController(title: LocalizedString.DeleteConfirmationMessage(canvasTitle: canvas.displayTitle).string, message: nil, preferredStyle: style)
 
 		let delete = { [weak self] in
-			self?.clearCanvas(canvas)
+			self?.clearEditor(canvas)
 			self?.removeCanvas(canvas)
 
 			guard let accessToken = self?.account.accessToken else { return }
@@ -247,7 +247,7 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 	}
 
 	private func archiveCanvas(canvas: Canvas) {
-		clearCanvas(canvas)
+		clearEditor(canvas)
 		removeCanvas(canvas)
 
 		APIClient(accessToken: account.accessToken, baseURL: config.baseURL).archiveCanvas(canvas: canvas) { _ in
@@ -261,12 +261,10 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 	// MARK: - Private
 
 	// Clear the detail view controller if it contains the given canvas
-	private func clearCanvas(canvas: Canvas) {
-		guard let splitViewController = splitViewController
-			where !splitViewController.collapsed && splitViewController.viewControllers.count == 2
-			else { return }
-
-		guard let viewController = (splitViewController.viewControllers.last as? UINavigationController)?.topViewController as? EditorViewController else { return }
+	private func clearEditor(canvas: Canvas) {
+		guard let viewController = currentEditor(), splitViewController = splitViewController
+		where !splitViewController.collapsed
+		else { return }
 
 		if viewController.canvas.ID == canvas.ID {
 			showDetailViewController(NavigationController(rootViewController: PlaceholderViewController()), sender: nil)
