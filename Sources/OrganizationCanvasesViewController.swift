@@ -228,7 +228,7 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		let actionSheet = AlertController(title: LocalizedString.DeleteConfirmationMessage(canvasTitle: canvas.displayTitle).string, message: nil, preferredStyle: style)
 
 		let delete = { [weak self] in
-			self?.showDetailViewController(NavigationController(rootViewController: PlaceholderViewController()), sender: self)
+			self?.clearCanvas(canvas)
 			self?.removeCanvas(canvas)
 
 			guard let accessToken = self?.account.accessToken else { return }
@@ -247,7 +247,7 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 	}
 
 	private func archiveCanvas(canvas: Canvas) {
-		showDetailViewController(NavigationController(rootViewController: PlaceholderViewController()), sender: self)
+		clearCanvas(canvas)
 		removeCanvas(canvas)
 
 		APIClient(accessToken: account.accessToken, baseURL: config.baseURL).archiveCanvas(canvas: canvas) { _ in
@@ -259,6 +259,19 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 
 
 	// MARK: - Private
+
+	// Clear the detail view controller if it contains the given canvas
+	private func clearCanvas(canvas: Canvas) {
+		guard let splitViewController = splitViewController
+			where !splitViewController.collapsed && splitViewController.viewControllers.count == 2
+			else { return }
+
+		guard let viewController = (splitViewController.viewControllers.last as? UINavigationController)?.topViewController as? EditorViewController else { return }
+
+		if viewController.canvas.ID == canvas.ID {
+			showDetailViewController(NavigationController(rootViewController: PlaceholderViewController()), sender: nil)
+		}
+	}
 
 	private func removeCanvas(canvas: Canvas) {
 		for (s, var section) in dataSource.sections.enumerate() {
