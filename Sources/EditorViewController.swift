@@ -232,11 +232,10 @@ extension EditorViewController: UIViewControllerPreviewingDelegate {
 		let nodes = document.nodesIn(backingRange: document.backingRange(presentationRange: range))
 
 		guard let index = nodes.indexOf({ $0 is Link }),
-			link = nodes[index] as? Link
+			link = nodes[index] as? Link,
+			URL = link.URL(backingString: document.backingString)
+		where URL.scheme == "http" || URL.scheme == "https"
 		else { return nil }
-
-		let string = (document.backingString as NSString).substringWithRange(link.urlRange)
-		guard let URL = NSURL(string: string) else { return nil }
 
 		previewingContext.sourceRect = textView.firstRectForRange(textRange)
 
