@@ -25,22 +25,27 @@ class SessionsViewController: UIViewController {
 		let view = UIStackView()
 		view.translatesAutoresizingMaskIntoConstraints = false
 		view.axis = .Vertical
+		view.spacing = 16
+		view.alignment = .Center
 		return view
 	}()
 
-	let passwordTextField: UITextField = {
-		let field = LoginTextField()
-		field.translatesAutoresizingMaskIntoConstraints = false
-		field.secureTextEntry = true
-		field.placeholder = LocalizedString.PasswordPlaceholder.string
-		field.returnKeyType = .Go
-		return field
+	let passwordContainer: TextFieldContainer = {
+		let container = TextFieldContainer(textField: LoginTextField())
+		container.translatesAutoresizingMaskIntoConstraints = false
+		container.textField.secureTextEntry = true
+		container.textField.placeholder = LocalizedString.PasswordPlaceholder.string
+		container.textField.returnKeyType = .Go
+
+		container.visualEffectView.layer.cornerRadius = container.textField.layer.cornerRadius
+		container.visualEffectView.layer.masksToBounds = true
+		return container
 	}()
 
 	let submitButton: IndicatorButton = {
 		let button = IndicatorButton()
 		button.translatesAutoresizingMaskIntoConstraints = false
-		button.backgroundColor = Color.white
+		button.setTitleColor(UIColor(red: 0.209, green: 0.556, blue: 1, alpha: 1), forState: .Disabled)
 		return button
 	}()
 
@@ -76,7 +81,7 @@ class SessionsViewController: UIViewController {
 	}
 
 	var textFields: [UITextField] {
-		return [passwordTextField]
+		return [passwordContainer.textField]
 	}
 
 	var loading = false {
@@ -186,14 +191,6 @@ class SessionsViewController: UIViewController {
 
 
 	// MARK: - Factory
-
-	func label(text: String) -> UILabel {
-		let label = UILabel()
-		label.text = text
-		label.font = Font.sansSerif(weight: .Bold, size: .Subtitle)
-		label.textColor = .whiteColor()
-		return label
-	}
 
 	func secondaryButton(title title: String, emphasizedRange: NSRange) -> UIButton {
 		let button = UIButton()

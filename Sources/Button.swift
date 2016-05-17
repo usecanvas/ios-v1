@@ -9,26 +9,19 @@
 import UIKit
 
 class Button: UIButton {
-	
-	// MARK: - Properties
-	
-	var automaticallyAdjustsTitleColor = true {
-		didSet {
-			tintColorDidChange()
-		}
-	}
-	
-	
+
 	// MARK: - Initializers
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
+		
+		backgroundColor = .clearColor()
 
-		backgroundColor = Color.brand
 		layer.cornerRadius = 4
-		titleLabel?.font = Font.sansSerif(weight: .Bold)
+		layer.borderColor = UIColor.whiteColor().CGColor
 
-		tintColorDidChange()
+		titleLabel?.font = Font.sansSerif(weight: .Bold)
+		setTitleColor(.whiteColor(), forState: .Normal)
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -37,12 +30,9 @@ class Button: UIButton {
 	
 	
 	// MARK: - UIView
-	
-	override func tintColorDidChange() {
-		super.tintColorDidChange()
-		
-		if automaticallyAdjustsTitleColor {
-			setTitleColor(tintColor, forState: .Normal)
-		}
+
+	override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
+		super.traitCollectionDidChange(previousTraitCollection)
+		layer.borderWidth = traitCollection.displayScale > 1 ? 1.5 : 1
 	}
 }

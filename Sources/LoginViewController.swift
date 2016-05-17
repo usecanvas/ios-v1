@@ -14,19 +14,22 @@ final class LogInViewController: SessionsViewController {
 
 	// MARK: - Properties
 
-	let loginTextField: UITextField = {
-		let field = LoginTextField()
-		field.translatesAutoresizingMaskIntoConstraints = false
-		field.placeholder = LocalizedString.LoginPlaceholder.string
-		field.autocapitalizationType = .None
-		field.autocorrectionType = .No
-		field.returnKeyType = .Next
-		field.keyboardType = .EmailAddress
-		return field
+	let usernameContainer: TextFieldContainer = {
+		let container = TextFieldContainer(textField: LoginTextField())
+		container.translatesAutoresizingMaskIntoConstraints = false
+		container.textField.keyboardType = .EmailAddress
+		container.textField.placeholder = LocalizedString.LoginPlaceholder.string
+		container.textField.returnKeyType = .Next
+		container.textField.autocapitalizationType = .None
+		container.textField.autocorrectionType = .No
+
+		container.visualEffectView.layer.cornerRadius = container.textField.layer.cornerRadius
+		container.visualEffectView.layer.masksToBounds = true
+		return container
 	}()
 
 	override var textFields: [UITextField] {
-		return [loginTextField, passwordTextField]
+		return [usernameContainer.textField, passwordContainer.textField]
 	}
 
 
@@ -41,8 +44,8 @@ final class LogInViewController: SessionsViewController {
 			button.setImage(UIImage(named: "OnePassword"), forState: .Normal)
 			button.imageView?.tintColor = Color.white
 			button.addTarget(self, action: #selector(onePassword), forControlEvents: .TouchUpInside)
-			loginTextField.rightView = button
-			loginTextField.rightViewMode = .Always
+			usernameContainer.textField.rightView = button
+			usernameContainer.textField.rightViewMode = .Always
 		}
 
 		let resetPasswordButton = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 44))
@@ -50,36 +53,38 @@ final class LogInViewController: SessionsViewController {
 		resetPasswordButton.tintColor = .whiteColor()
 		resetPasswordButton.adjustsImageWhenHighlighted = false
 
-		passwordTextField.rightViewMode = .Always
-		passwordTextField.rightView = resetPasswordButton
+		passwordContainer.textField.rightViewMode = .Always
+		passwordContainer.textField.rightView = resetPasswordButton
 		resetPasswordButton.addTarget(self, action: #selector(resetPassword), forControlEvents: .TouchUpInside)
 
 		submitButton.setTitle(LocalizedString.LoginButton.string, forState: .Normal)
 
-		let usernameLabel = label(LocalizedString.LoginLabel.string)
-		let passwordLabel = label(LocalizedString.PasswordLabel.string)
-
-		stackView.addArrangedSubview(usernameLabel)
-		stackView.addSpace(4)
-		stackView.addArrangedSubview(loginTextField)
-		stackView.addSpace(16)
-
-		stackView.addArrangedSubview(passwordLabel)
-		stackView.addSpace(4)
-		stackView.addArrangedSubview(passwordTextField)
-		stackView.addSpace(16)
-
+		stackView.addArrangedSubview(usernameContainer)
+		stackView.addArrangedSubview(passwordContainer)
 		stackView.addArrangedSubview(submitButton)
-		stackView.addSpace(16)
 
 		let signUpButton = secondaryButton(title: "Don’t have an account yet? Sign\u{202F}up.", emphasizedRange: NSRange(location: 27, length: 7))
 		signUpButton.addTarget(self, action: #selector(signUp), forControlEvents: .TouchUpInside)
 		stackView.addArrangedSubview(signUpButton)
 
 		NSLayoutConstraint.activateConstraints([
-			passwordTextField.heightAnchor.constraintEqualToAnchor(loginTextField.heightAnchor),
-			submitButton.heightAnchor.constraintEqualToAnchor(loginTextField.heightAnchor)
+			usernameContainer.widthAnchor.constraintEqualToAnchor(stackView.widthAnchor),
+			passwordContainer.widthAnchor.constraintEqualToAnchor(usernameContainer.widthAnchor),
+			passwordContainer.heightAnchor.constraintEqualToAnchor(usernameContainer.heightAnchor),
+			submitButton.widthAnchor.constraintEqualToAnchor(usernameContainer.widthAnchor),
+			submitButton.heightAnchor.constraintEqualToAnchor(usernameContainer.heightAnchor)
 		])
+
+		if view.bounds.height > 480 {
+			let logo = UIImageView(image: UIImage(named: "logo-small"))
+			logo.layer.cornerRadius = 8
+			logo.layer.masksToBounds = true
+			stackView.insertArrangedSubview(logo, atIndex: 0)
+
+			if view.bounds.height > 568 {
+				stackView.insertArrangedSubview(SpaceView(height: 0), atIndex: 1)
+			}
+		}
 	}
 
 
@@ -88,11 +93,11 @@ final class LogInViewController: SessionsViewController {
 	@objc private func onePassword(sender: AnyObject?) {
 		OnePasswordExtension.sharedExtension().findLoginForURLString("https://usecanvas.com", forViewController: self, sender: sender) { [weak self] loginDictionary, _ in
 			if let username = loginDictionary?[AppExtensionUsernameKey] as? String {
-				self?.loginTextField.text = username
+				self?.usernameContainer.textField.text = username
 			}
 
 			if let password = loginDictionary?[AppExtensionPasswordKey] as? String {
-				self?.passwordTextField.text = password
+				self?.passwordContainer.textField.text = password
 			}
 
 			self?.submit()
@@ -100,7 +105,9 @@ final class LogInViewController: SessionsViewController {
 	}
 
 	override func submit() {
-		guard let username = loginTextField.text, password = passwordTextField.text else { return }
+		guard let username = usernameContainer.textField.text, password = passwordContainer.textField.text
+		where !username.isEmpty && !password.isEmpty
+		else { return }
 
 		loading = true
 
@@ -116,7 +123,7 @@ final class LogInViewController: SessionsViewController {
 			case .Failure(let errorMessage):
 				dispatch_async(dispatch_get_main_queue()) { [weak self] in
 					self?.loading = false
-					self?.passwordTextField.becomeFirstResponder()
+					self?.passwordContainer.textField.becomeFirstResponder()
 					
 					let alert = UIAlertController(title: errorMessage, message: nil, preferredStyle: .Alert)
 					alert.addAction(UIAlertAction(title: LocalizedString.Okay.string, style: .Cancel, handler: nil))

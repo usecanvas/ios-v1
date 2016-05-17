@@ -17,7 +17,7 @@ final class LoginTextField: UITextField {
 			guard let placeholder = placeholder, font = font else { return }
 			attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [
 				NSFontAttributeName: font,
-				NSForegroundColorAttributeName: UIColor(white: 1, alpha: 0.4)
+				NSForegroundColorAttributeName: UIColor(white: 1, alpha: 0.5)
 			])
 		}
 	}
@@ -27,13 +27,10 @@ final class LoginTextField: UITextField {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 
-		backgroundColor = Color.brand.colorWithAlphaComponent(0.9)
 		textColor = Color.white
 		tintColor = Color.white
 		font = Font.sansSerif()
 
-		layer.borderColor = Color.white.CGColor
-		layer.borderWidth = 2
 		layer.cornerRadius = 4
 	}
 

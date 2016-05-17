@@ -65,6 +65,8 @@
 		212299CF1CE3E7F200033D94 /* UIViewController+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212299B71CE3E79C00033D94 /* UIViewController+Canvas.swift */; };
 		212392931CEBAE0300F8D26B /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212392921CEBAE0300F8D26B /* SplitViewController.swift */; };
 		212392941CEBAE0300F8D26B /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212392921CEBAE0300F8D26B /* SplitViewController.swift */; };
+		212392C71CEBB7CD00F8D26B /* TextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212392C61CEBB7CD00F8D26B /* TextFieldContainer.swift */; };
+		212392C81CEBB7CD00F8D26B /* TextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212392C61CEBB7CD00F8D26B /* TextFieldContainer.swift */; };
 		212D8EC61CE62AE00039A3EE /* IndicatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212D8EC51CE62AE00039A3EE /* IndicatorButton.swift */; };
 		212D8EC71CE62AE00039A3EE /* IndicatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212D8EC51CE62AE00039A3EE /* IndicatorButton.swift */; };
 		2147A2E31CDA586E008A2709 /* CanvasTextView+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147A2E21CDA586E008A2709 /* CanvasTextView+Gestures.swift */; };
@@ -129,8 +131,6 @@
 		2178CB531CEA7B0100E9A4B2 /* SpaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178CB511CEA7B0100E9A4B2 /* SpaceView.swift */; };
 		2178CBB91CEA891100E9A4B2 /* SessionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178CBB81CEA891100E9A4B2 /* SessionsViewController.swift */; };
 		2178CBBA1CEA891100E9A4B2 /* SessionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178CBB81CEA891100E9A4B2 /* SessionsViewController.swift */; };
-		2178CBBC1CEA8B2200E9A4B2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178CBBB1CEA8B2200E9A4B2 /* SignUpViewController.swift */; };
-		2178CBBD1CEA8B2200E9A4B2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178CBBB1CEA8B2200E9A4B2 /* SignUpViewController.swift */; };
 		218383A11CD5177100F7AA24 /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9721CD516B800E2902C /* CanvasKit.framework */; };
 		218383A21CD5177100F7AA24 /* CanvasNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9831CD516BE00E2902C /* CanvasNative.framework */; };
 		218383A31CD5177100F7AA24 /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218383721CD5174800F7AA24 /* CanvasText.framework */; };
@@ -569,6 +569,7 @@
 		21213AB61CDC36600044D6BE /* Imgix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Imgix.swift; sourceTree = "<group>"; };
 		212299B71CE3E79C00033D94 /* UIViewController+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Canvas.swift"; sourceTree = "<group>"; };
 		212392921CEBAE0300F8D26B /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
+		212392C61CEBB7CD00F8D26B /* TextFieldContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldContainer.swift; sourceTree = "<group>"; };
 		212D8EC51CE62AE00039A3EE /* IndicatorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorButton.swift; sourceTree = "<group>"; };
 		2147A2E21CDA586E008A2709 /* CanvasTextView+Gestures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CanvasTextView+Gestures.swift"; sourceTree = "<group>"; };
 		2147A2FB1CDA7B2E008A2709 /* DragContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragContext.swift; sourceTree = "<group>"; };
@@ -577,7 +578,6 @@
 		215CD8611CE293FF0093C545 /* PlaceholderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderViewController.swift; sourceTree = "<group>"; };
 		2178CB511CEA7B0100E9A4B2 /* SpaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceView.swift; sourceTree = "<group>"; };
 		2178CBB81CEA891100E9A4B2 /* SessionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionsViewController.swift; sourceTree = "<group>"; };
-		2178CBBB1CEA8B2200E9A4B2 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		21B1E68C1CD516B000E2902C /* CanvasKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasKit.xcodeproj; path = CanvasKit/CanvasKit.xcodeproj; sourceTree = "<group>"; };
 		21B1E6B21CD516B000E2902C /* CanvasNative.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasNative.xcodeproj; path = CanvasNative/CanvasNative.xcodeproj; sourceTree = "<group>"; };
 		21B1E6F51CD516B000E2902C /* CanvasText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasText.xcodeproj; path = CanvasText/CanvasText.xcodeproj; sourceTree = "<group>"; };
@@ -734,6 +734,7 @@
 				2107D2CF1CC58F7A001963B7 /* CanvasCell.swift */,
 				2107D2D21CC58F7A001963B7 /* CanvasIconView.swift */,
 				2107D2DB1CC58F7A001963B7 /* LoginTextField.swift */,
+				212392C61CEBB7CD00F8D26B /* TextFieldContainer.swift */,
 				2107D2DE1CC58F7A001963B7 /* NavigationBar.swift */,
 				2107D2E31CC58F7B001963B7 /* OrganizationAvatarView.swift */,
 				2107D2E51CC58F7B001963B7 /* OrganizationCell.swift */,
@@ -782,7 +783,6 @@
 			children = (
 				2178CBB81CEA891100E9A4B2 /* SessionsViewController.swift */,
 				2107D2DC1CC58F7A001963B7 /* LoginViewController.swift */,
-				2178CBBB1CEA8B2200E9A4B2 /* SignUpViewController.swift */,
 			);
 			name = Sessions;
 			sourceTree = "<group>";
@@ -1462,7 +1462,7 @@
 				21501D5D1CCAA2B900B02FC5 /* Canvas+Canvas.swift in Sources */,
 				21501D5E1CCAA2B900B02FC5 /* AppDelegate.swift in Sources */,
 				21501D5F1CCAA2B900B02FC5 /* CanvasesResultsViewController.swift in Sources */,
-				2178CBBD1CEA8B2200E9A4B2 /* SignUpViewController.swift in Sources */,
+				212392C81CEBB7CD00F8D26B /* TextFieldContainer.swift in Sources */,
 				212D8EC71CE62AE00039A3EE /* IndicatorButton.swift in Sources */,
 				21501D601CCAA2B900B02FC5 /* UIEdgeInsets+Canvas.swift in Sources */,
 				21501D611CCAA2B900B02FC5 /* TextView.swift in Sources */,
@@ -1524,7 +1524,7 @@
 				2107D3061CC58F7B001963B7 /* Canvas+Canvas.swift in Sources */,
 				2107D3041CC58F7B001963B7 /* AppDelegate.swift in Sources */,
 				2107D3081CC58F7B001963B7 /* CanvasesResultsViewController.swift in Sources */,
-				2178CBBC1CEA8B2200E9A4B2 /* SignUpViewController.swift in Sources */,
+				212392C71CEBB7CD00F8D26B /* TextFieldContainer.swift in Sources */,
 				212D8EC61CE62AE00039A3EE /* IndicatorButton.swift in Sources */,
 				2107D3291CC58F7B001963B7 /* UIEdgeInsets+Canvas.swift in Sources */,
 				2107D3251CC58F7B001963B7 /* TextView.swift in Sources */,
