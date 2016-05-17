@@ -63,6 +63,8 @@
 		21213AB81CDC36600044D6BE /* Imgix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21213AB61CDC36600044D6BE /* Imgix.swift */; };
 		212299B81CE3E79C00033D94 /* UIViewController+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212299B71CE3E79C00033D94 /* UIViewController+Canvas.swift */; };
 		212299CF1CE3E7F200033D94 /* UIViewController+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212299B71CE3E79C00033D94 /* UIViewController+Canvas.swift */; };
+		212392931CEBAE0300F8D26B /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212392921CEBAE0300F8D26B /* SplitViewController.swift */; };
+		212392941CEBAE0300F8D26B /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212392921CEBAE0300F8D26B /* SplitViewController.swift */; };
 		212D8EC61CE62AE00039A3EE /* IndicatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212D8EC51CE62AE00039A3EE /* IndicatorButton.swift */; };
 		212D8EC71CE62AE00039A3EE /* IndicatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212D8EC51CE62AE00039A3EE /* IndicatorButton.swift */; };
 		2147A2E31CDA586E008A2709 /* CanvasTextView+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147A2E21CDA586E008A2709 /* CanvasTextView+Gestures.swift */; };
@@ -566,6 +568,7 @@
 		21213A9B1CDC2F8A0044D6BE /* Crypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crypto.framework; path = Carthage/Build/iOS/Crypto.framework; sourceTree = "<group>"; };
 		21213AB61CDC36600044D6BE /* Imgix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Imgix.swift; sourceTree = "<group>"; };
 		212299B71CE3E79C00033D94 /* UIViewController+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Canvas.swift"; sourceTree = "<group>"; };
+		212392921CEBAE0300F8D26B /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		212D8EC51CE62AE00039A3EE /* IndicatorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorButton.swift; sourceTree = "<group>"; };
 		2147A2E21CDA586E008A2709 /* CanvasTextView+Gestures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CanvasTextView+Gestures.swift"; sourceTree = "<group>"; };
 		2147A2FB1CDA7B2E008A2709 /* DragContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragContext.swift; sourceTree = "<group>"; };
@@ -793,6 +796,7 @@
 				2107D2DD1CC58F7A001963B7 /* ModelsViewController.swift */,
 				2107D2EC1CC58F7B001963B7 /* TableViewController.swift */,
 				2107D2F41CC58F7B001963B7 /* WebViewController.swift */,
+				212392921CEBAE0300F8D26B /* SplitViewController.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -1487,6 +1491,7 @@
 				21501D751CCAA2B900B02FC5 /* WebActivity.swift in Sources */,
 				21501D761CCAA2B900B02FC5 /* EditorViewController.swift in Sources */,
 				21501D771CCAA2B900B02FC5 /* NavigationController.swift in Sources */,
+				212392941CEBAE0300F8D26B /* SplitViewController.swift in Sources */,
 				21501D781CCAA2B900B02FC5 /* ModelsViewController.swift in Sources */,
 				21501D791CCAA2B900B02FC5 /* RootViewController.swift in Sources */,
 				21501D7A1CCAA2B900B02FC5 /* TintableView.swift in Sources */,
@@ -1548,6 +1553,7 @@
 				2107D32B1CC58F7B001963B7 /* WebActivity.swift in Sources */,
 				2107D3101CC58F7B001963B7 /* EditorViewController.swift in Sources */,
 				2107D3171CC58F7B001963B7 /* NavigationController.swift in Sources */,
+				212392931CEBAE0300F8D26B /* SplitViewController.swift in Sources */,
 				2107D3151CC58F7B001963B7 /* ModelsViewController.swift in Sources */,
 				2107D3201CC58F7B001963B7 /* RootViewController.swift in Sources */,
 				2107D3281CC58F7B001963B7 /* TintableView.swift in Sources */,
