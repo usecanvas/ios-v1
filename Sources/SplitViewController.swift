@@ -21,7 +21,7 @@ class SplitViewController: UISplitViewController {
 		if window.bounds.width < screen.bounds.width {
 			width = 258
 		} else {
-			width = window.bounds.width > 768 ? 375 : 320
+			width = window.bounds.width > 1024 ? 375 : 320
 		}
 
 		minimumPrimaryColumnWidth = width
