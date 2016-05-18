@@ -88,7 +88,10 @@ final class EditorViewController: UIViewController, Accountable {
 			UIKeyCommand(input: "]", modifierFlags: [.Command], action: #selector(indent), discoverabilityTitle: LocalizedString.IndentCommand.string),
 			UIKeyCommand(input: "\t", modifierFlags: [], action: #selector(indent)),
 			UIKeyCommand(input: "[", modifierFlags: [.Command], action: #selector(outdent), discoverabilityTitle: LocalizedString.OutdentCommand.string),
-			UIKeyCommand(input: "\t", modifierFlags: [.Shift], action: #selector(outdent))
+			UIKeyCommand(input: "\t", modifierFlags: [.Shift], action: #selector(outdent)),
+
+			UIKeyCommand(input: UIKeyInputUpArrow, modifierFlags: [.Command, .Control], action: #selector(swapLineUp), discoverabilityTitle: LocalizedString.SwapLineUpCommand.string),
+			UIKeyCommand(input: UIKeyInputDownArrow, modifierFlags: [.Command, .Control], action: #selector(swapLineDown), discoverabilityTitle: LocalizedString.SwapLineDownCommand.string)
 		]
 
 		let checkTitle: String

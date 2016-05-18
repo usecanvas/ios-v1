@@ -62,6 +62,8 @@
 "INSERT_LINE_AFTER_COMMAND" = "Insert Line After";
 "INSERT_LINE_BEFORE_COMMAND" = "Insert Line Before";
 "DELETE_LINE_COMMAND" = "Delete Line";
+"SWAP_LINE_UP_COMMAND" = "Swap Line Up";
+"SWAP_LINE_DOWN_COMMAND" = "Swap Line Down";
 "CONNECTING" = "Connecting…";
 "DISCONNECTED" = "Disconnected";
 

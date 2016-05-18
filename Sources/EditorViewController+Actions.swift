@@ -71,6 +71,14 @@ extension EditorViewController {
 	func deleteLine() {
 		textController.deleteLine()
 	}
+
+	func swapLineUp() {
+		textController.swapLineUp()
+	}
+
+	func swapLineDown() {
+		textController.swapLineDown()
+	}
 	
 	func reload(sender: UIAlertAction? = nil) {
 		title = LocalizedString.Connecting.string

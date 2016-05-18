@@ -59,6 +59,8 @@ enum LocalizedString {
 	case InsertLineAfterCommand
 	case InsertLineBeforeCommand
 	case DeleteLineCommand
+	case SwapLineUpCommand
+	case SwapLineDownCommand
 	case Connecting
 	case Disconnected
 
@@ -116,6 +118,8 @@ enum LocalizedString {
 		case .InsertLineAfterCommand: return string("INSERT_LINE_AFTER_COMMAND")
 		case .InsertLineBeforeCommand: return string("INSERT_LINE_BEFORE_COMMAND")
 		case .DeleteLineCommand: return string("DELETE_LINE_COMMAND")
+		case .SwapLineUpCommand: return string("SWAP_LINE_UP_COMMAND")
+		case .SwapLineDownCommand: return string("SWAP_LINE_DOWN_COMMAND")
 		case .Connecting: return string("CONNECTING")
 		case .Disconnected: return string("DISCONNECTED")
 
