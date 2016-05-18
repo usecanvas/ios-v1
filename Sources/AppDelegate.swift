@@ -53,6 +53,10 @@ extension AppDelegate: UIApplicationDelegate {
 		Analytics.track(.LaunchedApp)
 
 		dispatch_async(dispatch_get_main_queue()) {
+			NSUserDefaults.standardUserDefaults().registerDefaults([
+				"PreventSleep": true
+			])
+
 			if let info = NSBundle.mainBundle().infoDictionary, version = info["CFBundleVersion"] as? String, shortVersion = info["CFBundleShortVersionString"] as? String {
 				NSUserDefaults.standardUserDefaults().setObject("\(shortVersion) (\(version))", forKey: "HumanReadableVersion")
 				NSUserDefaults.standardUserDefaults().synchronize()

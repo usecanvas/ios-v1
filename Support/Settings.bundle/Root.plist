@@ -18,7 +18,7 @@
 			<key>Key</key>
 			<string>PreventSleep</string>
 			<key>DefaultValue</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Title</key>
