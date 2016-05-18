@@ -21,6 +21,7 @@ class SessionsViewController: UIViewController {
 			Color.brand,
 			UIColor(red: 0.400, green: 0, blue: 1, alpha: 1)
 		]
+		view.automaticallyDims = false
 		return view
 	}()
 
