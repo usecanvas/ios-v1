@@ -21,7 +21,8 @@ import SentrySwift
 
 	private func showPersonalNotes(completion: OrganizationCanvasesViewController? -> Void) {
 		guard let rootViewController = window?.rootViewController as? RootViewController,
-			navigationController = rootViewController.viewController as? UINavigationController
+			splitViewController = rootViewController.viewController as? UISplitViewController,
+			navigationController = splitViewController.masterViewController as? UINavigationController
 		else {
 			completion(nil)
 			return
@@ -59,8 +60,8 @@ extension AppDelegate: UIApplicationDelegate {
 		}
 
 		application.shortcutItems = [
-			UIApplicationShortcutItem(type: "shortcut-new", localizedTitle: "New Canvas", localizedSubtitle: "In Personal", icon: UIApplicationShortcutIcon(templateImageName: "New Canvas Shortcut"), userInfo: nil),
-			UIApplicationShortcutItem(type: "shortcut-search", localizedTitle: "Search", localizedSubtitle: "In Personal", icon: UIApplicationShortcutIcon(type: .Search), userInfo: nil)
+			UIApplicationShortcutItem(type: "shortcut-new", localizedTitle: LocalizedString.NewCanvasCommand.string, localizedSubtitle: LocalizedString.InPersonalNotes.string, icon: UIApplicationShortcutIcon(templateImageName: "New Canvas Shortcut"), userInfo: nil),
+			UIApplicationShortcutItem(type: "shortcut-search", localizedTitle: LocalizedString.SearchCommand.string, localizedSubtitle: LocalizedString.InPersonalNotes.string, icon: UIApplicationShortcutIcon(type: .Search), userInfo: nil)
 		]
 
 		return true

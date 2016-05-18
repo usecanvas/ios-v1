@@ -27,6 +27,7 @@
 
 "SEARCH_IN_ORGANIZATION" = "Search in %@";
 "SEARCH_COMMAND" = "Search";
+"IN_PERSONAL_NOTES" = "In Personal Notes";
 "NEW_CANVAS_COMMAND" = "New Canvas";
 "ARCHIVE_SELECTED_CANVAS_COMMAND" = "Archive Selected Canvas";
 "DELETE_SELECTED_CANVAS_COMMAND" = "Delete Selected Canvas";

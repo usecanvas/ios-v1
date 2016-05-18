@@ -26,6 +26,7 @@ enum LocalizedString {
 	// Canvases
 	case SearchIn(organizationName: String)
 	case SearchCommand
+	case InPersonalNotes
 	case NewCanvasCommand
 	case ArchiveSelectedCanvasCommand
 	case DeleteSelectedCanvasCommand
@@ -83,6 +84,7 @@ enum LocalizedString {
 
 		case .SearchIn(let organizationName): return String(format: string("SEARCH_IN_ORGANIZATION"), arguments: [organizationName])
 		case .SearchCommand: return string("SEARCH_COMMAND")
+		case .InPersonalNotes: return string("IN_PERSONAL_NOTES")
 		case .NewCanvasCommand: return string("NEW_CANVAS_COMMAND")
 		case .ArchiveSelectedCanvasCommand: return string("ARCHIVE_SELECTED_CANVAS_COMMAND")
 		case .DeleteSelectedCanvasCommand: return string("DELETE_SELECTED_CANVAS_COMMAND")
