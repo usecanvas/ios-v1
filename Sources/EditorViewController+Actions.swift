@@ -40,14 +40,12 @@ extension EditorViewController {
 		textController.toggleChecked()
 	}
 	
-	func increaseBlockLevel() {
-		guard let block = textController.focusedBlock else { return }
-		textController.increaseBlockLevel(block: block)
+	func indent() {
+		textController.indent()
 	}
 	
-	func decreaseBlockLevel() {
-		guard let block = textController.focusedBlock else { return }
-		textController.decreaseBlockLevel(block: block)
+	func outdent() {
+		textController.outdent()
 	}
 	
 	func bold() {
