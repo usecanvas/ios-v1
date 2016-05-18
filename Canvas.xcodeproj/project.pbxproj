@@ -155,6 +155,8 @@
 		218383D11CD517E400F7AA24 /* ISO8601.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9971CD516C600E2902C /* ISO8601.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		218383D41CD517E400F7AA24 /* OperationTransport.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9B61CD516D500E2902C /* OperationTransport.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		218383D51CD517E400F7AA24 /* SSKeychain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9C71CD516D900E2902C /* SSKeychain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		218A75B81CECD02F00459BC9 /* GradientView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218A75B71CECD02F00459BC9 /* GradientView.framework */; };
+		218A75D11CECD06500459BC9 /* GradientView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218A75B71CECD02F00459BC9 /* GradientView.framework */; };
 		21E8794D1CEA6D930046ACE2 /* Cache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E879341CEA6D7F0046ACE2 /* Cache.framework */; };
 		21E8794E1CEA6D990046ACE2 /* Cache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21E879341CEA6D7F0046ACE2 /* Cache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21E879511CEA6DA20046ACE2 /* Cache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E879341CEA6D7F0046ACE2 /* Cache.framework */; };
@@ -578,6 +580,7 @@
 		215CD8611CE293FF0093C545 /* PlaceholderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderViewController.swift; sourceTree = "<group>"; };
 		2178CB511CEA7B0100E9A4B2 /* SpaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceView.swift; sourceTree = "<group>"; };
 		2178CBB81CEA891100E9A4B2 /* SessionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionsViewController.swift; sourceTree = "<group>"; };
+		218A75B71CECD02F00459BC9 /* GradientView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GradientView.framework; path = Carthage/Build/iOS/GradientView.framework; sourceTree = "<group>"; };
 		21B1E68C1CD516B000E2902C /* CanvasKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasKit.xcodeproj; path = CanvasKit/CanvasKit.xcodeproj; sourceTree = "<group>"; };
 		21B1E6B21CD516B000E2902C /* CanvasNative.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasNative.xcodeproj; path = CanvasNative/CanvasNative.xcodeproj; sourceTree = "<group>"; };
 		21B1E6F51CD516B000E2902C /* CanvasText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasText.xcodeproj; path = CanvasText/CanvasText.xcodeproj; sourceTree = "<group>"; };
@@ -608,6 +611,7 @@
 				21213AB41CDC2F930044D6BE /* CommonCrypto.framework in Frameworks */,
 				218383C81CD517D300F7AA24 /* ISO8601.framework in Frameworks */,
 				21F7EF2E1CD91D70004E80E2 /* OnePasswordExtension.framework in Frameworks */,
+				218A75D11CECD06500459BC9 /* GradientView.framework in Frameworks */,
 				218383CB1CD517D300F7AA24 /* OperationTransport.framework in Frameworks */,
 				21F7EF381CD91F75004E80E2 /* SentrySwift.framework in Frameworks */,
 				218383CC1CD517D300F7AA24 /* SSKeychain.framework in Frameworks */,
@@ -629,6 +633,7 @@
 				21213A9C1CDC2F8A0044D6BE /* CommonCrypto.framework in Frameworks */,
 				218383A41CD5177100F7AA24 /* ISO8601.framework in Frameworks */,
 				21F7EF2D1CD91D70004E80E2 /* OnePasswordExtension.framework in Frameworks */,
+				218A75B81CECD02F00459BC9 /* GradientView.framework in Frameworks */,
 				218383A71CD5177100F7AA24 /* OperationTransport.framework in Frameworks */,
 				21F7EF371CD91F75004E80E2 /* SentrySwift.framework in Frameworks */,
 				218383A81CD5177100F7AA24 /* SSKeychain.framework in Frameworks */,
@@ -945,6 +950,7 @@
 		21F7EF271CD91D58004E80E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				218A75B71CECD02F00459BC9 /* GradientView.framework */,
 				21213A9A1CDC2F8A0044D6BE /* CommonCrypto.framework */,
 				21213A9B1CDC2F8A0044D6BE /* Crypto.framework */,
 				21F7EF331CD91F75004E80E2 /* KSCrash.framework */,
@@ -1420,6 +1426,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SentrySwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Crypto.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/CommonCrypto.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/GradientView.framework",
 			);
 			name = "Embed Carthage Frameworks";
 			outputPaths = (
@@ -1441,6 +1448,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SentrySwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Crypto.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/CommonCrypto.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/GradientView.framework",
 			);
 			name = "Embed Carthage Frameworks";
 			outputPaths = (

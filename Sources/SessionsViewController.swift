@@ -8,12 +8,23 @@
 
 import UIKit
 import CanvasKit
+import GradientView
 
 class SessionsViewController: UIViewController {
 
 	// MARK: - Properties
 
-	let backgroundView: UIView = {
+	let backgroundView: GradientView = {
+		let view = GradientView()
+		view.translatesAutoresizingMaskIntoConstraints = false
+		view.colors = [
+			Color.brand,
+			UIColor(red: 0.400, green: 0, blue: 1, alpha: 1)
+		]
+		return view
+	}()
+
+	let illustrationView: UIView = {
 		let view = UIView()
 		view.translatesAutoresizingMaskIntoConstraints = false
 		view.backgroundColor = UIColor(patternImage: UIImage(named: "Illustration")!)
@@ -112,6 +123,7 @@ class SessionsViewController: UIViewController {
 
 		view.backgroundColor = Color.brand
 		view.addSubview(backgroundView)
+		view.addSubview(illustrationView)
 
 		textFields.forEach { $0.delegate = self }
 
@@ -130,6 +142,11 @@ class SessionsViewController: UIViewController {
 			backgroundView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor),
 			backgroundView.topAnchor.constraintEqualToAnchor(view.topAnchor),
 			backgroundView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor),
+
+			illustrationView.leadingAnchor.constraintEqualToAnchor(backgroundView.leadingAnchor),
+			illustrationView.trailingAnchor.constraintEqualToAnchor(backgroundView.trailingAnchor),
+			illustrationView.topAnchor.constraintEqualToAnchor(backgroundView.topAnchor),
+			illustrationView.bottomAnchor.constraintEqualToAnchor(backgroundView.bottomAnchor),
 
 			stackView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor),
 			top,
