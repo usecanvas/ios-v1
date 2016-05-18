@@ -54,7 +54,7 @@ class CanvasesViewController: ModelsViewController, Accountable {
 
 		opening = true
 
-		if canvas.nativeVersion != CanvasNative.nativeVersion {
+		if !CanvasNative.supports(nativeVersion: canvas.nativeVersion) {
 			if let indexPath = tableView.indexPathForSelectedRow {
 				tableView.deselectRowAtIndexPath(indexPath, animated: true)
 			}
@@ -72,6 +72,8 @@ class CanvasesViewController: ModelsViewController, Accountable {
 				UIApplication.sharedApplication().openURL(URL)
 			}))
 			alert.addAction(UIAlertAction(title: LocalizedString.Cancel.string, style: .Cancel, handler: nil))
+
+			opening = false
 			presentViewController(alert, animated: true, completion: nil)
 
 			return

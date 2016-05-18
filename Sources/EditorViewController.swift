@@ -22,7 +22,7 @@ final class EditorViewController: UIViewController, Accountable {
 	let canvas: Canvas
 
 	let textController: TextController
-	let textView: UITextView
+	let textView: CanvasTextView
 
 	private var usingKeyboard = false
 	private var scrollPosition: CGPoint?
@@ -212,6 +212,17 @@ final class EditorViewController: UIViewController, Accountable {
 		let path = URL.absoluteString.stringByAddingPercentEncodingWithAllowedCharacters(.URLPathAllowedCharacterSet())
 		return path.flatMap { imgix.signPath($0) }
 	}
+
+	private func updateTitlePlaceholder() {
+		let title = textController.currentDocument.blocks.first as? Title
+		textView.placeholderLabel.hidden = title.flatMap { $0.visibleRange.length > 0 } ?? false
+	}
+
+	private func updateTitleTypingAttributes() {
+		if textView.selectedRange.location == 0 {
+			textView.typingAttributes = textController.theme.titleAttributes
+		}
+	}
 }
 
 
@@ -254,25 +265,18 @@ extension EditorViewController: UIViewControllerPreviewingDelegate {
 extension EditorViewController: UITextViewDelegate {
 	func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
 		ignoreSelectionChange = true
-
-		let empty = (textView.text as NSString).length - range.length + (text as NSString).length == 0
-
-		if empty {
-			textView.typingAttributes = textController.theme.titleAttributes
-		}
-
-		(textView as? CanvasTextView)?.placeholderLabel.hidden = !empty
-		
 		return true
 	}
 	
 	func textViewDidChangeSelection(textView: UITextView) {
 		let selection: NSRange? = !textView.isFirstResponder() && textView.selectedRange.length == 0 ? nil : textView.selectedRange
 		textController.setPresentationSelectedRange(selection)
+		updateTitleTypingAttributes()
 	}
 
 	func textViewDidBeginEditing(textView: UITextView) {
 		usingKeyboard = true
+		updateTitleTypingAttributes()
 	}
 	
 	func textViewDidEndEditing(textView: UITextView) {
@@ -291,10 +295,13 @@ extension EditorViewController: TextControllerDisplayDelegate {
 		if !NSEqualRanges(textView.selectedRange, selectedRange) {
 			textView.selectedRange = selectedRange
 		}
+
+		updateTitleTypingAttributes()
 	}
 
 	func textController(textController: TextController, didUpdateTitle title: String?) {
 		self.title = title ?? LocalizedString.Untitled.string
+		updateTitlePlaceholder()
 	}
 
 	func textControllerWillProcessRemoteEdit(textController: TextController) {
@@ -325,10 +332,7 @@ extension EditorViewController: TextControllerConnectionDelegate {
 			textView.editable = true
 		}
 
-		if textView.text.isEmpty {
-			textView.typingAttributes = textController.theme.titleAttributes
-			(textView as? CanvasTextView)?.placeholderLabel.hidden = false
-		}
+		updateTitlePlaceholder()
 
 		if textView.editable && (usingKeyboard || textView.text.isEmpty) {
 			textView.becomeFirstResponder()
