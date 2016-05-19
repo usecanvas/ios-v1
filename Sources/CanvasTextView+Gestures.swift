@@ -116,7 +116,7 @@ extension CanvasTextView: UIGestureRecognizerDelegate {
 		}
 
 		// Get the block rect
-		let characterRange = textController.currentDocument.presentationRange(backingRange: block.visibleRange)
+		let characterRange = textController.currentDocument.presentationRange(block: block)
 		let glyphRange = layoutManager.glyphRangeForCharacterRange(characterRange, actualCharacterRange: nil)
 		var rect = layoutManager.boundingRectForGlyphRange(glyphRange, inTextContainer: textContainer)
 		rect.origin.x += textContainerInset.left
