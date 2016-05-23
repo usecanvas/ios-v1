@@ -42,6 +42,7 @@ final class RootViewController: UIViewController {
 			split.preferredDisplayMode = .AllVisible
 			split.delegate = self
 
+			// Restore organization
 			if let dictionary = NSUserDefaults.standardUserDefaults().objectForKey("SelectedOrganization") as? JSONDictionary, organization = Organization(dictionary: dictionary) {
 				let viewController = OrganizationCanvasesViewController(account: account, organization: organization)
 				masterViewController.pushViewController(viewController, animated: false)
