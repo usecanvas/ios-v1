@@ -97,6 +97,8 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 		Analytics.track(.ChangedOrganization(organization: organization))
 		let viewController = OrganizationCanvasesViewController(account: account, organization: organization)
 		showViewController(viewController, sender: self)
+
+		NSUserDefaults.standardUserDefaults().setObject(organization.dictionary, forKey: "SelectedOrganization")
 	}
 
 	override func refresh() {

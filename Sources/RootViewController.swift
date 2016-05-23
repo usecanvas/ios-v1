@@ -31,12 +31,19 @@ final class RootViewController: UIViewController {
 				return
 			}
 
+			let masterViewController = NavigationController(rootViewController: OrganizationsViewController(account: account))
+
 			let split = SplitViewController(
-				masterViewController: NavigationController(rootViewController: OrganizationsViewController(account: account)),
+				masterViewController: masterViewController,
 				detailViewController: NavigationController(rootViewController: PlaceholderViewController())
 			)
 			split.preferredDisplayMode = .AllVisible
 			split.delegate = self
+
+			if let dictionary = NSUserDefaults.standardUserDefaults().objectForKey("SelectedOrganization") as? JSONDictionary, organization = Organization(dictionary: dictionary) {
+				let viewController = OrganizationCanvasesViewController(account: account, organization: organization)
+				masterViewController.pushViewController(viewController, animated: false)
+			}
 
 			viewController = split
 		}
