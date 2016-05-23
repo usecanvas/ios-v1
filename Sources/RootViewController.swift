@@ -18,6 +18,8 @@ final class RootViewController: UIViewController {
 		didSet {
 			guard let account = account else {
 				SentryClient.shared?.user = nil
+				NSUserDefaults.standardUserDefaults().removeObjectForKey("SelectedOrganization")
+				
 				viewController = LogInViewController()
 				return
 			}
