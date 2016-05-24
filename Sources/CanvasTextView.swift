@@ -96,6 +96,12 @@ final class CanvasTextView: TextView {
 		layoutPlaceholder()
 	}
 
+	override func tintColorDidChange() {
+		super.tintColorDidChange()
+		
+		textController?.setTintColor(tintColor)
+	}
+
 
 	// MARK: - Private
 
