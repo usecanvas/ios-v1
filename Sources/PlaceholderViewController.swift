@@ -36,4 +36,9 @@ class PlaceholderViewController: UIViewController {
 			textLabel.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor),
 		])
 	}
+
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
+		UIDevice.currentDevice().batteryMonitoringEnabled = false
+	}
 }

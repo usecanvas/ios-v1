@@ -56,9 +56,12 @@ final class EditorViewController: UIViewController, Accountable {
 		textView.formattingDelegate = self
 		textView.editable = false
 
+		UIDevice.currentDevice().batteryMonitoringEnabled = true
+		
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillChangeFrame), name: UIKeyboardWillChangeFrameNotification, object: nil)
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updatePreventSleep), name: NSUserDefaultsDidChangeNotification, object: nil)
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updatePreventSleep), name: UIApplicationDidBecomeActiveNotification, object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updatePreventSleep), name: UIDeviceBatteryStateDidChangeNotification, object: nil)
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -185,8 +188,19 @@ final class EditorViewController: UIViewController, Accountable {
 	}
 
 	@objc private func updatePreventSleep() {
-		if NSUserDefaults.standardUserDefaults().boolForKey("PreventSleep") {
-			UIApplication.sharedApplication().idleTimerDisabled = true
+		let application = UIApplication.sharedApplication()
+		guard let preference = NSUserDefaults.standardUserDefaults().stringForKey("PreventSleep") else {
+			application.idleTimerDisabled = false
+			return
+		}
+
+		if preference == "Always" {
+			application.idleTimerDisabled = true
+		} else if preference == "WhilePluggedIn" {
+			let state = UIDevice.currentDevice().batteryState
+			application.idleTimerDisabled = state == .Charging || state == .Full
+		} else {
+			application.idleTimerDisabled = false
 		}
 	}
 	
