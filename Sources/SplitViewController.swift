@@ -9,6 +9,9 @@
 import UIKit
 
 class SplitViewController: UISplitViewController {
+
+	// MARK: - UIViewController
+
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
 
@@ -26,6 +29,13 @@ class SplitViewController: UISplitViewController {
 
 		minimumPrimaryColumnWidth = width
 		maximumPrimaryColumnWidth = width
+	}
+
+	override func showViewController(viewController: UIViewController, sender: AnyObject?) {
+		// Prevent weird animation *sigh*
+		UIView.performWithoutAnimation {
+			super.showViewController(viewController, sender: sender)
+		}
 	}
 }
 

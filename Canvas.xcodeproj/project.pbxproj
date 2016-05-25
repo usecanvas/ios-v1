@@ -726,6 +726,7 @@
 		2107D3391CC591AF001963B7 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				213608631CF533AB00641941 /* Containers */,
 				2178CBCC1CEA92EF00E9A4B2 /* Utility */,
 				2178CBE31CEA92F900E9A4B2 /* Canvases */,
 				2178CBE41CEA930000E9A4B2 /* Editor */,
@@ -787,6 +788,16 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		213608631CF533AB00641941 /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				2107D2E81CC58F7B001963B7 /* RootViewController.swift */,
+				2107D2DF1CC58F7A001963B7 /* NavigationController.swift */,
+				212392921CEBAE0300F8D26B /* SplitViewController.swift */,
+			);
+			name = Containers;
+			sourceTree = "<group>";
+		};
 		2178CBB71CEA890900E9A4B2 /* Sessions */ = {
 			isa = PBXGroup;
 			children = (
@@ -799,13 +810,10 @@
 		2178CBCC1CEA92EF00E9A4B2 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				2107D2DF1CC58F7A001963B7 /* NavigationController.swift */,
-				2107D2E81CC58F7B001963B7 /* RootViewController.swift */,
 				2107D2CA1CC58F7A001963B7 /* AlertController.swift */,
 				2107D2DD1CC58F7A001963B7 /* ModelsViewController.swift */,
 				2107D2EC1CC58F7B001963B7 /* TableViewController.swift */,
 				2107D2F41CC58F7B001963B7 /* WebViewController.swift */,
-				212392921CEBAE0300F8D26B /* SplitViewController.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
