@@ -26,7 +26,6 @@ final class EditorViewController: UIViewController, Accountable {
 
 	private var usingKeyboard = false
 	private var scrollPosition: CGPoint?
-	private var ignoreSelectionChange = false
 
 
 	// MARK: - Initializers
@@ -277,11 +276,6 @@ extension EditorViewController: UIViewControllerPreviewingDelegate {
 
 
 extension EditorViewController: UITextViewDelegate {
-	func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-		ignoreSelectionChange = true
-		return true
-	}
-	
 	func textViewDidChangeSelection(textView: UITextView) {
 		let selection: NSRange? = !textView.isFirstResponder() && textView.selectedRange.length == 0 ? nil : textView.selectedRange
 		textController.setPresentationSelectedRange(selection)
@@ -301,11 +295,6 @@ extension EditorViewController: UITextViewDelegate {
 
 extension EditorViewController: TextControllerDisplayDelegate {
 	func textController(textController: TextController, didUpdateSelectedRange selectedRange: NSRange) {
-		if ignoreSelectionChange {
-			ignoreSelectionChange = false
-			return
-		}
-
 		if !NSEqualRanges(textView.selectedRange, selectedRange) {
 			textView.selectedRange = selectedRange
 		}

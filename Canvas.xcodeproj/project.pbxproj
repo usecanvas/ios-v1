@@ -69,6 +69,8 @@
 		212392C81CEBB7CD00F8D26B /* TextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212392C61CEBB7CD00F8D26B /* TextFieldContainer.swift */; };
 		212D8EC61CE62AE00039A3EE /* IndicatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212D8EC51CE62AE00039A3EE /* IndicatorButton.swift */; };
 		212D8EC71CE62AE00039A3EE /* IndicatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212D8EC51CE62AE00039A3EE /* IndicatorButton.swift */; };
+		213608441CF51A5100641941 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213608431CF51A5100641941 /* APIClient.swift */; };
+		213608451CF51A5100641941 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213608431CF51A5100641941 /* APIClient.swift */; };
 		2147A2E31CDA586E008A2709 /* CanvasTextView+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147A2E21CDA586E008A2709 /* CanvasTextView+Gestures.swift */; };
 		2147A2FA1CDA5908008A2709 /* CanvasTextView+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147A2E21CDA586E008A2709 /* CanvasTextView+Gestures.swift */; };
 		2147A2FC1CDA7B2E008A2709 /* DragContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147A2FB1CDA7B2E008A2709 /* DragContext.swift */; };
@@ -573,6 +575,7 @@
 		212392921CEBAE0300F8D26B /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		212392C61CEBB7CD00F8D26B /* TextFieldContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldContainer.swift; sourceTree = "<group>"; };
 		212D8EC51CE62AE00039A3EE /* IndicatorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorButton.swift; sourceTree = "<group>"; };
+		213608431CF51A5100641941 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		2147A2E21CDA586E008A2709 /* CanvasTextView+Gestures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CanvasTextView+Gestures.swift"; sourceTree = "<group>"; };
 		2147A2FB1CDA7B2E008A2709 /* DragContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragContext.swift; sourceTree = "<group>"; };
 		214F9FF61CC6DE4600927A07 /* CanvasTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasTextView.swift; sourceTree = "<group>"; };
@@ -706,6 +709,7 @@
 				2107D2CB1CC58F7A001963B7 /* Analytics.swift */,
 				2107D2DA1CC58F7A001963B7 /* LocalizedString.swift */,
 				21213AB61CDC36600044D6BE /* Imgix.swift */,
+				213608431CF51A5100641941 /* APIClient.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -1507,6 +1511,7 @@
 				21501D7B1CCAA2B900B02FC5 /* Font.swift in Sources */,
 				21501D7C1CCAA2B900B02FC5 /* AlertController.swift in Sources */,
 				2147A2FA1CDA5908008A2709 /* CanvasTextView+Gestures.swift in Sources */,
+				213608451CF51A5100641941 /* APIClient.swift in Sources */,
 				21501D7D1CCAA2B900B02FC5 /* SafariActivity.swift in Sources */,
 				2178CB531CEA7B0100E9A4B2 /* SpaceView.swift in Sources */,
 				21501D7E1CCAA2B900B02FC5 /* Accountable.swift in Sources */,
@@ -1569,6 +1574,7 @@
 				2107D3111CC58F7B001963B7 /* Font.swift in Sources */,
 				2107D3021CC58F7B001963B7 /* AlertController.swift in Sources */,
 				2147A2E31CDA586E008A2709 /* CanvasTextView+Gestures.swift in Sources */,
+				213608441CF51A5100641941 /* APIClient.swift in Sources */,
 				2107D3211CC58F7B001963B7 /* SafariActivity.swift in Sources */,
 				2178CB521CEA7B0100E9A4B2 /* SpaceView.swift in Sources */,
 				2107D3011CC58F7B001963B7 /* Accountable.swift in Sources */,
