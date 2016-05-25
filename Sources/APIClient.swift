@@ -15,7 +15,9 @@ class APIClient: CanvasKit.APIClient {
 
 	override func shouldComplete<T>(request request: NSURLRequest, response: NSHTTPURLResponse?, data: NSData?, error: NSError?, completion: Result<T> -> Void) -> Bool {
 		if response?.statusCode == 401 {
-			AccountController.sharedController.currentAccount = nil
+			dispatch_async(dispatch_get_main_queue()) {
+				AccountController.sharedController.currentAccount = nil
+			}
 			return false
 		}
 
