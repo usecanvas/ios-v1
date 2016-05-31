@@ -24,6 +24,7 @@ final class EditorViewController: UIViewController, Accountable {
 	let textController: TextController
 	let textView: CanvasTextView
 
+	private var lastSize: CGSize?
 	private var usingKeyboard = false
 	private var scrollPosition: CGPoint?
 	private var autocompleteEnabled = false {
@@ -163,11 +164,19 @@ final class EditorViewController: UIViewController, Accountable {
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
 
+		// Prevent extra work if things didn't change. This method gets called more often than you'd expect.
+		if view.bounds.size == lastSize { return }
+		lastSize = view.bounds.size
+
 		let maxWidth: CGFloat = 640
 		let horizontalPadding = max(16 - textView.textContainer.lineFragmentPadding, (textView.bounds.width - maxWidth) / 2)
 		let topPadding = max(16, min(32, horizontalPadding - 4)) // Subtract 4 for title line height
 		textView.textContainerInset = UIEdgeInsets(top: topPadding, left: horizontalPadding, bottom: 32, right: horizontalPadding)
 		textController.textContainerInset = textView.textContainerInset
+
+		// Update insertion point
+		textView.resignFirstResponder()
+		textView.becomeFirstResponder()
 	}
 
 	override func viewWillAppear(animated: Bool) {
