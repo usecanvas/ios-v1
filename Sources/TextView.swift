@@ -50,10 +50,11 @@ class TextView: UITextView {
 				return rect
 			}
 			
-			let height = layoutManager.lineFragmentUsedRectForGlyphAtIndex(glyphIndex, effectiveRange: nil).size.height
-			
-			if height > 0 {
-				rect.size.height = height
+			let usedRect = layoutManager.lineFragmentUsedRectForGlyphAtIndex(glyphIndex, effectiveRange: nil)
+
+			if usedRect.height > 0 {
+				rect.origin.y = usedRect.minY + textContainerInset.top
+				rect.size.height = usedRect.height
 			}
 		}
 		
