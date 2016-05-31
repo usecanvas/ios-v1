@@ -233,8 +233,8 @@ final class EditorViewController: UIViewController, Accountable {
 			NSURLQueryItem(name: "dpr", value: "\(Int(traitCollection.displayScale))"),
 			NSURLQueryItem(name: "fm", value: "jpg"),
 			NSURLQueryItem(name: "q", value: "80"),
-			NSURLQueryItem(name: "cs", value: "adobergb1998"),
-			NSURLQueryItem(name: "w", value: "\(Int(view.bounds.width))")
+			NSURLQueryItem(name: "fit", value: "max"),
+			NSURLQueryItem(name: "w", value: "\(Int(textView.textContainer.size.width))")
 		]
 		
 		// Uploaded image
