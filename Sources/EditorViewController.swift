@@ -165,7 +165,7 @@ final class EditorViewController: UIViewController, Accountable {
 
 		let maxWidth: CGFloat = 640
 		let horizontalPadding = max(16 - textView.textContainer.lineFragmentPadding, (textView.bounds.width - maxWidth) / 2)
-		let topPadding: CGFloat = horizontalPadding >= 32 ? 32 : 16
+		let topPadding = max(16, min(32, horizontalPadding - 4)) // Subtract 4 for title line height
 		textView.textContainerInset = UIEdgeInsets(top: topPadding, left: horizontalPadding, bottom: 32, right: horizontalPadding)
 		textController.textContainerInset = textView.textContainerInset
 	}
