@@ -26,6 +26,21 @@ final class EditorViewController: UIViewController, Accountable {
 
 	private var usingKeyboard = false
 	private var scrollPosition: CGPoint?
+	private var autocompleteEnabled = false {
+		didSet {
+			if oldValue == autocompleteEnabled {
+				return
+			}
+
+			textView.autocapitalizationType = autocompleteEnabled ? .Sentences : .None
+			textView.autocorrectionType = autocompleteEnabled ? .Default : .No
+			textView.spellCheckingType = autocompleteEnabled ? .Default : .No
+
+			// Make the change actually take effect.
+			textView.resignFirstResponder()
+			textView.becomeFirstResponder()
+		}
+	}
 
 
 	// MARK: - Initializers
@@ -237,6 +252,10 @@ final class EditorViewController: UIViewController, Accountable {
 			textView.typingAttributes = textController.theme.titleAttributes
 		}
 	}
+
+	private func updateAutoCompletion() {
+		autocompleteEnabled = !textController.isCodeFocused
+	}
 }
 
 
@@ -281,6 +300,7 @@ extension EditorViewController: UITextViewDelegate {
 		let selection: NSRange? = !textView.isFirstResponder() && textView.selectedRange.length == 0 ? nil : textView.selectedRange
 		textController.setPresentationSelectedRange(selection)
 		updateTitleTypingAttributes()
+		updateAutoCompletion()
 	}
 
 	func textViewDidBeginEditing(textView: UITextView) {
@@ -317,6 +337,8 @@ extension EditorViewController: TextControllerDisplayDelegate {
 			textView.contentOffset = scrollPosition
 			self.scrollPosition = nil
 		}
+
+		updateAutoCompletion()
 	}
 	
 	func textController(textController: TextController, URLForImage block: Image) -> NSURL? {
