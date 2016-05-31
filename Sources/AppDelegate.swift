@@ -102,7 +102,17 @@ extension AppDelegate: UIApplicationDelegate {
 		if userActivity.activityType == NSUserActivityTypeBrowsingWeb, let components = userActivity.webpageURL?.pathComponents where components.count >= 4 {
 			let canvasID = components[3]
 			let viewController = NavigationController(rootViewController: LoadCanvasViewController(account: account, canvasID: canvasID))
-			splitViewController.presentViewController(viewController, animated: true, completion: nil)
+
+			let show = {
+				splitViewController.presentViewController(viewController, animated: true, completion: nil)
+			}
+
+			if splitViewController.presentedViewController != nil {
+				splitViewController.presentedViewController?.dismissViewControllerAnimated(false, completion: show)
+			} else {
+				show()
+			}
+			
 			return true
 		}
 

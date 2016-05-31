@@ -14,7 +14,8 @@ class APIClient: CanvasKit.APIClient {
 	}
 
 	override func shouldComplete<T>(request request: NSURLRequest, response: NSHTTPURLResponse?, data: NSData?, error: NSError?, completion: Result<T> -> Void) -> Bool {
-		if response?.statusCode >= 400 {
+		// TODO: Remove 400 once the API updates
+		if response?.statusCode == 400 || response?.statusCode == 401 {
 			dispatch_async(dispatch_get_main_queue()) {
 				AccountController.sharedController.currentAccount = nil
 			}

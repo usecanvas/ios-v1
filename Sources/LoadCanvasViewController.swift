@@ -94,7 +94,8 @@ class LoadCanvasViewController: UIViewController, Accountable {
 	private func showError(message message: String) {
 		let alert = UIAlertController(title: "Error", message: message, preferredStyle: .Alert)
 		alert.addAction(UIAlertAction(title: LocalizedString.Okay.string, style: .Cancel, handler: { [weak self] _ in
-			self?.navigationController?.popViewControllerAnimated(true)
+			// TODO: We currently assume this is a modal
+			self?.navigationController?.dismissViewControllerAnimated(true, completion: nil)
 		}))
 
 		presentViewController(alert, animated: true, completion: nil)
