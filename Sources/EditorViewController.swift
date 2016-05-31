@@ -196,6 +196,13 @@ final class EditorViewController: UIViewController, Accountable {
 	}
 
 
+	// MARK: - Actions
+
+	func closeNavigationControllerModal() {
+		navigationController?.dismissViewControllerAnimated(true, completion: nil)
+	}
+	
+
 	// MARK: - Private
 
 	@objc private func keyboardWillChangeFrame(notification: NSNotification?) {

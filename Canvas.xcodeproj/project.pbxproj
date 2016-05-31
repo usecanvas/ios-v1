@@ -63,6 +63,8 @@
 		21213AB81CDC36600044D6BE /* Imgix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21213AB61CDC36600044D6BE /* Imgix.swift */; };
 		212299B81CE3E79C00033D94 /* UIViewController+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212299B71CE3E79C00033D94 /* UIViewController+Canvas.swift */; };
 		212299CF1CE3E7F200033D94 /* UIViewController+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212299B71CE3E79C00033D94 /* UIViewController+Canvas.swift */; };
+		2122BFF01CFE4FF900A038DE /* LoadCanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122BFEF1CFE4FF900A038DE /* LoadCanvasViewController.swift */; };
+		2122BFF11CFE4FF900A038DE /* LoadCanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122BFEF1CFE4FF900A038DE /* LoadCanvasViewController.swift */; };
 		212392931CEBAE0300F8D26B /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212392921CEBAE0300F8D26B /* SplitViewController.swift */; };
 		212392941CEBAE0300F8D26B /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212392921CEBAE0300F8D26B /* SplitViewController.swift */; };
 		212392C71CEBB7CD00F8D26B /* TextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212392C61CEBB7CD00F8D26B /* TextFieldContainer.swift */; };
@@ -572,6 +574,7 @@
 		21213A9B1CDC2F8A0044D6BE /* Crypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crypto.framework; path = Carthage/Build/iOS/Crypto.framework; sourceTree = "<group>"; };
 		21213AB61CDC36600044D6BE /* Imgix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Imgix.swift; sourceTree = "<group>"; };
 		212299B71CE3E79C00033D94 /* UIViewController+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Canvas.swift"; sourceTree = "<group>"; };
+		2122BFEF1CFE4FF900A038DE /* LoadCanvasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadCanvasViewController.swift; sourceTree = "<group>"; };
 		212392921CEBAE0300F8D26B /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		212392C61CEBB7CD00F8D26B /* TextFieldContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldContainer.swift; sourceTree = "<group>"; };
 		212D8EC51CE62AE00039A3EE /* IndicatorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorButton.swift; sourceTree = "<group>"; };
@@ -834,6 +837,7 @@
 			children = (
 				2107D2D81CC58F7A001963B7 /* EditorViewController.swift */,
 				21B28BF51CDC6049009B9D8F /* EditorViewController+Actions.swift */,
+				2122BFEF1CFE4FF900A038DE /* LoadCanvasViewController.swift */,
 			);
 			name = Editor;
 			sourceTree = "<group>";
@@ -1068,7 +1072,7 @@
 								enabled = 1;
 							};
 							com.apple.SafariKeychain = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -1495,6 +1499,7 @@
 				21501D661CCAA2B900B02FC5 /* CanvasTextView.swift in Sources */,
 				21501D671CCAA2B900B02FC5 /* CanvasesViewController.swift in Sources */,
 				21501D681CCAA2B900B02FC5 /* Configuration.swift in Sources */,
+				2122BFF11CFE4FF900A038DE /* LoadCanvasViewController.swift in Sources */,
 				21501D691CCAA2B900B02FC5 /* NSDate+Canvas.swift in Sources */,
 				21501D6A1CCAA2B900B02FC5 /* CGRect+Canvas.swift in Sources */,
 				21501D6B1CCAA2B900B02FC5 /* Organization+Canvas.swift in Sources */,
@@ -1558,6 +1563,7 @@
 				214F9FF71CC6DE4600927A07 /* CanvasTextView.swift in Sources */,
 				2107D3091CC58F7B001963B7 /* CanvasesViewController.swift in Sources */,
 				2107D30F1CC58F7B001963B7 /* Configuration.swift in Sources */,
+				2122BFF01CFE4FF900A038DE /* LoadCanvasViewController.swift in Sources */,
 				2107D3191CC58F7B001963B7 /* NSDate+Canvas.swift in Sources */,
 				2107D30B1CC58F7B001963B7 /* CGRect+Canvas.swift in Sources */,
 				2107D31A1CC58F7B001963B7 /* Organization+Canvas.swift in Sources */,

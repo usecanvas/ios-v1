@@ -93,11 +93,19 @@ extension AppDelegate: UIApplicationDelegate {
 	}
 
 	func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
-		if userActivity.activityType == NSUserActivityTypeBrowsingWeb, let URL = userActivity.webpageURL {
-			print("Handoff: \(URL)")
-			return false
+		// For now require an account
+		guard let account = AccountController.sharedController.currentAccount,
+			splitViewController = (window?.rootViewController as? RootViewController)?.viewController as? SplitViewController
+		else { return false }
+
+		// Open canvas
+		if userActivity.activityType == NSUserActivityTypeBrowsingWeb, let components = userActivity.webpageURL?.pathComponents where components.count >= 4 {
+			let canvasID = components[3]
+			let viewController = NavigationController(rootViewController: LoadCanvasViewController(account: account, canvasID: canvasID))
+			splitViewController.presentViewController(viewController, animated: true, completion: nil)
+			return true
 		}
 
-		return true
+		return false
 	}
 }
