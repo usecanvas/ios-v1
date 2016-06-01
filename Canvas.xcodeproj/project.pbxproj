@@ -65,6 +65,8 @@
 		212299CF1CE3E7F200033D94 /* UIViewController+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212299B71CE3E79C00033D94 /* UIViewController+Canvas.swift */; };
 		2122BFF01CFE4FF900A038DE /* LoadCanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122BFEF1CFE4FF900A038DE /* LoadCanvasViewController.swift */; };
 		2122BFF11CFE4FF900A038DE /* LoadCanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122BFEF1CFE4FF900A038DE /* LoadCanvasViewController.swift */; };
+		2122BFF31CFE645100A038DE /* EditorViewController+Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122BFF21CFE645100A038DE /* EditorViewController+Connection.swift */; };
+		2122BFF41CFE645100A038DE /* EditorViewController+Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122BFF21CFE645100A038DE /* EditorViewController+Connection.swift */; };
 		212392931CEBAE0300F8D26B /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212392921CEBAE0300F8D26B /* SplitViewController.swift */; };
 		212392941CEBAE0300F8D26B /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212392921CEBAE0300F8D26B /* SplitViewController.swift */; };
 		212392C71CEBB7CD00F8D26B /* TextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212392C61CEBB7CD00F8D26B /* TextFieldContainer.swift */; };
@@ -575,6 +577,7 @@
 		21213AB61CDC36600044D6BE /* Imgix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Imgix.swift; sourceTree = "<group>"; };
 		212299B71CE3E79C00033D94 /* UIViewController+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Canvas.swift"; sourceTree = "<group>"; };
 		2122BFEF1CFE4FF900A038DE /* LoadCanvasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadCanvasViewController.swift; sourceTree = "<group>"; };
+		2122BFF21CFE645100A038DE /* EditorViewController+Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EditorViewController+Connection.swift"; sourceTree = "<group>"; };
 		212392921CEBAE0300F8D26B /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		212392C61CEBB7CD00F8D26B /* TextFieldContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldContainer.swift; sourceTree = "<group>"; };
 		212D8EC51CE62AE00039A3EE /* IndicatorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorButton.swift; sourceTree = "<group>"; };
@@ -836,6 +839,7 @@
 			isa = PBXGroup;
 			children = (
 				2107D2D81CC58F7A001963B7 /* EditorViewController.swift */,
+				2122BFF21CFE645100A038DE /* EditorViewController+Connection.swift */,
 				21B28BF51CDC6049009B9D8F /* EditorViewController+Actions.swift */,
 				2122BFEF1CFE4FF900A038DE /* LoadCanvasViewController.swift */,
 			);
@@ -1483,6 +1487,7 @@
 				2178CBBA1CEA891100E9A4B2 /* SessionsViewController.swift in Sources */,
 				21501D5B1CCAA2B900B02FC5 /* Button.swift in Sources */,
 				21501D5C1CCAA2B900B02FC5 /* PersonalOrganizationCell.swift in Sources */,
+				2122BFF41CFE645100A038DE /* EditorViewController+Connection.swift in Sources */,
 				21501D5D1CCAA2B900B02FC5 /* Canvas+Canvas.swift in Sources */,
 				21501D5E1CCAA2B900B02FC5 /* AppDelegate.swift in Sources */,
 				21501D5F1CCAA2B900B02FC5 /* CanvasesResultsViewController.swift in Sources */,
@@ -1547,6 +1552,7 @@
 				2178CBB91CEA891100E9A4B2 /* SessionsViewController.swift in Sources */,
 				2107D3051CC58F7B001963B7 /* Button.swift in Sources */,
 				2107D31F1CC58F7B001963B7 /* PersonalOrganizationCell.swift in Sources */,
+				2122BFF31CFE645100A038DE /* EditorViewController+Connection.swift in Sources */,
 				2107D3061CC58F7B001963B7 /* Canvas+Canvas.swift in Sources */,
 				2107D3041CC58F7B001963B7 /* AppDelegate.swift in Sources */,
 				2107D3081CC58F7B001963B7 /* CanvasesResultsViewController.swift in Sources */,
