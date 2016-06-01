@@ -177,6 +177,10 @@
 		21C58DB71D022BD8005AEFE1 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C58DB51D022BD8005AEFE1 /* LineView.swift */; };
 		21C58DD51D023947005AEFE1 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C58DD41D023947005AEFE1 /* SectionHeaderView.swift */; };
 		21C58DD61D023947005AEFE1 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C58DD41D023947005AEFE1 /* SectionHeaderView.swift */; };
+		21B502171CFF41A20067FB9A /* SocketRocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B502161CFF41A20067FB9A /* SocketRocket.framework */; };
+		21B502181CFF41A20067FB9A /* SocketRocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B502161CFF41A20067FB9A /* SocketRocket.framework */; };
+		21B502301CFF41C70067FB9A /* PresenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B5022F1CFF41C70067FB9A /* PresenceController.swift */; };
+		21B502311CFF41C70067FB9A /* PresenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B5022F1CFF41C70067FB9A /* PresenceController.swift */; };
 		21E8794D1CEA6D930046ACE2 /* Cache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E879341CEA6D7F0046ACE2 /* Cache.framework */; };
 		21E8794E1CEA6D990046ACE2 /* Cache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21E879341CEA6D7F0046ACE2 /* Cache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21E879511CEA6DA20046ACE2 /* Cache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E879341CEA6D7F0046ACE2 /* Cache.framework */; };
@@ -682,6 +686,8 @@
 		21B28BF51CDC6049009B9D8F /* EditorViewController+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EditorViewController+Actions.swift"; sourceTree = "<group>"; };
 		21C58DB51D022BD8005AEFE1 /* LineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		21C58DD41D023947005AEFE1 /* SectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
+		21B502161CFF41A20067FB9A /* SocketRocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketRocket.framework; path = Carthage/Build/iOS/SocketRocket.framework; sourceTree = "<group>"; };
+		21B5022F1CFF41C70067FB9A /* PresenceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresenceController.swift; sourceTree = "<group>"; };
 		21E8792F1CEA6D7F0046ACE2 /* Cache.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Cache.xcodeproj; path = Cache/Cache.xcodeproj; sourceTree = "<group>"; };
 		21F10F4A1BF138750035057D /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F7EF281CD91D70004E80E2 /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mixpanel.framework; path = Carthage/Build/iOS/Mixpanel.framework; sourceTree = "<group>"; };
@@ -700,6 +706,7 @@
 				21E879511CEA6DA20046ACE2 /* Cache.framework in Frameworks */,
 				21F7EF301CD91D70004E80E2 /* Static.framework in Frameworks */,
 				218383C51CD517D300F7AA24 /* CanvasKit.framework in Frameworks */,
+				21B502181CFF41A20067FB9A /* SocketRocket.framework in Frameworks */,
 				218383C61CD517D300F7AA24 /* CanvasNative.framework in Frameworks */,
 				218383C71CD517D300F7AA24 /* CanvasText.framework in Frameworks */,
 				21213AB51CDC2F930044D6BE /* Crypto.framework in Frameworks */,
@@ -723,6 +730,7 @@
 				21E8794D1CEA6D930046ACE2 /* Cache.framework in Frameworks */,
 				21F7EF2F1CD91D70004E80E2 /* Static.framework in Frameworks */,
 				218383A11CD5177100F7AA24 /* CanvasKit.framework in Frameworks */,
+				21B502171CFF41A20067FB9A /* SocketRocket.framework in Frameworks */,
 				218383A21CD5177100F7AA24 /* CanvasNative.framework in Frameworks */,
 				218383A31CD5177100F7AA24 /* CanvasText.framework in Frameworks */,
 				21213A9D1CDC2F8A0044D6BE /* Crypto.framework in Frameworks */,
@@ -816,6 +824,7 @@
 				2107D2DA1CC58F7A001963B7 /* LocalizedString.swift */,
 				21213AB61CDC36600044D6BE /* Imgix.swift */,
 				213608431CF51A5100641941 /* APIClient.swift */,
+				21B5022F1CFF41C70067FB9A /* PresenceController.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -1085,6 +1094,7 @@
 		21F7EF271CD91D58004E80E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				21B502161CFF41A20067FB9A /* SocketRocket.framework */,
 				218A75B71CECD02F00459BC9 /* GradientView.framework */,
 				21213A9A1CDC2F8A0044D6BE /* CommonCrypto.framework */,
 				21213A9B1CDC2F8A0044D6BE /* Crypto.framework */,
@@ -1617,6 +1627,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Crypto.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/CommonCrypto.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/GradientView.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SocketRocket.framework",
 			);
 			name = "Embed Carthage Frameworks";
 			outputPaths = (
@@ -1639,6 +1650,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Crypto.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/CommonCrypto.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/GradientView.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SocketRocket.framework",
 			);
 			name = "Embed Carthage Frameworks";
 			outputPaths = (
@@ -1708,6 +1720,7 @@
 				21501D7D1CCAA2B900B02FC5 /* SafariActivity.swift in Sources */,
 				2178CB531CEA7B0100E9A4B2 /* SpaceView.swift in Sources */,
 				21501D7E1CCAA2B900B02FC5 /* Accountable.swift in Sources */,
+				21B502311CFF41C70067FB9A /* PresenceController.swift in Sources */,
 				212299CF1CE3E7F200033D94 /* UIViewController+Canvas.swift in Sources */,
 				21501D7F1CCAA2B900B02FC5 /* ChromeActivity.swift in Sources */,
 				21C58DD61D023947005AEFE1 /* SectionHeaderView.swift in Sources */,
@@ -1778,6 +1791,7 @@
 				2107D3211CC58F7B001963B7 /* SafariActivity.swift in Sources */,
 				2178CB521CEA7B0100E9A4B2 /* SpaceView.swift in Sources */,
 				2107D3011CC58F7B001963B7 /* Accountable.swift in Sources */,
+				21B502301CFF41C70067FB9A /* PresenceController.swift in Sources */,
 				212299B81CE3E79C00033D94 /* UIViewController+Canvas.swift in Sources */,
 				2107D30C1CC58F7B001963B7 /* ChromeActivity.swift in Sources */,
 				21C58DD51D023947005AEFE1 /* SectionHeaderView.swift in Sources */,

@@ -39,8 +39,8 @@ private enum Environment: String {
 	var presenceURL: NSURL {
 		switch self {
 		case .Development: return NSURL(string: "ws://localhost:5003/")!
-		case .Staging: return NSURL(string: "wss://canvas-presence-staging.herokuapp.com/")!
-		case .Production: return NSURL(string: "wss://presence.usecanvas.com/")!
+		case .Staging: return NSURL(string: "wss://canvas-live-staging.herokuapp.com/")!
+		case .Production: return NSURL(string: "wss://live.usecanvas.com/")!
 		}
 	}
 }
