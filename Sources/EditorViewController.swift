@@ -26,7 +26,10 @@ final class EditorViewController: UIViewController, Accountable {
 
 	private var lastSize: CGSize?
 	var usingKeyboard = false
+
 	private var scrollPosition: CGPoint?
+	private var ignoreLocalSelectionChange = false
+
 	private var autocompleteEnabled = false {
 		didSet {
 			if oldValue == autocompleteEnabled {
@@ -38,8 +41,10 @@ final class EditorViewController: UIViewController, Accountable {
 			textView.spellCheckingType = autocompleteEnabled ? .Default : .No
 
 			// Make the change actually take effect.
+			ignoreLocalSelectionChange = true
 			textView.resignFirstResponder()
 			textView.becomeFirstResponder()
+			ignoreLocalSelectionChange = false
 		}
 	}
 
@@ -102,15 +107,19 @@ final class EditorViewController: UIViewController, Accountable {
 //			UIKeyCommand(input: "b", modifierFlags: [.Command], action: #selector(bold), discoverabilityTitle: LocalizedString.BoldCommand.string),
 //			UIKeyCommand(input: "i", modifierFlags: [.Command], action: #selector(italic), discoverabilityTitle: LocalizedString.ItalicCommand.string),
 //			UIKeyCommand(input: "d", modifierFlags: [.Command], action: #selector(inlineCode), discoverabilityTitle: LocalizedString.InlineCodeCommand.string),
-
-			UIKeyCommand(input: "]", modifierFlags: [.Command], action: #selector(indent), discoverabilityTitle: LocalizedString.IndentCommand.string),
-			UIKeyCommand(input: "\t", modifierFlags: [], action: #selector(indent)),
-			UIKeyCommand(input: "[", modifierFlags: [.Command], action: #selector(outdent), discoverabilityTitle: LocalizedString.OutdentCommand.string),
-			UIKeyCommand(input: "\t", modifierFlags: [.Shift], action: #selector(outdent)),
-
-			UIKeyCommand(input: UIKeyInputUpArrow, modifierFlags: [.Command, .Control], action: #selector(swapLineUp), discoverabilityTitle: LocalizedString.SwapLineUpCommand.string),
-			UIKeyCommand(input: UIKeyInputDownArrow, modifierFlags: [.Command, .Control], action: #selector(swapLineDown), discoverabilityTitle: LocalizedString.SwapLineDownCommand.string)
 		]
+
+		if textController.focusedBlock is Listable {
+			commands += [
+				UIKeyCommand(input: "]", modifierFlags: [.Command], action: #selector(indent), discoverabilityTitle: LocalizedString.IndentCommand.string),
+				UIKeyCommand(input: "\t", modifierFlags: [], action: #selector(indent)),
+				UIKeyCommand(input: "[", modifierFlags: [.Command], action: #selector(outdent), discoverabilityTitle: LocalizedString.OutdentCommand.string),
+				UIKeyCommand(input: "\t", modifierFlags: [.Shift], action: #selector(outdent)),
+
+				UIKeyCommand(input: UIKeyInputUpArrow, modifierFlags: [.Command, .Control], action: #selector(swapLineUp), discoverabilityTitle: LocalizedString.SwapLineUpCommand.string),
+				UIKeyCommand(input: UIKeyInputDownArrow, modifierFlags: [.Command, .Control], action: #selector(swapLineDown), discoverabilityTitle: LocalizedString.SwapLineDownCommand.string)
+			]
+		}
 
 		let checkTitle: String
 		if let block = textController.focusedBlock as? ChecklistItem where block.state == .Checked {
@@ -175,8 +184,10 @@ final class EditorViewController: UIViewController, Accountable {
 		textController.textContainerInset = textView.textContainerInset
 
 		// Update insertion point
+		ignoreLocalSelectionChange = true
 		textView.resignFirstResponder()
 		textView.becomeFirstResponder()
+		ignoreLocalSelectionChange = false
 	}
 
 	override func viewWillAppear(animated: Bool) {
@@ -312,6 +323,11 @@ extension EditorViewController: UIViewControllerPreviewingDelegate {
 
 
 extension EditorViewController: UITextViewDelegate {
+	func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+		print("text: `\(text)`")
+		return true
+	}
+
 	func textViewDidChangeSelection(textView: UITextView) {
 		let selection: NSRange? = !textView.isFirstResponder() && textView.selectedRange.length == 0 ? nil : textView.selectedRange
 		textController.setPresentationSelectedRange(selection)
@@ -325,6 +341,10 @@ extension EditorViewController: UITextViewDelegate {
 	}
 	
 	func textViewDidEndEditing(textView: UITextView) {
+		if ignoreLocalSelectionChange {
+			return
+		}
+		
 		textController.setPresentationSelectedRange(nil)
 	}
 }
