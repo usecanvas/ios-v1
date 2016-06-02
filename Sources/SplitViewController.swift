@@ -10,13 +10,20 @@ import UIKit
 
 class SplitViewController: UISplitViewController {
 
+	// MARK: - Properties
+
+	private var lastSize: CGSize?
+	
+
 	// MARK: - UIViewController
 
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
 
 		// Work around wrong automatic primary column calculatations by UISplitViewController
-		guard let window = view.window else { return }
+		guard let window = view.window where lastSize != window.bounds.size else { return }
+
+		lastSize = window.bounds.size
 
 		let screen = window.screen
 		let width: CGFloat
@@ -35,6 +42,8 @@ class SplitViewController: UISplitViewController {
 		// Prevent weird animation *sigh*
 		UIView.performWithoutAnimation {
 			super.showViewController(viewController, sender: sender)
+			self.view.layoutIfNeeded()
+			viewController.view.layoutIfNeeded()
 		}
 	}
 }
