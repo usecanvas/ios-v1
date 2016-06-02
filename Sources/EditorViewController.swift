@@ -41,10 +41,12 @@ final class EditorViewController: UIViewController, Accountable {
 			textView.spellCheckingType = autocompleteEnabled ? .Default : .No
 
 			// Make the change actually take effect.
-			ignoreLocalSelectionChange = true
-			textView.resignFirstResponder()
-			textView.becomeFirstResponder()
-			ignoreLocalSelectionChange = false
+			if textView.isFirstResponder() {
+				ignoreLocalSelectionChange = true
+				textView.resignFirstResponder()
+				textView.becomeFirstResponder()
+				ignoreLocalSelectionChange = false
+			}
 		}
 	}
 
@@ -184,10 +186,12 @@ final class EditorViewController: UIViewController, Accountable {
 		textController.textContainerInset = textView.textContainerInset
 
 		// Update insertion point
-		ignoreLocalSelectionChange = true
-		textView.resignFirstResponder()
-		textView.becomeFirstResponder()
-		ignoreLocalSelectionChange = false
+		if textView.isFirstResponder() {
+			ignoreLocalSelectionChange = true
+			textView.resignFirstResponder()
+			textView.becomeFirstResponder()
+			ignoreLocalSelectionChange = false
+		}
 	}
 
 	override func viewWillAppear(animated: Bool) {
