@@ -19,3 +19,6 @@
 [submodule "Vendor/Cache"]
 	path = Vendor/Cache
 	url = https://github.com/soffes/Cache.git
+[submodule "Vendor/X"]
+	path = Vendor/X
+	url = https://github.com/soffes/X
