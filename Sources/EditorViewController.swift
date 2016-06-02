@@ -323,11 +323,6 @@ extension EditorViewController: UIViewControllerPreviewingDelegate {
 
 
 extension EditorViewController: UITextViewDelegate {
-	func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-		print("text: `\(text)`")
-		return true
-	}
-
 	func textViewDidChangeSelection(textView: UITextView) {
 		let selection: NSRange? = !textView.isFirstResponder() && textView.selectedRange.length == 0 ? nil : textView.selectedRange
 		textController.setPresentationSelectedRange(selection)
