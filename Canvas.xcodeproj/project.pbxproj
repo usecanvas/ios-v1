@@ -513,6 +513,20 @@
 			remoteGlobalIDString = 21632DBC1C925B1F00C40D7D;
 			remoteInfo = "SSKeychain-watchOS";
 		};
+		21E2D1A31D01069200B6DEA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E6F51CD516B000E2902C /* CanvasText.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 218944931CFFA041003F743B;
+			remoteInfo = "CanvasText-OSX";
+		};
+		21E2D1A51D01069200B6DEA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21B1E6F51CD516B000E2902C /* CanvasText.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2189449C1CFFA041003F743B;
+			remoteInfo = "CanvasTextTests-OSX";
+		};
 		21E879331CEA6D7F0046ACE2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 21E8792F1CEA6D7F0046ACE2 /* Cache.xcodeproj */;
@@ -929,6 +943,8 @@
 			children = (
 				218383721CD5174800F7AA24 /* CanvasText.framework */,
 				218383741CD5174800F7AA24 /* CanvasTextTests.xctest */,
+				21E2D1A41D01069200B6DEA3 /* CanvasText.framework */,
+				21E2D1A61D01069200B6DEA3 /* CanvasTextTests-OSX.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1452,6 +1468,20 @@
 			remoteRef = 21B1E9D21CD516D900E2902C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		21E2D1A41D01069200B6DEA3 /* CanvasText.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CanvasText.framework;
+			remoteRef = 21E2D1A31D01069200B6DEA3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21E2D1A61D01069200B6DEA3 /* CanvasTextTests-OSX.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "CanvasTextTests-OSX.xctest";
+			remoteRef = 21E2D1A51D01069200B6DEA3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		21E879341CEA6D7F0046ACE2 /* Cache.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -1845,7 +1875,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1870,7 +1899,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1978,7 +2006,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -2003,7 +2030,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
