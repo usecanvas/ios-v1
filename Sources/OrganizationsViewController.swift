@@ -224,11 +224,8 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 		let personal = orgs[personalIndex]
 		orgs.removeAtIndex(personalIndex)
 
-		var personalRow = rowForOrganization(personal)
-		personalRow.cellClass = PersonalOrganizationCell.self
-
 		var sections = [
-			Section(rows: [personalRow])
+			Section(rows: [rowForOrganization(personal)])
 		]
 
 		if orgs.count > 0 {
