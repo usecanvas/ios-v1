@@ -308,7 +308,11 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 			guard let canvases = groups[group] else { continue }
 
 			let rows = canvases.map { rowForCanvas($0) }
-			sections.append(Section(header: .Title(group.title), rows: rows))
+
+			let headerView = SectionHeaderView()
+			headerView.textLabel.text = group.title
+
+			sections.append(Section(header: .View(headerView), rows: rows))
 		}
 
 		dataSource.sections = sections
