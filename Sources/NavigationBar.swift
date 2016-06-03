@@ -18,6 +18,22 @@ class NavigationBar: UINavigationBar {
 		}
 	}
 
+	var borderColor: UIColor? {
+		set {
+			borderView.backgroundColor = newValue
+		}
+
+		get {
+			return borderView.backgroundColor
+		}
+	}
+
+	private let borderView: LineView = {
+		let view = LineView()
+		view.translatesAutoresizingMaskIntoConstraints = false
+		return view
+	}()
+
 
 	// MARK: - Initializers
 
@@ -27,6 +43,16 @@ class NavigationBar: UINavigationBar {
 		barTintColor = .whiteColor()
 		translucent = false
 		shadowImage = UIImage()
+
+		borderColor = Color.gray
+
+		addSubview(borderView)
+
+		NSLayoutConstraint.activateConstraints([
+			borderView.topAnchor.constraintEqualToAnchor(bottomAnchor),
+			borderView.leadingAnchor.constraintEqualToAnchor(leadingAnchor),
+			borderView.trailingAnchor.constraintEqualToAnchor(trailingAnchor)
+		])
 	}
 
 	required init?(coder aDecoder: NSCoder) {
