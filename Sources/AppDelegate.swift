@@ -52,6 +52,10 @@ extension AppDelegate: UIApplicationDelegate {
 		// Analytics
 		Analytics.track(.LaunchedApp)
 
+		// Appearance
+		UILabel.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).textColor = Color.darkGray
+
+		// Defaults
 		dispatch_async(dispatch_get_main_queue()) {
 			NSUserDefaults.standardUserDefaults().registerDefaults([
 				"PreventSleep": "WhilePluggedIn"
@@ -63,6 +67,7 @@ extension AppDelegate: UIApplicationDelegate {
 			}
 		}
 
+		// Shortcut items
 		application.shortcutItems = [
 			UIApplicationShortcutItem(type: "shortcut-new", localizedTitle: LocalizedString.NewCanvasCommand.string, localizedSubtitle: LocalizedString.InPersonalNotes.string, icon: UIApplicationShortcutIcon(templateImageName: "New Canvas Shortcut"), userInfo: nil),
 			UIApplicationShortcutItem(type: "shortcut-search", localizedTitle: LocalizedString.SearchCommand.string, localizedSubtitle: LocalizedString.InPersonalNotes.string, icon: UIApplicationShortcutIcon(type: .Search), userInfo: nil)

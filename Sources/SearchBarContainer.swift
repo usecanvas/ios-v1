@@ -35,10 +35,10 @@ class SearchBarContainer: UIView {
 		searchBar.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
 		addSubview(searchBar)
 
-		topBorderView.backgroundColor = UIColor(red: 0.784, green: 0.780, blue: 0.800, alpha: 1)
+		topBorderView.backgroundColor = Color.gray
 		addSubview(topBorderView)
 
-		bottomBorderView.backgroundColor = UIColor(red: 0.784, green: 0.780, blue: 0.800, alpha: 1)
+		bottomBorderView.backgroundColor = Color.gray
 		addSubview(bottomBorderView)
 	}
 	
