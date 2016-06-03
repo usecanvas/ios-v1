@@ -27,7 +27,7 @@ final class EditorViewController: UIViewController, Accountable {
 	private var lastSize: CGSize?
 	var usingKeyboard = false
 
-	private var scrollPosition: CGPoint?
+	private var scrollOffset: CGFloat?
 	private var ignoreLocalSelectionChange = false
 
 	private var autocompleteEnabled = false {
@@ -328,6 +328,8 @@ extension EditorViewController: UIViewControllerPreviewingDelegate {
 
 extension EditorViewController: UITextViewDelegate {
 	func textViewDidChangeSelection(textView: UITextView) {
+		scrollOffset = nil
+
 		let selection: NSRange? = !textView.isFirstResponder() && textView.selectedRange.length == 0 ? nil : textView.selectedRange
 		textController.setPresentationSelectedRange(selection)
 		updateTitleTypingAttributes()
@@ -346,6 +348,10 @@ extension EditorViewController: UITextViewDelegate {
 		
 		textController.setPresentationSelectedRange(nil)
 	}
+
+	func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+		scrollOffset = nil
+	}
 }
 
 
@@ -358,6 +364,13 @@ extension EditorViewController: TextControllerDisplayDelegate {
 			if !NSEqualRanges(textView.selectedRange, selectedRange) {
 				textView.selectedRange = selectedRange
 			}
+
+			if let previousPositionY = self?.scrollOffset, let position = textView.positionFromPosition(textView.beginningOfDocument, offset: textView.selectedRange.location) {
+//				textView.scrollEnabled = true
+				let currentPositionY = textView.caretRectForPosition(position).minY
+				textView.contentOffset = CGPoint(x: 0, y: textView.contentOffset.y + currentPositionY - previousPositionY)
+				self?.scrollOffset = nil
+			}
 		}
 
 		updateTitleTypingAttributes()
@@ -369,15 +382,14 @@ extension EditorViewController: TextControllerDisplayDelegate {
 	}
 
 	func textControllerWillProcessRemoteEdit(textController: TextController) {
-		scrollPosition = textView.contentOffset
+		guard !textView.dragging, let position = textView.positionFromPosition(textView.beginningOfDocument, offset: textView.selectedRange.location) else { return }
+		scrollOffset = textView.caretRectForPosition(position).minY
 	}
 
 	func textControllerDidProcessRemoteEdit(textController: TextController) {
-		if let scrollPosition = scrollPosition {
-			textView.contentOffset = scrollPosition
-			self.scrollPosition = nil
-		}
-
+//		if scrollOffset != nil {
+//			textView.scrollEnabled = false
+//		}
 		updateAutoCompletion()
 	}
 	
