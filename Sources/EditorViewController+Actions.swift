@@ -81,6 +81,7 @@ extension EditorViewController {
 	}
 	
 	func reload(sender: UIAlertAction? = nil) {
+		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 		title = LocalizedString.Connecting.string
 		textController.connect()
 	}

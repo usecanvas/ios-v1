@@ -90,6 +90,8 @@ extension EditorViewController: TextControllerConnectionDelegate {
 	}
 
 	func textController(textController: TextController, didDisconnectWithErrorMessage errorMessage: String?) {
+		UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+
 		title = LocalizedString.Disconnected.string
 
 		let state = usingKeyboard

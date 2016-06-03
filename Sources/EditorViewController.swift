@@ -148,6 +148,7 @@ final class EditorViewController: UIViewController, Accountable {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 		title = LocalizedString.Connecting.string
 		view.backgroundColor = Color.white
 
@@ -377,6 +378,7 @@ extension EditorViewController: TextControllerDisplayDelegate {
 	}
 
 	func textController(textController: TextController, didUpdateTitle title: String?) {
+		UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 		self.title = title ?? LocalizedString.Untitled.string
 		updateTitlePlaceholder()
 	}
