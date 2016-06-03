@@ -167,6 +167,8 @@
 		218383D51CD517E400F7AA24 /* SSKeychain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9C71CD516D900E2902C /* SSKeychain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		218A75B81CECD02F00459BC9 /* GradientView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218A75B71CECD02F00459BC9 /* GradientView.framework */; };
 		218A75D11CECD06500459BC9 /* GradientView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218A75B71CECD02F00459BC9 /* GradientView.framework */; };
+		21C58DB61D022BD8005AEFE1 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C58DB51D022BD8005AEFE1 /* LineView.swift */; };
+		21C58DB71D022BD8005AEFE1 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C58DB51D022BD8005AEFE1 /* LineView.swift */; };
 		21E8794D1CEA6D930046ACE2 /* Cache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E879341CEA6D7F0046ACE2 /* Cache.framework */; };
 		21E8794E1CEA6D990046ACE2 /* Cache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21E879341CEA6D7F0046ACE2 /* Cache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21E879511CEA6DA20046ACE2 /* Cache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E879341CEA6D7F0046ACE2 /* Cache.framework */; };
@@ -667,6 +669,7 @@
 		21B1E7B81CD516B000E2902C /* OperationTransport.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OperationTransport.xcodeproj; path = OperationTransport/OperationTransport.xcodeproj; sourceTree = "<group>"; };
 		21B1E7CA1CD516B000E2902C /* SSKeychain.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSKeychain.xcodeproj; path = SSKeychain/SSKeychain.xcodeproj; sourceTree = "<group>"; };
 		21B28BF51CDC6049009B9D8F /* EditorViewController+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EditorViewController+Actions.swift"; sourceTree = "<group>"; };
+		21C58DB51D022BD8005AEFE1 /* LineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		21E8792F1CEA6D7F0046ACE2 /* Cache.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Cache.xcodeproj; path = Cache/Cache.xcodeproj; sourceTree = "<group>"; };
 		21F10F4A1BF138750035057D /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F7EF281CD91D70004E80E2 /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mixpanel.framework; path = Carthage/Build/iOS/Mixpanel.framework; sourceTree = "<group>"; };
@@ -846,6 +849,7 @@
 				2107D2EE1CC58F7B001963B7 /* TickingLabel.swift */,
 				2107D2F01CC58F7B001963B7 /* TintableView.swift */,
 				2178CB511CEA7B0100E9A4B2 /* SpaceView.swift */,
+				21C58DB51D022BD8005AEFE1 /* LineView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1656,6 +1660,7 @@
 				21501D6F1CCAA2B900B02FC5 /* TickingLabel.swift in Sources */,
 				21501D701CCAA2B900B02FC5 /* CanvasIconView.swift in Sources */,
 				21501D711CCAA2B900B02FC5 /* CanvasCell.swift in Sources */,
+				21C58DB71D022BD8005AEFE1 /* LineView.swift in Sources */,
 				21501D721CCAA2B900B02FC5 /* TintableEnvironment.swift in Sources */,
 				21501D731CCAA2B900B02FC5 /* WebViewController.swift in Sources */,
 				21501D741CCAA2B900B02FC5 /* Color.swift in Sources */,
@@ -1721,6 +1726,7 @@
 				2107D3261CC58F7B001963B7 /* TickingLabel.swift in Sources */,
 				2107D30A1CC58F7B001963B7 /* CanvasIconView.swift in Sources */,
 				2107D3071CC58F7B001963B7 /* CanvasCell.swift in Sources */,
+				21C58DB61D022BD8005AEFE1 /* LineView.swift in Sources */,
 				2107D3271CC58F7B001963B7 /* TintableEnvironment.swift in Sources */,
 				2107D32C1CC58F7B001963B7 /* WebViewController.swift in Sources */,
 				2107D30E1CC58F7B001963B7 /* Color.swift in Sources */,

@@ -9,9 +9,11 @@
 import UIKit
 import Static
 
-class TableViewController: UITableViewController {
+class TableViewController: UIViewController {
 
 	// MARK: - Properties
+
+	let tableView: UITableView
 
 	/// Table view data source.
 	var dataSource = DataSource() {
@@ -24,13 +26,37 @@ class TableViewController: UITableViewController {
 		}
 	}
 
+	// MARK: - Initializers
+
+	init(style: UITableViewStyle) {
+		tableView = UITableView(frame: .zero, style: style)
+		tableView.translatesAutoresizingMaskIntoConstraints = false
+		tableView.separatorColor = Color.gray
+
+		dataSource.tableView = tableView
+
+		super.init(nibName: nil, bundle: nil)
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+
 
 	// MARK: - UIViewController
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		clearsSelectionOnViewWillAppear = false
+		view.addSubview(tableView)
+
+		NSLayoutConstraint.activateConstraints([
+			tableView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
+			tableView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor),
+			tableView.topAnchor.constraintEqualToAnchor(view.topAnchor),
+			tableView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor),
+		])
+
 		dataSource.automaticallyDeselectRows = false
 		dataSource.tableView = tableView
 	}

@@ -18,10 +18,6 @@ class ModelsViewController: TableViewController {
 	var loading = false {
 		didSet {
 			UIApplication.sharedApplication().networkActivityIndicatorVisible = loading
-			
-			if !loading {
-				refreshControl?.endRefreshing()
-			}
 		}
 	}
 

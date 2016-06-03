@@ -15,7 +15,32 @@ protocol CanvasesResultsViewControllerDelegate: class {
 
 class CanvasesResultsViewController: CanvasesViewController {
 
+	// MARK: - Properties
+
 	weak var delegate: CanvasesResultsViewControllerDelegate?
+
+
+	// MARK: - UIViewController
+
+	override func viewDidLoad() {
+		super.viewDidLoad()
+
+		let line = LineView()
+		line.translatesAutoresizingMaskIntoConstraints = false
+		line.backgroundColor = Color.gray
+		view.addSubview(line)
+
+		NSLayoutConstraint.activateConstraints([
+			// Add search bar height :(
+			line.topAnchor.constraintEqualToAnchor(topLayoutGuide.bottomAnchor, constant: 44),
+			
+			line.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
+			line.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor)
+		])
+	}
+
+
+	// MARK: - Actions
 
 	override func openCanvas(canvas: Canvas) {
 		delegate?.canvasesResultsViewController(self, didSelectCanvas: canvas)
