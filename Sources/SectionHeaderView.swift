@@ -38,7 +38,7 @@ class SectionHeaderView: UIView {
 
 		NSLayoutConstraint.activateConstraints([
 			textLabel.leadingAnchor.constraintEqualToAnchor(leadingAnchor, constant: 16),
-			textLabel.trailingAnchor.constraintEqualToAnchor(trailingAnchor, constant: -16),
+			textLabel.trailingAnchor.constraintLessThanOrEqualToAnchor(trailingAnchor, constant: -16),
 			textLabel.topAnchor.constraintEqualToAnchor(topAnchor, constant: 4),
 			textLabel.bottomAnchor.constraintEqualToAnchor(bottomAnchor, constant: -4)
 		])
