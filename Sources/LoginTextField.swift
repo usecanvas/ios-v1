@@ -42,7 +42,13 @@ final class LoginTextField: UITextField {
 	// MARK: - UITextField
 
 	override func textRectForBounds(bounds: CGRect) -> CGRect {
-		return CGRectInset(bounds, 12, 12)
+		var rect = bounds
+
+		if rightView != nil {
+			rect.size.width -= rect.intersect(rightViewRectForBounds(bounds)).width
+		}
+
+		return CGRectInset(rect, 12, 12)
 	}
 
 	override func placeholderRectForBounds(bounds: CGRect) -> CGRect {
