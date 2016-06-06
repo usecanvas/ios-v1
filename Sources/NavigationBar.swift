@@ -70,7 +70,7 @@ class NavigationBar: UINavigationBar {
 	private func updateTitleColor() {
 		titleTextAttributes = [
 			NSFontAttributeName: Font.sansSerif(weight: .Bold),
-			NSForegroundColorAttributeName: tintAdjustmentMode == .Dimmed ? tintColor : (titleColor ?? .blackColor())
+			NSForegroundColorAttributeName: tintAdjustmentMode == .Dimmed ? tintColor : (titleColor ?? Color.gray)
 		]
 	}
 }

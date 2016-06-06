@@ -190,7 +190,7 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		var row = super.rowForCanvas(canvas)
 
 		row.editActions = [
-			Row.EditAction(title: LocalizedString.ArchiveButton.string, style: .Destructive, backgroundColor: Color.black, backgroundEffect: nil, selection: { [weak self] in
+			Row.EditAction(title: LocalizedString.ArchiveButton.string, style: .Destructive, backgroundColor: Color.gray, backgroundEffect: nil, selection: { [weak self] in
 				self?.archiveCanvas(canvas)
 			}),
 			Row.EditAction(title: LocalizedString.DeleteButton.string, style: .Destructive, backgroundColor: Color.destructive, backgroundEffect: nil, selection: { [weak self] in

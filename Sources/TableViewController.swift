@@ -34,7 +34,7 @@ class TableViewController: UIViewController {
 		tableView.separatorColor = Color.cellSeparator
 
 		if style == .Grouped {
-			tableView.backgroundColor = Color.tableViewBackground
+			tableView.backgroundColor = Color.groupedTableBackground
 		}
 
 		dataSource.tableView = tableView

@@ -58,6 +58,8 @@
 		2107D32F1CC58F7B001963B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2F91CC58F7B001963B7 /* Main.storyboard */; };
 		2107D3321CC58F7B001963B7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2FD1CC58F7B001963B7 /* Localizable.strings */; };
 		2107D3341CC58F7B001963B7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2107D3001CC58F7B001963B7 /* Settings.bundle */; };
+		2117A02F1D06338C00E60821 /* GroupedSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117A02E1D06338C00E60821 /* GroupedSectionHeaderView.swift */; };
+		2117A0301D06338C00E60821 /* GroupedSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117A02E1D06338C00E60821 /* GroupedSectionHeaderView.swift */; };
 		21213A9C1CDC2F8A0044D6BE /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21213A9A1CDC2F8A0044D6BE /* CommonCrypto.framework */; };
 		21213A9D1CDC2F8A0044D6BE /* Crypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21213A9B1CDC2F8A0044D6BE /* Crypto.framework */; };
 		21213AB41CDC2F930044D6BE /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21213A9A1CDC2F8A0044D6BE /* CommonCrypto.framework */; };
@@ -643,6 +645,7 @@
 		2107D2FE1CC58F7B001963B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2107D2FF1CC58F7B001963B7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2107D3001CC58F7B001963B7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		2117A02E1D06338C00E60821 /* GroupedSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupedSectionHeaderView.swift; sourceTree = "<group>"; };
 		21213A9A1CDC2F8A0044D6BE /* CommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonCrypto.framework; path = Carthage/Build/iOS/CommonCrypto.framework; sourceTree = "<group>"; };
 		21213A9B1CDC2F8A0044D6BE /* Crypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crypto.framework; path = Carthage/Build/iOS/Crypto.framework; sourceTree = "<group>"; };
 		21213AB61CDC36600044D6BE /* Imgix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Imgix.swift; sourceTree = "<group>"; };
@@ -850,6 +853,7 @@
 				2107D2F01CC58F7B001963B7 /* TintableView.swift */,
 				2178CB511CEA7B0100E9A4B2 /* SpaceView.swift */,
 				21C58DB51D022BD8005AEFE1 /* LineView.swift */,
+				2117A02E1D06338C00E60821 /* GroupedSectionHeaderView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1666,6 +1670,7 @@
 				21501D741CCAA2B900B02FC5 /* Color.swift in Sources */,
 				215CD8631CE293FF0093C545 /* PlaceholderViewController.swift in Sources */,
 				21501D751CCAA2B900B02FC5 /* WebActivity.swift in Sources */,
+				2117A0301D06338C00E60821 /* GroupedSectionHeaderView.swift in Sources */,
 				21501D761CCAA2B900B02FC5 /* EditorViewController.swift in Sources */,
 				21501D771CCAA2B900B02FC5 /* NavigationController.swift in Sources */,
 				212392941CEBAE0300F8D26B /* SplitViewController.swift in Sources */,
@@ -1732,6 +1737,7 @@
 				2107D30E1CC58F7B001963B7 /* Color.swift in Sources */,
 				215CD8621CE293FF0093C545 /* PlaceholderViewController.swift in Sources */,
 				2107D32B1CC58F7B001963B7 /* WebActivity.swift in Sources */,
+				2117A02F1D06338C00E60821 /* GroupedSectionHeaderView.swift in Sources */,
 				2107D3101CC58F7B001963B7 /* EditorViewController.swift in Sources */,
 				2107D3171CC58F7B001963B7 /* NavigationController.swift in Sources */,
 				212392931CEBAE0300F8D26B /* SplitViewController.swift in Sources */,

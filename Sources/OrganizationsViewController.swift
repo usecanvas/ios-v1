@@ -231,8 +231,9 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 		if orgs.count > 0 {
 			let rows = orgs.map { rowForOrganization($0) }
 
-			// TODO: Localize
-			sections.append(Section(header: "Organizations", rows: rows))
+			let header = GroupedSectionHeaderView()
+			header.textLabel.text = LocalizedString.OrganizationsTitle.string.uppercaseString
+			sections.append(Section(header: .View(header), rows: rows))
 		}
 
 		dataSource.sections = sections

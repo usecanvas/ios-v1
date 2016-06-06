@@ -27,7 +27,7 @@ struct Color {
 
 	static let searchBarBorder = lightGray
 
-	static let tableViewBackground = extraLightGray
+	static let groupedTableBackground = extraLightGray
 	
 	static let cellSeparator = lightGray
 

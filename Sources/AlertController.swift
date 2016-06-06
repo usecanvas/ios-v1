@@ -30,6 +30,15 @@ final class AlertController: UIAlertController {
 	}
 
 
+	// MARK: - UIViewController
+
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+
+		adjustSubviews([view])
+	}
+
+
 	// MARK: - Actions
 
 	func cancel(sender: AnyObject?) {
@@ -39,5 +48,45 @@ final class AlertController: UIAlertController {
 	func selectFirstAction(sender: AnyObject?) {
 		primaryAction?()
 		dismissViewControllerAnimated(true, completion: nil)
+	}
+
+
+	// MARK: - Private
+
+	private func adjustSubviews(subviews: [UIView]) {
+		for subview in subviews {
+			if let label = subview as? UILabel {
+				adjustLabel(label)
+			}
+
+			adjustSubviews(subview.subviews)
+		}
+	}
+
+	private func adjustLabel(label: UILabel) {
+		for action in actions {
+			if label.text == title {
+				label.attributedText = NSAttributedString(string: label.text ?? "", attributes: [
+					NSFontAttributeName: label.font,
+					NSForegroundColorAttributeName: Color.gray
+				])
+				return
+			}
+
+			if label.text == action.title {
+				switch action.style {
+				case .Default, .Cancel:
+					label.attributedText = NSAttributedString(string: label.text ?? "", attributes: [
+						NSFontAttributeName: label.font,
+						NSForegroundColorAttributeName: Color.brand
+					])
+				case .Destructive:
+					label.attributedText = NSAttributedString(string: label.text ?? "", attributes: [
+						NSFontAttributeName: label.font,
+						NSForegroundColorAttributeName: Color.destructive
+					])
+				}
+			}
+		}
 	}
 }
