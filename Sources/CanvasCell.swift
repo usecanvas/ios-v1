@@ -37,7 +37,7 @@ final class CanvasCell: UITableViewCell {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.backgroundColor = Color.white
-		label.textColor = Color.darkGray
+		label.textColor = Color.black
 		label.highlightedTextColor = Color.white
 		return label
 	}()
@@ -68,7 +68,7 @@ final class CanvasCell: UITableViewCell {
 
 			if canvas.archivedAt == nil {
 				titleLabel.textColor = Color.black
-				summaryLabel.textColor = Color.darkGray
+				summaryLabel.textColor = Color.black
 			} else {
 				titleLabel.textColor = Color.gray
 				summaryLabel.textColor = Color.gray
@@ -151,7 +151,7 @@ final class CanvasCell: UITableViewCell {
 		if highlighted || selected {
 			disclosureIndicatorView.tintColor = .whiteColor()
 		} else {
-			disclosureIndicatorView.tintColor = canvas?.archivedAt == nil ? Color.disclosureIndicator : Color.gray
+			disclosureIndicatorView.tintColor = canvas?.archivedAt == nil ? Color.cellDisclosureIndicator : Color.lightGray
 		}
 	}
 }

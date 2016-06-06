@@ -27,7 +27,7 @@ class CanvasesResultsViewController: CanvasesViewController {
 
 		let line = LineView()
 		line.translatesAutoresizingMaskIntoConstraints = false
-		line.backgroundColor = Color.gray
+		line.backgroundColor = Color.searchBarBorder
 		view.addSubview(line)
 
 		NSLayoutConstraint.activateConstraints([

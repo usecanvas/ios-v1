@@ -16,7 +16,7 @@ class SectionHeaderView: UIView {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.font = .boldSystemFontOfSize(17)
-		label.textColor = Color.darkGray
+		label.textColor = Color.black
 		return label
 	}()
 

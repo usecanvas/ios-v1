@@ -69,7 +69,7 @@ final class OrganizationAvatarView: UIView {
 	private func updateUI() {
 		guard let organization = organization else {
 			initialsLabel.text = nil
-			tintColor = highlighted ? .whiteColor() : Color.gray
+			tintColor = highlighted ? .whiteColor() : Color.cellDisclosureIndicator
 			return
 		}
 

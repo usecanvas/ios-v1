@@ -44,7 +44,7 @@ class NavigationBar: UINavigationBar {
 		translucent = false
 		shadowImage = UIImage()
 
-		borderColor = Color.gray
+		borderColor = Color.navigationBarBorder
 
 		addSubview(borderView)
 

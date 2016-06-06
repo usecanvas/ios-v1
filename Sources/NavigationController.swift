@@ -13,7 +13,7 @@ final class NavigationController: UINavigationController {
 	// MARK: - Properties
 
 	private let defaultTintColor = Color.brand
-	private let defaultTitleColor = Color.darkGray
+	private let defaultTitleColor = Color.black
 
 
 	// MARK: - Initializers

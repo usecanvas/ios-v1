@@ -9,20 +9,28 @@
 import UIKit
 
 struct Color {
-	static let brand = UIColor(red: 0.004, green: 0.412, blue: 1, alpha: 1)
-
-	static let destructive = UIColor(red: 1, green: 0.216, blue: 0.502, alpha: 1)
-
-	static let gray = UIColor(red: 0.847, green: 0.847, blue: 0.863, alpha: 1)
-	static let lightGray = UIColor(red: 0.918, green: 0.918, blue: 0.929, alpha: 1)
-	static let extraLightGray = UIColor(red: 0.961, green: 0.961, blue: 0.965, alpha: 1)
-	static let darkGray = UIColor(red: 0.420, green: 0.420, blue: 0.447, alpha: 1)
-
-	static let disclosureIndicator = UIColor(red: 0.780, green: 0.780, blue: 0.800, alpha: 1)
-
-	static let codeBackground = UIColor(red: 0.961, green: 0.961, blue: 0.965, alpha: 1)
-	static let lineNumbersBackground = UIColor(red: 0.933, green: 0.933, blue: 0.941, alpha: 1)
-
+	static let black = UIColor(red: 0.161, green: 0.180, blue: 0.192, alpha: 1)
 	static let white = UIColor.whiteColor()
-	static let black = UIColor.blackColor()
+	static let gray = UIColor(red: 0.514, green: 0.569, blue: 0.592, alpha: 1)
+	static let lightGray = UIColor(red: 0.906, green: 0.918, blue: 0.925, alpha: 1)
+	static let extraLightGray = UIColor(red: 0.961, green: 0.969, blue: 0.976, alpha: 1)
+	
+	private static let blue = UIColor(red: 0.255, green:0.306, blue: 0.976, alpha: 1)
+	private static let green = UIColor(red: 0.157, green:0.859, blue: 0.404, alpha: 1)
+	private static let pink = UIColor(red: 1, green: 0.216, blue: 0.502, alpha: 1)
+
+	static let brand = blue
+
+	static let destructive = pink
+
+	static let navigationBarBorder = lightGray
+
+	static let searchBarBorder = lightGray
+
+	static let tableViewBackground = extraLightGray
+	
+	static let cellSeparator = lightGray
+
+	/// Chevron in table view cells
+	static let cellDisclosureIndicator = gray
 }

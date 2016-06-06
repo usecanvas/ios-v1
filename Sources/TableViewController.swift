@@ -31,7 +31,11 @@ class TableViewController: UIViewController {
 	init(style: UITableViewStyle) {
 		tableView = UITableView(frame: .zero, style: style)
 		tableView.translatesAutoresizingMaskIntoConstraints = false
-		tableView.separatorColor = Color.gray
+		tableView.separatorColor = Color.cellSeparator
+
+		if style == .Grouped {
+			tableView.backgroundColor = Color.tableViewBackground
+		}
 
 		dataSource.tableView = tableView
 
