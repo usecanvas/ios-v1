@@ -1,0 +1,21 @@
+//
+//  TableView.swift
+//  Canvas
+//
+//  Created by Sam Soffes on 6/6/16.
+//  Copyright © 2016 Canvas Labs, Inc. All rights reserved.
+//
+
+import UIKit
+
+final class TableView: UITableView {
+	override func tintColorDidChange() {
+		super.tintColorDidChange()
+
+		if style != .Grouped {
+			return
+		}
+
+		backgroundColor = tintAdjustmentMode == .Dimmed ? Color.groupedTableBackground.desaturated : Color.groupedTableBackground
+	}
+}

@@ -32,8 +32,6 @@ class SectionHeaderView: UIView {
 
 		autoresizingMask = [.FlexibleWidth]
 
-		backgroundColor = Color.extraLightGray
-
 		addSubview(textLabel)
 
 		NSLayoutConstraint.activateConstraints([
@@ -46,5 +44,13 @@ class SectionHeaderView: UIView {
 	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+
+
+	// MARK: - UIView
+
+	override func tintColorDidChange() {
+		super.tintColorDidChange()
+		backgroundColor = tintAdjustmentMode == .Dimmed ? Color.extraLightGray.desaturated : Color.extraLightGray
 	}
 }
