@@ -67,6 +67,8 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 
 	var ready: (() -> Void)?
 
+	var creating = false
+
 
 	// MARK: - Initializers
 
@@ -203,11 +205,18 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 	// MARK: - Actions
 
 	func createCanvas() {
+		if creating {
+			return
+		}
+
+		creating = true
+
 		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 		
 		APIClient(account: account).createCanvas(organization: organization) { [weak self] result in
 			dispatch_async(dispatch_get_main_queue()) {
 				UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+				self?.creating = false
 
 				switch result {
 				case .Success(let canvas):
