@@ -42,16 +42,14 @@ class PresenceController: NSObject, Accountable {
 		/// Index of user's cursor end on `endLine`
 		var end: UInt
 
-		init?(selectedRange: NSRange, string: String) {
-			let text = string as NSString
-			let bounds = NSRange(location: 0, length: text.length)
-
-			if NSMaxRange(selectedRange) > bounds.length {
-				return nil
-			}
-
-			
-		}
+//		init?(selectedRange: NSRange, string: String) {
+//			let text = string as NSString
+//			let bounds = NSRange(location: 0, length: text.length)
+//
+//			if NSMaxRange(selectedRange) > bounds.length {
+//				return nil
+//			}
+//		}
 	}
 
 
@@ -82,9 +80,11 @@ class PresenceController: NSObject, Accountable {
 			return
 		}
 
-		let url = NSURL(string: "socket/websocket", relativeToURL: config.presenceURL)
+		let url = NSURL(string: "socket/websocket", relativeToURL: config.presenceURL)!
+		let request = NSMutableURLRequest(URL: url)
+		request.setValue("Bearer \(account.accessToken)", forHTTPHeaderField: "Authorization")
 
-		let ws = SRWebSocket(URL: url)
+		let ws = SRWebSocket(URLRequest: request)
 		ws.delegate = self
 		ws.open()
 
@@ -129,6 +129,18 @@ class PresenceController: NSObject, Accountable {
 
 extension PresenceController: SRWebSocketDelegate {
 	func webSocket(webSocket: SRWebSocket!, didReceiveMessage message: AnyObject!) {
-		print("message: \(message)")
+		print("[presence] message: \(message)")
+	}
+
+	func webSocketDidOpen(webSocket: SRWebSocket!) {
+		print("[presence] did open")
+	}
+
+	func webSocket(webSocket: SRWebSocket!, didFailWithError error: NSError!) {
+		print("[presence] error: \(error)")
+	}
+
+	func webSocket(webSocket: SRWebSocket!, didCloseWithCode code: Int, reason: String!, wasClean: Bool) {
+		print("[presence] close: \(code) \(reason)")
 	}
 }

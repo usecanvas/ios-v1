@@ -23,6 +23,7 @@ final class EditorViewController: UIViewController, Accountable {
 
 	let textController: TextController
 	let textView: CanvasTextView
+	let presenceController: PresenceController
 
 	private var lastSize: CGSize?
 	var usingKeyboard = false
@@ -68,6 +69,8 @@ final class EditorViewController: UIViewController, Accountable {
 		let textView = CanvasTextView(frame: .zero, textContainer: textController.textContainer)
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		self.textView = textView
+
+		presenceController = PresenceController(account: account)
 		
 		super.init(nibName: nil, bundle: nil)
 		
@@ -92,7 +95,8 @@ final class EditorViewController: UIViewController, Accountable {
 	}
 
 	deinit {
-		NSNotificationCenter.defaultCenter().removeObserver(self)
+		textController.disconnect(reason: nil)
+		presenceController.disconnect()
 	}
 
 
@@ -161,6 +165,7 @@ final class EditorViewController: UIViewController, Accountable {
 		view.addSubview(textView)
 
 		textController.connect()
+		presenceController.connect()
 		
 		NSLayoutConstraint.activateConstraints([
 			textView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
