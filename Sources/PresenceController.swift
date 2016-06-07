@@ -82,7 +82,7 @@ class PresenceController: NSObject, Accountable {
 
 		let url = NSURL(string: "socket/websocket", relativeToURL: config.presenceURL)!
 		let request = NSMutableURLRequest(URL: url)
-		request.setValue("Bearer \(account.accessToken)", forHTTPHeaderField: "Authorization")
+		request.setValue("https://usecanvas.com", forHTTPHeaderField: "Origin")
 
 		let ws = SRWebSocket(URLRequest: request)
 		ws.delegate = self
