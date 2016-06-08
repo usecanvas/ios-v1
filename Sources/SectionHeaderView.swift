@@ -15,7 +15,7 @@ class SectionHeaderView: UIView {
 	let textLabel: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
-		label.font = .boldSystemFontOfSize(17)
+		label.font = Font.sansSerif(weight: .Bold)
 		label.textColor = Color.black
 		return label
 	}()
@@ -24,7 +24,7 @@ class SectionHeaderView: UIView {
 	// MARK: - Initializers
 
 	convenience init() {
-		self.init(frame: CGRect(x: 0, y: 0, width: 320, height: 28))
+		self.init(frame: CGRect(x: 0, y: 0, width: 320, height: 30))
 	}
 
 	override init(frame: CGRect) {
