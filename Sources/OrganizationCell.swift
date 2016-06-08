@@ -31,7 +31,7 @@ class OrganizationCell: UITableViewCell, CellType {
 		return label
 	}()
 
-	let disclosureIndicatorView = UIImageView(image: UIImage(named: "Chevron"))
+	let disclosureIndicatorView = UIImageView(image: UIImage(named: "ChevronRightSmall"))
 
 
 	// MARK: - Initializers

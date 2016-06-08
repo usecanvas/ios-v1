@@ -70,7 +70,7 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 
 		tableView.estimatedRowHeight = 66
 		 
-		navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Settings"), style: .Plain, target: self, action: #selector(showSettings))
+		navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Gear"), style: .Plain, target: self, action: #selector(showSettings))
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
 	}
 

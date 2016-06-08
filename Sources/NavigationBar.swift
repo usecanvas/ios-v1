@@ -43,6 +43,8 @@ class NavigationBar: UINavigationBar {
 		barTintColor = Color.white
 		translucent = false
 		shadowImage = UIImage()
+		backIndicatorImage = UIImage(named: "ChevronLeft")
+		backIndicatorTransitionMaskImage = UIImage(named: "ChevronLeft")
 
 		borderColor = Color.navigationBarBorder
 

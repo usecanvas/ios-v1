@@ -2,7 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "receipt.pdf"
+      "filename" : "Safari.pdf"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "Safari~iPad.pdf"
     }
   ],
   "info" : {

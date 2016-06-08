@@ -96,7 +96,6 @@ final class EditorViewController: UIViewController, Accountable {
 
 	deinit {
 		textController.disconnect(reason: nil)
-		presenceController.remove(observer: self)
 		presenceController.disconnect()
 	}
 
@@ -159,7 +158,7 @@ final class EditorViewController: UIViewController, Accountable {
 		view.backgroundColor = Color.white
 
 		navigationItem.rightBarButtonItems = [
-			UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(share))
+			UIBarButtonItem(image: UIImage(named: "More"), style: .Plain, target: self, action: #selector(share))
 		]
 
 		textView.delegate = self

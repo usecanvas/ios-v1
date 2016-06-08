@@ -53,7 +53,7 @@ final class CanvasCell: UITableViewCell {
 		return label
 	}()
 
-	let disclosureIndicatorView = UIImageView(image: UIImage(named: "Chevron"))
+	let disclosureIndicatorView = UIImageView(image: UIImage(named: "ChevronRightSmall"))
 
 	private var canvas: Canvas? {
 		didSet {
