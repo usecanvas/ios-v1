@@ -31,6 +31,12 @@ struct LightTheme: Theme {
 	let codeBlockLineNumberBackgroundColor = Color.lightGray
 	let blockquoteColor = Color.gray
 	let blockquoteBorderColor = Color.lightGray
+	let headingOneColor = Color.black
+	let headingTwoColor = Color.black
+	let headingThreeColor = Color.black
+	let headingFourColor = Color.black
+	let headingFiveColor = Color.black
+	let headingSixColor = Color.black
 	let horizontalRuleColor = Color.gray
 	let imagePlaceholderColor = Color.gray
 	let imagePlaceholderBackgroundColor = Color.extraLightGray
