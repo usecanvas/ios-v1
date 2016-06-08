@@ -177,6 +177,14 @@
 		21A77E0A1D07E53600340243 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A77E081D07E53200340243 /* Starscream.framework */; };
 		21A77E0C1D07E56300340243 /* Cursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A77E0B1D07E56300340243 /* Cursor.swift */; };
 		21A77E0D1D07E56300340243 /* Cursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A77E0B1D07E56300340243 /* Cursor.swift */; };
+		21A77E0F1D08031E00340243 /* AvatarsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A77E0E1D08031E00340243 /* AvatarsController.swift */; };
+		21A77E101D08031E00340243 /* AvatarsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A77E0E1D08031E00340243 /* AvatarsController.swift */; };
+		21A77E121D0803C600340243 /* AvatarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A77E111D0803C600340243 /* AvatarsView.swift */; };
+		21A77E131D0803C600340243 /* AvatarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A77E111D0803C600340243 /* AvatarsView.swift */; };
+		21A77E151D08053A00340243 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A77E141D08053A00340243 /* AvatarView.swift */; };
+		21A77E161D08053A00340243 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A77E141D08053A00340243 /* AvatarView.swift */; };
+		21A77E181D08083400340243 /* ImgixController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A77E171D08083400340243 /* ImgixController.swift */; };
+		21A77E191D08083400340243 /* ImgixController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A77E171D08083400340243 /* ImgixController.swift */; };
 		21B502301CFF41C70067FB9A /* PresenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B5022F1CFF41C70067FB9A /* PresenceController.swift */; };
 		21B502311CFF41C70067FB9A /* PresenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B5022F1CFF41C70067FB9A /* PresenceController.swift */; };
 		21C58DB61D022BD8005AEFE1 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C58DB51D022BD8005AEFE1 /* LineView.swift */; };
@@ -681,6 +689,10 @@
 		2193DC3F1D0794A2004D8D0C /* LightTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
 		21A77E081D07E53200340243 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
 		21A77E0B1D07E56300340243 /* Cursor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cursor.swift; sourceTree = "<group>"; };
+		21A77E0E1D08031E00340243 /* AvatarsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarsController.swift; sourceTree = "<group>"; };
+		21A77E111D0803C600340243 /* AvatarsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarsView.swift; sourceTree = "<group>"; };
+		21A77E141D08053A00340243 /* AvatarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		21A77E171D08083400340243 /* ImgixController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImgixController.swift; sourceTree = "<group>"; };
 		21B1E68C1CD516B000E2902C /* CanvasKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasKit.xcodeproj; path = CanvasKit/CanvasKit.xcodeproj; sourceTree = "<group>"; };
 		21B1E6B21CD516B000E2902C /* CanvasNative.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasNative.xcodeproj; path = CanvasNative/CanvasNative.xcodeproj; sourceTree = "<group>"; };
 		21B1E6F51CD516B000E2902C /* CanvasText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasText.xcodeproj; path = CanvasText/CanvasText.xcodeproj; sourceTree = "<group>"; };
@@ -874,6 +886,8 @@
 				2107D2F01CC58F7B001963B7 /* TintableView.swift */,
 				2178CB511CEA7B0100E9A4B2 /* SpaceView.swift */,
 				21C58DB51D022BD8005AEFE1 /* LineView.swift */,
+				21A77E111D0803C600340243 /* AvatarsView.swift */,
+				21A77E141D08053A00340243 /* AvatarView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -905,6 +919,8 @@
 			children = (
 				2107D2EB1CC58F7B001963B7 /* SearchController.swift */,
 				21B5022F1CFF41C70067FB9A /* PresenceController.swift */,
+				21A77E0E1D08031E00340243 /* AvatarsController.swift */,
+				21A77E171D08083400340243 /* ImgixController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1689,6 +1705,7 @@
 				21501D641CCAA2B900B02FC5 /* TableViewController.swift in Sources */,
 				21501D651CCAA2B900B02FC5 /* NavigationBar.swift in Sources */,
 				2147A2FD1CDA7B35008A2709 /* DragContext.swift in Sources */,
+				21A77E191D08083400340243 /* ImgixController.swift in Sources */,
 				21501D661CCAA2B900B02FC5 /* CanvasTextView.swift in Sources */,
 				21501D671CCAA2B900B02FC5 /* CanvasesViewController.swift in Sources */,
 				21501D681CCAA2B900B02FC5 /* Configuration.swift in Sources */,
@@ -1700,6 +1717,7 @@
 				21501D6D1CCAA2B900B02FC5 /* LoginViewController.swift in Sources */,
 				21501D6E1CCAA2B900B02FC5 /* LocalizedString.swift in Sources */,
 				2117A07C1D0641CE00E60821 /* TableView.swift in Sources */,
+				21A77E101D08031E00340243 /* AvatarsController.swift in Sources */,
 				21501D6F1CCAA2B900B02FC5 /* TickingLabel.swift in Sources */,
 				21501D701CCAA2B900B02FC5 /* CanvasIconView.swift in Sources */,
 				21501D711CCAA2B900B02FC5 /* CanvasCell.swift in Sources */,
@@ -1718,6 +1736,7 @@
 				21501D791CCAA2B900B02FC5 /* RootViewController.swift in Sources */,
 				21501D7A1CCAA2B900B02FC5 /* TintableView.swift in Sources */,
 				215CD89C1CE2A26F0093C545 /* EditorViewController+Actions.swift in Sources */,
+				21A77E161D08053A00340243 /* AvatarView.swift in Sources */,
 				21501D7B1CCAA2B900B02FC5 /* Font.swift in Sources */,
 				21501D7C1CCAA2B900B02FC5 /* AlertController.swift in Sources */,
 				2147A2FA1CDA5908008A2709 /* CanvasTextView+Gestures.swift in Sources */,
@@ -1735,6 +1754,7 @@
 				21501D831CCAA2B900B02FC5 /* SearchBarContainer.swift in Sources */,
 				21501D851CCAA2B900B02FC5 /* UIFont+Canvas.swift in Sources */,
 				21501D861CCAA2B900B02FC5 /* OrganizationAvatarView.swift in Sources */,
+				21A77E131D0803C600340243 /* AvatarsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1761,6 +1781,7 @@
 				2107D3241CC58F7B001963B7 /* TableViewController.swift in Sources */,
 				2107D3161CC58F7B001963B7 /* NavigationBar.swift in Sources */,
 				2147A2FC1CDA7B2E008A2709 /* DragContext.swift in Sources */,
+				21A77E181D08083400340243 /* ImgixController.swift in Sources */,
 				214F9FF71CC6DE4600927A07 /* CanvasTextView.swift in Sources */,
 				2107D3091CC58F7B001963B7 /* CanvasesViewController.swift in Sources */,
 				2107D30F1CC58F7B001963B7 /* Configuration.swift in Sources */,
@@ -1772,6 +1793,7 @@
 				2107D3141CC58F7B001963B7 /* LoginViewController.swift in Sources */,
 				2107D3121CC58F7B001963B7 /* LocalizedString.swift in Sources */,
 				2117A07B1D0641CE00E60821 /* TableView.swift in Sources */,
+				21A77E0F1D08031E00340243 /* AvatarsController.swift in Sources */,
 				2107D3261CC58F7B001963B7 /* TickingLabel.swift in Sources */,
 				2107D30A1CC58F7B001963B7 /* CanvasIconView.swift in Sources */,
 				2107D3071CC58F7B001963B7 /* CanvasCell.swift in Sources */,
@@ -1790,6 +1812,7 @@
 				2107D3201CC58F7B001963B7 /* RootViewController.swift in Sources */,
 				2107D3281CC58F7B001963B7 /* TintableView.swift in Sources */,
 				215CD89D1CE2A26F0093C545 /* EditorViewController+Actions.swift in Sources */,
+				21A77E151D08053A00340243 /* AvatarView.swift in Sources */,
 				2107D3111CC58F7B001963B7 /* Font.swift in Sources */,
 				2107D3021CC58F7B001963B7 /* AlertController.swift in Sources */,
 				2147A2E31CDA586E008A2709 /* CanvasTextView+Gestures.swift in Sources */,
@@ -1807,6 +1830,7 @@
 				2107D3221CC58F7B001963B7 /* SearchBarContainer.swift in Sources */,
 				2107D32A1CC58F7B001963B7 /* UIFont+Canvas.swift in Sources */,
 				2107D31B1CC58F7B001963B7 /* OrganizationAvatarView.swift in Sources */,
+				21A77E121D0803C600340243 /* AvatarsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

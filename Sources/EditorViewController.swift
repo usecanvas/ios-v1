@@ -51,6 +51,12 @@ final class EditorViewController: UIViewController, Accountable {
 		}
 	}
 
+	private let avatarsView: AvatarsView = {
+		let view = AvatarsView()
+		view.translatesAutoresizingMaskIntoConstraints = false
+		return view
+	}()
+
 
 	// MARK: - Initializers
 
@@ -168,12 +174,16 @@ final class EditorViewController: UIViewController, Accountable {
 		textController.connect()
 
 		presenceController.add(observer: self)
+		view.addSubview(avatarsView)
 		
 		NSLayoutConstraint.activateConstraints([
 			textView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
 			textView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor),
 			textView.topAnchor.constraintEqualToAnchor(view.topAnchor),
-			textView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor)
+			textView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor),
+
+			avatarsView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: -16),
+			avatarsView.topAnchor.constraintEqualToAnchor(topLayoutGuide.bottomAnchor, constant: 16)
 		])
 
 		if traitCollection.forceTouchCapability == .Available {
@@ -262,26 +272,13 @@ final class EditorViewController: UIViewController, Accountable {
 	}
 	
 	private func imgixURL(URL: NSURL) -> NSURL? {
-		let defaultParameters = [
-			NSURLQueryItem(name: "dpr", value: "\(Int(traitCollection.displayScale))"),
-			NSURLQueryItem(name: "fm", value: "jpg"),
-			NSURLQueryItem(name: "q", value: "80"),
+		let parameters = [
 			NSURLQueryItem(name: "fit", value: "max"),
+			NSURLQueryItem(name: "dpr", value: "\(Int(traitCollection.displayScale))"),
 			NSURLQueryItem(name: "w", value: "\(Int(textView.textContainer.size.width))")
 		]
-		
-		// Uploaded image
-		let uploadPrefix = "https://canvas-files-prod.s3.amazonaws.com/uploads/"
-		if URL.absoluteString.hasPrefix(uploadPrefix) {
-			let imgix = Imgix(host: config.imgixUploadHost, secret: config.imgixUploadSecret, defaultParameters: defaultParameters)
-			let path = (URL.absoluteString as NSString).substringFromIndex((uploadPrefix as NSString).length)
-			return imgix.signPath(path)
-		}
-		
-		// Linked image
-		let imgix = Imgix(host: config.imgixProxyHost, secret: config.imgixProxySecret, defaultParameters: defaultParameters)
-		let path = URL.absoluteString.stringByAddingPercentEncodingWithAllowedCharacters(.URLPathAllowedCharacterSet())
-		return path.flatMap { imgix.signPath($0) }
+
+		return ImgixController.signURL(URL, parameters: parameters)
 	}
 
 	func updateTitlePlaceholder() {
@@ -430,8 +427,6 @@ extension EditorViewController: CanvasTextViewFormattingDelegate {
 extension EditorViewController: PresenceObserver {
 	func presenceDidChange(canvasID: String) {
 		guard canvasID == canvas.ID else { return }
-
-		let users = presenceController.users(canvasID: canvasID)
-		print("users: \(users)")
+		avatarsView.users = presenceController.users(canvasID: canvasID)
 	}
 }
