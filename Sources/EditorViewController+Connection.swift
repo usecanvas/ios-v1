@@ -18,6 +18,8 @@ extension EditorViewController: TextControllerConnectionDelegate {
 	}
 
 	func textControllerDidConnect(textController: TextController) {
+		presenceController.connect()
+		
 		if canvas.isWritable {
 			textView.editable = true
 		}

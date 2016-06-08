@@ -10,8 +10,12 @@ import Foundation
 import CanvasKit
 import Starscream
 
+protocol PresenceObserver: NSObjectProtocol {
+	func presenceDidChange(canvasID: String, users: [User])
+}
+
 // TODO: Update meta
-// TODO: Handle join
+// TODO: Handle multi remote connections
 // TODO: Handle update meta
 // TODO: Handle expired
 class PresenceController: Accountable {
@@ -22,6 +26,7 @@ class PresenceController: Accountable {
 		let canvasID: String
 		let connectionID: String
 		var cursor: Cursor?
+		var users = [User]()
 
 		init(canvasID: String, connectionID: String = NSUUID().UUIDString.lowercaseString) {
 			self.canvasID = canvasID
@@ -34,30 +39,33 @@ class PresenceController: Accountable {
 
 	var account: Account
 
-	private var socket: WebSocket?
+	var isConnected: Bool {
+		return socket?.isConnected ?? false
+	}
+
+	private var socket: WebSocket? = nil
 	private var connections = [String: Connection]()
-	private var messageQueue = [[String: AnyObject]]()
+	private var messageQueue = [JSONDictionary]()
 	private var pingTimer: NSTimer?
+	private var observers = NSMutableSet()
 
 
 	// MARK: - Initializers
 
 	init(account: Account) {
 		self.account = account
+		connect()
 	}
 
 	deinit {
-		for (_, connection) in connections {
-			leave(canvasID: connection.canvasID)
-		}
-		
-		socket?.disconnect()
+		observers.removeAllObjects()
+		disconnect()
 	}
 
 
 	// MARK: - Connecting
 
-	private func connect() {
+	func connect() {
 		if socket != nil {
 			return
 		}
@@ -72,6 +80,10 @@ class PresenceController: Accountable {
 	}
 
 	func disconnect() {
+		for (_, connection) in connections {
+			leave(canvasID: connection.canvasID)
+		}
+
 		socket?.disconnect()
 		socket = nil
 	}
@@ -83,14 +95,14 @@ class PresenceController: Accountable {
 		let connection = Connection(canvasID: canvasID)
 		let payload = clientDescriptor(connectionID: connection.connectionID)
 
+		connections[canvasID] = connection
+
 		sendMessage([
 			"event": "phx_join",
 			"topic": "presence:canvases:\(canvasID)",
 			"payload": payload,
 			"ref": "1"
 		])
-
-		connections[canvasID] = connection
 	}
 
 	func leave(canvasID canvasID: String) {
@@ -107,21 +119,38 @@ class PresenceController: Accountable {
 	}
 
 
+	// MARK: - Notifications
+
+	func add(observer observer: PresenceObserver) {
+		observers.addObject(observer)
+	}
+
+	func remove(observer observer: PresenceObserver) {
+		observers.removeObject(observer)
+	}
+
+
+	// MARK: - Querying
+
+	func users(canvasID canvasID: String) -> [User] {
+		return connections[canvasID]?.users ?? []
+	}
+
+
 	// MARK: - Private
 
-	private func sendMessage(message: [String: AnyObject]) {
+	private func sendMessage(message: JSONDictionary) {
 		if let socket = socket where socket.isConnected {
 			if let data = try? NSJSONSerialization.dataWithJSONObject(message, options: []) {
-				print("[presence] send: \(message)")
 				socket.writeData(data)
 			}
 		} else {
-			connect()
 			messageQueue.append(message)
+			connect()
 		}
 	}
 
-	private func clientDescriptor(connectionID connectionID: String) -> [String: AnyObject] {
+	private func clientDescriptor(connectionID connectionID: String) -> JSONDictionary {
 		return [
 			"id": connectionID,
 			"user": account.user.dictionary,
@@ -141,16 +170,22 @@ class PresenceController: Accountable {
 			])
 		}
 	}
+
+	private func updateObservers(canvasID canvasID: String) {
+		let users = connections[canvasID]?.users ?? []
+
+		for observer in observers {
+			guard let observer = observer as? PresenceObserver else { continue }
+			observer.presenceDidChange(canvasID, users: users)
+		}
+	}
 }
 
 
 extension PresenceController: WebSocketDelegate {
 	func websocketDidConnect(socket: WebSocket) {
-		print("[presence] did open")
-
 		for message in messageQueue {
 			if let data = try? NSJSONSerialization.dataWithJSONObject(message, options: []) {
-				print("[presence] send: \(message)")
 				socket.writeData(data)
 			}
 		}
@@ -170,10 +205,52 @@ extension PresenceController: WebSocketDelegate {
 	}
 
 	func websocketDidReceiveMessage(socket: WebSocket, text: String) {
-		print("[presence] did receive message: \(text)")
+		guard let data = text.dataUsingEncoding(NSUTF8StringEncoding),
+			raw = try? NSJSONSerialization.JSONObjectWithData(data, options: []),
+			json = raw as? JSONDictionary,
+			event = json["event"] as? String,
+			topic = json["topic"] as? String,
+			payload = json["payload"] as? JSONDictionary
+		else { return }
+
+		let canvasID = topic.stringByReplacingOccurrencesOfString("presence:canvases:", withString: "")
+		guard var connection = connections[canvasID] else { return }
+
+		// Join
+		if event == "phx_reply", let response = payload["response"] as? JSONDictionary, clients = response["clients"] as? [JSONDictionary] {
+			let users = clients.flatMap { ($0["user"] as? JSONDictionary).flatMap(User.init) }
+
+			if !users.isEmpty {
+				connection.users = users
+				connections[canvasID] = connection
+				updateObservers(canvasID: canvasID)
+			}
+		}
+
+		// Remove join
+		else if event == "remote_join", let dictionary = payload["user"] as? JSONDictionary, user = User.init(dictionary: dictionary) {
+			var users = connection.users ?? []
+
+			if users.indexOf({ $0.ID == user.ID }) == nil {
+				users.append(user)
+				connection.users = users
+				connections[canvasID] = connection
+				updateObservers(canvasID: canvasID)
+			}
+		}
+
+		// Remove leave
+		else if event == "remote_leave", let dictionary = payload["user"] as? JSONDictionary, userID = dictionary["id"] as? String {
+			var users = connection.users ?? []
+
+			if let index = users.indexOf({ $0.ID == userID }) {
+				users.removeAtIndex(index)
+				connection.users = users
+				connections[canvasID] = connection
+				updateObservers(canvasID: canvasID)
+			}
+		}
 	}
 
-	func websocketDidReceiveData(socket: WebSocket, data: NSData) {
-		print("[presence] did receive data: \(data)")
-	}
+	func websocketDidReceiveData(socket: WebSocket, data: NSData) {}
 }

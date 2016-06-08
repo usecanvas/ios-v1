@@ -96,6 +96,7 @@ final class EditorViewController: UIViewController, Accountable {
 
 	deinit {
 		textController.disconnect(reason: nil)
+		presenceController.remove(observer: self)
 		presenceController.disconnect()
 	}
 
@@ -165,6 +166,8 @@ final class EditorViewController: UIViewController, Accountable {
 		view.addSubview(textView)
 
 		textController.connect()
+
+		presenceController.add(observer: self)
 		
 		NSLayoutConstraint.activateConstraints([
 			textView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
@@ -295,6 +298,11 @@ final class EditorViewController: UIViewController, Accountable {
 	private func updateAutoCompletion() {
 		autocompleteEnabled = !textController.isCodeFocused
 	}
+
+	@objc private func presenceDidChange() {
+		let users = presenceController.users(canvasID: canvas.ID)
+		print("users: \(users.map { $0.username })")
+	}
 }
 
 
@@ -415,5 +423,14 @@ extension EditorViewController: CanvasTextViewFormattingDelegate {
 
 	func textViewDidToggleItalics(textView: CanvasTextView, sender: AnyObject?) {
 		italic()
+	}
+}
+
+
+extension EditorViewController: PresenceObserver {
+	func presenceDidChange(canvasID: String, users: [CanvasKit.User]) {
+		guard canvasID == canvas.ID else { return }
+
+		print("users: \(users)")
 	}
 }
