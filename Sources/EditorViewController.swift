@@ -165,7 +165,6 @@ final class EditorViewController: UIViewController, Accountable {
 		view.addSubview(textView)
 
 		textController.connect()
-		presenceController.connect()
 		
 		NSLayoutConstraint.activateConstraints([
 			textView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
@@ -204,12 +203,14 @@ final class EditorViewController: UIViewController, Accountable {
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		updatePreventSleep()
+		presenceController.join(canvasID: canvas.ID)
 	}
 
 	override func viewWillDisappear(animated: Bool) {
 		super.viewWillDisappear(animated)
 		UIApplication.sharedApplication().idleTimerDisabled = false
 		textView.resignFirstResponder()
+		presenceController.leave(canvasID: canvas.ID)
 	}
 	
 	override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
