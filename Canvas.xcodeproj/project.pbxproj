@@ -171,6 +171,8 @@
 		218383D51CD517E400F7AA24 /* SSKeychain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9C71CD516D900E2902C /* SSKeychain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		218A75B81CECD02F00459BC9 /* GradientView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218A75B71CECD02F00459BC9 /* GradientView.framework */; };
 		218A75D11CECD06500459BC9 /* GradientView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218A75B71CECD02F00459BC9 /* GradientView.framework */; };
+		2193DC401D0794A2004D8D0C /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2193DC3F1D0794A2004D8D0C /* LightTheme.swift */; };
+		2193DC5D1D0794A6004D8D0C /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2193DC3F1D0794A2004D8D0C /* LightTheme.swift */; };
 		21C58DB61D022BD8005AEFE1 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C58DB51D022BD8005AEFE1 /* LineView.swift */; };
 		21C58DB71D022BD8005AEFE1 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C58DB51D022BD8005AEFE1 /* LineView.swift */; };
 		21C58DD51D023947005AEFE1 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C58DD41D023947005AEFE1 /* SectionHeaderView.swift */; };
@@ -670,6 +672,7 @@
 		2178CB511CEA7B0100E9A4B2 /* SpaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceView.swift; sourceTree = "<group>"; };
 		2178CBB81CEA891100E9A4B2 /* SessionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionsViewController.swift; sourceTree = "<group>"; };
 		218A75B71CECD02F00459BC9 /* GradientView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GradientView.framework; path = Carthage/Build/iOS/GradientView.framework; sourceTree = "<group>"; };
+		2193DC3F1D0794A2004D8D0C /* LightTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
 		21B1E68C1CD516B000E2902C /* CanvasKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasKit.xcodeproj; path = CanvasKit/CanvasKit.xcodeproj; sourceTree = "<group>"; };
 		21B1E6B21CD516B000E2902C /* CanvasNative.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasNative.xcodeproj; path = CanvasNative/CanvasNative.xcodeproj; sourceTree = "<group>"; };
 		21B1E6F51CD516B000E2902C /* CanvasText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasText.xcodeproj; path = CanvasText/CanvasText.xcodeproj; sourceTree = "<group>"; };
@@ -877,6 +880,7 @@
 		2107D33C1CC591DB001963B7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2193DC3F1D0794A2004D8D0C /* LightTheme.swift */,
 				2107D2D61CC58F7A001963B7 /* Color.swift */,
 				2107D2D91CC58F7A001963B7 /* Font.swift */,
 				2147A2FB1CDA7B2E008A2709 /* DragContext.swift */,
@@ -1690,6 +1694,7 @@
 				21501D751CCAA2B900B02FC5 /* WebActivity.swift in Sources */,
 				2117A0301D06338C00E60821 /* GroupedSectionHeaderView.swift in Sources */,
 				21501D761CCAA2B900B02FC5 /* EditorViewController.swift in Sources */,
+				2193DC5D1D0794A6004D8D0C /* LightTheme.swift in Sources */,
 				21501D771CCAA2B900B02FC5 /* NavigationController.swift in Sources */,
 				212392941CEBAE0300F8D26B /* SplitViewController.swift in Sources */,
 				21501D781CCAA2B900B02FC5 /* ModelsViewController.swift in Sources */,
@@ -1759,6 +1764,7 @@
 				2107D32B1CC58F7B001963B7 /* WebActivity.swift in Sources */,
 				2117A02F1D06338C00E60821 /* GroupedSectionHeaderView.swift in Sources */,
 				2107D3101CC58F7B001963B7 /* EditorViewController.swift in Sources */,
+				2193DC401D0794A2004D8D0C /* LightTheme.swift in Sources */,
 				2107D3171CC58F7B001963B7 /* NavigationController.swift in Sources */,
 				212392931CEBAE0300F8D26B /* SplitViewController.swift in Sources */,
 				2107D3151CC58F7B001963B7 /* ModelsViewController.swift in Sources */,

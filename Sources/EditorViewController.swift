@@ -61,7 +61,8 @@ final class EditorViewController: UIViewController, Accountable {
 			serverURL: config.realtimeURL,
 			accessToken: account.accessToken,
 			organizationID: canvas.organization.ID,
-			canvasID: canvas.ID
+			canvasID: canvas.ID,
+			theme: LightTheme(tintColor: canvas.organization.color?.color ?? Color.brand)
 		)
 
 		let textView = CanvasTextView(frame: .zero, textContainer: textController.textContainer)

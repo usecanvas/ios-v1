@@ -105,6 +105,6 @@ class OrganizationCell: UITableViewCell, CellType {
 
 	private func updateHighlighted() {
 		avatarView.highlighted = highlighted || selected
-		disclosureIndicatorView.tintColor = highlighted || selected ? .whiteColor() : UIColor(red: 0.780, green: 0.780, blue: 0.800, alpha: 1)
+		disclosureIndicatorView.tintColor = highlighted || selected ? Color.white : Color.lightGray
 	}
 }
