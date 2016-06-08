@@ -295,11 +295,6 @@ final class EditorViewController: UIViewController, Accountable {
 	private func updateAutoCompletion() {
 		autocompleteEnabled = !textController.isCodeFocused
 	}
-
-	@objc private func presenceDidChange() {
-		let users = presenceController.users(canvasID: canvas.ID)
-		print("users: \(users.map { $0.username })")
-	}
 }
 
 
