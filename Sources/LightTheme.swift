@@ -12,37 +12,38 @@ import X
 
 struct LightTheme: Theme {
 
-	// MARK: - Properties
-
-	var tintColor: X.Color
+	// MARK: - Primary Colors
 
 	let backgroundColor = Color.white
 	let foregroundColor = Color.black
-	let placeholderColor = Color.lightGray
+	var tintColor: X.Color
 
+
+	// MARK: - Block Colors
+	
+	let titlePlaceholderColor = Color.lightGray
 	let bulletColor = Color.gray
 	let uncheckedCheckboxColor = Color.gray
 	let orderedListItemNumberColor = Color.gray
-	let horizontalRuleColor = Color.gray
-
 	let codeColor = Color.gray
 	let codeBlockBackgroundColor = Color.extraLightGray
 	let codeBlockLineNumberColor = Color.lightGray
 	let codeBlockLineNumberBackgroundColor = Color.lightGray
-
 	let blockquoteColor = Color.gray
 	let blockquoteBorderColor = Color.lightGray
+	let horizontalRuleColor = Color.gray
+	let imagePlaceholderColor = Color.gray
+	let imagePlaceholderBackgroundColor = Color.extraLightGray
 
-	let commentBackgroundColor = Color.comment
 
-	let placeholderImageColor = Color.gray
-	let placeholderImageBackgroundColor = Color.extraLightGray
+	// MARK: - Span Colors
 
 	let foldedColor = Color.gray
 	let strikethroughColor = Color.gray
 	let linkURLColor = Color.gray
 	let codeSpanColor = Color.gray
 	let codeSpanBackgroundColor = Color.extraLightGray
+	let commentBackgroundColor = Color.comment
 
 
 	// MARK: - Initializers

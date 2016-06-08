@@ -24,7 +24,7 @@ final class CanvasTextView: TextView {
 			guard let theme = textController?.theme else { return }
 
 			var attributes = theme.titleAttributes
-			attributes[NSForegroundColorAttributeName] = theme.placeholderColor
+			attributes[NSForegroundColorAttributeName] = theme.titlePlaceholderColor
 
 			placeholderLabel.attributedText = NSAttributedString(
 				string: LocalizedString.CanvasTitlePlaceholder.string,
