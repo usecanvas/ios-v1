@@ -51,12 +51,6 @@ final class EditorViewController: UIViewController, Accountable {
 		}
 	}
 
-	private let avatarsView: AvatarsView = {
-		let view = AvatarsView()
-		view.translatesAutoresizingMaskIntoConstraints = false
-		return view
-	}()
-
 
 	// MARK: - Initializers
 
@@ -172,18 +166,12 @@ final class EditorViewController: UIViewController, Accountable {
 		view.addSubview(textView)
 
 		textController.connect()
-
-		presenceController.add(observer: self)
-		view.addSubview(avatarsView)
 		
 		NSLayoutConstraint.activateConstraints([
 			textView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
 			textView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor),
 			textView.topAnchor.constraintEqualToAnchor(view.topAnchor),
-			textView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor),
-
-			avatarsView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor, constant: -16),
-			avatarsView.topAnchor.constraintEqualToAnchor(topLayoutGuide.bottomAnchor, constant: 16)
+			textView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor)
 		])
 
 		if traitCollection.forceTouchCapability == .Available {
@@ -415,13 +403,5 @@ extension EditorViewController: CanvasTextViewFormattingDelegate {
 
 	func textViewDidToggleItalics(textView: CanvasTextView, sender: AnyObject?) {
 		italic()
-	}
-}
-
-
-extension EditorViewController: PresenceObserver {
-	func presenceDidChange(canvasID: String) {
-		guard canvasID == canvas.ID else { return }
-		avatarsView.users = presenceController.users(canvasID: canvasID)
 	}
 }
