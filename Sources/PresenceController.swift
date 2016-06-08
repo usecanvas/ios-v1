@@ -11,22 +11,36 @@ import CanvasKit
 import Starscream
 
 protocol PresenceObserver: NSObjectProtocol {
-	func presenceDidChange(canvasID: String, users: [User])
+	func presenceDidChange(canvasID: String)
 }
 
 // TODO: Update meta
-// TODO: Handle multi remote connections
 // TODO: Handle update meta
 // TODO: Handle expired
 class PresenceController: Accountable {
 
 	// MARK: - Types
 
+	private struct Client {
+		let ID: String
+		let user: User
+		var cursor: Cursor?
+
+		init?(dictionary: JSONDictionary) {
+			guard let ID = dictionary["id"] as? String,
+				user = (dictionary["user"] as? JSONDictionary).flatMap(User.init)
+			else { return nil }
+
+			self.ID = ID
+			self.user = user
+		}
+	}
+
 	private struct Connection {
 		let canvasID: String
 		let connectionID: String
 		var cursor: Cursor?
-		var users = [User]()
+		var clients = [Client]()
 
 		init(canvasID: String, connectionID: String = NSUUID().UUIDString.lowercaseString) {
 			self.canvasID = canvasID
@@ -133,7 +147,21 @@ class PresenceController: Accountable {
 	// MARK: - Querying
 
 	func users(canvasID canvasID: String) -> [User] {
-		return connections[canvasID]?.users ?? []
+		guard let connection = connections[canvasID] else { return [] }
+
+		var seen = Set<String>()
+		var users = [User]()
+
+		for client in connection.clients {
+			if seen.contains(client.user.ID) {
+				continue
+			}
+
+			seen.insert(client.user.ID)
+			users.append(client.user)
+		}
+
+		return users
 	}
 
 
@@ -172,11 +200,9 @@ class PresenceController: Accountable {
 	}
 
 	private func updateObservers(canvasID canvasID: String) {
-		let users = connections[canvasID]?.users ?? []
-
 		for observer in observers {
 			guard let observer = observer as? PresenceObserver else { continue }
-			observer.presenceDidChange(canvasID, users: users)
+			observer.presenceDidChange(canvasID)
 		}
 	}
 }
@@ -218,35 +244,43 @@ extension PresenceController: WebSocketDelegate {
 
 		// Join
 		if event == "phx_reply", let response = payload["response"] as? JSONDictionary, clients = response["clients"] as? [JSONDictionary] {
-			let users = clients.flatMap { ($0["user"] as? JSONDictionary).flatMap(User.init) }
+			let clients = clients.flatMap(Client.init)
 
-			if !users.isEmpty {
-				connection.users = users
+			if !clients.isEmpty {
+				connection.clients = clients
 				connections[canvasID] = connection
 				updateObservers(canvasID: canvasID)
 			}
 		}
 
 		// Remove join
-		else if event == "remote_join", let dictionary = payload["user"] as? JSONDictionary, user = User.init(dictionary: dictionary) {
-			var users = connection.users ?? []
+		else if event == "remote_join", let client = Client(dictionary: payload) {
+			var clients = connection.clients ?? []
+			let before = Set(clients.map { $0.user.ID })
 
-			if users.indexOf({ $0.ID == user.ID }) == nil {
-				users.append(user)
-				connection.users = users
-				connections[canvasID] = connection
+			clients.append(client)
+			connection.clients = clients
+			connections[canvasID] = connection
+
+			let after = Set(clients.map { $0.user.ID })
+			if before != after {
 				updateObservers(canvasID: canvasID)
 			}
 		}
 
 		// Remove leave
-		else if event == "remote_leave", let dictionary = payload["user"] as? JSONDictionary, userID = dictionary["id"] as? String {
-			var users = connection.users ?? []
+		else if event == "remote_leave", let client = Client(dictionary: payload) {
+			var clients = connection.clients ?? []
+			let before = Set(clients.map { $0.user.ID })
 
-			if let index = users.indexOf({ $0.ID == userID }) {
-				users.removeAtIndex(index)
-				connection.users = users
+			if let index = clients.indexOf({ $0.ID == client.ID }) {
+				clients.removeAtIndex(index)
+				connection.clients = clients
 				connections[canvasID] = connection
+			}
+
+			let after = Set(clients.map { $0.user.ID })
+			if before != after {
 				updateObservers(canvasID: canvasID)
 			}
 		}

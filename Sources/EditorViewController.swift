@@ -428,9 +428,10 @@ extension EditorViewController: CanvasTextViewFormattingDelegate {
 
 
 extension EditorViewController: PresenceObserver {
-	func presenceDidChange(canvasID: String, users: [CanvasKit.User]) {
+	func presenceDidChange(canvasID: String) {
 		guard canvasID == canvas.ID else { return }
 
+		let users = presenceController.users(canvasID: canvasID)
 		print("users: \(users)")
 	}
 }
