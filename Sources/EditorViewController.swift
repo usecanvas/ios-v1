@@ -157,9 +157,7 @@ final class EditorViewController: UIViewController, Accountable {
 		title = LocalizedString.Connecting.string
 		view.backgroundColor = Color.white
 
-		navigationItem.rightBarButtonItems = [
-			UIBarButtonItem(image: UIImage(named: "More"), style: .Plain, target: self, action: #selector(share))
-		]
+		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "More"), style: .Plain, target: self, action: #selector(share))
 
 		textView.delegate = self
 		view.addSubview(textView)

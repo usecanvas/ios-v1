@@ -17,6 +17,11 @@ class SplitViewController: UISplitViewController {
 
 	// MARK: - UIViewController
 
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		view.backgroundColor = Color.lightGray
+	}
+
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
 

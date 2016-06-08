@@ -28,6 +28,12 @@ class NavigationBar: UINavigationBar {
 		}
 	}
 
+	private let bottomView: UIView = {
+		let view = UIView()
+		view.translatesAutoresizingMaskIntoConstraints = false
+		return view
+	}()
+
 	private let borderView: LineView = {
 		let view = LineView()
 		view.translatesAutoresizingMaskIntoConstraints = false
@@ -46,11 +52,18 @@ class NavigationBar: UINavigationBar {
 		backIndicatorImage = UIImage(named: "ChevronLeft")
 		backIndicatorTransitionMaskImage = UIImage(named: "ChevronLeft")
 
+		bottomView.backgroundColor = barTintColor
 		borderColor = Color.navigationBarBorder
 
+		addSubview(bottomView)
 		addSubview(borderView)
 
 		NSLayoutConstraint.activateConstraints([
+			bottomView.bottomAnchor.constraintEqualToAnchor(bottomAnchor),
+			bottomView.leadingAnchor.constraintEqualToAnchor(leadingAnchor),
+			bottomView.trailingAnchor.constraintEqualToAnchor(trailingAnchor),
+			bottomView.heightAnchor.constraintEqualToConstant(2),
+
 			borderView.topAnchor.constraintEqualToAnchor(bottomAnchor),
 			borderView.leadingAnchor.constraintEqualToAnchor(leadingAnchor),
 			borderView.trailingAnchor.constraintEqualToAnchor(trailingAnchor)
