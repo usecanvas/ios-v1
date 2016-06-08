@@ -39,7 +39,7 @@ final class CanvasIconView: TintableView {
 	private let globeView: GlobeView = {
 		let view = GlobeView()
 		view.translatesAutoresizingMaskIntoConstraints = false
-		view.highlightedTintColor = .whiteColor()
+		view.highlightedTintColor = Color.white
 		return view
 	}()
 

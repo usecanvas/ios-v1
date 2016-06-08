@@ -27,7 +27,7 @@ class PlaceholderViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		view.backgroundColor = .whiteColor()
+		view.backgroundColor = Color.white
 
 		view.addSubview(textLabel)
 

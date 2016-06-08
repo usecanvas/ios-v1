@@ -40,7 +40,7 @@ class NavigationBar: UINavigationBar {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 
-		barTintColor = .whiteColor()
+		barTintColor = Color.white
 		translucent = false
 		shadowImage = UIImage()
 

@@ -18,7 +18,7 @@ final class CanvasCell: UITableViewCell {
 		let view = CanvasIconView()
 		view.translatesAutoresizingMaskIntoConstraints = false
 		view.tintColor = UIColor(red: 0.478, green: 0.475, blue: 0.482, alpha: 1)
-		view.highlightedTintColor = .whiteColor()
+		view.highlightedTintColor = Color.white
 		return view
 	}()
 
@@ -149,7 +149,7 @@ final class CanvasCell: UITableViewCell {
 		iconView.highlighted = highlighted || selected
 
 		if highlighted || selected {
-			disclosureIndicatorView.tintColor = .whiteColor()
+			disclosureIndicatorView.tintColor = Color.white
 		} else {
 			disclosureIndicatorView.tintColor = canvas?.archivedAt == nil ? Color.cellDisclosureIndicator : Color.lightGray
 		}

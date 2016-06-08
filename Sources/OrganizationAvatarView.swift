@@ -28,7 +28,7 @@ final class OrganizationAvatarView: UIView {
 	private let initialsLabel: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
-		label.textColor = .whiteColor()
+		label.textColor = Color.white
 		label.textAlignment = .Center
 		label.font = Font.sansSerif(weight: .Bold, size: .Small)
 		return label
@@ -69,16 +69,16 @@ final class OrganizationAvatarView: UIView {
 	private func updateUI() {
 		guard let organization = organization else {
 			initialsLabel.text = nil
-			tintColor = highlighted ? .whiteColor() : Color.cellDisclosureIndicator
+			tintColor = highlighted ? Color.white : Color.cellDisclosureIndicator
 			return
 		}
 
 		let orgColor = organization.color?.color ?? Color.brand
 
-		tintColor = highlighted ? .whiteColor() : orgColor
+		tintColor = highlighted ? Color.white : orgColor
 
 		let name = organization.name
 		initialsLabel.text = name.substringToIndex(name.startIndex.advancedBy(2))
-		initialsLabel.textColor = highlighted ? orgColor : .whiteColor()
+		initialsLabel.textColor = highlighted ? orgColor : Color.white
 	}
 }

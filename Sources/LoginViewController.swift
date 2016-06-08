@@ -50,7 +50,7 @@ final class LogInViewController: SessionsViewController {
 
 		let resetPasswordButton = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 44))
 		resetPasswordButton.setImage(UIImage(named: "help"), forState: .Normal)
-		resetPasswordButton.tintColor = .whiteColor()
+		resetPasswordButton.tintColor = Color.white
 		resetPasswordButton.adjustsImageWhenHighlighted = false
 
 		passwordContainer.textField.rightViewMode = .Always

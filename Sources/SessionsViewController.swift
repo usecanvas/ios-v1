@@ -220,12 +220,12 @@ class SessionsViewController: UIViewController {
 			NSForegroundColorAttributeName: UIColor(white: 1, alpha: 0.7)
 		])
 
-		text.addAttribute(NSForegroundColorAttributeName, value: UIColor.whiteColor(), range: emphasizedRange)
+		text.addAttribute(NSForegroundColorAttributeName, value: Color.white, range: emphasizedRange)
 		button.setAttributedTitle(text, forState: .Normal)
 
 		if let highlightedText = text.mutableCopy() as? NSMutableAttributedString {
-			highlightedText.addAttribute(NSForegroundColorAttributeName, value: UIColor(white: 1, alpha: 0.9), range: NSRange(location: 0, length: highlightedText.length))
-			highlightedText.addAttribute(NSForegroundColorAttributeName, value: UIColor.whiteColor(), range: emphasizedRange)
+			highlightedText.addAttribute(NSForegroundColorAttributeName, value: Color.white.colorWithAlphaComponent(0.9), range: NSRange(location: 0, length: highlightedText.length))
+			highlightedText.addAttribute(NSForegroundColorAttributeName, value: Color.white, range: emphasizedRange)
 			button.setAttributedTitle(highlightedText, forState: .Highlighted)
 		}
 
