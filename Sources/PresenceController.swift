@@ -219,6 +219,7 @@ extension PresenceController: WebSocketDelegate {
 		messageQueue.removeAll()
 
 		let timer = NSTimer(timeInterval: 20, target: self, selector: #selector(ping), userInfo: nil, repeats: true)
+		timer.tolerance = 10
 		NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSDefaultRunLoopMode)
 		pingTimer = timer
 	}
