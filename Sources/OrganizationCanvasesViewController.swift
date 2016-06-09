@@ -83,8 +83,6 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 
 		title = organization.displayName
 
-		results.delegate = self
-
 		searchViewController.searchBar.placeholder = LocalizedString.SearchIn(organizationName: organization.displayName).string
 		searchViewController.searchResultsUpdater = searchController
 
@@ -143,6 +141,17 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		tableView.addSubview(topView)
 
 		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Compose"), style: .Plain, target: self, action: #selector(createCanvas))
+	}
+
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+
+		// Deselect search results *sigh*
+		if let text = searchViewController.searchBar.text where !text.isEmpty {
+			if let viewController = searchViewController.searchResultsController as? CanvasesViewController, indexPath = viewController.tableView.indexPathForSelectedRow {
+				viewController.tableView.deselectRowAtIndexPath(indexPath, animated: animated)
+			}
+		}
 	}
 
 	override func viewDidAppear(animated: Bool) {
@@ -330,13 +339,6 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		if let indexPath = tableView.indexPathForSelectedRow {
 			tableView.deselectRowAtIndexPath(indexPath, animated: false)
 		}
-	}
-}
-
-
-extension OrganizationCanvasesViewController: CanvasesResultsViewControllerDelegate {
-	func canvasesResultsViewController(viewController: CanvasesResultsViewController, didSelectCanvas canvas: Canvas) {
-		openCanvas(canvas)
 	}
 }
 

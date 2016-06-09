@@ -9,16 +9,7 @@
 import UIKit
 import CanvasKit
 
-protocol CanvasesResultsViewControllerDelegate: class {
-	func canvasesResultsViewController(viewController: CanvasesResultsViewController, didSelectCanvas canvas: Canvas)
-}
-
 class CanvasesResultsViewController: CanvasesViewController {
-
-	// MARK: - Properties
-
-	weak var delegate: CanvasesResultsViewControllerDelegate?
-
 
 	// MARK: - UIViewController
 
@@ -37,12 +28,5 @@ class CanvasesResultsViewController: CanvasesViewController {
 			line.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
 			line.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor)
 		])
-	}
-
-
-	// MARK: - Actions
-
-	override func openCanvas(canvas: Canvas) {
-		delegate?.canvasesResultsViewController(self, didSelectCanvas: canvas)
 	}
 }
