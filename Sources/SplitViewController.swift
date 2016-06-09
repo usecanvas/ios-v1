@@ -88,17 +88,34 @@ extension SplitViewController: UISplitViewControllerDelegate {
 		return true
 	}
 
-	func primaryViewControllerForExpandingSplitViewController(splitViewController: UISplitViewController) -> UIViewController? {
-		guard let outer = splitViewController.viewControllers.first as? UINavigationController,
-			detailNavigationController = outer.topViewController as? UINavigationController,
-			detailViewController = detailNavigationController.topViewController
-		else { return nil }
+	func splitViewController(splitViewController: UISplitViewController, separateSecondaryViewControllerFromPrimaryViewController primaryViewController: UIViewController) -> UIViewController? {
+		guard let primaryViewController = primaryViewController as? UINavigationController else { return nil }
 
-		if detailViewController is EditorViewController || detailViewController is PlaceholderViewController {
-			return masterViewController
+		var viewControllers = [UIViewController]()
+
+		for viewController in primaryViewController.viewControllers {
+			if let navigationController = viewController as? UINavigationController {
+				viewControllers += navigationController.viewControllers
+			} else {
+				viewControllers.append(viewController)
+			}
 		}
 
-		return detailViewController
+		let detailViewController: UIViewController
+
+		if let last = viewControllers.last where last is EditorViewController || last is PlaceholderViewController {
+			detailViewController = viewControllers.popLast() ?? PlaceholderViewController()
+		} else {
+			detailViewController = PlaceholderViewController()
+		}
+
+		primaryViewController.setViewControllers(viewControllers, animated: false)
+
+		if !(detailViewController is PlaceholderViewController) {
+			detailViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "SidebarLeft"), style: .Plain, target: self, action: #selector(toggleSidebar))
+		}
+
+		return NavigationController(rootViewController: detailViewController)
 	}
 
 	func splitViewController(splitViewController: UISplitViewController, showDetailViewController viewController: UIViewController, sender: AnyObject?) -> Bool {
