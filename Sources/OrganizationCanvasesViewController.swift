@@ -143,7 +143,7 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		topView.alpha = 0.03
 		tableView.addSubview(topView)
 
-		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Create"), style: .Plain, target: self, action: #selector(createCanvas))
+		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Compose"), style: .Plain, target: self, action: #selector(createCanvas))
 	}
 
 	override func viewDidAppear(animated: Bool) {

@@ -39,8 +39,6 @@ final class RootViewController: UIViewController {
 				masterViewController: masterViewController,
 				detailViewController: NavigationController(rootViewController: PlaceholderViewController())
 			)
-			split.preferredDisplayMode = .AllVisible
-			split.delegate = self
 
 			// Restore organization
 			if let dictionary = NSUserDefaults.standardUserDefaults().objectForKey("SelectedOrganization") as? JSONDictionary, organization = Organization(dictionary: dictionary) {
@@ -118,47 +116,5 @@ final class RootViewController: UIViewController {
 
 	@objc private func accountDidChange(notification: NSNotification?) {
 		account = AccountController.sharedController.currentAccount
-	}
-}
-
-
-extension RootViewController: UISplitViewControllerDelegate {
-	func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
-		return splitViewControllerIsEmpty(splitViewController, secondaryViewController: secondaryViewController)
-	}
-
-	func splitViewController(splitViewController: UISplitViewController, showDetailViewController viewController: UIViewController, sender: AnyObject?) -> Bool {
-		var detail = viewController
-		if let top = (detail as? UINavigationController)?.topViewController {
-			detail = top
-		}
-
-		let isPlaceholder = detail is PlaceholderViewController
-		if !isPlaceholder {
-			detail.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
-			detail.navigationItem.leftItemsSupplementBackButton = true
-		}
-
-		UIView.animateWithDuration(0.2) {
-			splitViewController.preferredDisplayMode = isPlaceholder ? .AllVisible : .Automatic
-		}
-
-		return false
-	}
-
-	func targetDisplayModeForActionInSplitViewController(splitViewController: UISplitViewController) -> UISplitViewControllerDisplayMode {
-		switch splitViewController.displayMode {
-		case .PrimaryOverlay, .PrimaryHidden: return .AllVisible
-		default: return .PrimaryHidden
-		}
-	}
-
-	private func splitViewControllerIsEmpty(splitViewController: UISplitViewController, secondaryViewController: UIViewController? = nil) -> Bool {
-		let viewController = secondaryViewController ?? splitViewController.viewControllers.last
-		if let secondaryNavigationController = viewController as? UINavigationController {
-			return secondaryNavigationController.topViewController is PlaceholderViewController
-		}
-
-		return false
 	}
 }

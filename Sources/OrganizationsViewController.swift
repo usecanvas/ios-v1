@@ -23,6 +23,7 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 		self.account = account
 		super.init(style: .Grouped)
 		title = LocalizedString.OrganizationsTitle.string
+		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -71,7 +72,6 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 		tableView.estimatedRowHeight = 66
 		 
 		navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Gear"), style: .Plain, target: self, action: #selector(showSettings))
-		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
 	}
 
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {

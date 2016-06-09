@@ -171,6 +171,8 @@
 		218383D51CD517E400F7AA24 /* SSKeychain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21B1E9C71CD516D900E2902C /* SSKeychain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		218A75B81CECD02F00459BC9 /* GradientView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218A75B71CECD02F00459BC9 /* GradientView.framework */; };
 		218A75D11CECD06500459BC9 /* GradientView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218A75B71CECD02F00459BC9 /* GradientView.framework */; };
+		218B6BAA1D08D23400A170E5 /* UISplitViewController+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B6BA91D08D23400A170E5 /* UISplitViewController+Canvas.swift */; };
+		218B6BAB1D08D23400A170E5 /* UISplitViewController+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B6BA91D08D23400A170E5 /* UISplitViewController+Canvas.swift */; };
 		2193DC401D0794A2004D8D0C /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2193DC3F1D0794A2004D8D0C /* LightTheme.swift */; };
 		2193DC5D1D0794A6004D8D0C /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2193DC3F1D0794A2004D8D0C /* LightTheme.swift */; };
 		21A77E091D07E53200340243 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A77E081D07E53200340243 /* Starscream.framework */; };
@@ -686,6 +688,7 @@
 		2178CB511CEA7B0100E9A4B2 /* SpaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceView.swift; sourceTree = "<group>"; };
 		2178CBB81CEA891100E9A4B2 /* SessionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionsViewController.swift; sourceTree = "<group>"; };
 		218A75B71CECD02F00459BC9 /* GradientView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GradientView.framework; path = Carthage/Build/iOS/GradientView.framework; sourceTree = "<group>"; };
+		218B6BA91D08D23400A170E5 /* UISplitViewController+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISplitViewController+Canvas.swift"; sourceTree = "<group>"; };
 		2193DC3F1D0794A2004D8D0C /* LightTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
 		21A77E081D07E53200340243 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
 		21A77E0B1D07E56300340243 /* Cursor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cursor.swift; sourceTree = "<group>"; };
@@ -819,6 +822,7 @@
 				2107D2F21CC58F7B001963B7 /* UIFont+Canvas.swift */,
 				212299B71CE3E79C00033D94 /* UIViewController+Canvas.swift */,
 				2117A0951D0642A400E60821 /* UIColor+Canvas.swift */,
+				218B6BA91D08D23400A170E5 /* UISplitViewController+Canvas.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -1697,6 +1701,7 @@
 				212392C81CEBB7CD00F8D26B /* TextFieldContainer.swift in Sources */,
 				212D8EC71CE62AE00039A3EE /* IndicatorButton.swift in Sources */,
 				21A77E0D1D07E56300340243 /* Cursor.swift in Sources */,
+				218B6BAB1D08D23400A170E5 /* UISplitViewController+Canvas.swift in Sources */,
 				21501D601CCAA2B900B02FC5 /* UIEdgeInsets+Canvas.swift in Sources */,
 				21501D611CCAA2B900B02FC5 /* TextView.swift in Sources */,
 				21501D621CCAA2B900B02FC5 /* Color+Canvas.swift in Sources */,
@@ -1773,6 +1778,7 @@
 				212392C71CEBB7CD00F8D26B /* TextFieldContainer.swift in Sources */,
 				212D8EC61CE62AE00039A3EE /* IndicatorButton.swift in Sources */,
 				21A77E0C1D07E56300340243 /* Cursor.swift in Sources */,
+				218B6BAA1D08D23400A170E5 /* UISplitViewController+Canvas.swift in Sources */,
 				2107D3291CC58F7B001963B7 /* UIEdgeInsets+Canvas.swift in Sources */,
 				2107D3251CC58F7B001963B7 /* TextView.swift in Sources */,
 				2107D30D1CC58F7B001963B7 /* Color+Canvas.swift in Sources */,
