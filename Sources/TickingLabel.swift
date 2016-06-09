@@ -63,9 +63,10 @@ class TickingLabel: UILabel {
 
 	@objc private class func applicationDidBecomeActive() {
 		let timer = NSTimer(timeInterval: 1, target: self, selector: #selector(fire), userInfo: nil, repeats: true)
-		NSRunLoop.mainRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
-		timer.fire()
+		timer.tolerance = 0.5
 		self.timer = timer
+
+		NSRunLoop.mainRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
 	}
 
 	@objc private func tick() {

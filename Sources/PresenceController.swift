@@ -6,7 +6,7 @@
 //  Copyright © 2016 Canvas Labs, Inc. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CanvasKit
 import Starscream
 
@@ -69,6 +69,10 @@ class PresenceController: Accountable {
 	init(account: Account) {
 		self.account = account
 		connect()
+
+		let notificationCenter = NSNotificationCenter.defaultCenter()
+		notificationCenter.addObserver(self, selector: #selector(applicationDidEnterBackground), name: UIApplicationDidEnterBackgroundNotification, object: nil)
+		notificationCenter.addObserver(self, selector: #selector(applicationWillEnterForeground), name: UIApplicationWillEnterForegroundNotification, object: nil)
 	}
 
 	deinit {
@@ -107,16 +111,10 @@ class PresenceController: Accountable {
 
 	func join(canvasID canvasID: String) {
 		let connection = Connection(canvasID: canvasID)
-		let payload = clientDescriptor(connectionID: connection.connectionID)
 
 		connections[canvasID] = connection
 
-		sendMessage([
-			"event": "phx_join",
-			"topic": "presence:canvases:\(canvasID)",
-			"payload": payload,
-			"ref": "1"
-		])
+		sendJoinMessage(connection)
 	}
 
 	func leave(canvasID canvasID: String) {
@@ -166,6 +164,46 @@ class PresenceController: Accountable {
 
 
 	// MARK: - Private
+
+	@objc private func applicationWillEnterForeground() {
+		if connections.isEmpty {
+			return
+		}
+
+		connect()
+		connections.values.forEach(sendJoinMessage)
+		setupPingTimer()
+	}
+
+	@objc private func applicationDidEnterBackground() {
+		pingTimer?.invalidate()
+		pingTimer = nil
+
+		socket?.disconnect()
+		socket = nil
+	}
+
+	private func sendJoinMessage(connection: Connection) {
+		let payload = clientDescriptor(connectionID: connection.connectionID)
+
+		sendMessage([
+			"event": "phx_join",
+			"topic": "presence:canvases:\(connection.canvasID)",
+			"payload": payload,
+			"ref": "1"
+		])
+	}
+
+	private func setupPingTimer() {
+		if pingTimer != nil {
+			return
+		}
+
+		let timer = NSTimer(timeInterval: 20, target: self, selector: #selector(ping), userInfo: nil, repeats: true)
+		timer.tolerance = 10
+		NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSDefaultRunLoopMode)
+		pingTimer = timer
+	}
 
 	private func sendMessage(message: JSONDictionary) {
 		if let socket = socket where socket.isConnected {
@@ -218,15 +256,10 @@ extension PresenceController: WebSocketDelegate {
 
 		messageQueue.removeAll()
 
-		let timer = NSTimer(timeInterval: 20, target: self, selector: #selector(ping), userInfo: nil, repeats: true)
-		timer.tolerance = 10
-		NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSDefaultRunLoopMode)
-		pingTimer = timer
+		setupPingTimer()
 	}
 
 	func websocketDidDisconnect(socket: WebSocket, error: NSError?) {
-		print("[presence] did disconnect: \(error)")
-
 		pingTimer?.invalidate()
 		pingTimer = nil
 	}
