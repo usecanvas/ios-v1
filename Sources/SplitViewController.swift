@@ -68,7 +68,11 @@ class SplitViewController: UISplitViewController {
 	// MARK: - Private
 
 	@objc private func toggleSidebar() {
-		preferredDisplayMode = displayMode == .AllVisible ? .PrimaryHidden : .AllVisible
+		let mode: UISplitViewControllerDisplayMode = displayMode == .AllVisible ? .PrimaryHidden : .AllVisible
+
+		UIView.animateWithDuration(0.2) {
+			self.preferredDisplayMode = mode
+		}
 	}
 }
 
@@ -129,7 +133,9 @@ extension SplitViewController: UISplitViewControllerDelegate {
 			detail.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "SidebarLeft"), style: .Plain, target: self, action: #selector(toggleSidebar))
 		}
 
-		splitViewController.preferredDisplayMode = isPlaceholder ? .AllVisible : .Automatic
+		UIView.animateWithDuration(0.2) {
+			splitViewController.preferredDisplayMode = isPlaceholder ? .AllVisible : .Automatic
+		}
 
 		return false
 	}
