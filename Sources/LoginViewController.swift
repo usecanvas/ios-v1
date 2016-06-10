@@ -39,7 +39,7 @@ final class LogInViewController: SessionsViewController {
 		super.viewDidLoad()
 
 		// Shared Web Credentials
-		WebCredentials.get { [weak self] credential, _ in
+		SharedWebCredentials.get { [weak self] credential, _ in
 			guard let credential = credential else { return }
 
 			dispatch_async(dispatch_get_main_queue()) {
@@ -125,6 +125,8 @@ final class LogInViewController: SessionsViewController {
 			switch $0 {
 			case .Success(let account):
 				dispatch_async(dispatch_get_main_queue()) {
+					SharedWebCredentials.add(domain: "usecanvas.com", account: username, password: password)
+					
 					UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 					AccountController.sharedController.currentAccount = account
 					Analytics.track(.LoggedIn)
@@ -155,7 +157,7 @@ final class LogInViewController: SessionsViewController {
 
 	// MARK: - Private
 
-	private func login(credential credential: WebCredentials.Credential) {
+	private func login(credential credential: SharedWebCredentials.Credential) {
 		usernameContainer.textField.text = credential.account
 		passwordContainer.textField.text = credential.password
 		submit()

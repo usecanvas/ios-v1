@@ -1,5 +1,5 @@
 //
-//  WebCredentials.swift
+//  SharedWebCredentials.swift
 //  Canvas
 //
 //  Created by Sam Soffes on 6/10/16.
@@ -9,7 +9,7 @@
 import Foundation
 import Security
 
-struct WebCredentials {
+struct SharedWebCredentials {
 
 	// MARK: - Types
 
