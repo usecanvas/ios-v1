@@ -32,6 +32,8 @@ final class LogInViewController: SessionsViewController {
 		return [usernameContainer.textField, passwordContainer.textField]
 	}
 
+	private var webCredential: SharedWebCredentials.Credential?
+
 
 	// MARK: - UIViewController
 
@@ -125,7 +127,9 @@ final class LogInViewController: SessionsViewController {
 			switch $0 {
 			case .Success(let account):
 				dispatch_async(dispatch_get_main_queue()) {
-					SharedWebCredentials.add(domain: "usecanvas.com", account: username, password: password)
+					if let this = self where this.webCredential == nil {
+						SharedWebCredentials.add(domain: "usecanvas.com", account: username, password: password)
+					}
 					
 					UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 					AccountController.sharedController.currentAccount = account
@@ -135,6 +139,7 @@ final class LogInViewController: SessionsViewController {
 				dispatch_async(dispatch_get_main_queue()) { [weak self] in
 					self?.loading = false
 					self?.passwordContainer.textField.becomeFirstResponder()
+					self?.webCredential = nil
 					
 					let alert = UIAlertController(title: errorMessage, message: nil, preferredStyle: .Alert)
 					alert.addAction(UIAlertAction(title: LocalizedString.Okay.string, style: .Cancel, handler: nil))
@@ -158,6 +163,7 @@ final class LogInViewController: SessionsViewController {
 	// MARK: - Private
 
 	private func login(credential credential: SharedWebCredentials.Credential) {
+		webCredential = credential
 		usernameContainer.textField.text = credential.account
 		passwordContainer.textField.text = credential.password
 		submit()
