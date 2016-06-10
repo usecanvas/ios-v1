@@ -58,6 +58,8 @@
 		2107D32F1CC58F7B001963B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2F91CC58F7B001963B7 /* Main.storyboard */; };
 		2107D3321CC58F7B001963B7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2FD1CC58F7B001963B7 /* Localizable.strings */; };
 		2107D3341CC58F7B001963B7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2107D3001CC58F7B001963B7 /* Settings.bundle */; };
+		210B1C971D0B14A600B08A81 /* WebCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210B1C961D0B14A600B08A81 /* WebCredentials.swift */; };
+		210B1C981D0B14A600B08A81 /* WebCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210B1C961D0B14A600B08A81 /* WebCredentials.swift */; };
 		2117A02F1D06338C00E60821 /* GroupedSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117A02E1D06338C00E60821 /* GroupedSectionHeaderView.swift */; };
 		2117A0301D06338C00E60821 /* GroupedSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117A02E1D06338C00E60821 /* GroupedSectionHeaderView.swift */; };
 		2117A07B1D0641CE00E60821 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117A07A1D0641CE00E60821 /* TableView.swift */; };
@@ -667,6 +669,7 @@
 		2107D2FE1CC58F7B001963B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2107D2FF1CC58F7B001963B7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2107D3001CC58F7B001963B7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		210B1C961D0B14A600B08A81 /* WebCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebCredentials.swift; sourceTree = "<group>"; };
 		2117A02E1D06338C00E60821 /* GroupedSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupedSectionHeaderView.swift; sourceTree = "<group>"; };
 		2117A07A1D0641CE00E60821 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		2117A0951D0642A400E60821 /* UIColor+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Canvas.swift"; sourceTree = "<group>"; };
@@ -843,6 +846,7 @@
 				2107D2DA1CC58F7A001963B7 /* LocalizedString.swift */,
 				21213AB61CDC36600044D6BE /* Imgix.swift */,
 				213608431CF51A5100641941 /* APIClient.swift */,
+				210B1C961D0B14A600B08A81 /* WebCredentials.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -1635,7 +1639,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "#if which swiftlint >/dev/null; then\n#  swiftlint\n#else\n#  echo \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\n#fi";
 		};
 		21F7EF311CD91DDB004E80E2 /* Embed Carthage Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1716,6 +1720,7 @@
 				21501D681CCAA2B900B02FC5 /* Configuration.swift in Sources */,
 				2122BFF11CFE4FF900A038DE /* LoadCanvasViewController.swift in Sources */,
 				21501D691CCAA2B900B02FC5 /* NSDate+Canvas.swift in Sources */,
+				210B1C981D0B14A600B08A81 /* WebCredentials.swift in Sources */,
 				21501D6A1CCAA2B900B02FC5 /* CGRect+Canvas.swift in Sources */,
 				21501D6B1CCAA2B900B02FC5 /* Organization+Canvas.swift in Sources */,
 				21501D6C1CCAA2B900B02FC5 /* OrganizationCanvasesViewController.swift in Sources */,
@@ -1793,6 +1798,7 @@
 				2107D30F1CC58F7B001963B7 /* Configuration.swift in Sources */,
 				2122BFF01CFE4FF900A038DE /* LoadCanvasViewController.swift in Sources */,
 				2107D3191CC58F7B001963B7 /* NSDate+Canvas.swift in Sources */,
+				210B1C971D0B14A600B08A81 /* WebCredentials.swift in Sources */,
 				2107D30B1CC58F7B001963B7 /* CGRect+Canvas.swift in Sources */,
 				2107D31A1CC58F7B001963B7 /* Organization+Canvas.swift in Sources */,
 				2107D31C1CC58F7B001963B7 /* OrganizationCanvasesViewController.swift in Sources */,

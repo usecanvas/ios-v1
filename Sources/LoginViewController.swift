@@ -38,6 +38,15 @@ final class LogInViewController: SessionsViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		// Shared Web Credentials
+		WebCredentials.get { [weak self] credential, _ in
+			guard let credential = credential else { return }
+
+			dispatch_async(dispatch_get_main_queue()) {
+				self?.login(credential: credential)
+			}
+		}
+
 		// 1Password
 		if OnePasswordExtension.sharedExtension().isAppExtensionAvailable() {
 			let button = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 44))
@@ -141,5 +150,14 @@ final class LogInViewController: SessionsViewController {
 	@objc private func signUp() {
 		let URL = NSURL(string: "https://usecanvas.com/signup")!
 		UIApplication.sharedApplication().openURL(URL)
+	}
+
+
+	// MARK: - Private
+
+	private func login(credential credential: WebCredentials.Credential) {
+		usernameContainer.textField.text = credential.account
+		passwordContainer.textField.text = credential.password
+		submit()
 	}
 }
