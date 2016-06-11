@@ -104,7 +104,7 @@ extension AppDelegate: UIApplicationDelegate {
 		else { return false }
 
 		// Open canvas
-		if userActivity.activityType == NSUserActivityTypeBrowsingWeb, let components = userActivity.webpageURL?.pathComponents where components.count >= 4 {
+		if userActivity.activityType == NSUserActivityTypeBrowsingWeb, let components = userActivity.webpageURL?.pathComponents where components.count == 4 {
 			let canvasID = components[3]
 			let viewController = NavigationController(rootViewController: LoadCanvasViewController(account: account, canvasID: canvasID))
 
@@ -119,6 +119,11 @@ extension AppDelegate: UIApplicationDelegate {
 			}
 			
 			return true
+		}
+
+		// Fallback
+		if let url = userActivity.webpageURL {
+			application.openURL(url)
 		}
 
 		return false
