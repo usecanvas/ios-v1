@@ -327,6 +327,10 @@ extension EditorViewController: UITextViewDelegate {
 		textController.setPresentationSelectedRange(selection)
 		updateTitleTypingAttributes()
 		updateAutoCompletion()
+		
+		if NSEqualRanges(textView.selectedRange, NSRange(location: 0, length: 0)) {
+			textView.typingAttributes = textController.theme.titleAttributes
+		}
 	}
 
 	func textViewDidBeginEditing(textView: UITextView) {
@@ -340,6 +344,10 @@ extension EditorViewController: UITextViewDelegate {
 		}
 		
 		textController.setPresentationSelectedRange(nil)
+	}
+	
+	func textViewDidChange(textView: UITextView) {
+		textController.applyStyles()
 	}
 
 	func scrollViewWillBeginDragging(scrollView: UIScrollView) {
@@ -390,6 +398,8 @@ extension EditorViewController: TextControllerDisplayDelegate {
 	func textController(textController: TextController, URLForImage block: Image) -> NSURL? {
 		return imgixURL(block.url)
 	}
+	
+	func textControllerDidUpdateFolding(textController: TextController) {}
 }
 
 
