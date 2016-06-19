@@ -1,7 +1,5 @@
-github "soffes/Crypto"
 github "soffes/GradientView"
 github "soffes/Mixpanel"
 github "venmo/Static"
 github "AgileBits/onepassword-app-extension" "add-framework-support"
 github "getsentry/sentry-swift" "master"
-github "daltoniam/Starscream"

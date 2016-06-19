@@ -1,24 +1,3 @@
-[submodule "Vendor/CanvasNative"]
-	path = Vendor/CanvasNative
-	url = https://github.com/usecanvas/CanvasNative.git
-[submodule "Vendor/ISO8601"]
-	path = Vendor/ISO8601
-	url = https://github.com/soffes/ISO8601.git
-[submodule "Vendor/OperationTransport"]
-	path = Vendor/OperationTransport
-	url = https://github.com/usecanvas/OperationTransport.git
-[submodule "Vendor/CanvasText"]
-	path = Vendor/CanvasText
-	url = https://github.com/usecanvas/CanvasText.git
-[submodule "Vendor/SSKeychain"]
-	path = Vendor/SSKeychain
-	url = https://github.com/soffes/sskeychain.git
-[submodule "Vendor/CanvasKit"]
-	path = Vendor/CanvasKit
-	url = https://github.com/usecanvas/CanvasKit.git
-[submodule "Vendor/Cache"]
-	path = Vendor/Cache
-	url = https://github.com/soffes/Cache.git
-[submodule "Vendor/X"]
-	path = Vendor/X
-	url = https://github.com/soffes/X
+[submodule "Vendor/CanvasCore"]
+	path = Vendor/CanvasCore
+	url = https://github.com/usecanvas/CanvasCore
