@@ -60,6 +60,7 @@ final class OrganizationAvatarView: UIView {
 
 	// MARK: - UIView
 
+	
 	override func tintColorDidChange() {
 		backgroundColor = tintColor
 	}
