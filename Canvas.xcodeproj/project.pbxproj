@@ -105,17 +105,14 @@
 		21501D711CCAA2B900B02FC5 /* CanvasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CF1CC58F7A001963B7 /* CanvasCell.swift */; };
 		21501D721CCAA2B900B02FC5 /* TintableEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2EF1CC58F7B001963B7 /* TintableEnvironment.swift */; };
 		21501D731CCAA2B900B02FC5 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2F41CC58F7B001963B7 /* WebViewController.swift */; };
-		21501D741CCAA2B900B02FC5 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2D61CC58F7A001963B7 /* Color.swift */; };
 		21501D751CCAA2B900B02FC5 /* WebActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2F31CC58F7B001963B7 /* WebActivity.swift */; };
 		21501D761CCAA2B900B02FC5 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2D81CC58F7A001963B7 /* EditorViewController.swift */; };
 		21501D771CCAA2B900B02FC5 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2DF1CC58F7A001963B7 /* NavigationController.swift */; };
 		21501D781CCAA2B900B02FC5 /* ModelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2DD1CC58F7A001963B7 /* ModelsViewController.swift */; };
 		21501D791CCAA2B900B02FC5 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2E81CC58F7B001963B7 /* RootViewController.swift */; };
 		21501D7A1CCAA2B900B02FC5 /* TintableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2F01CC58F7B001963B7 /* TintableView.swift */; };
-		21501D7B1CCAA2B900B02FC5 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2D91CC58F7A001963B7 /* Font.swift */; };
 		21501D7C1CCAA2B900B02FC5 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CA1CC58F7A001963B7 /* AlertController.swift */; };
 		21501D7D1CCAA2B900B02FC5 /* SafariActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2E91CC58F7B001963B7 /* SafariActivity.swift */; };
-		21501D7E1CCAA2B900B02FC5 /* Accountable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2C91CC58F7A001963B7 /* Accountable.swift */; };
 		21501D7F1CCAA2B900B02FC5 /* ChromeActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2D41CC58F7A001963B7 /* ChromeActivity.swift */; };
 		21501D801CCAA2B900B02FC5 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CB1CC58F7A001963B7 /* Analytics.swift */; };
 		21501D811CCAA2B900B02FC5 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2DB1CC58F7A001963B7 /* LoginTextField.swift */; };
@@ -143,17 +140,27 @@
 		2176765A1D174F6C00003D89 /* SSKeychain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 217676161D174F1400003D89 /* SSKeychain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2176765B1D174F6C00003D89 /* Starscream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2176762A1D174F1400003D89 /* Starscream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2176765C1D174F6C00003D89 /* X.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2176763D1D174F1400003D89 /* X.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2178CB531CEA7B0100E9A4B2 /* SpaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178CB511CEA7B0100E9A4B2 /* SpaceView.swift */; };
+		217676BB1D17505E00003D89 /* Crypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 217675CE1D174F1400003D89 /* Crypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		217676BC1D17505E00003D89 /* CommonCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 217675CC1D174F1400003D89 /* CommonCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		217676BD1D17505E00003D89 /* Cache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2176757E1D174F1400003D89 /* Cache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		217676BE1D17505E00003D89 /* Diff.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 217675E31D174F1400003D89 /* Diff.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		217676BF1D17505E00003D89 /* CanvasNative.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 217675A11D174F1400003D89 /* CanvasNative.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		217676C01D17505E00003D89 /* OperationalTransformation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 217676071D174F1400003D89 /* OperationalTransformation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		217676C11D17505E00003D89 /* CanvasText.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 217675B31D174F1400003D89 /* CanvasText.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		217676C21D17505E00003D89 /* CanvasKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2176758C1D174F1400003D89 /* CanvasKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		217676C31D17505E00003D89 /* ISO8601.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 217675F71D174F1400003D89 /* ISO8601.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		217676C41D17505E00003D89 /* SSKeychain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 217676161D174F1400003D89 /* SSKeychain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		217676C51D17505E00003D89 /* Starscream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2176762A1D174F1400003D89 /* Starscream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		217676C61D17505E00003D89 /* X.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2176763D1D174F1400003D89 /* X.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		217676C71D17505E00003D89 /* CanvasCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21173CB11D1742080050D524 /* CanvasCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2178CBB91CEA891100E9A4B2 /* SessionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178CBB81CEA891100E9A4B2 /* SessionsViewController.swift */; };
 		2178CBBA1CEA891100E9A4B2 /* SessionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178CBB81CEA891100E9A4B2 /* SessionsViewController.swift */; };
 		218A75B81CECD02F00459BC9 /* GradientView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218A75B71CECD02F00459BC9 /* GradientView.framework */; };
 		218A75D11CECD06500459BC9 /* GradientView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218A75B71CECD02F00459BC9 /* GradientView.framework */; };
 		218B6BAA1D08D23400A170E5 /* UISplitViewController+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B6BA91D08D23400A170E5 /* UISplitViewController+Canvas.swift */; };
 		218B6BAB1D08D23400A170E5 /* UISplitViewController+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B6BA91D08D23400A170E5 /* UISplitViewController+Canvas.swift */; };
-		2193DC5D1D0794A6004D8D0C /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2193DC3F1D0794A2004D8D0C /* LightTheme.swift */; };
 		21A77E091D07E53200340243 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A77E081D07E53200340243 /* Starscream.framework */; };
 		21A77E0A1D07E53600340243 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A77E081D07E53200340243 /* Starscream.framework */; };
-		21A77E0D1D07E56300340243 /* Cursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A77E0B1D07E56300340243 /* Cursor.swift */; };
 		21A77E121D0803C600340243 /* AvatarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A77E111D0803C600340243 /* AvatarsView.swift */; };
 		21A77E131D0803C600340243 /* AvatarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A77E111D0803C600340243 /* AvatarsView.swift */; };
 		21A77E151D08053A00340243 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A77E141D08053A00340243 /* AvatarView.swift */; };
@@ -672,6 +679,13 @@
 			remoteGlobalIDString = 21F28DA91B7AC48E009DD1E9;
 			remoteInfo = XTests;
 		};
+		217676741D17503700003D89 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21173C9E1D1742080050D524 /* CanvasCore.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 216B1C8B1D17199B007D022B;
+			remoteInfo = "CanvasCore-iOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -681,6 +695,19 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				217676BB1D17505E00003D89 /* Crypto.framework in Embed Frameworks */,
+				217676BC1D17505E00003D89 /* CommonCrypto.framework in Embed Frameworks */,
+				217676BD1D17505E00003D89 /* Cache.framework in Embed Frameworks */,
+				217676BE1D17505E00003D89 /* Diff.framework in Embed Frameworks */,
+				217676BF1D17505E00003D89 /* CanvasNative.framework in Embed Frameworks */,
+				217676C01D17505E00003D89 /* OperationalTransformation.framework in Embed Frameworks */,
+				217676C11D17505E00003D89 /* CanvasText.framework in Embed Frameworks */,
+				217676C21D17505E00003D89 /* CanvasKit.framework in Embed Frameworks */,
+				217676C31D17505E00003D89 /* ISO8601.framework in Embed Frameworks */,
+				217676C41D17505E00003D89 /* SSKeychain.framework in Embed Frameworks */,
+				217676C51D17505E00003D89 /* Starscream.framework in Embed Frameworks */,
+				217676C61D17505E00003D89 /* X.framework in Embed Frameworks */,
+				217676C71D17505E00003D89 /* CanvasCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1280,6 +1307,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				217676751D17503700003D89 /* PBXTargetDependency */,
 			);
 			name = "Canvas Dev";
 			productName = Canvas;
@@ -2018,10 +2046,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Static.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/KSCrash.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SentrySwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Crypto.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/CommonCrypto.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/GradientView.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Starscream.framework",
 			);
 			name = "Embed Carthage Frameworks";
 			outputPaths = (
@@ -2067,7 +2092,6 @@
 				21501D5F1CCAA2B900B02FC5 /* CanvasesResultsViewController.swift in Sources */,
 				212392C81CEBB7CD00F8D26B /* TextFieldContainer.swift in Sources */,
 				212D8EC71CE62AE00039A3EE /* IndicatorButton.swift in Sources */,
-				21A77E0D1D07E56300340243 /* Cursor.swift in Sources */,
 				218B6BAB1D08D23400A170E5 /* UISplitViewController+Canvas.swift in Sources */,
 				21501D601CCAA2B900B02FC5 /* UIEdgeInsets+Canvas.swift in Sources */,
 				21501D611CCAA2B900B02FC5 /* TextView.swift in Sources */,
@@ -2093,12 +2117,10 @@
 				21C58DB71D022BD8005AEFE1 /* LineView.swift in Sources */,
 				21501D721CCAA2B900B02FC5 /* TintableEnvironment.swift in Sources */,
 				21501D731CCAA2B900B02FC5 /* WebViewController.swift in Sources */,
-				21501D741CCAA2B900B02FC5 /* Color.swift in Sources */,
 				215CD8631CE293FF0093C545 /* PlaceholderViewController.swift in Sources */,
 				21501D751CCAA2B900B02FC5 /* WebActivity.swift in Sources */,
 				2117A0301D06338C00E60821 /* GroupedSectionHeaderView.swift in Sources */,
 				21501D761CCAA2B900B02FC5 /* EditorViewController.swift in Sources */,
-				2193DC5D1D0794A6004D8D0C /* LightTheme.swift in Sources */,
 				21501D771CCAA2B900B02FC5 /* NavigationController.swift in Sources */,
 				212392941CEBAE0300F8D26B /* SplitViewController.swift in Sources */,
 				21501D781CCAA2B900B02FC5 /* ModelsViewController.swift in Sources */,
@@ -2106,13 +2128,10 @@
 				21501D7A1CCAA2B900B02FC5 /* TintableView.swift in Sources */,
 				215CD89C1CE2A26F0093C545 /* EditorViewController+Actions.swift in Sources */,
 				21A77E161D08053A00340243 /* AvatarView.swift in Sources */,
-				21501D7B1CCAA2B900B02FC5 /* Font.swift in Sources */,
 				21501D7C1CCAA2B900B02FC5 /* AlertController.swift in Sources */,
 				2147A2FA1CDA5908008A2709 /* CanvasTextView+Gestures.swift in Sources */,
 				213608451CF51A5100641941 /* APIClient.swift in Sources */,
 				21501D7D1CCAA2B900B02FC5 /* SafariActivity.swift in Sources */,
-				2178CB531CEA7B0100E9A4B2 /* SpaceView.swift in Sources */,
-				21501D7E1CCAA2B900B02FC5 /* Accountable.swift in Sources */,
 				212299CF1CE3E7F200033D94 /* UIViewController+Canvas.swift in Sources */,
 				21501D7F1CCAA2B900B02FC5 /* ChromeActivity.swift in Sources */,
 				21C58DD61D023947005AEFE1 /* SectionHeaderView.swift in Sources */,
@@ -2198,6 +2217,11 @@
 			isa = PBXTargetDependency;
 			name = "CanvasCore-iOS";
 			targetProxy = 21173CC41D1742510050D524 /* PBXContainerItemProxy */;
+		};
+		217676751D17503700003D89 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CanvasCore-iOS";
+			targetProxy = 217676741D17503700003D89 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
