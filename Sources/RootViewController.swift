@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CanvasCore
 import CanvasKit
 import SentrySwift
 
@@ -25,7 +26,7 @@ final class RootViewController: UIViewController {
 			}
 
 			// Update Sentry
-			SentryClient.shared?.user = User(id: account.user.ID, email: account.email, username: account.user.username)
+			SentryClient.shared?.user = User(id: account.user.id, email: account.email, username: account.user.username)
 
 			if var viewController = viewController as? Accountable {
 				// TODO: Handle containers

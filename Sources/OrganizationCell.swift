@@ -8,6 +8,7 @@
 
 import UIKit
 import Static
+import CanvasCore
 import CanvasKit
 
 class OrganizationCell: UITableViewCell, CellType {
@@ -26,7 +27,7 @@ class OrganizationCell: UITableViewCell, CellType {
 		label.backgroundColor = Color.white
 		label.textColor = Color.black
 		label.highlightedTextColor = Color.white
-		label.font = Font.sansSerif(weight: .Bold)
+		label.font = Font.sansSerif(weight: .bold)
 		label.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, forAxis: .Horizontal)
 		return label
 	}()
@@ -97,7 +98,7 @@ class OrganizationCell: UITableViewCell, CellType {
 
 		let organization = row.context?["organization"] as? Organization
 		avatarView.organization = organization
-		selectedBackgroundView?.backgroundColor = organization?.color?.color ?? Color.brand
+		selectedBackgroundView?.backgroundColor = organization?.color?.uiColor ?? Color.brand
 	}
 
 

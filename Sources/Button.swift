@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CanvasCore
 
 class Button: UIButton {
 
@@ -20,7 +21,7 @@ class Button: UIButton {
 		layer.cornerRadius = 4
 		layer.borderColor = Color.white.CGColor
 
-		titleLabel?.font = Font.sansSerif(weight: .Bold)
+		titleLabel?.font = Font.sansSerif(weight: .bold)
 		setTitleColor(Color.white, forState: .Normal)
 	}
 

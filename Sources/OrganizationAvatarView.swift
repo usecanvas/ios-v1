@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CanvasCore
 import CanvasKit
 
 final class OrganizationAvatarView: UIView {
@@ -30,7 +31,7 @@ final class OrganizationAvatarView: UIView {
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.textColor = Color.white
 		label.textAlignment = .Center
-		label.font = Font.sansSerif(weight: .Bold, size: .Small)
+		label.font = Font.sansSerif(weight: .bold, size: .small)
 		return label
 	}()
 
@@ -73,7 +74,7 @@ final class OrganizationAvatarView: UIView {
 			return
 		}
 
-		let orgColor = organization.color?.color ?? Color.brand
+		let orgColor = organization.color?.uiColor ?? Color.brand
 
 		tintColor = highlighted ? Color.white : orgColor
 

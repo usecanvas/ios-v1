@@ -8,6 +8,7 @@
 
 import Mixpanel
 import CanvasKit
+import CanvasCore
 
 struct Analytics {
 
@@ -73,7 +74,7 @@ struct Analytics {
 
 		// Current user
 		if let account = AccountController.sharedController.currentAccount {
-			mixpanelParams["id"] = account.user.ID
+			mixpanelParams["id"] = account.user.id
 			mixpanelParams["$username"] = account.user.username
 		}
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CanvasCore
 
 final class TableView: UITableView {
 	override func tintColorDidChange() {

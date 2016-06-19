@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CanvasCore
 import CanvasKit
 
 final class AvatarView: UIImageView {
@@ -49,19 +50,19 @@ final class AvatarView: UIImageView {
 	// MARK: - Private
 
 	private func updateAvatar() {
-		guard let url = user.avatarURL.flatMap(imgixURL) else {
+		guard let url = user.avatarURL.flatMap(imgix) else {
 			image = nil
 			return
 		}
 
-		image = AvatarsController.sharedController.fetchImage(ID: user.ID, URL: url) { [weak self] ID, image in
-			if ID == self?.user.ID {
+		image = AvatarsController.sharedController.fetchImage(id: user.id, url: url) { [weak self] id, image in
+			if id == self?.user.id {
 				self?.image = image
 			}
 		}
 	}
 
-	private func imgixURL(URL: NSURL) -> NSURL? {
+	private func imgix(url: NSURL) -> NSURL? {
 		let parameters = [
 			NSURLQueryItem(name: "dpr", value: "\(Int(traitCollection.displayScale))"),
 			NSURLQueryItem(name: "w", value: "\(32)"),
@@ -70,6 +71,6 @@ final class AvatarView: UIImageView {
 			NSURLQueryItem(name: "crop", value: "faces")
 		]
 
-		return ImgixController.signURL(URL, parameters: parameters)
+		return ImgixController.sign(url: url, parameters: parameters, configuration: config)
 	}
 }

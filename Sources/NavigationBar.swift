@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CanvasCore
 
 class NavigationBar: UINavigationBar {
 
@@ -71,7 +72,7 @@ class NavigationBar: UINavigationBar {
 
 	private func updateTitleColor() {
 		titleTextAttributes = [
-			NSFontAttributeName: Font.sansSerif(weight: .Bold),
+			NSFontAttributeName: Font.sansSerif(weight: .bold),
 			NSForegroundColorAttributeName: tintAdjustmentMode == .Dimmed ? tintColor : (titleColor ?? Color.gray)
 		]
 	}

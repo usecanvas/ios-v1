@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CanvasCore
 
 final class GroupedSectionHeaderView: SectionHeaderView {
 
@@ -18,7 +19,7 @@ final class GroupedSectionHeaderView: SectionHeaderView {
 		backgroundColor = Color.groupedTableBackground
 		tintColor = Color.gray
 		
-		textLabel.font = Font.sansSerif(size: .Small)
+		textLabel.font = Font.sansSerif(size: .small)
 	}
 	
 	required init?(coder aDecoder: NSCoder) {

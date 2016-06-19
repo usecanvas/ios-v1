@@ -9,6 +9,7 @@
 import UIKit
 import WebKit
 import SentrySwift
+import CanvasCore
 import CanvasText
 
 extension EditorViewController: TextControllerConnectionDelegate {
@@ -77,7 +78,7 @@ extension EditorViewController: TextControllerConnectionDelegate {
 		SentryClient.shared?.captureEvent(event)
 
 		let completion = { [weak self] in
-			self?.textController.disconnect(reason: "wrapper-error")
+			self?.textController.disconnect(withReason: "wrapper-error")
 		}
 
 		#if INTERNAL

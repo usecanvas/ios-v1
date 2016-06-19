@@ -8,6 +8,7 @@
 
 import UIKit
 import Static
+import CanvasCore
 import CanvasKit
 import CanvasNative
 
@@ -48,7 +49,7 @@ class CanvasesViewController: ModelsViewController, Accountable {
 	func openCanvas(canvas: Canvas) {
 		guard !opening else { return }
 
-		if let editor = currentEditor() where editor.canvas.ID == canvas.ID {
+		if let editor = currentEditor() where editor.canvas == canvas {
 			return
 		}
 
@@ -68,8 +69,8 @@ class CanvasesViewController: ModelsViewController, Accountable {
 			#endif
 
 			alert.addAction(UIAlertAction(title: LocalizedString.OpenInSafariButton.string, style: .Default, handler: { _ in
-				guard let URL = canvas.URL else { return }
-				UIApplication.sharedApplication().openURL(URL)
+				guard let url = canvas.url else { return }
+				UIApplication.sharedApplication().openURL(url)
 			}))
 			alert.addAction(UIAlertAction(title: LocalizedString.Cancel.string, style: .Cancel, handler: nil))
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CanvasCore
 import CanvasKit
 import GradientView
 
@@ -216,7 +217,7 @@ class SessionsViewController: UIViewController {
 		button.titleLabel?.textAlignment = .Center
 
 		let text = NSMutableAttributedString(string: title, attributes: [
-			NSFontAttributeName: Font.sansSerif(weight: .Bold, size: .Subtitle),
+			NSFontAttributeName: Font.sansSerif(weight: .bold, size: .subtitle),
 			NSForegroundColorAttributeName: UIColor(white: 1, alpha: 0.7)
 		])
 

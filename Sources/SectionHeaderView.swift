@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CanvasCore
 
 class SectionHeaderView: UIView {
 
@@ -15,7 +16,7 @@ class SectionHeaderView: UIView {
 	let textLabel: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
-		label.font = Font.sansSerif(weight: .Bold)
+		label.font = Font.sansSerif(weight: .bold)
 		label.textColor = Color.black
 		return label
 	}()

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CanvasCore
 
 class SplitViewController: UISplitViewController {
 

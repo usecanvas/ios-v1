@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CanvasCore
 import CanvasKit
 
 class LoadCanvasViewController: UIViewController, Accountable {

@@ -8,6 +8,7 @@
 
 import UIKit
 import Static
+import CanvasCore
 
 class TableViewController: UIViewController {
 

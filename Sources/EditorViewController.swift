@@ -7,6 +7,7 @@
 
 import UIKit
 import WebKit
+import CanvasCore
 import CanvasKit
 import CanvasText
 import CanvasNative
@@ -59,18 +60,18 @@ final class EditorViewController: UIViewController, Accountable {
 		self.canvas = canvas
 
 		textController = TextController(
-			serverURL: config.realtimeURL,
+			serverURL: config.environment.realtimeURL,
 			accessToken: account.accessToken,
-			organizationID: canvas.organization.ID,
-			canvasID: canvas.ID,
-			theme: LightTheme(tintColor: canvas.organization.color?.color ?? Color.brand)
+			organizationID: canvas.organization.id,
+			canvasID: canvas.id,
+			theme: LightTheme(tintColor: canvas.organization.color?.uiColor ?? Color.brand)
 		)
 
 		let textView = CanvasTextView(frame: .zero, textContainer: textController.textContainer)
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		self.textView = textView
 
-		presenceController = PresenceController(account: account)
+		presenceController = PresenceController(account: account, serverURL: config.environment.presenceURL)
 		
 		super.init(nibName: nil, bundle: nil)
 		
@@ -95,7 +96,7 @@ final class EditorViewController: UIViewController, Accountable {
 	}
 
 	deinit {
-		textController.disconnect(reason: nil)
+		textController.disconnect(withReason: nil)
 		presenceController.disconnect()
 	}
 
@@ -201,14 +202,14 @@ final class EditorViewController: UIViewController, Accountable {
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		updatePreventSleep()
-		presenceController.join(canvasID: canvas.ID)
+		presenceController.join(canvasID: canvas.id)
 	}
 
 	override func viewWillDisappear(animated: Bool) {
 		super.viewWillDisappear(animated)
 		UIApplication.sharedApplication().idleTimerDisabled = false
 		textView.resignFirstResponder()
-		presenceController.leave(canvasID: canvas.ID)
+		presenceController.leave(canvasID: canvas.id)
 	}
 	
 	override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
@@ -256,14 +257,14 @@ final class EditorViewController: UIViewController, Accountable {
 		}
 	}
 	
-	private func imgixURL(URL: NSURL) -> NSURL? {
+	private func imgix(url: NSURL) -> NSURL? {
 		let parameters = [
 			NSURLQueryItem(name: "fit", value: "max"),
 			NSURLQueryItem(name: "dpr", value: "\(Int(traitCollection.displayScale))"),
 			NSURLQueryItem(name: "w", value: "\(Int(textView.textContainer.size.width))")
 		]
 
-		return ImgixController.signURL(URL, parameters: parameters)
+		return ImgixController.sign(url: url, parameters: parameters, configuration: config)
 	}
 
 	func updateTitlePlaceholder() {
@@ -285,7 +286,7 @@ final class EditorViewController: UIViewController, Accountable {
 
 extension EditorViewController: TintableEnvironment {
 	var preferredTintColor: UIColor {
-		return canvas.organization.color?.color ?? Color.brand
+		return canvas.organization.color?.uiColor ?? Color.brand
 	}
 }
 
@@ -300,7 +301,9 @@ extension EditorViewController: UIViewControllerPreviewingDelegate {
 		)
 
 		let document = textController.currentDocument
-		let nodes = document.nodesIn(backingRange: document.backingRange(presentationRange: range))
+		
+		// TODO: Update for inline-markers
+		let nodes = document.nodesIn(backingRange: document.backingRanges(presentationRange: range)[0])
 
 		guard let index = nodes.indexOf({ $0 is Link }),
 			link = nodes[index] as? Link,
@@ -396,7 +399,7 @@ extension EditorViewController: TextControllerDisplayDelegate {
 	}
 	
 	func textController(textController: TextController, URLForImage block: Image) -> NSURL? {
-		return imgixURL(block.url)
+		return imgix(block.url)
 	}
 	
 	func textControllerDidUpdateFolding(textController: TextController) {}

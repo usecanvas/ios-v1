@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CanvasCore
 
 extension EditorViewController {
 	func close(sender: UIAlertAction? = nil) {
@@ -21,7 +22,7 @@ extension EditorViewController {
 	func share(sender: AnyObject?) {
 		dismissKeyboard(sender)
 		
-		guard let URL = canvas.URL else { return }
+		guard let URL = canvas.url else { return }
 		let activities = [SafariActivity(), ChromeActivity()]
 		let viewController = UIActivityViewController(activityItems: [URL], applicationActivities: activities)
 		

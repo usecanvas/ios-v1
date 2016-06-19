@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CanvasCore
 import CanvasKit
 import OnePasswordExtension
 
@@ -122,7 +123,7 @@ final class LogInViewController: SessionsViewController {
 
 		loading = true
 
-		let client = AuthorizationClient(clientID: config.canvasClientID, clientSecret: config.canvasClientSecret, baseURL: config.baseURL)
+		let client = AuthorizationClient(clientID: config.canvasClientID, clientSecret: config.canvasClientSecret, baseURL: config.environment.baseURL)
 		client.createAccessToken(username: username, password: password) { [weak self] in
 			switch $0 {
 			case .Success(let account):

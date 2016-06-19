@@ -7,10 +7,11 @@
 //
 
 import CanvasKit
+import CanvasCore
 
 class APIClient: CanvasKit.APIClient {
 	convenience init(account: Account) {
-		self.init(accessToken: account.accessToken, baseURL: config.baseURL)
+		self.init(accessToken: account.accessToken, baseURL: config.environment.baseURL)
 	}
 
 	override func shouldComplete<T>(request request: NSURLRequest, response: NSHTTPURLResponse?, data: NSData?, error: NSError?, completion: Result<T> -> Void) -> Bool {

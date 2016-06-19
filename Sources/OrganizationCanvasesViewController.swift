@@ -8,6 +8,7 @@
 
 import UIKit
 import Static
+import CanvasCore
 import CanvasKit
 
 final class OrganizationCanvasesViewController: CanvasesViewController {
@@ -283,7 +284,7 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		where !splitViewController.collapsed
 		else { return }
 
-		if viewController.canvas.ID == canvas.ID {
+		if viewController.canvas == canvas {
 			showDetailViewController(NavigationController(rootViewController: PlaceholderViewController()), sender: nil)
 		}
 	}
@@ -291,7 +292,7 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 	private func removeCanvas(canvas: Canvas) {
 		for (s, var section) in dataSource.sections.enumerate() {
 			for (r, row) in section.rows.enumerate() {
-				if let rowCanvas = row.context?["canvas"] as? Canvas where rowCanvas.ID == canvas.ID {
+				if let rowCanvas = row.context?["canvas"] as? Canvas where rowCanvas == canvas {
 					section.rows.removeAtIndex(r)
 
 					if section.rows.isEmpty {
@@ -345,6 +346,6 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 
 extension OrganizationCanvasesViewController: TintableEnvironment {
 	var preferredTintColor: UIColor {
-		return organization.color?.color ?? Color.brand
+		return organization.color?.uiColor ?? Color.brand
 	}
 }
