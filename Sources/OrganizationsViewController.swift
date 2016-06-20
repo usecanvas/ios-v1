@@ -163,6 +163,8 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 
 	func logOut() {
 		Analytics.track(.LoggedOut)
+
+		APIClient(account: account).revokeAccessToken()
 		AccountController.sharedController.currentAccount = nil
 	}
 
