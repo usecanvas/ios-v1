@@ -34,7 +34,7 @@ task :bootstrap do
   system 'carthage bootstrap --platform iOS --no-use-binaries'
 
   puts "\nGetting submodule dependencies…".bold.blue
-  system 'git submodule update --init'
+  system 'git submodule update --init --recursive'
 
   puts "\nYou're ready to go! Open Canvas.xcodeproj and click ▶".bold.green
 end
