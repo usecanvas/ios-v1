@@ -130,7 +130,7 @@ final class EditorViewController: UIViewController, Accountable {
 		}
 
 		let checkTitle: String
-		if let block = textController.focusedBlock as? ChecklistItem where block.state == .Checked {
+		if let block = textController.focusedBlock as? ChecklistItem where block.state == .checked {
 			checkTitle = LocalizedString.MarkAsUncheckedCommand.string
 		} else {
 			checkTitle = LocalizedString.MarkAsCheckedCommand.string
