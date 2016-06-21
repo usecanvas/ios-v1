@@ -375,9 +375,9 @@ extension EditorViewController: TextControllerDisplayDelegate {
 				textView.contentOffset = CGPoint(x: 0, y: textView.contentOffset.y + currentPositionY - previousPositionY)
 				self?.scrollOffset = nil
 			}
-		}
 
-		updateTitleTypingAttributes()
+			self?.updateTitleTypingAttributes()
+		}
 	}
 
 	func textController(textController: TextController, didUpdateTitle title: String?) {
