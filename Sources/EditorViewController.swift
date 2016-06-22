@@ -323,6 +323,35 @@ extension EditorViewController: UIViewControllerPreviewingDelegate {
 
 
 extension EditorViewController: UITextViewDelegate {
+	// TODO: Remove this. This is a temporary solution to avoid new lines in comments.
+	func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+		if !text.containsString("\n") {
+			return true
+		}
+
+		var presentationRange = range
+
+		if !text.isEmpty {
+			presentationRange.length = (text as NSString).length
+		}
+
+		let backingRanges = textController.currentDocument.backingRanges(presentationRange: presentationRange)
+		let markerRanges = textController.currentDocument.blocks
+			.flatMap { ($0 as? InlineMarkerContainer)?.inlineMarkerPairs }
+			.flatten()
+			.map { $0.range }
+
+		for backingRange in backingRanges {
+			for markerRange in markerRanges {
+				if NSIntersectionRange(backingRange, markerRange).length > 0 || NSMaxRange(markerRange) == backingRange.location {
+					return false
+				}
+			}
+		}
+
+		return true
+	}
+
 	func textViewDidChangeSelection(textView: UITextView) {
 		scrollOffset = nil
 
