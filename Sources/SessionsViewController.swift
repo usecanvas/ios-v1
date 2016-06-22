@@ -188,7 +188,7 @@ class SessionsViewController: UIViewController {
 			duration = dictionary[UIKeyboardAnimationDurationUserInfoKey] as? NSTimeInterval,
 			curve = (dictionary[UIKeyboardAnimationCurveUserInfoKey] as? Int).flatMap(UIViewAnimationCurve.init),
 			rect = (dictionary[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue()
-			else { return }
+		else { return }
 
 		let frame = view.convertRect(rect, fromView: nil)
 
