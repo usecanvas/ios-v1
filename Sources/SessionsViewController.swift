@@ -104,8 +104,8 @@ class SessionsViewController: StackViewController {
 		// 1Password
 		if OnePasswordExtension.sharedExtension().isAppExtensionAvailable() {
 			let button = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 44))
-			button.setImage(UIImage(named: "OnePassword"), forState: .Normal)
-			button.imageView?.tintColor = Swatch.white
+			button.setImage(UIImage(named: "1Password"), forState: .Normal)
+			button.imageView?.tintColor = Swatch.gray
 			button.addTarget(self, action: #selector(onePassword), forControlEvents: .TouchUpInside)
 			passwordTextField.rightView = button
 			passwordTextField.rightViewMode = .Always

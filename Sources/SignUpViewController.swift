@@ -52,17 +52,35 @@ final class SignUpViewController: SessionsViewController {
 	// MARK: - Actions
 	
 	override func onePassword(sender: AnyObject?) {
-//		OnePasswordExtension.sharedExtension().findLoginForURLString("https://usecanvas.com", forViewController: self, sender: sender) { [weak self] loginDictionary, _ in
-//			if let username = loginDictionary?[AppExtensionUsernameKey] as? String {
-//				self?.usernameTextField.text = username
-//			}
-//			
-//			if let password = loginDictionary?[AppExtensionPasswordKey] as? String {
-//				self?.passwordTextField.text = password
-//			}
-//			
-//			self?.submit()
-//		}
+		let passwordGenerationOptions = [
+			AppExtensionGeneratedPasswordMinLengthKey: 8,
+			AppExtensionGeneratedPasswordMaxLengthKey: 128
+		]
+		
+		let loginDetails: [String: AnyObject] = [
+			AppExtensionTitleKey: "Canvas",
+			AppExtensionUsernameKey: emailTextField.text ?? "",
+			AppExtensionPasswordKey: passwordTextField.text ?? "",
+			AppExtensionFieldsKey: [
+				"username": usernameTextField.text ?? ""
+			]
+		]
+	
+		OnePasswordExtension.sharedExtension().storeLoginForURLString("https://usecanvas.com/login", loginDetails: loginDetails, passwordGenerationOptions: passwordGenerationOptions, forViewController: self, sender: sender) { [weak self] loginDictionary, _ in
+			if let returnedFields = loginDictionary?[AppExtensionReturnedFieldsKey] as? [String: AnyObject], username = returnedFields["username"] as? String {
+				self?.usernameTextField.text = username
+			}
+			
+			if let email = loginDictionary?[AppExtensionUsernameKey] as? String {
+				self?.emailTextField.text = email
+			}
+			
+			if let password = loginDictionary?[AppExtensionPasswordKey] as? String {
+				self?.passwordTextField.text = password
+			}
+
+			self?.submit()
+		}
 	}
 	
 	override func submit() {
