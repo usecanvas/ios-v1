@@ -17,7 +17,6 @@ class StackViewController: UIViewController {
 		let view = UIStackView()
 		view.translatesAutoresizingMaskIntoConstraints = false
 		view.axis = .Vertical
-		view.spacing = 16
 		view.alignment = .Fill
 		return view
 	}()
@@ -36,20 +35,7 @@ class StackViewController: UIViewController {
 	
 	private var keyboardFrame: CGRect? {
 		didSet {
-			guard let keyboardFrame = keyboardFrame else {
-				centerYConstraint = nil
-				return
-			}
-			
-			var rect = view.bounds
-			rect.size.height -= rect.intersect(keyboardFrame).height
-			rect.origin.y += UIApplication.sharedApplication().statusBarFrame.size.height
-			rect.size.height -= UIApplication.sharedApplication().statusBarFrame.size.height
-			
-			let contstraint = stackView.centerYAnchor.constraintEqualToAnchor(view.topAnchor, constant: rect.midY)
-			contstraint.priority = UILayoutPriorityDefaultHigh
-			
-			centerYConstraint = contstraint
+			keyboardFrameDidChange()
 		}
 	}
 	
@@ -68,8 +54,6 @@ class StackViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillChangeFrame), name: UIKeyboardWillChangeFrameNotification, object: nil)
-		
 		view.backgroundColor = Swatch.white
 		view.addSubview(stackView)
 		
@@ -85,6 +69,9 @@ class StackViewController: UIViewController {
 			width,
 			stackView.widthAnchor.constraintLessThanOrEqualToConstant(400)
 		])
+		
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillChangeFrame), name: UIKeyboardWillChangeFrameNotification, object: nil)
+		keyboardFrameDidChange()
 	}
 	
 	override func viewDidAppear(animated: Bool) {
@@ -126,5 +113,22 @@ class StackViewController: UIViewController {
 		} else {
 			UIView.performWithoutAnimation(change)
 		}
+	}
+	
+	private func keyboardFrameDidChange() {
+		guard let keyboardFrame = keyboardFrame else {
+			centerYConstraint = stackView.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor)
+			return
+		}
+		
+		var rect = view.bounds
+		rect.size.height -= rect.intersect(keyboardFrame).height
+		rect.origin.y += UIApplication.sharedApplication().statusBarFrame.size.height
+		rect.size.height -= UIApplication.sharedApplication().statusBarFrame.size.height
+		
+		let contstraint = stackView.centerYAnchor.constraintEqualToAnchor(view.topAnchor, constant: rect.midY)
+		contstraint.priority = UILayoutPriorityDefaultHigh
+		
+		centerYConstraint = contstraint
 	}
 }

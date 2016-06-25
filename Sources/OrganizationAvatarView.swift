@@ -31,7 +31,7 @@ final class OrganizationAvatarView: UIView {
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.textColor = Swatch.white
 		label.textAlignment = .Center
-		label.font = Font.sansSerif(weight: .bold, size: .small)
+		label.font = Font.sansSerif(weight: .medium, size: .small)
 		return label
 	}()
 

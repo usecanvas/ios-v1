@@ -62,9 +62,6 @@ class SessionsViewController: StackViewController {
 	let footerButton: UIButton = {
 		let button = UIButton()
 		button.translatesAutoresizingMaskIntoConstraints = false
-		button.setTitle("Don’t have an account? Sign up.", forState: .Normal)
-		button.titleLabel?.font = Font.sansSerif(size: .subtitle)
-		button.setTitleColor(Swatch.gray, forState: .Normal)
 		
 		let lineView = LineView()
 		lineView.translatesAutoresizingMaskIntoConstraints = false
@@ -119,16 +116,22 @@ class SessionsViewController: StackViewController {
 			stackView.addArrangedSubview(iconView)
 			
 			if view.bounds.height > 568 {
+				stackView.addSpace(16)
 				stackView.addArrangedSubview(headingLabel)
+				stackView.addSpace(8)
+			} else {
+				stackView.addSpace(16)
 			}
 		}
 
 		// Text fields
 		textFields.forEach { textField in
+			stackView.addSpace(16)
 			stackView.addArrangedSubview(textField)
 			textField.delegate = self
 		}
 		
+		stackView.addSpace(32)
 		submitButton.addTarget(self, action: #selector(submit), forControlEvents: .TouchUpInside)
 		stackView.addArrangedSubview(submitButton)
 		
@@ -140,11 +143,6 @@ class SessionsViewController: StackViewController {
 			footerButton.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor),
 			footerButton.heightAnchor.constraintEqualToConstant(48)
 		])
-	}
-
-	override func viewDidAppear(animated: Bool) {
-		super.viewDidAppear(animated)
-		textFields.first?.becomeFirstResponder()
 	}
 
 
@@ -161,25 +159,29 @@ class SessionsViewController: StackViewController {
 
 	// MARK: - Factory
 
-	func secondaryButton(title title: String, emphasizedRange: NSRange) -> UIButton {
+	static func secondaryButtonText(title title: String, emphasizedRange: NSRange) -> NSAttributedString {
+		let text = NSMutableAttributedString(string: title, attributes: [
+			NSFontAttributeName: Font.sansSerif(size: .subtitle),
+			NSForegroundColorAttributeName: Swatch.gray
+		])
+
+		text.setAttributes([
+			NSFontAttributeName: Font.sansSerif(size: .subtitle, weight: .medium),
+			NSForegroundColorAttributeName: Swatch.brand
+		], range: emphasizedRange)
+
+		return text
+	}
+	
+	static func secondaryButton(title title: String, emphasizedRange: NSRange) -> UIButton {
 		let button = UIButton()
 		button.titleLabel?.numberOfLines = 0
 		button.titleLabel?.textAlignment = .Center
-
-		let text = NSMutableAttributedString(string: title, attributes: [
-			NSFontAttributeName: Font.sansSerif(weight: .bold, size: .subtitle),
-			NSForegroundColorAttributeName: UIColor(white: 1, alpha: 0.7)
-		])
-
-		text.addAttribute(NSForegroundColorAttributeName, value: Swatch.white, range: emphasizedRange)
+		
+		let text = secondaryButtonText(title: title, emphasizedRange: emphasizedRange)
+		
 		button.setAttributedTitle(text, forState: .Normal)
-
-		if let highlightedText = text.mutableCopy() as? NSMutableAttributedString {
-			highlightedText.addAttribute(NSForegroundColorAttributeName, value: Swatch.white.colorWithAlphaComponent(0.9), range: NSRange(location: 0, length: highlightedText.length))
-			highlightedText.addAttribute(NSForegroundColorAttributeName, value: Swatch.white, range: emphasizedRange)
-			button.setAttributedTitle(highlightedText, forState: .Highlighted)
-		}
-
+		
 		return button
 	}
 }

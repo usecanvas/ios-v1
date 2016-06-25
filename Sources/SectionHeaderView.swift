@@ -16,7 +16,7 @@ class SectionHeaderView: UIView {
 	let textLabel: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
-		label.font = Font.sansSerif(weight: .bold)
+		label.font = Font.sansSerif(weight: .medium)
 		label.textColor = Swatch.black
 		return label
 	}()

@@ -22,7 +22,7 @@ class Button: UIButton {
 		layer.borderColor = Swatch.brand.CGColor
 		layer.borderWidth = 2
 
-		titleLabel?.font = Font.sansSerif(weight: .bold)
+		titleLabel?.font = Font.sansSerif(weight: .medium)
 		setTitleColor(Swatch.brand, forState: .Normal)
 	}
 

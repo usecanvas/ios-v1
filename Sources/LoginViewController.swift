@@ -26,6 +26,15 @@ final class LogInViewController: SessionsViewController {
 		
 		title = "Log in to Canvas"
 		submitButton.setTitle(LocalizedString.LoginButton.string, forState: .Normal)
+		
+		let signUpText = self.dynamicType.secondaryButtonText(title: "Don’t have an account? Sign up.", emphasizedRange: NSRange(location: 23, length: 7))
+		footerButton.setAttributedTitle(signUpText, forState: .Normal)
+		footerButton.addTarget(self, action: #selector(signUp), forControlEvents: .TouchUpInside)
+		
+		let forgotButton = self.dynamicType.secondaryButton(title: "Trouble logging in? Reset your password.", emphasizedRange: NSRange(location: 20, length: 19))
+		forgotButton.addTarget(self, action: #selector(forgotPassword), forControlEvents: .TouchUpInside)
+		stackView.addSpace(32)
+		stackView.addArrangedSubview(forgotButton)
 	}
 	
 	override func viewDidAppear(animated: Bool) {
@@ -98,7 +107,7 @@ final class LogInViewController: SessionsViewController {
 		}
 	}
 
-	@objc private func resetPassword() {
+	@objc private func forgotPassword() {
 		let URL = NSURL(string: "https://usecanvas.com/password-reset")!
 		UIApplication.sharedApplication().openURL(URL)
 	}

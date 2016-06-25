@@ -27,7 +27,7 @@ class OrganizationCell: UITableViewCell, CellType {
 		label.backgroundColor = Swatch.white
 		label.textColor = Swatch.black
 		label.highlightedTextColor = Swatch.white
-		label.font = Font.sansSerif(weight: .bold)
+		label.font = Font.sansSerif(weight: .medium)
 		label.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, forAxis: .Horizontal)
 		return label
 	}()
