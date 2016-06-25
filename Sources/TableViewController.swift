@@ -32,7 +32,7 @@ class TableViewController: UIViewController {
 	init(style: UITableViewStyle) {
 		tableView = TableView(frame: .zero, style: style)
 		tableView.translatesAutoresizingMaskIntoConstraints = false
-		tableView.separatorColor = Color.cellSeparator
+		tableView.separatorColor = Swatch.cellSeparator
 
 		dataSource.tableView = tableView
 

@@ -45,7 +45,7 @@ class LoadCanvasViewController: UIViewController, Accountable {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		view.backgroundColor = Color.white
+		view.backgroundColor = Swatch.white
 		view.addSubview(activityIndicator)
 
 		navigationItem.hidesBackButton = true

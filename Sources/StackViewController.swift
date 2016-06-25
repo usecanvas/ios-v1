@@ -70,7 +70,7 @@ class StackViewController: UIViewController {
 		
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillChangeFrame), name: UIKeyboardWillChangeFrameNotification, object: nil)
 		
-		view.backgroundColor = Color.white
+		view.backgroundColor = Swatch.white
 		view.addSubview(stackView)
 		
 		let width = stackView.widthAnchor.constraintEqualToAnchor(view.widthAnchor, multiplier: 0.8)

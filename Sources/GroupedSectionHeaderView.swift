@@ -16,8 +16,8 @@ final class GroupedSectionHeaderView: SectionHeaderView {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 
-		backgroundColor = Color.groupedTableBackground
-		tintColor = Color.gray
+		backgroundColor = Swatch.groupedTableBackground
+		tintColor = Swatch.gray
 		
 		textLabel.font = Font.sansSerif(size: .small)
 	}

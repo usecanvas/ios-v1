@@ -17,7 +17,7 @@ class PlaceholderViewController: UIViewController {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.text = "No Canvas Selected"
-		label.textColor = Color.gray
+		label.textColor = Swatch.gray
 		label.font = Font.sansSerif()
 		return label
 	}()
@@ -28,7 +28,7 @@ class PlaceholderViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		view.backgroundColor = Color.white
+		view.backgroundColor = Swatch.white
 
 		view.addSubview(textLabel)
 

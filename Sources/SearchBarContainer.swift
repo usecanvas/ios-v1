@@ -28,10 +28,10 @@ class SearchBarContainer: UIView {
 
 		autoresizingMask = [.FlexibleWidth]
 
-		searchBar.barTintColor = Color.white
-		searchBar.layer.borderColor = Color.white.CGColor
+		searchBar.barTintColor = Swatch.white
+		searchBar.layer.borderColor = Swatch.white.CGColor
 		searchBar.layer.borderWidth = 1
-		searchBar.backgroundColor = Color.white
+		searchBar.backgroundColor = Swatch.white
 		searchBar.translucent = false
 		searchBar.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
 		searchBar.setImage(UIImage(named: "SearchSmall"), forSearchBarIcon: .Search, state: .Normal)
@@ -39,16 +39,16 @@ class SearchBarContainer: UIView {
 
 		if let string = searchBar.placeholder {
 			let placeholder = NSAttributedString(string: string, attributes: [
-				NSForegroundColorAttributeName: Color.gray,
+				NSForegroundColorAttributeName: Swatch.gray,
 				NSFontAttributeName: Font.sansSerif(size: .small)
 			])
 			UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).attributedPlaceholder = placeholder
 		}
 
-		topBorderView.backgroundColor = Color.searchBarBorder
+		topBorderView.backgroundColor = Swatch.searchBarBorder
 		addSubview(topBorderView)
 
-		bottomBorderView.backgroundColor = Color.searchBarBorder
+		bottomBorderView.backgroundColor = Swatch.searchBarBorder
 		addSubview(bottomBorderView)
 	}
 	

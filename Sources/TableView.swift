@@ -17,6 +17,6 @@ final class TableView: UITableView {
 			return
 		}
 
-		backgroundColor = tintAdjustmentMode == .Dimmed ? Color.groupedTableBackground.desaturated : Color.groupedTableBackground
+		backgroundColor = tintAdjustmentMode == .Dimmed ? Swatch.groupedTableBackground.desaturated : Swatch.groupedTableBackground
 	}
 }

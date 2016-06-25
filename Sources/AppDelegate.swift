@@ -54,7 +54,7 @@ extension AppDelegate: UIApplicationDelegate {
 		Analytics.track(.LaunchedApp)
 
 		// Appearance
-		UIImageView.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = Color.gray
+		UIImageView.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = Swatch.gray
 
 		// Defaults
 		dispatch_async(dispatch_get_main_queue()) {

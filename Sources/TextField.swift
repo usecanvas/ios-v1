@@ -18,7 +18,7 @@ final class TextField: UITextField {
 			guard let placeholder = placeholder, font = font else { return }
 			attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [
 				NSFontAttributeName: font,
-				NSForegroundColorAttributeName: Color.gray
+				NSForegroundColorAttributeName: Swatch.gray
 			])
 		}
 	}
@@ -28,10 +28,10 @@ final class TextField: UITextField {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		
-		backgroundColor = Color.extraLightGray
+		backgroundColor = Swatch.extraLightGray
 
-		textColor = Color.black
-		tintColor = Color.brand
+		textColor = Swatch.black
+		tintColor = Swatch.brand
 		font = Font.sansSerif()
 
 		layer.cornerRadius = 4

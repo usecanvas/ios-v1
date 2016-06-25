@@ -24,9 +24,9 @@ class OrganizationCell: UITableViewCell, CellType {
 	let titleLabel: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
-		label.backgroundColor = Color.white
-		label.textColor = Color.black
-		label.highlightedTextColor = Color.white
+		label.backgroundColor = Swatch.white
+		label.textColor = Swatch.black
+		label.highlightedTextColor = Swatch.white
 		label.font = Font.sansSerif(weight: .bold)
 		label.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, forAxis: .Horizontal)
 		return label
@@ -98,7 +98,7 @@ class OrganizationCell: UITableViewCell, CellType {
 
 		let organization = row.context?["organization"] as? Organization
 		avatarView.organization = organization
-		selectedBackgroundView?.backgroundColor = organization?.color?.uiColor ?? Color.brand
+		selectedBackgroundView?.backgroundColor = organization?.color?.uiColor ?? Swatch.brand
 	}
 
 
@@ -106,6 +106,6 @@ class OrganizationCell: UITableViewCell, CellType {
 
 	private func updateHighlighted() {
 		avatarView.highlighted = highlighted || selected
-		disclosureIndicatorView.tintColor = highlighted || selected ? Color.white : Color.lightGray
+		disclosureIndicatorView.tintColor = highlighted || selected ? Swatch.white : Swatch.lightGray
 	}
 }

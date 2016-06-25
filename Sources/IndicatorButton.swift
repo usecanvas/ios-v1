@@ -30,7 +30,7 @@ final class IndicatorButton: Button {
 		indicator.translatesAutoresizingMaskIntoConstraints = false
 		indicator.userInteractionEnabled = false
 		indicator.hidesWhenStopped = true
-		indicator.color = Color.gray
+		indicator.color = Swatch.gray
 		return indicator
 	}()
 

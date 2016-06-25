@@ -28,7 +28,7 @@ class SessionsViewController: StackViewController {
 	
 	let headingLabel: UILabel = {
 		let label = UILabel()
-		label.textColor = Color.black
+		label.textColor = Swatch.black
 		label.font = Font.sansSerif(size: .heading)
 		label.textAlignment = .Center
 		return label
@@ -88,7 +88,7 @@ class SessionsViewController: StackViewController {
 		if OnePasswordExtension.sharedExtension().isAppExtensionAvailable() {
 			let button = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 44))
 			button.setImage(UIImage(named: "OnePassword"), forState: .Normal)
-			button.imageView?.tintColor = Color.white
+			button.imageView?.tintColor = Swatch.white
 			button.addTarget(self, action: #selector(onePassword), forControlEvents: .TouchUpInside)
 			passwordTextField.rightView = button
 			passwordTextField.rightViewMode = .Always
@@ -150,12 +150,12 @@ class SessionsViewController: StackViewController {
 			NSForegroundColorAttributeName: UIColor(white: 1, alpha: 0.7)
 		])
 
-		text.addAttribute(NSForegroundColorAttributeName, value: Color.white, range: emphasizedRange)
+		text.addAttribute(NSForegroundColorAttributeName, value: Swatch.white, range: emphasizedRange)
 		button.setAttributedTitle(text, forState: .Normal)
 
 		if let highlightedText = text.mutableCopy() as? NSMutableAttributedString {
-			highlightedText.addAttribute(NSForegroundColorAttributeName, value: Color.white.colorWithAlphaComponent(0.9), range: NSRange(location: 0, length: highlightedText.length))
-			highlightedText.addAttribute(NSForegroundColorAttributeName, value: Color.white, range: emphasizedRange)
+			highlightedText.addAttribute(NSForegroundColorAttributeName, value: Swatch.white.colorWithAlphaComponent(0.9), range: NSRange(location: 0, length: highlightedText.length))
+			highlightedText.addAttribute(NSForegroundColorAttributeName, value: Swatch.white, range: emphasizedRange)
 			button.setAttributedTitle(highlightedText, forState: .Highlighted)
 		}
 

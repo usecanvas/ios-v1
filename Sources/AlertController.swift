@@ -59,7 +59,7 @@ final class AlertController: UIAlertController {
 			if let label = subview as? UILabel {
 				adjustLabel(label)
 			} else if subview.bounds.height > 0 && subview.bounds.height <= 1 {
-				subview.backgroundColor = Color.cellSeparator
+				subview.backgroundColor = Swatch.cellSeparator
 			}
 
 			adjustSubviews(subview.subviews)
@@ -71,7 +71,7 @@ final class AlertController: UIAlertController {
 			if label.text == title {
 				label.attributedText = NSAttributedString(string: label.text ?? "", attributes: [
 					NSFontAttributeName: label.font,
-					NSForegroundColorAttributeName: Color.gray
+					NSForegroundColorAttributeName: Swatch.gray
 				])
 				return
 			}
@@ -81,12 +81,12 @@ final class AlertController: UIAlertController {
 				case .Default, .Cancel:
 					label.attributedText = NSAttributedString(string: label.text ?? "", attributes: [
 						NSFontAttributeName: label.font,
-						NSForegroundColorAttributeName: Color.brand
+						NSForegroundColorAttributeName: Swatch.brand
 					])
 				case .Destructive:
 					label.attributedText = NSAttributedString(string: label.text ?? "", attributes: [
 						NSFontAttributeName: label.font,
-						NSForegroundColorAttributeName: Color.destructive
+						NSForegroundColorAttributeName: Swatch.destructive
 					])
 				}
 			}
