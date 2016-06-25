@@ -45,10 +45,10 @@ class SearchBarContainer: UIView {
 			UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).attributedPlaceholder = placeholder
 		}
 
-		topBorderView.backgroundColor = Swatch.searchBarBorder
+		topBorderView.backgroundColor = Swatch.border
 		addSubview(topBorderView)
 
-		bottomBorderView.backgroundColor = Swatch.searchBarBorder
+		bottomBorderView.backgroundColor = Swatch.border
 		addSubview(bottomBorderView)
 	}
 	

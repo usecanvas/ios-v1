@@ -58,6 +58,26 @@ class SessionsViewController: StackViewController {
 		button.setTitleColor(UIColor(red: 0.209, green: 0.556, blue: 1, alpha: 1), forState: .Disabled)
 		return button
 	}()
+	
+	let footerButton: UIButton = {
+		let button = UIButton()
+		button.translatesAutoresizingMaskIntoConstraints = false
+		button.setTitle("Don’t have an account? Sign up.", forState: .Normal)
+		button.titleLabel?.font = Font.sansSerif(size: .subtitle)
+		button.setTitleColor(Swatch.gray, forState: .Normal)
+		
+		let lineView = LineView()
+		lineView.translatesAutoresizingMaskIntoConstraints = false
+		lineView.backgroundColor = Swatch.border
+		button.addSubview(lineView)
+		
+		NSLayoutConstraint.activateConstraints([
+			lineView.widthAnchor.constraintEqualToAnchor(button.widthAnchor),
+			lineView.topAnchor.constraintEqualToAnchor(button.topAnchor)
+		])
+		
+		return button
+	}()
 
 	var textFields: [UITextField] {
 		return [usernameTextField, passwordTextField]
@@ -112,13 +132,14 @@ class SessionsViewController: StackViewController {
 		submitButton.addTarget(self, action: #selector(submit), forControlEvents: .TouchUpInside)
 		stackView.addArrangedSubview(submitButton)
 		
-//		NSLayoutConstraint.activateConstraints([
-//			usernameTextField.widthAnchor.constraintEqualToAnchor(stackView.widthAnchor),
-//			passwordTextField.widthAnchor.constraintEqualToAnchor(usernameTextField.widthAnchor),
-//			passwordTextField.heightAnchor.constraintEqualToAnchor(usernameTextField.heightAnchor),
-//			submitButton.widthAnchor.constraintEqualToAnchor(usernameTextField.widthAnchor),
-//			submitButton.heightAnchor.constraintEqualToAnchor(usernameTextField.heightAnchor)
-//		])
+		view.addSubview(footerButton)
+	
+		NSLayoutConstraint.activateConstraints([
+			footerButton.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
+			footerButton.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor),
+			footerButton.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor),
+			footerButton.heightAnchor.constraintEqualToConstant(48)
+		])
 	}
 
 	override func viewDidAppear(animated: Bool) {

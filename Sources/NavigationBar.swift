@@ -47,7 +47,7 @@ class NavigationBar: UINavigationBar {
 		backIndicatorImage = UIImage(named: "ChevronLeft")
 		backIndicatorTransitionMaskImage = UIImage(named: "ChevronLeft")
 
-		borderColor = Swatch.navigationBarBorder
+		borderColor = Swatch.border
 
 		addSubview(borderView)
 

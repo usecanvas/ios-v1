@@ -59,7 +59,7 @@ final class AlertController: UIAlertController {
 			if let label = subview as? UILabel {
 				adjustLabel(label)
 			} else if subview.bounds.height > 0 && subview.bounds.height <= 1 {
-				subview.backgroundColor = Swatch.cellSeparator
+				subview.backgroundColor = Swatch.border
 			}
 
 			adjustSubviews(subview.subviews)
