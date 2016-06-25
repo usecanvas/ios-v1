@@ -19,7 +19,7 @@ class SessionsViewController: UIViewController {
 		let view = GradientView()
 		view.translatesAutoresizingMaskIntoConstraints = false
 		view.colors = [
-			Color.brand,
+			Swatch.brand,
 			UIColor(red: 0.400, green: 0, blue: 1, alpha: 1)
 		]
 		view.automaticallyDims = false
@@ -123,7 +123,7 @@ class SessionsViewController: UIViewController {
 
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillChangeFrame), name: UIKeyboardWillChangeFrameNotification, object: nil)
 
-		view.backgroundColor = Color.brand
+		view.backgroundColor = Swatch.brand
 		view.addSubview(backgroundView)
 		view.addSubview(illustrationView)
 
@@ -217,16 +217,16 @@ class SessionsViewController: UIViewController {
 		button.titleLabel?.textAlignment = .Center
 
 		let text = NSMutableAttributedString(string: title, attributes: [
-			NSFontAttributeName: Font.sansSerif(weight: .bold, size: .subtitle),
+			NSFontAttributeName: Font.sansSerif(weight: .medium, size: .subtitle),
 			NSForegroundColorAttributeName: UIColor(white: 1, alpha: 0.7)
 		])
 
-		text.addAttribute(NSForegroundColorAttributeName, value: Color.white, range: emphasizedRange)
+		text.addAttribute(NSForegroundColorAttributeName, value: Swatch.white, range: emphasizedRange)
 		button.setAttributedTitle(text, forState: .Normal)
 
 		if let highlightedText = text.mutableCopy() as? NSMutableAttributedString {
-			highlightedText.addAttribute(NSForegroundColorAttributeName, value: Color.white.colorWithAlphaComponent(0.9), range: NSRange(location: 0, length: highlightedText.length))
-			highlightedText.addAttribute(NSForegroundColorAttributeName, value: Color.white, range: emphasizedRange)
+			highlightedText.addAttribute(NSForegroundColorAttributeName, value: Swatch.white.colorWithAlphaComponent(0.9), range: NSRange(location: 0, length: highlightedText.length))
+			highlightedText.addAttribute(NSForegroundColorAttributeName, value: Swatch.white, range: emphasizedRange)
 			button.setAttributedTitle(highlightedText, forState: .Highlighted)
 		}
 

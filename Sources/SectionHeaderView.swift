@@ -16,8 +16,8 @@ class SectionHeaderView: UIView {
 	let textLabel: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
-		label.font = Font.sansSerif(weight: .bold)
-		label.textColor = Color.black
+		label.font = Font.sansSerif(weight: .medium)
+		label.textColor = Swatch.black
 		return label
 	}()
 
@@ -52,6 +52,6 @@ class SectionHeaderView: UIView {
 
 	override func tintColorDidChange() {
 		super.tintColorDidChange()
-		backgroundColor = tintAdjustmentMode == .Dimmed ? Color.extraLightGray.desaturated : Color.extraLightGray
+		backgroundColor = tintAdjustmentMode == .Dimmed ? Swatch.extraLightGray.desaturated : Swatch.extraLightGray
 	}
 }

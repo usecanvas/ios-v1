@@ -816,7 +816,6 @@
 		217675721D174F1300003D89 /* SSKeychain.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSKeychain.xcodeproj; path = Vendor/CanvasCore/Vendor/SSKeychain/SSKeychain.xcodeproj; sourceTree = "<group>"; };
 		217675751D174F1300003D89 /* Starscream.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Starscream.xcodeproj; path = Vendor/CanvasCore/Vendor/Starscream/Starscream.xcodeproj; sourceTree = "<group>"; };
 		217675781D174F1300003D89 /* X.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = X.xcodeproj; path = Vendor/CanvasCore/Vendor/X/X.xcodeproj; sourceTree = "<group>"; };
-		2178CB511CEA7B0100E9A4B2 /* SpaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceView.swift; sourceTree = "<group>"; };
 		2178CBB81CEA891100E9A4B2 /* SessionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionsViewController.swift; sourceTree = "<group>"; };
 		218A75B71CECD02F00459BC9 /* GradientView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GradientView.framework; path = Carthage/Build/iOS/GradientView.framework; sourceTree = "<group>"; };
 		218B6BA91D08D23400A170E5 /* UISplitViewController+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISplitViewController+Canvas.swift"; sourceTree = "<group>"; };
@@ -979,7 +978,6 @@
 				2147A2E21CDA586E008A2709 /* CanvasTextView+Gestures.swift */,
 				2107D2EE1CC58F7B001963B7 /* TickingLabel.swift */,
 				2107D2F01CC58F7B001963B7 /* TintableView.swift */,
-				2178CB511CEA7B0100E9A4B2 /* SpaceView.swift */,
 				21C58DB51D022BD8005AEFE1 /* LineView.swift */,
 				21A77E111D0803C600340243 /* AvatarsView.swift */,
 				21A77E141D08053A00340243 /* AvatarView.swift */,
@@ -1623,7 +1621,7 @@
 		217675B91D174F1400003D89 /* CanvasTextTests-OSX.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = "CanvasTextTests-OSX.xctest";
+			path = "CanvasTextTests-macOS.xctest";
 			remoteRef = 217675B81D174F1400003D89 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};

@@ -28,7 +28,7 @@ final class AvatarView: UIImageView {
 
 		super.init(frame: .zero)
 
-		backgroundColor = Color.lightGray
+		backgroundColor = Swatch.lightGray
 		layer.cornerRadius = 16
 		layer.masksToBounds = true
 

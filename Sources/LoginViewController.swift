@@ -54,7 +54,7 @@ final class LogInViewController: SessionsViewController {
 		if OnePasswordExtension.sharedExtension().isAppExtensionAvailable() {
 			let button = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 44))
 			button.setImage(UIImage(named: "OnePassword"), forState: .Normal)
-			button.imageView?.tintColor = Color.white
+			button.imageView?.tintColor = Swatch.white
 			button.addTarget(self, action: #selector(onePassword), forControlEvents: .TouchUpInside)
 			usernameContainer.textField.rightView = button
 			usernameContainer.textField.rightViewMode = .Always
@@ -62,7 +62,7 @@ final class LogInViewController: SessionsViewController {
 
 		let resetPasswordButton = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 44))
 		resetPasswordButton.setImage(UIImage(named: "help"), forState: .Normal)
-		resetPasswordButton.tintColor = Color.white
+		resetPasswordButton.tintColor = Swatch.white
 		resetPasswordButton.adjustsImageWhenHighlighted = false
 
 		passwordContainer.textField.rightViewMode = .Always

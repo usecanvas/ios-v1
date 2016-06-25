@@ -41,13 +41,13 @@ class NavigationBar: UINavigationBar {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 
-		barTintColor = Color.white
+		barTintColor = Swatch.white
 		translucent = false
 		shadowImage = UIImage()
 		backIndicatorImage = UIImage(named: "ChevronLeft")
 		backIndicatorTransitionMaskImage = UIImage(named: "ChevronLeft")
 
-		borderColor = Color.navigationBarBorder
+		borderColor = Swatch.border
 
 		addSubview(borderView)
 
@@ -72,8 +72,8 @@ class NavigationBar: UINavigationBar {
 
 	private func updateTitleColor() {
 		titleTextAttributes = [
-			NSFontAttributeName: Font.sansSerif(weight: .bold),
-			NSForegroundColorAttributeName: tintAdjustmentMode == .Dimmed ? tintColor : (titleColor ?? Color.gray)
+			NSFontAttributeName: Font.sansSerif(weight: .medium),
+			NSForegroundColorAttributeName: tintAdjustmentMode == .Dimmed ? tintColor : (titleColor ?? Swatch.gray)
 		]
 	}
 }

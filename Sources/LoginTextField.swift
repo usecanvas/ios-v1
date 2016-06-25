@@ -28,8 +28,8 @@ final class LoginTextField: UITextField {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 
-		textColor = Color.white
-		tintColor = Color.white
+		textColor = Swatch.white
+		tintColor = Swatch.white
 		font = Font.sansSerif()
 
 		layer.cornerRadius = 4

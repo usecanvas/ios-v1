@@ -19,17 +19,17 @@ final class CanvasCell: UITableViewCell {
 		let view = CanvasIconView()
 		view.translatesAutoresizingMaskIntoConstraints = false
 		view.tintColor = UIColor(red: 0.478, green: 0.475, blue: 0.482, alpha: 1)
-		view.highlightedTintColor = Color.white
+		view.highlightedTintColor = Swatch.white
 		return view
 	}()
 
 	let titleLabel: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
-		label.backgroundColor = Color.white
-		label.textColor = Color.black
-		label.highlightedTextColor = Color.white
-		label.font = Font.sansSerif(weight: .bold)
+		label.backgroundColor = Swatch.white
+		label.textColor = Swatch.black
+		label.highlightedTextColor = Swatch.white
+		label.font = Font.sansSerif(weight: .medium)
 		label.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, forAxis: .Horizontal)
 		return label
 	}()
@@ -37,18 +37,18 @@ final class CanvasCell: UITableViewCell {
 	let summaryLabel: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
-		label.backgroundColor = Color.white
-		label.textColor = Color.black
-		label.highlightedTextColor = Color.white
+		label.backgroundColor = Swatch.white
+		label.textColor = Swatch.black
+		label.highlightedTextColor = Swatch.white
 		return label
 	}()
 
 	let timeLabel: TickingLabel = {
 		let label = TickingLabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
-		label.backgroundColor = Color.white
-		label.textColor = Color.gray
-		label.highlightedTextColor = Color.white
+		label.backgroundColor = Swatch.white
+		label.textColor = Swatch.gray
+		label.highlightedTextColor = Swatch.white
 		label.font = Font.sansSerif(size: .small).fontWithMonospaceNumbers
 		label.textAlignment = .Right
 		return label
@@ -68,11 +68,11 @@ final class CanvasCell: UITableViewCell {
 			iconView.canvas = canvas
 
 			if canvas.archivedAt == nil {
-				titleLabel.textColor = Color.black
-				summaryLabel.textColor = Color.black
+				titleLabel.textColor = Swatch.black
+				summaryLabel.textColor = Swatch.black
 			} else {
-				titleLabel.textColor = Color.gray
-				summaryLabel.textColor = Color.gray
+				titleLabel.textColor = Swatch.gray
+				summaryLabel.textColor = Swatch.gray
 			}
 
 			timeLabel.date = canvas.updatedAt
@@ -150,9 +150,9 @@ final class CanvasCell: UITableViewCell {
 		iconView.highlighted = highlighted || selected
 
 		if highlighted || selected {
-			disclosureIndicatorView.tintColor = Color.white
+			disclosureIndicatorView.tintColor = Swatch.white
 		} else {
-			disclosureIndicatorView.tintColor = canvas?.archivedAt == nil ? Color.cellDisclosureIndicator : Color.lightGray
+			disclosureIndicatorView.tintColor = canvas?.archivedAt == nil ? Swatch.cellDisclosureIndicator : Swatch.lightGray
 		}
 	}
 }

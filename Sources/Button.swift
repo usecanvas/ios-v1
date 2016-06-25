@@ -19,10 +19,10 @@ class Button: UIButton {
 		backgroundColor = .clearColor()
 
 		layer.cornerRadius = 4
-		layer.borderColor = Color.white.CGColor
+		layer.borderColor = Swatch.white.CGColor
 
-		titleLabel?.font = Font.sansSerif(weight: .bold)
-		setTitleColor(Color.white, forState: .Normal)
+		titleLabel?.font = Font.sansSerif(weight: .medium)
+		setTitleColor(Swatch.white, forState: .Normal)
 	}
 
 	required init?(coder aDecoder: NSCoder) {

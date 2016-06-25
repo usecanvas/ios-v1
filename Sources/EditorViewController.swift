@@ -64,7 +64,7 @@ final class EditorViewController: UIViewController, Accountable {
 			accessToken: account.accessToken,
 			organizationID: canvas.organization.id,
 			canvasID: canvas.id,
-			theme: LightTheme(tintColor: canvas.organization.color?.uiColor ?? Color.brand)
+			theme: LightTheme(tintColor: canvas.organization.color?.uiColor ?? Swatch.brand)
 		)
 
 		let textView = CanvasTextView(frame: .zero, textContainer: textController.textContainer)
@@ -156,7 +156,7 @@ final class EditorViewController: UIViewController, Accountable {
 
 		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 		title = LocalizedString.Connecting.string
-		view.backgroundColor = Color.white
+		view.backgroundColor = Swatch.white
 
 		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "More"), style: .Plain, target: self, action: #selector(share))
 
@@ -286,7 +286,7 @@ final class EditorViewController: UIViewController, Accountable {
 
 extension EditorViewController: TintableEnvironment {
 	var preferredTintColor: UIColor {
-		return canvas.organization.color?.uiColor ?? Color.brand
+		return canvas.organization.color?.uiColor ?? Swatch.brand
 	}
 }
 
@@ -399,7 +399,6 @@ extension EditorViewController: TextControllerDisplayDelegate {
 			}
 
 			if let previousPositionY = self?.scrollOffset, let position = textView.positionFromPosition(textView.beginningOfDocument, offset: textView.selectedRange.location) {
-//				textView.scrollEnabled = true
 				let currentPositionY = textView.caretRectForPosition(position).minY
 				textView.contentOffset = CGPoint(x: 0, y: textView.contentOffset.y + currentPositionY - previousPositionY)
 				self?.scrollOffset = nil
@@ -421,9 +420,6 @@ extension EditorViewController: TextControllerDisplayDelegate {
 	}
 
 	func textControllerDidProcessRemoteEdit(textController: TextController) {
-//		if scrollOffset != nil {
-//			textView.scrollEnabled = false
-//		}
 		updateAutoCompletion()
 	}
 	
