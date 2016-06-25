@@ -35,6 +35,16 @@ final class LogInViewController: SessionsViewController {
 		forgotButton.addTarget(self, action: #selector(forgotPassword), forControlEvents: .TouchUpInside)
 		stackView.addSpace(32)
 		stackView.addArrangedSubview(forgotButton)
+		
+		// 1Password
+		if OnePasswordExtension.sharedExtension().isAppExtensionAvailable() {
+			let button = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 44))
+			button.setImage(UIImage(named: "1Password"), forState: .Normal)
+			button.imageView?.tintColor = Swatch.gray
+			button.addTarget(self, action: #selector(onePassword), forControlEvents: .TouchUpInside)
+			passwordTextField.rightView = button
+			passwordTextField.rightViewMode = .Always
+		}
 	}
 	
 	override func viewDidAppear(animated: Bool) {

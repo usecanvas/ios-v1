@@ -9,7 +9,6 @@
 import UIKit
 import CanvasCore
 import CanvasKit
-import OnePasswordExtension
 
 class SessionsViewController: StackViewController {
 
@@ -100,16 +99,6 @@ class SessionsViewController: StackViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-		// 1Password
-		if OnePasswordExtension.sharedExtension().isAppExtensionAvailable() {
-			let button = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 44))
-			button.setImage(UIImage(named: "1Password"), forState: .Normal)
-			button.imageView?.tintColor = Swatch.gray
-			button.addTarget(self, action: #selector(onePassword), forControlEvents: .TouchUpInside)
-			passwordTextField.rightView = button
-			passwordTextField.rightViewMode = .Always
-		}
 		
 		// Icon
 		if view.bounds.height > 480 {
