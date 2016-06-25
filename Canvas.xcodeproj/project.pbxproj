@@ -962,25 +962,21 @@
 		2107D33A1CC591C8001963B7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2107D2CD1CC58F7A001963B7 /* Button.swift */,
-				212D8EC51CE62AE00039A3EE /* IndicatorButton.swift */,
-				2107D2CF1CC58F7A001963B7 /* CanvasCell.swift */,
+				2117A0B41D0643A500E60821 /* Table View */,
+				218995461D1F20C700FCF199 /* Cells */,
+				2189958C1D1F20CE00FCF199 /* Buttons */,
+				2189958D1D1F20D900FCF199 /* Avatars */,
 				2107D2D21CC58F7A001963B7 /* CanvasIconView.swift */,
 				2107D2DB1CC58F7A001963B7 /* LoginTextField.swift */,
 				212392C61CEBB7CD00F8D26B /* TextFieldContainer.swift */,
 				2107D2DE1CC58F7A001963B7 /* NavigationBar.swift */,
-				2107D2E31CC58F7B001963B7 /* OrganizationAvatarView.swift */,
-				2107D2E71CC58F7B001963B7 /* OrganizationCell.swift */,
 				2107D2EA1CC58F7B001963B7 /* SearchBarContainer.swift */,
-				2117A0B41D0643A500E60821 /* Table View */,
 				2107D2ED1CC58F7B001963B7 /* TextView.swift */,
 				214F9FF61CC6DE4600927A07 /* CanvasTextView.swift */,
 				2147A2E21CDA586E008A2709 /* CanvasTextView+Gestures.swift */,
 				2107D2EE1CC58F7B001963B7 /* TickingLabel.swift */,
 				2107D2F01CC58F7B001963B7 /* TintableView.swift */,
 				21C58DB51D022BD8005AEFE1 /* LineView.swift */,
-				21A77E111D0803C600340243 /* AvatarsView.swift */,
-				21A77E141D08053A00340243 /* AvatarView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1110,7 +1106,7 @@
 				217675B31D174F1400003D89 /* CanvasText.framework */,
 				217675B51D174F1400003D89 /* CanvasTextTests.xctest */,
 				217675B71D174F1400003D89 /* CanvasText.framework */,
-				217675B91D174F1400003D89 /* CanvasTextTests-OSX.xctest */,
+				217675B91D174F1400003D89 /* CanvasTextTests-macOS.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1248,6 +1244,34 @@
 				2107D2E61CC58F7B001963B7 /* OrganizationsViewController.swift */,
 			);
 			name = Organizations;
+			sourceTree = "<group>";
+		};
+		218995461D1F20C700FCF199 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2107D2CF1CC58F7A001963B7 /* CanvasCell.swift */,
+				2107D2E71CC58F7B001963B7 /* OrganizationCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		2189958C1D1F20CE00FCF199 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				2107D2CD1CC58F7A001963B7 /* Button.swift */,
+				212D8EC51CE62AE00039A3EE /* IndicatorButton.swift */,
+			);
+			name = Buttons;
+			sourceTree = "<group>";
+		};
+		2189958D1D1F20D900FCF199 /* Avatars */ = {
+			isa = PBXGroup;
+			children = (
+				2107D2E31CC58F7B001963B7 /* OrganizationAvatarView.swift */,
+				21A77E111D0803C600340243 /* AvatarsView.swift */,
+				21A77E141D08053A00340243 /* AvatarView.swift */,
+			);
+			name = Avatars;
 			sourceTree = "<group>";
 		};
 		21F10F411BF138750035057D = {
@@ -1618,7 +1642,7 @@
 			remoteRef = 217675B61D174F1400003D89 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		217675B91D174F1400003D89 /* CanvasTextTests-OSX.xctest */ = {
+		217675B91D174F1400003D89 /* CanvasTextTests-macOS.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "CanvasTextTests-macOS.xctest";
