@@ -9,50 +9,47 @@
 import UIKit
 import CanvasCore
 import CanvasKit
-import GradientView
+import OnePasswordExtension
 
-class SessionsViewController: UIViewController {
+class SessionsViewController: StackViewController {
 
 	// MARK: - Properties
-
-	let backgroundView: GradientView = {
-		let view = GradientView()
-		view.translatesAutoresizingMaskIntoConstraints = false
-		view.colors = [
-			Color.brand,
-			UIColor(red: 0.400, green: 0, blue: 1, alpha: 1)
-		]
-		view.automaticallyDims = false
-		return view
+	
+	let iconView: UIView = {
+		let stackView = UIStackView()
+		stackView.axis = .Vertical
+		stackView.alignment = .Center
+		
+		let imageView = UIImageView(image: UIImage(named: "Icon-Small"))
+		stackView.addArrangedSubview(imageView)
+		
+		return stackView
+	}()
+	
+	let headingLabel: UILabel = {
+		let label = UILabel()
+		label.textColor = Color.black
+		label.font = Font.sansSerif(size: .heading)
+		label.textAlignment = .Center
+		return label
 	}()
 
-	let illustrationView: UIView = {
-		let view = UIView()
-		view.translatesAutoresizingMaskIntoConstraints = false
-		view.backgroundColor = UIColor(patternImage: UIImage(named: "Illustration")!)
-		view.alpha = 0.07
-		return view
+	let usernameTextField: UITextField = {
+		let textField = TextField()
+		textField.keyboardType = .EmailAddress
+		textField.placeholder = LocalizedString.LoginPlaceholder.string
+		textField.returnKeyType = .Next
+		textField.autocapitalizationType = .None
+		textField.autocorrectionType = .No
+		return textField
 	}()
-
-	let stackView: UIStackView = {
-		let view = UIStackView()
-		view.translatesAutoresizingMaskIntoConstraints = false
-		view.axis = .Vertical
-		view.spacing = 16
-		view.alignment = .Center
-		return view
-	}()
-
-	let passwordContainer: TextFieldContainer = {
-		let container = TextFieldContainer(textField: LoginTextField())
-		container.translatesAutoresizingMaskIntoConstraints = false
-		container.textField.secureTextEntry = true
-		container.textField.placeholder = LocalizedString.PasswordPlaceholder.string
-		container.textField.returnKeyType = .Go
-
-		container.visualEffectView.layer.cornerRadius = container.textField.layer.cornerRadius
-		container.visualEffectView.layer.masksToBounds = true
-		return container
+	
+	let passwordTextField: UITextField = {
+		let textField = TextField()
+		textField.secureTextEntry = true
+		textField.placeholder = LocalizedString.PasswordPlaceholder.string
+		textField.returnKeyType = .Go
+		return textField
 	}()
 
 	let submitButton: IndicatorButton = {
@@ -62,39 +59,8 @@ class SessionsViewController: UIViewController {
 		return button
 	}()
 
-	private var centerYConstraint: NSLayoutConstraint? {
-		willSet {
-			guard let old = centerYConstraint else { return }
-			NSLayoutConstraint.deactivateConstraints([old])
-		}
-
-		didSet {
-			guard let new = centerYConstraint else { return }
-			NSLayoutConstraint.activateConstraints([new])
-		}
-	}
-
-	private var keyboardFrame: CGRect? {
-		didSet {
-			guard let keyboardFrame = keyboardFrame else {
-				centerYConstraint = nil
-				return
-			}
-
-			var rect = view.bounds
-			rect.size.height -= rect.intersect(keyboardFrame).height
-			rect.origin.y += UIApplication.sharedApplication().statusBarFrame.size.height
-			rect.size.height -= UIApplication.sharedApplication().statusBarFrame.size.height
-
-			let contstraint = stackView.centerYAnchor.constraintEqualToAnchor(view.topAnchor, constant: rect.midY)
-			contstraint.priority = UILayoutPriorityDefaultHigh
-
-			centerYConstraint = contstraint
-		}
-	}
-
 	var textFields: [UITextField] {
-		return [passwordContainer.textField]
+		return [usernameTextField, passwordTextField]
 	}
 
 	var loading = false {
@@ -106,74 +72,58 @@ class SessionsViewController: UIViewController {
 		}
 	}
 
-	private var visible = false
-
-
-	// MARK: - Initializers
-
-	deinit {
-		NSNotificationCenter.defaultCenter().removeObserver(self)
-	}
-
 
 	// MARK: - UIViewController
+	
+	override var title: String? {
+		didSet {
+			headingLabel.text = title
+		}
+	}
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		// 1Password
+		if OnePasswordExtension.sharedExtension().isAppExtensionAvailable() {
+			let button = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 44))
+			button.setImage(UIImage(named: "OnePassword"), forState: .Normal)
+			button.imageView?.tintColor = Color.white
+			button.addTarget(self, action: #selector(onePassword), forControlEvents: .TouchUpInside)
+			passwordTextField.rightView = button
+			passwordTextField.rightViewMode = .Always
+		}
+		
+		// Icon
+		if view.bounds.height > 480 {
+			stackView.addArrangedSubview(iconView)
+			
+			if view.bounds.height > 568 {
+				stackView.addArrangedSubview(headingLabel)
+			}
+		}
 
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillChangeFrame), name: UIKeyboardWillChangeFrameNotification, object: nil)
-
-		view.backgroundColor = Color.brand
-		view.addSubview(backgroundView)
-		view.addSubview(illustrationView)
-
-		textFields.forEach { $0.delegate = self }
-
+		// Text fields
+		textFields.forEach { textField in
+			stackView.addArrangedSubview(textField)
+			textField.delegate = self
+		}
+		
 		submitButton.addTarget(self, action: #selector(submit), forControlEvents: .TouchUpInside)
-
-		view.addSubview(stackView)
-
-		let width = stackView.widthAnchor.constraintEqualToAnchor(view.widthAnchor, multiplier: 0.8)
-		width.priority = UILayoutPriorityDefaultHigh
-
-		let top = stackView.topAnchor.constraintGreaterThanOrEqualToAnchor(view.topAnchor, constant: 64)
-		top.priority = UILayoutPriorityDefaultLow
-
-		NSLayoutConstraint.activateConstraints([
-			backgroundView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
-			backgroundView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor),
-			backgroundView.topAnchor.constraintEqualToAnchor(view.topAnchor),
-			backgroundView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor),
-
-			illustrationView.leadingAnchor.constraintEqualToAnchor(backgroundView.leadingAnchor),
-			illustrationView.trailingAnchor.constraintEqualToAnchor(backgroundView.trailingAnchor),
-			illustrationView.topAnchor.constraintEqualToAnchor(backgroundView.topAnchor),
-			illustrationView.bottomAnchor.constraintEqualToAnchor(backgroundView.bottomAnchor),
-
-			stackView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor),
-			top,
-			width,
-			stackView.widthAnchor.constraintLessThanOrEqualToConstant(400)
-		])
+		stackView.addArrangedSubview(submitButton)
+		
+//		NSLayoutConstraint.activateConstraints([
+//			usernameTextField.widthAnchor.constraintEqualToAnchor(stackView.widthAnchor),
+//			passwordTextField.widthAnchor.constraintEqualToAnchor(usernameTextField.widthAnchor),
+//			passwordTextField.heightAnchor.constraintEqualToAnchor(usernameTextField.heightAnchor),
+//			submitButton.widthAnchor.constraintEqualToAnchor(usernameTextField.widthAnchor),
+//			submitButton.heightAnchor.constraintEqualToAnchor(usernameTextField.heightAnchor)
+//		])
 	}
 
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
-
 		textFields.first?.becomeFirstResponder()
-
-		dispatch_async(dispatch_get_main_queue()) { [weak self] in
-			self?.visible = true
-		}
-	}
-
-	override func viewDidDisappear(animated: Bool) {
-		super.viewDidDisappear(animated)
-		visible = false
-	}
-
-	override func preferredStatusBarStyle() -> UIStatusBarStyle {
-		return .LightContent
 	}
 
 
@@ -182,30 +132,9 @@ class SessionsViewController: UIViewController {
 	func submit() {
 		// Subclasses should override this
 	}
-
-	@objc private func keyboardWillChangeFrame(notification: NSNotification) {
-		guard let dictionary = notification.userInfo as? [String: AnyObject],
-			duration = dictionary[UIKeyboardAnimationDurationUserInfoKey] as? NSTimeInterval,
-			curve = (dictionary[UIKeyboardAnimationCurveUserInfoKey] as? Int).flatMap(UIViewAnimationCurve.init),
-			rect = (dictionary[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue()
-		else { return }
-
-		let frame = view.convertRect(rect, fromView: nil)
-
-		let change = { [weak self] in
-			self?.keyboardFrame = frame
-			self?.view.layoutIfNeeded()
-		}
-
-		if visible {
-			UIView.beginAnimations(nil, context: nil)
-			UIView.setAnimationDuration(duration)
-			UIView.setAnimationCurve(curve)
-			change()
-			UIView.commitAnimations()
-		} else {
-			UIView.performWithoutAnimation(change)
-		}
+	
+	func onePassword(sender: AnyObject?) {
+		// Subclasses should override this
 	}
 
 

@@ -1,5 +1,5 @@
 //
-//  LoginTextField.swift
+//  TextField.swift
 //  Canvas
 //
 //  Created by Sam Soffes on 11/26/15.
@@ -9,7 +9,7 @@
 import UIKit
 import CanvasCore
 
-final class LoginTextField: UITextField {
+final class TextField: UITextField {
 
 	// MARK: - Properties
 
@@ -18,7 +18,7 @@ final class LoginTextField: UITextField {
 			guard let placeholder = placeholder, font = font else { return }
 			attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [
 				NSFontAttributeName: font,
-				NSForegroundColorAttributeName: UIColor(white: 1, alpha: 0.5)
+				NSForegroundColorAttributeName: Color.gray
 			])
 		}
 	}
@@ -27,9 +27,11 @@ final class LoginTextField: UITextField {
 
 	override init(frame: CGRect) {
 		super.init(frame: frame)
+		
+		backgroundColor = Color.extraLightGray
 
-		textColor = Color.white
-		tintColor = Color.white
+		textColor = Color.black
+		tintColor = Color.brand
 		font = Font.sansSerif()
 
 		layer.cornerRadius = 4
@@ -37,6 +39,15 @@ final class LoginTextField: UITextField {
 
 	required init?(coder aDecoder: NSCoder) {
 	    fatalError("init(coder:) has not been implemented")
+	}
+	
+	
+	// MARK: - UIView
+	
+	override func intrinsicContentSize() -> CGSize {
+		var size = super.intrinsicContentSize()
+		size.height = 48
+		return size
 	}
 
 

@@ -18,11 +18,12 @@ class Button: UIButton {
 		
 		backgroundColor = .clearColor()
 
-		layer.cornerRadius = 4
-		layer.borderColor = Color.white.CGColor
+		layer.cornerRadius = 24
+		layer.borderColor = Color.brand.CGColor
+		layer.borderWidth = 2
 
 		titleLabel?.font = Font.sansSerif(weight: .bold)
-		setTitleColor(Color.white, forState: .Normal)
+		setTitleColor(Color.brand, forState: .Normal)
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -31,9 +32,10 @@ class Button: UIButton {
 	
 	
 	// MARK: - UIView
-
-	override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
-		super.traitCollectionDidChange(previousTraitCollection)
-		layer.borderWidth = traitCollection.displayScale > 1 ? 1.5 : 1
+	
+	override func intrinsicContentSize() -> CGSize {
+		var size = super.intrinsicContentSize()
+		size.height = 48
+		return size
 	}
 }

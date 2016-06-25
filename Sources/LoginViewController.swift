@@ -15,24 +15,7 @@ final class LogInViewController: SessionsViewController {
 
 	// MARK: - Properties
 
-	let usernameContainer: TextFieldContainer = {
-		let container = TextFieldContainer(textField: LoginTextField())
-		container.translatesAutoresizingMaskIntoConstraints = false
-		container.textField.keyboardType = .EmailAddress
-		container.textField.placeholder = LocalizedString.LoginPlaceholder.string
-		container.textField.returnKeyType = .Next
-		container.textField.autocapitalizationType = .None
-		container.textField.autocorrectionType = .No
-
-		container.visualEffectView.layer.cornerRadius = container.textField.layer.cornerRadius
-		container.visualEffectView.layer.masksToBounds = true
-		return container
-	}()
-
-	override var textFields: [UITextField] {
-		return [usernameContainer.textField, passwordContainer.textField]
-	}
-
+	private var askedForWebCredential = false
 	private var webCredential: SharedWebCredentials.Credential?
 
 
@@ -40,61 +23,26 @@ final class LogInViewController: SessionsViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		title = "Log in to Canvas"
+		submitButton.setTitle(LocalizedString.LoginButton.string, forState: .Normal)
+	}
+	
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		// Make sure we only do this once
+		if askedForWebCredential {
+			return
+		}
+		askedForWebCredential = true
 
-		// Shared Web Credentials
+		// Query for shared web credentials
 		SharedWebCredentials.get { [weak self] credential, _ in
 			guard let credential = credential else { return }
-
+			
 			dispatch_async(dispatch_get_main_queue()) {
 				self?.login(credential: credential)
-			}
-		}
-
-		// 1Password
-		if OnePasswordExtension.sharedExtension().isAppExtensionAvailable() {
-			let button = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 44))
-			button.setImage(UIImage(named: "OnePassword"), forState: .Normal)
-			button.imageView?.tintColor = Color.white
-			button.addTarget(self, action: #selector(onePassword), forControlEvents: .TouchUpInside)
-			usernameContainer.textField.rightView = button
-			usernameContainer.textField.rightViewMode = .Always
-		}
-
-		let resetPasswordButton = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 44))
-		resetPasswordButton.setImage(UIImage(named: "help"), forState: .Normal)
-		resetPasswordButton.tintColor = Color.white
-		resetPasswordButton.adjustsImageWhenHighlighted = false
-
-		passwordContainer.textField.rightViewMode = .Always
-		passwordContainer.textField.rightView = resetPasswordButton
-		resetPasswordButton.addTarget(self, action: #selector(resetPassword), forControlEvents: .TouchUpInside)
-
-		submitButton.setTitle(LocalizedString.LoginButton.string, forState: .Normal)
-
-		stackView.addArrangedSubview(usernameContainer)
-		stackView.addArrangedSubview(passwordContainer)
-		stackView.addArrangedSubview(submitButton)
-
-		let signUpButton = secondaryButton(title: "Don’t have an account yet? Sign\u{202F}up.", emphasizedRange: NSRange(location: 27, length: 7))
-		signUpButton.addTarget(self, action: #selector(signUp), forControlEvents: .TouchUpInside)
-		stackView.addArrangedSubview(signUpButton)
-
-		NSLayoutConstraint.activateConstraints([
-			usernameContainer.widthAnchor.constraintEqualToAnchor(stackView.widthAnchor),
-			passwordContainer.widthAnchor.constraintEqualToAnchor(usernameContainer.widthAnchor),
-			passwordContainer.heightAnchor.constraintEqualToAnchor(usernameContainer.heightAnchor),
-			submitButton.widthAnchor.constraintEqualToAnchor(usernameContainer.widthAnchor),
-			submitButton.heightAnchor.constraintEqualToAnchor(usernameContainer.heightAnchor)
-		])
-
-		if view.bounds.height > 480 {
-			let logo = UIImageView(image: UIImage(named: "logo-small"))
-			logo.layer.cornerRadius = 8
-			logo.layer.masksToBounds = true
-			stackView.insertArrangedSubview(logo, atIndex: 0)
-
-			if view.bounds.height > 568 {
-				stackView.insertArrangedSubview(SpaceView(height: 0), atIndex: 1)
 			}
 		}
 	}
@@ -102,14 +50,14 @@ final class LogInViewController: SessionsViewController {
 
 	// MARK: - Actions
 
-	@objc private func onePassword(sender: AnyObject?) {
+	override func onePassword(sender: AnyObject?) {
 		OnePasswordExtension.sharedExtension().findLoginForURLString("https://usecanvas.com", forViewController: self, sender: sender) { [weak self] loginDictionary, _ in
 			if let username = loginDictionary?[AppExtensionUsernameKey] as? String {
-				self?.usernameContainer.textField.text = username
+				self?.usernameTextField.text = username
 			}
 
 			if let password = loginDictionary?[AppExtensionPasswordKey] as? String {
-				self?.passwordContainer.textField.text = password
+				self?.passwordTextField.text = password
 			}
 
 			self?.submit()
@@ -117,7 +65,7 @@ final class LogInViewController: SessionsViewController {
 	}
 
 	override func submit() {
-		guard let username = usernameContainer.textField.text, password = passwordContainer.textField.text
+		guard let username = usernameTextField.text, password = passwordTextField.text
 		where !username.isEmpty && !password.isEmpty
 		else { return }
 
@@ -139,7 +87,7 @@ final class LogInViewController: SessionsViewController {
 			case .Failure(let errorMessage):
 				dispatch_async(dispatch_get_main_queue()) { [weak self] in
 					self?.loading = false
-					self?.passwordContainer.textField.becomeFirstResponder()
+					self?.passwordTextField.becomeFirstResponder()
 					self?.webCredential = nil
 					
 					let alert = UIAlertController(title: errorMessage, message: nil, preferredStyle: .Alert)
@@ -165,8 +113,8 @@ final class LogInViewController: SessionsViewController {
 
 	private func login(credential credential: SharedWebCredentials.Credential) {
 		webCredential = credential
-		usernameContainer.textField.text = credential.account
-		passwordContainer.textField.text = credential.password
+		usernameTextField.text = credential.account
+		passwordTextField.text = credential.password
 		submit()
 	}
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CanvasCore
 
 final class IndicatorButton: Button {
 
@@ -25,10 +26,11 @@ final class IndicatorButton: Button {
 	}
 
 	let activityIndicator: UIActivityIndicatorView = {
-		let indicator = UIActivityIndicatorView(activityIndicatorStyle: .White)
+		let indicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
 		indicator.translatesAutoresizingMaskIntoConstraints = false
 		indicator.userInteractionEnabled = false
 		indicator.hidesWhenStopped = true
+		indicator.color = Color.gray
 		return indicator
 	}()
 
@@ -42,9 +44,7 @@ final class IndicatorButton: Button {
 
 		NSLayoutConstraint.activateConstraints([
 			activityIndicator.centerXAnchor.constraintEqualToAnchor(centerXAnchor),
-			activityIndicator.centerYAnchor.constraintEqualToAnchor(centerYAnchor),
-			activityIndicator.topAnchor.constraintLessThanOrEqualToAnchor(topAnchor),
-			activityIndicator.bottomAnchor.constraintLessThanOrEqualToAnchor(bottomAnchor)
+			activityIndicator.centerYAnchor.constraintEqualToAnchor(centerYAnchor)
 		])
 	}
 	
