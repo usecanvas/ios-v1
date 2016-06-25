@@ -62,7 +62,7 @@ final class LogInViewController: SessionsViewController {
 	override func onePassword(sender: AnyObject?) {
 		OnePasswordExtension.sharedExtension().findLoginForURLString("https://usecanvas.com", forViewController: self, sender: sender) { [weak self] loginDictionary, _ in
 			if let username = loginDictionary?[AppExtensionUsernameKey] as? String {
-				self?.usernameTextField.text = username
+				self?.emailTextField.text = username
 			}
 
 			if let password = loginDictionary?[AppExtensionPasswordKey] as? String {
@@ -74,7 +74,7 @@ final class LogInViewController: SessionsViewController {
 	}
 
 	override func submit() {
-		guard let username = usernameTextField.text, password = passwordTextField.text
+		guard let username = emailTextField.text, password = passwordTextField.text
 		where !username.isEmpty && !password.isEmpty
 		else { return }
 
@@ -113,8 +113,8 @@ final class LogInViewController: SessionsViewController {
 	}
 
 	@objc private func signUp() {
-		let URL = NSURL(string: "https://usecanvas.com/signup")!
-		UIApplication.sharedApplication().openURL(URL)
+		let viewController = SignUpViewController()
+		navigationController?.pushViewController(viewController, animated: true)
 	}
 
 
@@ -122,7 +122,7 @@ final class LogInViewController: SessionsViewController {
 
 	private func login(credential credential: SharedWebCredentials.Credential) {
 		webCredential = credential
-		usernameTextField.text = credential.account
+		emailTextField.text = credential.account
 		passwordTextField.text = credential.password
 		submit()
 	}

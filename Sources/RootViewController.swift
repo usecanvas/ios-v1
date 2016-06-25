@@ -21,7 +21,9 @@ final class RootViewController: UIViewController {
 				SentryClient.shared?.user = nil
 				NSUserDefaults.standardUserDefaults().removeObjectForKey("SelectedOrganization")
 				
-				viewController = LogInViewController()
+				let nav = UINavigationController(rootViewController: LogInViewController())
+				nav.navigationBarHidden = true
+				viewController = nav
 				return
 			}
 

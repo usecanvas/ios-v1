@@ -34,7 +34,7 @@ class SessionsViewController: StackViewController {
 		return label
 	}()
 
-	let usernameTextField: UITextField = {
+	let emailTextField: UITextField = {
 		let textField = TextField()
 		textField.keyboardType = .EmailAddress
 		textField.placeholder = LocalizedString.LoginPlaceholder.string
@@ -77,7 +77,7 @@ class SessionsViewController: StackViewController {
 	}()
 
 	var textFields: [UITextField] {
-		return [usernameTextField, passwordTextField]
+		return [emailTextField, passwordTextField]
 	}
 
 	var loading = false {
