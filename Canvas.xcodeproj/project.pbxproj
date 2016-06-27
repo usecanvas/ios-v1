@@ -738,7 +738,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2107D2C91CC58F7A001963B7 /* Accountable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accountable.swift; sourceTree = "<group>"; };
 		2107D2CA1CC58F7A001963B7 /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		2107D2CB1CC58F7A001963B7 /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		2107D2CC1CC58F7A001963B7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -751,10 +750,8 @@
 		2107D2D31CC58F7A001963B7 /* CGRect+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Canvas.swift"; sourceTree = "<group>"; };
 		2107D2D41CC58F7A001963B7 /* ChromeActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChromeActivity.swift; sourceTree = "<group>"; };
 		2107D2D51CC58F7A001963B7 /* Color+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Canvas.swift"; sourceTree = "<group>"; };
-		2107D2D61CC58F7A001963B7 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		2107D2D71CC58F7A001963B7 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		2107D2D81CC58F7A001963B7 /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
-		2107D2D91CC58F7A001963B7 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		2107D2DB1CC58F7A001963B7 /* LoginTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		2107D2DC1CC58F7A001963B7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2107D2DD1CC58F7A001963B7 /* ModelsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelsViewController.swift; sourceTree = "<group>"; };
@@ -819,9 +816,7 @@
 		2178CBB81CEA891100E9A4B2 /* SessionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionsViewController.swift; sourceTree = "<group>"; };
 		218A75B71CECD02F00459BC9 /* GradientView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GradientView.framework; path = Carthage/Build/iOS/GradientView.framework; sourceTree = "<group>"; };
 		218B6BA91D08D23400A170E5 /* UISplitViewController+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISplitViewController+Canvas.swift"; sourceTree = "<group>"; };
-		2193DC3F1D0794A2004D8D0C /* LightTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
 		21A77E081D07E53200340243 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
-		21A77E0B1D07E56300340243 /* Cursor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cursor.swift; sourceTree = "<group>"; };
 		21A77E111D0803C600340243 /* AvatarsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarsView.swift; sourceTree = "<group>"; };
 		21A77E141D08053A00340243 /* AvatarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		21B28BF51CDC6049009B9D8F /* EditorViewController+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EditorViewController+Actions.swift"; sourceTree = "<group>"; };
@@ -940,7 +935,6 @@
 		2107D3381CC5919B001963B7 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				2107D2C91CC58F7A001963B7 /* Accountable.swift */,
 				2107D2EF1CC58F7B001963B7 /* TintableEnvironment.swift */,
 			);
 			name = Protocols;
@@ -994,11 +988,7 @@
 		2107D33C1CC591DB001963B7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2193DC3F1D0794A2004D8D0C /* LightTheme.swift */,
-				2107D2D61CC58F7A001963B7 /* Color.swift */,
-				2107D2D91CC58F7A001963B7 /* Font.swift */,
 				2147A2FB1CDA7B2E008A2709 /* DragContext.swift */,
-				21A77E0B1D07E56300340243 /* Cursor.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
