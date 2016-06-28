@@ -1,0 +1,24 @@
+{
+  "activitycontinuation": {
+    "apps": [
+      "676PZY29MZ.com.usecanvas.canvas"
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "676PZY29MZ.com.usecanvas.canvas"
+    ]
+  },
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "676PZY29MZ.com.usecanvas.canvas",
+        "paths": [
+          "NOT /*/*/*/*",
+          "/*/*/*"
+        ]
+      }
+    ]
+  }
+}
