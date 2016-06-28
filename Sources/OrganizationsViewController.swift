@@ -133,27 +133,9 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 	// MARK: - Actions
 
 	func showSettings(sender: UIBarButtonItem?) {
-		let actionSheet = AlertController(title:nil, message: nil, preferredStyle: .ActionSheet)
-
-		#if INTERNAL
-			actionSheet.addAction(UIAlertAction(title: "Swift 💣", style: .Destructive) { _ in
-				let foo: [Int]! = nil
-				foo.count
-			})
-
-			actionSheet.addAction(UIAlertAction(title: "Objective-C 💣", style: .Destructive) { _ in
-				let foo = "" as NSString
-				foo.substringFromIndex(10)
-			})
-		#endif
-
-		actionSheet.addAction(UIAlertAction(title: LocalizedString.AccountButton.string, style: .Default) { _ in self.openAccount() })
-		actionSheet.addAction(UIAlertAction(title: LocalizedString.LogOutButton.string, style: .Destructive) { _ in self.logOut() })
-		actionSheet.addAction(UIAlertAction(title: LocalizedString.CancelButton.string, style: .Cancel, handler: nil))
-		actionSheet.popoverPresentationController?.barButtonItem = sender
-		actionSheet.primaryAction = logOut
-
-		presentViewController(actionSheet, animated: true, completion: nil)
+		let viewController = SettingsViewController(account: account)
+		let navigationController = NavigationController(rootViewController: viewController)
+		presentViewController(navigationController, animated: true, completion: nil)
 	}
 
 	func openAccount() {

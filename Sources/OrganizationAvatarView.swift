@@ -83,8 +83,8 @@ final class OrganizationAvatarView: UIView {
 				addSubview(avatarView)
 				setNeedsLayout()
 			}
-			
-			backgroundColor = Swatch.white
+
+			backgroundColor = .clearColor()
 			return
 		}
 		

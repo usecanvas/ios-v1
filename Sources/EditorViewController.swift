@@ -235,18 +235,15 @@ final class EditorViewController: UIViewController, Accountable {
 
 	@objc private func updatePreventSleep() {
 		let application = UIApplication.sharedApplication()
-		guard let preference = NSUserDefaults.standardUserDefaults().stringForKey("PreventSleep") else {
-			application.idleTimerDisabled = false
-			return
-		}
 
-		if preference == "Always" {
-			application.idleTimerDisabled = true
-		} else if preference == "WhilePluggedIn" {
+		switch SleepPrevention.currentPreference {
+		case .never:
+			application.idleTimerDisabled = false
+		case .whilePluggedIn:
 			let state = UIDevice.currentDevice().batteryState
 			application.idleTimerDisabled = state == .Charging || state == .Full
-		} else {
-			application.idleTimerDisabled = false
+		case .always:
+			application.idleTimerDisabled = true
 		}
 	}
 	

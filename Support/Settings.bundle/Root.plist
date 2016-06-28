@@ -27,9 +27,9 @@
 			</array>
 			<key>Values</key>
 			<array>
-				<string>Never</string>
-				<string>WhilePluggedIn</string>
-				<string>Always</string>
+				<string>never</string>
+				<string>whilePluggedIn</string>
+				<string>always</string>
 			</array>
 		</dict>
 		<dict>

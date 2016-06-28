@@ -33,6 +33,7 @@ final class LogInViewController: SessionsViewController {
 		return [usernameContainer.textField, passwordContainer.textField]
 	}
 
+	private var checkedForWebCredential = false
 	private var webCredential: SharedWebCredentials.Credential?
 
 
@@ -40,15 +41,6 @@ final class LogInViewController: SessionsViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
-		// Shared Web Credentials
-		SharedWebCredentials.get { [weak self] credential, _ in
-			guard let credential = credential else { return }
-
-			dispatch_async(dispatch_get_main_queue()) {
-				self?.login(credential: credential)
-			}
-		}
 
 		// 1Password
 		if OnePasswordExtension.sharedExtension().isAppExtensionAvailable() {
@@ -95,6 +87,27 @@ final class LogInViewController: SessionsViewController {
 
 			if view.bounds.height > 568 {
 				stackView.insertArrangedSubview(SpaceView(height: 0), atIndex: 1)
+			}
+		}
+	}
+
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
+
+		if checkedForWebCredential {
+			return
+		}
+
+		checkedForWebCredential = true
+
+		// Defer checking for shared web credentials to avoid messing with animations *sigh*
+		let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
+		dispatch_after(delayTime, dispatch_get_main_queue()) {
+			SharedWebCredentials.get { [weak self] credential, _ in
+				guard let credential = credential else { return }
+				dispatch_async(dispatch_get_main_queue()) { [weak self] in
+					self?.login(credential: credential)
+				}
 			}
 		}
 	}

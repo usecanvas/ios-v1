@@ -20,7 +20,6 @@ final class RootViewController: UIViewController {
 			guard let account = account else {
 				SentryClient.shared?.user = nil
 				NSUserDefaults.standardUserDefaults().removeObjectForKey("SelectedOrganization")
-				
 				viewController = LogInViewController()
 				return
 			}
@@ -60,6 +59,8 @@ final class RootViewController: UIViewController {
 				splitViewController.preferredDisplayMode = .PrimaryHidden
 			}
 
+			viewController.presentedViewController?.dismissViewControllerAnimated(false, completion: nil)
+
 			viewController.viewWillDisappear(false)
 			viewController.view.removeFromSuperview()
 			viewController.viewDidDisappear(false)
@@ -81,6 +82,10 @@ final class RootViewController: UIViewController {
 				viewController.view.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor)
 			])
 			viewController.viewDidAppear(false)
+
+			UIView.performWithoutAnimation {
+				viewController.view.layoutIfNeeded()
+			}
 
 			setNeedsStatusBarAppearanceUpdate()
 		}

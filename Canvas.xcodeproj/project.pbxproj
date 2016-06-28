@@ -165,6 +165,12 @@
 		21A77E131D0803C600340243 /* AvatarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A77E111D0803C600340243 /* AvatarsView.swift */; };
 		21A77E151D08053A00340243 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A77E141D08053A00340243 /* AvatarView.swift */; };
 		21A77E161D08053A00340243 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A77E141D08053A00340243 /* AvatarView.swift */; };
+		21BF50D51D232B19001801A5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BF50D41D232B19001801A5 /* SettingsViewController.swift */; };
+		21BF50D61D232B19001801A5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BF50D41D232B19001801A5 /* SettingsViewController.swift */; };
+		21BF511D1D233357001801A5 /* SleepPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BF511C1D233357001801A5 /* SleepPickerViewController.swift */; };
+		21BF511E1D233357001801A5 /* SleepPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BF511C1D233357001801A5 /* SleepPickerViewController.swift */; };
+		21BF51201D233514001801A5 /* SleepPrevention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BF511F1D233514001801A5 /* SleepPrevention.swift */; };
+		21BF51211D233514001801A5 /* SleepPrevention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BF511F1D233514001801A5 /* SleepPrevention.swift */; };
 		21C58DB61D022BD8005AEFE1 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C58DB51D022BD8005AEFE1 /* LineView.swift */; };
 		21C58DB71D022BD8005AEFE1 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C58DB51D022BD8005AEFE1 /* LineView.swift */; };
 		21C58DD51D023947005AEFE1 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C58DD41D023947005AEFE1 /* SectionHeaderView.swift */; };
@@ -820,6 +826,9 @@
 		21A77E111D0803C600340243 /* AvatarsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarsView.swift; sourceTree = "<group>"; };
 		21A77E141D08053A00340243 /* AvatarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		21B28BF51CDC6049009B9D8F /* EditorViewController+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EditorViewController+Actions.swift"; sourceTree = "<group>"; };
+		21BF50D41D232B19001801A5 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		21BF511C1D233357001801A5 /* SleepPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepPickerViewController.swift; sourceTree = "<group>"; };
+		21BF511F1D233514001801A5 /* SleepPrevention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepPrevention.swift; sourceTree = "<group>"; };
 		21C58DB51D022BD8005AEFE1 /* LineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		21C58DD41D023947005AEFE1 /* SectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		21F10F4A1BF138750035057D /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -989,6 +998,7 @@
 			isa = PBXGroup;
 			children = (
 				2147A2FB1CDA7B2E008A2709 /* DragContext.swift */,
+				21BF511F1D233514001801A5 /* SleepPrevention.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1232,6 +1242,8 @@
 			isa = PBXGroup;
 			children = (
 				2107D2E61CC58F7B001963B7 /* OrganizationsViewController.swift */,
+				21BF50D41D232B19001801A5 /* SettingsViewController.swift */,
+				21BF511C1D233357001801A5 /* SleepPickerViewController.swift */,
 			);
 			name = Organizations;
 			sourceTree = "<group>";
@@ -1336,7 +1348,6 @@
 				2164599E1CC1468F00033B7F /* Embed Frameworks */,
 				21F7EF321CD91E74004E80E2 /* Embed Carthage Frameworks */,
 				21A8FA601BFD3D160097FCC6 /* Set Version */,
-				21CEC8431C601BD9001AEA10 /* Swift Lint */,
 			);
 			buildRules = (
 			);
@@ -2033,20 +2044,6 @@
 			shellPath = "/usr/bin/env ruby";
 			shellScript = "git = `sh /etc/profile; which git`.chomp\napp_build = `#{git} rev-list HEAD --count`.chomp.to_i\n`/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion #{app_build}\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"`\nputs \"Updated #{ENV['TARGET_BUILD_DIR']}/#{ENV['INFOPLIST_PATH']}\"";
 		};
-		21CEC8431C601BD9001AEA10 /* Swift Lint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Swift Lint";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
-		};
 		21F7EF311CD91DDB004E80E2 /* Embed Carthage Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2103,6 +2100,7 @@
 				21501D5E1CCAA2B900B02FC5 /* AppDelegate.swift in Sources */,
 				21501D5F1CCAA2B900B02FC5 /* CanvasesResultsViewController.swift in Sources */,
 				212392C81CEBB7CD00F8D26B /* TextFieldContainer.swift in Sources */,
+				21BF511E1D233357001801A5 /* SleepPickerViewController.swift in Sources */,
 				212D8EC71CE62AE00039A3EE /* IndicatorButton.swift in Sources */,
 				218B6BAB1D08D23400A170E5 /* UISplitViewController+Canvas.swift in Sources */,
 				21501D601CCAA2B900B02FC5 /* UIEdgeInsets+Canvas.swift in Sources */,
@@ -2117,6 +2115,7 @@
 				21501D681CCAA2B900B02FC5 /* Configuration.swift in Sources */,
 				2122BFF11CFE4FF900A038DE /* LoadCanvasViewController.swift in Sources */,
 				21501D691CCAA2B900B02FC5 /* NSDate+Canvas.swift in Sources */,
+				21BF50D61D232B19001801A5 /* SettingsViewController.swift in Sources */,
 				210B1C981D0B14A600B08A81 /* SharedWebCredentials.swift in Sources */,
 				21501D6A1CCAA2B900B02FC5 /* CGRect+Canvas.swift in Sources */,
 				21501D6B1CCAA2B900B02FC5 /* Organization+Canvas.swift in Sources */,
@@ -2127,6 +2126,7 @@
 				21501D701CCAA2B900B02FC5 /* CanvasIconView.swift in Sources */,
 				21501D711CCAA2B900B02FC5 /* CanvasCell.swift in Sources */,
 				21C58DB71D022BD8005AEFE1 /* LineView.swift in Sources */,
+				21BF51211D233514001801A5 /* SleepPrevention.swift in Sources */,
 				21501D721CCAA2B900B02FC5 /* TintableEnvironment.swift in Sources */,
 				21501D731CCAA2B900B02FC5 /* WebViewController.swift in Sources */,
 				215CD8631CE293FF0093C545 /* PlaceholderViewController.swift in Sources */,
@@ -2169,6 +2169,7 @@
 				2107D3041CC58F7B001963B7 /* AppDelegate.swift in Sources */,
 				2107D3081CC58F7B001963B7 /* CanvasesResultsViewController.swift in Sources */,
 				212392C71CEBB7CD00F8D26B /* TextFieldContainer.swift in Sources */,
+				21BF511D1D233357001801A5 /* SleepPickerViewController.swift in Sources */,
 				212D8EC61CE62AE00039A3EE /* IndicatorButton.swift in Sources */,
 				218B6BAA1D08D23400A170E5 /* UISplitViewController+Canvas.swift in Sources */,
 				2107D3291CC58F7B001963B7 /* UIEdgeInsets+Canvas.swift in Sources */,
@@ -2183,6 +2184,7 @@
 				2107D30F1CC58F7B001963B7 /* Configuration.swift in Sources */,
 				2122BFF01CFE4FF900A038DE /* LoadCanvasViewController.swift in Sources */,
 				2107D3191CC58F7B001963B7 /* NSDate+Canvas.swift in Sources */,
+				21BF50D51D232B19001801A5 /* SettingsViewController.swift in Sources */,
 				210B1C971D0B14A600B08A81 /* SharedWebCredentials.swift in Sources */,
 				2107D30B1CC58F7B001963B7 /* CGRect+Canvas.swift in Sources */,
 				2107D31A1CC58F7B001963B7 /* Organization+Canvas.swift in Sources */,
@@ -2193,6 +2195,7 @@
 				2107D30A1CC58F7B001963B7 /* CanvasIconView.swift in Sources */,
 				2107D3071CC58F7B001963B7 /* CanvasCell.swift in Sources */,
 				21C58DB61D022BD8005AEFE1 /* LineView.swift in Sources */,
+				21BF51201D233514001801A5 /* SleepPrevention.swift in Sources */,
 				2107D3271CC58F7B001963B7 /* TintableEnvironment.swift in Sources */,
 				2107D32C1CC58F7B001963B7 /* WebViewController.swift in Sources */,
 				215CD8621CE293FF0093C545 /* PlaceholderViewController.swift in Sources */,
