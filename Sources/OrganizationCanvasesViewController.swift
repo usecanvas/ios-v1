@@ -176,7 +176,7 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 
 		loading = true
 
-		APIClient(account: account).listCanvases(organization: organization) { [weak self] result in
+		APIClient(account: account).listCanvases(organizationID: organization.id) { [weak self] result in
 			switch result {
 			case .Success(let canvases):
 				dispatch_async(dispatch_get_main_queue()) {
@@ -199,12 +199,9 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		var row = super.rowForCanvas(canvas)
 
 		row.editActions = [
-			Row.EditAction(title: LocalizedString.ArchiveButton.string, style: .Destructive, backgroundColor: Swatch.gray, backgroundEffect: nil, selection: { [weak self] in
+			Row.EditAction(title: LocalizedString.ArchiveButton.string, style: .Destructive, backgroundColor: Swatch.destructive, backgroundEffect: nil, selection: { [weak self] in
 				self?.archiveCanvas(canvas)
 			}),
-			Row.EditAction(title: LocalizedString.DeleteButton.string, style: .Destructive, backgroundColor: Swatch.destructive, backgroundEffect: nil, selection: { [weak self] in
-				self?.deleteCanvas(canvas)
-			})
 		]
 
 		return row
@@ -222,7 +219,7 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 
 		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 		
-		APIClient(account: account).createCanvas(organization: organization) { [weak self] result in
+		APIClient(account: account).createCanvas(organizationID: organization.id) { [weak self] result in
 			dispatch_async(dispatch_get_main_queue()) {
 				UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 				self?.creating = false
@@ -241,34 +238,11 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		searchViewController.searchBar.becomeFirstResponder()
 	}
 
-	private func deleteCanvas(canvas: Canvas) {
-		let style: UIAlertControllerStyle = traitCollection.userInterfaceIdiom == .Pad ? .Alert : .ActionSheet
-		let actionSheet = AlertController(title: LocalizedString.DeleteConfirmationMessage(canvasTitle: canvas.displayTitle).string, message: nil, preferredStyle: style)
-
-		let delete = { [weak self] in
-			self?.clearEditor(canvas)
-			self?.removeCanvas(canvas)
-
-			guard let account = self?.account else { return }
-			APIClient(account: account).destroyCanvas(canvas: canvas) { _ in
-				dispatch_async(dispatch_get_main_queue()) {
-					self?.refresh()
-				}
-			}
-		}
-
-		actionSheet.addAction(UIAlertAction(title: LocalizedString.DeleteButton.string, style: .Destructive) { _ in delete() })
-		actionSheet.addAction(UIAlertAction(title: LocalizedString.CancelButton.string, style: .Cancel, handler: nil))
-		actionSheet.primaryAction = delete
-
-		presentViewController(actionSheet, animated: true, completion: nil)
-	}
-
 	private func archiveCanvas(canvas: Canvas) {
 		clearEditor(canvas)
 		removeCanvas(canvas)
 
-		APIClient(account: account).archiveCanvas(canvas: canvas) { _ in
+		APIClient(account: account).archiveCanvas(canvasID: canvas.id) { _ in
 			dispatch_async(dispatch_get_main_queue()) { [weak self] in
 				self?.refresh()
 			}

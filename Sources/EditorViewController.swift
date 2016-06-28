@@ -20,7 +20,7 @@ final class EditorViewController: UIViewController, Accountable {
 	static let willCloseNotificationName = "EditorViewController.willCloseNotificationName"
 
 	var account: Account
-	let canvas: Canvas
+	var canvas: Canvas
 
 	let textController: TextController
 	let textView: CanvasTextView
@@ -158,7 +158,7 @@ final class EditorViewController: UIViewController, Accountable {
 		title = LocalizedString.Connecting.string
 		view.backgroundColor = Swatch.white
 
-		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "More"), style: .Plain, target: self, action: #selector(share))
+		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "More"), style: .Plain, target: self, action: #selector(more))
 
 		textView.delegate = self
 		view.addSubview(textView)
@@ -215,13 +215,6 @@ final class EditorViewController: UIViewController, Accountable {
 	override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
 		super.traitCollectionDidChange(previousTraitCollection)
 		textController.traitCollection = traitCollection
-	}
-
-
-	// MARK: - Actions
-
-	func closeNavigationControllerModal() {
-		navigationController?.dismissViewControllerAnimated(true, completion: nil)
 	}
 	
 
