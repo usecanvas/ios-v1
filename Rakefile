@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-CARTHAGE_VERSION = '0.16.2'
+CARTHAGE_VERSION = '0.17.1'
 XCODE_VERSION = '10188.1'
 XCODE_SHORT_VERSION = '7.3.1 (7D1014)'
 XCODE_URL = 'https://itunes.apple.com/app/xcode/id497799835'
