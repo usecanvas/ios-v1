@@ -85,7 +85,7 @@ class LoadCanvasViewController: UIViewController, Accountable {
 		guard let navigationController = navigationController else { return }
 
 		let viewController = EditorViewController(account: account, canvas: canvas)
-		viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close", style: .Plain, target: viewController, action: #selector(EditorViewController.closeNavigationControllerModal))
+		viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: LocalizedString.CloseCommand.string, style: .Plain, target: viewController, action: #selector(EditorViewController.closeNavigationControllerModal))
 
 		var viewControllers = navigationController.viewControllers
 		viewControllers[viewControllers.count - 1] = viewController
@@ -93,7 +93,7 @@ class LoadCanvasViewController: UIViewController, Accountable {
 	}
 
 	private func showError(message message: String) {
-		let alert = UIAlertController(title: "Error", message: message, preferredStyle: .Alert)
+		let alert = UIAlertController(title: LocalizedString.Error.string, message: message, preferredStyle: .Alert)
 		alert.addAction(UIAlertAction(title: LocalizedString.Okay.string, style: .Cancel, handler: { [weak self] _ in
 			// TODO: We currently assume this is a modal
 			self?.navigationController?.dismissViewControllerAnimated(true, completion: nil)

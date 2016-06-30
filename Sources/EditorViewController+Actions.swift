@@ -48,33 +48,33 @@ extension EditorViewController {
 
 		// Archive/unarchive
 		if canvas.archivedAt == nil {
-			actionSheet.addAction(UIAlertAction(title: "Archive", style: .Destructive, handler: showArchive))
+			actionSheet.addAction(UIAlertAction(title: LocalizedString.ArchiveButton.string, style: .Destructive, handler: showArchive))
 		} else {
-			actionSheet.addAction(UIAlertAction(title: "Unarchive", style: .Default, handler: unarchive))
+			actionSheet.addAction(UIAlertAction(title: LocalizedString.UnarchiveButton.string, style: .Default, handler: unarchive))
 		}
 
 		// Enable/disable public edits
 		if canvas.isPublicWritable {
-			actionSheet.addAction(UIAlertAction(title: "Disable Public Edits", style: .Default, handler: disablePublicEdits))
+			actionSheet.addAction(UIAlertAction(title: LocalizedString.DisablePublicEditsButton.string, style: .Default, handler: disablePublicEdits))
 		} else {
-			actionSheet.addAction(UIAlertAction(title: "Enable Public Edits", style: .Default, handler: enablePublicEdits))
+			actionSheet.addAction(UIAlertAction(title: LocalizedString.EnablePublicEditsButton.string, style: .Default, handler: enablePublicEdits))
 		}
 
 		// Share
-		actionSheet.addAction(UIAlertAction(title: "Share…", style: .Default) { [weak self] _ in
+		actionSheet.addAction(UIAlertAction(title: LocalizedString.ShareButton.string, style: .Default) { [weak self] _ in
 			self?.share(sender)
 		})
 
-		actionSheet.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+		actionSheet.addAction(UIAlertAction(title: LocalizedString.Cancel.string, style: .Cancel, handler: nil))
 
 		present(actionSheet: actionSheet, sender: sender)
 	}
 
 	func showArchive(sender: AnyObject?) {
-		let alert = UIAlertController(title: "Archive Canvas", message: "You can find archived canvases by searching for “is:archived”. Deleted canvases are permanently erased.", preferredStyle: .Alert)
-		alert.addAction(UIAlertAction(title: "Delete Canvas", style: .Destructive, handler: destroy))
-		alert.addAction(UIAlertAction(title: "Archive Canvas", style: .Default, handler: archive))
-		alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+		let alert = UIAlertController(title: LocalizedString.ArchiveCanvasTitle.string, message: LocalizedString.ArchiveCanvasMessage.string, preferredStyle: .Alert)
+		alert.addAction(UIAlertAction(title: LocalizedString.DeleteButton.string, style: .Destructive, handler: destroy))
+		alert.addAction(UIAlertAction(title: LocalizedString.ArchiveButton.string, style: .Default, handler: archive))
+		alert.addAction(UIAlertAction(title: LocalizedString.Cancel.string, style: .Cancel, handler: nil))
 		presentViewController(alert, animated: true, completion: nil)
 	}
 

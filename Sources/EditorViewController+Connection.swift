@@ -103,14 +103,14 @@ extension EditorViewController: TextControllerConnectionDelegate {
 
 		let message: String
 		if errorMessage == "wrapper-error" {
-			message = "We’re still a bit buggy and hit a wall. We’ve reported the error."
+			message = LocalizedString.EditorError.string
 		} else {
-			message = "The connection to Canvas was lost."
+			message = LocalizedString.EditorConnectionLost.string
 		}
 
-		let alert = UIAlertController(title: "Disconnected", message: message, preferredStyle: .Alert)
-		alert.addAction(UIAlertAction(title: "Close Canvas", style: .Destructive, handler: close))
-		alert.addAction(UIAlertAction(title: "Retry", style: .Default, handler: reload))
+		let alert = UIAlertController(title: LocalizedString.Disconnected.string, message: message, preferredStyle: .Alert)
+		alert.addAction(UIAlertAction(title: LocalizedString.CloseCanvas.string, style: .Destructive, handler: close))
+		alert.addAction(UIAlertAction(title: LocalizedString.Retry.string, style: .Default, handler: reload))
 		presentViewController(alert, animated: true, completion: nil)
 	}
 }

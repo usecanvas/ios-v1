@@ -46,7 +46,6 @@
 		2107D32D1CC58F7B001963B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2F61CC58F7B001963B7 /* Assets.xcassets */; };
 		2107D32E1CC58F7B001963B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2F71CC58F7B001963B7 /* LaunchScreen.storyboard */; };
 		2107D32F1CC58F7B001963B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2F91CC58F7B001963B7 /* Main.storyboard */; };
-		2107D3321CC58F7B001963B7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2FD1CC58F7B001963B7 /* Localizable.strings */; };
 		2107D3341CC58F7B001963B7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2107D3001CC58F7B001963B7 /* Settings.bundle */; };
 		210B1C971D0B14A600B08A81 /* SharedWebCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210B1C961D0B14A600B08A81 /* SharedWebCredentials.swift */; };
 		210B1C981D0B14A600B08A81 /* SharedWebCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210B1C961D0B14A600B08A81 /* SharedWebCredentials.swift */; };
@@ -120,7 +119,6 @@
 		21501D851CCAA2B900B02FC5 /* UIFont+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2F21CC58F7B001963B7 /* UIFont+Canvas.swift */; };
 		21501D861CCAA2B900B02FC5 /* OrganizationAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2E31CC58F7B001963B7 /* OrganizationAvatarView.swift */; };
 		21501D941CCAA2B900B02FC5 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2107D3001CC58F7B001963B7 /* Settings.bundle */; };
-		21501D951CCAA2B900B02FC5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2FD1CC58F7B001963B7 /* Localizable.strings */; };
 		21501D961CCAA2B900B02FC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2F91CC58F7B001963B7 /* Main.storyboard */; };
 		21501D971CCAA2B900B02FC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2F61CC58F7B001963B7 /* Assets.xcassets */; };
 		21501D981CCAA2B900B02FC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2F71CC58F7B001963B7 /* LaunchScreen.storyboard */; };
@@ -793,7 +791,6 @@
 		2107D2FA1CC58F7B001963B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2107D2FB1CC58F7B001963B7 /* Canvas Dev.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Canvas Dev.entitlements"; sourceTree = "<group>"; };
 		2107D2FC1CC58F7B001963B7 /* Canvas.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Canvas.entitlements; sourceTree = "<group>"; };
-		2107D2FE1CC58F7B001963B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2107D2FF1CC58F7B001963B7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2107D3001CC58F7B001963B7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		210B1C961D0B14A600B08A81 /* SharedWebCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedWebCredentials.swift; sourceTree = "<group>"; };
@@ -909,7 +906,6 @@
 				2107D2F91CC58F7B001963B7 /* Main.storyboard */,
 				2107D2FB1CC58F7B001963B7 /* Canvas Dev.entitlements */,
 				2107D2FC1CC58F7B001963B7 /* Canvas.entitlements */,
-				2107D2FD1CC58F7B001963B7 /* Localizable.strings */,
 				2107D2FF1CC58F7B001963B7 /* Info.plist */,
 				2107D3001CC58F7B001963B7 /* Settings.bundle */,
 			);
@@ -1994,7 +1990,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				21501D941CCAA2B900B02FC5 /* Settings.bundle in Resources */,
-				21501D951CCAA2B900B02FC5 /* Localizable.strings in Resources */,
 				21501D961CCAA2B900B02FC5 /* Main.storyboard in Resources */,
 				21501D971CCAA2B900B02FC5 /* Assets.xcassets in Resources */,
 				21501D981CCAA2B900B02FC5 /* LaunchScreen.storyboard in Resources */,
@@ -2006,7 +2001,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2107D3341CC58F7B001963B7 /* Settings.bundle in Resources */,
-				2107D3321CC58F7B001963B7 /* Localizable.strings in Resources */,
 				2107D32F1CC58F7B001963B7 /* Main.storyboard in Resources */,
 				2107D32D1CC58F7B001963B7 /* Assets.xcassets in Resources */,
 				2107D32E1CC58F7B001963B7 /* LaunchScreen.storyboard in Resources */,
@@ -2277,14 +2271,6 @@
 				2107D2FA1CC58F7B001963B7 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		2107D2FD1CC58F7B001963B7 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2107D2FE1CC58F7B001963B7 /* en */,
-			);
-			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
