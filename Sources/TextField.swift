@@ -33,9 +33,11 @@ final class TextField: UITextField {
 
 		textColor = Swatch.black
 		tintColor = Swatch.brand
-		font = TextStyle.Body.font()
 
 		layer.cornerRadius = 4
+		
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateFont), name: UIContentSizeCategoryDidChangeNotification, object: nil)
+		updateFont()
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -76,5 +78,12 @@ final class TextField: UITextField {
 		var rect = super.rightViewRectForBounds(bounds)
 		rect.origin.x -= 6
 		return rect
+	}
+	
+	
+	// MARK: - Private
+	
+	@objc private func updateFont() {
+		font = TextStyle.Body.font()
 	}
 }

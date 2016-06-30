@@ -19,7 +19,6 @@ class PlaceholderViewController: UIViewController {
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.text = "No Canvas Selected"
 		label.textColor = Swatch.gray
-		label.font = TextStyle.Body.font()
 		return label
 	}()
 
@@ -37,10 +36,20 @@ class PlaceholderViewController: UIViewController {
 			textLabel.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor),
 			textLabel.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor),
 		])
+		
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateFont), name: UIContentSizeCategoryDidChangeNotification, object: nil)
+		updateFont()
 	}
 
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
 		UIDevice.currentDevice().batteryMonitoringEnabled = false
+	}
+	
+	
+	// MARK: - Private
+	
+	@objc private func updateFont() {
+		textLabel.font = TextStyle.Body.font()
 	}
 }

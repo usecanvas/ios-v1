@@ -39,10 +39,6 @@ class TickingLabel: UILabel {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	deinit {
-		NSNotificationCenter.defaultCenter().removeObserver(self)
-	}
-
 
 	// MARK: - Private
 

@@ -30,7 +30,6 @@ final class CanvasCell: UITableViewCell {
 		label.backgroundColor = Swatch.white
 		label.textColor = Swatch.black
 		label.highlightedTextColor = Swatch.white
-		label.font = TextStyle.Body.font(traits: .TraitBold)
 		label.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, forAxis: .Horizontal)
 		return label
 	}()
@@ -50,7 +49,6 @@ final class CanvasCell: UITableViewCell {
 		label.backgroundColor = Swatch.white
 		label.textColor = Swatch.gray
 		label.highlightedTextColor = Swatch.white
-		label.font = TextStyle.Footnote.font().fontWithMonospaceNumbers
 		label.textAlignment = .Right
 		return label
 	}()
@@ -117,6 +115,9 @@ final class CanvasCell: UITableViewCell {
 			timeLabel.trailingAnchor.constraintEqualToAnchor(summaryLabel.trailingAnchor),
 			timeLabel.widthAnchor.constraintLessThanOrEqualToConstant(100)
 		])
+		
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateFonts), name: UIContentSizeCategoryDidChangeNotification, object: nil)
+		updateFonts()
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -156,6 +157,20 @@ final class CanvasCell: UITableViewCell {
 			disclosureIndicatorView.tintColor = canvas?.archivedAt == nil ? Swatch.cellDisclosureIndicator : Swatch.lightGray
 		}
 	}
+	
+	@objc private func updateFonts() {
+		titleLabel.font = TextStyle.Body.font(semibold: true)
+		timeLabel.font = TextStyle.Footnote.font().fontWithMonospaceNumbers
+		updateSummaryFont()
+	}
+	
+	private func updateSummaryFont() {
+		if summaryLabel.text?.isEmpty ?? false {
+			summaryLabel.font = TextStyle.Subheadline.font(traits: .TraitItalic)
+		} else {
+			summaryLabel.font = TextStyle.Subheadline.font()
+		}
+	}
 }
 
 
@@ -163,13 +178,13 @@ extension CanvasCell: CellType {
 	func configure(row row: Row) {
 		titleLabel.text = row.text
 
-		if let summary = row.detailText where summary.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0 {
+		if let summary = row.detailText where !summary.isEmpty {
 			summaryLabel.text = summary
-			summaryLabel.font = TextStyle.Subheadline.font()
 		} else {
 			summaryLabel.text = "No Content" // TODO: Localize
-			summaryLabel.font = TextStyle.Subheadline.font(traits: .TraitItalic)
 		}
+		
+		updateSummaryFont()
 
 		canvas = row.context?["canvas"] as? Canvas
 	}

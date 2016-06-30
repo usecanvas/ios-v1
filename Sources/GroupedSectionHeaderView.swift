@@ -19,8 +19,6 @@ final class GroupedSectionHeaderView: SectionHeaderView {
 
 		backgroundColor = Swatch.groupedTableBackground
 		tintColor = Swatch.gray
-		
-		textLabel.font = TextStyle.Footnote.font()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -33,5 +31,13 @@ final class GroupedSectionHeaderView: SectionHeaderView {
 	override func tintColorDidChange() {
 		super.tintColorDidChange()
 		textLabel.textColor = tintColor
+	}
+	
+	
+	// MARK: - Private
+	
+	override func updateFont() {
+		super.updateFont()
+		textLabel.font = TextStyle.Footnote.font()
 	}
 }

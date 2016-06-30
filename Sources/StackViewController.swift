@@ -42,13 +42,6 @@ class StackViewController: UIViewController {
 	private var visible = false
 	
 	
-	// MARK: - Initializers
-	
-	deinit {
-		NSNotificationCenter.defaultCenter().removeObserver(self)
-	}
-	
-	
 	// MARK: - UIViewController
 	
 	override func viewDidLoad() {

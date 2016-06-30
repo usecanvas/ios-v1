@@ -94,14 +94,6 @@ final class RootViewController: UIViewController {
 	}
 
 
-	// MARK: - Initializers
-
-	deinit {
-		NSNotificationCenter.defaultCenter().removeObserver(self)
-
-	}
-
-
 	// MARK: - UIViewController
 
 	override func viewDidLoad() {

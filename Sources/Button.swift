@@ -23,10 +23,12 @@ class Button: UIButton {
 		layer.borderColor = Swatch.brand.CGColor
 		layer.borderWidth = 2
 
-		titleLabel?.font = TextStyle.Body.font(traits: .TraitBold)
 		setTitleColor(Swatch.brand, forState: .Normal)
 		setTitleColor(Swatch.lightBlue, forState: .Highlighted)
 		setTitleColor(Swatch.gray, forState: .Disabled)
+		
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateFont), name: UIContentSizeCategoryDidChangeNotification, object: nil)
+		updateFont()
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -68,5 +70,9 @@ class Button: UIButton {
 
 	private func updateBorderColor() {
 		layer.borderColor = titleColorForState(state)?.CGColor
+	}
+	
+	@objc func updateFont() {
+		titleLabel?.font = TextStyle.Body.font(semibold: true)
 	}
 }

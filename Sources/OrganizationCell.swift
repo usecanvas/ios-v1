@@ -28,7 +28,6 @@ class OrganizationCell: UITableViewCell, CellType {
 		label.backgroundColor = Swatch.white
 		label.textColor = Swatch.black
 		label.highlightedTextColor = Swatch.white
-		label.font = TextStyle.Body.font(traits: .TraitBold)
 		label.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, forAxis: .Horizontal)
 		return label
 	}()
@@ -49,6 +48,9 @@ class OrganizationCell: UITableViewCell, CellType {
 
 		setupViews()
 		setupConstraints()
+		
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateFont), name: UIContentSizeCategoryDidChangeNotification, object: nil)
+		updateFont()
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -108,5 +110,9 @@ class OrganizationCell: UITableViewCell, CellType {
 	private func updateHighlighted() {
 		avatarView.highlighted = highlighted || selected
 		disclosureIndicatorView.tintColor = highlighted || selected ? Swatch.white : Swatch.lightGray
+	}
+	
+	@objc private func updateFont() {
+		titleLabel.font = TextStyle.Body.font(semibold: true)
 	}
 }

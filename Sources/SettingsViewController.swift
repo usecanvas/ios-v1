@@ -29,10 +29,6 @@ final class SettingsViewController: TableViewController, Accountable {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	deinit {
-		NSNotificationCenter.defaultCenter().removeObserver(self)
-	}
-
 
 	// MARK: - UIViewController
 
