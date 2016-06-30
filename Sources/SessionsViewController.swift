@@ -70,7 +70,7 @@ class SessionsViewController: StackViewController {
 		NSLayoutConstraint.activateConstraints([
 			lineView.widthAnchor.constraintEqualToAnchor(button.widthAnchor),
 			lineView.topAnchor.constraintEqualToAnchor(button.topAnchor)
-			])
+		])
 
 		return button
 	}()
@@ -131,7 +131,7 @@ class SessionsViewController: StackViewController {
 			footerButton.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor),
 			footerButton.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor),
 			footerButton.heightAnchor.constraintEqualToConstant(48)
-			])
+		])
 	}
 
 
@@ -152,12 +152,12 @@ class SessionsViewController: StackViewController {
 		let text = NSMutableAttributedString(string: title, attributes: [
 			NSFontAttributeName: Font.sansSerif(size: .subtitle),
 			NSForegroundColorAttributeName: Swatch.gray
-			])
+		])
 
 		text.setAttributes([
 			NSFontAttributeName: Font.sansSerif(size: .subtitle, weight: .medium),
 			NSForegroundColorAttributeName: Swatch.brand
-			], range: emphasizedRange)
+		], range: emphasizedRange)
 
 		return text
 	}
