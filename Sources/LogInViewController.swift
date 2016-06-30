@@ -43,6 +43,7 @@ final class LogInViewController: SessionsViewController {
 			button.setImage(UIImage(named: "1Password"), forState: .Normal)
 			button.imageView?.tintColor = Swatch.gray
 			button.addTarget(self, action: #selector(onePassword), forControlEvents: .TouchUpInside)
+			button.adjustsImageWhenHighlighted = true
 			passwordTextField.rightView = button
 			passwordTextField.rightViewMode = .Always
 		}
