@@ -59,7 +59,7 @@ extension AppDelegate: UIApplicationDelegate {
 		// Defaults
 		dispatch_async(dispatch_get_main_queue()) {
 			NSUserDefaults.standardUserDefaults().registerDefaults([
-				"PreventSleep": "WhilePluggedIn"
+				SleepPrevention.defaultsKey: SleepPrevention.whilePluggedIn.rawValue
 			])
 
 			if let info = NSBundle.mainBundle().infoDictionary, version = info["CFBundleVersion"] as? String, shortVersion = info["CFBundleShortVersionString"] as? String {

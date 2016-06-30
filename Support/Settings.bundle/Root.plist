@@ -5,34 +5,6 @@
 	<key>PreferenceSpecifiers</key>
 	<array>
 		<dict>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
-			<key>Title</key>
-			<string>EDITOR</string>
-		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSMultiValueSpecifier</string>
-			<key>Title</key>
-			<string>PREVENT_SLEEP</string>
-			<key>Key</key>
-			<string>PreventSleep</string>
-			<key>DefaultValue</key>
-			<string>WhilePluggedIn</string>
-			<key>Titles</key>
-			<array>
-				<string>NEVER</string>
-				<string>WHILE_PLUGGED_IN</string>
-				<string>ALWAYS</string>
-			</array>
-			<key>Values</key>
-			<array>
-				<string>Never</string>
-				<string>WhilePluggedIn</string>
-				<string>Always</string>
-			</array>
-		</dict>
-		<dict>
 			<key>Title</key>
 			<string>ABOUT</string>
 			<key>Type</key>

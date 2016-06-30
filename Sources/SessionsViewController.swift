@@ -13,18 +13,18 @@ import CanvasKit
 class SessionsViewController: StackViewController {
 
 	// MARK: - Properties
-	
+
 	let iconView: UIView = {
 		let stackView = UIStackView()
 		stackView.axis = .Vertical
 		stackView.alignment = .Center
-		
+
 		let imageView = UIImageView(image: UIImage(named: "Icon-Small"))
 		stackView.addArrangedSubview(imageView)
-		
+
 		return stackView
 	}()
-	
+
 	let headingLabel: UILabel = {
 		let label = UILabel()
 		label.textColor = Swatch.black
@@ -42,7 +42,7 @@ class SessionsViewController: StackViewController {
 		textField.autocorrectionType = .No
 		return textField
 	}()
-	
+
 	let passwordTextField: UITextField = {
 		let textField = TextField()
 		textField.secureTextEntry = true
@@ -57,21 +57,21 @@ class SessionsViewController: StackViewController {
 		button.setTitleColor(UIColor(red: 0.209, green: 0.556, blue: 1, alpha: 1), forState: .Disabled)
 		return button
 	}()
-	
+
 	let footerButton: UIButton = {
 		let button = UIButton()
 		button.translatesAutoresizingMaskIntoConstraints = false
-		
+
 		let lineView = LineView()
 		lineView.translatesAutoresizingMaskIntoConstraints = false
 		lineView.backgroundColor = Swatch.border
 		button.addSubview(lineView)
-		
+
 		NSLayoutConstraint.activateConstraints([
 			lineView.widthAnchor.constraintEqualToAnchor(button.widthAnchor),
 			lineView.topAnchor.constraintEqualToAnchor(button.topAnchor)
-		])
-		
+			])
+
 		return button
 	}()
 
@@ -90,7 +90,7 @@ class SessionsViewController: StackViewController {
 
 
 	// MARK: - UIViewController
-	
+
 	override var title: String? {
 		didSet {
 			headingLabel.text = title
@@ -99,11 +99,11 @@ class SessionsViewController: StackViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+
 		// Icon
 		if view.bounds.height > 480 {
 			stackView.addArrangedSubview(iconView)
-			
+
 			if view.bounds.height > 568 {
 				stackView.addSpace(16)
 				stackView.addArrangedSubview(headingLabel)
@@ -119,19 +119,19 @@ class SessionsViewController: StackViewController {
 			stackView.addArrangedSubview(textField)
 			textField.delegate = self
 		}
-		
+
 		stackView.addSpace(32)
 		submitButton.addTarget(self, action: #selector(submit), forControlEvents: .TouchUpInside)
 		stackView.addArrangedSubview(submitButton)
-		
+
 		view.addSubview(footerButton)
-	
+
 		NSLayoutConstraint.activateConstraints([
 			footerButton.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
 			footerButton.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor),
 			footerButton.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor),
 			footerButton.heightAnchor.constraintEqualToConstant(48)
-		])
+			])
 	}
 
 
@@ -140,7 +140,7 @@ class SessionsViewController: StackViewController {
 	func submit() {
 		// Subclasses should override this
 	}
-	
+
 	func onePassword(sender: AnyObject?) {
 		// Subclasses should override this
 	}
@@ -152,25 +152,25 @@ class SessionsViewController: StackViewController {
 		let text = NSMutableAttributedString(string: title, attributes: [
 			NSFontAttributeName: Font.sansSerif(size: .subtitle),
 			NSForegroundColorAttributeName: Swatch.gray
-		])
+			])
 
 		text.setAttributes([
 			NSFontAttributeName: Font.sansSerif(size: .subtitle, weight: .medium),
 			NSForegroundColorAttributeName: Swatch.brand
-		], range: emphasizedRange)
+			], range: emphasizedRange)
 
 		return text
 	}
-	
+
 	static func secondaryButton(title title: String, emphasizedRange: NSRange) -> UIButton {
 		let button = UIButton()
 		button.titleLabel?.numberOfLines = 0
 		button.titleLabel?.textAlignment = .Center
-		
+
 		let text = secondaryButtonText(title: title, emphasizedRange: emphasizedRange)
-		
+
 		button.setAttributedTitle(text, forState: .Normal)
-		
+
 		return button
 	}
 }

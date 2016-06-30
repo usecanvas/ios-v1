@@ -23,19 +23,19 @@ final class LogInViewController: SessionsViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+
 		title = "Log in to Canvas"
 		submitButton.setTitle(LocalizedString.LoginButton.string, forState: .Normal)
-		
+
 		let signUpText = self.dynamicType.secondaryButtonText(title: "Don’t have an account? Sign up.", emphasizedRange: NSRange(location: 23, length: 7))
 		footerButton.setAttributedTitle(signUpText, forState: .Normal)
 		footerButton.addTarget(self, action: #selector(signUp), forControlEvents: .TouchUpInside)
-		
+
 		let forgotButton = self.dynamicType.secondaryButton(title: "Trouble logging in? Reset your password.", emphasizedRange: NSRange(location: 20, length: 19))
 		forgotButton.addTarget(self, action: #selector(forgotPassword), forControlEvents: .TouchUpInside)
 		stackView.addSpace(32)
 		stackView.addArrangedSubview(forgotButton)
-		
+
 		// 1Password
 		if OnePasswordExtension.sharedExtension().isAppExtensionAvailable() {
 			let button = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 44))
@@ -46,10 +46,10 @@ final class LogInViewController: SessionsViewController {
 			passwordTextField.rightViewMode = .Always
 		}
 	}
-	
+
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
-		
+
 		// Make sure we only do this once
 		if askedForWebCredential {
 			return
@@ -59,7 +59,7 @@ final class LogInViewController: SessionsViewController {
 		// Query for shared web credentials
 		SharedWebCredentials.get { [weak self] credential, _ in
 			guard let credential = credential else { return }
-			
+
 			dispatch_async(dispatch_get_main_queue()) {
 				self?.login(credential: credential)
 			}
@@ -85,8 +85,8 @@ final class LogInViewController: SessionsViewController {
 
 	override func submit() {
 		guard let username = emailTextField.text, password = passwordTextField.text
-		where !username.isEmpty && !password.isEmpty
-		else { return }
+			where !username.isEmpty && !password.isEmpty
+			else { return }
 
 		loading = true
 
@@ -98,7 +98,7 @@ final class LogInViewController: SessionsViewController {
 					if let this = self where this.webCredential == nil {
 						SharedWebCredentials.add(domain: "usecanvas.com", account: username, password: password)
 					}
-					
+
 					UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 					AccountController.sharedController.currentAccount = account
 					Analytics.track(.LoggedIn)
@@ -108,7 +108,7 @@ final class LogInViewController: SessionsViewController {
 					self?.loading = false
 					self?.passwordTextField.becomeFirstResponder()
 					self?.webCredential = nil
-					
+
 					let alert = UIAlertController(title: errorMessage, message: nil, preferredStyle: .Alert)
 					alert.addAction(UIAlertAction(title: LocalizedString.Okay.string, style: .Cancel, handler: nil))
 					self?.presentViewController(alert, animated: true, completion: nil)

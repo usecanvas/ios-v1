@@ -14,7 +14,7 @@ final class AvatarView: UIImageView {
 
 	// MARK: - Properties
 
-	var user: User {
+	var user: User? {
 		didSet {
 			updateAvatar()
 		}
@@ -23,7 +23,7 @@ final class AvatarView: UIImageView {
 
 	// MARK: - Initializers
 
-	init(user: User) {
+	init(user: User? = nil) {
 		self.user = user
 
 		super.init(frame: .zero)
@@ -50,13 +50,13 @@ final class AvatarView: UIImageView {
 	// MARK: - Private
 
 	private func updateAvatar() {
-		guard let url = user.avatarURL.flatMap(imgix) else {
+		guard let user = user, url = user.avatarURL.flatMap(imgix) else {
 			image = nil
 			return
 		}
 
 		image = AvatarsController.sharedController.fetchImage(id: user.id, url: url) { [weak self] id, image in
-			if id == self?.user.id {
+			if id == self?.user?.id {
 				self?.image = image
 			}
 		}

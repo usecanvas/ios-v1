@@ -20,7 +20,7 @@ final class EditorViewController: UIViewController, Accountable {
 	static let willCloseNotificationName = "EditorViewController.willCloseNotificationName"
 
 	var account: Account
-	let canvas: Canvas
+	var canvas: Canvas
 
 	let textController: TextController
 	let textView: CanvasTextView
@@ -31,7 +31,13 @@ final class EditorViewController: UIViewController, Accountable {
 
 	private var scrollOffset: CGFloat?
 	private var ignoreLocalSelectionChange = false
-
+	
+	private let titleView: TitleView = {
+		let view = TitleView()
+		view.hidden = true
+		return view
+	}()
+	
 	private var autocompleteEnabled = false {
 		didSet {
 			if oldValue == autocompleteEnabled {
@@ -75,6 +81,8 @@ final class EditorViewController: UIViewController, Accountable {
 		
 		super.init(nibName: nil, bundle: nil)
 		
+		titleView.showsLock = !canvas.isWritable
+		
 		textController.connectionDelegate = self
 		textController.displayDelegate = self
 		textController.annotationDelegate = textView
@@ -82,6 +90,9 @@ final class EditorViewController: UIViewController, Accountable {
 		textView.delegate = self
 		textView.formattingDelegate = self
 		textView.editable = false
+		
+		navigationItem.titleView = titleView
+		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "More"), style: .Plain, target: self, action: #selector(more))
 
 		UIDevice.currentDevice().batteryMonitoringEnabled = true
 		
@@ -151,15 +162,19 @@ final class EditorViewController: UIViewController, Accountable {
 	
 	// MARK: - UIViewController
 	
+	override var title: String? {
+		didSet {
+			titleView.title = title ?? ""
+		}
+	}
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
 		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 		title = LocalizedString.Connecting.string
 		view.backgroundColor = Swatch.white
-
-		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "More"), style: .Plain, target: self, action: #selector(share))
-
+		
 		textView.delegate = self
 		view.addSubview(textView)
 
@@ -179,10 +194,12 @@ final class EditorViewController: UIViewController, Accountable {
 
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
-
+	
 		// Prevent extra work if things didn't change. This method gets called more often than you'd expect.
 		if view.bounds.size == lastSize { return }
 		lastSize = view.bounds.size
+		
+		titleView.frame = CGRect(x: 0, y: 0, width: view.bounds.width - 64, height: 44)
 
 		let maxWidth: CGFloat = 640
 		let horizontalPadding = max(16 - textView.textContainer.lineFragmentPadding, (textView.bounds.width - maxWidth) / 2)
@@ -204,6 +221,11 @@ final class EditorViewController: UIViewController, Accountable {
 		updatePreventSleep()
 		presenceController.join(canvasID: canvas.id)
 	}
+	
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
+		titleView.hidden = false
+	}
 
 	override func viewWillDisappear(animated: Bool) {
 		super.viewWillDisappear(animated)
@@ -215,13 +237,6 @@ final class EditorViewController: UIViewController, Accountable {
 	override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
 		super.traitCollectionDidChange(previousTraitCollection)
 		textController.traitCollection = traitCollection
-	}
-
-
-	// MARK: - Actions
-
-	func closeNavigationControllerModal() {
-		navigationController?.dismissViewControllerAnimated(true, completion: nil)
 	}
 	
 
@@ -242,18 +257,15 @@ final class EditorViewController: UIViewController, Accountable {
 
 	@objc private func updatePreventSleep() {
 		let application = UIApplication.sharedApplication()
-		guard let preference = NSUserDefaults.standardUserDefaults().stringForKey("PreventSleep") else {
-			application.idleTimerDisabled = false
-			return
-		}
 
-		if preference == "Always" {
-			application.idleTimerDisabled = true
-		} else if preference == "WhilePluggedIn" {
+		switch SleepPrevention.currentPreference {
+		case .never:
+			application.idleTimerDisabled = false
+		case .whilePluggedIn:
 			let state = UIDevice.currentDevice().batteryState
 			application.idleTimerDisabled = state == .Charging || state == .Full
-		} else {
-			application.idleTimerDisabled = false
+		case .always:
+			application.idleTimerDisabled = true
 		}
 	}
 	
@@ -399,7 +411,6 @@ extension EditorViewController: TextControllerDisplayDelegate {
 			}
 
 			if let previousPositionY = self?.scrollOffset, let position = textView.positionFromPosition(textView.beginningOfDocument, offset: textView.selectedRange.location) {
-//				textView.scrollEnabled = true
 				let currentPositionY = textView.caretRectForPosition(position).minY
 				textView.contentOffset = CGPoint(x: 0, y: textView.contentOffset.y + currentPositionY - previousPositionY)
 				self?.scrollOffset = nil
@@ -421,9 +432,6 @@ extension EditorViewController: TextControllerDisplayDelegate {
 	}
 
 	func textControllerDidProcessRemoteEdit(textController: TextController) {
-//		if scrollOffset != nil {
-//			textView.scrollEnabled = false
-//		}
 		updateAutoCompletion()
 	}
 	
