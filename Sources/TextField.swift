@@ -8,6 +8,7 @@
 
 import UIKit
 import CanvasCore
+import CanvasText
 
 final class TextField: UITextField {
 
@@ -32,7 +33,7 @@ final class TextField: UITextField {
 
 		textColor = Swatch.black
 		tintColor = Swatch.brand
-		font = Font.sansSerif()
+		font = TextStyle.Body.font()
 
 		layer.cornerRadius = 4
 	}

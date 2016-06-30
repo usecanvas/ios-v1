@@ -9,6 +9,7 @@
 import UIKit
 import CanvasCore
 import CanvasKit
+import CanvasText
 
 class SessionsViewController: StackViewController {
 
@@ -28,7 +29,6 @@ class SessionsViewController: StackViewController {
 	let headingLabel: UILabel = {
 		let label = UILabel()
 		label.textColor = Swatch.black
-		label.font = Font.sansSerif(size: .heading)
 		label.textAlignment = .Center
 		return label
 	}()
@@ -132,6 +132,9 @@ class SessionsViewController: StackViewController {
 			footerButton.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor),
 			footerButton.heightAnchor.constraintEqualToConstant(48)
 		])
+		
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateFonts), name: UIContentSizeCategoryDidChangeNotification, object: nil)
+		updateFonts()
 	}
 
 
@@ -148,30 +151,37 @@ class SessionsViewController: StackViewController {
 
 	// MARK: - Factory
 
-	static func secondaryButtonText(title title: String, emphasizedRange: NSRange) -> NSAttributedString {
-		let text = NSMutableAttributedString(string: title, attributes: [
-			NSFontAttributeName: Font.sansSerif(size: .subtitle),
-			NSForegroundColorAttributeName: Swatch.gray
-		])
-
-		text.setAttributes([
-			NSFontAttributeName: Font.sansSerif(size: .subtitle, weight: .medium),
-			NSForegroundColorAttributeName: Swatch.brand
-		], range: emphasizedRange)
-
-		return text
-	}
-
-	static func secondaryButton(title title: String, emphasizedRange: NSRange) -> UIButton {
-		let button = UIButton()
-		button.titleLabel?.numberOfLines = 0
-		button.titleLabel?.textAlignment = .Center
-
-		let text = secondaryButtonText(title: title, emphasizedRange: emphasizedRange)
-
-		button.setAttributedTitle(text, forState: .Normal)
-
-		return button
+//	static func secondaryButtonText(title title: String, emphasizedRange: NSRange) -> NSAttributedString {
+//		let text = NSMutableAttributedString(string: title, attributes: [
+//			NSFontAttributeName: Font.sansSerif(size: .subtitle),
+//			NSForegroundColorAttributeName: Swatch.gray
+//		])
+//
+//		text.setAttributes([
+//			NSFontAttributeName: Font.sansSerif(size: .subtitle, weight: .medium),
+//			NSForegroundColorAttributeName: Swatch.brand
+//		], range: emphasizedRange)
+//
+//		return text
+//	}
+//
+//	static func secondaryButton(title title: String, emphasizedRange: NSRange) -> UIButton {
+//		let button = UIButton()
+//		button.titleLabel?.numberOfLines = 0
+//		button.titleLabel?.textAlignment = .Center
+//
+//		let text = secondaryButtonText(title: title, emphasizedRange: emphasizedRange)
+//
+//		button.setAttributedTitle(text, forState: .Normal)
+//
+//		return button
+//	}
+	
+	
+	// MARK: - Private
+	
+	@objc private func updateFonts() {
+		headingLabel.font = TextStyle.Headline.font()
 	}
 }
 

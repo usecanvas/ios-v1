@@ -8,6 +8,7 @@
 
 import UIKit
 import CanvasCore
+import CanvasText
 
 class SectionHeaderView: UIView {
 
@@ -16,7 +17,7 @@ class SectionHeaderView: UIView {
 	let textLabel: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
-		label.font = Font.sansSerif(weight: .medium)
+		label.font = TextStyle.Footnote.font(traits: .TraitBold)
 		label.textColor = Swatch.black
 		return label
 	}()

@@ -8,6 +8,7 @@
 
 import UIKit
 import CanvasCore
+import CanvasText
 
 class PlaceholderViewController: UIViewController {
 
@@ -18,7 +19,7 @@ class PlaceholderViewController: UIViewController {
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.text = "No Canvas Selected"
 		label.textColor = Swatch.gray
-		label.font = Font.sansSerif()
+		label.font = TextStyle.Body.font()
 		return label
 	}()
 

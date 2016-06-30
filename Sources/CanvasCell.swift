@@ -10,6 +10,7 @@ import UIKit
 import Static
 import CanvasCore
 import CanvasKit
+import CanvasText
 
 final class CanvasCell: UITableViewCell {
 
@@ -29,7 +30,7 @@ final class CanvasCell: UITableViewCell {
 		label.backgroundColor = Swatch.white
 		label.textColor = Swatch.black
 		label.highlightedTextColor = Swatch.white
-		label.font = Font.sansSerif(weight: .medium)
+		label.font = TextStyle.Body.font(traits: .TraitBold)
 		label.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, forAxis: .Horizontal)
 		return label
 	}()
@@ -49,7 +50,7 @@ final class CanvasCell: UITableViewCell {
 		label.backgroundColor = Swatch.white
 		label.textColor = Swatch.gray
 		label.highlightedTextColor = Swatch.white
-		label.font = Font.sansSerif(size: .small).fontWithMonospaceNumbers
+		label.font = TextStyle.Footnote.font().fontWithMonospaceNumbers
 		label.textAlignment = .Right
 		return label
 	}()
@@ -164,10 +165,10 @@ extension CanvasCell: CellType {
 
 		if let summary = row.detailText where summary.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0 {
 			summaryLabel.text = summary
-			summaryLabel.font = Font.sansSerif(size: .subtitle)
+			summaryLabel.font = TextStyle.Subheadline.font()
 		} else {
-			summaryLabel.text = "No Content"
-			summaryLabel.font = Font.sansSerif(size: .subtitle, style: .italic)
+			summaryLabel.text = "No Content" // TODO: Localize
+			summaryLabel.font = TextStyle.Subheadline.font(traits: .TraitItalic)
 		}
 
 		canvas = row.context?["canvas"] as? Canvas

@@ -34,9 +34,9 @@ final class SignUpViewController: SessionsViewController {
 		title = "Sign up for Canvas"
 		submitButton.setTitle("Sign Up", forState: .Normal)
 		
-		let logInText = self.dynamicType.secondaryButtonText(title: "Already have an account? Log in.", emphasizedRange: NSRange(location: 25, length: 6))
-		footerButton.setAttributedTitle(logInText, forState: .Normal)
-		footerButton.addTarget(self, action: #selector(logIn), forControlEvents: .TouchUpInside)
+//		let logInText = self.dynamicType.secondaryButtonText(title: "Already have an account? Log in.", emphasizedRange: NSRange(location: 25, length: 6))
+//		footerButton.setAttributedTitle(logInText, forState: .Normal)
+//		footerButton.addTarget(self, action: #selector(logIn), forControlEvents: .TouchUpInside)
 	}
 	
 	

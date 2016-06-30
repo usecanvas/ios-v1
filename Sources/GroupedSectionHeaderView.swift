@@ -8,6 +8,7 @@
 
 import UIKit
 import CanvasCore
+import CanvasText
 
 final class GroupedSectionHeaderView: SectionHeaderView {
 
@@ -19,7 +20,7 @@ final class GroupedSectionHeaderView: SectionHeaderView {
 		backgroundColor = Swatch.groupedTableBackground
 		tintColor = Swatch.gray
 		
-		textLabel.font = Font.sansSerif(size: .small)
+		textLabel.font = TextStyle.Footnote.font()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {

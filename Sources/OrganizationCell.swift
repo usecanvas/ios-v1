@@ -10,6 +10,7 @@ import UIKit
 import Static
 import CanvasCore
 import CanvasKit
+import CanvasText
 
 class OrganizationCell: UITableViewCell, CellType {
 
@@ -27,7 +28,7 @@ class OrganizationCell: UITableViewCell, CellType {
 		label.backgroundColor = Swatch.white
 		label.textColor = Swatch.black
 		label.highlightedTextColor = Swatch.white
-		label.font = Font.sansSerif(weight: .medium)
+		label.font = TextStyle.Body.font(traits: .TraitBold)
 		label.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, forAxis: .Horizontal)
 		return label
 	}()

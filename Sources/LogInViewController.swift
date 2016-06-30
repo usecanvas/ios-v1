@@ -28,15 +28,15 @@ final class LogInViewController: SessionsViewController {
 
 		submitButton.setTitle(LocalizedString.LogInButton.string, forState: .Normal)
 
-		let signUpText = self.dynamicType.secondaryButtonText(title: "Don’t have an account? Sign up.", emphasizedRange: NSRange(location: 23, length: 7))
-		footerButton.setAttributedTitle(signUpText, forState: .Normal)
-		footerButton.addTarget(self, action: #selector(signUp), forControlEvents: .TouchUpInside)
-		footerButton.hidden = true
+//		let signUpText = self.dynamicType.secondaryButtonText(title: "Don’t have an account? Sign up.", emphasizedRange: NSRange(location: 23, length: 7))
+//		footerButton.setAttributedTitle(signUpText, forState: .Normal)
+//		footerButton.addTarget(self, action: #selector(signUp), forControlEvents: .TouchUpInside)
+//		footerButton.hidden = true
 
-		let forgotButton = self.dynamicType.secondaryButton(title: "Trouble logging in? Reset your password.", emphasizedRange: NSRange(location: 20, length: 19))
-		forgotButton.addTarget(self, action: #selector(forgotPassword), forControlEvents: .TouchUpInside)
-		stackView.addSpace(32)
-		stackView.addArrangedSubview(forgotButton)
+//		let forgotButton = self.dynamicType.secondaryButton(title: "Trouble logging in? Reset your password.", emphasizedRange: NSRange(location: 20, length: 19))
+//		forgotButton.addTarget(self, action: #selector(forgotPassword), forControlEvents: .TouchUpInside)
+//		stackView.addSpace(32)
+//		stackView.addArrangedSubview(forgotButton)
 
 		// 1Password
 		if OnePasswordExtension.sharedExtension().isAppExtensionAvailable() {

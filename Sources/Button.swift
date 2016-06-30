@@ -8,6 +8,7 @@
 
 import UIKit
 import CanvasCore
+import CanvasText
 
 class Button: UIButton {
 
@@ -22,7 +23,7 @@ class Button: UIButton {
 		layer.borderColor = Swatch.brand.CGColor
 		layer.borderWidth = 2
 
-		titleLabel?.font = Font.sansSerif(weight: .medium)
+		titleLabel?.font = TextStyle.Body.font(traits: .TraitBold)
 		setTitleColor(Swatch.brand, forState: .Normal)
 		setTitleColor(Swatch.lightBlue, forState: .Highlighted)
 		setTitleColor(Swatch.gray, forState: .Disabled)
