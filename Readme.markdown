@@ -5,7 +5,7 @@ Canvas client for iOS.
 
 ## Building
 
-You will need [Xcode](https://itunes.apple.com/app/xcode/id497799835) 7.3.1 and [Carthage](https://github.com/carthage/carthage) 0.16.2 to build Canvas for iOS. You should ensure you have Xcode installed before beginning since that can take quite awhile. Be sure to open it at least once after downloading it.
+You will need [Xcode](https://itunes.apple.com/app/xcode/id497799835) 7.3.1 and [Carthage](https://github.com/carthage/carthage) 0.17.2 to build Canvas for iOS. You should ensure you have Xcode installed before beginning since that can take quite awhile. Be sure to open it at least once after downloading it.
 
 1. Clone the code.
 
