@@ -51,6 +51,8 @@
 		2107D3341CC58F7B001963B7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2107D3001CC58F7B001963B7 /* Settings.bundle */; };
 		210B1C971D0B14A600B08A81 /* SharedWebCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210B1C961D0B14A600B08A81 /* SharedWebCredentials.swift */; };
 		210B1C981D0B14A600B08A81 /* SharedWebCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210B1C961D0B14A600B08A81 /* SharedWebCredentials.swift */; };
+		2112CBC01D24DB8800B214F7 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2112CBBF1D24DB8800B214F7 /* TitleView.swift */; };
+		2112CBC11D24DB8800B214F7 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2112CBBF1D24DB8800B214F7 /* TitleView.swift */; };
 		21173CCB1D1742800050D524 /* CanvasCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21173CB11D1742080050D524 /* CanvasCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2117A02F1D06338C00E60821 /* GroupedSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117A02E1D06338C00E60821 /* GroupedSectionHeaderView.swift */; };
 		2117A0301D06338C00E60821 /* GroupedSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117A02E1D06338C00E60821 /* GroupedSectionHeaderView.swift */; };
@@ -790,6 +792,7 @@
 		2107D2FF1CC58F7B001963B7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2107D3001CC58F7B001963B7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		210B1C961D0B14A600B08A81 /* SharedWebCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedWebCredentials.swift; sourceTree = "<group>"; };
+		2112CBBF1D24DB8800B214F7 /* TitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		21173C9E1D1742080050D524 /* CanvasCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasCore.xcodeproj; path = Vendor/CanvasCore/CanvasCore.xcodeproj; sourceTree = "<group>"; };
 		2117A02E1D06338C00E60821 /* GroupedSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupedSectionHeaderView.swift; sourceTree = "<group>"; };
 		2117A07A1D0641CE00E60821 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
@@ -980,6 +983,7 @@
 				2107D2EE1CC58F7B001963B7 /* TickingLabel.swift */,
 				2107D2F01CC58F7B001963B7 /* TintableView.swift */,
 				21C58DB51D022BD8005AEFE1 /* LineView.swift */,
+				2112CBBF1D24DB8800B214F7 /* TitleView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2150,6 +2154,7 @@
 				21501D801CCAA2B900B02FC5 /* Analytics.swift in Sources */,
 				21501D811CCAA2B900B02FC5 /* LoginTextField.swift in Sources */,
 				21501D831CCAA2B900B02FC5 /* SearchBarContainer.swift in Sources */,
+				2112CBC11D24DB8800B214F7 /* TitleView.swift in Sources */,
 				21501D851CCAA2B900B02FC5 /* UIFont+Canvas.swift in Sources */,
 				21501D861CCAA2B900B02FC5 /* OrganizationAvatarView.swift in Sources */,
 				21A77E131D0803C600340243 /* AvatarsView.swift in Sources */,
@@ -2219,6 +2224,7 @@
 				2107D3031CC58F7B001963B7 /* Analytics.swift in Sources */,
 				2107D3131CC58F7B001963B7 /* LoginTextField.swift in Sources */,
 				2107D3221CC58F7B001963B7 /* SearchBarContainer.swift in Sources */,
+				2112CBC01D24DB8800B214F7 /* TitleView.swift in Sources */,
 				2107D32A1CC58F7B001963B7 /* UIFont+Canvas.swift in Sources */,
 				2107D31B1CC58F7B001963B7 /* OrganizationAvatarView.swift in Sources */,
 				21A77E121D0803C600340243 /* AvatarsView.swift in Sources */,
