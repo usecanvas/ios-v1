@@ -24,6 +24,8 @@ class Button: UIButton {
 
 		titleLabel?.font = Font.sansSerif(weight: .medium)
 		setTitleColor(Swatch.brand, forState: .Normal)
+		setTitleColor(Swatch.lightBlue, forState: .Highlighted)
+		setTitleColor(Swatch.gray, forState: .Disabled)
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -37,5 +39,33 @@ class Button: UIButton {
 		var size = super.intrinsicContentSize()
 		size.height = 48
 		return size
+	}
+
+
+	// MARK: - UIControl
+
+	override var enabled: Bool {
+		didSet {
+			updateBorderColor()
+		}
+	}
+
+	override var highlighted: Bool {
+		didSet {
+			updateBorderColor()
+		}
+	}
+
+	override var selected: Bool {
+		didSet {
+			updateBorderColor()
+		}
+	}
+
+
+	// MARK: - Private
+
+	private func updateBorderColor() {
+		layer.borderColor = titleColorForState(state)?.CGColor
 	}
 }

@@ -25,6 +25,7 @@ final class LogInViewController: SessionsViewController {
 		super.viewDidLoad()
 
 		title = "Log in to Canvas"
+
 		submitButton.setTitle(LocalizedString.LogInButton.string, forState: .Normal)
 
 		let signUpText = self.dynamicType.secondaryButtonText(title: "Don’t have an account? Sign up.", emphasizedRange: NSRange(location: 23, length: 7))
