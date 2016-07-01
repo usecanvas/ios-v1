@@ -12,23 +12,46 @@ import CanvasText
 
 final class BannerView: UIView {
 
+	// MARK: - Types
+
+	enum Style {
+		case success
+		case info
+		case failure
+
+		var foregroundColor: UIColor {
+			return Swatch.white
+		}
+
+		var backgroundColor: UIColor {
+			switch self {
+			case .success: return Swatch.green
+			case .info: return Swatch.gray
+			case .failure: return Swatch.destructive
+			}
+		}
+	}
+
+
 	// MARK: - Properties
 
 	let textLabel: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
-		label.textColor = Swatch.white
 		label.numberOfLines = 0
+		label.textAlignment = .Center
 		return label
 	}()
 
 
 	// MARK: - Initializers
 
-	init() {
+	init(style: Style) {
 		super.init(frame: .zero)
-		backgroundColor = Swatch.green
 
+		backgroundColor = style.backgroundColor
+
+		textLabel.textColor = style.foregroundColor
 		addSubview(textLabel)
 
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateFont), name: UIContentSizeCategoryDidChangeNotification, object: nil)

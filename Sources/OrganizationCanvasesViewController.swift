@@ -207,27 +207,29 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 	// MARK: - Actions
 
 	func createCanvas() {
-		if creating {
-			return
-		}
-
-		creating = true
-
-		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+		showBanner(text: "Hello world")
 		
-		APIClient(account: account).createCanvas(organizationID: organization.id) { [weak self] result in
-			dispatch_async(dispatch_get_main_queue()) {
-				UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-				self?.creating = false
-
-				switch result {
-				case .Success(let canvas):
-					self?.openCanvas(canvas)
-				case .Failure(let message):
-					print("Failed to create canvas: \(message)")
-				}
-			}
-		}
+//		if creating {
+//			return
+//		}
+//
+//		creating = true
+//
+//		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+//		
+//		APIClient(account: account).createCanvas(organizationID: organization.id) { [weak self] result in
+//			dispatch_async(dispatch_get_main_queue()) {
+//				UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+//				self?.creating = false
+//
+//				switch result {
+//				case .Success(let canvas):
+//					self?.openCanvas(canvas)
+//				case .Failure(let message):
+//					print("Failed to create canvas: \(message)")
+//				}
+//			}
+//		}
 	}
 
 	func search() {
@@ -238,9 +240,14 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		clearEditor(canvas)
 		removeCanvas(canvas)
 
-		APIClient(account: account).archiveCanvas(canvasID: canvas.id) { _ in
+		APIClient(account: account).archiveCanvas(canvasID: canvas.id) { result in
 			dispatch_async(dispatch_get_main_queue()) { [weak self] in
 				self?.refresh()
+
+				switch result {
+				case .Success(_): return
+				case .Failure(_): self?.showBanner(text: "Failed to archive canvas", style: .failure) // TODO: Localize
+				}
 			}
 		}
 	}

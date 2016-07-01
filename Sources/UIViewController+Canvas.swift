@@ -19,6 +19,16 @@ extension UIViewController {
 			presenter.dismissDetailViewController(self)
 		}
 	}
+
+	func showBanner(text text: String, style: BannerView.Style = .success) {
+		let alert = UIAlertController(title: text, message: nil, preferredStyle: .Alert)
+		presentViewController(alert, animated: true) {
+			let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC))
+			dispatch_after(delayTime, dispatch_get_main_queue()) {
+				alert.dismissViewControllerAnimated(true, completion: nil)
+			}
+		}
+	}
 }
 
 

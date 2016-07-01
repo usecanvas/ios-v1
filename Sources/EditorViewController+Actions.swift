@@ -84,7 +84,12 @@ extension EditorViewController {
 	}
 
 	func unarchive(sender: AnyObject?) {
-		APIClient(account: account).unarchiveCanvas(canvasID: canvas.id)
+		APIClient(account: account).unarchiveCanvas(canvasID: canvas.id) { [weak self] result in
+			switch result {
+			case .Success(_): self?.showBanner(text: "Unarchived canvas", style: .success) // TODO: Localize
+			case .Failure(_): self?.showBanner(text: "Failed to unarchive canvas", style: .failure) // TODO: Localize
+			}
+		}
 	}
 
 	func destroy(sender: AnyObject?) {
@@ -98,11 +103,9 @@ extension EditorViewController {
 				switch result {
 				case .Success(let canvas):
 					self?.canvas = canvas
-					// TODO: Show UI
-					print("enabled public edits")
+					self?.showBanner(text: "Enabled public edits", style: .success) // TODO: Localize
 				case .Failure(_):
-					// TODO: Show UI
-					print("failed to enable public edits")
+					self?.showBanner(text: "Failed to enable public edits", style: .failure) // TODO: Localize
 				}
 			}
 		}
@@ -114,11 +117,9 @@ extension EditorViewController {
 				switch result {
 				case .Success(let canvas):
 					self?.canvas = canvas
-					// TODO: Show UI
-					print("disabled public edits")
+					self?.showBanner(text: "Disabled public edits", style: .success) // TODO: Localize
 				case .Failure(_):
-					// TODO: Show UI
-					print("failed to disable public edits")
+					self?.showBanner(text: "Failed to disable public edits", style: .failure) // TODO: Localize
 				}
 			}
 		}

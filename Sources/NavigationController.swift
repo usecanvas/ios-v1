@@ -29,7 +29,6 @@ final class NavigationController: UINavigationController {
 		delegate = self
 	}
 
-	// TODO: Remove
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
 		super.init(nibName: nil, bundle: nil)
 	}
