@@ -207,29 +207,27 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 	// MARK: - Actions
 
 	func createCanvas() {
-		showBanner(text: "Hello world")
+		if creating {
+			return
+		}
+
+		creating = true
+
+		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 		
-//		if creating {
-//			return
-//		}
-//
-//		creating = true
-//
-//		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-//		
-//		APIClient(account: account).createCanvas(organizationID: organization.id) { [weak self] result in
-//			dispatch_async(dispatch_get_main_queue()) {
-//				UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-//				self?.creating = false
-//
-//				switch result {
-//				case .Success(let canvas):
-//					self?.openCanvas(canvas)
-//				case .Failure(let message):
-//					print("Failed to create canvas: \(message)")
-//				}
-//			}
-//		}
+		APIClient(account: account).createCanvas(organizationID: organization.id) { [weak self] result in
+			dispatch_async(dispatch_get_main_queue()) {
+				UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+				self?.creating = false
+
+				switch result {
+				case .Success(let canvas):
+					self?.openCanvas(canvas)
+				case .Failure(let message):
+					print("Failed to create canvas: \(message)")
+				}
+			}
+		}
 	}
 
 	func search() {

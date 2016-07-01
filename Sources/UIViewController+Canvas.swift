@@ -21,13 +21,9 @@ extension UIViewController {
 	}
 
 	func showBanner(text text: String, style: BannerView.Style = .success) {
-		let alert = UIAlertController(title: text, message: nil, preferredStyle: .Alert)
-		presentViewController(alert, animated: true) {
-			let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC))
-			dispatch_after(delayTime, dispatch_get_main_queue()) {
-				alert.dismissViewControllerAnimated(true, completion: nil)
-			}
-		}
+		guard let rootViewController = UIApplication.sharedApplication().delegate?.window??.rootViewController as? RootViewController else { return }
+		rootViewController._showBanner(text: text, style: style, inViewController: self)
+
 	}
 }
 

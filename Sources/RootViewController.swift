@@ -112,6 +112,58 @@ final class RootViewController: UIViewController {
 	}
 
 
+	// MARK: - Internal
+
+	func _showBanner(text text: String, style: BannerView.Style = .success, inViewController viewController: UIViewController) {
+		let banner = BannerView(style: style)
+		banner.translatesAutoresizingMaskIntoConstraints = false
+		banner.textLabel.text = text
+
+		let mask = UIView()
+		mask.translatesAutoresizingMaskIntoConstraints = false
+		mask.clipsToBounds = true
+		view.addSubview(mask)
+		mask.addSubview(banner)
+
+		// Split view makes this super annoying
+		let navigationController = viewController.navigationController?.navigationController ?? viewController.navigationController
+		let topAnchor = navigationController?.navigationBar.bottomAnchor ?? view.topAnchor
+		let leadingAnchor = navigationController?.view.leadingAnchor ?? view.leadingAnchor
+		let widthAnchor = navigationController?.view.widthAnchor ?? view.widthAnchor
+
+		let outYConstraint = banner.bottomAnchor.constraintEqualToAnchor(topAnchor)
+		outYConstraint.priority = UILayoutPriorityDefaultHigh
+
+		let inYConstraint = banner.topAnchor.constraintEqualToAnchor(topAnchor)
+		inYConstraint.priority = UILayoutPriorityDefaultLow
+
+		NSLayoutConstraint.activateConstraints([
+			outYConstraint,
+			inYConstraint,
+			banner.leadingAnchor.constraintEqualToAnchor(leadingAnchor),
+			banner.widthAnchor.constraintEqualToAnchor(widthAnchor),
+
+			mask.topAnchor.constraintEqualToAnchor(topAnchor),
+			mask.leadingAnchor.constraintEqualToAnchor(banner.leadingAnchor),
+			mask.widthAnchor.constraintEqualToAnchor(banner.widthAnchor),
+			mask.heightAnchor.constraintEqualToAnchor(banner.heightAnchor)
+		])
+		banner.layoutIfNeeded()
+
+		UIView.animateWithDuration(0.3, delay: 0, options: .CurveEaseInOut, animations: {
+			outYConstraint.active = false
+			banner.layoutIfNeeded()
+		}, completion: nil)
+
+		UIView.animateWithDuration(0.3, delay: 2.3, options: [.BeginFromCurrentState, .CurveEaseInOut], animations: {
+			outYConstraint.active = true
+			banner.layoutIfNeeded()
+		}, completion: { _ in
+			mask.removeFromSuperview()
+		})
+	}
+
+
 	// MARK: - Private
 
 	@objc private func accountDidChange(notification: NSNotification?) {
