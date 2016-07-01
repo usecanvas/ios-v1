@@ -54,7 +54,6 @@ class SessionsViewController: StackViewController {
 	let submitButton: IndicatorButton = {
 		let button = IndicatorButton()
 		button.translatesAutoresizingMaskIntoConstraints = false
-		button.setTitleColor(UIColor(red: 0.209, green: 0.556, blue: 1, alpha: 1), forState: .Disabled)
 		return button
 	}()
 
@@ -118,6 +117,7 @@ class SessionsViewController: StackViewController {
 			stackView.addSpace(16)
 			stackView.addArrangedSubview(textField)
 			textField.delegate = self
+			textField.addTarget(self, action: #selector(updateSubmitButton), forControlEvents: .EditingChanged)
 		}
 
 		stackView.addSpace(32)
@@ -183,6 +183,18 @@ class SessionsViewController: StackViewController {
 	@objc private func updateFonts() {
 		headingLabel.font = TextStyle.Title2.font()
 	}
+
+	@objc private func updateSubmitButton() {
+		var enabled = true
+
+		textFields.forEach { textField in
+			if textField.text?.isEmpty ?? true {
+				enabled = false
+			}
+		}
+
+		submitButton.enabled = enabled
+	}
 }
 
 
@@ -200,6 +212,8 @@ extension SessionsViewController: UITextFieldDelegate {
 
 		return false
 	}
+
+
 
 	func textFieldDidEndEditing(textField: UITextField) {
 		// Workaround iOS bug that causes text to flicker when you lose focus

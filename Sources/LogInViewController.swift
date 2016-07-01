@@ -27,6 +27,7 @@ final class LogInViewController: SessionsViewController {
 		title = "Log in to Canvas"
 
 		submitButton.setTitle(LocalizedString.LogInButton.string, forState: .Normal)
+		submitButton.enabled = false
 
 //		let signUpText = self.dynamicType.secondaryButtonText(title: "Don’t have an account? Sign up.", emphasizedRange: NSRange(location: 23, length: 7))
 //		footerButton.setAttributedTitle(signUpText, forState: .Normal)
@@ -87,7 +88,7 @@ final class LogInViewController: SessionsViewController {
 	}
 
 	override func submit() {
-		guard let username = emailTextField.text, password = passwordTextField.text
+		guard submitButton.enabled, let username = emailTextField.text, password = passwordTextField.text
 			where !username.isEmpty && !password.isEmpty
 			else { return }
 

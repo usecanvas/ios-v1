@@ -16,6 +16,7 @@ final class IndicatorButton: Button {
 	var loading = false {
 		didSet {
 			titleLabel?.alpha = loading ? 0 : 1
+			enabled = !loading
 
 			if loading {
 				activityIndicator.startAnimating()

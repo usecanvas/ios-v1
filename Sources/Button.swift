@@ -20,15 +20,15 @@ class Button: UIButton {
 		backgroundColor = .clearColor()
 
 		layer.cornerRadius = 24
-		layer.borderColor = Swatch.brand.CGColor
 		layer.borderWidth = 2
 
 		setTitleColor(Swatch.brand, forState: .Normal)
 		setTitleColor(Swatch.lightBlue, forState: .Highlighted)
 		setTitleColor(Swatch.gray, forState: .Disabled)
-		
+
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateFont), name: UIContentSizeCategoryDidChangeNotification, object: nil)
 		updateFont()
+		updateBorderColor()
 	}
 
 	required init?(coder aDecoder: NSCoder) {
