@@ -50,6 +50,6 @@ class PlaceholderViewController: UIViewController {
 	// MARK: - Private
 	
 	@objc private func updateFont() {
-		textLabel.font = TextStyle.Body.font()
+		textLabel.font = TextStyle.body.font()
 	}
 }

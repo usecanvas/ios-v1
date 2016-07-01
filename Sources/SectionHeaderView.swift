@@ -62,6 +62,6 @@ class SectionHeaderView: UIView {
 	// MARK: - Fonts
 	
 	func updateFont() {
-		textLabel.font = TextStyle.Callout.font(weight: .Medium)
+		textLabel.font = TextStyle.callout.font(weight: .medium)
 	}
 }

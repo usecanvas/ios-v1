@@ -84,6 +84,6 @@ final class TextField: UITextField {
 	// MARK: - Private
 	
 	@objc private func updateFont() {
-		font = TextStyle.Body.font()
+		font = TextStyle.body.font()
 	}
 }

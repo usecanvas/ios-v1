@@ -159,16 +159,16 @@ final class CanvasCell: UITableViewCell {
 	}
 	
 	@objc private func updateFonts() {
-		titleLabel.font = TextStyle.Body.font(weight: .Medium)
-		timeLabel.font = TextStyle.Footnote.font().fontWithMonospaceNumbers
+		titleLabel.font = TextStyle.body.font(weight: .medium)
+		timeLabel.font = TextStyle.footnote.font().fontWithMonospaceNumbers
 		updateSummaryFont()
 	}
 	
 	private func updateSummaryFont() {
 		if summaryLabel.text?.isEmpty ?? false {
-			summaryLabel.font = TextStyle.Subheadline.font(traits: .TraitItalic)
+			summaryLabel.font = TextStyle.subheadline.font(traits: .TraitItalic)
 		} else {
-			summaryLabel.font = TextStyle.Subheadline.font()
+			summaryLabel.font = TextStyle.subheadline.font()
 		}
 	}
 }

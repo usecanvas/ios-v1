@@ -181,7 +181,7 @@ class SessionsViewController: StackViewController {
 	// MARK: - Private
 	
 	@objc private func updateFonts() {
-		headingLabel.font = TextStyle.Title2.font()
+		headingLabel.font = TextStyle.title2.font()
 	}
 
 	@objc private func updateSubmitButton() {

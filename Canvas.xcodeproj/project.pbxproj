@@ -72,6 +72,8 @@
 		212392941CEBAE0300F8D26B /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212392921CEBAE0300F8D26B /* SplitViewController.swift */; };
 		212392C71CEBB7CD00F8D26B /* TextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212392C61CEBB7CD00F8D26B /* TextFieldContainer.swift */; };
 		212392C81CEBB7CD00F8D26B /* TextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212392C61CEBB7CD00F8D26B /* TextFieldContainer.swift */; };
+		21298C6F1D26C95700E741EE /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21298C6E1D26C95700E741EE /* BannerView.swift */; };
+		21298C701D26C95700E741EE /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21298C6E1D26C95700E741EE /* BannerView.swift */; };
 		212D8EC61CE62AE00039A3EE /* IndicatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212D8EC51CE62AE00039A3EE /* IndicatorButton.swift */; };
 		212D8EC71CE62AE00039A3EE /* IndicatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212D8EC51CE62AE00039A3EE /* IndicatorButton.swift */; };
 		213608441CF51A5100641941 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213608431CF51A5100641941 /* APIClient.swift */; };
@@ -806,6 +808,7 @@
 		2122BFF21CFE645100A038DE /* EditorViewController+Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EditorViewController+Connection.swift"; sourceTree = "<group>"; };
 		212392921CEBAE0300F8D26B /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		212392C61CEBB7CD00F8D26B /* TextFieldContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldContainer.swift; sourceTree = "<group>"; };
+		21298C6E1D26C95700E741EE /* BannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		212D8EC51CE62AE00039A3EE /* IndicatorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorButton.swift; sourceTree = "<group>"; };
 		213608431CF51A5100641941 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		2147A2E21CDA586E008A2709 /* CanvasTextView+Gestures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CanvasTextView+Gestures.swift"; sourceTree = "<group>"; };
@@ -988,6 +991,7 @@
 				2107D2F01CC58F7B001963B7 /* TintableView.swift */,
 				21C58DB51D022BD8005AEFE1 /* LineView.swift */,
 				2112CBBF1D24DB8800B214F7 /* TitleView.swift */,
+				21298C6E1D26C95700E741EE /* BannerView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2102,6 +2106,7 @@
 				2178CBBA1CEA891100E9A4B2 /* SessionsViewController.swift in Sources */,
 				21501D5B1CCAA2B900B02FC5 /* Button.swift in Sources */,
 				21501D5C1CCAA2B900B02FC5 /* OrganizationCell.swift in Sources */,
+				21298C701D26C95700E741EE /* BannerView.swift in Sources */,
 				2117A0971D0642A400E60821 /* UIColor+Canvas.swift in Sources */,
 				2122BFF41CFE645100A038DE /* EditorViewController+Connection.swift in Sources */,
 				21501D5D1CCAA2B900B02FC5 /* Canvas+Canvas.swift in Sources */,
@@ -2175,6 +2180,7 @@
 				2178CBB91CEA891100E9A4B2 /* SessionsViewController.swift in Sources */,
 				2107D3051CC58F7B001963B7 /* Button.swift in Sources */,
 				2107D31F1CC58F7B001963B7 /* OrganizationCell.swift in Sources */,
+				21298C6F1D26C95700E741EE /* BannerView.swift in Sources */,
 				2117A0961D0642A400E60821 /* UIColor+Canvas.swift in Sources */,
 				2122BFF31CFE645100A038DE /* EditorViewController+Connection.swift in Sources */,
 				2107D3061CC58F7B001963B7 /* Canvas+Canvas.swift in Sources */,

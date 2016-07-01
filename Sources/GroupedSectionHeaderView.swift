@@ -38,6 +38,6 @@ final class GroupedSectionHeaderView: SectionHeaderView {
 	
 	override func updateFont() {
 		super.updateFont()
-		textLabel.font = TextStyle.Footnote.font()
+		textLabel.font = TextStyle.footnote.font()
 	}
 }
