@@ -46,6 +46,30 @@ final class SettingsViewController: TableViewController, Accountable {
 	}
 
 
+	// MARK: - Private
+
+	@objc private func reload() {
+		let version = NSUserDefaults.standardUserDefaults().stringForKey("HumanReadableVersion")
+		let footer = version.flatMap { Section.Extremity.Title("Version \($0)") }
+
+		dataSource.sections = [
+			Section(header: "Account", rows: [
+				Row(text: "Username", detailText: account.user.username, image: UIImage(named: "Username")),
+				Row(text: "Account Details…", accessory: .DisclosureIndicator, selection: showAccount, image: UIImage(named: "User"))
+			]),
+			Section(header: "Editor", rows: [
+				Row(text: "Prevent Sleep", detailText: SleepPrevention.currentPreference.description, accessory: .DisclosureIndicator, selection: showSleepPicker, image: UIImage(named: "Moon")),
+			]),
+			Section(rows: [
+				Row(text: "Help", cellClass: ButtonCell.self, selection: contactSupport, image: UIImage(named: "Help"))
+			], footer: footer),
+			Section(rows: [
+				Row(text: "Log Out", cellClass: ButtonCell.self, selection: logOut, image: UIImage(named: "SignOut"))
+			])
+		]
+	}
+
+
 	// MARK: - Actions
 
 	@objc private func close() {
@@ -70,24 +94,8 @@ final class SettingsViewController: TableViewController, Accountable {
 		AccountController.sharedController.currentAccount = nil
 	}
 
-
-	// MARK: - Private
-
-	@objc private func reload() {
-		let version = NSUserDefaults.standardUserDefaults().stringForKey("HumanReadableVersion")
-		let footer = version.flatMap { Section.Extremity.Title("Version \($0)") }
-
-		dataSource.sections = [
-			Section(header: "Account", rows: [
-				Row(text: "Username", detailText: account.user.username),
-				Row(text: "Account Details…", accessory: .DisclosureIndicator, selection: showAccount)
-			]),
-			Section(header: "Editor", rows: [
-				Row(text: "Prevent Display Sleep", detailText: SleepPrevention.currentPreference.description, accessory: .DisclosureIndicator, selection: showSleepPicker),
-			]),
-			Section(rows: [
-				Row(text: "Log Out", cellClass: ButtonCell.self, selection: logOut)
-			], footer: footer)
-		]
+	private func contactSupport() {
+		guard let url = NSURL(string: "https://usecanvas.com/support") else { return }
+		UIApplication.sharedApplication().openURL(url)
 	}
 }
