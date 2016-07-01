@@ -73,6 +73,6 @@ class Button: UIButton {
 	}
 	
 	@objc func updateFont() {
-		titleLabel?.font = TextStyle.Body.font(semibold: true)
+		titleLabel?.font = TextStyle.Body.font(weight: .Medium)
 	}
 }

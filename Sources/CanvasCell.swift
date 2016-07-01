@@ -159,7 +159,7 @@ final class CanvasCell: UITableViewCell {
 	}
 	
 	@objc private func updateFonts() {
-		titleLabel.font = TextStyle.Body.font(semibold: true)
+		titleLabel.font = TextStyle.Body.font(weight: .Medium)
 		timeLabel.font = TextStyle.Footnote.font().fontWithMonospaceNumbers
 		updateSummaryFont()
 	}

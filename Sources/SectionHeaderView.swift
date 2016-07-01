@@ -62,6 +62,6 @@ class SectionHeaderView: UIView {
 	// MARK: - Fonts
 	
 	func updateFont() {
-		textLabel.font = TextStyle.Footnote.font(semibold: true)
+		textLabel.font = TextStyle.Footnote.font(weight: .Medium)
 	}
 }

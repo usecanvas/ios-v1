@@ -113,6 +113,6 @@ class OrganizationCell: UITableViewCell, CellType {
 	}
 	
 	@objc private func updateFont() {
-		titleLabel.font = TextStyle.Body.font(semibold: true)
+		titleLabel.font = TextStyle.Body.font(weight: .Medium)
 	}
 }
