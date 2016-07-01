@@ -40,6 +40,8 @@ final class SettingsViewController: TableViewController, Accountable {
 		navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Close"), style: .Plain, target: self, action: #selector(close))
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
 
+		tableView.rowHeight = 50
+
 		dataSource.automaticallyDeselectRows = false
 		reload()
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(reload), name: NSUserDefaultsDidChangeNotification, object: nil)
@@ -55,10 +57,10 @@ final class SettingsViewController: TableViewController, Accountable {
 		dataSource.sections = [
 			Section(header: "Account", rows: [
 				Row(text: "Username", detailText: account.user.username, image: UIImage(named: "Username")),
-				Row(text: "Account Details…", accessory: .DisclosureIndicator, selection: showAccount, image: UIImage(named: "User"))
+				Row(text: "Account Details…", accessory: .DisclosureIndicator, selection: showAccount, image: UIImage(named: "User"), cellClass: ValueCell.self)
 			]),
 			Section(header: "Editor", rows: [
-				Row(text: "Prevent Sleep", detailText: SleepPrevention.currentPreference.description, accessory: .DisclosureIndicator, selection: showSleepPicker, image: UIImage(named: "Moon")),
+				Row(text: "Prevent Sleep", detailText: SleepPrevention.currentPreference.description, accessory: .DisclosureIndicator, selection: showSleepPicker, image: UIImage(named: "Moon"), cellClass: ValueCell.self),
 			]),
 			Section(rows: [
 				Row(text: "Help", cellClass: ButtonCell.self, selection: contactSupport, image: UIImage(named: "Help"))
