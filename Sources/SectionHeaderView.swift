@@ -24,8 +24,9 @@ class SectionHeaderView: UIView {
 
 	// MARK: - Initializers
 
-	convenience init() {
+	convenience init(title: String) {
 		self.init(frame: CGRect(x: 0, y: 0, width: 320, height: 30))
+		textLabel.text = title
 	}
 
 	override init(frame: CGRect) {

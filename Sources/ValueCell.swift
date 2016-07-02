@@ -12,7 +12,7 @@ import CanvasCore
 
 final class ValueCell: UITableViewCell, CellType {
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-		super.init(style: style, reuseIdentifier: reuseIdentifier)
+		super.init(style: .Value1, reuseIdentifier: reuseIdentifier)
 		textLabel?.textColor = Swatch.black
 		detailTextLabel?.textColor = Swatch.gray
 	}

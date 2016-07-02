@@ -56,9 +56,10 @@ final class SettingsViewController: TableViewController, Accountable {
 		let version = NSUserDefaults.standardUserDefaults().stringForKey("HumanReadableVersion")
 		let footer = version.flatMap { Section.Extremity.Title("Version \($0)") }
 
+		// TODO: Use custom header & footer views
 		dataSource.sections = [
 			Section(header: "Account", rows: [
-				Row(text: "Username", detailText: account.user.username, image: UIImage(named: "Username")),
+				Row(text: "Username", detailText: account.user.username, cellClass: ValueCell.self, image: UIImage(named: "Username")),
 				Row(text: "Account Details…", accessory: .DisclosureIndicator, selection: showAccount, image: UIImage(named: "User"), cellClass: ValueCell.self)
 			]),
 			Section(header: "Editor", rows: [
