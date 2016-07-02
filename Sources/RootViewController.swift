@@ -34,6 +34,16 @@ final class RootViewController: UIViewController {
 
 			// Update Intercom
 			Intercom.registerUserWithUserId(account.user.id)
+			var attributes: [String: AnyObject] = [
+				"email": account.email,
+				"username": account.user.username,
+			]
+			
+			if let url = account.user.avatarURL?.absoluteString {
+				attributes["avatar_url"] = url
+			}
+			
+			Intercom.updateUserWithAttributes(attributes)
 
 			if var viewController = viewController as? Accountable {
 				// TODO: Handle containers
