@@ -1,3 +1,6 @@
 [submodule "Vendor/CanvasCore"]
 	path = Vendor/CanvasCore
 	url = https://github.com/usecanvas/CanvasCore
+[submodule "Vendor/Intercom"]
+	path = Vendor/Intercom
+	url = https://github.com/intercom/intercom-ios.git

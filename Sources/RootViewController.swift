@@ -10,6 +10,7 @@ import UIKit
 import CanvasCore
 import CanvasKit
 import SentrySwift
+import Intercom
 
 final class RootViewController: UIViewController {
 
@@ -19,7 +20,9 @@ final class RootViewController: UIViewController {
 		didSet {
 			guard let account = account else {
 				SentryClient.shared?.user = nil
+				Intercom.reset()
 				NSUserDefaults.standardUserDefaults().removeObjectForKey("SelectedOrganization")
+
 				let nav = UINavigationController(rootViewController: LogInViewController())
 				nav.navigationBarHidden = true
 				viewController = nav
@@ -28,6 +31,9 @@ final class RootViewController: UIViewController {
 
 			// Update Sentry
 			SentryClient.shared?.user = User(id: account.user.id, email: account.email, username: account.user.username)
+
+			// Update Intercom
+			Intercom.registerUserWithUserId(account.user.id)
 
 			if var viewController = viewController as? Accountable {
 				// TODO: Handle containers
@@ -168,5 +174,6 @@ final class RootViewController: UIViewController {
 
 	@objc private func accountDidChange(notification: NSNotification?) {
 		account = AccountController.sharedController.currentAccount
+
 	}
 }

@@ -10,6 +10,7 @@ import UIKit
 import CanvasCore
 import CanvasKit
 import SentrySwift
+import Intercom
 
 @UIApplicationMain final class AppDelegate: UIResponder {
 
@@ -52,6 +53,9 @@ extension AppDelegate: UIApplicationDelegate {
 
 		// Analytics
 		Analytics.track(.LaunchedApp)
+
+		// Intercom
+		Intercom.setApiKey("ios_sdk-23875f0968eab5b49e236e42b70aed9548312a77", forAppId: "zv4qksyq")
 
 		// Appearance
 		UIImageView.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = Swatch.gray
@@ -128,5 +132,9 @@ extension AppDelegate: UIApplicationDelegate {
 		}
 
 		return false
+	}
+
+	func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+		Intercom.setDeviceToken(deviceToken)
 	}
 }

@@ -7,6 +7,7 @@
 //
 
 import Mixpanel
+import Intercom
 import CanvasKit
 import CanvasCore
 
@@ -80,5 +81,8 @@ struct Analytics {
 
 		// Mixpanel
 		mixpanel.track(event.name, parameters: mixpanelParams)
+
+		// Intercom
+		Intercom.logEventWithName(event.name, metaData: params)
 	}
 }

@@ -10,6 +10,7 @@ import UIKit
 import CanvasCore
 import CanvasKit
 import Static
+import Intercom
 
 final class SettingsViewController: TableViewController, Accountable {
 
@@ -50,6 +51,7 @@ final class SettingsViewController: TableViewController, Accountable {
 
 	// MARK: - Private
 
+	// TODO: Localize
 	@objc private func reload() {
 		let version = NSUserDefaults.standardUserDefaults().stringForKey("HumanReadableVersion")
 		let footer = version.flatMap { Section.Extremity.Title("Version \($0)") }
@@ -63,7 +65,7 @@ final class SettingsViewController: TableViewController, Accountable {
 				Row(text: "Prevent Sleep", detailText: SleepPrevention.currentPreference.description, accessory: .DisclosureIndicator, selection: showSleepPicker, image: UIImage(named: "Moon"), cellClass: ValueCell.self),
 			]),
 			Section(rows: [
-				Row(text: "Help", cellClass: ButtonCell.self, selection: contactSupport, image: UIImage(named: "Help"))
+				Row(text: "Help", cellClass: ButtonCell.self, selection: help, image: UIImage(named: "Help"))
 			], footer: footer),
 			Section(rows: [
 				Row(text: "Log Out", cellClass: ButtonCell.self, selection: logOut, image: UIImage(named: "SignOut"))
@@ -78,11 +80,14 @@ final class SettingsViewController: TableViewController, Accountable {
 		dismissViewControllerAnimated(true, completion: nil)
 	}
 
-	private func showAccount() {
+	private func deselectRow() {
 		if let indexPath = tableView.indexPathForSelectedRow {
 			tableView.deselectRowAtIndexPath(indexPath, animated: true)
 		}
+	}
 
+	private func showAccount() {
+		deselectRow()
 		guard let url = NSURL(string: "https://usecanvas.com/account") else { return }
 		UIApplication.sharedApplication().openURL(url)
 	}
@@ -93,11 +98,18 @@ final class SettingsViewController: TableViewController, Accountable {
 	}
 
 	private func logOut() {
+		deselectRow()
 		AccountController.sharedController.currentAccount = nil
 	}
 
-	private func contactSupport() {
-		guard let url = NSURL(string: "https://usecanvas.com/support") else { return }
-		UIApplication.sharedApplication().openURL(url)
+	private func help() {
+		deselectRow()
+
+		let application = UIApplication.sharedApplication()
+		let settings = UIUserNotificationSettings(forTypes: [.Badge, .Sound, .Alert], categories: nil)
+		application.registerUserNotificationSettings(settings)
+		application.registerForRemoteNotifications()
+
+		Intercom.presentMessageComposer()
 	}
 }
