@@ -83,6 +83,8 @@ struct Analytics {
 		mixpanel.track(event.name, parameters: mixpanelParams)
 
 		// Intercom
+		var intercomParams = params
+		intercomParams["source"] = "ios"
 		Intercom.logEventWithName(event.name, metaData: params)
 	}
 }

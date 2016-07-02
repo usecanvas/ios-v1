@@ -56,6 +56,8 @@ extension AppDelegate: UIApplicationDelegate {
 
 		// Intercom
 		Intercom.setApiKey("ios_sdk-23875f0968eab5b49e236e42b70aed9548312a77", forAppId: "zv4qksyq")
+		Intercom.setPreviewPosition(.BottomRight)
+		Intercom.setPreviewPaddingWithX(16, y: 16)
 
 		// Appearance
 		UIImageView.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = Swatch.gray
