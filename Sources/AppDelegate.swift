@@ -41,6 +41,13 @@ import Intercom
 			completion(navigationController.topViewController as? OrganizationCanvasesViewController)
 		}
 	}
+	
+	@objc private func promptForRemoteNotifications() {
+		let application = UIApplication.sharedApplication()
+		let settings = UIUserNotificationSettings(forTypes: [.Badge, .Sound, .Alert], categories: nil)
+		application.registerUserNotificationSettings(settings)
+		application.registerForRemoteNotifications()
+	}
 }
 
 
@@ -58,6 +65,7 @@ extension AppDelegate: UIApplicationDelegate {
 		Intercom.setApiKey("ios_sdk-23875f0968eab5b49e236e42b70aed9548312a77", forAppId: "zv4qksyq")
 		Intercom.setPreviewPosition(.BottomRight)
 		Intercom.setPreviewPaddingWithX(16, y: 16)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(promptForRemoteNotifications), name: IntercomDidStartNewConversationNotification, object: nil)
 
 		// Appearance
 		UIImageView.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = Swatch.gray

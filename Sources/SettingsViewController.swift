@@ -104,12 +104,6 @@ final class SettingsViewController: TableViewController, Accountable {
 
 	private func help() {
 		deselectRow()
-
-		let application = UIApplication.sharedApplication()
-		let settings = UIUserNotificationSettings(forTypes: [.Badge, .Sound, .Alert], categories: nil)
-		application.registerUserNotificationSettings(settings)
-		application.registerForRemoteNotifications()
-
 		Intercom.presentMessageComposer()
 	}
 }
