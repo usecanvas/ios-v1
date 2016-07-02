@@ -138,6 +138,7 @@ final class LogInViewController: SessionsViewController {
 		webCredential = credential
 		emailTextField.text = credential.account
 		passwordTextField.text = credential.password
+		updateSubmitButton()
 		submit()
 	}
 }

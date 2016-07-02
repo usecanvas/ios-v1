@@ -147,6 +147,18 @@ class SessionsViewController: StackViewController {
 	func onePassword(sender: AnyObject?) {
 		// Subclasses should override this
 	}
+	
+	func updateSubmitButton() {
+		var enabled = true
+		
+		textFields.forEach { textField in
+			if textField.text?.isEmpty ?? true {
+				enabled = false
+			}
+		}
+		
+		submitButton.enabled = enabled
+	}
 
 
 	// MARK: - Factory
@@ -182,18 +194,6 @@ class SessionsViewController: StackViewController {
 	
 	@objc private func updateFonts() {
 		headingLabel.font = TextStyle.title2.font()
-	}
-
-	@objc private func updateSubmitButton() {
-		var enabled = true
-
-		textFields.forEach { textField in
-			if textField.text?.isEmpty ?? true {
-				enabled = false
-			}
-		}
-
-		submitButton.enabled = enabled
 	}
 }
 
