@@ -10,7 +10,7 @@ import UIKit
 import CanvasCore
 import CanvasKit
 
-class LoadCanvasViewController: UIViewController, Accountable {
+final class LoadCanvasViewController: UIViewController, Accountable {
 
 	// MARK: - Properties
 

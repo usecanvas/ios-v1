@@ -10,7 +10,7 @@ import UIKit
 import CanvasCore
 import CanvasText
 
-class PlaceholderViewController: UIViewController {
+final class PlaceholderViewController: UIViewController {
 
 	// MARK: - Properties
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TickingLabel: UILabel {
+final class TickingLabel: UILabel {
 
 	// MARK: - Properties
 

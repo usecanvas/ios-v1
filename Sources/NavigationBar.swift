@@ -9,7 +9,7 @@
 import UIKit
 import CanvasCore
 
-class NavigationBar: UINavigationBar {
+final class NavigationBar: UINavigationBar {
 
 	// MARK: - Properties
 

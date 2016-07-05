@@ -9,7 +9,7 @@
 import UIKit
 import CanvasCore
 
-class SearchBarContainer: UIView {
+final class SearchBarContainer: UIView {
 
 	// MARK: - Properties
 

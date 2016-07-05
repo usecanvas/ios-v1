@@ -10,7 +10,7 @@ import UIKit
 import CanvasCore
 import CanvasKit
 
-class CanvasesResultsViewController: CanvasesViewController {
+final class CanvasesResultsViewController: CanvasesViewController {
 
 	// MARK: - UIViewController
 

@@ -70,8 +70,6 @@
 		2122BFF41CFE645100A038DE /* EditorViewController+Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122BFF21CFE645100A038DE /* EditorViewController+Connection.swift */; };
 		212392931CEBAE0300F8D26B /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212392921CEBAE0300F8D26B /* SplitViewController.swift */; };
 		212392941CEBAE0300F8D26B /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212392921CEBAE0300F8D26B /* SplitViewController.swift */; };
-		212392C71CEBB7CD00F8D26B /* TextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212392C61CEBB7CD00F8D26B /* TextFieldContainer.swift */; };
-		212392C81CEBB7CD00F8D26B /* TextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212392C61CEBB7CD00F8D26B /* TextFieldContainer.swift */; };
 		21298C6F1D26C95700E741EE /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21298C6E1D26C95700E741EE /* BannerView.swift */; };
 		21298C701D26C95700E741EE /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21298C6E1D26C95700E741EE /* BannerView.swift */; };
 		21298CD11D26F11100E741EE /* ValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21298CD01D26F11100E741EE /* ValueCell.swift */; };
@@ -815,7 +813,6 @@
 		2122BFEF1CFE4FF900A038DE /* LoadCanvasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadCanvasViewController.swift; sourceTree = "<group>"; };
 		2122BFF21CFE645100A038DE /* EditorViewController+Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EditorViewController+Connection.swift"; sourceTree = "<group>"; };
 		212392921CEBAE0300F8D26B /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
-		212392C61CEBB7CD00F8D26B /* TextFieldContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldContainer.swift; sourceTree = "<group>"; };
 		21298C6E1D26C95700E741EE /* BannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		21298CD01D26F11100E741EE /* ValueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueCell.swift; sourceTree = "<group>"; };
 		21298D461D27349800E741EE /* Intercom.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Intercom.bundle; path = Vendor/Intercom/Intercom.bundle; sourceTree = "<group>"; };
@@ -994,7 +991,6 @@
 				2189958D1D1F20D900FCF199 /* Avatars */,
 				2107D2D21CC58F7A001963B7 /* CanvasIconView.swift */,
 				2107D2DB1CC58F7A001963B7 /* TextField.swift */,
-				212392C61CEBB7CD00F8D26B /* TextFieldContainer.swift */,
 				2107D2DE1CC58F7A001963B7 /* NavigationBar.swift */,
 				2107D2EA1CC58F7B001963B7 /* SearchBarContainer.swift */,
 				2107D2ED1CC58F7B001963B7 /* TextView.swift */,
@@ -2131,7 +2127,6 @@
 				21BD176A1D1EEBFD00C11CB9 /* SignUpViewController.swift in Sources */,
 				21501D5E1CCAA2B900B02FC5 /* AppDelegate.swift in Sources */,
 				21501D5F1CCAA2B900B02FC5 /* CanvasesResultsViewController.swift in Sources */,
-				212392C81CEBB7CD00F8D26B /* TextFieldContainer.swift in Sources */,
 				21BF511E1D233357001801A5 /* SleepPickerViewController.swift in Sources */,
 				212D8EC71CE62AE00039A3EE /* IndicatorButton.swift in Sources */,
 				218B6BAB1D08D23400A170E5 /* UISplitViewController+Canvas.swift in Sources */,
@@ -2206,7 +2201,6 @@
 				21BD17691D1EEBFD00C11CB9 /* SignUpViewController.swift in Sources */,
 				2107D3041CC58F7B001963B7 /* AppDelegate.swift in Sources */,
 				2107D3081CC58F7B001963B7 /* CanvasesResultsViewController.swift in Sources */,
-				212392C71CEBB7CD00F8D26B /* TextFieldContainer.swift in Sources */,
 				21BF511D1D233357001801A5 /* SleepPickerViewController.swift in Sources */,
 				212D8EC61CE62AE00039A3EE /* IndicatorButton.swift in Sources */,
 				218B6BAA1D08D23400A170E5 /* UISplitViewController+Canvas.swift in Sources */,

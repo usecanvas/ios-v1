@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LineView: UIView {
+final class LineView: UIView {
 	override func sizeThatFits(size: CGSize) -> CGSize {
 		return CGSize(width: size.width, height: intrinsicContentSize().height)
 	}

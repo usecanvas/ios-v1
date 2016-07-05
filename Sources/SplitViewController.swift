@@ -9,7 +9,7 @@
 import UIKit
 import CanvasCore
 
-class SplitViewController: UISplitViewController {
+final class SplitViewController: UISplitViewController {
 
 	// MARK: - Properties
 

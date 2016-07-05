@@ -9,7 +9,7 @@
 import UIKit
 import SafariServices
 
-class WebViewController: SFSafariViewController {
+final class WebViewController: SFSafariViewController {
 
 	// MARK: - Properties
 

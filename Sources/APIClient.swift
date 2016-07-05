@@ -9,7 +9,7 @@
 import CanvasKit
 import CanvasCore
 
-class APIClient: CanvasKit.APIClient {
+final class APIClient: CanvasKit.APIClient {
 	convenience init(account: Account) {
 		self.init(accessToken: account.accessToken, baseURL: config.environment.baseURL)
 	}

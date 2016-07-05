@@ -12,7 +12,7 @@ import CanvasCore
 import CanvasKit
 import CanvasText
 
-class OrganizationCell: UITableViewCell, CellType {
+final class OrganizationCell: UITableViewCell, CellType {
 
 	// MARK: - Properties
 
