@@ -40,6 +40,8 @@ final class TitleView: UIView {
 		return label
 	}()
 	
+	private let spacing: CGFloat = 4
+	
 	
 	// MARK: - Initializers
 	
@@ -69,15 +71,23 @@ final class TitleView: UIView {
 		let size = bounds.size
 		let titleSize = titleLabel.sizeThatFits(size)
 		var titleFrame = CGRect(x: round((size.width - titleSize.width) / 2), y: round((size.height - titleSize.height) / 2), width: titleSize.width, height: titleSize.height)
-		titleFrame.origin.x -= 7
 		
 		if showsLock {
 			let lockSize = lockView.bounds.size
-			let spacing: CGFloat = 4
-			titleFrame.origin.x += round((lockSize.width + spacing) / 2) - 8
+			titleFrame.origin.x += round((lockSize.width + spacing) / 2)
 			lockView.frame = CGRect(x: titleFrame.origin.x - lockSize.width - spacing, y: round((size.height - lockSize.height) / 2), width: lockSize.width, height: lockSize.height)
 		}
 		
 		titleLabel.frame = titleFrame
+	}
+	
+	override func sizeThatFits(size: CGSize) -> CGSize {
+		var output = titleLabel.sizeThatFits(size)
+		
+		if showsLock {
+			output.width += lockView.bounds.width + spacing
+		}
+		
+		return output
 	}
 }

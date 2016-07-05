@@ -199,7 +199,19 @@ final class EditorViewController: UIViewController, Accountable {
 		if view.bounds.size == lastSize { return }
 		lastSize = view.bounds.size
 		
-		titleView.frame = CGRect(x: 0, y: 0, width: view.bounds.width - 64, height: 44)
+		// Align title view
+		if let navigationBar = navigationController?.navigationBar {
+			let titleSize = titleView.sizeThatFits(navigationBar.bounds.size)
+			var titleFrame = CGRect(
+				x: 0,
+				y: 0,
+				width: titleSize.width,
+				height: navigationBar.bounds.height
+			)
+			titleFrame.size.width = min(navigationBar.bounds.width - 48, titleFrame.width)
+			titleFrame.origin.x = round((navigationBar.bounds.width - titleFrame.width) / 2)
+			titleView.frame = titleFrame
+		}
 
 		let maxWidth: CGFloat = 640
 		let horizontalPadding = max(16 - textView.textContainer.lineFragmentPadding, (textView.bounds.width - maxWidth) / 2)

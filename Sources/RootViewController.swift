@@ -34,10 +34,14 @@ final class RootViewController: UIViewController {
 
 			// Update Intercom
 			Intercom.registerUserWithUserId(account.user.id)
+			
 			var attributes: [String: AnyObject] = [
 				"email": account.email,
-				"username": account.user.username,
 			]
+			
+			if let username = account.user.username {
+				attributes["username"] = username
+			}
 			
 			if let url = account.user.avatarURL?.absoluteString {
 				attributes["avatar_url"] = url
