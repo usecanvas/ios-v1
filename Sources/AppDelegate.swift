@@ -48,6 +48,30 @@ import Intercom
 		application.registerUserNotificationSettings(settings)
 		application.registerForRemoteNotifications()
 	}
+	
+	private func open(canvasURL canvasURL: NSURL) -> Bool {
+		// For now require an account
+		guard let account = AccountController.sharedController.currentAccount,
+			splitViewController = (window?.rootViewController as? RootViewController)?.viewController as? SplitViewController
+		else { return false }
+		
+		guard let components = canvasURL.pathComponents where components.count == 4 else { return false }
+		
+		let canvasID = components[3]
+		let viewController = NavigationController(rootViewController: LoadCanvasViewController(account: account, canvasID: canvasID))
+		
+		let show = {
+			splitViewController.presentViewController(viewController, animated: true, completion: nil)
+		}
+		
+		if splitViewController.presentedViewController != nil {
+			splitViewController.presentedViewController?.dismissViewControllerAnimated(false, completion: show)
+		} else {
+			show()
+		}
+		
+		return true
+	}
 }
 
 
@@ -113,27 +137,11 @@ extension AppDelegate: UIApplicationDelegate {
 	}
 
 	func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
-		// For now require an account
-		guard let account = AccountController.sharedController.currentAccount,
-			splitViewController = (window?.rootViewController as? RootViewController)?.viewController as? SplitViewController
-		else { return false }
-
 		// Open canvas
-		if userActivity.activityType == NSUserActivityTypeBrowsingWeb, let components = userActivity.webpageURL?.pathComponents where components.count == 4 {
-			let canvasID = components[3]
-			let viewController = NavigationController(rootViewController: LoadCanvasViewController(account: account, canvasID: canvasID))
-
-			let show = {
-				splitViewController.presentViewController(viewController, animated: true, completion: nil)
+		if userActivity.activityType == NSUserActivityTypeBrowsingWeb, let canvasURL = userActivity.webpageURL {
+			if open(canvasURL: canvasURL) {
+				return true
 			}
-
-			if splitViewController.presentedViewController != nil {
-				splitViewController.presentedViewController?.dismissViewControllerAnimated(false, completion: show)
-			} else {
-				show()
-			}
-			
-			return true
 		}
 
 		// Fallback

@@ -183,6 +183,8 @@
 		21C58DB71D022BD8005AEFE1 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C58DB51D022BD8005AEFE1 /* LineView.swift */; };
 		21C58DD51D023947005AEFE1 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C58DD41D023947005AEFE1 /* SectionHeaderView.swift */; };
 		21C58DD61D023947005AEFE1 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C58DD41D023947005AEFE1 /* SectionHeaderView.swift */; };
+		21C650041D2C7FB100EA3127 /* BillboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C650031D2C7FB100EA3127 /* BillboardView.swift */; };
+		21C650051D2C7FB100EA3127 /* BillboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C650031D2C7FB100EA3127 /* BillboardView.swift */; };
 		21D3265F1D258F8F00EB7D74 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D3265E1D258F8F00EB7D74 /* LogInViewController.swift */; };
 		21D326601D258F8F00EB7D74 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D3265E1D258F8F00EB7D74 /* LogInViewController.swift */; };
 		21D326621D258FA800EB7D74 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D326611D258FA800EB7D74 /* SettingsViewController.swift */; };
@@ -848,6 +850,7 @@
 		21BF511F1D233514001801A5 /* SleepPrevention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepPrevention.swift; sourceTree = "<group>"; };
 		21C58DB51D022BD8005AEFE1 /* LineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		21C58DD41D023947005AEFE1 /* SectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
+		21C650031D2C7FB100EA3127 /* BillboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillboardView.swift; sourceTree = "<group>"; };
 		21D3265E1D258F8F00EB7D74 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		21D326611D258FA800EB7D74 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		21F10F4A1BF138750035057D /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1001,6 +1004,7 @@
 				21C58DB51D022BD8005AEFE1 /* LineView.swift */,
 				2112CBBF1D24DB8800B214F7 /* TitleView.swift */,
 				21298C6E1D26C95700E741EE /* BannerView.swift */,
+				21C650031D2C7FB100EA3127 /* BillboardView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2125,6 +2129,7 @@
 				2122BFF41CFE645100A038DE /* EditorViewController+Connection.swift in Sources */,
 				21501D5D1CCAA2B900B02FC5 /* Canvas+Canvas.swift in Sources */,
 				21BD176A1D1EEBFD00C11CB9 /* SignUpViewController.swift in Sources */,
+				21C650051D2C7FB100EA3127 /* BillboardView.swift in Sources */,
 				21501D5E1CCAA2B900B02FC5 /* AppDelegate.swift in Sources */,
 				21501D5F1CCAA2B900B02FC5 /* CanvasesResultsViewController.swift in Sources */,
 				21BF511E1D233357001801A5 /* SleepPickerViewController.swift in Sources */,
@@ -2199,6 +2204,7 @@
 				2122BFF31CFE645100A038DE /* EditorViewController+Connection.swift in Sources */,
 				2107D3061CC58F7B001963B7 /* Canvas+Canvas.swift in Sources */,
 				21BD17691D1EEBFD00C11CB9 /* SignUpViewController.swift in Sources */,
+				21C650041D2C7FB100EA3127 /* BillboardView.swift in Sources */,
 				2107D3041CC58F7B001963B7 /* AppDelegate.swift in Sources */,
 				2107D3081CC58F7B001963B7 /* CanvasesResultsViewController.swift in Sources */,
 				21BF511D1D233357001801A5 /* SleepPickerViewController.swift in Sources */,

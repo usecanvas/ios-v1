@@ -93,12 +93,26 @@ final class LoadCanvasViewController: UIViewController, Accountable {
 	}
 
 	private func showError(message message: String) {
-		let alert = UIAlertController(title: LocalizedString.Error.string, message: message, preferredStyle: .Alert)
-		alert.addAction(UIAlertAction(title: LocalizedString.Okay.string, style: .Cancel, handler: { [weak self] _ in
-			// TODO: We currently assume this is a modal
-			self?.navigationController?.dismissViewControllerAnimated(true, completion: nil)
-		}))
-
-		presentViewController(alert, animated: true, completion: nil)
+		activityIndicator.stopAnimating()
+		
+		let billboard = BillboardView()
+		billboard.translatesAutoresizingMaskIntoConstraints = false
+		billboard.illustrationView.image = UIImage(named: "Not Found")
+		billboard.titleLabel.text = LocalizedString.NotFoundHeading.string
+		billboard.subtitleLabel.text = LocalizedString.NotFoundMessage.string
+		view.addSubview(billboard)
+		
+		NSLayoutConstraint.activateConstraints([
+			billboard.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor),
+			billboard.widthAnchor.constraintLessThanOrEqualToAnchor(view.widthAnchor),
+			billboard.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor),
+		])
+		
+		title = LocalizedString.NotFoundTitle.string
+		navigationItem.leftBarButtonItem = UIBarButtonItem(title: LocalizedString.CloseCommand.string, style: .Plain, target: self, action: #selector(close))
+	}
+	
+	@objc private func close() {
+		dismissViewControllerAnimated(true, completion: nil)
 	}
 }
