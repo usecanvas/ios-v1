@@ -23,9 +23,7 @@ final class RootViewController: UIViewController {
 				Intercom.reset()
 				NSUserDefaults.standardUserDefaults().removeObjectForKey("SelectedOrganization")
 
-				let nav = UINavigationController(rootViewController: LogInViewController())
-				nav.navigationBarHidden = true
-				viewController = nav
+				viewController = SessionsViewController()
 				return
 			}
 

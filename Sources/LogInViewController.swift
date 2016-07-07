@@ -11,7 +11,7 @@ import CanvasCore
 import CanvasKit
 import OnePasswordExtension
 
-final class LogInViewController: SessionsViewController {
+final class LogInViewController: SessionFormViewController {
 
 	// MARK: - Properties
 
@@ -29,15 +29,15 @@ final class LogInViewController: SessionsViewController {
 		submitButton.setTitle(LocalizedString.LogInButton.string, forState: .Normal)
 		submitButton.enabled = false
 
-//		let signUpText = self.dynamicType.secondaryButtonText(title: "Don’t have an account? Sign up.", emphasizedRange: NSRange(location: 23, length: 7))
-//		footerButton.setAttributedTitle(signUpText, forState: .Normal)
-//		footerButton.addTarget(self, action: #selector(signUp), forControlEvents: .TouchUpInside)
+		let signUpText = self.dynamicType.secondaryButtonText(title: "Don’t have an account? Sign up.", emphasizedRange: NSRange(location: 23, length: 7))
+		footerButton.setAttributedTitle(signUpText, forState: .Normal)
+		footerButton.addTarget(self, action: #selector(signUp), forControlEvents: .TouchUpInside)
 //		footerButton.hidden = true
 
-//		let forgotButton = self.dynamicType.secondaryButton(title: "Trouble logging in? Reset your password.", emphasizedRange: NSRange(location: 20, length: 19))
-//		forgotButton.addTarget(self, action: #selector(forgotPassword), forControlEvents: .TouchUpInside)
-//		stackView.addSpace(32)
-//		stackView.addArrangedSubview(forgotButton)
+		let forgotButton = self.dynamicType.secondaryButton(title: "Trouble logging in? Reset your password.", emphasizedRange: NSRange(location: 20, length: 19))
+		forgotButton.addTarget(self, action: #selector(forgotPassword), forControlEvents: .TouchUpInside)
+		stackView.addSpace(32)
+		stackView.addArrangedSubview(forgotButton)
 
 		// 1Password
 		if OnePasswordExtension.sharedExtension().isAppExtensionAvailable() {
@@ -127,8 +127,8 @@ final class LogInViewController: SessionsViewController {
 	}
 
 	@objc private func signUp() {
-		let viewController = SignUpViewController()
-		navigationController?.pushViewController(viewController, animated: true)
+		guard let sessions = parentViewController as? SessionsViewController else { return }
+		sessions.showSignUp()
 	}
 
 
