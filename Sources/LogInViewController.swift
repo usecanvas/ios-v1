@@ -75,15 +75,7 @@ final class LogInViewController: SessionFormViewController {
 
 	override func onePassword(sender: AnyObject?) {
 		OnePasswordExtension.sharedExtension().findLoginForURLString("https://usecanvas.com", forViewController: self, sender: sender) { [weak self] loginDictionary, _ in
-			if let username = loginDictionary?[AppExtensionUsernameKey] as? String {
-				self?.emailTextField.text = username
-			}
-
-			if let password = loginDictionary?[AppExtensionPasswordKey] as? String {
-				self?.passwordTextField.text = password
-			}
-
-			self?.submit()
+			self?.login(onePassword: loginDictionary)
 		}
 	}
 
@@ -133,11 +125,25 @@ final class LogInViewController: SessionFormViewController {
 
 
 	// MARK: - Private
+	
+	private func login(onePassword loginDictionary: [NSObject: AnyObject]?) {
+		if let username = loginDictionary?[AppExtensionUsernameKey] as? String {
+			emailTextField.text = username
+		}
+		
+		if let password = loginDictionary?[AppExtensionPasswordKey] as? String {
+			passwordTextField.text = password
+		}
+		
+		updateSubmitButton()
+		submit()
+	}
 
 	private func login(credential credential: SharedWebCredentials.Credential) {
 		webCredential = credential
 		emailTextField.text = credential.account
 		passwordTextField.text = credential.password
+		
 		updateSubmitButton()
 		submit()
 	}
