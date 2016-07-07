@@ -14,7 +14,11 @@ class OnboardingBillboardViewController: StackViewController {
 	
 	// MARK: - UIViewController
 
-	let illustrationView = UIImageView()
+	let illustrationView: UIImageView = {
+		let view = UIImageView()
+		view.contentMode = .Center
+		return view
+	}()
 	
 	let titleLabel: UILabel = {
 		let label = UILabel()

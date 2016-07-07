@@ -14,5 +14,6 @@ final class OnboardingGesturesViewController: OnboardingBillboardViewController 
 		
 		titleLabel.text = "Easy to the Touch"
 		subtitleLabel.text = "Swipe gestures turn paragraphs\ninto lists and headings."
+		illustrationView.image = UIImage(named: "OnboardingGestures")
 	}
 }

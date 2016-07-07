@@ -14,5 +14,6 @@ final class OnboardingWelcomeViewController: OnboardingBillboardViewController {
 		
 		titleLabel.text = "Welcome to Canvas"
 		subtitleLabel.text = "Collaborative notes\nfor teams of nerds."
+		illustrationView.image = UIImage(named: "OnboardingWelcome")
 	}
 }

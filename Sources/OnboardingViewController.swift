@@ -108,8 +108,11 @@ final class OnboardingViewController: UIPageViewController {
 		let viewController = SessionsViewController()
 		
 		dataSource = nil
-		
-		// Animate out sticky container
+		hideStickyContainer()
+		setViewControllers([viewController], direction: .Forward, animated: true, completion: nil)
+	}
+	
+	private func hideStickyContainer() {
 		UIView.animateWithDuration(0.3, animations: { [weak self] in
 			guard let stickyContainer = self?.stickyContainer, view = self?.view else { return }
 			self?.stickyContainerLeadingConstraint.active = false
@@ -118,8 +121,6 @@ final class OnboardingViewController: UIPageViewController {
 		}, completion: { [weak self] _ in
 			self?.stickyContainer.removeFromSuperview()
 		})
-		
-		setViewControllers([viewController], direction: .Forward, animated: true, completion: nil)
 	}
 }
 
@@ -131,7 +132,12 @@ extension OnboardingViewController: UIPageViewControllerDataSource {
 	}
 	
 	func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-		guard let index = pages.indexOf(viewController) where index < pages.count - 1 else { return nil }
+		guard let index = pages.indexOf(viewController) else { return nil }
+		
+		if index == pages.count - 1 {
+			return SessionsViewController()
+		}
+		
 		return pages[index + 1]
 	}
 }
@@ -141,7 +147,10 @@ extension OnboardingViewController: UIPageViewControllerDelegate {
 	func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
 		guard let viewController = pageViewController.viewControllers?.first,
 			index = pages.indexOf(viewController)
-		else { return }
+		else {
+			hideStickyContainer()
+			return
+		}
 		
 		pageControl.currentPage = index
 		view.bringSubviewToFront(pageControl)

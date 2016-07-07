@@ -6,11 +6,14 @@
 //  Copyright © 2016 Canvas Labs, Inc. All rights reserved.
 //
 
+import UIKit
+
 final class OnboardingSharingViewController: OnboardingBillboardViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		titleLabel.text = "Simple Sharing"
 		subtitleLabel.text = "Collaboration is as easy\nas sharing a URL."
+		illustrationView.image = UIImage(named: "OnboardingSharing")
 	}
 }
