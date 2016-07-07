@@ -31,14 +31,23 @@ final class OnboardingViewController: UIPageViewController {
 		return [welcomeViewController, gesturesViewController, markdownViewController, sharingViewController]
 	}
 	
+	private var stickyContainerLeadingConstraint: NSLayoutConstraint!
+	
+	private let stickyContainer: UIStackView = {
+		let view = UIStackView()
+		view.translatesAutoresizingMaskIntoConstraints = false
+		view.axis = .Vertical
+		return view
+	}()
+	
 	private let pageControl: UIPageControl = {
 		let control = UIPageControl()
-		control.translatesAutoresizingMaskIntoConstraints = false
 		control.currentPageIndicatorTintColor = Swatch.gray
 		control.pageIndicatorTintColor = Swatch.lightGray
 		control.numberOfPages = 4
 		return control
 	}()
+	
 	
 	// MARK: - Initializers
 	
@@ -58,22 +67,24 @@ final class OnboardingViewController: UIPageViewController {
 		
 		setViewControllers([welcomeViewController], direction: .Forward, animated: false, completion: nil)
 		
-		let footer = UIView()
+		pageControl.addTarget(self, action: #selector(pageControlDidChange), forControlEvents: .ValueChanged)
+		stickyContainer.addArrangedSubview(pageControl)
+		
+		let footer = UIButton()
 		footer.translatesAutoresizingMaskIntoConstraints = false
 		footer.backgroundColor = .redColor()
-		view.addSubview(footer)
+		footer.addTarget(self, action: #selector(signUp), forControlEvents: .TouchUpInside)
+		stickyContainer.addArrangedSubview(footer)
 		
-		pageControl.addTarget(self, action: #selector(pageControlDidChange), forControlEvents: .ValueChanged)
-		view.addSubview(pageControl)
+		view.addSubview(stickyContainer)
+		
+		stickyContainerLeadingConstraint = stickyContainer.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor)
 		
 		NSLayoutConstraint.activateConstraints([
-			pageControl.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
-			pageControl.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor),
-			pageControl.bottomAnchor.constraintEqualToAnchor(footer.topAnchor),
+			stickyContainerLeadingConstraint,
+			stickyContainer.widthAnchor.constraintEqualToAnchor(view.widthAnchor),
+			stickyContainer.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor),
 			
-			footer.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
-			footer.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor),
-			footer.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor),
 			footer.heightAnchor.constraintEqualToConstant(48)
 		])
 	}
@@ -91,6 +102,24 @@ final class OnboardingViewController: UIPageViewController {
 		
 		let direction: UIPageViewControllerNavigationDirection = currentIndex < oldIndex ? .Reverse : .Forward
 		setViewControllers([pages[currentIndex]], direction: direction, animated: true, completion: nil)
+	}
+	
+	@objc private func signUp() {
+		let viewController = SessionsViewController()
+		
+		dataSource = nil
+		
+		// Animate out sticky container
+		UIView.animateWithDuration(0.3, animations: { [weak self] in
+			guard let stickyContainer = self?.stickyContainer, view = self?.view else { return }
+			self?.stickyContainerLeadingConstraint.active = false
+			stickyContainer.trailingAnchor.constraintEqualToAnchor(view.leadingAnchor).active = true
+			stickyContainer.layoutIfNeeded()
+		}, completion: { [weak self] _ in
+			self?.stickyContainer.removeFromSuperview()
+		})
+		
+		setViewControllers([viewController], direction: .Forward, animated: true, completion: nil)
 	}
 }
 

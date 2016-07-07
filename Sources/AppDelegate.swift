@@ -112,6 +112,8 @@ extension AppDelegate: UIApplicationDelegate {
 			UIApplicationShortcutItem(type: "shortcut-search", localizedTitle: LocalizedString.SearchCommand.string, localizedSubtitle: LocalizedString.InPersonalNotes.string, icon: UIApplicationShortcutIcon(type: .Search), userInfo: nil)
 		]
 		
+		window?.rootViewController = OnboardingViewController()
+		
 		return true
 	}
 
