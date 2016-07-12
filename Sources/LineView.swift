@@ -7,8 +7,24 @@
 //
 
 import UIKit
+import CanvasCore
 
 final class LineView: UIView {
+	
+	// MARK: - Initializers
+	
+	override init(frame: CGRect) {
+		super.init(frame: frame)
+		backgroundColor = Swatch.border
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
+	
+	// MARK: - UIView
+	
 	override func sizeThatFits(size: CGSize) -> CGSize {
 		return CGSize(width: size.width, height: intrinsicContentSize().height)
 	}

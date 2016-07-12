@@ -19,7 +19,6 @@ final class CanvasesResultsViewController: CanvasesViewController {
 
 		let line = LineView()
 		line.translatesAutoresizingMaskIntoConstraints = false
-		line.backgroundColor = Swatch.border
 		view.addSubview(line)
 
 		NSLayoutConstraint.activateConstraints([

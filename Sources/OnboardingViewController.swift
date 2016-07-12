@@ -9,29 +9,27 @@
 import UIKit
 import CanvasCore
 
-final class OnboardingViewController: UIPageViewController {
+final class OnboardingViewController: UIViewController {
 	
 	// MARK: - Properties
 	
-	private let welcomeViewController = OnboardingWelcomeViewController()
-	
-	private lazy var gesturesViewController: UIViewController = {
-		return OnboardingGesturesViewController()
+	let scrollView: UIScrollView = {
+		let view = UIScrollView()
+		view.translatesAutoresizingMaskIntoConstraints = false
+		view.showsVerticalScrollIndicator = false
+		view.showsHorizontalScrollIndicator = false
+		view.pagingEnabled = true
+		return view
 	}()
 	
-	private lazy var markdownViewController: UIViewController = {
-		return OnboardingMarkdownViewController()
-	}()
-	
-	private lazy var sharingViewController: UIViewController = {
-		return OnboardingSharingViewController()
-	}()
-	
-	private var pages: [UIViewController] {
-		return [welcomeViewController, gesturesViewController, markdownViewController, sharingViewController]
-	}
-	
-	private var stickyContainerLeadingConstraint: NSLayoutConstraint!
+	let viewControllers = [
+		OnboardingWelcomeViewController(),
+		OnboardingGesturesViewController(),
+		OnboardingMarkdownViewController(),
+		OnboardingSharingViewController(),
+		LogInViewController(),
+		SignUpViewController()
+	]
 	
 	private let stickyContainer: UIStackView = {
 		let view = UIStackView()
@@ -49,15 +47,6 @@ final class OnboardingViewController: UIPageViewController {
 	}()
 	
 	
-	// MARK: - Initializers
-	
-	convenience init() {
-		self.init(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: nil)
-		dataSource = self
-		delegate = self
-	}
-	
-	
 	// MARK: - UIViewController
 	
 	override func viewDidLoad() {
@@ -65,94 +54,86 @@ final class OnboardingViewController: UIPageViewController {
 		
 		view.backgroundColor = Swatch.white
 		
-		setViewControllers([welcomeViewController], direction: .Forward, animated: false, completion: nil)
+		viewControllers.forEach { viewController in
+			addChildViewController(viewController)
+			scrollView.addSubview(viewController.view)
+		}
+		view.addSubview(scrollView)
 		
 		pageControl.addTarget(self, action: #selector(pageControlDidChange), forControlEvents: .ValueChanged)
 		stickyContainer.addArrangedSubview(pageControl)
 		
-		let footer = UIButton()
+		let footer = Button()
 		footer.translatesAutoresizingMaskIntoConstraints = false
-		footer.backgroundColor = .redColor()
+		footer.setTitle("Get Started with Canvas", forState: .Normal)
+		footer.layer.borderWidth = 0
 		footer.addTarget(self, action: #selector(signUp), forControlEvents: .TouchUpInside)
 		stickyContainer.addArrangedSubview(footer)
 		
-		view.addSubview(stickyContainer)
+		let line = LineView()
+		line.translatesAutoresizingMaskIntoConstraints = false
+		footer.addSubview(line)
 		
-		stickyContainerLeadingConstraint = stickyContainer.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor)
+		scrollView.addSubview(stickyContainer)
+		
+		let logInView = viewControllers[4].view
+		
+//		let stickyLeading1 = stickyContainer.leadingAnchor.constraintLessThanOrEqualToAnchor(view.leadingAnchor)
+//		stickyLeading1.priority = UILayoutPriorityDefaultLow
+//		
+//		let stickyLeading2 = stickyContainer.trailingAnchor.constraintLessThanOrEqualToAnchor(logInView.leadingAnchor)
+//		stickyLeading2.priority = UILayoutPriorityDefaultHigh
 		
 		NSLayoutConstraint.activateConstraints([
-			stickyContainerLeadingConstraint,
+			scrollView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
+			scrollView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor),
+			scrollView.topAnchor.constraintEqualToAnchor(view.topAnchor),
+			scrollView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor),
+			
+			stickyContainer.leadingAnchor.constraintLessThanOrEqualToAnchor(scrollView.leadingAnchor),
+			stickyContainer.trailingAnchor.constraintGreaterThanOrEqualToAnchor(scrollView.leadingAnchor),
+			stickyContainer.trailingAnchor.constraintLessThanOrEqualToAnchor(logInView.leadingAnchor),
 			stickyContainer.widthAnchor.constraintEqualToAnchor(view.widthAnchor),
 			stickyContainer.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor),
 			
+			line.leadingAnchor.constraintEqualToAnchor(footer.leadingAnchor, constant: -300),
+			line.trailingAnchor.constraintEqualToAnchor(footer.trailingAnchor),
+			line.topAnchor.constraintEqualToAnchor(footer.topAnchor),
+			
 			footer.heightAnchor.constraintEqualToConstant(48)
 		])
+	}
+	
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+		
+		let size = view.bounds.size
+		
+		for (i, viewController) in viewControllers.enumerate() {
+			viewController.view.frame = CGRect(x: CGFloat(i) * size.width, y: 0, width: size.width, height: size.height)
+		}
+		
+		scrollView.contentSize = CGSize(width: size.width * CGFloat(viewControllers.count), height: size.height)
 	}
 	
 	
 	// MARK: - Private
 	
 	@objc private func pageControlDidChange() {
-		let oldIndex = viewControllers?.first.flatMap { pages.indexOf($0) } ?? 0
-		let currentIndex = pageControl.currentPage
-		
-		if oldIndex == currentIndex {
-			return
-		}
-		
-		let direction: UIPageViewControllerNavigationDirection = currentIndex < oldIndex ? .Reverse : .Forward
-		setViewControllers([pages[currentIndex]], direction: direction, animated: true, completion: nil)
+//		let oldIndex = viewControllers?.first.flatMap { pages.indexOf($0) } ?? 0
+//		let currentIndex = pageControl.currentPage
+//		
+//		if oldIndex == currentIndex {
+//			return
+//		}
+//		
+//		let direction: UIPageViewControllerNavigationDirection = currentIndex < oldIndex ? .Reverse : .Forward
+//		setViewControllers([pages[currentIndex]], direction: direction, animated: true, completion: nil)
 	}
 	
 	@objc private func signUp() {
-		let viewController = SessionsViewController()
+//		let viewController = SessionsViewController()
 		
-		dataSource = nil
-		hideStickyContainer()
-		setViewControllers([viewController], direction: .Forward, animated: true, completion: nil)
-	}
-	
-	private func hideStickyContainer() {
-		UIView.animateWithDuration(0.3, animations: { [weak self] in
-			guard let stickyContainer = self?.stickyContainer, view = self?.view else { return }
-			self?.stickyContainerLeadingConstraint.active = false
-			stickyContainer.trailingAnchor.constraintEqualToAnchor(view.leadingAnchor).active = true
-			stickyContainer.layoutIfNeeded()
-		}, completion: { [weak self] _ in
-			self?.stickyContainer.removeFromSuperview()
-		})
-	}
-}
-
-
-extension OnboardingViewController: UIPageViewControllerDataSource {
-	func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
-		guard let index = pages.indexOf(viewController) where index > 0 else { return nil }
-		return pages[index - 1]
-	}
-	
-	func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-		guard let index = pages.indexOf(viewController) else { return nil }
-		
-		if index == pages.count - 1 {
-			return SessionsViewController()
-		}
-		
-		return pages[index + 1]
-	}
-}
-
-
-extension OnboardingViewController: UIPageViewControllerDelegate {
-	func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-		guard let viewController = pageViewController.viewControllers?.first,
-			index = pages.indexOf(viewController)
-		else {
-			hideStickyContainer()
-			return
-		}
-		
-		pageControl.currentPage = index
-		view.bringSubviewToFront(pageControl)
+//		setViewControllers([viewController], direction: .Forward, animated: true, completion: nil)
 	}
 }

@@ -63,7 +63,6 @@ class SessionFormViewController: StackViewController {
 
 		let lineView = LineView()
 		lineView.translatesAutoresizingMaskIntoConstraints = false
-		lineView.backgroundColor = Swatch.border
 		button.addSubview(lineView)
 
 		NSLayoutConstraint.activateConstraints([
