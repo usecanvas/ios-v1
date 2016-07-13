@@ -57,6 +57,9 @@ final class OnboardingViewController: UIViewController {
 	private let signUpViewController = SignUpViewController()
 	private let logInViewController = LogInViewController()
 	
+	// For back swipe
+	private var startingOffset: CGFloat = 0
+	
 	
 	// MARK: - Initializers
 	
@@ -129,6 +132,10 @@ final class OnboardingViewController: UIViewController {
 			
 			footer.heightAnchor.constraintEqualToConstant(48)
 		])
+		
+		let back = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(backSwipe))
+		back.edges = .Left
+		view.addGestureRecognizer(back)
 	}
 	
 	override func viewDidLayoutSubviews() {
@@ -169,6 +176,29 @@ final class OnboardingViewController: UIViewController {
 	@objc private func logIn() {
 		scrollTo(page: pageControl.numberOfPages + 1)
 	}
+	
+	@objc private func backSwipe(gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
+		if scrollView.scrollEnabled {
+			return
+		}
+		
+		switch gestureRecognizer.state {
+		case .Began: startingOffset = scrollView.contentOffset.x
+		case .Changed: scrollView.contentOffset.x = startingOffset - gestureRecognizer.translationInView(view).x
+		case .Ended: snapToPage()
+		default: break
+		}
+	}
+	
+	private func currentPageIndex() -> Int {
+		let offset = scrollView.contentOffset.x
+		let width = scrollView.frame.width
+		return Int(floor((offset - width / 2) / width)) + 1
+	}
+	
+	private func snapToPage() {
+		scrollTo(page: currentPageIndex())
+	}
 }
 
 
@@ -182,9 +212,7 @@ extension OnboardingViewController: UIScrollViewDelegate {
 	}
 	
 	func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-		let offset = scrollView.contentOffset.x
-		let width = scrollView.frame.width
-		let page = Int(floor((offset - width / 2) / width)) + 1
+		let page = currentPageIndex()
 		
 		pageControl.currentPage = min(pageControl.numberOfPages - 1, page)
 		currentViewController = viewControllers[page]
