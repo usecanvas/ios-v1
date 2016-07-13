@@ -29,7 +29,6 @@ final class LogInViewController: SessionFormViewController {
 		title = "Log in to Canvas"
 
 		submitButton.setTitle(LocalizedString.LogInButton.string, forState: .Normal)
-		submitButton.enabled = false
 
 		footerButton.set(preface: "Don’t have an account?", title: "Sign up.")
 
@@ -53,6 +52,10 @@ final class LogInViewController: SessionFormViewController {
 
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
+		
+		if view.hidden {
+			return
+		}
 		
 		// Ignore the first viewDidAppear triggered by containment *sigh*
 		if !loaded {
@@ -86,9 +89,8 @@ final class LogInViewController: SessionFormViewController {
 	}
 
 	override func submit() {
-		guard submitButton.enabled, let username = emailTextField.text, password = passwordTextField.text
-			where !username.isEmpty && !password.isEmpty
-			else { return }
+		updateSubmitButton()
+		guard submitButton.enabled, let username = emailTextField.text, password = passwordTextField.text else { return }
 
 		loading = true
 
@@ -136,7 +138,6 @@ final class LogInViewController: SessionFormViewController {
 			passwordTextField.text = password
 		}
 		
-		updateSubmitButton()
 		submit()
 	}
 
@@ -145,7 +146,6 @@ final class LogInViewController: SessionFormViewController {
 		emailTextField.text = credential.account
 		passwordTextField.text = credential.password
 		
-		updateSubmitButton()
 		submit()
 	}
 }

@@ -72,6 +72,14 @@ import Intercom
 		
 		return true
 	}
+	
+	private func verifyAccount(url: NSURL) -> Bool {
+//		guard let components = url.pathComponents where components.count == 1 && components[0] == "verify" else { return }
+//		
+//		guard let items = NSURLComponents(URL: url, resolvingAgainstBaseURL: false)?.queryItems,
+//			token = items.index
+		return false
+	}
 }
 
 
@@ -137,21 +145,20 @@ extension AppDelegate: UIApplicationDelegate {
 	}
 
 	func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
+		guard userActivity.activityType == NSUserActivityTypeBrowsingWeb, let url = userActivity.webpageURL else { return false }
+		
 		// Open canvas
-		if userActivity.activityType == NSUserActivityTypeBrowsingWeb, let canvasURL = userActivity.webpageURL {
-			if open(canvasURL: canvasURL) {
-				return true
-			}
+		if open(canvasURL: url) {
+			return true
 		}
 		
 		// Verify account
-		// TODO: https://usecanvas.com/verify?token={22 characters}
-
-		// Fallback
-		if let url = userActivity.webpageURL {
-			application.openURL(url)
+		if verifyAccount(url: url) {
+			return true
 		}
-
+		
+		// Fallback
+		application.openURL(url)
 		return false
 	}
 

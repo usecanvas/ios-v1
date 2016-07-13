@@ -57,7 +57,11 @@ final class OnboardingViewController: UIViewController {
 	private let signUpViewController = SignUpViewController()
 	private let logInViewController = LogInViewController()
 	
-	// For back swipe
+	private let backSwipe: UIScreenEdgePanGestureRecognizer = {
+		let recognizer = UIScreenEdgePanGestureRecognizer()
+		recognizer.edges = .Left
+		return recognizer
+	}()
 	private var startingOffset: CGFloat = 0
 	
 	
@@ -74,6 +78,8 @@ final class OnboardingViewController: UIViewController {
 		]
 		
 		super.init(nibName: nil, bundle: nil)
+		
+		signUpViewController.delegate = self
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -133,9 +139,8 @@ final class OnboardingViewController: UIViewController {
 			footer.heightAnchor.constraintEqualToConstant(48)
 		])
 		
-		let back = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(backSwipe))
-		back.edges = .Left
-		view.addGestureRecognizer(back)
+		backSwipe.addTarget(self, action: #selector(didBackSwipe))
+		view.addGestureRecognizer(backSwipe)
 	}
 	
 	override func viewDidLayoutSubviews() {
@@ -153,16 +158,18 @@ final class OnboardingViewController: UIViewController {
 	
 	// MARK: - Private
 	
-	private func scrollTo(page page: Int, animated: Bool = true) {
+	private func scrollTo(page page: Int, animated: Bool = true, completion: (Void -> ())? = nil) {
 		let width = scrollView.frame.width
 		let rect = CGRect(x: width * CGFloat(page), y: 0, width: width, height: 1)
-		scrollView.scrollRectToVisible(rect, animated: animated)
 		
-		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(Double(NSEC_PER_SEC) * 0.3)), dispatch_get_main_queue()) { [weak self] in
+		UIView.animateWithDuration(animated ? 0.3 : 0, animations: { [weak self] in
+			self?.scrollView.scrollRectToVisible(rect, animated: false)
+		}, completion: { [weak self] _ in
 			guard let scrollView = self?.scrollView else { return }
 			self?.scrollViewDidScroll(scrollView)
 			self?.scrollViewDidEndDecelerating(scrollView)
-		}
+			completion?()
+		})
 	}
 	
 	@objc private func pageControlDidChange() {
@@ -177,7 +184,7 @@ final class OnboardingViewController: UIViewController {
 		scrollTo(page: pageControl.numberOfPages + 1)
 	}
 	
-	@objc private func backSwipe(gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
+	@objc private func didBackSwipe(gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
 		if scrollView.scrollEnabled {
 			return
 		}
@@ -218,5 +225,21 @@ extension OnboardingViewController: UIScrollViewDelegate {
 		currentViewController = viewControllers[page]
 		
 		scrollView.scrollEnabled = page < pageControl.numberOfPages
+	}
+}
+
+
+extension OnboardingViewController: SignUpViewControllerDelegate {
+	func signUpViewControllerDidSignUp(viewController: SignUpViewController) {
+		backSwipe.enabled = false
+		
+		let verify = VerifyViewController()
+		addChildViewController(verify)
+		
+		verify.view.frame = logInViewController.view.frame
+		logInViewController.view.hidden = true
+		scrollView.addSubview(verify.view)
+		
+		scrollTo(page: pageControl.numberOfPages + 1)
 	}
 }

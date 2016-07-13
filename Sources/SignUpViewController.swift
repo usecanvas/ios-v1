@@ -11,10 +11,16 @@ import CanvasCore
 import CanvasKit
 import OnePasswordExtension
 
+protocol SignUpViewControllerDelegate: class {
+	func signUpViewControllerDidSignUp(viewController: SignUpViewController)
+}
+
 // TODO: Localize
 final class SignUpViewController: SessionFormViewController {
 	
 	// MARK: - Properties
+	
+	weak var delegate: SignUpViewControllerDelegate?
 	
 	let usernameTextField: UITextField = {
 		let textField = TextField()
@@ -62,14 +68,11 @@ final class SignUpViewController: SessionFormViewController {
 		let client = AuthorizationClient(clientID: config.canvasClientID, clientSecret: config.canvasClientSecret, baseURL: config.environment.baseURL)
 		client.createAccount(email: email, username: username, password: password) { [weak self] in
 			switch $0 {
-			case .Success(let account):
+			case .Success(_):
 				dispatch_async(dispatch_get_main_queue()) {
-//					if let this = self where this.webCredential == nil {
-//						SharedWebCredentials.add(domain: "usecanvas.com", account: username, password: password)
-//					}
-					
 					UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-					AccountController.sharedController.currentAccount = account
+					guard let this = self else { return }
+					this.delegate?.signUpViewControllerDidSignUp(this)
 //					Analytics.track(.LoggedIn)
 				}
 			case .Failure(let errorMessage):

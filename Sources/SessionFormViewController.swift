@@ -54,6 +54,7 @@ class SessionFormViewController: StackViewController {
 	let submitButton: IndicatorButton = {
 		let button = IndicatorButton()
 		button.translatesAutoresizingMaskIntoConstraints = false
+		button.enabled = false
 		return button
 	}()
 
