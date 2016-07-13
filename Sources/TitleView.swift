@@ -78,16 +78,17 @@ final class TitleView: UIView {
 			lockView.frame = CGRect(x: titleFrame.origin.x - lockSize.width - spacing, y: round((size.height - lockSize.height) / 2), width: lockSize.width, height: lockSize.height)
 		}
 		
-		titleLabel.frame = titleFrame
-	}
-	
-	override func sizeThatFits(size: CGSize) -> CGSize {
-		var output = titleLabel.sizeThatFits(size)
-		
-		if showsLock {
-			output.width += lockView.bounds.width + spacing
+		if titleFrame.maxX > bounds.width {
+			if showsLock {
+				lockView.frame.origin.x = 0
+				titleFrame.origin.x = lockView.frame.maxX + spacing
+			} else {
+				titleFrame.origin.x = 0
+			}
+			
+			titleFrame.size.width = bounds.width - titleFrame.minX
 		}
 		
-		return output
+		titleLabel.frame = titleFrame
 	}
 }

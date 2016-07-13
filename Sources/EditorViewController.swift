@@ -201,14 +201,14 @@ final class EditorViewController: UIViewController, Accountable {
 		
 		// Align title view
 		if let navigationBar = navigationController?.navigationBar {
-			let titleSize = titleView.sizeThatFits(navigationBar.bounds.size)
 			var titleFrame = CGRect(
 				x: 0,
 				y: 0,
-				width: titleSize.width,
+				
+				// 200 seems to be when nav bar stops messing with alignment. ugh
+				width: navigationBar.bounds.width - 200,
 				height: navigationBar.bounds.height
 			)
-			titleFrame.size.width = min(navigationBar.bounds.width - 48, titleFrame.width)
 			titleFrame.origin.x = round((navigationBar.bounds.width - titleFrame.width) / 2)
 			titleView.frame = titleFrame
 		}
