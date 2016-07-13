@@ -18,6 +18,7 @@ final class LogInViewController: SessionFormViewController {
 
 	private var askedForWebCredential = false
 	private var webCredential: SharedWebCredentials.Credential?
+	private var loaded = false
 
 
 	// MARK: - UIViewController
@@ -52,6 +53,12 @@ final class LogInViewController: SessionFormViewController {
 
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
+		
+		// Ignore the first viewDidAppear triggered by containment *sigh*
+		if !loaded {
+			loaded = true
+			return
+		}
 
 		// Make sure we only do this once
 		if askedForWebCredential {

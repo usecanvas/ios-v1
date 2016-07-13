@@ -125,6 +125,11 @@ class SessionFormViewController: StackViewController {
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateFonts), name: UIContentSizeCategoryDidChangeNotification, object: nil)
 		updateFonts()
 	}
+	
+	override func viewDidDisappear(animated: Bool) {
+		super.viewDidDisappear(animated)
+		textFields.forEach { $0.resignFirstResponder() }
+	}
 
 
 	// MARK: - Actions
@@ -201,8 +206,6 @@ extension SessionFormViewController: UITextFieldDelegate {
 
 		return false
 	}
-
-
 
 	func textFieldDidEndEditing(textField: UITextField) {
 		// Workaround iOS bug that causes text to flicker when you lose focus

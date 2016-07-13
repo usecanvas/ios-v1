@@ -42,6 +42,18 @@ final class OnboardingViewController: UIViewController {
 		return control
 	}()
 	
+	private var currentViewController: UIViewController? {
+		willSet {
+			currentViewController?.viewWillDisappear(false)
+			newValue?.viewWillAppear(false)
+		}
+		
+		didSet {
+			oldValue?.viewDidDisappear(false)
+			currentViewController?.viewDidAppear(false)
+		}
+	}
+	
 	private let signUpViewController = SignUpViewController()
 	private let logInViewController = LogInViewController()
 	
@@ -135,22 +147,28 @@ final class OnboardingViewController: UIViewController {
 	
 	// MARK: - Private
 	
-	private func scrollToPage(index: Int, animated: Bool = true) {
+	private func scrollTo(page page: Int, animated: Bool = true) {
 		let width = scrollView.frame.width
-		let rect = CGRect(x: width * CGFloat(index), y: 0, width: width, height: 1)
+		let rect = CGRect(x: width * CGFloat(page), y: 0, width: width, height: 1)
 		scrollView.scrollRectToVisible(rect, animated: animated)
+		
+		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(Double(NSEC_PER_SEC) * 0.3)), dispatch_get_main_queue()) { [weak self] in
+			guard let scrollView = self?.scrollView else { return }
+			self?.scrollViewDidScroll(scrollView)
+			self?.scrollViewDidEndDecelerating(scrollView)
+		}
 	}
 	
 	@objc private func pageControlDidChange() {
-		scrollToPage(pageControl.currentPage)
+		scrollTo(page: pageControl.currentPage)
 	}
 	
 	@objc private func signUp() {
-		scrollToPage(pageControl.numberOfPages)
+		scrollTo(page: pageControl.numberOfPages)
 	}
 	
 	@objc private func logIn() {
-		scrollToPage(pageControl.numberOfPages + 1)
+		scrollTo(page: pageControl.numberOfPages + 1)
 	}
 }
 
@@ -160,12 +178,18 @@ extension OnboardingViewController: UIScrollViewDelegate {
 		let offset = scrollView.contentOffset.x
 		let width = scrollView.frame.width
 		let numberOfPages = CGFloat(pageControl.numberOfPages)
+		
 		stickyLeadingConstraint.constant = -max(0, offset - (width * (numberOfPages - 1)))
 	}
 	
 	func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
 		let offset = scrollView.contentOffset.x
 		let width = scrollView.frame.width
-		pageControl.currentPage = min(pageControl.numberOfPages - 1, Int(floor((offset - width / 2) / width)) + 1)
+		let page = Int(floor((offset - width / 2) / width)) + 1
+		
+		pageControl.currentPage = min(pageControl.numberOfPages - 1, page)
+		currentViewController = viewControllers[page]
+		
+		scrollView.scrollEnabled = page < pageControl.numberOfPages
 	}
 }
