@@ -54,36 +54,36 @@ final class SignUpViewController: SessionFormViewController {
 	// MARK: - Actions
 	
 	override func submit() {
-//		guard let username = usernameTextField.text, password = passwordTextField.text
-//			where !username.isEmpty && !password.isEmpty
-//			else { return }
-//		
-//		loading = true
-//		
-//		let client = AuthorizationClient(clientID: config.canvasClientID, clientSecret: config.canvasClientSecret, baseURL: config.environment.baseURL)
-//		client.createAccessToken(username: username, password: password) { [weak self] in
-//			switch $0 {
-//			case .Success(let account):
-//				dispatch_async(dispatch_get_main_queue()) {
+		guard let email = emailTextField.text, username = usernameTextField.text, password = passwordTextField.text
+			where !email.isEmpty && !username.isEmpty && !password.isEmpty
+		else { return }
+		
+		loading = true
+		
+		let client = AuthorizationClient(clientID: config.canvasClientID, clientSecret: config.canvasClientSecret, baseURL: config.environment.baseURL)
+		client.createAccount(email: email, username: username, password: password) { [weak self] in
+			switch $0 {
+			case .Success(let account):
+				dispatch_async(dispatch_get_main_queue()) {
 //					if let this = self where this.webCredential == nil {
 //						SharedWebCredentials.add(domain: "usecanvas.com", account: username, password: password)
 //					}
-//					
-//					UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-//					AccountController.sharedController.currentAccount = account
+					
+					UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+					AccountController.sharedController.currentAccount = account
 //					Analytics.track(.LoggedIn)
-//				}
-//			case .Failure(let errorMessage):
-//				dispatch_async(dispatch_get_main_queue()) { [weak self] in
-//					self?.loading = false
+				}
+			case .Failure(let errorMessage):
+				dispatch_async(dispatch_get_main_queue()) { [weak self] in
+					self?.loading = false
 //					self?.passwordTextField.becomeFirstResponder()
 //					
-//					let alert = UIAlertController(title: errorMessage, message: nil, preferredStyle: .Alert)
-//					alert.addAction(UIAlertAction(title: LocalizedString.Okay.string, style: .Cancel, handler: nil))
-//					self?.presentViewController(alert, animated: true, completion: nil)
-//				}
-//			}
-//		}
+					let alert = UIAlertController(title: "Double Check That", message: errorMessage, preferredStyle: .Alert)
+					alert.addAction(UIAlertAction(title: LocalizedString.Okay.string, style: .Cancel, handler: nil))
+					self?.presentViewController(alert, animated: true, completion: nil)
+				}
+			}
+		}
 	}
 	
 	@objc private func forgotPassword() {

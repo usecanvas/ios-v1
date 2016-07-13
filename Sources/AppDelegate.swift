@@ -143,6 +143,9 @@ extension AppDelegate: UIApplicationDelegate {
 				return true
 			}
 		}
+		
+		// Verify account
+		// TODO: https://usecanvas.com/verify?token={22 characters}
 
 		// Fallback
 		if let url = userActivity.webpageURL {
