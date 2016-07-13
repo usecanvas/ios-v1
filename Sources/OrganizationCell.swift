@@ -109,7 +109,7 @@ final class OrganizationCell: UITableViewCell, CellType {
 
 	private func updateHighlighted() {
 		avatarView.highlighted = highlighted || selected
-		disclosureIndicatorView.tintColor = highlighted || selected ? Swatch.white : Swatch.lightGray
+		disclosureIndicatorView.tintColor = highlighted || selected ? Swatch.white : Swatch.cellDisclosureIndicator
 	}
 	
 	@objc private func updateFont() {
