@@ -124,11 +124,14 @@ class SessionFormViewController: StackViewController {
 		
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateFonts), name: UIContentSizeCategoryDidChangeNotification, object: nil)
 		updateFonts()
+		
+		let tap = UITapGestureRecognizer(target: self, action: #selector(endEditing))
+		view.addGestureRecognizer(tap)
 	}
 	
 	override func viewDidDisappear(animated: Bool) {
 		super.viewDidDisappear(animated)
-		textFields.forEach { $0.resignFirstResponder() }
+		endEditing()
 	}
 
 
@@ -188,6 +191,10 @@ class SessionFormViewController: StackViewController {
 	
 	@objc private func updateFonts() {
 		headingLabel.font = TextStyle.title2.font()
+	}
+	
+	@objc private func endEditing() {
+		view.endEditing(false)
 	}
 }
 
