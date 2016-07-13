@@ -36,7 +36,6 @@ final class SignUpViewController: SessionFormViewController {
 		
 		let logInText = self.dynamicType.secondaryButtonText(title: "Already have an account? Log in.", emphasizedRange: NSRange(location: 25, length: 6))
 		footerButton.setAttributedTitle(logInText, forState: .Normal)
-		footerButton.addTarget(self, action: #selector(logIn), forControlEvents: .TouchUpInside)
 	}
 	
 	
@@ -87,11 +86,6 @@ final class SignUpViewController: SessionFormViewController {
 	@objc private func forgotPassword() {
 		let URL = NSURL(string: "https://usecanvas.com/password-reset")!
 		UIApplication.sharedApplication().openURL(URL)
-	}
-	
-	@objc private func logIn() {
-		guard let sessions = parentViewController as? SessionsViewController else { return }
-		sessions.showLogIn()
 	}
 }
 

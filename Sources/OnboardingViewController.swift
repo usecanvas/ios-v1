@@ -22,19 +22,15 @@ final class OnboardingViewController: UIViewController {
 		return view
 	}()
 	
-	let viewControllers = [
-		OnboardingWelcomeViewController(),
-		OnboardingGesturesViewController(),
-		OnboardingMarkdownViewController(),
-		OnboardingSharingViewController(),
-		LogInViewController(),
-		SignUpViewController()
-	]
+	let viewControllers: [UIViewController]
+	
+	private var stickyLeadingConstraint: NSLayoutConstraint!
 	
 	private let stickyContainer: UIStackView = {
 		let view = UIStackView()
 		view.translatesAutoresizingMaskIntoConstraints = false
 		view.axis = .Vertical
+		view.userInteractionEnabled = true
 		return view
 	}()
 	
@@ -45,6 +41,29 @@ final class OnboardingViewController: UIViewController {
 		control.numberOfPages = 4
 		return control
 	}()
+	
+	private let signUpViewController = SignUpViewController()
+	private let logInViewController = LogInViewController()
+	
+	
+	// MARK: - Initializers
+	
+	init() {
+		viewControllers = [
+			OnboardingWelcomeViewController(),
+			OnboardingGesturesViewController(),
+			OnboardingMarkdownViewController(),
+			OnboardingSharingViewController(),
+			signUpViewController,
+			logInViewController
+		]
+		
+		super.init(nibName: nil, bundle: nil)
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
 	
 	
 	// MARK: - UIViewController
@@ -58,7 +77,12 @@ final class OnboardingViewController: UIViewController {
 			addChildViewController(viewController)
 			scrollView.addSubview(viewController.view)
 		}
+		
+		scrollView.delegate = self
 		view.addSubview(scrollView)
+		
+		logInViewController.footerButton.addTarget(self, action: #selector(signUp), forControlEvents: .TouchUpInside)
+		signUpViewController.footerButton.addTarget(self, action: #selector(logIn), forControlEvents: .TouchUpInside)
 		
 		pageControl.addTarget(self, action: #selector(pageControlDidChange), forControlEvents: .ValueChanged)
 		stickyContainer.addArrangedSubview(pageControl)
@@ -72,17 +96,11 @@ final class OnboardingViewController: UIViewController {
 		
 		let line = LineView()
 		line.translatesAutoresizingMaskIntoConstraints = false
-		footer.addSubview(line)
+		view.addSubview(line)
 		
-		scrollView.addSubview(stickyContainer)
+		view.addSubview(stickyContainer)
 		
-		let logInView = viewControllers[4].view
-		
-//		let stickyLeading1 = stickyContainer.leadingAnchor.constraintLessThanOrEqualToAnchor(view.leadingAnchor)
-//		stickyLeading1.priority = UILayoutPriorityDefaultLow
-//		
-//		let stickyLeading2 = stickyContainer.trailingAnchor.constraintLessThanOrEqualToAnchor(logInView.leadingAnchor)
-//		stickyLeading2.priority = UILayoutPriorityDefaultHigh
+		stickyLeadingConstraint = stickyContainer.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor)
 		
 		NSLayoutConstraint.activateConstraints([
 			scrollView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
@@ -90,14 +108,12 @@ final class OnboardingViewController: UIViewController {
 			scrollView.topAnchor.constraintEqualToAnchor(view.topAnchor),
 			scrollView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor),
 			
-			stickyContainer.leadingAnchor.constraintLessThanOrEqualToAnchor(scrollView.leadingAnchor),
-			stickyContainer.trailingAnchor.constraintGreaterThanOrEqualToAnchor(scrollView.leadingAnchor),
-			stickyContainer.trailingAnchor.constraintLessThanOrEqualToAnchor(logInView.leadingAnchor),
+			stickyLeadingConstraint,
 			stickyContainer.widthAnchor.constraintEqualToAnchor(view.widthAnchor),
 			stickyContainer.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor),
 			
-			line.leadingAnchor.constraintEqualToAnchor(footer.leadingAnchor, constant: -300),
-			line.trailingAnchor.constraintEqualToAnchor(footer.trailingAnchor),
+			line.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
+			line.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor),
 			line.topAnchor.constraintEqualToAnchor(footer.topAnchor),
 			
 			footer.heightAnchor.constraintEqualToConstant(48)
@@ -119,21 +135,37 @@ final class OnboardingViewController: UIViewController {
 	
 	// MARK: - Private
 	
+	private func scrollToPage(index: Int, animated: Bool = true) {
+		let width = scrollView.frame.width
+		let rect = CGRect(x: width * CGFloat(index), y: 0, width: width, height: 1)
+		scrollView.scrollRectToVisible(rect, animated: animated)
+	}
+	
 	@objc private func pageControlDidChange() {
-//		let oldIndex = viewControllers?.first.flatMap { pages.indexOf($0) } ?? 0
-//		let currentIndex = pageControl.currentPage
-//		
-//		if oldIndex == currentIndex {
-//			return
-//		}
-//		
-//		let direction: UIPageViewControllerNavigationDirection = currentIndex < oldIndex ? .Reverse : .Forward
-//		setViewControllers([pages[currentIndex]], direction: direction, animated: true, completion: nil)
+		scrollToPage(pageControl.currentPage)
 	}
 	
 	@objc private func signUp() {
-//		let viewController = SessionsViewController()
-		
-//		setViewControllers([viewController], direction: .Forward, animated: true, completion: nil)
+		scrollToPage(pageControl.numberOfPages)
+	}
+	
+	@objc private func logIn() {
+		scrollToPage(pageControl.numberOfPages + 1)
+	}
+}
+
+
+extension OnboardingViewController: UIScrollViewDelegate {
+	func scrollViewDidScroll(scrollView: UIScrollView) {
+		let offset = scrollView.contentOffset.x
+		let width = scrollView.frame.width
+		let numberOfPages = CGFloat(pageControl.numberOfPages)
+		stickyLeadingConstraint.constant = -max(0, offset - (width * (numberOfPages - 1)))
+	}
+	
+	func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+		let offset = scrollView.contentOffset.x
+		let width = scrollView.frame.width
+		pageControl.currentPage = min(pageControl.numberOfPages - 1, Int(floor((offset - width / 2) / width)) + 1)
 	}
 }

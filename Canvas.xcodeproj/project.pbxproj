@@ -200,8 +200,6 @@
 		21F7EF361CD91F75004E80E2 /* KSCrash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF331CD91F75004E80E2 /* KSCrash.framework */; };
 		21F7EF371CD91F75004E80E2 /* SentrySwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF341CD91F75004E80E2 /* SentrySwift.framework */; };
 		21F7EF381CD91F75004E80E2 /* SentrySwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF341CD91F75004E80E2 /* SentrySwift.framework */; };
-		21F95DBE1D2EBBB1006B4100 /* SessionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F95DBD1D2EBBB1006B4100 /* SessionsViewController.swift */; };
-		21F95DBF1D2EBBB1006B4100 /* SessionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F95DBD1D2EBBB1006B4100 /* SessionsViewController.swift */; };
 		21F95DC21D2EC8D2006B4100 /* OnboardingBillboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F95DC11D2EC8D2006B4100 /* OnboardingBillboardViewController.swift */; };
 		21F95DC31D2EC8D2006B4100 /* OnboardingBillboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F95DC11D2EC8D2006B4100 /* OnboardingBillboardViewController.swift */; };
 		21F95DC51D2EC902006B4100 /* OnboardingWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F95DC41D2EC902006B4100 /* OnboardingWelcomeViewController.swift */; };
@@ -873,7 +871,6 @@
 		21F7EF2A1CD91D70004E80E2 /* Static.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Static.framework; path = Carthage/Build/iOS/Static.framework; sourceTree = "<group>"; };
 		21F7EF331CD91F75004E80E2 /* KSCrash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KSCrash.framework; path = Carthage/Build/iOS/KSCrash.framework; sourceTree = "<group>"; };
 		21F7EF341CD91F75004E80E2 /* SentrySwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SentrySwift.framework; path = Carthage/Build/iOS/SentrySwift.framework; sourceTree = "<group>"; };
-		21F95DBD1D2EBBB1006B4100 /* SessionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionsViewController.swift; sourceTree = "<group>"; };
 		21F95DC11D2EC8D2006B4100 /* OnboardingBillboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingBillboardViewController.swift; sourceTree = "<group>"; };
 		21F95DC41D2EC902006B4100 /* OnboardingWelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingWelcomeViewController.swift; sourceTree = "<group>"; };
 		21F95DC71D2ECB75006B4100 /* OnboardingGesturesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingGesturesViewController.swift; sourceTree = "<group>"; };
@@ -1001,7 +998,6 @@
 				2178CBCC1CEA92EF00E9A4B2 /* Utility */,
 				2178CBE31CEA92F900E9A4B2 /* Canvases */,
 				2178CBE41CEA930000E9A4B2 /* Editor */,
-				2178CBB71CEA890900E9A4B2 /* Sessions */,
 				2178CBE51CEA930400E9A4B2 /* Organizations */,
 			);
 			name = "View Controllers";
@@ -1244,17 +1240,6 @@
 			name = Vendor;
 			sourceTree = "<group>";
 		};
-		2178CBB71CEA890900E9A4B2 /* Sessions */ = {
-			isa = PBXGroup;
-			children = (
-				21F95DBD1D2EBBB1006B4100 /* SessionsViewController.swift */,
-				2178CBB81CEA891100E9A4B2 /* SessionFormViewController.swift */,
-				21D3265E1D258F8F00EB7D74 /* LogInViewController.swift */,
-				21BD17681D1EEBFD00C11CB9 /* SignUpViewController.swift */,
-			);
-			name = Sessions;
-			sourceTree = "<group>";
-		};
 		2178CBCC1CEA92EF00E9A4B2 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -1375,6 +1360,9 @@
 				21F95DC71D2ECB75006B4100 /* OnboardingGesturesViewController.swift */,
 				21F95DCA1D2ECB9F006B4100 /* OnboardingMarkdownViewController.swift */,
 				21F95DCD1D2ECBBE006B4100 /* OnboardingSharingViewController.swift */,
+				2178CBB81CEA891100E9A4B2 /* SessionFormViewController.swift */,
+				21D3265E1D258F8F00EB7D74 /* LogInViewController.swift */,
+				21BD17681D1EEBFD00C11CB9 /* SignUpViewController.swift */,
 			);
 			name = Onboarding;
 			sourceTree = "<group>";
@@ -2223,7 +2211,6 @@
 				21C58DD61D023947005AEFE1 /* SectionHeaderView.swift in Sources */,
 				21501D801CCAA2B900B02FC5 /* Analytics.swift in Sources */,
 				21501D811CCAA2B900B02FC5 /* TextField.swift in Sources */,
-				21F95DBF1D2EBBB1006B4100 /* SessionsViewController.swift in Sources */,
 				21D326601D258F8F00EB7D74 /* LogInViewController.swift in Sources */,
 				21501D831CCAA2B900B02FC5 /* SearchBarContainer.swift in Sources */,
 				2112CBC11D24DB8800B214F7 /* TitleView.swift in Sources */,
@@ -2305,7 +2292,6 @@
 				21C58DD51D023947005AEFE1 /* SectionHeaderView.swift in Sources */,
 				2107D3031CC58F7B001963B7 /* Analytics.swift in Sources */,
 				2107D3131CC58F7B001963B7 /* TextField.swift in Sources */,
-				21F95DBE1D2EBBB1006B4100 /* SessionsViewController.swift in Sources */,
 				21D3265F1D258F8F00EB7D74 /* LogInViewController.swift in Sources */,
 				2107D3221CC58F7B001963B7 /* SearchBarContainer.swift in Sources */,
 				2112CBC01D24DB8800B214F7 /* TitleView.swift in Sources */,

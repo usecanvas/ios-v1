@@ -60,16 +60,6 @@ class SessionFormViewController: StackViewController {
 	let footerButton: UIButton = {
 		let button = UIButton()
 		button.translatesAutoresizingMaskIntoConstraints = false
-
-		let lineView = LineView()
-		lineView.translatesAutoresizingMaskIntoConstraints = false
-		button.addSubview(lineView)
-
-		NSLayoutConstraint.activateConstraints([
-			lineView.widthAnchor.constraintEqualToAnchor(button.widthAnchor),
-			lineView.topAnchor.constraintEqualToAnchor(button.topAnchor)
-		])
-
 		return button
 	}()
 

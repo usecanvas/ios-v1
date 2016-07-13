@@ -23,7 +23,7 @@ final class RootViewController: UIViewController {
 				Intercom.reset()
 				NSUserDefaults.standardUserDefaults().removeObjectForKey("SelectedOrganization")
 
-				viewController = SessionsViewController()
+				viewController = OnboardingViewController()
 				return
 			}
 
