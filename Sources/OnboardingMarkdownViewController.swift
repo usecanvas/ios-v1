@@ -8,6 +8,7 @@
 
 import UIKit
 
+// TODO: Localize
 final class OnboardingMarkdownViewController: OnboardingBillboardViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()

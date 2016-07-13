@@ -89,7 +89,7 @@ final class OnboardingViewController: UIViewController {
 		
 		let footer = Button()
 		footer.translatesAutoresizingMaskIntoConstraints = false
-		footer.setTitle("Get Started with Canvas", forState: .Normal)
+		footer.setTitle("Get Started with Canvas", forState: .Normal) // TODO: Localize
 		footer.layer.borderWidth = 0
 		footer.addTarget(self, action: #selector(signUp), forControlEvents: .TouchUpInside)
 		stickyContainer.addArrangedSubview(footer)

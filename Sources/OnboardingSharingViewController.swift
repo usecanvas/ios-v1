@@ -8,6 +8,7 @@
 
 import UIKit
 
+// TODO: Localize
 final class OnboardingSharingViewController: OnboardingBillboardViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()

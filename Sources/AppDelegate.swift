@@ -111,9 +111,7 @@ extension AppDelegate: UIApplicationDelegate {
 			UIApplicationShortcutItem(type: "shortcut-new", localizedTitle: LocalizedString.NewCanvasCommand.string, localizedSubtitle: LocalizedString.InPersonalNotes.string, icon: UIApplicationShortcutIcon(templateImageName: "New Canvas Shortcut"), userInfo: nil),
 			UIApplicationShortcutItem(type: "shortcut-search", localizedTitle: LocalizedString.SearchCommand.string, localizedSubtitle: LocalizedString.InPersonalNotes.string, icon: UIApplicationShortcutIcon(type: .Search), userInfo: nil)
 		]
-		
-		window?.rootViewController = OnboardingViewController()
-		
+
 		return true
 	}
 

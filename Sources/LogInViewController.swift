@@ -11,6 +11,7 @@ import CanvasCore
 import CanvasKit
 import OnePasswordExtension
 
+// TODO: Localize
 final class LogInViewController: SessionFormViewController {
 
 	// MARK: - Properties
