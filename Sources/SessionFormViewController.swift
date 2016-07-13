@@ -57,8 +57,8 @@ class SessionFormViewController: StackViewController {
 		return button
 	}()
 
-	let footerButton: UIButton = {
-		let button = UIButton()
+	let footerButton: PrefaceButton = {
+		let button = PrefaceButton()
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
 	}()
@@ -155,35 +155,6 @@ class SessionFormViewController: StackViewController {
 		}
 		
 		submitButton.enabled = enabled
-	}
-
-
-	// MARK: - Factory
-
-	static func secondaryButtonText(title title: String, emphasizedRange: NSRange) -> NSAttributedString {
-		let text = NSMutableAttributedString(string: title, attributes: [
-			NSFontAttributeName: Font.sansSerif(size: .body),
-			NSForegroundColorAttributeName: Swatch.gray
-		])
-
-		text.setAttributes([
-			NSFontAttributeName: Font.sansSerif(size: .body, weight: .medium),
-			NSForegroundColorAttributeName: Swatch.brand
-		], range: emphasizedRange)
-
-		return text
-	}
-
-	static func secondaryButton(title title: String, emphasizedRange: NSRange) -> UIButton {
-		let button = UIButton()
-		button.titleLabel?.numberOfLines = 0
-		button.titleLabel?.textAlignment = .Center
-
-		let text = secondaryButtonText(title: title, emphasizedRange: emphasizedRange)
-
-		button.setAttributedTitle(text, forState: .Normal)
-
-		return button
 	}
 	
 	

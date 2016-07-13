@@ -99,10 +99,9 @@ final class OnboardingViewController: UIViewController {
 		pageControl.addTarget(self, action: #selector(pageControlDidChange), forControlEvents: .ValueChanged)
 		stickyContainer.addArrangedSubview(pageControl)
 		
-		let footer = Button()
+		let footer = PrefaceButton()
 		footer.translatesAutoresizingMaskIntoConstraints = false
 		footer.setTitle("Get Started with Canvas", forState: .Normal) // TODO: Localize
-		footer.layer.borderWidth = 0
 		footer.addTarget(self, action: #selector(signUp), forControlEvents: .TouchUpInside)
 		stickyContainer.addArrangedSubview(footer)
 		

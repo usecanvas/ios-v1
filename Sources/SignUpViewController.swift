@@ -37,8 +37,7 @@ final class SignUpViewController: SessionFormViewController {
 		
 		emailTextField.placeholder = "email@example.com"
 		
-		let logInText = self.dynamicType.secondaryButtonText(title: "Already have an account? Log in.", emphasizedRange: NSRange(location: 25, length: 6))
-		footerButton.setAttributedTitle(logInText, forState: .Normal)
+		footerButton.set(preface: "Already have an account?", title: "Log in.")
 	}
 	
 	

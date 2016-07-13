@@ -1,5 +1,5 @@
 //
-//  Button.swift
+//  PillButton.swift
 //  Canvas
 //
 //  Created by Sam Soffes on 11/25/15.
@@ -10,7 +10,7 @@ import UIKit
 import CanvasCore
 import CanvasText
 
-class Button: UIButton {
+class PillButton: UIButton {
 
 	// MARK: - Initializers
 	

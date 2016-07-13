@@ -9,7 +9,7 @@
 import UIKit
 import CanvasCore
 
-final class IndicatorButton: Button {
+final class IndicatorButton: PillButton {
 
 	// MARK: - Properties
 

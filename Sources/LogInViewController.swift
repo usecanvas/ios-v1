@@ -31,10 +31,10 @@ final class LogInViewController: SessionFormViewController {
 		submitButton.setTitle(LocalizedString.LogInButton.string, forState: .Normal)
 		submitButton.enabled = false
 
-		let signUpText = self.dynamicType.secondaryButtonText(title: "Don’t have an account? Sign up.", emphasizedRange: NSRange(location: 23, length: 7))
-		footerButton.setAttributedTitle(signUpText, forState: .Normal)
+		footerButton.set(preface: "Don’t have an account?", title: "Sign up.")
 
-		let forgotButton = self.dynamicType.secondaryButton(title: "Trouble logging in? Reset your password.", emphasizedRange: NSRange(location: 20, length: 19))
+		let forgotButton = PrefaceButton()
+		forgotButton.set(preface: "Trouble logging in?", title: "Reset your password.")
 		forgotButton.addTarget(self, action: #selector(forgotPassword), forControlEvents: .TouchUpInside)
 		stackView.addSpace(32)
 		stackView.addArrangedSubview(forgotButton)

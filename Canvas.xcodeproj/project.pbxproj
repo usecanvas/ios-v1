@@ -10,7 +10,7 @@
 		2107D3021CC58F7B001963B7 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CA1CC58F7A001963B7 /* AlertController.swift */; };
 		2107D3031CC58F7B001963B7 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CB1CC58F7A001963B7 /* Analytics.swift */; };
 		2107D3041CC58F7B001963B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CC1CC58F7A001963B7 /* AppDelegate.swift */; };
-		2107D3051CC58F7B001963B7 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CD1CC58F7A001963B7 /* Button.swift */; };
+		2107D3051CC58F7B001963B7 /* PillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CD1CC58F7A001963B7 /* PillButton.swift */; };
 		2107D3061CC58F7B001963B7 /* Canvas+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CE1CC58F7A001963B7 /* Canvas+Canvas.swift */; };
 		2107D3071CC58F7B001963B7 /* CanvasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CF1CC58F7A001963B7 /* CanvasCell.swift */; };
 		2107D3081CC58F7B001963B7 /* CanvasesResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2D01CC58F7A001963B7 /* CanvasesResultsViewController.swift */; };
@@ -87,7 +87,7 @@
 		2147A2FC1CDA7B2E008A2709 /* DragContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147A2FB1CDA7B2E008A2709 /* DragContext.swift */; };
 		2147A2FD1CDA7B35008A2709 /* DragContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147A2FB1CDA7B2E008A2709 /* DragContext.swift */; };
 		214F9FF71CC6DE4600927A07 /* CanvasTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214F9FF61CC6DE4600927A07 /* CanvasTextView.swift */; };
-		21501D5B1CCAA2B900B02FC5 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CD1CC58F7A001963B7 /* Button.swift */; };
+		21501D5B1CCAA2B900B02FC5 /* PillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CD1CC58F7A001963B7 /* PillButton.swift */; };
 		21501D5C1CCAA2B900B02FC5 /* OrganizationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2E71CC58F7B001963B7 /* OrganizationCell.swift */; };
 		21501D5D1CCAA2B900B02FC5 /* Canvas+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CE1CC58F7A001963B7 /* Canvas+Canvas.swift */; };
 		21501D5E1CCAA2B900B02FC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CC1CC58F7A001963B7 /* AppDelegate.swift */; };
@@ -189,6 +189,12 @@
 		21D326601D258F8F00EB7D74 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D3265E1D258F8F00EB7D74 /* LogInViewController.swift */; };
 		21D326621D258FA800EB7D74 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D326611D258FA800EB7D74 /* SettingsViewController.swift */; };
 		21D326631D258FA800EB7D74 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D326611D258FA800EB7D74 /* SettingsViewController.swift */; };
+		21D91E7A1D36A39700BADD0B /* VerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D91E791D36A39700BADD0B /* VerifyViewController.swift */; };
+		21D91E7B1D36A39700BADD0B /* VerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D91E791D36A39700BADD0B /* VerifyViewController.swift */; };
+		21D91E7D1D36A7DA00BADD0B /* PrefaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D91E7C1D36A7DA00BADD0B /* PrefaceButton.swift */; };
+		21D91E7E1D36A7DA00BADD0B /* PrefaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D91E7C1D36A7DA00BADD0B /* PrefaceButton.swift */; };
+		21D91E801D36AA0600BADD0B /* FooterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D91E7F1D36AA0600BADD0B /* FooterButton.swift */; };
+		21D91E811D36AA0600BADD0B /* FooterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D91E7F1D36AA0600BADD0B /* FooterButton.swift */; };
 		21DF11F11D273D8F0018AFD7 /* Intercom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21298D471D27349800E741EE /* Intercom.framework */; };
 		21F7EF2B1CD91D70004E80E2 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF281CD91D70004E80E2 /* Mixpanel.framework */; };
 		21F7EF2C1CD91D70004E80E2 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF281CD91D70004E80E2 /* Mixpanel.framework */; };
@@ -775,7 +781,7 @@
 		2107D2CA1CC58F7A001963B7 /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		2107D2CB1CC58F7A001963B7 /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		2107D2CC1CC58F7A001963B7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2107D2CD1CC58F7A001963B7 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		2107D2CD1CC58F7A001963B7 /* PillButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PillButton.swift; sourceTree = "<group>"; };
 		2107D2CE1CC58F7A001963B7 /* Canvas+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Canvas+Canvas.swift"; sourceTree = "<group>"; };
 		2107D2CF1CC58F7A001963B7 /* CanvasCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasCell.swift; sourceTree = "<group>"; };
 		2107D2D01CC58F7A001963B7 /* CanvasesResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasesResultsViewController.swift; sourceTree = "<group>"; };
@@ -865,6 +871,9 @@
 		21C650031D2C7FB100EA3127 /* BillboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillboardView.swift; sourceTree = "<group>"; };
 		21D3265E1D258F8F00EB7D74 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		21D326611D258FA800EB7D74 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		21D91E791D36A39700BADD0B /* VerifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyViewController.swift; sourceTree = "<group>"; };
+		21D91E7C1D36A7DA00BADD0B /* PrefaceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefaceButton.swift; sourceTree = "<group>"; };
+		21D91E7F1D36AA0600BADD0B /* FooterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooterButton.swift; sourceTree = "<group>"; };
 		21F10F4A1BF138750035057D /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F7EF281CD91D70004E80E2 /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mixpanel.framework; path = Carthage/Build/iOS/Mixpanel.framework; sourceTree = "<group>"; };
 		21F7EF291CD91D70004E80E2 /* OnePasswordExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OnePasswordExtension.framework; path = Carthage/Build/iOS/OnePasswordExtension.framework; sourceTree = "<group>"; };
@@ -995,6 +1004,7 @@
 			children = (
 				213608631CF533AB00641941 /* Containers */,
 				21F95DC01D2EC8CA006B4100 /* Onboarding */,
+				21D91E331D36A38A00BADD0B /* Sessions */,
 				2178CBCC1CEA92EF00E9A4B2 /* Utility */,
 				2178CBE31CEA92F900E9A4B2 /* Canvases */,
 				2178CBE41CEA930000E9A4B2 /* Editor */,
@@ -1296,8 +1306,10 @@
 		2189958C1D1F20CE00FCF199 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				2107D2CD1CC58F7A001963B7 /* Button.swift */,
+				2107D2CD1CC58F7A001963B7 /* PillButton.swift */,
+				21D91E7C1D36A7DA00BADD0B /* PrefaceButton.swift */,
 				212D8EC51CE62AE00039A3EE /* IndicatorButton.swift */,
+				21D91E7F1D36AA0600BADD0B /* FooterButton.swift */,
 			);
 			name = Buttons;
 			sourceTree = "<group>";
@@ -1310,6 +1322,17 @@
 				21A77E141D08053A00340243 /* AvatarView.swift */,
 			);
 			name = Avatars;
+			sourceTree = "<group>";
+		};
+		21D91E331D36A38A00BADD0B /* Sessions */ = {
+			isa = PBXGroup;
+			children = (
+				2178CBB81CEA891100E9A4B2 /* SessionFormViewController.swift */,
+				21D3265E1D258F8F00EB7D74 /* LogInViewController.swift */,
+				21BD17681D1EEBFD00C11CB9 /* SignUpViewController.swift */,
+				21D91E791D36A39700BADD0B /* VerifyViewController.swift */,
+			);
+			name = Sessions;
 			sourceTree = "<group>";
 		};
 		21F10F411BF138750035057D = {
@@ -1360,9 +1383,6 @@
 				21F95DC71D2ECB75006B4100 /* OnboardingGesturesViewController.swift */,
 				21F95DCA1D2ECB9F006B4100 /* OnboardingMarkdownViewController.swift */,
 				21F95DCD1D2ECBBE006B4100 /* OnboardingSharingViewController.swift */,
-				2178CBB81CEA891100E9A4B2 /* SessionFormViewController.swift */,
-				21D3265E1D258F8F00EB7D74 /* LogInViewController.swift */,
-				21BD17681D1EEBFD00C11CB9 /* SignUpViewController.swift */,
 			);
 			name = Onboarding;
 			sourceTree = "<group>";
@@ -2146,13 +2166,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2178CBBA1CEA891100E9A4B2 /* SessionFormViewController.swift in Sources */,
-				21501D5B1CCAA2B900B02FC5 /* Button.swift in Sources */,
+				21501D5B1CCAA2B900B02FC5 /* PillButton.swift in Sources */,
 				21501D5C1CCAA2B900B02FC5 /* OrganizationCell.swift in Sources */,
 				21298C701D26C95700E741EE /* BannerView.swift in Sources */,
 				2117A0971D0642A400E60821 /* UIColor+Canvas.swift in Sources */,
 				2122BFF41CFE645100A038DE /* EditorViewController+Connection.swift in Sources */,
 				21501D5D1CCAA2B900B02FC5 /* Canvas+Canvas.swift in Sources */,
 				21BD176A1D1EEBFD00C11CB9 /* SignUpViewController.swift in Sources */,
+				21D91E7E1D36A7DA00BADD0B /* PrefaceButton.swift in Sources */,
 				21C650051D2C7FB100EA3127 /* BillboardView.swift in Sources */,
 				21501D5E1CCAA2B900B02FC5 /* AppDelegate.swift in Sources */,
 				21501D5F1CCAA2B900B02FC5 /* CanvasesResultsViewController.swift in Sources */,
@@ -2163,7 +2184,9 @@
 				21501D601CCAA2B900B02FC5 /* UIEdgeInsets+Canvas.swift in Sources */,
 				21501D611CCAA2B900B02FC5 /* TextView.swift in Sources */,
 				21501D621CCAA2B900B02FC5 /* Color+Canvas.swift in Sources */,
+				21D91E7B1D36A39700BADD0B /* VerifyViewController.swift in Sources */,
 				21501D631CCAA2B900B02FC5 /* OrganizationsViewController.swift in Sources */,
+				21D91E811D36AA0600BADD0B /* FooterButton.swift in Sources */,
 				21501D641CCAA2B900B02FC5 /* TableViewController.swift in Sources */,
 				21501D651CCAA2B900B02FC5 /* NavigationBar.swift in Sources */,
 				2147A2FD1CDA7B35008A2709 /* DragContext.swift in Sources */,
@@ -2227,13 +2250,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2178CBB91CEA891100E9A4B2 /* SessionFormViewController.swift in Sources */,
-				2107D3051CC58F7B001963B7 /* Button.swift in Sources */,
+				2107D3051CC58F7B001963B7 /* PillButton.swift in Sources */,
 				2107D31F1CC58F7B001963B7 /* OrganizationCell.swift in Sources */,
 				21298C6F1D26C95700E741EE /* BannerView.swift in Sources */,
 				2117A0961D0642A400E60821 /* UIColor+Canvas.swift in Sources */,
 				2122BFF31CFE645100A038DE /* EditorViewController+Connection.swift in Sources */,
 				2107D3061CC58F7B001963B7 /* Canvas+Canvas.swift in Sources */,
 				21BD17691D1EEBFD00C11CB9 /* SignUpViewController.swift in Sources */,
+				21D91E7D1D36A7DA00BADD0B /* PrefaceButton.swift in Sources */,
 				21C650041D2C7FB100EA3127 /* BillboardView.swift in Sources */,
 				2107D3041CC58F7B001963B7 /* AppDelegate.swift in Sources */,
 				2107D3081CC58F7B001963B7 /* CanvasesResultsViewController.swift in Sources */,
@@ -2244,7 +2268,9 @@
 				2107D3291CC58F7B001963B7 /* UIEdgeInsets+Canvas.swift in Sources */,
 				2107D3251CC58F7B001963B7 /* TextView.swift in Sources */,
 				2107D30D1CC58F7B001963B7 /* Color+Canvas.swift in Sources */,
+				21D91E7A1D36A39700BADD0B /* VerifyViewController.swift in Sources */,
 				2107D31E1CC58F7B001963B7 /* OrganizationsViewController.swift in Sources */,
+				21D91E801D36AA0600BADD0B /* FooterButton.swift in Sources */,
 				2107D3241CC58F7B001963B7 /* TableViewController.swift in Sources */,
 				2107D3161CC58F7B001963B7 /* NavigationBar.swift in Sources */,
 				2147A2FC1CDA7B2E008A2709 /* DragContext.swift in Sources */,
