@@ -29,8 +29,10 @@ class PrefaceButton: PillButton {
 	// MARK: - Preface
 	
 	func set(preface preface: String, title: String) {
-		// TODO: Localize
+		// Use non-breaking spaces for the title
 		let title = title.stringByReplacingOccurrencesOfString(" ", withString: "\u{00A0}")
+		
+		// TODO: Localize
 		let string = "\(preface) \(title)"
 		let emphasizedRange = NSRange(
 			location: (preface as NSString).length + 1,
@@ -51,6 +53,8 @@ class PrefaceButton: PillButton {
 		
 		let highlightedText = NSMutableAttributedString(string: string, attributes: [
 			NSFontAttributeName: Font.sansSerif(size: .body),
+			
+			// TODO: Use a named color for this
 			NSForegroundColorAttributeName: Swatch.gray.colorWithAlphaComponent(0.6)
 		])
 		
