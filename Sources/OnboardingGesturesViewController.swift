@@ -13,8 +13,8 @@ final class OnboardingGesturesViewController: OnboardingBillboardViewController 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		titleLabel.text = "Easy to the Touch"
-		subtitleLabel.text = "Swipe gestures turn paragraphs\ninto lists and headings."
-		illustrationView.image = UIImage(named: "OnboardingGestures")
+		text = "Easy to the Touch"
+		detailText = "Swipe gestures turn paragraphs\ninto lists and headings."
+		illustrationName = "Gestures"
 	}
 }

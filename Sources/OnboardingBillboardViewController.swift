@@ -14,13 +14,29 @@ class OnboardingBillboardViewController: StackViewController {
 	
 	// MARK: - UIViewController
 
-	let illustrationView: UIImageView = {
+	var illustrationName: String? {
+		didSet {
+			updateIllustration()
+		}
+	}
+	
+	private let illustrationView: UIImageView = {
 		let view = UIImageView()
 		view.contentMode = .Center
 		return view
 	}()
 	
-	let titleLabel: UILabel = {
+	var text: String? {
+		get {
+			return textLabel.text
+		}
+		
+		set {
+			textLabel.text = newValue
+		}
+	}
+	
+	private let textLabel: UILabel = {
 		let label = UILabel()
 		label.textColor = Swatch.black
 		label.numberOfLines = 0
@@ -28,7 +44,17 @@ class OnboardingBillboardViewController: StackViewController {
 		return label
 	}()
 	
-	let subtitleLabel: UILabel = {
+	var detailText: String? {
+		get {
+			return detailTextLabel.text
+		}
+		
+		set {
+			detailTextLabel.text = newValue
+		}
+	}
+	
+	private let detailTextLabel: UILabel = {
 		let label = UILabel()
 		label.textColor = Swatch.gray
 		label.numberOfLines = 0
@@ -49,9 +75,9 @@ class OnboardingBillboardViewController: StackViewController {
 		stackView.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16 + 44, right: 16)
 		stackView.layoutMarginsRelativeArrangement = true
 		
-		stackView.addArrangedSubview(titleLabel)
+		stackView.addArrangedSubview(textLabel)
 		stackView.addSpace(12)
-		stackView.addArrangedSubview(subtitleLabel)
+		stackView.addArrangedSubview(detailTextLabel)
 		
 		let spacer = UIView()
 		spacer.translatesAutoresizingMaskIntoConstraints = false
@@ -69,13 +95,32 @@ class OnboardingBillboardViewController: StackViewController {
 	override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
 		super.traitCollectionDidChange(previousTraitCollection)
 		textIllustrationSpacing.constant = traitCollection.horizontalSizeClass == .Regular ? 48 : 32
+		updateIllustration()
 	}
 	
 	
 	// MARK: - Private
 	
 	@objc private func updateFonts() {
-		titleLabel.font = TextStyle.title1.font()
-		subtitleLabel.font = TextStyle.body.font()
+		textLabel.font = TextStyle.title1.font()
+		detailTextLabel.font = TextStyle.body.font()
+	}
+	
+	private func updateIllustration() {
+		guard let illustrationName = illustrationName else {
+			illustrationView.image = nil
+			return
+		}
+		
+		var name = illustrationName
+		
+		switch traitCollection.horizontalSizeClass {
+		case .Compact, .Unspecified:
+			name += "Compact"
+		case .Regular:
+			name += "Regular"
+		}
+		
+		illustrationView.image = UIImage(named: name)
 	}
 }

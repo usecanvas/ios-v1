@@ -13,8 +13,8 @@ final class OnboardingSharingViewController: OnboardingBillboardViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		titleLabel.text = "Simple Sharing"
-		subtitleLabel.text = "Collaboration is as easy\nas sharing a URL."
-		illustrationView.image = UIImage(named: "OnboardingSharing")
+		text = "Simple Sharing"
+		detailText = "Collaboration is as easy\nas sharing a URL."
+		illustrationName = "Share"
 	}
 }

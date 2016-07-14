@@ -13,8 +13,8 @@ final class OnboardingWelcomeViewController: OnboardingBillboardViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		titleLabel.text = "Welcome to Canvas"
-		subtitleLabel.text = "Collaborative notes\nfor teams of nerds."
-		illustrationView.image = UIImage(named: "OnboardingWelcome")
+		text = "Welcome to Canvas"
+		detailText = "Collaborative notes\nfor teams of nerds."
+		illustrationName = "Welcome"
 	}
 }

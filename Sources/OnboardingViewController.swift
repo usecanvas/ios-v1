@@ -71,7 +71,7 @@ final class OnboardingViewController: UIViewController {
 		viewControllers = [
 			OnboardingWelcomeViewController(),
 			OnboardingGesturesViewController(),
-			OnboardingMarkdownViewController(),
+			OnboardingOrigamiViewController(),
 			OnboardingSharingViewController(),
 			signUpViewController,
 			logInViewController

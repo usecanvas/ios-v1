@@ -73,7 +73,7 @@ import Intercom
 		return true
 	}
 	
-	private func verifyAccount(url: NSURL) -> Bool {
+	private func verifyAccount(url url: NSURL) -> Bool {
 //		guard let components = url.pathComponents where components.count == 1 && components[0] == "verify" else { return }
 //		
 //		guard let items = NSURLComponents(URL: url, resolvingAgainstBaseURL: false)?.queryItems,

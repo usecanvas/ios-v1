@@ -212,8 +212,8 @@
 		21F95DC61D2EC902006B4100 /* OnboardingWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F95DC41D2EC902006B4100 /* OnboardingWelcomeViewController.swift */; };
 		21F95DC81D2ECB75006B4100 /* OnboardingGesturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F95DC71D2ECB75006B4100 /* OnboardingGesturesViewController.swift */; };
 		21F95DC91D2ECB75006B4100 /* OnboardingGesturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F95DC71D2ECB75006B4100 /* OnboardingGesturesViewController.swift */; };
-		21F95DCB1D2ECB9F006B4100 /* OnboardingMarkdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F95DCA1D2ECB9F006B4100 /* OnboardingMarkdownViewController.swift */; };
-		21F95DCC1D2ECB9F006B4100 /* OnboardingMarkdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F95DCA1D2ECB9F006B4100 /* OnboardingMarkdownViewController.swift */; };
+		21F95DCB1D2ECB9F006B4100 /* OnboardingOrigamiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F95DCA1D2ECB9F006B4100 /* OnboardingOrigamiViewController.swift */; };
+		21F95DCC1D2ECB9F006B4100 /* OnboardingOrigamiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F95DCA1D2ECB9F006B4100 /* OnboardingOrigamiViewController.swift */; };
 		21F95DCE1D2ECBBE006B4100 /* OnboardingSharingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F95DCD1D2ECBBE006B4100 /* OnboardingSharingViewController.swift */; };
 		21F95DCF1D2ECBBE006B4100 /* OnboardingSharingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F95DCD1D2ECBBE006B4100 /* OnboardingSharingViewController.swift */; };
 		21F95DD11D2ECBFC006B4100 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F95DD01D2ECBFC006B4100 /* OnboardingViewController.swift */; };
@@ -883,7 +883,7 @@
 		21F95DC11D2EC8D2006B4100 /* OnboardingBillboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingBillboardViewController.swift; sourceTree = "<group>"; };
 		21F95DC41D2EC902006B4100 /* OnboardingWelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingWelcomeViewController.swift; sourceTree = "<group>"; };
 		21F95DC71D2ECB75006B4100 /* OnboardingGesturesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingGesturesViewController.swift; sourceTree = "<group>"; };
-		21F95DCA1D2ECB9F006B4100 /* OnboardingMarkdownViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingMarkdownViewController.swift; sourceTree = "<group>"; };
+		21F95DCA1D2ECB9F006B4100 /* OnboardingOrigamiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingOrigamiViewController.swift; sourceTree = "<group>"; };
 		21F95DCD1D2ECBBE006B4100 /* OnboardingSharingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingSharingViewController.swift; sourceTree = "<group>"; };
 		21F95DD01D2ECBFC006B4100 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1381,7 +1381,7 @@
 				21F95DC11D2EC8D2006B4100 /* OnboardingBillboardViewController.swift */,
 				21F95DC41D2EC902006B4100 /* OnboardingWelcomeViewController.swift */,
 				21F95DC71D2ECB75006B4100 /* OnboardingGesturesViewController.swift */,
-				21F95DCA1D2ECB9F006B4100 /* OnboardingMarkdownViewController.swift */,
+				21F95DCA1D2ECB9F006B4100 /* OnboardingOrigamiViewController.swift */,
 				21F95DCD1D2ECBBE006B4100 /* OnboardingSharingViewController.swift */,
 			);
 			name = Onboarding;
@@ -2200,7 +2200,7 @@
 				21501D691CCAA2B900B02FC5 /* NSDate+Canvas.swift in Sources */,
 				21BF50D61D232B19001801A5 /* (null) in Sources */,
 				210B1C981D0B14A600B08A81 /* SharedWebCredentials.swift in Sources */,
-				21F95DCC1D2ECB9F006B4100 /* OnboardingMarkdownViewController.swift in Sources */,
+				21F95DCC1D2ECB9F006B4100 /* OnboardingOrigamiViewController.swift in Sources */,
 				21501D6A1CCAA2B900B02FC5 /* CGRect+Canvas.swift in Sources */,
 				21501D6B1CCAA2B900B02FC5 /* Organization+Canvas.swift in Sources */,
 				21501D6C1CCAA2B900B02FC5 /* OrganizationCanvasesViewController.swift in Sources */,
@@ -2284,7 +2284,7 @@
 				2107D3191CC58F7B001963B7 /* NSDate+Canvas.swift in Sources */,
 				21BF50D51D232B19001801A5 /* (null) in Sources */,
 				210B1C971D0B14A600B08A81 /* SharedWebCredentials.swift in Sources */,
-				21F95DCB1D2ECB9F006B4100 /* OnboardingMarkdownViewController.swift in Sources */,
+				21F95DCB1D2ECB9F006B4100 /* OnboardingOrigamiViewController.swift in Sources */,
 				2107D30B1CC58F7B001963B7 /* CGRect+Canvas.swift in Sources */,
 				2107D31A1CC58F7B001963B7 /* Organization+Canvas.swift in Sources */,
 				2107D31C1CC58F7B001963B7 /* OrganizationCanvasesViewController.swift in Sources */,
