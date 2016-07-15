@@ -12,16 +12,6 @@ import CanvasCore
 // TODO: Localize
 final class VerifyViewController: UIViewController {
 
-	// MARK: - Properties
-
-	let logInButton: UIButton = {
-		let button = FooterButton()
-		button.translatesAutoresizingMaskIntoConstraints = false
-		button.set(preface: "Already have an account?", title: "Log in.")
-		return button
-	}()
-	
-
 	// MARK: - UIViewController
 
 	override func viewDidLoad() {
@@ -40,6 +30,10 @@ final class VerifyViewController: UIViewController {
 		billboard.subtitleLabel.text = "We’ve sent you an email with a link to verify and activate your account."
 		container.addSubview(billboard)
 
+		let logInButton = FooterButton()
+		logInButton.translatesAutoresizingMaskIntoConstraints = false
+		logInButton.set(preface: "Already have an account?", title: "Log in.")
+		logInButton.addTarget(self, action: #selector(logIn), forControlEvents: .TouchUpInside)
 		view.addSubview(logInButton)
 		
 		NSLayoutConstraint.activateConstraints([
@@ -56,5 +50,13 @@ final class VerifyViewController: UIViewController {
 			logInButton.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor),
 			logInButton.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor)
 		])
+	}
+
+
+	// MARK: - Actions
+
+	@objc private func logIn() {
+		guard let url = NSURL(string: "canvas://login") else { return }
+		UIApplication.sharedApplication().openURL(url)
 	}
 }

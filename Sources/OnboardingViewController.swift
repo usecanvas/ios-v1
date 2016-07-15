@@ -10,6 +10,14 @@ import UIKit
 import CanvasCore
 
 final class OnboardingViewController: UIViewController {
+
+	// MARK: - Types
+
+	enum Screen {
+		case logIn
+		case signUp
+	}
+
 	
 	// MARK: - Properties
 	
@@ -161,6 +169,23 @@ final class OnboardingViewController: UIViewController {
 		coordinator.animateAlongsideTransition({ [weak self] _ in
 			self?.scrollTo(page: page, animated: false, width: size.width)
 		}, completion: nil)
+	}
+
+
+	// MARK: - Choosing a Screen
+
+	func scrollTo(screen screen: Screen, animated: Bool = true, completion: (Void -> ())? = nil) {
+		let i: Int?
+
+		switch screen {
+		case .logIn: i = viewControllers.indexOf(logInViewController)
+		case .signUp: i = viewControllers.indexOf(signUpViewController)
+		}
+
+		guard let index = i else { return }
+
+		view.layoutIfNeeded()
+		scrollTo(page: index, animated: animated, completion: completion)
 	}
 
 	

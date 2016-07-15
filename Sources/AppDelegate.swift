@@ -17,13 +17,13 @@ import Intercom
 	// MARK: - Properties
 
 	var window: UIWindow?
+	let rootViewController = RootViewController()
 
 
 	// MARK: - Private
 
 	private func showPersonalNotes(completion: OrganizationCanvasesViewController? -> Void) {
-		guard let rootViewController = window?.rootViewController as? RootViewController,
-			splitViewController = rootViewController.viewController as? UISplitViewController,
+		guard let splitViewController = rootViewController.viewController as? UISplitViewController,
 			navigationController = splitViewController.masterViewController as? UINavigationController
 		else {
 			completion(nil)
@@ -119,6 +119,8 @@ extension AppDelegate: UIApplicationDelegate {
 			UIApplicationShortcutItem(type: "shortcut-new", localizedTitle: LocalizedString.NewCanvasCommand.string, localizedSubtitle: LocalizedString.InPersonalNotes.string, icon: UIApplicationShortcutIcon(templateImageName: "New Canvas Shortcut"), userInfo: nil),
 			UIApplicationShortcutItem(type: "shortcut-search", localizedTitle: LocalizedString.SearchCommand.string, localizedSubtitle: LocalizedString.InPersonalNotes.string, icon: UIApplicationShortcutIcon(type: .Search), userInfo: nil)
 		]
+
+		window?.rootViewController = rootViewController
 		
 		return true
 	}
@@ -164,5 +166,41 @@ extension AppDelegate: UIApplicationDelegate {
 
 	func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
 		Intercom.setDeviceToken(deviceToken)
+	}
+
+	func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
+		guard url.scheme == "canvas" else { return false }
+
+		// Login
+		if url.host == "login" {
+			let animated: Bool
+			let viewController: OnboardingViewController
+
+			// Already showing onboarding, scroll to the view animated
+			if let vc = rootViewController.viewController as? OnboardingViewController {
+				viewController = vc
+				animated = true
+			}
+
+			// Not showing onboarding, show the view not animated
+			else {
+				// Log out first
+				AccountController.sharedController.currentAccount = nil
+
+				if let vc = rootViewController.viewController as? OnboardingViewController {
+					viewController = vc
+				} else {
+					viewController = OnboardingViewController()
+					rootViewController.viewController = viewController
+				}
+				
+				animated = false
+			}
+
+			viewController.scrollTo(screen: .logIn, animated: animated)
+			return true
+		}
+
+		return false
 	}
 }
