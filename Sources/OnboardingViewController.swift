@@ -161,9 +161,11 @@ final class OnboardingViewController: UIViewController {
 	private func scrollTo(page page: Int, animated: Bool = true, completion: (Void -> ())? = nil) {
 		let width = scrollView.frame.width
 		let rect = CGRect(x: width * CGFloat(page), y: 0, width: width, height: 1)
-		
+
 		UIView.animateWithDuration(animated ? 0.3 : 0, animations: { [weak self] in
-			self?.scrollView.scrollRectToVisible(rect, animated: false)
+			guard let scrollView = self?.scrollView else { return }
+			scrollView.scrollRectToVisible(rect, animated: false)
+			self?.stickyContainer.layoutIfNeeded()
 		}, completion: { [weak self] _ in
 			guard let scrollView = self?.scrollView else { return }
 			self?.scrollViewDidScroll(scrollView)
