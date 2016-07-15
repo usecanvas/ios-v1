@@ -11,16 +11,10 @@ import CanvasCore
 import CanvasKit
 import OnePasswordExtension
 
-protocol SignUpViewControllerDelegate: class {
-	func signUpViewControllerDidSignUp(viewController: SignUpViewController)
-}
-
 // TODO: Localize
 final class SignUpViewController: SessionFormViewController {
 	
 	// MARK: - Properties
-	
-	weak var delegate: SignUpViewControllerDelegate?
 	
 	let usernameTextField: UITextField = {
 		let textField = TextField()
@@ -71,8 +65,7 @@ final class SignUpViewController: SessionFormViewController {
 			case .Success(_):
 				dispatch_async(dispatch_get_main_queue()) {
 					UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-					guard let this = self else { return }
-					this.delegate?.signUpViewControllerDidSignUp(this)
+					self?.showVerify()
 //					Analytics.track(.LoggedIn)
 				}
 			case .Failure(let errorMessage):
@@ -88,9 +81,24 @@ final class SignUpViewController: SessionFormViewController {
 		}
 	}
 	
-	@objc private func forgotPassword() {
-		let URL = NSURL(string: "https://usecanvas.com/password-reset")!
-		UIApplication.sharedApplication().openURL(URL)
+
+	// MARK: - Private
+
+	private func showVerify() {
+		let viewController = VerifyViewController()
+		addChildViewController(viewController)
+		view.addSubview(viewController.view)
+
+		// TODO: Add viewController.logInButton action
+
+		viewController.view.translatesAutoresizingMaskIntoConstraints = false
+
+		NSLayoutConstraint.activateConstraints([
+			viewController.view.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
+			viewController.view.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor),
+			viewController.view.topAnchor.constraintEqualToAnchor(view.topAnchor),
+			viewController.view.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor)
+		])
 	}
 }
 

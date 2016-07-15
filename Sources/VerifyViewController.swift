@@ -11,6 +11,19 @@ import CanvasCore
 
 // TODO: Localize
 final class VerifyViewController: UIViewController {
+
+	// MARK: - Properties
+
+	let logInButton: UIButton = {
+		let button = FooterButton()
+		button.translatesAutoresizingMaskIntoConstraints = false
+		button.set(preface: "Already have an account?", title: "Log in.")
+		return button
+	}()
+	
+
+	// MARK: - UIViewController
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -26,36 +39,22 @@ final class VerifyViewController: UIViewController {
 		billboard.titleLabel.text = "Thanks for signing up."
 		billboard.subtitleLabel.text = "We’ve sent you an email with a link to verify and activate your account."
 		container.addSubview(billboard)
-		
-		let footer = PrefaceButton()
-		footer.translatesAutoresizingMaskIntoConstraints = false
-		footer.set(preface: "Already have an account?", title: "Log in.")
-		footer.layer.borderWidth = 0
-//		footer.addTarget(self, action: #selector(logIn), forControlEvents: .TouchUpInside)
-		view.addSubview(footer)
-		
-		let line = LineView()
-		line.translatesAutoresizingMaskIntoConstraints = false
-		footer.addSubview(line)
+
+		view.addSubview(logInButton)
 		
 		NSLayoutConstraint.activateConstraints([
 			container.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
 			container.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor),
 			container.topAnchor.constraintEqualToAnchor(view.topAnchor),
-			container.bottomAnchor.constraintEqualToAnchor(footer.topAnchor),
+			container.bottomAnchor.constraintEqualToAnchor(logInButton.topAnchor),
 			
 			billboard.centerXAnchor.constraintEqualToAnchor(container.centerXAnchor),
 			billboard.centerYAnchor.constraintEqualToAnchor(container.centerYAnchor),
 			billboard.widthAnchor.constraintLessThanOrEqualToAnchor(container.widthAnchor),
 			
-			line.leadingAnchor.constraintEqualToAnchor(footer.leadingAnchor),
-			line.trailingAnchor.constraintEqualToAnchor(footer.trailingAnchor),
-			line.topAnchor.constraintEqualToAnchor(footer.topAnchor),
-			
-			footer.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
-			footer.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor),
-			footer.heightAnchor.constraintEqualToConstant(48),
-			footer.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor)
+			logInButton.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
+			logInButton.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor),
+			logInButton.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor)
 		])
 	}
 }

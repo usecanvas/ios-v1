@@ -78,8 +78,6 @@ final class OnboardingViewController: UIViewController {
 		]
 		
 		super.init(nibName: nil, bundle: nil)
-		
-		signUpViewController.delegate = self
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -227,21 +225,5 @@ extension OnboardingViewController: UIScrollViewDelegate {
 		currentViewController = viewControllers[page]
 		
 		scrollView.scrollEnabled = page < pageControl.numberOfPages
-	}
-}
-
-
-extension OnboardingViewController: SignUpViewControllerDelegate {
-	func signUpViewControllerDidSignUp(viewController: SignUpViewController) {
-		backSwipe.enabled = false
-		
-		let verify = VerifyViewController()
-		addChildViewController(verify)
-		
-		verify.view.frame = logInViewController.view.frame
-		logInViewController.view.hidden = true
-		scrollView.addSubview(verify.view)
-		
-		scrollTo(page: pageControl.numberOfPages + 1)
 	}
 }
