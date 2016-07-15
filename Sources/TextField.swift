@@ -19,7 +19,7 @@ final class TextField: UITextField {
 			guard let placeholder = placeholder, font = font else { return }
 			attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [
 				NSFontAttributeName: font,
-				NSForegroundColorAttributeName: Swatch.gray
+				NSForegroundColorAttributeName: Swatch.darkGray
 			])
 		}
 	}

@@ -41,7 +41,7 @@ class PrefaceButton: PillButton {
 		
 		let normalText = NSMutableAttributedString(string: string, attributes: [
 			NSFontAttributeName: Font.sansSerif(size: .body),
-			NSForegroundColorAttributeName: Swatch.gray
+			NSForegroundColorAttributeName: Swatch.darkGray
 		])
 		
 		normalText.setAttributes([
@@ -55,7 +55,7 @@ class PrefaceButton: PillButton {
 			NSFontAttributeName: Font.sansSerif(size: .body),
 			
 			// TODO: Use a named color for this
-			NSForegroundColorAttributeName: Swatch.gray.colorWithAlphaComponent(0.6)
+			NSForegroundColorAttributeName: Swatch.darkGray.colorWithAlphaComponent(0.6)
 		])
 		
 		highlightedText.setAttributes([
@@ -67,7 +67,7 @@ class PrefaceButton: PillButton {
 		
 		let disabledText = NSAttributedString(string: string, attributes: [
 			NSFontAttributeName: Font.sansSerif(size: .body),
-			NSForegroundColorAttributeName: Swatch.gray
+			NSForegroundColorAttributeName: Swatch.darkGray
 		])
 		setAttributedTitle(disabledText, forState: .Disabled)
 	}

@@ -24,7 +24,7 @@ class PillButton: UIButton {
 
 		setTitleColor(Swatch.brand, forState: .Normal)
 		setTitleColor(Swatch.lightBlue, forState: .Highlighted)
-		setTitleColor(Swatch.gray, forState: .Disabled)
+		setTitleColor(Swatch.darkGray, forState: .Disabled)
 
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateFont), name: UIContentSizeCategoryDidChangeNotification, object: nil)
 		updateFont()

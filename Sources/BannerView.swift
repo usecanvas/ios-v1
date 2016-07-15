@@ -26,7 +26,7 @@ final class BannerView: UIView {
 		var backgroundColor: UIColor {
 			switch self {
 			case .success: return Swatch.green
-			case .info: return Swatch.gray
+			case .info: return Swatch.darkGray
 			case .failure: return Swatch.destructive
 			}
 		}

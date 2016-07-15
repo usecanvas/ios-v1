@@ -24,7 +24,7 @@ final class BillboardView: UIStackView {
 	
 	let subtitleLabel: UILabel = {
 		let label = UILabel()
-		label.textColor = Swatch.gray
+		label.textColor = Swatch.darkGray
 		label.numberOfLines = 0
 		label.textAlignment = .Center
 		return label

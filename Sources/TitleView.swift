@@ -29,13 +29,13 @@ final class TitleView: UIView {
 	
 	private let lockView: UIImageView = {
 		let view = UIImageView(image: UIImage(named: "Lock"))
-		view.tintColor = Swatch.gray
+		view.tintColor = Swatch.darkGray
 		return view
 	}()
 	
 	private let titleLabel: UILabel = {
 		let label = UILabel()
-		label.textColor = Swatch.gray
+		label.textColor = Swatch.darkGray
 		label.font = Font.sansSerif(weight: .medium)
 		return label
 	}()

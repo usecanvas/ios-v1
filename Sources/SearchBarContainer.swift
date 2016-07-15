@@ -39,7 +39,7 @@ final class SearchBarContainer: UIView {
 
 		if let string = searchBar.placeholder {
 			let placeholder = NSAttributedString(string: string, attributes: [
-				NSForegroundColorAttributeName: Swatch.gray,
+				NSForegroundColorAttributeName: Swatch.darkGray,
 				NSFontAttributeName: Font.sansSerif(size: .small)
 			])
 			UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).attributedPlaceholder = placeholder

@@ -18,7 +18,7 @@ final class PlaceholderViewController: UIViewController {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.text = "No Canvas Selected"
-		label.textColor = Swatch.gray
+		label.textColor = Swatch.darkGray
 		return label
 	}()
 

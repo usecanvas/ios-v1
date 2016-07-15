@@ -116,7 +116,7 @@ extension AppDelegate: UIApplicationDelegate {
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(promptForRemoteNotifications), name: IntercomDidStartNewConversationNotification, object: nil)
 
 		// Appearance
-		UIImageView.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = Swatch.gray
+		UIImageView.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = Swatch.darkGray
 
 		// Defaults
 		dispatch_async(dispatch_get_main_queue()) {

@@ -31,7 +31,7 @@ final class IndicatorButton: PillButton {
 		indicator.translatesAutoresizingMaskIntoConstraints = false
 		indicator.userInteractionEnabled = false
 		indicator.hidesWhenStopped = true
-		indicator.color = Swatch.gray
+		indicator.color = Swatch.darkGray
 		return indicator
 	}()
 

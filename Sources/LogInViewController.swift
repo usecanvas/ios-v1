@@ -42,7 +42,7 @@ final class LogInViewController: SessionFormViewController {
 		if OnePasswordExtension.sharedExtension().isAppExtensionAvailable() {
 			let button = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 44))
 			button.setImage(UIImage(named: "1Password"), forState: .Normal)
-			button.imageView?.tintColor = Swatch.gray
+			button.imageView?.tintColor = Swatch.darkGray
 			button.addTarget(self, action: #selector(onePassword), forControlEvents: .TouchUpInside)
 			button.adjustsImageWhenHighlighted = true
 			passwordTextField.rightView = button

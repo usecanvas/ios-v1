@@ -44,7 +44,7 @@ final class OnboardingViewController: UIViewController {
 	
 	private let pageControl: UIPageControl = {
 		let control = UIPageControl()
-		control.currentPageIndicatorTintColor = Swatch.gray
+		control.currentPageIndicatorTintColor = Swatch.darkGray
 		control.pageIndicatorTintColor = Swatch.lightGray
 		control.numberOfPages = 4
 		return control

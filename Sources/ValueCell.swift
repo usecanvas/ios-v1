@@ -14,7 +14,7 @@ final class ValueCell: UITableViewCell, CellType {
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: .Value1, reuseIdentifier: reuseIdentifier)
 		textLabel?.textColor = Swatch.black
-		detailTextLabel?.textColor = Swatch.gray
+		detailTextLabel?.textColor = Swatch.darkGray
 	}
 	
 	required init?(coder aDecoder: NSCoder) {

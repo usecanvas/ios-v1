@@ -18,7 +18,7 @@ final class GroupedSectionHeaderView: SectionHeaderView {
 		super.init(frame: frame)
 
 		backgroundColor = Swatch.groupedTableBackground
-		tintColor = Swatch.gray
+		tintColor = Swatch.darkGray
 	}
 	
 	required init?(coder aDecoder: NSCoder) {

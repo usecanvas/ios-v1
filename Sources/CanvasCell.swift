@@ -47,7 +47,7 @@ final class CanvasCell: UITableViewCell {
 		let label = TickingLabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.backgroundColor = Swatch.white
-		label.textColor = Swatch.gray
+		label.textColor = Swatch.darkGray
 		label.highlightedTextColor = Swatch.white
 		label.textAlignment = .Right
 		return label
@@ -70,8 +70,8 @@ final class CanvasCell: UITableViewCell {
 				titleLabel.textColor = Swatch.black
 				summaryLabel.textColor = Swatch.black
 			} else {
-				titleLabel.textColor = Swatch.gray
-				summaryLabel.textColor = Swatch.gray
+				titleLabel.textColor = Swatch.darkGray
+				summaryLabel.textColor = Swatch.darkGray
 			}
 
 			timeLabel.date = canvas.updatedAt

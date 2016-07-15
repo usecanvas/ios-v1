@@ -71,7 +71,7 @@ final class AlertController: UIAlertController {
 			if label.text == title {
 				label.attributedText = NSAttributedString(string: label.text ?? "", attributes: [
 					NSFontAttributeName: label.font,
-					NSForegroundColorAttributeName: Swatch.gray
+					NSForegroundColorAttributeName: Swatch.darkGray
 				])
 				return
 			}
