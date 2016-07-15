@@ -15,7 +15,7 @@ class SessionFormViewController: StackViewController {
 
 	// MARK: - Properties
 
-	let iconView: UIView = {
+	let iconView: UIStackView = {
 		let stackView = UIStackView()
 		stackView.axis = .Vertical
 		stackView.alignment = .Center
@@ -96,9 +96,11 @@ class SessionFormViewController: StackViewController {
 		let unit = self.unit
 
 		// Icon
+		iconView.addSpace(unit * 2)
+		updateIconView()
+		
 		if view.bounds.height > 568 {
 			stackView.addArrangedSubview(iconView)
-			stackView.addSpace(unit * 2)
 		}
 
 		// Title
@@ -139,6 +141,14 @@ class SessionFormViewController: StackViewController {
 		endEditing()
 	}
 
+	override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+		super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+
+		coordinator.animateAlongsideTransition({ [weak self] _ in
+			self?.updateIconView()
+		}, completion: nil)
+	}
+
 
 	// MARK: - Actions
 
@@ -171,6 +181,10 @@ class SessionFormViewController: StackViewController {
 	
 	@objc private func endEditing() {
 		view.endEditing(false)
+	}
+
+	private func updateIconView() {
+		iconView.hidden = traitCollection.userInterfaceIdiom == .Pad && view.bounds.height < 1024
 	}
 }
 
