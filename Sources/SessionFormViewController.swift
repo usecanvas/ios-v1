@@ -58,8 +58,8 @@ class SessionFormViewController: StackViewController {
 		return button
 	}()
 
-	let footerButton: PrefaceButton = {
-		let button = PrefaceButton()
+	let footerButton: FooterButton = {
+		let button = FooterButton()
 		button.translatesAutoresizingMaskIntoConstraints = false
 		return button
 	}()
@@ -75,6 +75,10 @@ class SessionFormViewController: StackViewController {
 			submitButton.loading = loading
 			UIApplication.sharedApplication().networkActivityIndicatorVisible = loading
 		}
+	}
+
+	var unit: CGFloat {
+		return view.bounds.height > 480 ? 8 : 4
 	}
 
 
@@ -94,23 +98,23 @@ class SessionFormViewController: StackViewController {
 			stackView.addArrangedSubview(iconView)
 
 			if view.bounds.height > 568 {
-				stackView.addSpace(16)
+				stackView.addSpace(unit * 2)
 				stackView.addArrangedSubview(headingLabel)
-				stackView.addSpace(8)
+				stackView.addSpace(unit)
 			} else {
-				stackView.addSpace(16)
+				stackView.addSpace(unit * 2)
 			}
 		}
 
 		// Text fields
 		textFields.forEach { textField in
-			stackView.addSpace(16)
+			stackView.addSpace(unit * 2)
 			stackView.addArrangedSubview(textField)
 			textField.delegate = self
 			textField.addTarget(self, action: #selector(updateSubmitButton), forControlEvents: .EditingChanged)
 		}
 
-		stackView.addSpace(32)
+		stackView.addSpace(unit * 4)
 		submitButton.addTarget(self, action: #selector(submit), forControlEvents: .TouchUpInside)
 		stackView.addArrangedSubview(submitButton)
 
@@ -119,8 +123,7 @@ class SessionFormViewController: StackViewController {
 		NSLayoutConstraint.activateConstraints([
 			footerButton.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
 			footerButton.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor),
-			footerButton.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor),
-			footerButton.heightAnchor.constraintEqualToConstant(48)
+			footerButton.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor)
 		])
 		
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateFonts), name: UIContentSizeCategoryDidChangeNotification, object: nil)

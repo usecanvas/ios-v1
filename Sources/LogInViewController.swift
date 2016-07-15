@@ -35,7 +35,7 @@ final class LogInViewController: SessionFormViewController {
 		let forgotButton = PrefaceButton()
 		forgotButton.set(preface: "Trouble logging in?", title: "Reset your password.")
 		forgotButton.addTarget(self, action: #selector(forgotPassword), forControlEvents: .TouchUpInside)
-		stackView.addSpace(32)
+		stackView.addSpace(unit * 4)
 		stackView.addArrangedSubview(forgotButton)
 
 		// 1Password
