@@ -93,17 +93,18 @@ class SessionFormViewController: StackViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		// Icon
-		if view.bounds.height > 480 {
-			stackView.addArrangedSubview(iconView)
+		let unit = self.unit
 
-			if view.bounds.height > 568 {
-				stackView.addSpace(unit * 2)
-				stackView.addArrangedSubview(headingLabel)
-				stackView.addSpace(unit)
-			} else {
-				stackView.addSpace(unit * 2)
-			}
+		// Icon
+		if view.bounds.height > 568 {
+			stackView.addArrangedSubview(iconView)
+			stackView.addSpace(unit * 2)
+		}
+
+		// Title
+		if view.bounds.height > 480 {
+			stackView.addArrangedSubview(headingLabel)
+			stackView.addSpace(unit)
 		}
 
 		// Text fields
