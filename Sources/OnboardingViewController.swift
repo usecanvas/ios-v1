@@ -63,8 +63,8 @@ final class OnboardingViewController: UIViewController {
 		return recognizer
 	}()
 	private var startingOffset: CGFloat = 0
-	
-	
+
+
 	// MARK: - Initializers
 	
 	init() {
@@ -152,12 +152,22 @@ final class OnboardingViewController: UIViewController {
 		
 		scrollView.contentSize = CGSize(width: size.width * CGFloat(viewControllers.count), height: size.height)
 	}
-	
+
+	override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+		super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+
+		let page = currentPageIndex()
+
+		coordinator.animateAlongsideTransition({ [weak self] _ in
+			self?.scrollTo(page: page, animated: false, width: size.width)
+		}, completion: nil)
+	}
+
 	
 	// MARK: - Private
 	
-	private func scrollTo(page page: Int, animated: Bool = true, completion: (Void -> ())? = nil) {
-		let width = scrollView.frame.width
+	private func scrollTo(page page: Int, animated: Bool = true, width: CGFloat? = nil, completion: (Void -> ())? = nil) {
+		let width = width ?? scrollView.frame.width
 		let rect = CGRect(x: width * CGFloat(page), y: 0, width: width, height: 1)
 
 		UIView.animateWithDuration(animated ? 0.3 : 0, animations: { [weak self] in
