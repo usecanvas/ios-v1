@@ -12,6 +12,10 @@ final class ChromeActivity: WebActivity {
 
 	// MARK: - UIActivity
 
+	override func activityType() -> String? {
+		return "open-in-chrome"
+	}
+
 	override func activityTitle() -> String? {
 		return "Open in Chrome"
 	}

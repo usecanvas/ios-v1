@@ -129,8 +129,22 @@ extension EditorViewController {
 		dismissKeyboard(sender)
 		
 		guard let URL = canvas.url else { return }
-		let activities = [SafariActivity(), ChromeActivity()]
+
+		let activities = [
+			CopyLinkActivity(),
+			CopyRepresentationActivity(representation: .markdown),
+			SafariActivity(),
+			ChromeActivity(),
+			CopyRepresentationActivity(representation: .html),
+			CopyRepresentationActivity(representation: .json)
+		]
+
 		let actionSheet = UIActivityViewController(activityItems: [URL], applicationActivities: activities)
+		actionSheet.excludedActivityTypes = [
+			UIActivityTypeAddToReadingList,
+			UIActivityTypeCopyToPasteboard
+		]
+
 		present(actionSheet: actionSheet, sender: sender)
 	}
 	

@@ -165,6 +165,10 @@
 		218A75D11CECD06500459BC9 /* GradientView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218A75B71CECD02F00459BC9 /* GradientView.framework */; };
 		218B6BAA1D08D23400A170E5 /* UISplitViewController+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B6BA91D08D23400A170E5 /* UISplitViewController+Canvas.swift */; };
 		218B6BAB1D08D23400A170E5 /* UISplitViewController+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B6BA91D08D23400A170E5 /* UISplitViewController+Canvas.swift */; };
+		21A6CB0C1D39724F0004F739 /* CopyLinkActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A6CB0B1D39724F0004F739 /* CopyLinkActivity.swift */; };
+		21A6CB0D1D39724F0004F739 /* CopyLinkActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A6CB0B1D39724F0004F739 /* CopyLinkActivity.swift */; };
+		21A6CB541D3974670004F739 /* CopyRepresentationActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A6CB531D3974670004F739 /* CopyRepresentationActivity.swift */; };
+		21A6CB551D3974670004F739 /* CopyRepresentationActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A6CB531D3974670004F739 /* CopyRepresentationActivity.swift */; };
 		21A77E091D07E53200340243 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A77E081D07E53200340243 /* Starscream.framework */; };
 		21A77E0A1D07E53600340243 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A77E081D07E53200340243 /* Starscream.framework */; };
 		21A77E121D0803C600340243 /* AvatarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A77E111D0803C600340243 /* AvatarsView.swift */; };
@@ -859,6 +863,8 @@
 		21880C041D1ED73000C144DB /* StackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
 		218A75B71CECD02F00459BC9 /* GradientView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GradientView.framework; path = Carthage/Build/iOS/GradientView.framework; sourceTree = "<group>"; };
 		218B6BA91D08D23400A170E5 /* UISplitViewController+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISplitViewController+Canvas.swift"; sourceTree = "<group>"; };
+		21A6CB0B1D39724F0004F739 /* CopyLinkActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyLinkActivity.swift; sourceTree = "<group>"; };
+		21A6CB531D3974670004F739 /* CopyRepresentationActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyRepresentationActivity.swift; sourceTree = "<group>"; };
 		21A77E081D07E53200340243 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
 		21A77E111D0803C600340243 /* AvatarsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarsView.swift; sourceTree = "<group>"; };
 		21A77E141D08053A00340243 /* AvatarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
@@ -1043,6 +1049,8 @@
 				2107D2F31CC58F7B001963B7 /* WebActivity.swift */,
 				2107D2E91CC58F7B001963B7 /* SafariActivity.swift */,
 				2107D2D41CC58F7A001963B7 /* ChromeActivity.swift */,
+				21A6CB0B1D39724F0004F739 /* CopyLinkActivity.swift */,
+				21A6CB531D3974670004F739 /* CopyRepresentationActivity.swift */,
 			);
 			name = "Share Activities";
 			sourceTree = "<group>";
@@ -2179,6 +2187,7 @@
 				21501D5F1CCAA2B900B02FC5 /* CanvasesResultsViewController.swift in Sources */,
 				21BF511E1D233357001801A5 /* SleepPickerViewController.swift in Sources */,
 				212D8EC71CE62AE00039A3EE /* IndicatorButton.swift in Sources */,
+				21A6CB551D3974670004F739 /* CopyRepresentationActivity.swift in Sources */,
 				21F95DC91D2ECB75006B4100 /* OnboardingGesturesViewController.swift in Sources */,
 				218B6BAB1D08D23400A170E5 /* UISplitViewController+Canvas.swift in Sources */,
 				21501D601CCAA2B900B02FC5 /* UIEdgeInsets+Canvas.swift in Sources */,
@@ -2200,6 +2209,7 @@
 				21501D691CCAA2B900B02FC5 /* NSDate+Canvas.swift in Sources */,
 				21BF50D61D232B19001801A5 /* (null) in Sources */,
 				210B1C981D0B14A600B08A81 /* SharedWebCredentials.swift in Sources */,
+				21A6CB0D1D39724F0004F739 /* CopyLinkActivity.swift in Sources */,
 				21F95DCC1D2ECB9F006B4100 /* OnboardingOrigamiViewController.swift in Sources */,
 				21501D6A1CCAA2B900B02FC5 /* CGRect+Canvas.swift in Sources */,
 				21501D6B1CCAA2B900B02FC5 /* Organization+Canvas.swift in Sources */,
@@ -2263,6 +2273,7 @@
 				2107D3081CC58F7B001963B7 /* CanvasesResultsViewController.swift in Sources */,
 				21BF511D1D233357001801A5 /* SleepPickerViewController.swift in Sources */,
 				212D8EC61CE62AE00039A3EE /* IndicatorButton.swift in Sources */,
+				21A6CB541D3974670004F739 /* CopyRepresentationActivity.swift in Sources */,
 				21F95DC81D2ECB75006B4100 /* OnboardingGesturesViewController.swift in Sources */,
 				218B6BAA1D08D23400A170E5 /* UISplitViewController+Canvas.swift in Sources */,
 				2107D3291CC58F7B001963B7 /* UIEdgeInsets+Canvas.swift in Sources */,
@@ -2284,6 +2295,7 @@
 				2107D3191CC58F7B001963B7 /* NSDate+Canvas.swift in Sources */,
 				21BF50D51D232B19001801A5 /* (null) in Sources */,
 				210B1C971D0B14A600B08A81 /* SharedWebCredentials.swift in Sources */,
+				21A6CB0C1D39724F0004F739 /* CopyLinkActivity.swift in Sources */,
 				21F95DCB1D2ECB9F006B4100 /* OnboardingOrigamiViewController.swift in Sources */,
 				2107D30B1CC58F7B001963B7 /* CGRect+Canvas.swift in Sources */,
 				2107D31A1CC58F7B001963B7 /* Organization+Canvas.swift in Sources */,

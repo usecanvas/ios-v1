@@ -18,10 +18,6 @@ class WebActivity: UIActivity {
 
 	// MARK: - UIActivity
 
-	override func activityType() -> String? {
-		return "WebActivity"
-	}
-
 	override func prepareWithActivityItems(activityItems: [AnyObject]) {
 		for activityItem in activityItems {
 			if let URL = activityItem as? NSURL {

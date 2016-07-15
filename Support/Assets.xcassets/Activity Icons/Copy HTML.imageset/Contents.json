@@ -1,0 +1,16 @@
+{
+  "images" : [
+    {
+      "idiom" : "iphone",
+      "filename" : "Copy HTML.pdf"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "Copy HTML~iPad.pdf"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

@@ -12,6 +12,10 @@ final class SafariActivity: WebActivity {
 
 	// MARK: - UIActivity
 
+	override func activityType() -> String? {
+		return "open-in-safari"
+	}
+
 	override func activityTitle() -> String? {
 		return "Open in Safari"
 	}
