@@ -85,20 +85,8 @@ final class SignUpViewController: SessionFormViewController {
 	// MARK: - Private
 
 	private func showVerify() {
-		let viewController = VerifyViewController()
-		addChildViewController(viewController)
-		view.addSubview(viewController.view)
-
-		// TODO: Add viewController.logInButton action
-
-		viewController.view.translatesAutoresizingMaskIntoConstraints = false
-
-		NSLayoutConstraint.activateConstraints([
-			viewController.view.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
-			viewController.view.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor),
-			viewController.view.topAnchor.constraintEqualToAnchor(view.topAnchor),
-			viewController.view.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor)
-		])
+		guard let rootViewController = UIApplication.sharedApplication().delegate?.window??.rootViewController as? RootViewController else { return }
+		rootViewController.viewController = VerifyViewController()
 	}
 }
 

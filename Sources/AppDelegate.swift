@@ -74,11 +74,27 @@ import Intercom
 	}
 	
 	private func verifyAccount(url url: NSURL) -> Bool {
-//		guard let components = url.pathComponents where components.count == 1 && components[0] == "verify" else { return }
-//		
-//		guard let items = NSURLComponents(URL: url, resolvingAgainstBaseURL: false)?.queryItems,
-//			token = items.index
-		return false
+		guard let components = url.pathComponents where components.count == 2 && components[1] == "verify" else { return false }
+
+		guard let items = NSURLComponents(URL: url, resolvingAgainstBaseURL: false)?.queryItems,
+			index = items.indexOf({ $0.name == "token" }),
+			token = items[index].value
+		else { return false }
+
+		let viewController: VerifyViewController
+
+		if let vc = rootViewController.viewController as? VerifyViewController {
+			viewController = vc
+		} else {
+			// Log out before we do anything else
+			AccountController.sharedController.currentAccount = nil
+
+			viewController = VerifyViewController()
+			rootViewController.viewController = viewController
+		}
+
+		viewController.verify(token: token)
+		return true
 	}
 }
 

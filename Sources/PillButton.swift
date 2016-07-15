@@ -41,6 +41,7 @@ class PillButton: UIButton {
 	override func intrinsicContentSize() -> CGSize {
 		var size = super.intrinsicContentSize()
 		size.height = 48
+		size.width += 32 * 2
 		return size
 	}
 
