@@ -94,7 +94,17 @@ class OnboardingBillboardViewController: StackViewController {
 	
 	override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
 		super.traitCollectionDidChange(previousTraitCollection)
-		textIllustrationSpacing.constant = traitCollection.horizontalSizeClass == .Regular ? 48 : 32
+
+		let spacing: CGFloat
+
+		if view.bounds.height > 480 {
+			spacing = traitCollection.horizontalSizeClass == .Regular ? 48 : 32
+		} else {
+			spacing = 16
+		}
+
+		textIllustrationSpacing.constant = spacing
+		
 		updateIllustration()
 	}
 	
