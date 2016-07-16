@@ -13,7 +13,7 @@ final class CopyLinkActivity: UIActivity {
 
 	// MARK: - Properties
 
-	var url: NSURL?
+	private var url: NSURL?
 
 
 	// MARK: - UIActivity
@@ -27,7 +27,7 @@ final class CopyLinkActivity: UIActivity {
 
 	override func performActivity() {
 		UIPasteboard.generalPasteboard().URL = url
-		showBanner(text: "Copied!")
+		showBanner(text: "Copied link!")
 	}
 
 	override func activityType() -> String? {
