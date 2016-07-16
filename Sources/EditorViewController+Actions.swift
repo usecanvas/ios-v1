@@ -131,10 +131,10 @@ extension EditorViewController {
 		guard let URL = canvas.url else { return }
 
 		let activities = [
-			CopyLinkActivity(),
-			CopyRepresentationActivity(representation: .markdown),
 			SafariActivity(),
 			ChromeActivity(),
+			CopyLinkActivity(),
+			CopyRepresentationActivity(representation: .markdown),
 			CopyRepresentationActivity(representation: .html),
 			CopyRepresentationActivity(representation: .json)
 		]
