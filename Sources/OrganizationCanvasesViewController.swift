@@ -132,11 +132,6 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		let header = SearchBarContainer(searchBar: searchViewController.searchBar)
 		tableView.tableHeaderView = header
 
-		let topView = UIView(frame: CGRect(x: 0, y: -view.bounds.height, width: view.bounds.width, height: view.bounds.height))
-		topView.autoresizingMask = [.FlexibleWidth, .FlexibleBottomMargin]
-		topView.backgroundColor = UIColor(patternImage: UIImage(named: "IllustrationLight")!)
-		tableView.addSubview(topView)
-
 		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Compose"), style: .Plain, target: self, action: #selector(createCanvas))
 	}
 
