@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		210259791D3A83DE00A74753 /* UIActivity+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210259781D3A83DE00A74753 /* UIActivity+Canvas.swift */; };
+		2102597A1D3A83DE00A74753 /* UIActivity+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210259781D3A83DE00A74753 /* UIActivity+Canvas.swift */; };
 		2107D3021CC58F7B001963B7 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CA1CC58F7A001963B7 /* AlertController.swift */; };
 		2107D3031CC58F7B001963B7 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CB1CC58F7A001963B7 /* Analytics.swift */; };
 		2107D3041CC58F7B001963B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CC1CC58F7A001963B7 /* AppDelegate.swift */; };
@@ -782,6 +784,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		210259781D3A83DE00A74753 /* UIActivity+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIActivity+Canvas.swift"; sourceTree = "<group>"; };
 		2107D2CA1CC58F7A001963B7 /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		2107D2CB1CC58F7A001963B7 /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		2107D2CC1CC58F7A001963B7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -972,6 +975,7 @@
 				2107D2F11CC58F7B001963B7 /* UIEdgeInsets+Canvas.swift */,
 				2107D2F21CC58F7B001963B7 /* UIFont+Canvas.swift */,
 				212299B71CE3E79C00033D94 /* UIViewController+Canvas.swift */,
+				210259781D3A83DE00A74753 /* UIActivity+Canvas.swift */,
 				2117A0951D0642A400E60821 /* UIColor+Canvas.swift */,
 				218B6BA91D08D23400A170E5 /* UISplitViewController+Canvas.swift */,
 			);
@@ -2193,6 +2197,7 @@
 				21501D601CCAA2B900B02FC5 /* UIEdgeInsets+Canvas.swift in Sources */,
 				21501D611CCAA2B900B02FC5 /* TextView.swift in Sources */,
 				21501D621CCAA2B900B02FC5 /* Color+Canvas.swift in Sources */,
+				2102597A1D3A83DE00A74753 /* UIActivity+Canvas.swift in Sources */,
 				21D91E7B1D36A39700BADD0B /* VerifyViewController.swift in Sources */,
 				21501D631CCAA2B900B02FC5 /* OrganizationsViewController.swift in Sources */,
 				21D91E811D36AA0600BADD0B /* FooterButton.swift in Sources */,
@@ -2279,6 +2284,7 @@
 				2107D3291CC58F7B001963B7 /* UIEdgeInsets+Canvas.swift in Sources */,
 				2107D3251CC58F7B001963B7 /* TextView.swift in Sources */,
 				2107D30D1CC58F7B001963B7 /* Color+Canvas.swift in Sources */,
+				210259791D3A83DE00A74753 /* UIActivity+Canvas.swift in Sources */,
 				21D91E7A1D36A39700BADD0B /* VerifyViewController.swift in Sources */,
 				2107D31E1CC58F7B001963B7 /* OrganizationsViewController.swift in Sources */,
 				21D91E801D36AA0600BADD0B /* FooterButton.swift in Sources */,

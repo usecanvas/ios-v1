@@ -8,20 +8,32 @@
 
 import UIKit
 
+// TODO: Localize
 final class CopyLinkActivity: UIActivity {
+
+	// MARK: - Properties
+
+	var url: NSURL?
+
 
 	// MARK: - UIActivity
 
 	override func canPerformWithActivityItems(activityItems: [AnyObject]) -> Bool {
-		// TODO: Implement
+		guard let url = activityItems.first as? NSURL else { return false }
+
+		self.url = url
 		return true
+	}
+
+	override func performActivity() {
+		UIPasteboard.generalPasteboard().URL = url
+		showBanner(text: "Copied!")
 	}
 
 	override func activityType() -> String? {
 		return "copy-link"
 	}
 
-	// TODO: Localize
 	override func activityTitle() -> String? {
 		return "Copy Link"
 	}
