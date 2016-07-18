@@ -1,0 +1,13 @@
+Write with your team, in realtime, using markdown with Canvas. Canvas is the best way to take meeting notes, work on product features, or keep track of those personal notes.
+
+## Realtime Collaboration
+
+Canvas makes it easy to collaborate with anyone in the blink of an eye. Share the link to a canvas with your co-workers and see them show up. Then it’s just a matter of typing.
+
+## Swipe to Format
+
+Use easy swipe gestures to make a checklist, headers and more. Prefer to type? No one likes preview panes. Canvas lets you write Markdown and elegantly folds away the markup when it’s superfluous.
+
+## Find What You’re Looking For
+
+Use blazing fast search to find what you’re looking for without digging through folders.
