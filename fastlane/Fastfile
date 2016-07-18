@@ -1,17 +1,11 @@
-update_fastlane
 fastlane_version '1.97.2'
 
 default_platform :ios
 
 platform :ios do
-  before_all do
-    carthage
-  end
-
-  desc 'Runs all the tests'
-  lane :test do
-    scan
-  end
+  # before_all do
+  #   carthage
+  # end
 
   desc 'Submit a new Beta Build to Apple TestFlight'
   desc 'This will also make sure the profile is up to date'
