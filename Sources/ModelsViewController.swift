@@ -50,6 +50,10 @@ class ModelsViewController: TableViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 
+	deinit {
+		refreshView.scrollView = nil
+	}
+
 
 	// MARK: - UIResponder
 
