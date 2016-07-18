@@ -96,6 +96,8 @@ class ModelsViewController: TableViewController {
 		if refreshView.scrollView == nil {
 			refreshView.scrollView = tableView
 		}
+
+		refreshView.defaultContentInsets = UIEdgeInsetsMake(topLayoutGuide.length, 0, 0, 0)
 	}
 
 
