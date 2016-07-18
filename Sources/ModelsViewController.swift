@@ -42,10 +42,8 @@ class ModelsViewController: TableViewController {
 		let content = SimpleContentView()
 		content.statusLabel.textColor = Swatch.darkGray
 
-		refreshView.scrollView = tableView
 		refreshView.delegate = self
 		refreshView.contentView = content
-		refreshView.defaultContentInsets = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0)
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -86,6 +84,14 @@ class ModelsViewController: TableViewController {
 		super.viewWillAppear(animated)
 		opening = false
 		refresh()
+	}
+
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+
+		if refreshView.scrollView == nil {
+			refreshView.scrollView = tableView
+		}
 	}
 
 
