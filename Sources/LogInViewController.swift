@@ -30,6 +30,8 @@ final class LogInViewController: SessionFormViewController {
 
 		submitButton.setTitle(LocalizedString.LogInButton.string, forState: .Normal)
 
+		emailTextField.accessibilityLabel = "Log in email or username"
+		passwordTextField.accessibilityLabel = "Log in password"
 		footerButton.set(preface: "Don’t have an account?", title: "Sign up.")
 
 		let forgotButton = PrefaceButton()

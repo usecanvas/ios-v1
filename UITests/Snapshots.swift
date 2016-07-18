@@ -8,10 +8,16 @@
 
 import XCTest
 
-class CanvasUITests: XCTestCase {
+class Snapshots: XCTestCase {
 	override func setUp() {
 		super.setUp()
 		continueAfterFailure = false
-		XCUIApplication().launch()
+
+		let app = XCUIApplication()
+		app.launchArguments.append("-snapshot")
+
+		setupSnapshot(app)
+
+		app.launch()
 	}
 }
