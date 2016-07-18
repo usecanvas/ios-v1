@@ -1,0 +1,28 @@
+fastlane_version '1.97.2'
+
+default_platform :ios
+
+platform :ios do
+  # before_all do
+  #   carthage
+  # end
+
+  desc 'Submit a new Beta Build to Apple TestFlight'
+  desc 'This will also make sure the profile is up to date'
+  lane :beta do
+    gym(scheme: 'Canvas')
+    pilot
+  end
+
+  desc 'Deploy a new version to the App Store'
+  lane :appstore do
+    gym(scheme: 'Canvas')
+    deliver(force: true)
+  end
+
+  after_all do |lane|
+    # slack(
+    #   message: 'Successfully deployed new App Update.'
+    # )
+  end
+end

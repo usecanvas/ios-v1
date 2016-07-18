@@ -109,6 +109,11 @@ extension AppDelegate: UIApplicationDelegate {
 		// Analytics
 		Analytics.track(.LaunchedApp)
 
+		// If we're snapshotting, log the use out
+		if NSProcessInfo.processInfo().isSnapshotting {
+			AccountController.sharedController.currentAccount = nil
+		}
+
 		// Intercom
 		Intercom.setApiKey("ios_sdk-23875f0968eab5b49e236e42b70aed9548312a77", forAppId: "zv4qksyq")
 		Intercom.setPreviewPosition(.BottomRight)

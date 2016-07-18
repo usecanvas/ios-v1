@@ -130,6 +130,8 @@
 		21501D961CCAA2B900B02FC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2F91CC58F7B001963B7 /* Main.storyboard */; };
 		21501D971CCAA2B900B02FC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2F61CC58F7B001963B7 /* Assets.xcassets */; };
 		21501D981CCAA2B900B02FC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2107D2F71CC58F7B001963B7 /* LaunchScreen.storyboard */; };
+		215486001D3D4007000D7E77 /* NSProcessInfo+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215485FF1D3D4007000D7E77 /* NSProcessInfo+Canvas.swift */; };
+		215486011D3D4007000D7E77 /* NSProcessInfo+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215485FF1D3D4007000D7E77 /* NSProcessInfo+Canvas.swift */; };
 		215CD8621CE293FF0093C545 /* PlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CD8611CE293FF0093C545 /* PlaceholderViewController.swift */; };
 		215CD8631CE293FF0093C545 /* PlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CD8611CE293FF0093C545 /* PlaceholderViewController.swift */; };
 		215CD89C1CE2A26F0093C545 /* EditorViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B28BF51CDC6049009B9D8F /* EditorViewController+Actions.swift */; };
@@ -167,6 +169,8 @@
 		218A75D11CECD06500459BC9 /* GradientView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218A75B71CECD02F00459BC9 /* GradientView.framework */; };
 		218B6BAA1D08D23400A170E5 /* UISplitViewController+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B6BA91D08D23400A170E5 /* UISplitViewController+Canvas.swift */; };
 		218B6BAB1D08D23400A170E5 /* UISplitViewController+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B6BA91D08D23400A170E5 /* UISplitViewController+Canvas.swift */; };
+		219F67EC1D3D3C9A00FB17E2 /* Snapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219F67EB1D3D3C9A00FB17E2 /* Snapshots.swift */; };
+		219F67F11D3D3D4200FB17E2 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219F67F01D3D3D4200FB17E2 /* SnapshotHelper.swift */; };
 		21A6CB0C1D39724F0004F739 /* CopyLinkActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A6CB0B1D39724F0004F739 /* CopyLinkActivity.swift */; };
 		21A6CB0D1D39724F0004F739 /* CopyLinkActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A6CB0B1D39724F0004F739 /* CopyLinkActivity.swift */; };
 		21A6CB541D3974670004F739 /* CopyRepresentationActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A6CB531D3974670004F739 /* CopyRepresentationActivity.swift */; };
@@ -731,6 +735,13 @@
 			remoteGlobalIDString = 216B1C8B1D17199B007D022B;
 			remoteInfo = "CanvasCore-iOS";
 		};
+		219F67A01D3D3C7C00FB17E2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21F10F421BF138750035057D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21F10F491BF138750035057D;
+			remoteInfo = Canvas;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -850,6 +861,7 @@
 		2147A2FB1CDA7B2E008A2709 /* DragContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragContext.swift; sourceTree = "<group>"; };
 		214F9FF61CC6DE4600927A07 /* CanvasTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasTextView.swift; sourceTree = "<group>"; };
 		21501DAA1CCAA2B900B02FC5 /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		215485FF1D3D4007000D7E77 /* NSProcessInfo+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSProcessInfo+Canvas.swift"; sourceTree = "<group>"; };
 		215CD8611CE293FF0093C545 /* PlaceholderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderViewController.swift; sourceTree = "<group>"; };
 		2176755A1D174F1300003D89 /* Crypto.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Crypto.xcodeproj; path = Vendor/CanvasCore/Vendor/Crypto/Crypto.xcodeproj; sourceTree = "<group>"; };
 		2176755D1D174F1300003D89 /* Cache.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Cache.xcodeproj; path = Vendor/CanvasCore/Vendor/Cache/Cache.xcodeproj; sourceTree = "<group>"; };
@@ -866,6 +878,10 @@
 		21880C041D1ED73000C144DB /* StackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
 		218A75B71CECD02F00459BC9 /* GradientView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GradientView.framework; path = Carthage/Build/iOS/GradientView.framework; sourceTree = "<group>"; };
 		218B6BA91D08D23400A170E5 /* UISplitViewController+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISplitViewController+Canvas.swift"; sourceTree = "<group>"; };
+		219F679B1D3D3C7C00FB17E2 /* CanvasUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CanvasUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		219F67EB1D3D3C9A00FB17E2 /* Snapshots.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snapshots.swift; sourceTree = "<group>"; };
+		219F67ED1D3D3CA400FB17E2 /* UITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UITests-Info.plist"; sourceTree = "<group>"; };
+		219F67F01D3D3D4200FB17E2 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		21A6CB0B1D39724F0004F739 /* CopyLinkActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyLinkActivity.swift; sourceTree = "<group>"; };
 		21A6CB531D3974670004F739 /* CopyRepresentationActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyRepresentationActivity.swift; sourceTree = "<group>"; };
 		21A77E081D07E53200340243 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
@@ -915,6 +931,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		219F67981D3D3C7C00FB17E2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		21F10F471BF138750035057D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -959,6 +982,7 @@
 				2107D2FB1CC58F7B001963B7 /* Canvas Dev.entitlements */,
 				2107D2FC1CC58F7B001963B7 /* Canvas.entitlements */,
 				2107D2FF1CC58F7B001963B7 /* Info.plist */,
+				219F67ED1D3D3CA400FB17E2 /* UITests-Info.plist */,
 				2107D3001CC58F7B001963B7 /* Settings.bundle */,
 			);
 			path = Support;
@@ -978,6 +1002,7 @@
 				210259781D3A83DE00A74753 /* UIActivity+Canvas.swift */,
 				2117A0951D0642A400E60821 /* UIColor+Canvas.swift */,
 				218B6BA91D08D23400A170E5 /* UISplitViewController+Canvas.swift */,
+				215485FF1D3D4007000D7E77 /* NSProcessInfo+Canvas.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -1336,6 +1361,15 @@
 			name = Avatars;
 			sourceTree = "<group>";
 		};
+		219F67EA1D3D3C9A00FB17E2 /* UITests */ = {
+			isa = PBXGroup;
+			children = (
+				219F67EB1D3D3C9A00FB17E2 /* Snapshots.swift */,
+				219F67F01D3D3D4200FB17E2 /* SnapshotHelper.swift */,
+			);
+			path = UITests;
+			sourceTree = "<group>";
+		};
 		21D91E331D36A38A00BADD0B /* Sessions */ = {
 			isa = PBXGroup;
 			children = (
@@ -1352,6 +1386,7 @@
 			children = (
 				2107D2C81CC58F7A001963B7 /* Sources */,
 				2107D2F51CC58F7B001963B7 /* Support */,
+				219F67EA1D3D3C9A00FB17E2 /* UITests */,
 				217676451D174F2900003D89 /* Vendor */,
 				21F7EF271CD91D58004E80E2 /* Frameworks */,
 				21F10F4B1BF138750035057D /* Products */,
@@ -1364,6 +1399,7 @@
 			children = (
 				21F10F4A1BF138750035057D /* Canvas.app */,
 				21501DAA1CCAA2B900B02FC5 /* Canvas.app */,
+				219F679B1D3D3C7C00FB17E2 /* CanvasUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1424,6 +1460,24 @@
 			productReference = 21501DAA1CCAA2B900B02FC5 /* Canvas.app */;
 			productType = "com.apple.product-type.application";
 		};
+		219F679A1D3D3C7C00FB17E2 /* CanvasUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 219F67E91D3D3C7C00FB17E2 /* Build configuration list for PBXNativeTarget "CanvasUITests" */;
+			buildPhases = (
+				219F67971D3D3C7C00FB17E2 /* Sources */,
+				219F67981D3D3C7C00FB17E2 /* Frameworks */,
+				219F67991D3D3C7C00FB17E2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				219F67A11D3D3C7C00FB17E2 /* PBXTargetDependency */,
+			);
+			name = CanvasUITests;
+			productName = CanvasUITests;
+			productReference = 219F679B1D3D3C7C00FB17E2 /* CanvasUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		21F10F491BF138750035057D /* Canvas */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21F10F5C1BF138750035057D /* Build configuration list for PBXNativeTarget "Canvas" */;
@@ -1465,6 +1519,10 @@
 								enabled = 0;
 							};
 						};
+					};
+					219F679A1D3D3C7C00FB17E2 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 21F10F491BF138750035057D;
 					};
 					21F10F491BF138750035057D = {
 						CreatedOnToolsVersion = 7.1;
@@ -1563,6 +1621,7 @@
 			targets = (
 				21F10F491BF138750035057D /* Canvas */,
 				21501D431CCAA2B900B02FC5 /* Canvas Dev */,
+				219F679A1D3D3C7C00FB17E2 /* CanvasUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -2073,6 +2132,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		219F67991D3D3C7C00FB17E2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		21F10F481BF138750035057D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2250,6 +2316,7 @@
 				21501D801CCAA2B900B02FC5 /* Analytics.swift in Sources */,
 				21501D811CCAA2B900B02FC5 /* TextField.swift in Sources */,
 				21D326601D258F8F00EB7D74 /* LogInViewController.swift in Sources */,
+				215486011D3D4007000D7E77 /* NSProcessInfo+Canvas.swift in Sources */,
 				21501D831CCAA2B900B02FC5 /* SearchBarContainer.swift in Sources */,
 				2112CBC11D24DB8800B214F7 /* TitleView.swift in Sources */,
 				21501D851CCAA2B900B02FC5 /* UIFont+Canvas.swift in Sources */,
@@ -2257,6 +2324,15 @@
 				21F95DC31D2EC8D2006B4100 /* OnboardingBillboardViewController.swift in Sources */,
 				21501D861CCAA2B900B02FC5 /* OrganizationAvatarView.swift in Sources */,
 				21A77E131D0803C600340243 /* AvatarsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		219F67971D3D3C7C00FB17E2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				219F67EC1D3D3C9A00FB17E2 /* Snapshots.swift in Sources */,
+				219F67F11D3D3D4200FB17E2 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2337,6 +2413,7 @@
 				2107D3031CC58F7B001963B7 /* Analytics.swift in Sources */,
 				2107D3131CC58F7B001963B7 /* TextField.swift in Sources */,
 				21D3265F1D258F8F00EB7D74 /* LogInViewController.swift in Sources */,
+				215486001D3D4007000D7E77 /* NSProcessInfo+Canvas.swift in Sources */,
 				2107D3221CC58F7B001963B7 /* SearchBarContainer.swift in Sources */,
 				2112CBC01D24DB8800B214F7 /* TitleView.swift in Sources */,
 				2107D32A1CC58F7B001963B7 /* UIFont+Canvas.swift in Sources */,
@@ -2359,6 +2436,11 @@
 			isa = PBXTargetDependency;
 			name = "CanvasCore-iOS";
 			targetProxy = 217676741D17503700003D89 /* PBXContainerItemProxy */;
+		};
+		219F67A11D3D3C7C00FB17E2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21F10F491BF138750035057D /* Canvas */;
+			targetProxy = 219F67A01D3D3C7C00FB17E2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2428,6 +2510,32 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.usecanvas.canvas.dev;
 				PRODUCT_NAME = Canvas;
 				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		219F67A21D3D3C7C00FB17E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = "Support/UITests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.usecanvas.canvas.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Canvas;
+			};
+			name = Debug;
+		};
+		219F67A31D3D3C7C00FB17E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = "Support/UITests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.usecanvas.canvas.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Canvas;
 			};
 			name = Release;
 		};
@@ -2574,6 +2682,15 @@
 			buildConfigurations = (
 				21501DA81CCAA2B900B02FC5 /* Debug */,
 				21501DA91CCAA2B900B02FC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		219F67E91D3D3C7C00FB17E2 /* Build configuration list for PBXNativeTarget "CanvasUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				219F67A21D3D3C7C00FB17E2 /* Debug */,
+				219F67A31D3D3C7C00FB17E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

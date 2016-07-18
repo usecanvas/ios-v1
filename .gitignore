@@ -11,10 +11,10 @@
 Carthage
 
 # Fastlane
-.fastlane/report.xml
-.fastlane/Preview.html
-.fastlane/screenshots
-.fastlane/test_output
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/test_output
+Preview.html
 
 # Products
 *.zip

@@ -36,6 +36,11 @@ struct SharedWebCredentials {
 	// MARK: - Accessing Credentials
 
 	static func get(domain domain: String? = nil, account: String? = nil, completion: (credential: Credential?, error: CFError?) -> Void) {
+		if NSProcessInfo.processInfo().isSnapshotting {
+			completion(credential: nil, error: nil)
+			return
+		}
+
 		SecRequestSharedWebCredential(domain, account) { array, error in
 			let credential: Credential?
 
@@ -50,12 +55,22 @@ struct SharedWebCredentials {
 	}
 
 	static func add(domain domain: String, account: String, password: String, completion: ((error: CFError?) -> Void)? = nil) {
+		if NSProcessInfo.processInfo().isSnapshotting {
+			completion?(error: nil)
+			return
+		}
+
 		SecAddSharedWebCredential(domain, account, password) { error in
 			completion?(error: error)
 		}
 	}
 
 	static func remove(domain domain: String, account: String, completion: ((error: CFError?) -> Void)? = nil) {
+		if NSProcessInfo.processInfo().isSnapshotting {
+			completion?(error: nil)
+			return
+		}
+		
 		SecAddSharedWebCredential(domain, account, nil) { error in
 			completion?(error: error)
 		}
