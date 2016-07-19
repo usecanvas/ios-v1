@@ -23,20 +23,6 @@ extension EditorViewController {
 		textView.resignFirstResponder()
 	}
 
-	private func present(actionSheet actionSheet: UIViewController, sender: AnyObject?, animated: Bool = true, completion: (() -> Void)? = nil) {
-		if let popover = actionSheet.popoverPresentationController {
-			if let button = sender as? UIBarButtonItem {
-				popover.barButtonItem = button
-			} else if let sourceView = sender as? UIView {
-				popover.sourceView = sourceView
-			} else {
-				popover.sourceView = view
-			}
-		}
-
-		presentViewController(actionSheet, animated: animated, completion: completion)
-	}
-
 	func more(sender: AnyObject?) {
 		// If you can't edit the document, all you can do is share.
 		if !canvas.isWritable {

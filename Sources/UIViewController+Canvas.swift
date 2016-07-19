@@ -9,6 +9,20 @@
 import UIKit
 
 extension UIViewController {
+	func present(actionSheet actionSheet: UIViewController, sender: AnyObject?, animated: Bool = true, completion: (() -> Void)? = nil) {
+		if let popover = actionSheet.popoverPresentationController {
+			if let button = sender as? UIBarButtonItem {
+				popover.barButtonItem = button
+			} else if let sourceView = sender as? UIView {
+				popover.sourceView = sourceView
+			} else {
+				popover.sourceView = view
+			}
+		}
+
+		presentViewController(actionSheet, animated: animated, completion: completion)
+	}
+
 	func dismissDetailViewController(sender: AnyObject?) {
 		if let splitViewController = splitViewController where !splitViewController.collapsed {
 			splitViewController.dismissDetailViewController(sender)

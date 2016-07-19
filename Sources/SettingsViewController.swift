@@ -70,7 +70,7 @@ final class SettingsViewController: TableViewController, Accountable {
 				Row(text: "Help", cellClass: ButtonCell.self, selection: help, image: UIImage(named: "Help"))
 			], footer: footer),
 			Section(rows: [
-				Row(text: "Log Out", cellClass: ButtonCell.self, selection: logOut, image: UIImage(named: "SignOut"))
+				Row(text: "Log Out", cellClass: DestructiveButtonCell.self, selection: logOut, image: UIImage(named: "SignOut"))
 			])
 		]
 	}
@@ -100,6 +100,19 @@ final class SettingsViewController: TableViewController, Accountable {
 
 	private func logOut() {
 		deselectRow()
+
+		let actionSheet = AlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+		actionSheet.addAction(UIAlertAction(title: "Log Out", style: .Destructive, handler: { [weak self] _ in
+			self?.actuallyLogOut()
+		}))
+		actionSheet.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+		actionSheet.primaryAction = actuallyLogOut
+
+		let row = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 3, inSection: 0))
+		present(actionSheet: actionSheet, sender: row)
+	}
+
+	private func actuallyLogOut() {
 		AccountController.sharedController.currentAccount = nil
 	}
 

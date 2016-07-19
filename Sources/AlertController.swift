@@ -47,8 +47,9 @@ final class AlertController: UIAlertController {
 	}
 
 	func selectFirstAction(sender: AnyObject?) {
-		primaryAction?()
-		dismissViewControllerAnimated(true, completion: nil)
+		dismissViewControllerAnimated(true) {
+			self.primaryAction?()
+		}
 	}
 
 

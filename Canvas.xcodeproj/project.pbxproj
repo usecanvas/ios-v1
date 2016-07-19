@@ -199,6 +199,8 @@
 		21D326601D258F8F00EB7D74 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D3265E1D258F8F00EB7D74 /* LogInViewController.swift */; };
 		21D326621D258FA800EB7D74 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D326611D258FA800EB7D74 /* SettingsViewController.swift */; };
 		21D326631D258FA800EB7D74 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D326611D258FA800EB7D74 /* SettingsViewController.swift */; };
+		21D6BC271D3DB4AC002B92C8 /* DestructiveValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D6BC261D3DB4AC002B92C8 /* DestructiveValueCell.swift */; };
+		21D6BC281D3DB4AC002B92C8 /* DestructiveValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D6BC261D3DB4AC002B92C8 /* DestructiveValueCell.swift */; };
 		21D91E7A1D36A39700BADD0B /* VerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D91E791D36A39700BADD0B /* VerifyViewController.swift */; };
 		21D91E7B1D36A39700BADD0B /* VerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D91E791D36A39700BADD0B /* VerifyViewController.swift */; };
 		21D91E7D1D36A7DA00BADD0B /* PrefaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D91E7C1D36A7DA00BADD0B /* PrefaceButton.swift */; };
@@ -896,6 +898,7 @@
 		21C650031D2C7FB100EA3127 /* BillboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillboardView.swift; sourceTree = "<group>"; };
 		21D3265E1D258F8F00EB7D74 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		21D326611D258FA800EB7D74 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		21D6BC261D3DB4AC002B92C8 /* DestructiveValueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestructiveValueCell.swift; sourceTree = "<group>"; };
 		21D91E791D36A39700BADD0B /* VerifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyViewController.swift; sourceTree = "<group>"; };
 		21D91E7C1D36A7DA00BADD0B /* PrefaceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefaceButton.swift; sourceTree = "<group>"; };
 		21D91E7F1D36AA0600BADD0B /* FooterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooterButton.swift; sourceTree = "<group>"; };
@@ -1336,6 +1339,7 @@
 				2107D2CF1CC58F7A001963B7 /* CanvasCell.swift */,
 				2107D2E71CC58F7B001963B7 /* OrganizationCell.swift */,
 				21298CD01D26F11100E741EE /* ValueCell.swift */,
+				21D6BC261D3DB4AC002B92C8 /* DestructiveValueCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -2277,6 +2281,7 @@
 				21501D681CCAA2B900B02FC5 /* Configuration.swift in Sources */,
 				21F95DC61D2EC902006B4100 /* OnboardingWelcomeViewController.swift in Sources */,
 				2122BFF11CFE4FF900A038DE /* LoadCanvasViewController.swift in Sources */,
+				21D6BC281D3DB4AC002B92C8 /* DestructiveValueCell.swift in Sources */,
 				21501D691CCAA2B900B02FC5 /* NSDate+Canvas.swift in Sources */,
 				21BF50D61D232B19001801A5 /* (null) in Sources */,
 				210B1C981D0B14A600B08A81 /* SharedWebCredentials.swift in Sources */,
@@ -2374,6 +2379,7 @@
 				2107D30F1CC58F7B001963B7 /* Configuration.swift in Sources */,
 				21F95DC51D2EC902006B4100 /* OnboardingWelcomeViewController.swift in Sources */,
 				2122BFF01CFE4FF900A038DE /* LoadCanvasViewController.swift in Sources */,
+				21D6BC271D3DB4AC002B92C8 /* DestructiveValueCell.swift in Sources */,
 				2107D3191CC58F7B001963B7 /* NSDate+Canvas.swift in Sources */,
 				21BF50D51D232B19001801A5 /* (null) in Sources */,
 				210B1C971D0B14A600B08A81 /* SharedWebCredentials.swift in Sources */,

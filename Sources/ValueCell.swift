@@ -1,5 +1,5 @@
 //
-//  Value1Cell.swift
+//  ValueCell.swift
 //  Canvas
 //
 //  Created by Sam Soffes on 7/1/16.
