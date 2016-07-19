@@ -4,3 +4,6 @@
 [submodule "Vendor/Intercom"]
 	path = Vendor/Intercom
 	url = https://github.com/intercom/intercom-ios.git
+[submodule "Vendor/PullToRefresh"]
+	path = Vendor/PullToRefresh
+	url = https://github.com/soffes/SSPullToRefresh

@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import CanvasCore
 import CanvasKit
 import Static
+import PullToRefresh
 
 // TODO: Localize this class
 class ModelsViewController: TableViewController {
@@ -18,10 +20,37 @@ class ModelsViewController: TableViewController {
 	var loading = false {
 		didSet {
 			UIApplication.sharedApplication().networkActivityIndicatorVisible = loading
+
+			if loading {
+				refreshView.startRefreshing(false)
+			} else {
+				refreshView.finishRefreshing()
+			}
 		}
 	}
 
 	var opening = false
+
+	let refreshView = RefreshView()
+
+
+	// MARK: - Initializers
+
+	override init(style: UITableViewStyle) {
+		super.init(style: style)
+
+		refreshView.expandedHeight = 48 + 32
+		refreshView.delegate = self
+		refreshView.contentView = RefreshContentView()
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+
+	deinit {
+		refreshView.scrollView = nil
+	}
 
 
 	// MARK: - UIResponder
@@ -53,18 +82,20 @@ class ModelsViewController: TableViewController {
 
 	// MARK: - UIViewController
 
-//	override func viewDidLoad() {
-//		super.viewDidLoad()
-//
-//		let control = UIRefreshControl()
-//		control.addTarget(self, action: "refresh", forControlEvents: .ValueChanged)
-//		refreshControl = control
-//	}
-
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		opening = false
 		refresh()
+	}
+
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+
+		if refreshView.scrollView == nil {
+			refreshView.scrollView = tableView
+		}
+
+		refreshView.defaultContentInsets = UIEdgeInsetsMake(topLayoutGuide.length, 0, 0, 0)
 	}
 
 
@@ -85,4 +116,18 @@ class ModelsViewController: TableViewController {
 	@objc private func goBack() {
 		navigationController?.popViewControllerAnimated(true)
 	}
+}
+
+
+extension ModelsViewController: RefreshViewDelegate {
+	func refreshViewDidStartRefreshing(refreshView: RefreshView) {
+		refresh()
+	}
+
+	func refreshViewShouldStartRefreshing(refreshView: RefreshView) -> Bool { return true }
+	func refreshViewDidFinishRefreshing(refreshView: RefreshView) {}
+	func lastUpdatedAtForRefreshView(refreshView: RefreshView) -> NSDate? { return nil }
+	func refreshView(refreshView: RefreshView, didUpdateContentInset contentInset: UIEdgeInsets) {}
+	func refreshView(refreshView: RefreshView, willTransitionTo to: RefreshView.State, from: RefreshView.State, animated: Bool) {}
+	func refreshView(refreshView: RefreshView, didTransitionTo to: RefreshView.State, from: RefreshView.State, animated: Bool) {}
 }

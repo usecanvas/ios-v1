@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		210259791D3A83DE00A74753 /* UIActivity+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210259781D3A83DE00A74753 /* UIActivity+Canvas.swift */; };
 		2102597A1D3A83DE00A74753 /* UIActivity+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210259781D3A83DE00A74753 /* UIActivity+Canvas.swift */; };
+		21025A4A1D3AAE0800A74753 /* PullToRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21025A431D3AADF900A74753 /* PullToRefresh.framework */; };
+		21025A4B1D3AAE1B00A74753 /* PullToRefresh.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21025A431D3AADF900A74753 /* PullToRefresh.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		21025A4E1D3AAE2600A74753 /* PullToRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21025A431D3AADF900A74753 /* PullToRefresh.framework */; };
+		21025A4F1D3AAE2D00A74753 /* PullToRefresh.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21025A431D3AADF900A74753 /* PullToRefresh.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2107D3021CC58F7B001963B7 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CA1CC58F7A001963B7 /* AlertController.swift */; };
 		2107D3031CC58F7B001963B7 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CB1CC58F7A001963B7 /* Analytics.swift */; };
 		2107D3041CC58F7B001963B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CC1CC58F7A001963B7 /* AppDelegate.swift */; };
@@ -210,6 +214,8 @@
 		21DF11F11D273D8F0018AFD7 /* Intercom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21298D471D27349800E741EE /* Intercom.framework */; };
 		21F0C1331D3DB997001D77E7 /* CanvasActivitySource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F0C1321D3DB997001D77E7 /* CanvasActivitySource.swift */; };
 		21F0C1341D3DB997001D77E7 /* CanvasActivitySource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F0C1321D3DB997001D77E7 /* CanvasActivitySource.swift */; };
+		21F2D75D1D3DEBB100ADA4D5 /* RefreshContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F2D75C1D3DEBB100ADA4D5 /* RefreshContentView.swift */; };
+		21F2D75E1D3DEBB100ADA4D5 /* RefreshContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F2D75C1D3DEBB100ADA4D5 /* RefreshContentView.swift */; };
 		21F7EF2B1CD91D70004E80E2 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF281CD91D70004E80E2 /* Mixpanel.framework */; };
 		21F7EF2C1CD91D70004E80E2 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF281CD91D70004E80E2 /* Mixpanel.framework */; };
 		21F7EF2D1CD91D70004E80E2 /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF291CD91D70004E80E2 /* OnePasswordExtension.framework */; };
@@ -235,6 +241,41 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		21025A421D3AADF900A74753 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21025A3C1D3AADF900A74753 /* PullToRefresh.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2112CB131D2410F300B214F7;
+			remoteInfo = PullToRefresh;
+		};
+		21025A441D3AADF900A74753 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21025A3C1D3AADF900A74753 /* PullToRefresh.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2112CB1D1D2410F300B214F7;
+			remoteInfo = PullToRefreshTests;
+		};
+		21025A461D3AADF900A74753 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21025A3C1D3AADF900A74753 /* PullToRefresh.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2112CB311D2410FE00B214F7;
+			remoteInfo = Example;
+		};
+		21025A481D3AAE0600A74753 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21025A3C1D3AADF900A74753 /* PullToRefresh.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2112CB121D2410F300B214F7;
+			remoteInfo = PullToRefresh;
+		};
+		21025A4C1D3AAE2300A74753 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21025A3C1D3AADF900A74753 /* PullToRefresh.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2112CB121D2410F300B214F7;
+			remoteInfo = PullToRefresh;
+		};
 		21173CB01D1742080050D524 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 21173C9E1D1742080050D524 /* CanvasCore.xcodeproj */;
@@ -755,6 +796,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				21025A4F1D3AAE2D00A74753 /* PullToRefresh.framework in Embed Frameworks */,
 				217676BB1D17505E00003D89 /* Crypto.framework in Embed Frameworks */,
 				217676BC1D17505E00003D89 /* CommonCrypto.framework in Embed Frameworks */,
 				21298D921D273AA500E741EE /* Intercom.framework in Embed Frameworks */,
@@ -779,6 +821,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				21025A4B1D3AAE1B00A74753 /* PullToRefresh.framework in Embed Frameworks */,
 				217676531D174F6C00003D89 /* Cache.framework in Embed Frameworks */,
 				217676541D174F6C00003D89 /* Diff.framework in Embed Frameworks */,
 				217676551D174F6C00003D89 /* CanvasNative.framework in Embed Frameworks */,
@@ -800,6 +843,7 @@
 
 /* Begin PBXFileReference section */
 		210259781D3A83DE00A74753 /* UIActivity+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIActivity+Canvas.swift"; sourceTree = "<group>"; };
+		21025A3C1D3AADF900A74753 /* PullToRefresh.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PullToRefresh.xcodeproj; path = Vendor/PullToRefresh/PullToRefresh.xcodeproj; sourceTree = "<group>"; };
 		2107D2CA1CC58F7A001963B7 /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		2107D2CB1CC58F7A001963B7 /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		2107D2CC1CC58F7A001963B7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -906,6 +950,7 @@
 		21D91E7F1D36AA0600BADD0B /* FooterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooterButton.swift; sourceTree = "<group>"; };
 		21F0C1321D3DB997001D77E7 /* CanvasActivitySource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasActivitySource.swift; sourceTree = "<group>"; };
 		21F10F4A1BF138750035057D /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		21F2D75C1D3DEBB100ADA4D5 /* RefreshContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshContentView.swift; sourceTree = "<group>"; };
 		21F7EF281CD91D70004E80E2 /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mixpanel.framework; path = Carthage/Build/iOS/Mixpanel.framework; sourceTree = "<group>"; };
 		21F7EF291CD91D70004E80E2 /* OnePasswordExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OnePasswordExtension.framework; path = Carthage/Build/iOS/OnePasswordExtension.framework; sourceTree = "<group>"; };
 		21F7EF2A1CD91D70004E80E2 /* Static.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Static.framework; path = Carthage/Build/iOS/Static.framework; sourceTree = "<group>"; };
@@ -924,6 +969,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21025A4E1D3AAE2600A74753 /* PullToRefresh.framework in Frameworks */,
 				21F7EF301CD91D70004E80E2 /* Static.framework in Frameworks */,
 				21213AB51CDC2F930044D6BE /* Crypto.framework in Frameworks */,
 				21A77E0A1D07E53600340243 /* Starscream.framework in Frameworks */,
@@ -948,6 +994,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21025A4A1D3AAE0800A74753 /* PullToRefresh.framework in Frameworks */,
 				21DF11F11D273D8F0018AFD7 /* Intercom.framework in Frameworks */,
 				21F7EF2F1CD91D70004E80E2 /* Static.framework in Frameworks */,
 				21213A9D1CDC2F8A0044D6BE /* Crypto.framework in Frameworks */,
@@ -964,6 +1011,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21025A3D1D3AADF900A74753 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				21025A431D3AADF900A74753 /* PullToRefresh.framework */,
+				21025A451D3AADF900A74753 /* PullToRefreshTests.xctest */,
+				21025A471D3AADF900A74753 /* Example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		2107D2C81CC58F7A001963B7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -1117,6 +1174,7 @@
 				21C58DD41D023947005AEFE1 /* SectionHeaderView.swift */,
 				2117A02E1D06338C00E60821 /* GroupedSectionHeaderView.swift */,
 				2117A07A1D0641CE00E60821 /* TableView.swift */,
+				21F2D75C1D3DEBB100ADA4D5 /* RefreshContentView.swift */,
 			);
 			name = "Table View";
 			sourceTree = "<group>";
@@ -1278,6 +1336,7 @@
 		217676451D174F2900003D89 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				21025A3C1D3AADF900A74753 /* PullToRefresh.xcodeproj */,
 				21173C9E1D1742080050D524 /* CanvasCore.xcodeproj */,
 				2176755A1D174F1300003D89 /* Crypto.xcodeproj */,
 				2176755D1D174F1300003D89 /* Cache.xcodeproj */,
@@ -1461,6 +1520,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				21025A4D1D3AAE2300A74753 /* PBXTargetDependency */,
 				217676751D17503700003D89 /* PBXTargetDependency */,
 			);
 			name = "Canvas Dev";
@@ -1500,6 +1560,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				21025A491D3AAE0600A74753 /* PBXTargetDependency */,
 				21173CC51D1742510050D524 /* PBXTargetDependency */,
 			);
 			name = Canvas;
@@ -1613,6 +1674,10 @@
 					ProjectRef = 217675661D174F1300003D89 /* OperationalTransformation.xcodeproj */;
 				},
 				{
+					ProductGroup = 21025A3D1D3AADF900A74753 /* Products */;
+					ProjectRef = 21025A3C1D3AADF900A74753 /* PullToRefresh.xcodeproj */;
+				},
+				{
 					ProductGroup = 217675731D174F1300003D89 /* Products */;
 					ProjectRef = 217675721D174F1300003D89 /* SSKeychain.xcodeproj */;
 				},
@@ -1635,6 +1700,27 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		21025A431D3AADF900A74753 /* PullToRefresh.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = PullToRefresh.framework;
+			remoteRef = 21025A421D3AADF900A74753 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21025A451D3AADF900A74753 /* PullToRefreshTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = PullToRefreshTests.xctest;
+			remoteRef = 21025A441D3AADF900A74753 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21025A471D3AADF900A74753 /* Example.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Example.app;
+			remoteRef = 21025A461D3AADF900A74753 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		21173CB11D1742080050D524 /* CanvasCore.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -2278,6 +2364,7 @@
 				21D91E811D36AA0600BADD0B /* FooterButton.swift in Sources */,
 				21501D641CCAA2B900B02FC5 /* TableViewController.swift in Sources */,
 				21501D651CCAA2B900B02FC5 /* NavigationBar.swift in Sources */,
+				21F2D75E1D3DEBB100ADA4D5 /* RefreshContentView.swift in Sources */,
 				2147A2FD1CDA7B35008A2709 /* DragContext.swift in Sources */,
 				21F95DCF1D2ECBBE006B4100 /* OnboardingSharingViewController.swift in Sources */,
 				21298CD21D26F11100E741EE /* ValueCell.swift in Sources */,
@@ -2377,6 +2464,7 @@
 				21D91E801D36AA0600BADD0B /* FooterButton.swift in Sources */,
 				2107D3241CC58F7B001963B7 /* TableViewController.swift in Sources */,
 				2107D3161CC58F7B001963B7 /* NavigationBar.swift in Sources */,
+				21F2D75D1D3DEBB100ADA4D5 /* RefreshContentView.swift in Sources */,
 				2147A2FC1CDA7B2E008A2709 /* DragContext.swift in Sources */,
 				21F95DCE1D2ECBBE006B4100 /* OnboardingSharingViewController.swift in Sources */,
 				21298CD11D26F11100E741EE /* ValueCell.swift in Sources */,
@@ -2439,6 +2527,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		21025A491D3AAE0600A74753 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PullToRefresh;
+			targetProxy = 21025A481D3AAE0600A74753 /* PBXContainerItemProxy */;
+		};
+		21025A4D1D3AAE2300A74753 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PullToRefresh;
+			targetProxy = 21025A4C1D3AAE2300A74753 /* PBXContainerItemProxy */;
+		};
 		21173CC51D1742510050D524 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "CanvasCore-iOS";
