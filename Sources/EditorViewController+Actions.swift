@@ -34,7 +34,8 @@ extension EditorViewController {
 
 		// Archive/unarchive
 		if canvas.archivedAt == nil {
-			actionSheet.addAction(UIAlertAction(title: LocalizedString.ArchiveButton.string, style: .Destructive, handler: showArchive))
+			// TODO: Localize
+			actionSheet.addAction(UIAlertAction(title: "Archive or Delete…", style: .Destructive, handler: showArchive))
 		} else {
 			actionSheet.addAction(UIAlertAction(title: LocalizedString.UnarchiveButton.string, style: .Default, handler: unarchive))
 		}
