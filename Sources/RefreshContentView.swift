@@ -51,13 +51,41 @@ final class RefreshContentView: UIView, ContentView {
 
 	private let backgroundMaskLayer = CAShapeLayer()
 
+	private let contentView: UIView = {
+		let view = UIView()
+		view.translatesAutoresizingMaskIntoConstraints = false
+		return view
+	}()
+
+	private let patternView: UIView = {
+		let view = UIView()
+		view.translatesAutoresizingMaskIntoConstraints = false
+		view.backgroundColor = UIColor(patternImage: UIImage(named: "IllustrationLight")!)
+		return view
+	}()
+
 
 	// MARK: - Initializers
 
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 
-		layer.addSublayer(containerLayer)
+		addSubview(patternView)
+		addSubview(contentView)
+
+		NSLayoutConstraint.activateConstraints([
+			patternView.leadingAnchor.constraintEqualToAnchor(leadingAnchor),
+			patternView.trailingAnchor.constraintEqualToAnchor(trailingAnchor),
+			patternView.bottomAnchor.constraintEqualToAnchor(bottomAnchor),
+			patternView.heightAnchor.constraintEqualToConstant(UIScreen.mainScreen().bounds.height),
+
+			contentView.leadingAnchor.constraintEqualToAnchor(leadingAnchor),
+			contentView.trailingAnchor.constraintEqualToAnchor(trailingAnchor),
+			contentView.topAnchor.constraintEqualToAnchor(topAnchor),
+			contentView.bottomAnchor.constraintEqualToAnchor(bottomAnchor)
+		])
+
+		contentView.layer.addSublayer(containerLayer)
 		containerLayer.addSublayer(backgroundLayer)
 		backgroundLayer.mask = backgroundMaskLayer
 		containerLayer.addSublayer(gradientLayer)
@@ -119,13 +147,13 @@ final class RefreshContentView: UIView, ContentView {
 	}
 
 	private func updateProgress() {
-		var rect = backgroundMaskLayer.bounds
-		rect = rect.insetBy(dx: 8, dy: 8)
+		let fullHeight: CGFloat = 32
+		var rect = CGRect(x: 14, y: 10, width: 36, height: fullHeight)
 
-		let p = state == .Closing ? 1 : progress
-		let fullHeight = rect.size.height
-		rect.size.height *= min(p, 1)
-		rect.origin.y += fullHeight - rect.height
+		if (state == .Closing ? 1 : progress) < 1 {
+			rect.size.height *= min(1, progress)
+			rect.origin.y += fullHeight - rect.height
+		}
 
 		backgroundMaskLayer.path = UIBezierPath(roundedRect: rect, cornerRadius: 2).CGPath
 	}
