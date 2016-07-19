@@ -23,7 +23,7 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 	init(account: Account) {
 		self.account = account
 		super.init(style: .Grouped)
-		title = LocalizedString.OrganizationsTitle.string
+		title = "Canvas" // TODO: Localize
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
 	}
 
