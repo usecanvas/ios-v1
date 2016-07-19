@@ -208,6 +208,8 @@
 		21D91E801D36AA0600BADD0B /* FooterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D91E7F1D36AA0600BADD0B /* FooterButton.swift */; };
 		21D91E811D36AA0600BADD0B /* FooterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D91E7F1D36AA0600BADD0B /* FooterButton.swift */; };
 		21DF11F11D273D8F0018AFD7 /* Intercom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21298D471D27349800E741EE /* Intercom.framework */; };
+		21F0C1331D3DB997001D77E7 /* CanvasActivitySource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F0C1321D3DB997001D77E7 /* CanvasActivitySource.swift */; };
+		21F0C1341D3DB997001D77E7 /* CanvasActivitySource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F0C1321D3DB997001D77E7 /* CanvasActivitySource.swift */; };
 		21F7EF2B1CD91D70004E80E2 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF281CD91D70004E80E2 /* Mixpanel.framework */; };
 		21F7EF2C1CD91D70004E80E2 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF281CD91D70004E80E2 /* Mixpanel.framework */; };
 		21F7EF2D1CD91D70004E80E2 /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF291CD91D70004E80E2 /* OnePasswordExtension.framework */; };
@@ -902,6 +904,7 @@
 		21D91E791D36A39700BADD0B /* VerifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyViewController.swift; sourceTree = "<group>"; };
 		21D91E7C1D36A7DA00BADD0B /* PrefaceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefaceButton.swift; sourceTree = "<group>"; };
 		21D91E7F1D36AA0600BADD0B /* FooterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooterButton.swift; sourceTree = "<group>"; };
+		21F0C1321D3DB997001D77E7 /* CanvasActivitySource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasActivitySource.swift; sourceTree = "<group>"; };
 		21F10F4A1BF138750035057D /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F7EF281CD91D70004E80E2 /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mixpanel.framework; path = Carthage/Build/iOS/Mixpanel.framework; sourceTree = "<group>"; };
 		21F7EF291CD91D70004E80E2 /* OnePasswordExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OnePasswordExtension.framework; path = Carthage/Build/iOS/OnePasswordExtension.framework; sourceTree = "<group>"; };
@@ -1083,6 +1086,7 @@
 				2107D2D41CC58F7A001963B7 /* ChromeActivity.swift */,
 				21A6CB0B1D39724F0004F739 /* CopyLinkActivity.swift */,
 				21A6CB531D3974670004F739 /* CopyRepresentationActivity.swift */,
+				21F0C1321D3DB997001D77E7 /* CanvasActivitySource.swift */,
 			);
 			name = "Share Activities";
 			sourceTree = "<group>";
@@ -2265,6 +2269,7 @@
 				21F95DC91D2ECB75006B4100 /* OnboardingGesturesViewController.swift in Sources */,
 				218B6BAB1D08D23400A170E5 /* UISplitViewController+Canvas.swift in Sources */,
 				21501D601CCAA2B900B02FC5 /* UIEdgeInsets+Canvas.swift in Sources */,
+				21F0C1341D3DB997001D77E7 /* CanvasActivitySource.swift in Sources */,
 				21501D611CCAA2B900B02FC5 /* TextView.swift in Sources */,
 				21501D621CCAA2B900B02FC5 /* Color+Canvas.swift in Sources */,
 				2102597A1D3A83DE00A74753 /* UIActivity+Canvas.swift in Sources */,
@@ -2363,6 +2368,7 @@
 				21F95DC81D2ECB75006B4100 /* OnboardingGesturesViewController.swift in Sources */,
 				218B6BAA1D08D23400A170E5 /* UISplitViewController+Canvas.swift in Sources */,
 				2107D3291CC58F7B001963B7 /* UIEdgeInsets+Canvas.swift in Sources */,
+				21F0C1331D3DB997001D77E7 /* CanvasActivitySource.swift in Sources */,
 				2107D3251CC58F7B001963B7 /* TextView.swift in Sources */,
 				2107D30D1CC58F7B001963B7 /* Color+Canvas.swift in Sources */,
 				210259791D3A83DE00A74753 /* UIActivity+Canvas.swift in Sources */,

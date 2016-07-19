@@ -114,7 +114,7 @@ extension EditorViewController {
 	func share(sender: AnyObject?) {
 		dismissKeyboard(sender)
 		
-		guard let URL = canvas.url else { return }
+		guard let item = CanvasActivitySource(canvas: canvas) else { return }
 
 		let activities = [
 			SafariActivity(),
@@ -125,10 +125,15 @@ extension EditorViewController {
 			CopyRepresentationActivity(representation: .json)
 		]
 
-		let actionSheet = UIActivityViewController(activityItems: [URL], applicationActivities: activities)
+		let actionSheet = UIActivityViewController(activityItems: [item], applicationActivities: activities)
 		actionSheet.excludedActivityTypes = [
+			UIActivityTypePrint,
+			UIActivityTypeCopyToPasteboard,
+			UIActivityTypeAssignToContact,
+			UIActivityTypeSaveToCameraRoll,
 			UIActivityTypeAddToReadingList,
-			UIActivityTypeCopyToPasteboard
+			UIActivityTypePostToFlickr,
+			UIActivityTypePostToVimeo
 		]
 
 		present(actionSheet: actionSheet, sender: sender)
