@@ -87,29 +87,46 @@ final class RefreshContentView: UIView, ContentView {
 	// MARK: - Private
 
 	private func updateState() {
-//		switch state {
-//		case .Closed, .Opening:
-//			statusLabel.text = NSLocalizedString("Pull down to refresh", comment: "")
-//			statusLabel.alpha = 1
-//			activityIndicatorView.stopAnimating()
-//			activityIndicatorView.alpha = 0
-//		case.Ready:
-//			statusLabel.text = NSLocalizedString("Release to refresh", comment: "")
-//			statusLabel.alpha = 1
-//			activityIndicatorView.stopAnimating()
-//			activityIndicatorView.alpha = 0
-//		case .Refreshing:
-//			statusLabel.alpha = 0
-//			activityIndicatorView.startAnimating()
-//			activityIndicatorView.alpha = 1
-//		case .Closing:
-//			statusLabel.text = nil
-//			activityIndicatorView.alpha = 0
-//		}
+		switch state {
+		case .Refreshing:
+			CATransaction.begin()
+			let gradientAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+			gradientAnimation.duration = 1
+			gradientAnimation.repeatCount = Float.infinity
+			gradientAnimation.fromValue = 0
+			gradientAnimation.toValue = M_PI * 2
+			gradientLayer.addAnimation(gradientAnimation, forKey: "gradientSpin")
+
+			let maskAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+			maskAnimation.duration = 1
+			maskAnimation.repeatCount = Float.infinity
+			maskAnimation.fromValue = 0
+			maskAnimation.toValue = -M_PI * 2
+			outlineLayer.addAnimation(maskAnimation, forKey: "maskSpin")
+			CATransaction.commit()
+
+		case .Closed:
+			CATransaction.begin()
+			gradientLayer.removeAnimationForKey("gradientSpin")
+			outlineLayer.removeAnimationForKey("maskSpin")
+			CATransaction.commit()
+
+			progress = 0
+
+		case .Ready, .Closing, .Opening:
+			break
+		}
 	}
 
 	private func updateProgress() {
-		let height = dimension * (progress / 2)
-		backgroundMaskLayer.path = UIBezierPath(roundedRect: CGRectMake(0, dimension - height, dimension, height), cornerRadius: 4).CGPath
+		var rect = backgroundMaskLayer.bounds
+		rect = rect.insetBy(dx: 8, dy: 8)
+
+		let p = state == .Closing ? 1 : progress
+		let fullHeight = rect.size.height
+		rect.size.height *= min(p, 1)
+		rect.origin.y += fullHeight - rect.height
+
+		backgroundMaskLayer.path = UIBezierPath(roundedRect: rect, cornerRadius: 2).CGPath
 	}
 }

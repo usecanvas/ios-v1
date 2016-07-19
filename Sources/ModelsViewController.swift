@@ -39,6 +39,7 @@ class ModelsViewController: TableViewController {
 	override init(style: UITableViewStyle) {
 		super.init(style: style)
 
+		refreshView.expandedHeight = 48 + 32
 		refreshView.delegate = self
 		refreshView.contentView = RefreshContentView()
 	}
