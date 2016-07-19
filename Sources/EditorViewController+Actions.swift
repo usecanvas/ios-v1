@@ -35,7 +35,9 @@ extension EditorViewController {
 		// Archive/unarchive
 		if canvas.archivedAt == nil {
 			// TODO: Localize
-			actionSheet.addAction(UIAlertAction(title: "Archive or Delete…", style: .Destructive, handler: showArchive))
+			actionSheet.addAction(UIAlertAction(title: "Archive or Delete…", style: .Destructive, handler: { [weak self] _ in
+				self?.showArchive(sender)
+			}))
 		} else {
 			actionSheet.addAction(UIAlertAction(title: LocalizedString.UnarchiveButton.string, style: .Default, handler: unarchive))
 		}
@@ -58,11 +60,11 @@ extension EditorViewController {
 	}
 
 	func showArchive(sender: AnyObject?) {
-		let alert = UIAlertController(title: LocalizedString.ArchiveCanvasTitle.string, message: LocalizedString.ArchiveCanvasMessage.string, preferredStyle: .Alert)
-		alert.addAction(UIAlertAction(title: LocalizedString.DeleteButton.string, style: .Destructive, handler: destroy))
-		alert.addAction(UIAlertAction(title: LocalizedString.ArchiveButton.string, style: .Default, handler: archive))
-		alert.addAction(UIAlertAction(title: LocalizedString.Cancel.string, style: .Cancel, handler: nil))
-		presentViewController(alert, animated: true, completion: nil)
+		let actionSheet = UIAlertController(title: nil, message: LocalizedString.ArchiveCanvasMessage.string, preferredStyle: .ActionSheet)
+		actionSheet.addAction(UIAlertAction(title: LocalizedString.DeleteButton.string, style: .Destructive, handler: destroy))
+		actionSheet.addAction(UIAlertAction(title: LocalizedString.ArchiveButton.string, style: .Default, handler: archive))
+		actionSheet.addAction(UIAlertAction(title: LocalizedString.Cancel.string, style: .Cancel, handler: nil))
+		present(actionSheet: actionSheet, sender: sender)
 	}
 
 	func archive(sender: AnyObject?) {
