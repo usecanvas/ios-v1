@@ -132,7 +132,7 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		let header = SearchBarContainer(searchBar: searchViewController.searchBar)
 		tableView.tableHeaderView = header
 
-		let topView = UIView(frame: CGRect(x: 0, y: -400, width: view.bounds.width, height: 400))
+		let topView = UIView(frame: CGRect(x: 0, y: -view.bounds.height, width: view.bounds.width, height: view.bounds.height))
 		topView.autoresizingMask = [.FlexibleWidth, .FlexibleBottomMargin]
 		topView.backgroundColor = UIColor(patternImage: UIImage(named: "IllustrationLight")!)
 		tableView.addSubview(topView)
