@@ -136,7 +136,8 @@ extension EditorViewController {
 			UIActivityTypeSaveToCameraRoll,
 			UIActivityTypeAddToReadingList,
 			UIActivityTypePostToFlickr,
-			UIActivityTypePostToVimeo
+			UIActivityTypePostToVimeo,
+			UIActivityTypeOpenInIBooks
 		]
 
 		present(actionSheet: actionSheet, sender: sender)
