@@ -39,7 +39,7 @@ final class SettingsViewController: TableViewController, Accountable {
 
 		title = "Settings"
 
-		navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Close"), style: .Plain, target: self, action: #selector(close))
+		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Close"), style: .Plain, target: self, action: #selector(close))
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
 
 		tableView.rowHeight = 50
