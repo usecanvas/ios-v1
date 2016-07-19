@@ -39,11 +39,8 @@ class ModelsViewController: TableViewController {
 	override init(style: UITableViewStyle) {
 		super.init(style: style)
 
-		let content = SimpleContentView()
-		content.statusLabel.textColor = Swatch.darkGray
-
 		refreshView.delegate = self
-		refreshView.contentView = content
+		refreshView.contentView = RefreshContentView()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {

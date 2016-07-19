@@ -214,6 +214,8 @@
 		21DF11F11D273D8F0018AFD7 /* Intercom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21298D471D27349800E741EE /* Intercom.framework */; };
 		21F0C1331D3DB997001D77E7 /* CanvasActivitySource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F0C1321D3DB997001D77E7 /* CanvasActivitySource.swift */; };
 		21F0C1341D3DB997001D77E7 /* CanvasActivitySource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F0C1321D3DB997001D77E7 /* CanvasActivitySource.swift */; };
+		21F2D75D1D3DEBB100ADA4D5 /* RefreshContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F2D75C1D3DEBB100ADA4D5 /* RefreshContentView.swift */; };
+		21F2D75E1D3DEBB100ADA4D5 /* RefreshContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F2D75C1D3DEBB100ADA4D5 /* RefreshContentView.swift */; };
 		21F7EF2B1CD91D70004E80E2 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF281CD91D70004E80E2 /* Mixpanel.framework */; };
 		21F7EF2C1CD91D70004E80E2 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF281CD91D70004E80E2 /* Mixpanel.framework */; };
 		21F7EF2D1CD91D70004E80E2 /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF291CD91D70004E80E2 /* OnePasswordExtension.framework */; };
@@ -948,6 +950,7 @@
 		21D91E7F1D36AA0600BADD0B /* FooterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooterButton.swift; sourceTree = "<group>"; };
 		21F0C1321D3DB997001D77E7 /* CanvasActivitySource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasActivitySource.swift; sourceTree = "<group>"; };
 		21F10F4A1BF138750035057D /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		21F2D75C1D3DEBB100ADA4D5 /* RefreshContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshContentView.swift; sourceTree = "<group>"; };
 		21F7EF281CD91D70004E80E2 /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mixpanel.framework; path = Carthage/Build/iOS/Mixpanel.framework; sourceTree = "<group>"; };
 		21F7EF291CD91D70004E80E2 /* OnePasswordExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OnePasswordExtension.framework; path = Carthage/Build/iOS/OnePasswordExtension.framework; sourceTree = "<group>"; };
 		21F7EF2A1CD91D70004E80E2 /* Static.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Static.framework; path = Carthage/Build/iOS/Static.framework; sourceTree = "<group>"; };
@@ -1171,6 +1174,7 @@
 				21C58DD41D023947005AEFE1 /* SectionHeaderView.swift */,
 				2117A02E1D06338C00E60821 /* GroupedSectionHeaderView.swift */,
 				2117A07A1D0641CE00E60821 /* TableView.swift */,
+				21F2D75C1D3DEBB100ADA4D5 /* RefreshContentView.swift */,
 			);
 			name = "Table View";
 			sourceTree = "<group>";
@@ -2360,6 +2364,7 @@
 				21D91E811D36AA0600BADD0B /* FooterButton.swift in Sources */,
 				21501D641CCAA2B900B02FC5 /* TableViewController.swift in Sources */,
 				21501D651CCAA2B900B02FC5 /* NavigationBar.swift in Sources */,
+				21F2D75E1D3DEBB100ADA4D5 /* RefreshContentView.swift in Sources */,
 				2147A2FD1CDA7B35008A2709 /* DragContext.swift in Sources */,
 				21F95DCF1D2ECBBE006B4100 /* OnboardingSharingViewController.swift in Sources */,
 				21298CD21D26F11100E741EE /* ValueCell.swift in Sources */,
@@ -2459,6 +2464,7 @@
 				21D91E801D36AA0600BADD0B /* FooterButton.swift in Sources */,
 				2107D3241CC58F7B001963B7 /* TableViewController.swift in Sources */,
 				2107D3161CC58F7B001963B7 /* NavigationBar.swift in Sources */,
+				21F2D75D1D3DEBB100ADA4D5 /* RefreshContentView.swift in Sources */,
 				2147A2FC1CDA7B2E008A2709 /* DragContext.swift in Sources */,
 				21F95DCE1D2ECBBE006B4100 /* OnboardingSharingViewController.swift in Sources */,
 				21298CD11D26F11100E741EE /* ValueCell.swift in Sources */,
