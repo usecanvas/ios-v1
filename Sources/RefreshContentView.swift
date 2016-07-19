@@ -92,14 +92,14 @@ final class RefreshContentView: UIView, ContentView {
 			CATransaction.begin()
 			let gradientAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
 			gradientAnimation.duration = 1
-			gradientAnimation.repeatCount = Float.infinity
+			gradientAnimation.repeatCount = .infinity
 			gradientAnimation.fromValue = 0
 			gradientAnimation.toValue = M_PI * 2
 			gradientLayer.addAnimation(gradientAnimation, forKey: "gradientSpin")
 
 			let maskAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
 			maskAnimation.duration = 1
-			maskAnimation.repeatCount = Float.infinity
+			maskAnimation.repeatCount = .infinity
 			maskAnimation.fromValue = 0
 			maskAnimation.toValue = -M_PI * 2
 			outlineLayer.addAnimation(maskAnimation, forKey: "maskSpin")
