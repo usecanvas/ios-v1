@@ -11,6 +11,7 @@ import CanvasCore
 import CanvasKit
 import Static
 import Intercom
+import SafariServices
 
 final class SettingsViewController: TableViewController, Accountable {
 
@@ -60,7 +61,7 @@ final class SettingsViewController: TableViewController, Accountable {
 		dataSource.sections = [
 			Section(header: "Account", rows: [
 				Row(text: "Username", detailText: account.user.username, cellClass: ValueCell.self, image: UIImage(named: "Username")),
-				Row(text: "Account Details…", accessory: .DisclosureIndicator, selection: showAccount, image: UIImage(named: "User"), cellClass: ValueCell.self)
+				Row(text: "Account Details", accessory: .DisclosureIndicator, selection: showAccount, image: UIImage(named: "User"), cellClass: ValueCell.self)
 			]),
 			Section(header: "Editor", rows: [
 				Row(text: "Prevent Sleep", detailText: SleepPrevention.currentPreference.description, accessory: .DisclosureIndicator, selection: showSleepPicker, image: UIImage(named: "Moon"), cellClass: ValueCell.self),
@@ -89,8 +90,7 @@ final class SettingsViewController: TableViewController, Accountable {
 
 	private func showAccount() {
 		deselectRow()
-		guard let url = NSURL(string: "https://usecanvas.com/account") else { return }
-		UIApplication.sharedApplication().openURL(url)
+		show(url: NSURL(string: "https://usecanvas.com/account"))
 	}
 
 	private func showSleepPicker() {
@@ -106,5 +106,10 @@ final class SettingsViewController: TableViewController, Accountable {
 	private func help() {
 		deselectRow()
 		Intercom.presentMessageComposer()
+	}
+
+	private func show(url url: NSURL?) {
+		guard let url = url else { return }
+		UIApplication.sharedApplication().openURL(url)
 	}
 }
