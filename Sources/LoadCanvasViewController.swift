@@ -71,7 +71,7 @@ final class LoadCanvasViewController: UIViewController, Accountable {
 
 		fetching = true
 
-		APIClient(account: account).showCanvas(canvasID: canvasID) { result in
+		APIClient(account: account).showCanvas(id: canvasID) { result in
 			dispatch_async(dispatch_get_main_queue()) { [weak self] in
 				switch result {
 				case .Success(let canvas): self?.showEditor(canvas: canvas)

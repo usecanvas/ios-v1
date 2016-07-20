@@ -75,7 +75,7 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 
 	init(account: Account, organization: Organization) {
 		self.organization = organization
-		searchController = SearchController(account: account, organization: organization)
+		searchController = SearchController(client: APIClient(account: account), organizationID: organization.id)
 
 		let results = CanvasesResultsViewController(account: account)
 		searchViewController = UISearchController(searchResultsController: results)
@@ -218,8 +218,8 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 				switch result {
 				case .Success(let canvas):
 					self?.openCanvas(canvas)
-				case .Failure(let message):
-					print("Failed to create canvas: \(message)")
+				case .Failure(_):
+					self?.showBanner(text: "Failed to create canvas", style: .failure) // TODO: Localize
 				}
 			}
 		}
@@ -233,7 +233,7 @@ final class OrganizationCanvasesViewController: CanvasesViewController {
 		clearEditor(canvas)
 		removeCanvas(canvas)
 
-		APIClient(account: account).archiveCanvas(canvasID: canvas.id) { result in
+		APIClient(account: account).archiveCanvas(id: canvas.id) { result in
 			dispatch_async(dispatch_get_main_queue()) { [weak self] in
 				self?.refresh()
 
