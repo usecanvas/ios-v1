@@ -36,8 +36,6 @@ class CanvasesViewController: ModelsViewController, Accountable {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		canRefresh = false
-		
 		tableView.rowHeight = 72
 
 		navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)

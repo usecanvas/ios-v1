@@ -17,6 +17,8 @@ final class CanvasesResultsViewController: CanvasesViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		canRefresh = false
+
 		let line = LineView()
 		line.translatesAutoresizingMaskIntoConstraints = false
 		view.addSubview(line)
