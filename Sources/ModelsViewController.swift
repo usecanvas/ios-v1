@@ -91,7 +91,7 @@ class ModelsViewController: TableViewController {
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
 
-		if refreshView.scrollView == nil {
+		if canRefresh && refreshView.scrollView == nil {
 			refreshView.scrollView = tableView
 		}
 
