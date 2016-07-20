@@ -44,10 +44,7 @@ final class NavigationBar: UINavigationBar {
 		barTintColor = Swatch.white
 		translucent = false
 		shadowImage = UIImage()
-
-		let backIndicatorImageInset = UIEdgeInsetsMake(0, 0, 3, 0)
-		backIndicatorImage = UIImage(named: "ChevronLeft")?.imageWithAlignmentRectInsets(backIndicatorImageInset)
-
+		backIndicatorImage = UIImage(named: "ChevronLeft")
 		backIndicatorTransitionMaskImage = UIImage(named: "ChevronLeft")
 
 		borderColor = Swatch.border
