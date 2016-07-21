@@ -136,6 +136,7 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 	func showSettings(sender: UIBarButtonItem?) {
 		let viewController = SettingsViewController(account: account)
 		let navigationController = NavigationController(rootViewController: viewController)
+		navigationController.modalPresentationStyle = .FormSheet
 		presentViewController(navigationController, animated: true, completion: nil)
 	}
 
