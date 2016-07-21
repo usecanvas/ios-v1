@@ -28,9 +28,7 @@ extension CanvasTextView {
 
 	private func dragBegan() {
 		guard let context = dragContext else { return }
-
-		addSubview(context.backgroundView)
-		addSubview(context.contentView)
+		context.subviews.forEach(addSubview)
 	}
 
 	private func dragChanged() {
@@ -65,7 +63,7 @@ extension CanvasTextView {
 	private func dragEnded(applyAction: Bool) {
 		guard let context = dragContext else { return }
 
-		UIView.animateWithDuration(0.15, delay: 0, options: [], animations: {
+		UIView.animateWithDuration(0.2, delay: 0, options: [], animations: {
 			context.translate(x: 0)
 			}, completion: { [weak self] _ in
 				context.tearDown()
@@ -125,15 +123,10 @@ extension CanvasTextView: UIGestureRecognizerDelegate {
 		// Content
 		let contentView = snapshotViewAfterScreenUpdates(false)
 
-		// Background
-		let background = UIView()
-		background.backgroundColor = backgroundColor
-
 		// Setup context
 		let context = DragContext(
 			block: block,
 			contentView: contentView,
-			backgroundView: background,
 			rect: rect,
 			yContentOffset: contentOffset.y
 		)

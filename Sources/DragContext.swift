@@ -20,25 +20,30 @@ struct DragContext {
 
 	let block: BlockNode
 	let contentView: UIView
-	let backgroundView: UIView
 	let rect: CGRect
 	let yContentOffset: CGFloat
 	var dragAction: DragAction? = nil
 
-	private let dragThreshold: CGFloat = 60
+	var subviews: [UIView] {
+		return [backgroundView, progressView, contentView]
+	}
 
+	private let dragThreshold: CGFloat = 60
+	private let backgroundView = DragBackgroundView()
+	private let progressView = DragProgressView()
+	
 
 	// MARK: - Initializers
 
-	init(block: BlockNode, contentView: UIView, backgroundView: UIView, rect: CGRect, yContentOffset: CGFloat) {
+	init(block: BlockNode, contentView: UIView, rect: CGRect, yContentOffset: CGFloat) {
 		self.block = block
 		self.contentView = contentView
-		self.backgroundView = backgroundView
 		self.rect = rect
 		self.yContentOffset = yContentOffset
 
 		contentView.userInteractionEnabled = false
 		backgroundView.userInteractionEnabled = false
+		progressView.userInteractionEnabled = false
 
 		layoutViews()
 		setupContentViewMask()

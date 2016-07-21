@@ -203,6 +203,10 @@
 		21D326601D258F8F00EB7D74 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D3265E1D258F8F00EB7D74 /* LogInViewController.swift */; };
 		21D326621D258FA800EB7D74 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D326611D258FA800EB7D74 /* SettingsViewController.swift */; };
 		21D326631D258FA800EB7D74 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D326611D258FA800EB7D74 /* SettingsViewController.swift */; };
+		21D5C95A1D4081A300155B93 /* DragBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D5C9591D4081A300155B93 /* DragBackgroundView.swift */; };
+		21D5C95B1D4081A300155B93 /* DragBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D5C9591D4081A300155B93 /* DragBackgroundView.swift */; };
+		21D5C95D1D40833700155B93 /* DragProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D5C95C1D40833700155B93 /* DragProgressView.swift */; };
+		21D5C95E1D40833700155B93 /* DragProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D5C95C1D40833700155B93 /* DragProgressView.swift */; };
 		21D6BC271D3DB4AC002B92C8 /* DestructiveValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D6BC261D3DB4AC002B92C8 /* DestructiveValueCell.swift */; };
 		21D6BC281D3DB4AC002B92C8 /* DestructiveValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D6BC261D3DB4AC002B92C8 /* DestructiveValueCell.swift */; };
 		21D91E7A1D36A39700BADD0B /* VerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D91E791D36A39700BADD0B /* VerifyViewController.swift */; };
@@ -944,6 +948,8 @@
 		21C650031D2C7FB100EA3127 /* BillboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillboardView.swift; sourceTree = "<group>"; };
 		21D3265E1D258F8F00EB7D74 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		21D326611D258FA800EB7D74 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		21D5C9591D4081A300155B93 /* DragBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragBackgroundView.swift; sourceTree = "<group>"; };
+		21D5C95C1D40833700155B93 /* DragProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragProgressView.swift; sourceTree = "<group>"; };
 		21D6BC261D3DB4AC002B92C8 /* DestructiveValueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestructiveValueCell.swift; sourceTree = "<group>"; };
 		21D91E791D36A39700BADD0B /* VerifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyViewController.swift; sourceTree = "<group>"; };
 		21D91E7C1D36A7DA00BADD0B /* PrefaceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefaceButton.swift; sourceTree = "<group>"; };
@@ -1114,6 +1120,7 @@
 		2107D33A1CC591C8001963B7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				21D5C9111D4080A200155B93 /* Text View */,
 				2117A0B41D0643A500E60821 /* Table View */,
 				218995461D1F20C700FCF199 /* Cells */,
 				2189958C1D1F20CE00FCF199 /* Buttons */,
@@ -1122,9 +1129,6 @@
 				2107D2DB1CC58F7A001963B7 /* TextField.swift */,
 				2107D2DE1CC58F7A001963B7 /* NavigationBar.swift */,
 				2107D2EA1CC58F7B001963B7 /* SearchBarContainer.swift */,
-				2107D2ED1CC58F7B001963B7 /* TextView.swift */,
-				214F9FF61CC6DE4600927A07 /* CanvasTextView.swift */,
-				2147A2E21CDA586E008A2709 /* CanvasTextView+Gestures.swift */,
 				2107D2EE1CC58F7B001963B7 /* TickingLabel.swift */,
 				2107D2F01CC58F7B001963B7 /* TintableView.swift */,
 				21C58DB51D022BD8005AEFE1 /* LineView.swift */,
@@ -1435,6 +1439,18 @@
 				219F67F01D3D3D4200FB17E2 /* SnapshotHelper.swift */,
 			);
 			path = UITests;
+			sourceTree = "<group>";
+		};
+		21D5C9111D4080A200155B93 /* Text View */ = {
+			isa = PBXGroup;
+			children = (
+				2107D2ED1CC58F7B001963B7 /* TextView.swift */,
+				214F9FF61CC6DE4600927A07 /* CanvasTextView.swift */,
+				2147A2E21CDA586E008A2709 /* CanvasTextView+Gestures.swift */,
+				21D5C9591D4081A300155B93 /* DragBackgroundView.swift */,
+				21D5C95C1D40833700155B93 /* DragProgressView.swift */,
+			);
+			name = "Text View";
 			sourceTree = "<group>";
 		};
 		21D91E331D36A38A00BADD0B /* Sessions */ = {
@@ -2351,6 +2367,7 @@
 				21501D5F1CCAA2B900B02FC5 /* CanvasesResultsViewController.swift in Sources */,
 				21BF511E1D233357001801A5 /* SleepPickerViewController.swift in Sources */,
 				212D8EC71CE62AE00039A3EE /* IndicatorButton.swift in Sources */,
+				21D5C95B1D4081A300155B93 /* DragBackgroundView.swift in Sources */,
 				21A6CB551D3974670004F739 /* CopyRepresentationActivity.swift in Sources */,
 				21F95DC91D2ECB75006B4100 /* OnboardingGesturesViewController.swift in Sources */,
 				218B6BAB1D08D23400A170E5 /* UISplitViewController+Canvas.swift in Sources */,
@@ -2383,6 +2400,7 @@
 				21501D6B1CCAA2B900B02FC5 /* Organization+Canvas.swift in Sources */,
 				21501D6C1CCAA2B900B02FC5 /* OrganizationCanvasesViewController.swift in Sources */,
 				2117A07C1D0641CE00E60821 /* TableView.swift in Sources */,
+				21D5C95E1D40833700155B93 /* DragProgressView.swift in Sources */,
 				21F95DD21D2ECBFC006B4100 /* OnboardingViewController.swift in Sources */,
 				21501D6F1CCAA2B900B02FC5 /* TickingLabel.swift in Sources */,
 				21501D701CCAA2B900B02FC5 /* CanvasIconView.swift in Sources */,
@@ -2451,6 +2469,7 @@
 				2107D3081CC58F7B001963B7 /* CanvasesResultsViewController.swift in Sources */,
 				21BF511D1D233357001801A5 /* SleepPickerViewController.swift in Sources */,
 				212D8EC61CE62AE00039A3EE /* IndicatorButton.swift in Sources */,
+				21D5C95A1D4081A300155B93 /* DragBackgroundView.swift in Sources */,
 				21A6CB541D3974670004F739 /* CopyRepresentationActivity.swift in Sources */,
 				21F95DC81D2ECB75006B4100 /* OnboardingGesturesViewController.swift in Sources */,
 				218B6BAA1D08D23400A170E5 /* UISplitViewController+Canvas.swift in Sources */,
@@ -2483,6 +2502,7 @@
 				2107D31A1CC58F7B001963B7 /* Organization+Canvas.swift in Sources */,
 				2107D31C1CC58F7B001963B7 /* OrganizationCanvasesViewController.swift in Sources */,
 				2117A07B1D0641CE00E60821 /* TableView.swift in Sources */,
+				21D5C95D1D40833700155B93 /* DragProgressView.swift in Sources */,
 				21F95DD11D2ECBFC006B4100 /* OnboardingViewController.swift in Sources */,
 				2107D3261CC58F7B001963B7 /* TickingLabel.swift in Sources */,
 				2107D30A1CC58F7B001963B7 /* CanvasIconView.swift in Sources */,
