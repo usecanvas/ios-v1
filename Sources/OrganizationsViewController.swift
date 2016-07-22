@@ -39,7 +39,6 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 	override var keyCommands: [UIKeyCommand] {
 		var commands = super.keyCommands ?? []
 		commands += [
-			UIKeyCommand(input: "Q", modifierFlags: [.Shift, .Command], action: #selector(logOut), discoverabilityTitle: LocalizedString.LogOutButton.string),
 			UIKeyCommand(input: "1", modifierFlags: [.Command], action: #selector(openOrganization1), discoverabilityTitle: LocalizedString.PersonalNotes.string)
 		]
 
@@ -143,13 +142,6 @@ final class OrganizationsViewController: ModelsViewController, Accountable {
 	func openAccount() {
 		let URL = NSURL(string: "https://usecanvas.com/account")!
 		UIApplication.sharedApplication().openURL(URL)
-	}
-
-	func logOut() {
-		Analytics.track(.LoggedOut)
-
-		APIClient(account: account).revokeAccessToken()
-		AccountController.sharedController.currentAccount = nil
 	}
 
 	func showPersonalNotes(completion: (() -> Void)? = nil) {

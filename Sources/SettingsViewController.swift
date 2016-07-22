@@ -113,6 +113,9 @@ final class SettingsViewController: TableViewController, Accountable {
 	}
 
 	private func actuallyLogOut() {
+		Analytics.track(.LoggedOut)
+
+		AuthorizationClient().revoke(accessToken: account.accessToken)
 		AccountController.sharedController.currentAccount = nil
 	}
 
