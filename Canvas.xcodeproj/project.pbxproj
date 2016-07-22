@@ -64,8 +64,6 @@
 		2117A07C1D0641CE00E60821 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117A07A1D0641CE00E60821 /* TableView.swift */; };
 		2117A0961D0642A400E60821 /* UIColor+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117A0951D0642A400E60821 /* UIColor+Canvas.swift */; };
 		2117A0971D0642A400E60821 /* UIColor+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117A0951D0642A400E60821 /* UIColor+Canvas.swift */; };
-		211F99941D3F32EB00E0A519 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F99931D3F32EB00E0A519 /* APIClient.swift */; };
-		211F99951D3F32EB00E0A519 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F99931D3F32EB00E0A519 /* APIClient.swift */; };
 		211F9A3E1D3F42FE00E0A519 /* AuthorizationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F9A3D1D3F42FE00E0A519 /* AuthorizationClient.swift */; };
 		211F9A3F1D3F42FE00E0A519 /* AuthorizationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F9A3D1D3F42FE00E0A519 /* AuthorizationClient.swift */; };
 		21213A9C1CDC2F8A0044D6BE /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21213A9A1CDC2F8A0044D6BE /* CommonCrypto.framework */; };
@@ -142,6 +140,8 @@
 		215CD8631CE293FF0093C545 /* PlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CD8611CE293FF0093C545 /* PlaceholderViewController.swift */; };
 		215CD89C1CE2A26F0093C545 /* EditorViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B28BF51CDC6049009B9D8F /* EditorViewController+Actions.swift */; };
 		215CD89D1CE2A26F0093C545 /* EditorViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B28BF51CDC6049009B9D8F /* EditorViewController+Actions.swift */; };
+		215D1AE01D426CE20030D804 /* APIClient+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D1ADF1D426CE20030D804 /* APIClient+Canvas.swift */; };
+		215D1AE11D426CE20030D804 /* APIClient+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D1ADF1D426CE20030D804 /* APIClient+Canvas.swift */; };
 		217676511D174F4000003D89 /* Crypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 217675CE1D174F1400003D89 /* Crypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		217676521D174F4000003D89 /* CommonCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 217675CC1D174F1400003D89 /* CommonCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		217676531D174F6C00003D89 /* Cache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2176757E1D174F1400003D89 /* Cache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -899,7 +899,6 @@
 		2117A02E1D06338C00E60821 /* GroupedSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupedSectionHeaderView.swift; sourceTree = "<group>"; };
 		2117A07A1D0641CE00E60821 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		2117A0951D0642A400E60821 /* UIColor+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Canvas.swift"; sourceTree = "<group>"; };
-		211F99931D3F32EB00E0A519 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		211F9A3D1D3F42FE00E0A519 /* AuthorizationClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationClient.swift; sourceTree = "<group>"; };
 		21213A9A1CDC2F8A0044D6BE /* CommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonCrypto.framework; path = Carthage/Build/iOS/CommonCrypto.framework; sourceTree = "<group>"; };
 		21213A9B1CDC2F8A0044D6BE /* Crypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crypto.framework; path = Carthage/Build/iOS/Crypto.framework; sourceTree = "<group>"; };
@@ -917,6 +916,7 @@
 		21501DAA1CCAA2B900B02FC5 /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		215485FF1D3D4007000D7E77 /* NSProcessInfo+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSProcessInfo+Canvas.swift"; sourceTree = "<group>"; };
 		215CD8611CE293FF0093C545 /* PlaceholderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderViewController.swift; sourceTree = "<group>"; };
+		215D1ADF1D426CE20030D804 /* APIClient+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIClient+Canvas.swift"; sourceTree = "<group>"; };
 		2176755A1D174F1300003D89 /* Crypto.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Crypto.xcodeproj; path = Vendor/CanvasCore/Vendor/Crypto/Crypto.xcodeproj; sourceTree = "<group>"; };
 		2176755D1D174F1300003D89 /* Cache.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Cache.xcodeproj; path = Vendor/CanvasCore/Vendor/Cache/Cache.xcodeproj; sourceTree = "<group>"; };
 		217675601D174F1300003D89 /* Diff.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Diff.xcodeproj; path = Vendor/CanvasCore/Vendor/Diff/Diff.xcodeproj; sourceTree = "<group>"; };
@@ -1038,8 +1038,8 @@
 				2107D33C1CC591DB001963B7 /* Models */,
 				2107D3371CC5918C001963B7 /* Utilities */,
 				2107D33B1CC591CD001963B7 /* Share Activities */,
-				2107D3381CC5919B001963B7 /* Protocols */,
 				2107D3351CC590BE001963B7 /* Extensions */,
+				2107D3381CC5919B001963B7 /* Protocols */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -1074,6 +1074,7 @@
 				2117A0951D0642A400E60821 /* UIColor+Canvas.swift */,
 				218B6BA91D08D23400A170E5 /* UISplitViewController+Canvas.swift */,
 				215485FF1D3D4007000D7E77 /* NSProcessInfo+Canvas.swift */,
+				215D1ADF1D426CE20030D804 /* APIClient+Canvas.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -1091,7 +1092,6 @@
 			isa = PBXGroup;
 			children = (
 				2107D2CB1CC58F7A001963B7 /* Analytics.swift */,
-				211F99931D3F32EB00E0A519 /* APIClient.swift */,
 				211F9A3D1D3F42FE00E0A519 /* AuthorizationClient.swift */,
 				210B1C961D0B14A600B08A81 /* SharedWebCredentials.swift */,
 			);
@@ -2404,7 +2404,6 @@
 				21501D671CCAA2B900B02FC5 /* CanvasesViewController.swift in Sources */,
 				21501D681CCAA2B900B02FC5 /* Configuration.swift in Sources */,
 				21F95DC61D2EC902006B4100 /* OnboardingWelcomeViewController.swift in Sources */,
-				211F99951D3F32EB00E0A519 /* APIClient.swift in Sources */,
 				2122BFF11CFE4FF900A038DE /* LoadCanvasViewController.swift in Sources */,
 				21D6BC281D3DB4AC002B92C8 /* DestructiveValueCell.swift in Sources */,
 				21501D691CCAA2B900B02FC5 /* NSDate+Canvas.swift in Sources */,
@@ -2438,6 +2437,7 @@
 				215CD89C1CE2A26F0093C545 /* EditorViewController+Actions.swift in Sources */,
 				21A77E161D08053A00340243 /* AvatarView.swift in Sources */,
 				21501D7C1CCAA2B900B02FC5 /* AlertController.swift in Sources */,
+				215D1AE11D426CE20030D804 /* APIClient+Canvas.swift in Sources */,
 				2147A2FA1CDA5908008A2709 /* CanvasTextView+Gestures.swift in Sources */,
 				21501D7D1CCAA2B900B02FC5 /* SafariActivity.swift in Sources */,
 				212299CF1CE3E7F200033D94 /* UIViewController+Canvas.swift in Sources */,
@@ -2507,7 +2507,6 @@
 				2107D3091CC58F7B001963B7 /* CanvasesViewController.swift in Sources */,
 				2107D30F1CC58F7B001963B7 /* Configuration.swift in Sources */,
 				21F95DC51D2EC902006B4100 /* OnboardingWelcomeViewController.swift in Sources */,
-				211F99941D3F32EB00E0A519 /* APIClient.swift in Sources */,
 				2122BFF01CFE4FF900A038DE /* LoadCanvasViewController.swift in Sources */,
 				21D6BC271D3DB4AC002B92C8 /* DestructiveValueCell.swift in Sources */,
 				2107D3191CC58F7B001963B7 /* NSDate+Canvas.swift in Sources */,
@@ -2541,6 +2540,7 @@
 				215CD89D1CE2A26F0093C545 /* EditorViewController+Actions.swift in Sources */,
 				21A77E151D08053A00340243 /* AvatarView.swift in Sources */,
 				2107D3021CC58F7B001963B7 /* AlertController.swift in Sources */,
+				215D1AE01D426CE20030D804 /* APIClient+Canvas.swift in Sources */,
 				2147A2E31CDA586E008A2709 /* CanvasTextView+Gestures.swift in Sources */,
 				2107D3211CC58F7B001963B7 /* SafariActivity.swift in Sources */,
 				212299B81CE3E79C00033D94 /* UIViewController+Canvas.swift in Sources */,
