@@ -24,9 +24,32 @@ final class VerifyViewController: UIViewController {
 
 	private var verifying = false {
 		didSet {
+			mailButton.hidden = verifying
+
+			if verifying {
+				activityIndicator.startAnimating()
+			} else {
+				activityIndicator.stopAnimating()
+			}
+
 			updateBillboard()
 		}
 	}
+
+	private let mailButton: UIButton = {
+		let button = PillButton()
+		button.translatesAutoresizingMaskIntoConstraints = false
+		button.setTitle("Open Mail", forState: .Normal)
+		return button
+	}()
+
+	private let activityIndicator: UIActivityIndicatorView = {
+		let view = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+		view.translatesAutoresizingMaskIntoConstraints = false
+		view.tintColor = Swatch.gray
+		view.hidesWhenStopped = true
+		return view
+	}()
 
 
 	// MARK: - UIViewController
@@ -42,17 +65,20 @@ final class VerifyViewController: UIViewController {
 
 		updateBillboard()
 		container.addSubview(billboardView)
+		container.addSubview(activityIndicator)
+
+		NSLayoutConstraint.activateConstraints([
+			activityIndicator.centerXAnchor.constraintEqualToAnchor(billboardView.centerXAnchor),
+			activityIndicator.topAnchor.constraintEqualToAnchor(billboardView.bottomAnchor, constant: 32)
+		])
 
 		if showsMailButton() {
-			let button = PillButton()
-			button.translatesAutoresizingMaskIntoConstraints = false
-			button.setTitle("Open Mail", forState: .Normal)
-			button.addTarget(self, action: #selector(openMail), forControlEvents: .TouchUpInside)
-			view.addSubview(button)
+			mailButton.addTarget(self, action: #selector(openMail), forControlEvents: .TouchUpInside)
+			view.addSubview(mailButton)
 
 			NSLayoutConstraint.activateConstraints([
-				button.centerXAnchor.constraintEqualToAnchor(billboardView.centerXAnchor),
-				button.topAnchor.constraintEqualToAnchor(billboardView.bottomAnchor, constant: 32)
+				mailButton.centerXAnchor.constraintEqualToAnchor(billboardView.centerXAnchor),
+				mailButton.topAnchor.constraintEqualToAnchor(billboardView.bottomAnchor, constant: 32)
 			])
 		}
 
