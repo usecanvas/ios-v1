@@ -2,7 +2,7 @@
 //  APIClient.swift
 //  Canvas
 //
-//  Created by Sam Soffes on 5/24/16.
+//  Created by Sam Soffes on 7/19/16.
 //  Copyright © 2016 Canvas Labs, Inc. All rights reserved.
 //
 
@@ -11,7 +11,7 @@ import CanvasCore
 
 final class APIClient: CanvasKit.APIClient {
 	convenience init(account: Account) {
-		self.init(accessToken: account.accessToken, baseURL: config.environment.baseURL)
+		self.init(accessToken: account.accessToken, baseURL: config.environment.apiURL)
 	}
 
 	override func shouldComplete<T>(request request: NSURLRequest, response: NSHTTPURLResponse?, data: NSData?, error: NSError?, completion: (Result<T> -> Void)?) -> Bool {

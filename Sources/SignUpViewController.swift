@@ -59,7 +59,7 @@ final class SignUpViewController: SessionFormViewController {
 		
 		loading = true
 		
-		let client = AuthorizationClient(clientID: config.canvasClientID, clientSecret: config.canvasClientSecret, baseURL: config.environment.baseURL)
+		let client = AuthorizationClient()
 		client.createAccount(email: email, username: username, password: password) { [weak self] in
 			switch $0 {
 			case .Success(_):

@@ -94,7 +94,7 @@ final class VerifyViewController: UIViewController {
 		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 		verifying = true
 
-		let client = AuthorizationClient(clientID: config.canvasClientID, clientSecret: config.canvasClientSecret)
+		let client = AuthorizationClient()
 		client.verifyAccount(token: token) { result in
 			dispatch_async(dispatch_get_main_queue()) { [weak self] in
 				UIApplication.sharedApplication().networkActivityIndicatorVisible = false

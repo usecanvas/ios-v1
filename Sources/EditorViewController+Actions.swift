@@ -68,12 +68,12 @@ extension EditorViewController {
 	}
 
 	func archive(sender: AnyObject?) {
-		APIClient(account: account).archiveCanvas(canvasID: canvas.id)
+		APIClient(account: account).archiveCanvas(id: canvas.id)
 		close()
 	}
 
 	func unarchive(sender: AnyObject?) {
-		APIClient(account: account).unarchiveCanvas(canvasID: canvas.id) { [weak self] result in
+		APIClient(account: account).unarchiveCanvas(id: canvas.id) { [weak self] result in
 			switch result {
 			case .Success(_): self?.showBanner(text: "Unarchived canvas", style: .success) // TODO: Localize
 			case .Failure(_): self?.showBanner(text: "Failed to unarchive canvas", style: .failure) // TODO: Localize
@@ -82,12 +82,12 @@ extension EditorViewController {
 	}
 
 	func destroy(sender: AnyObject?) {
-		APIClient(account: account).destroyCanvas(canvasID: canvas.id)
+		APIClient(account: account).destroyCanvas(id: canvas.id)
 		close()
 	}
 
 	func enablePublicEdits(sender: AnyObject?) {
-		APIClient(account: account).enablePublicEdits(canvasID: canvas.id) { [weak self] result in
+		APIClient(account: account).changePublicEdits(id: canvas.id, enabled: true) { [weak self] result in
 			dispatch_async(dispatch_get_main_queue()) {
 				switch result {
 				case .Success(let canvas):
@@ -101,7 +101,7 @@ extension EditorViewController {
 	}
 
 	func disablePublicEdits(sender: AnyObject?) {
-		APIClient(account: account).disablePublicEdits(canvasID: canvas.id) { [weak self] result in
+		APIClient(account: account).changePublicEdits(id: canvas.id, enabled: false) { [weak self] result in
 			dispatch_async(dispatch_get_main_queue()) {
 				switch result {
 				case .Success(let canvas):
