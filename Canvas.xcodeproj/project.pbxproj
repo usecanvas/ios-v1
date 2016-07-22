@@ -9,10 +9,6 @@
 /* Begin PBXBuildFile section */
 		210259791D3A83DE00A74753 /* UIActivity+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210259781D3A83DE00A74753 /* UIActivity+Canvas.swift */; };
 		2102597A1D3A83DE00A74753 /* UIActivity+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210259781D3A83DE00A74753 /* UIActivity+Canvas.swift */; };
-		21025A4A1D3AAE0800A74753 /* PullToRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21025A431D3AADF900A74753 /* PullToRefresh.framework */; };
-		21025A4B1D3AAE1B00A74753 /* PullToRefresh.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21025A431D3AADF900A74753 /* PullToRefresh.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		21025A4E1D3AAE2600A74753 /* PullToRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21025A431D3AADF900A74753 /* PullToRefresh.framework */; };
-		21025A4F1D3AAE2D00A74753 /* PullToRefresh.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21025A431D3AADF900A74753 /* PullToRefresh.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2107D3021CC58F7B001963B7 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CA1CC58F7A001963B7 /* AlertController.swift */; };
 		2107D3031CC58F7B001963B7 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CB1CC58F7A001963B7 /* Analytics.swift */; };
 		2107D3041CC58F7B001963B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107D2CC1CC58F7A001963B7 /* AppDelegate.swift */; };
@@ -57,7 +53,6 @@
 		210B1C981D0B14A600B08A81 /* SharedWebCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210B1C961D0B14A600B08A81 /* SharedWebCredentials.swift */; };
 		2112CBC01D24DB8800B214F7 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2112CBBF1D24DB8800B214F7 /* TitleView.swift */; };
 		2112CBC11D24DB8800B214F7 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2112CBBF1D24DB8800B214F7 /* TitleView.swift */; };
-		21173CCB1D1742800050D524 /* CanvasCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21173CB11D1742080050D524 /* CanvasCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2117A02F1D06338C00E60821 /* GroupedSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117A02E1D06338C00E60821 /* GroupedSectionHeaderView.swift */; };
 		2117A0301D06338C00E60821 /* GroupedSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117A02E1D06338C00E60821 /* GroupedSectionHeaderView.swift */; };
 		2117A07B1D0641CE00E60821 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117A07A1D0641CE00E60821 /* TableView.swift */; };
@@ -66,10 +61,6 @@
 		2117A0971D0642A400E60821 /* UIColor+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117A0951D0642A400E60821 /* UIColor+Canvas.swift */; };
 		211F9A3E1D3F42FE00E0A519 /* AuthorizationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F9A3D1D3F42FE00E0A519 /* AuthorizationClient.swift */; };
 		211F9A3F1D3F42FE00E0A519 /* AuthorizationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F9A3D1D3F42FE00E0A519 /* AuthorizationClient.swift */; };
-		21213A9C1CDC2F8A0044D6BE /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21213A9A1CDC2F8A0044D6BE /* CommonCrypto.framework */; };
-		21213A9D1CDC2F8A0044D6BE /* Crypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21213A9B1CDC2F8A0044D6BE /* Crypto.framework */; };
-		21213AB41CDC2F930044D6BE /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21213A9A1CDC2F8A0044D6BE /* CommonCrypto.framework */; };
-		21213AB51CDC2F930044D6BE /* Crypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21213A9B1CDC2F8A0044D6BE /* Crypto.framework */; };
 		212299B81CE3E79C00033D94 /* UIViewController+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212299B71CE3E79C00033D94 /* UIViewController+Canvas.swift */; };
 		212299CF1CE3E7F200033D94 /* UIViewController+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212299B71CE3E79C00033D94 /* UIViewController+Canvas.swift */; };
 		2122BFF01CFE4FF900A038DE /* LoadCanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122BFEF1CFE4FF900A038DE /* LoadCanvasViewController.swift */; };
@@ -84,10 +75,6 @@
 		21298CD21D26F11100E741EE /* ValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21298CD01D26F11100E741EE /* ValueCell.swift */; };
 		212D8EC61CE62AE00039A3EE /* IndicatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212D8EC51CE62AE00039A3EE /* IndicatorButton.swift */; };
 		212D8EC71CE62AE00039A3EE /* IndicatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212D8EC51CE62AE00039A3EE /* IndicatorButton.swift */; };
-		212EE7631D41E30B008AF81F /* Intercom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212EE7621D41E30B008AF81F /* Intercom.framework */; };
-		212EE7641D41E310008AF81F /* Intercom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212EE7621D41E30B008AF81F /* Intercom.framework */; };
-		212EE7C41D41F135008AF81F /* Intercom.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 212EE7621D41E30B008AF81F /* Intercom.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		212EE7C61D41F14F008AF81F /* Intercom.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 212EE7621D41E30B008AF81F /* Intercom.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2147A2E31CDA586E008A2709 /* CanvasTextView+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147A2E21CDA586E008A2709 /* CanvasTextView+Gestures.swift */; };
 		2147A2FA1CDA5908008A2709 /* CanvasTextView+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147A2E21CDA586E008A2709 /* CanvasTextView+Gestures.swift */; };
 		2147A2FC1CDA7B2E008A2709 /* DragContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147A2FB1CDA7B2E008A2709 /* DragContext.swift */; };
@@ -142,37 +129,52 @@
 		215CD89D1CE2A26F0093C545 /* EditorViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B28BF51CDC6049009B9D8F /* EditorViewController+Actions.swift */; };
 		215D1AE01D426CE20030D804 /* APIClient+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D1ADF1D426CE20030D804 /* APIClient+Canvas.swift */; };
 		215D1AE11D426CE20030D804 /* APIClient+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D1ADF1D426CE20030D804 /* APIClient+Canvas.swift */; };
-		217676511D174F4000003D89 /* Crypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 217675CE1D174F1400003D89 /* Crypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		217676521D174F4000003D89 /* CommonCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 217675CC1D174F1400003D89 /* CommonCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		217676531D174F6C00003D89 /* Cache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2176757E1D174F1400003D89 /* Cache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		217676541D174F6C00003D89 /* Diff.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 217675E31D174F1400003D89 /* Diff.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		217676551D174F6C00003D89 /* CanvasNative.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 217675A11D174F1400003D89 /* CanvasNative.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		217676561D174F6C00003D89 /* OperationalTransformation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 217676071D174F1400003D89 /* OperationalTransformation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		217676571D174F6C00003D89 /* CanvasText.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 217675B31D174F1400003D89 /* CanvasText.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		217676581D174F6C00003D89 /* CanvasKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2176758C1D174F1400003D89 /* CanvasKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		217676591D174F6C00003D89 /* ISO8601.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 217675F71D174F1400003D89 /* ISO8601.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2176765A1D174F6C00003D89 /* SSKeychain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 217676161D174F1400003D89 /* SSKeychain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2176765B1D174F6C00003D89 /* Starscream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2176762A1D174F1400003D89 /* Starscream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2176765C1D174F6C00003D89 /* X.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2176763D1D174F1400003D89 /* X.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		217676BB1D17505E00003D89 /* Crypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 217675CE1D174F1400003D89 /* Crypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		217676BC1D17505E00003D89 /* CommonCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 217675CC1D174F1400003D89 /* CommonCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		217676BD1D17505E00003D89 /* Cache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2176757E1D174F1400003D89 /* Cache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		217676BE1D17505E00003D89 /* Diff.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 217675E31D174F1400003D89 /* Diff.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		217676BF1D17505E00003D89 /* CanvasNative.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 217675A11D174F1400003D89 /* CanvasNative.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		217676C01D17505E00003D89 /* OperationalTransformation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 217676071D174F1400003D89 /* OperationalTransformation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		217676C11D17505E00003D89 /* CanvasText.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 217675B31D174F1400003D89 /* CanvasText.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		217676C21D17505E00003D89 /* CanvasKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2176758C1D174F1400003D89 /* CanvasKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		217676C31D17505E00003D89 /* ISO8601.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 217675F71D174F1400003D89 /* ISO8601.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		217676C41D17505E00003D89 /* SSKeychain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 217676161D174F1400003D89 /* SSKeychain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		217676C51D17505E00003D89 /* Starscream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2176762A1D174F1400003D89 /* Starscream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		217676C61D17505E00003D89 /* X.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2176763D1D174F1400003D89 /* X.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		217676C71D17505E00003D89 /* CanvasCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21173CB11D1742080050D524 /* CanvasCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2178CBB91CEA891100E9A4B2 /* SessionFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178CBB81CEA891100E9A4B2 /* SessionFormViewController.swift */; };
 		2178CBBA1CEA891100E9A4B2 /* SessionFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178CBB81CEA891100E9A4B2 /* SessionFormViewController.swift */; };
+		217C55C21D42D4F70064A2AD /* Cache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55AD1D42D4F70064A2AD /* Cache.framework */; };
+		217C55C31D42D4F70064A2AD /* Cache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55AD1D42D4F70064A2AD /* Cache.framework */; };
+		217C55C41D42D4F70064A2AD /* CanvasCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55AE1D42D4F70064A2AD /* CanvasCore.framework */; };
+		217C55C51D42D4F70064A2AD /* CanvasCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55AE1D42D4F70064A2AD /* CanvasCore.framework */; };
+		217C55C61D42D4F70064A2AD /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55AF1D42D4F70064A2AD /* CanvasKit.framework */; };
+		217C55C71D42D4F70064A2AD /* CanvasKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55AF1D42D4F70064A2AD /* CanvasKit.framework */; };
+		217C55C81D42D4F70064A2AD /* CanvasNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55B01D42D4F70064A2AD /* CanvasNative.framework */; };
+		217C55C91D42D4F70064A2AD /* CanvasNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55B01D42D4F70064A2AD /* CanvasNative.framework */; };
+		217C55CA1D42D4F70064A2AD /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55B11D42D4F70064A2AD /* CanvasText.framework */; };
+		217C55CB1D42D4F70064A2AD /* CanvasText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55B11D42D4F70064A2AD /* CanvasText.framework */; };
+		217C55CC1D42D4F70064A2AD /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55B21D42D4F70064A2AD /* CommonCrypto.framework */; };
+		217C55CD1D42D4F70064A2AD /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55B21D42D4F70064A2AD /* CommonCrypto.framework */; };
+		217C55CE1D42D4F70064A2AD /* Crypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55B31D42D4F70064A2AD /* Crypto.framework */; };
+		217C55CF1D42D4F70064A2AD /* Crypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55B31D42D4F70064A2AD /* Crypto.framework */; };
+		217C55D01D42D4F70064A2AD /* Diff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55B41D42D4F70064A2AD /* Diff.framework */; };
+		217C55D11D42D4F70064A2AD /* Diff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55B41D42D4F70064A2AD /* Diff.framework */; };
+		217C55D21D42D4F70064A2AD /* GradientView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55B51D42D4F70064A2AD /* GradientView.framework */; };
+		217C55D31D42D4F70064A2AD /* GradientView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55B51D42D4F70064A2AD /* GradientView.framework */; };
+		217C55D41D42D4F70064A2AD /* Intercom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55B61D42D4F70064A2AD /* Intercom.framework */; };
+		217C55D51D42D4F70064A2AD /* Intercom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55B61D42D4F70064A2AD /* Intercom.framework */; };
+		217C55D61D42D4F70064A2AD /* ISO8601.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55B71D42D4F70064A2AD /* ISO8601.framework */; };
+		217C55D71D42D4F70064A2AD /* ISO8601.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55B71D42D4F70064A2AD /* ISO8601.framework */; };
+		217C55D81D42D4F70064A2AD /* KSCrash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55B81D42D4F70064A2AD /* KSCrash.framework */; };
+		217C55D91D42D4F70064A2AD /* KSCrash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55B81D42D4F70064A2AD /* KSCrash.framework */; };
+		217C55DA1D42D4F70064A2AD /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55B91D42D4F70064A2AD /* Mixpanel.framework */; };
+		217C55DB1D42D4F70064A2AD /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55B91D42D4F70064A2AD /* Mixpanel.framework */; };
+		217C55DC1D42D4F70064A2AD /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55BA1D42D4F70064A2AD /* OnePasswordExtension.framework */; };
+		217C55DD1D42D4F70064A2AD /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55BA1D42D4F70064A2AD /* OnePasswordExtension.framework */; };
+		217C55DE1D42D4F70064A2AD /* OperationalTransformation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55BB1D42D4F70064A2AD /* OperationalTransformation.framework */; };
+		217C55DF1D42D4F70064A2AD /* OperationalTransformation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55BB1D42D4F70064A2AD /* OperationalTransformation.framework */; };
+		217C55E01D42D4F70064A2AD /* PullToRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55BC1D42D4F70064A2AD /* PullToRefresh.framework */; };
+		217C55E11D42D4F70064A2AD /* PullToRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55BC1D42D4F70064A2AD /* PullToRefresh.framework */; };
+		217C55E21D42D4F70064A2AD /* SentrySwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55BD1D42D4F70064A2AD /* SentrySwift.framework */; };
+		217C55E31D42D4F70064A2AD /* SentrySwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55BD1D42D4F70064A2AD /* SentrySwift.framework */; };
+		217C55E41D42D4F70064A2AD /* SSKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55BE1D42D4F70064A2AD /* SSKeychain.framework */; };
+		217C55E51D42D4F70064A2AD /* SSKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55BE1D42D4F70064A2AD /* SSKeychain.framework */; };
+		217C55E61D42D4F70064A2AD /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55BF1D42D4F70064A2AD /* Starscream.framework */; };
+		217C55E71D42D4F70064A2AD /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55BF1D42D4F70064A2AD /* Starscream.framework */; };
+		217C55E81D42D4F70064A2AD /* Static.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55C01D42D4F70064A2AD /* Static.framework */; };
+		217C55E91D42D4F70064A2AD /* Static.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55C01D42D4F70064A2AD /* Static.framework */; };
+		217C55EA1D42D4F70064A2AD /* X.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55C11D42D4F70064A2AD /* X.framework */; };
+		217C55EB1D42D4F70064A2AD /* X.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55C11D42D4F70064A2AD /* X.framework */; };
 		21880C051D1ED73000C144DB /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21880C041D1ED73000C144DB /* StackViewController.swift */; };
 		21880C061D1ED73000C144DB /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21880C041D1ED73000C144DB /* StackViewController.swift */; };
-		218A75B81CECD02F00459BC9 /* GradientView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218A75B71CECD02F00459BC9 /* GradientView.framework */; };
-		218A75D11CECD06500459BC9 /* GradientView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218A75B71CECD02F00459BC9 /* GradientView.framework */; };
 		218B6BAA1D08D23400A170E5 /* UISplitViewController+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B6BA91D08D23400A170E5 /* UISplitViewController+Canvas.swift */; };
 		218B6BAB1D08D23400A170E5 /* UISplitViewController+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B6BA91D08D23400A170E5 /* UISplitViewController+Canvas.swift */; };
 		219F67EC1D3D3C9A00FB17E2 /* Snapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219F67EB1D3D3C9A00FB17E2 /* Snapshots.swift */; };
@@ -181,8 +183,6 @@
 		21A6CB0D1D39724F0004F739 /* CopyLinkActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A6CB0B1D39724F0004F739 /* CopyLinkActivity.swift */; };
 		21A6CB541D3974670004F739 /* CopyRepresentationActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A6CB531D3974670004F739 /* CopyRepresentationActivity.swift */; };
 		21A6CB551D3974670004F739 /* CopyRepresentationActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A6CB531D3974670004F739 /* CopyRepresentationActivity.swift */; };
-		21A77E091D07E53200340243 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A77E081D07E53200340243 /* Starscream.framework */; };
-		21A77E0A1D07E53600340243 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A77E081D07E53200340243 /* Starscream.framework */; };
 		21A77E121D0803C600340243 /* AvatarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A77E111D0803C600340243 /* AvatarsView.swift */; };
 		21A77E131D0803C600340243 /* AvatarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A77E111D0803C600340243 /* AvatarsView.swift */; };
 		21A77E151D08053A00340243 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A77E141D08053A00340243 /* AvatarView.swift */; };
@@ -221,16 +221,6 @@
 		21F0C1341D3DB997001D77E7 /* CanvasActivitySource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F0C1321D3DB997001D77E7 /* CanvasActivitySource.swift */; };
 		21F2D75D1D3DEBB100ADA4D5 /* RefreshContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F2D75C1D3DEBB100ADA4D5 /* RefreshContentView.swift */; };
 		21F2D75E1D3DEBB100ADA4D5 /* RefreshContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F2D75C1D3DEBB100ADA4D5 /* RefreshContentView.swift */; };
-		21F7EF2B1CD91D70004E80E2 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF281CD91D70004E80E2 /* Mixpanel.framework */; };
-		21F7EF2C1CD91D70004E80E2 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF281CD91D70004E80E2 /* Mixpanel.framework */; };
-		21F7EF2D1CD91D70004E80E2 /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF291CD91D70004E80E2 /* OnePasswordExtension.framework */; };
-		21F7EF2E1CD91D70004E80E2 /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF291CD91D70004E80E2 /* OnePasswordExtension.framework */; };
-		21F7EF2F1CD91D70004E80E2 /* Static.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF2A1CD91D70004E80E2 /* Static.framework */; };
-		21F7EF301CD91D70004E80E2 /* Static.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF2A1CD91D70004E80E2 /* Static.framework */; };
-		21F7EF351CD91F75004E80E2 /* KSCrash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF331CD91F75004E80E2 /* KSCrash.framework */; };
-		21F7EF361CD91F75004E80E2 /* KSCrash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF331CD91F75004E80E2 /* KSCrash.framework */; };
-		21F7EF371CD91F75004E80E2 /* SentrySwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF341CD91F75004E80E2 /* SentrySwift.framework */; };
-		21F7EF381CD91F75004E80E2 /* SentrySwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EF341CD91F75004E80E2 /* SentrySwift.framework */; };
 		21F95DC21D2EC8D2006B4100 /* OnboardingBillboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F95DC11D2EC8D2006B4100 /* OnboardingBillboardViewController.swift */; };
 		21F95DC31D2EC8D2006B4100 /* OnboardingBillboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F95DC11D2EC8D2006B4100 /* OnboardingBillboardViewController.swift */; };
 		21F95DC51D2EC902006B4100 /* OnboardingWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F95DC41D2EC902006B4100 /* OnboardingWelcomeViewController.swift */; };
@@ -246,545 +236,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		21025A421D3AADF900A74753 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21025A3C1D3AADF900A74753 /* PullToRefresh.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2112CB131D2410F300B214F7;
-			remoteInfo = PullToRefresh;
-		};
-		21025A441D3AADF900A74753 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21025A3C1D3AADF900A74753 /* PullToRefresh.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2112CB1D1D2410F300B214F7;
-			remoteInfo = PullToRefreshTests;
-		};
-		21025A461D3AADF900A74753 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21025A3C1D3AADF900A74753 /* PullToRefresh.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2112CB311D2410FE00B214F7;
-			remoteInfo = Example;
-		};
-		21025A481D3AAE0600A74753 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21025A3C1D3AADF900A74753 /* PullToRefresh.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 2112CB121D2410F300B214F7;
-			remoteInfo = PullToRefresh;
-		};
-		21025A4C1D3AAE2300A74753 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21025A3C1D3AADF900A74753 /* PullToRefresh.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 2112CB121D2410F300B214F7;
-			remoteInfo = PullToRefresh;
-		};
-		21173CB01D1742080050D524 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21173C9E1D1742080050D524 /* CanvasCore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 216B1C8C1D17199B007D022B;
-			remoteInfo = "CanvasCore-iOS";
-		};
-		21173CB21D1742080050D524 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21173C9E1D1742080050D524 /* CanvasCore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 216B1C961D17199B007D022B;
-			remoteInfo = "CanvasCoreTests-iOS";
-		};
-		21173CB41D1742080050D524 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21173C9E1D1742080050D524 /* CanvasCore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2175D31A1D1722AD009C6845;
-			remoteInfo = "CanvasCore-macOS";
-		};
-		21173CB61D1742080050D524 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21173C9E1D1742080050D524 /* CanvasCore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2175D3231D1722AE009C6845;
-			remoteInfo = "CanvasCoreTests-macOS";
-		};
-		21173CC41D1742510050D524 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21173C9E1D1742080050D524 /* CanvasCore.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 216B1C8B1D17199B007D022B;
-			remoteInfo = "CanvasCore-iOS";
-		};
-		2176757D1D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2176755D1D174F1300003D89 /* Cache.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21256E2A1CEA6CCD003B9F67;
-			remoteInfo = "Cache-iOS";
-		};
-		2176757F1D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2176755D1D174F1300003D89 /* Cache.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21B505431CFF9E610067FB9A;
-			remoteInfo = "Cache-OSX";
-		};
-		2176758B1D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2176756C1D174F1300003D89 /* CanvasKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21FB6ABB1BF53C9D003C82BB;
-			remoteInfo = "CanvasKit-iOS";
-		};
-		2176758D1D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2176756C1D174F1300003D89 /* CanvasKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21FB6AC51BF53C9D003C82BB;
-			remoteInfo = "CanvasKitTests-iOS";
-		};
-		2176758F1D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2176756C1D174F1300003D89 /* CanvasKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 216C4B971BF54AB100260B8E;
-			remoteInfo = "CanvasKit-macOS";
-		};
-		217675911D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2176756C1D174F1300003D89 /* CanvasKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 216C4BA01BF54AB100260B8E;
-			remoteInfo = "CanvasKitTests-macOS";
-		};
-		217675931D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2176756C1D174F1300003D89 /* CanvasKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21EC4F041D077F5B00FA439F;
-			remoteInfo = "CanvasKit-tvOS";
-		};
-		217675951D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2176756C1D174F1300003D89 /* CanvasKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21EC4F0D1D077F5B00FA439F;
-			remoteInfo = "CanvasKitTests-tvOS";
-		};
-		217675971D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2176756C1D174F1300003D89 /* CanvasKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2175D29A1D171DC3009C6845;
-			remoteInfo = "CanvasKit-watchOS";
-		};
-		217675A01D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675631D174F1300003D89 /* CanvasNative.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 215BAB2D1C52B0C400118C8C;
-			remoteInfo = "CanvasNative-iOS";
-		};
-		217675A21D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675631D174F1300003D89 /* CanvasNative.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 215BAB371C52B0C400118C8C;
-			remoteInfo = "CanvasNativeTests-iOS";
-		};
-		217675A41D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675631D174F1300003D89 /* CanvasNative.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 215BAB4C1C52B18B00118C8C;
-			remoteInfo = "CanvasNative-macOS";
-		};
-		217675A61D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675631D174F1300003D89 /* CanvasNative.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 215BAB551C52B18C00118C8C;
-			remoteInfo = "CanvasNativeTests-macOS";
-		};
-		217675A81D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675631D174F1300003D89 /* CanvasNative.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21632D161C92366600C40D7D;
-			remoteInfo = "CanvasNative-tvOS";
-		};
-		217675AA1D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675631D174F1300003D89 /* CanvasNative.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21632D1F1C92366600C40D7D;
-			remoteInfo = "CanvasNativeTests-tvOS";
-		};
-		217675AC1D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675631D174F1300003D89 /* CanvasNative.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21632CEA1C9235E400C40D7D;
-			remoteInfo = "CanvasNative-watchOS";
-		};
-		217675B21D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675691D174F1300003D89 /* CanvasText.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 211483C41C8A3034002CA206;
-			remoteInfo = "CanvasText-iOS";
-		};
-		217675B41D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675691D174F1300003D89 /* CanvasText.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 211483CE1C8A3034002CA206;
-			remoteInfo = "CanvasTextTests-iOS";
-		};
-		217675B61D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675691D174F1300003D89 /* CanvasText.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 218944931CFFA041003F743B;
-			remoteInfo = "CanvasText-OSX";
-		};
-		217675B81D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675691D174F1300003D89 /* CanvasText.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2189449C1CFFA041003F743B;
-			remoteInfo = "CanvasTextTests-OSX";
-		};
-		217675C51D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2176755A1D174F1300003D89 /* Crypto.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 211216831AE68D26004E1CE6;
-			remoteInfo = "CommonCrypto-OSX";
-		};
-		217675C71D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2176755A1D174F1300003D89 /* Crypto.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2112163D1AE68AD2004E1CE6;
-			remoteInfo = "Crypto-OSX";
-		};
-		217675C91D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2176755A1D174F1300003D89 /* Crypto.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 211216481AE68AD3004E1CE6;
-			remoteInfo = "CryptoTests-OSX";
-		};
-		217675CB1D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2176755A1D174F1300003D89 /* Crypto.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 216CAE341AE6B273009A69EF;
-			remoteInfo = "CommonCrypto-iOS";
-		};
-		217675CD1D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2176755A1D174F1300003D89 /* Crypto.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21FD8C5B1AE6B03F008DCDBA;
-			remoteInfo = "Crypto-iOS";
-		};
-		217675CF1D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2176755A1D174F1300003D89 /* Crypto.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21FD8C651AE6B03F008DCDBA;
-			remoteInfo = "CryptoTests-iOS";
-		};
-		217675D11D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2176755A1D174F1300003D89 /* Crypto.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 804503281BA209F6002A5470;
-			remoteInfo = "CommonCrypto-watchOS";
-		};
-		217675D31D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2176755A1D174F1300003D89 /* Crypto.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 804503371BA20F37002A5470;
-			remoteInfo = "Crypto-watchOS";
-		};
-		217675D51D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2176755A1D174F1300003D89 /* Crypto.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 80098A511C12E5890029C530;
-			remoteInfo = "CommonCrypto-tvOS";
-		};
-		217675D71D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2176755A1D174F1300003D89 /* Crypto.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 80098A6F1C12E87D0029C530;
-			remoteInfo = "Crypto-tvOS";
-		};
-		217675D91D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2176755A1D174F1300003D89 /* Crypto.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 80098A781C12E87D0029C530;
-			remoteInfo = "CryptoTests-tvOS";
-		};
-		217675E21D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675601D174F1300003D89 /* Diff.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2175D3A51D17267D009C6845;
-			remoteInfo = "Diff-iOS";
-		};
-		217675E41D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675601D174F1300003D89 /* Diff.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2175D3AF1D17267D009C6845;
-			remoteInfo = "DiffTests-iOS";
-		};
-		217675E61D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675601D174F1300003D89 /* Diff.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2175D3C41D17268C009C6845;
-			remoteInfo = "Diff-macOS";
-		};
-		217675E81D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675601D174F1300003D89 /* Diff.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2175D3CD1D17268C009C6845;
-			remoteInfo = "DiffTests-macOS";
-		};
-		217675EA1D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675601D174F1300003D89 /* Diff.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2175D3E01D17269D009C6845;
-			remoteInfo = "Diff-watchOS";
-		};
-		217675EC1D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675601D174F1300003D89 /* Diff.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2175D3ED1D1726A8009C6845;
-			remoteInfo = "Diff-tvOS";
-		};
-		217675EE1D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675601D174F1300003D89 /* Diff.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2175D3F61D1726A8009C6845;
-			remoteInfo = "DiffTests-tvOS";
-		};
-		217675F61D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2176756F1D174F1300003D89 /* ISO8601.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21B3A3D719894F4600322041;
-			remoteInfo = "ISO8601-iOS";
-		};
-		217675F81D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2176756F1D174F1300003D89 /* ISO8601.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21B3A3E219894F4600322041;
-			remoteInfo = "ISO8601Tests-iOS";
-		};
-		217675FA1D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2176756F1D174F1300003D89 /* ISO8601.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 212539B61B1595FD00F29EF3;
-			remoteInfo = "ISO8601-OSX";
-		};
-		217675FC1D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2176756F1D174F1300003D89 /* ISO8601.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 212539C01B1595FD00F29EF3;
-			remoteInfo = "ISO8601Tests-OSX";
-		};
-		217675FE1D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2176756F1D174F1300003D89 /* ISO8601.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21EC4F371D077FCE00FA439F;
-			remoteInfo = "ISO8601-tvOS";
-		};
-		217676001D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2176756F1D174F1300003D89 /* ISO8601.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21EC4F401D077FCE00FA439F;
-			remoteInfo = "ISO8601Tests-tvOS";
-		};
-		217676061D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675661D174F1300003D89 /* OperationalTransformation.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 215E6D251C7520BD00126FE9;
-			remoteInfo = "OperationalTransformation-iOS";
-		};
-		217676081D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675661D174F1300003D89 /* OperationalTransformation.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 215E6D2F1C7520BD00126FE9;
-			remoteInfo = "OperationalTransformationTests-iOS";
-		};
-		2176760A1D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675661D174F1300003D89 /* OperationalTransformation.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 215E6D531C7532E200126FE9;
-			remoteInfo = "OperationalTransformation-macOS";
-		};
-		2176760C1D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675661D174F1300003D89 /* OperationalTransformation.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 215E6D5C1C7532E200126FE9;
-			remoteInfo = "OperationalTransformationTests-macOS";
-		};
-		217676151D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675721D174F1300003D89 /* SSKeychain.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E8A666341A844CC400287CA3;
-			remoteInfo = "SSKeychain-iOS";
-		};
-		217676171D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675721D174F1300003D89 /* SSKeychain.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E8A666551A844D3A00287CA3;
-			remoteInfo = "SSKeychainTests-iOS";
-		};
-		217676191D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675721D174F1300003D89 /* SSKeychain.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E8A6666F1A844E4100287CA3;
-			remoteInfo = "SSKeychain-OSX";
-		};
-		2176761B1D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675721D174F1300003D89 /* SSKeychain.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E8A666791A844E4100287CA3;
-			remoteInfo = "SSKeychainTests-OSX";
-		};
-		2176761D1D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675721D174F1300003D89 /* SSKeychain.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21632D981C925A3C00C40D7D;
-			remoteInfo = "SSKeychain-tvOS";
-		};
-		2176761F1D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675721D174F1300003D89 /* SSKeychain.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21632DA11C925A3C00C40D7D;
-			remoteInfo = "SSKeychainTests-tvOS";
-		};
-		217676211D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675721D174F1300003D89 /* SSKeychain.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21632DBC1C925B1F00C40D7D;
-			remoteInfo = "SSKeychain-watchOS";
-		};
-		217676291D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675751D174F1300003D89 /* Starscream.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6B3E79E619D48B7F006071F7;
-			remoteInfo = "Starscream iOS";
-		};
-		2176762B1D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675751D174F1300003D89 /* Starscream.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6B3E79F119D48B7F006071F7;
-			remoteInfo = "Starscream iOSTests";
-		};
-		2176762D1D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675751D174F1300003D89 /* Starscream.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D9C3E35F19E48FF1009FC285;
-			remoteInfo = "Starscream OSX";
-		};
-		2176762F1D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675751D174F1300003D89 /* Starscream.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D9C3E36919E48FF1009FC285;
-			remoteInfo = "Starscream OSXTests";
-		};
-		217676311D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675751D174F1300003D89 /* Starscream.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 091277971BD673A70003036D;
-			remoteInfo = "Starscream tvOS";
-		};
-		217676331D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675751D174F1300003D89 /* Starscream.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 091277A01BD673A70003036D;
-			remoteInfo = "Starscream tvOSTests";
-		};
-		2176763A1D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675781D174F1300003D89 /* X.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21193C121AF043AB009FD090;
-			remoteInfo = "X-OSX";
-		};
-		2176763C1D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675781D174F1300003D89 /* X.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21193C391AF044AE009FD090;
-			remoteInfo = "X-iOS";
-		};
-		2176763E1D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675781D174F1300003D89 /* X.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21F28DC01B7AC65F009DD1E9;
-			remoteInfo = "X-watchOS";
-		};
-		217676401D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675781D174F1300003D89 /* X.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21B743391C03F24E00FF293C;
-			remoteInfo = "X-tvOS";
-		};
-		217676421D174F1400003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 217675781D174F1300003D89 /* X.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21F28DA91B7AC48E009DD1E9;
-			remoteInfo = XTests;
-		};
-		217676741D17503700003D89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21173C9E1D1742080050D524 /* CanvasCore.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 216B1C8B1D17199B007D022B;
-			remoteInfo = "CanvasCore-iOS";
-		};
 		219F67A01D3D3C7C00FB17E2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 21F10F421BF138750035057D /* Project object */;
@@ -801,46 +252,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				212EE7C61D41F14F008AF81F /* Intercom.framework in Embed Frameworks */,
-				21025A4F1D3AAE2D00A74753 /* PullToRefresh.framework in Embed Frameworks */,
-				217676BB1D17505E00003D89 /* Crypto.framework in Embed Frameworks */,
-				217676BC1D17505E00003D89 /* CommonCrypto.framework in Embed Frameworks */,
-				217676BD1D17505E00003D89 /* Cache.framework in Embed Frameworks */,
-				217676BE1D17505E00003D89 /* Diff.framework in Embed Frameworks */,
-				217676BF1D17505E00003D89 /* CanvasNative.framework in Embed Frameworks */,
-				217676C01D17505E00003D89 /* OperationalTransformation.framework in Embed Frameworks */,
-				217676C11D17505E00003D89 /* CanvasText.framework in Embed Frameworks */,
-				217676C21D17505E00003D89 /* CanvasKit.framework in Embed Frameworks */,
-				217676C31D17505E00003D89 /* ISO8601.framework in Embed Frameworks */,
-				217676C41D17505E00003D89 /* SSKeychain.framework in Embed Frameworks */,
-				217676C51D17505E00003D89 /* Starscream.framework in Embed Frameworks */,
-				217676C61D17505E00003D89 /* X.framework in Embed Frameworks */,
-				217676C71D17505E00003D89 /* CanvasCore.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2164599E1CC1468F00033B7F /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				21025A4B1D3AAE1B00A74753 /* PullToRefresh.framework in Embed Frameworks */,
-				217676531D174F6C00003D89 /* Cache.framework in Embed Frameworks */,
-				217676541D174F6C00003D89 /* Diff.framework in Embed Frameworks */,
-				217676551D174F6C00003D89 /* CanvasNative.framework in Embed Frameworks */,
-				217676561D174F6C00003D89 /* OperationalTransformation.framework in Embed Frameworks */,
-				217676571D174F6C00003D89 /* CanvasText.framework in Embed Frameworks */,
-				217676581D174F6C00003D89 /* CanvasKit.framework in Embed Frameworks */,
-				217676591D174F6C00003D89 /* ISO8601.framework in Embed Frameworks */,
-				2176765A1D174F6C00003D89 /* SSKeychain.framework in Embed Frameworks */,
-				2176765B1D174F6C00003D89 /* Starscream.framework in Embed Frameworks */,
-				2176765C1D174F6C00003D89 /* X.framework in Embed Frameworks */,
-				21173CCB1D1742800050D524 /* CanvasCore.framework in Embed Frameworks */,
-				217676511D174F4000003D89 /* Crypto.framework in Embed Frameworks */,
-				217676521D174F4000003D89 /* CommonCrypto.framework in Embed Frameworks */,
-				212EE7C41D41F135008AF81F /* Intercom.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -849,7 +260,6 @@
 
 /* Begin PBXFileReference section */
 		210259781D3A83DE00A74753 /* UIActivity+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIActivity+Canvas.swift"; sourceTree = "<group>"; };
-		21025A3C1D3AADF900A74753 /* PullToRefresh.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PullToRefresh.xcodeproj; path = Vendor/PullToRefresh/PullToRefresh.xcodeproj; sourceTree = "<group>"; };
 		2107D2CA1CC58F7A001963B7 /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		2107D2CB1CC58F7A001963B7 /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		2107D2CC1CC58F7A001963B7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -895,13 +305,10 @@
 		2107D3001CC58F7B001963B7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		210B1C961D0B14A600B08A81 /* SharedWebCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedWebCredentials.swift; sourceTree = "<group>"; };
 		2112CBBF1D24DB8800B214F7 /* TitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
-		21173C9E1D1742080050D524 /* CanvasCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasCore.xcodeproj; path = Vendor/CanvasCore/CanvasCore.xcodeproj; sourceTree = "<group>"; };
 		2117A02E1D06338C00E60821 /* GroupedSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupedSectionHeaderView.swift; sourceTree = "<group>"; };
 		2117A07A1D0641CE00E60821 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		2117A0951D0642A400E60821 /* UIColor+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Canvas.swift"; sourceTree = "<group>"; };
 		211F9A3D1D3F42FE00E0A519 /* AuthorizationClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationClient.swift; sourceTree = "<group>"; };
-		21213A9A1CDC2F8A0044D6BE /* CommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonCrypto.framework; path = Carthage/Build/iOS/CommonCrypto.framework; sourceTree = "<group>"; };
-		21213A9B1CDC2F8A0044D6BE /* Crypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crypto.framework; path = Carthage/Build/iOS/Crypto.framework; sourceTree = "<group>"; };
 		212299B71CE3E79C00033D94 /* UIViewController+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Canvas.swift"; sourceTree = "<group>"; };
 		2122BFEF1CFE4FF900A038DE /* LoadCanvasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadCanvasViewController.swift; sourceTree = "<group>"; };
 		2122BFF21CFE645100A038DE /* EditorViewController+Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EditorViewController+Connection.swift"; sourceTree = "<group>"; };
@@ -909,7 +316,6 @@
 		21298C6E1D26C95700E741EE /* BannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		21298CD01D26F11100E741EE /* ValueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueCell.swift; sourceTree = "<group>"; };
 		212D8EC51CE62AE00039A3EE /* IndicatorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorButton.swift; sourceTree = "<group>"; };
-		212EE7621D41E30B008AF81F /* Intercom.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intercom.framework; path = "Carthage/Checkouts/intercom-ios/Intercom.framework"; sourceTree = "<group>"; };
 		2147A2E21CDA586E008A2709 /* CanvasTextView+Gestures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CanvasTextView+Gestures.swift"; sourceTree = "<group>"; };
 		2147A2FB1CDA7B2E008A2709 /* DragContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragContext.swift; sourceTree = "<group>"; };
 		214F9FF61CC6DE4600927A07 /* CanvasTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasTextView.swift; sourceTree = "<group>"; };
@@ -917,20 +323,29 @@
 		215485FF1D3D4007000D7E77 /* NSProcessInfo+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSProcessInfo+Canvas.swift"; sourceTree = "<group>"; };
 		215CD8611CE293FF0093C545 /* PlaceholderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderViewController.swift; sourceTree = "<group>"; };
 		215D1ADF1D426CE20030D804 /* APIClient+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIClient+Canvas.swift"; sourceTree = "<group>"; };
-		2176755A1D174F1300003D89 /* Crypto.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Crypto.xcodeproj; path = Vendor/CanvasCore/Vendor/Crypto/Crypto.xcodeproj; sourceTree = "<group>"; };
-		2176755D1D174F1300003D89 /* Cache.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Cache.xcodeproj; path = Vendor/CanvasCore/Vendor/Cache/Cache.xcodeproj; sourceTree = "<group>"; };
-		217675601D174F1300003D89 /* Diff.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Diff.xcodeproj; path = Vendor/CanvasCore/Vendor/Diff/Diff.xcodeproj; sourceTree = "<group>"; };
-		217675631D174F1300003D89 /* CanvasNative.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasNative.xcodeproj; path = Vendor/CanvasCore/Vendor/CanvasNative/CanvasNative.xcodeproj; sourceTree = "<group>"; };
-		217675661D174F1300003D89 /* OperationalTransformation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OperationalTransformation.xcodeproj; path = Vendor/CanvasCore/Vendor/OperationalTransformation/OperationalTransformation.xcodeproj; sourceTree = "<group>"; };
-		217675691D174F1300003D89 /* CanvasText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasText.xcodeproj; path = Vendor/CanvasCore/Vendor/CanvasText/CanvasText.xcodeproj; sourceTree = "<group>"; };
-		2176756C1D174F1300003D89 /* CanvasKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CanvasKit.xcodeproj; path = Vendor/CanvasCore/Vendor/CanvasKit/CanvasKit.xcodeproj; sourceTree = "<group>"; };
-		2176756F1D174F1300003D89 /* ISO8601.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ISO8601.xcodeproj; path = Vendor/CanvasCore/Vendor/ISO8601/ISO8601.xcodeproj; sourceTree = "<group>"; };
-		217675721D174F1300003D89 /* SSKeychain.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSKeychain.xcodeproj; path = Vendor/CanvasCore/Vendor/SSKeychain/SSKeychain.xcodeproj; sourceTree = "<group>"; };
-		217675751D174F1300003D89 /* Starscream.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Starscream.xcodeproj; path = Vendor/CanvasCore/Vendor/Starscream/Starscream.xcodeproj; sourceTree = "<group>"; };
-		217675781D174F1300003D89 /* X.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = X.xcodeproj; path = Vendor/CanvasCore/Vendor/X/X.xcodeproj; sourceTree = "<group>"; };
 		2178CBB81CEA891100E9A4B2 /* SessionFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionFormViewController.swift; sourceTree = "<group>"; };
+		217C55AD1D42D4F70064A2AD /* Cache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cache.framework; path = Carthage/Build/iOS/Cache.framework; sourceTree = "<group>"; };
+		217C55AE1D42D4F70064A2AD /* CanvasCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CanvasCore.framework; path = Carthage/Build/iOS/CanvasCore.framework; sourceTree = "<group>"; };
+		217C55AF1D42D4F70064A2AD /* CanvasKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CanvasKit.framework; path = Carthage/Build/iOS/CanvasKit.framework; sourceTree = "<group>"; };
+		217C55B01D42D4F70064A2AD /* CanvasNative.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CanvasNative.framework; path = Carthage/Build/iOS/CanvasNative.framework; sourceTree = "<group>"; };
+		217C55B11D42D4F70064A2AD /* CanvasText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CanvasText.framework; path = Carthage/Build/iOS/CanvasText.framework; sourceTree = "<group>"; };
+		217C55B21D42D4F70064A2AD /* CommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonCrypto.framework; path = Carthage/Build/iOS/CommonCrypto.framework; sourceTree = "<group>"; };
+		217C55B31D42D4F70064A2AD /* Crypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crypto.framework; path = Carthage/Build/iOS/Crypto.framework; sourceTree = "<group>"; };
+		217C55B41D42D4F70064A2AD /* Diff.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Diff.framework; path = Carthage/Build/iOS/Diff.framework; sourceTree = "<group>"; };
+		217C55B51D42D4F70064A2AD /* GradientView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GradientView.framework; path = Carthage/Build/iOS/GradientView.framework; sourceTree = "<group>"; };
+		217C55B61D42D4F70064A2AD /* Intercom.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intercom.framework; path = Carthage/Build/iOS/Intercom.framework; sourceTree = "<group>"; };
+		217C55B71D42D4F70064A2AD /* ISO8601.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ISO8601.framework; path = Carthage/Build/iOS/ISO8601.framework; sourceTree = "<group>"; };
+		217C55B81D42D4F70064A2AD /* KSCrash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KSCrash.framework; path = Carthage/Build/iOS/KSCrash.framework; sourceTree = "<group>"; };
+		217C55B91D42D4F70064A2AD /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mixpanel.framework; path = Carthage/Build/iOS/Mixpanel.framework; sourceTree = "<group>"; };
+		217C55BA1D42D4F70064A2AD /* OnePasswordExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OnePasswordExtension.framework; path = Carthage/Build/iOS/OnePasswordExtension.framework; sourceTree = "<group>"; };
+		217C55BB1D42D4F70064A2AD /* OperationalTransformation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OperationalTransformation.framework; path = Carthage/Build/iOS/OperationalTransformation.framework; sourceTree = "<group>"; };
+		217C55BC1D42D4F70064A2AD /* PullToRefresh.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PullToRefresh.framework; path = Carthage/Build/iOS/PullToRefresh.framework; sourceTree = "<group>"; };
+		217C55BD1D42D4F70064A2AD /* SentrySwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SentrySwift.framework; path = Carthage/Build/iOS/SentrySwift.framework; sourceTree = "<group>"; };
+		217C55BE1D42D4F70064A2AD /* SSKeychain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SSKeychain.framework; path = Carthage/Build/iOS/SSKeychain.framework; sourceTree = "<group>"; };
+		217C55BF1D42D4F70064A2AD /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
+		217C55C01D42D4F70064A2AD /* Static.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Static.framework; path = Carthage/Build/iOS/Static.framework; sourceTree = "<group>"; };
+		217C55C11D42D4F70064A2AD /* X.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = X.framework; path = Carthage/Build/iOS/X.framework; sourceTree = "<group>"; };
 		21880C041D1ED73000C144DB /* StackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
-		218A75B71CECD02F00459BC9 /* GradientView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GradientView.framework; path = Carthage/Build/iOS/GradientView.framework; sourceTree = "<group>"; };
 		218B6BA91D08D23400A170E5 /* UISplitViewController+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISplitViewController+Canvas.swift"; sourceTree = "<group>"; };
 		219F679B1D3D3C7C00FB17E2 /* CanvasUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CanvasUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		219F67EB1D3D3C9A00FB17E2 /* Snapshots.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snapshots.swift; sourceTree = "<group>"; };
@@ -938,7 +353,6 @@
 		219F67F01D3D3D4200FB17E2 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		21A6CB0B1D39724F0004F739 /* CopyLinkActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyLinkActivity.swift; sourceTree = "<group>"; };
 		21A6CB531D3974670004F739 /* CopyRepresentationActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyRepresentationActivity.swift; sourceTree = "<group>"; };
-		21A77E081D07E53200340243 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
 		21A77E111D0803C600340243 /* AvatarsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarsView.swift; sourceTree = "<group>"; };
 		21A77E141D08053A00340243 /* AvatarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		21B28BF51CDC6049009B9D8F /* EditorViewController+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EditorViewController+Actions.swift"; sourceTree = "<group>"; };
@@ -959,11 +373,6 @@
 		21F0C1321D3DB997001D77E7 /* CanvasActivitySource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasActivitySource.swift; sourceTree = "<group>"; };
 		21F10F4A1BF138750035057D /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F2D75C1D3DEBB100ADA4D5 /* RefreshContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshContentView.swift; sourceTree = "<group>"; };
-		21F7EF281CD91D70004E80E2 /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mixpanel.framework; path = Carthage/Build/iOS/Mixpanel.framework; sourceTree = "<group>"; };
-		21F7EF291CD91D70004E80E2 /* OnePasswordExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OnePasswordExtension.framework; path = Carthage/Build/iOS/OnePasswordExtension.framework; sourceTree = "<group>"; };
-		21F7EF2A1CD91D70004E80E2 /* Static.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Static.framework; path = Carthage/Build/iOS/Static.framework; sourceTree = "<group>"; };
-		21F7EF331CD91F75004E80E2 /* KSCrash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KSCrash.framework; path = Carthage/Build/iOS/KSCrash.framework; sourceTree = "<group>"; };
-		21F7EF341CD91F75004E80E2 /* SentrySwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SentrySwift.framework; path = Carthage/Build/iOS/SentrySwift.framework; sourceTree = "<group>"; };
 		21F95DC11D2EC8D2006B4100 /* OnboardingBillboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingBillboardViewController.swift; sourceTree = "<group>"; };
 		21F95DC41D2EC902006B4100 /* OnboardingWelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingWelcomeViewController.swift; sourceTree = "<group>"; };
 		21F95DC71D2ECB75006B4100 /* OnboardingGesturesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingGesturesViewController.swift; sourceTree = "<group>"; };
@@ -977,17 +386,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				212EE7641D41E310008AF81F /* Intercom.framework in Frameworks */,
-				21025A4E1D3AAE2600A74753 /* PullToRefresh.framework in Frameworks */,
-				21F7EF301CD91D70004E80E2 /* Static.framework in Frameworks */,
-				21213AB51CDC2F930044D6BE /* Crypto.framework in Frameworks */,
-				21A77E0A1D07E53600340243 /* Starscream.framework in Frameworks */,
-				21213AB41CDC2F930044D6BE /* CommonCrypto.framework in Frameworks */,
-				21F7EF2E1CD91D70004E80E2 /* OnePasswordExtension.framework in Frameworks */,
-				218A75D11CECD06500459BC9 /* GradientView.framework in Frameworks */,
-				21F7EF381CD91F75004E80E2 /* SentrySwift.framework in Frameworks */,
-				21F7EF361CD91F75004E80E2 /* KSCrash.framework in Frameworks */,
-				21F7EF2C1CD91D70004E80E2 /* Mixpanel.framework in Frameworks */,
+				217C55D91D42D4F70064A2AD /* KSCrash.framework in Frameworks */,
+				217C55CF1D42D4F70064A2AD /* Crypto.framework in Frameworks */,
+				217C55E11D42D4F70064A2AD /* PullToRefresh.framework in Frameworks */,
+				217C55E71D42D4F70064A2AD /* Starscream.framework in Frameworks */,
+				217C55D71D42D4F70064A2AD /* ISO8601.framework in Frameworks */,
+				217C55E31D42D4F70064A2AD /* SentrySwift.framework in Frameworks */,
+				217C55C71D42D4F70064A2AD /* CanvasKit.framework in Frameworks */,
+				217C55DD1D42D4F70064A2AD /* OnePasswordExtension.framework in Frameworks */,
+				217C55C91D42D4F70064A2AD /* CanvasNative.framework in Frameworks */,
+				217C55EB1D42D4F70064A2AD /* X.framework in Frameworks */,
+				217C55D11D42D4F70064A2AD /* Diff.framework in Frameworks */,
+				217C55C31D42D4F70064A2AD /* Cache.framework in Frameworks */,
+				217C55C51D42D4F70064A2AD /* CanvasCore.framework in Frameworks */,
+				217C55E91D42D4F70064A2AD /* Static.framework in Frameworks */,
+				217C55D31D42D4F70064A2AD /* GradientView.framework in Frameworks */,
+				217C55D51D42D4F70064A2AD /* Intercom.framework in Frameworks */,
+				217C55CD1D42D4F70064A2AD /* CommonCrypto.framework in Frameworks */,
+				217C55DF1D42D4F70064A2AD /* OperationalTransformation.framework in Frameworks */,
+				217C55DB1D42D4F70064A2AD /* Mixpanel.framework in Frameworks */,
+				217C55E51D42D4F70064A2AD /* SSKeychain.framework in Frameworks */,
+				217C55CB1D42D4F70064A2AD /* CanvasText.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1002,33 +421,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				212EE7631D41E30B008AF81F /* Intercom.framework in Frameworks */,
-				21025A4A1D3AAE0800A74753 /* PullToRefresh.framework in Frameworks */,
-				21F7EF2F1CD91D70004E80E2 /* Static.framework in Frameworks */,
-				21213A9D1CDC2F8A0044D6BE /* Crypto.framework in Frameworks */,
-				21A77E091D07E53200340243 /* Starscream.framework in Frameworks */,
-				21213A9C1CDC2F8A0044D6BE /* CommonCrypto.framework in Frameworks */,
-				21F7EF2D1CD91D70004E80E2 /* OnePasswordExtension.framework in Frameworks */,
-				218A75B81CECD02F00459BC9 /* GradientView.framework in Frameworks */,
-				21F7EF371CD91F75004E80E2 /* SentrySwift.framework in Frameworks */,
-				21F7EF351CD91F75004E80E2 /* KSCrash.framework in Frameworks */,
-				21F7EF2B1CD91D70004E80E2 /* Mixpanel.framework in Frameworks */,
+				217C55D81D42D4F70064A2AD /* KSCrash.framework in Frameworks */,
+				217C55CE1D42D4F70064A2AD /* Crypto.framework in Frameworks */,
+				217C55E01D42D4F70064A2AD /* PullToRefresh.framework in Frameworks */,
+				217C55E61D42D4F70064A2AD /* Starscream.framework in Frameworks */,
+				217C55D61D42D4F70064A2AD /* ISO8601.framework in Frameworks */,
+				217C55E21D42D4F70064A2AD /* SentrySwift.framework in Frameworks */,
+				217C55C61D42D4F70064A2AD /* CanvasKit.framework in Frameworks */,
+				217C55DC1D42D4F70064A2AD /* OnePasswordExtension.framework in Frameworks */,
+				217C55C81D42D4F70064A2AD /* CanvasNative.framework in Frameworks */,
+				217C55EA1D42D4F70064A2AD /* X.framework in Frameworks */,
+				217C55D01D42D4F70064A2AD /* Diff.framework in Frameworks */,
+				217C55C21D42D4F70064A2AD /* Cache.framework in Frameworks */,
+				217C55C41D42D4F70064A2AD /* CanvasCore.framework in Frameworks */,
+				217C55E81D42D4F70064A2AD /* Static.framework in Frameworks */,
+				217C55D21D42D4F70064A2AD /* GradientView.framework in Frameworks */,
+				217C55D41D42D4F70064A2AD /* Intercom.framework in Frameworks */,
+				217C55CC1D42D4F70064A2AD /* CommonCrypto.framework in Frameworks */,
+				217C55DE1D42D4F70064A2AD /* OperationalTransformation.framework in Frameworks */,
+				217C55DA1D42D4F70064A2AD /* Mixpanel.framework in Frameworks */,
+				217C55E41D42D4F70064A2AD /* SSKeychain.framework in Frameworks */,
+				217C55CA1D42D4F70064A2AD /* CanvasText.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		21025A3D1D3AADF900A74753 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				21025A431D3AADF900A74753 /* PullToRefresh.framework */,
-				21025A451D3AADF900A74753 /* PullToRefreshTests.xctest */,
-				21025A471D3AADF900A74753 /* Example.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		2107D2C81CC58F7A001963B7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -1164,17 +583,6 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		21173C9F1D1742080050D524 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				21173CB11D1742080050D524 /* CanvasCore.framework */,
-				21173CB31D1742080050D524 /* CanvasCoreTests.xctest */,
-				21173CB51D1742080050D524 /* CanvasCore.framework */,
-				21173CB71D1742080050D524 /* CanvasCoreTests-macOS.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		2117A0B41D0643A500E60821 /* Table View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1195,169 +603,6 @@
 				21880C041D1ED73000C144DB /* StackViewController.swift */,
 			);
 			name = Containers;
-			sourceTree = "<group>";
-		};
-		2176755B1D174F1300003D89 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				217675C61D174F1400003D89 /* CommonCrypto.framework */,
-				217675C81D174F1400003D89 /* Crypto.framework */,
-				217675CA1D174F1400003D89 /* CryptoTests-OSX.xctest */,
-				217675CC1D174F1400003D89 /* CommonCrypto.framework */,
-				217675CE1D174F1400003D89 /* Crypto.framework */,
-				217675D01D174F1400003D89 /* CryptoTests-iOS.xctest */,
-				217675D21D174F1400003D89 /* CommonCrypto.framework */,
-				217675D41D174F1400003D89 /* Crypto.framework */,
-				217675D61D174F1400003D89 /* CommonCrypto.framework */,
-				217675D81D174F1400003D89 /* Crypto.framework */,
-				217675DA1D174F1400003D89 /* CryptoTests-tvOS.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		2176755E1D174F1300003D89 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2176757E1D174F1400003D89 /* Cache.framework */,
-				217675801D174F1400003D89 /* Cache.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		217675611D174F1300003D89 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				217675E31D174F1400003D89 /* Diff.framework */,
-				217675E51D174F1400003D89 /* DiffTests.xctest */,
-				217675E71D174F1400003D89 /* Diff.framework */,
-				217675E91D174F1400003D89 /* DiffTests.xctest */,
-				217675EB1D174F1400003D89 /* Diff.framework */,
-				217675ED1D174F1400003D89 /* Diff.framework */,
-				217675EF1D174F1400003D89 /* DiffTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		217675641D174F1300003D89 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				217675A11D174F1400003D89 /* CanvasNative.framework */,
-				217675A31D174F1400003D89 /* CanvasNativeTests.xctest */,
-				217675A51D174F1400003D89 /* CanvasNative.framework */,
-				217675A71D174F1400003D89 /* CanvasNativeTests.xctest */,
-				217675A91D174F1400003D89 /* CanvasNative.framework */,
-				217675AB1D174F1400003D89 /* CanvasNativeTests.xctest */,
-				217675AD1D174F1400003D89 /* CanvasNative.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		217675671D174F1300003D89 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				217676071D174F1400003D89 /* OperationalTransformation.framework */,
-				217676091D174F1400003D89 /* OperationalTransformation.xctest */,
-				2176760B1D174F1400003D89 /* OperationalTransformation.framework */,
-				2176760D1D174F1400003D89 /* OperationalTransformation.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		2176756A1D174F1300003D89 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				217675B31D174F1400003D89 /* CanvasText.framework */,
-				217675B51D174F1400003D89 /* CanvasTextTests.xctest */,
-				217675B71D174F1400003D89 /* CanvasText.framework */,
-				217675B91D174F1400003D89 /* CanvasTextTests-macOS.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		2176756D1D174F1300003D89 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2176758C1D174F1400003D89 /* CanvasKit.framework */,
-				2176758E1D174F1400003D89 /* CanvasKitTests-iOS.xctest */,
-				217675901D174F1400003D89 /* CanvasKit.framework */,
-				217675921D174F1400003D89 /* CanvasKitTests-macOS.xctest */,
-				217675941D174F1400003D89 /* CanvasKit.framework */,
-				217675961D174F1400003D89 /* CanvasKitTests.xctest */,
-				217675981D174F1400003D89 /* CanvasKit.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		217675701D174F1300003D89 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				217675F71D174F1400003D89 /* ISO8601.framework */,
-				217675F91D174F1400003D89 /* ISO8601Tests-iOS.xctest */,
-				217675FB1D174F1400003D89 /* ISO8601.framework */,
-				217675FD1D174F1400003D89 /* ISO8601Tests-OSX.xctest */,
-				217675FF1D174F1400003D89 /* ISO8601.framework */,
-				217676011D174F1400003D89 /* ISO8601Tests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		217675731D174F1300003D89 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				217676161D174F1400003D89 /* SSKeychain.framework */,
-				217676181D174F1400003D89 /* SSKeychainTests-iOS.xctest */,
-				2176761A1D174F1400003D89 /* SSKeychain.framework */,
-				2176761C1D174F1400003D89 /* SSKeychainTests-OSX.xctest */,
-				2176761E1D174F1400003D89 /* SSKeychain.framework */,
-				217676201D174F1400003D89 /* SSKeychainTests.xctest */,
-				217676221D174F1400003D89 /* SSKeychain.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		217675761D174F1300003D89 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2176762A1D174F1400003D89 /* Starscream.framework */,
-				2176762C1D174F1400003D89 /* Starscream iOSTests.xctest */,
-				2176762E1D174F1400003D89 /* Starscream.framework */,
-				217676301D174F1400003D89 /* Starscream OSXTests.xctest */,
-				217676321D174F1400003D89 /* Starscream.framework */,
-				217676341D174F1400003D89 /* Starscream tvOSTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		217675791D174F1300003D89 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2176763B1D174F1400003D89 /* X.framework */,
-				2176763D1D174F1400003D89 /* X.framework */,
-				2176763F1D174F1400003D89 /* X.framework */,
-				217676411D174F1400003D89 /* X.framework */,
-				217676431D174F1400003D89 /* XTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		217676451D174F2900003D89 /* Vendor */ = {
-			isa = PBXGroup;
-			children = (
-				21025A3C1D3AADF900A74753 /* PullToRefresh.xcodeproj */,
-				21173C9E1D1742080050D524 /* CanvasCore.xcodeproj */,
-				2176755A1D174F1300003D89 /* Crypto.xcodeproj */,
-				2176755D1D174F1300003D89 /* Cache.xcodeproj */,
-				217675601D174F1300003D89 /* Diff.xcodeproj */,
-				217675631D174F1300003D89 /* CanvasNative.xcodeproj */,
-				217675661D174F1300003D89 /* OperationalTransformation.xcodeproj */,
-				217675691D174F1300003D89 /* CanvasText.xcodeproj */,
-				2176756C1D174F1300003D89 /* CanvasKit.xcodeproj */,
-				2176756F1D174F1300003D89 /* ISO8601.xcodeproj */,
-				217675721D174F1300003D89 /* SSKeychain.xcodeproj */,
-				217675751D174F1300003D89 /* Starscream.xcodeproj */,
-				217675781D174F1300003D89 /* X.xcodeproj */,
-			);
-			name = Vendor;
 			sourceTree = "<group>";
 		};
 		2178CBCC1CEA92EF00E9A4B2 /* Utility */ = {
@@ -1473,7 +718,6 @@
 				2107D2C81CC58F7A001963B7 /* Sources */,
 				2107D2F51CC58F7B001963B7 /* Support */,
 				219F67EA1D3D3C9A00FB17E2 /* UITests */,
-				217676451D174F2900003D89 /* Vendor */,
 				21F7EF271CD91D58004E80E2 /* Frameworks */,
 				21F10F4B1BF138750035057D /* Products */,
 			);
@@ -1493,16 +737,27 @@
 		21F7EF271CD91D58004E80E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				212EE7621D41E30B008AF81F /* Intercom.framework */,
-				21A77E081D07E53200340243 /* Starscream.framework */,
-				218A75B71CECD02F00459BC9 /* GradientView.framework */,
-				21213A9A1CDC2F8A0044D6BE /* CommonCrypto.framework */,
-				21213A9B1CDC2F8A0044D6BE /* Crypto.framework */,
-				21F7EF331CD91F75004E80E2 /* KSCrash.framework */,
-				21F7EF341CD91F75004E80E2 /* SentrySwift.framework */,
-				21F7EF281CD91D70004E80E2 /* Mixpanel.framework */,
-				21F7EF291CD91D70004E80E2 /* OnePasswordExtension.framework */,
-				21F7EF2A1CD91D70004E80E2 /* Static.framework */,
+				217C55AD1D42D4F70064A2AD /* Cache.framework */,
+				217C55AE1D42D4F70064A2AD /* CanvasCore.framework */,
+				217C55AF1D42D4F70064A2AD /* CanvasKit.framework */,
+				217C55B01D42D4F70064A2AD /* CanvasNative.framework */,
+				217C55B11D42D4F70064A2AD /* CanvasText.framework */,
+				217C55B21D42D4F70064A2AD /* CommonCrypto.framework */,
+				217C55B31D42D4F70064A2AD /* Crypto.framework */,
+				217C55B41D42D4F70064A2AD /* Diff.framework */,
+				217C55B51D42D4F70064A2AD /* GradientView.framework */,
+				217C55B61D42D4F70064A2AD /* Intercom.framework */,
+				217C55B71D42D4F70064A2AD /* ISO8601.framework */,
+				217C55B81D42D4F70064A2AD /* KSCrash.framework */,
+				217C55B91D42D4F70064A2AD /* Mixpanel.framework */,
+				217C55BA1D42D4F70064A2AD /* OnePasswordExtension.framework */,
+				217C55BB1D42D4F70064A2AD /* OperationalTransformation.framework */,
+				217C55BC1D42D4F70064A2AD /* PullToRefresh.framework */,
+				217C55BD1D42D4F70064A2AD /* SentrySwift.framework */,
+				217C55BE1D42D4F70064A2AD /* SSKeychain.framework */,
+				217C55BF1D42D4F70064A2AD /* Starscream.framework */,
+				217C55C01D42D4F70064A2AD /* Static.framework */,
+				217C55C11D42D4F70064A2AD /* X.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1538,8 +793,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				21025A4D1D3AAE2300A74753 /* PBXTargetDependency */,
-				217676751D17503700003D89 /* PBXTargetDependency */,
 			);
 			name = "Canvas Dev";
 			productName = Canvas;
@@ -1571,16 +824,12 @@
 				21F10F461BF138750035057D /* Sources */,
 				21F10F471BF138750035057D /* Frameworks */,
 				21F10F481BF138750035057D /* Resources */,
-				2164599E1CC1468F00033B7F /* Embed Frameworks */,
 				21F7EF321CD91E74004E80E2 /* Embed Carthage Frameworks */,
-				212EE7C51D41F13B008AF81F /* Strip Intercom */,
 				21A8FA601BFD3D160097FCC6 /* Set Version */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				21025A491D3AAE0600A74753 /* PBXTargetDependency */,
-				21173CC51D1742510050D524 /* PBXTargetDependency */,
 			);
 			name = Canvas;
 			productName = Canvas;
@@ -1655,60 +904,6 @@
 			mainGroup = 21F10F411BF138750035057D;
 			productRefGroup = 21F10F4B1BF138750035057D /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 2176755E1D174F1300003D89 /* Products */;
-					ProjectRef = 2176755D1D174F1300003D89 /* Cache.xcodeproj */;
-				},
-				{
-					ProductGroup = 21173C9F1D1742080050D524 /* Products */;
-					ProjectRef = 21173C9E1D1742080050D524 /* CanvasCore.xcodeproj */;
-				},
-				{
-					ProductGroup = 2176756D1D174F1300003D89 /* Products */;
-					ProjectRef = 2176756C1D174F1300003D89 /* CanvasKit.xcodeproj */;
-				},
-				{
-					ProductGroup = 217675641D174F1300003D89 /* Products */;
-					ProjectRef = 217675631D174F1300003D89 /* CanvasNative.xcodeproj */;
-				},
-				{
-					ProductGroup = 2176756A1D174F1300003D89 /* Products */;
-					ProjectRef = 217675691D174F1300003D89 /* CanvasText.xcodeproj */;
-				},
-				{
-					ProductGroup = 2176755B1D174F1300003D89 /* Products */;
-					ProjectRef = 2176755A1D174F1300003D89 /* Crypto.xcodeproj */;
-				},
-				{
-					ProductGroup = 217675611D174F1300003D89 /* Products */;
-					ProjectRef = 217675601D174F1300003D89 /* Diff.xcodeproj */;
-				},
-				{
-					ProductGroup = 217675701D174F1300003D89 /* Products */;
-					ProjectRef = 2176756F1D174F1300003D89 /* ISO8601.xcodeproj */;
-				},
-				{
-					ProductGroup = 217675671D174F1300003D89 /* Products */;
-					ProjectRef = 217675661D174F1300003D89 /* OperationalTransformation.xcodeproj */;
-				},
-				{
-					ProductGroup = 21025A3D1D3AADF900A74753 /* Products */;
-					ProjectRef = 21025A3C1D3AADF900A74753 /* PullToRefresh.xcodeproj */;
-				},
-				{
-					ProductGroup = 217675731D174F1300003D89 /* Products */;
-					ProjectRef = 217675721D174F1300003D89 /* SSKeychain.xcodeproj */;
-				},
-				{
-					ProductGroup = 217675761D174F1300003D89 /* Products */;
-					ProjectRef = 217675751D174F1300003D89 /* Starscream.xcodeproj */;
-				},
-				{
-					ProductGroup = 217675791D174F1300003D89 /* Products */;
-					ProjectRef = 217675781D174F1300003D89 /* X.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				21F10F491BF138750035057D /* Canvas */,
@@ -1717,520 +912,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		21025A431D3AADF900A74753 /* PullToRefresh.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = PullToRefresh.framework;
-			remoteRef = 21025A421D3AADF900A74753 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21025A451D3AADF900A74753 /* PullToRefreshTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = PullToRefreshTests.xctest;
-			remoteRef = 21025A441D3AADF900A74753 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21025A471D3AADF900A74753 /* Example.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = Example.app;
-			remoteRef = 21025A461D3AADF900A74753 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21173CB11D1742080050D524 /* CanvasCore.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CanvasCore.framework;
-			remoteRef = 21173CB01D1742080050D524 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21173CB31D1742080050D524 /* CanvasCoreTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = CanvasCoreTests.xctest;
-			remoteRef = 21173CB21D1742080050D524 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21173CB51D1742080050D524 /* CanvasCore.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CanvasCore.framework;
-			remoteRef = 21173CB41D1742080050D524 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21173CB71D1742080050D524 /* CanvasCoreTests-macOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "CanvasCoreTests-macOS.xctest";
-			remoteRef = 21173CB61D1742080050D524 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2176757E1D174F1400003D89 /* Cache.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Cache.framework;
-			remoteRef = 2176757D1D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675801D174F1400003D89 /* Cache.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Cache.framework;
-			remoteRef = 2176757F1D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2176758C1D174F1400003D89 /* CanvasKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CanvasKit.framework;
-			remoteRef = 2176758B1D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2176758E1D174F1400003D89 /* CanvasKitTests-iOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "CanvasKitTests-iOS.xctest";
-			remoteRef = 2176758D1D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675901D174F1400003D89 /* CanvasKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CanvasKit.framework;
-			remoteRef = 2176758F1D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675921D174F1400003D89 /* CanvasKitTests-macOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "CanvasKitTests-macOS.xctest";
-			remoteRef = 217675911D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675941D174F1400003D89 /* CanvasKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CanvasKit.framework;
-			remoteRef = 217675931D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675961D174F1400003D89 /* CanvasKitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = CanvasKitTests.xctest;
-			remoteRef = 217675951D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675981D174F1400003D89 /* CanvasKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CanvasKit.framework;
-			remoteRef = 217675971D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675A11D174F1400003D89 /* CanvasNative.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CanvasNative.framework;
-			remoteRef = 217675A01D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675A31D174F1400003D89 /* CanvasNativeTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = CanvasNativeTests.xctest;
-			remoteRef = 217675A21D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675A51D174F1400003D89 /* CanvasNative.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CanvasNative.framework;
-			remoteRef = 217675A41D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675A71D174F1400003D89 /* CanvasNativeTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = CanvasNativeTests.xctest;
-			remoteRef = 217675A61D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675A91D174F1400003D89 /* CanvasNative.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CanvasNative.framework;
-			remoteRef = 217675A81D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675AB1D174F1400003D89 /* CanvasNativeTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = CanvasNativeTests.xctest;
-			remoteRef = 217675AA1D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675AD1D174F1400003D89 /* CanvasNative.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CanvasNative.framework;
-			remoteRef = 217675AC1D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675B31D174F1400003D89 /* CanvasText.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CanvasText.framework;
-			remoteRef = 217675B21D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675B51D174F1400003D89 /* CanvasTextTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = CanvasTextTests.xctest;
-			remoteRef = 217675B41D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675B71D174F1400003D89 /* CanvasText.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CanvasText.framework;
-			remoteRef = 217675B61D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675B91D174F1400003D89 /* CanvasTextTests-macOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "CanvasTextTests-macOS.xctest";
-			remoteRef = 217675B81D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675C61D174F1400003D89 /* CommonCrypto.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CommonCrypto.framework;
-			remoteRef = 217675C51D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675C81D174F1400003D89 /* Crypto.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Crypto.framework;
-			remoteRef = 217675C71D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675CA1D174F1400003D89 /* CryptoTests-OSX.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "CryptoTests-OSX.xctest";
-			remoteRef = 217675C91D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675CC1D174F1400003D89 /* CommonCrypto.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CommonCrypto.framework;
-			remoteRef = 217675CB1D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675CE1D174F1400003D89 /* Crypto.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Crypto.framework;
-			remoteRef = 217675CD1D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675D01D174F1400003D89 /* CryptoTests-iOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "CryptoTests-iOS.xctest";
-			remoteRef = 217675CF1D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675D21D174F1400003D89 /* CommonCrypto.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CommonCrypto.framework;
-			remoteRef = 217675D11D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675D41D174F1400003D89 /* Crypto.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Crypto.framework;
-			remoteRef = 217675D31D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675D61D174F1400003D89 /* CommonCrypto.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CommonCrypto.framework;
-			remoteRef = 217675D51D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675D81D174F1400003D89 /* Crypto.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Crypto.framework;
-			remoteRef = 217675D71D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675DA1D174F1400003D89 /* CryptoTests-tvOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "CryptoTests-tvOS.xctest";
-			remoteRef = 217675D91D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675E31D174F1400003D89 /* Diff.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Diff.framework;
-			remoteRef = 217675E21D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675E51D174F1400003D89 /* DiffTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = DiffTests.xctest;
-			remoteRef = 217675E41D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675E71D174F1400003D89 /* Diff.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Diff.framework;
-			remoteRef = 217675E61D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675E91D174F1400003D89 /* DiffTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = DiffTests.xctest;
-			remoteRef = 217675E81D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675EB1D174F1400003D89 /* Diff.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Diff.framework;
-			remoteRef = 217675EA1D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675ED1D174F1400003D89 /* Diff.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Diff.framework;
-			remoteRef = 217675EC1D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675EF1D174F1400003D89 /* DiffTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = DiffTests.xctest;
-			remoteRef = 217675EE1D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675F71D174F1400003D89 /* ISO8601.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ISO8601.framework;
-			remoteRef = 217675F61D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675F91D174F1400003D89 /* ISO8601Tests-iOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "ISO8601Tests-iOS.xctest";
-			remoteRef = 217675F81D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675FB1D174F1400003D89 /* ISO8601.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ISO8601.framework;
-			remoteRef = 217675FA1D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675FD1D174F1400003D89 /* ISO8601Tests-OSX.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "ISO8601Tests-OSX.xctest";
-			remoteRef = 217675FC1D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217675FF1D174F1400003D89 /* ISO8601.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ISO8601.framework;
-			remoteRef = 217675FE1D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217676011D174F1400003D89 /* ISO8601Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = ISO8601Tests.xctest;
-			remoteRef = 217676001D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217676071D174F1400003D89 /* OperationalTransformation.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = OperationalTransformation.framework;
-			remoteRef = 217676061D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217676091D174F1400003D89 /* OperationalTransformation.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = OperationalTransformation.xctest;
-			remoteRef = 217676081D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2176760B1D174F1400003D89 /* OperationalTransformation.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = OperationalTransformation.framework;
-			remoteRef = 2176760A1D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2176760D1D174F1400003D89 /* OperationalTransformation.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = OperationalTransformation.xctest;
-			remoteRef = 2176760C1D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217676161D174F1400003D89 /* SSKeychain.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SSKeychain.framework;
-			remoteRef = 217676151D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217676181D174F1400003D89 /* SSKeychainTests-iOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "SSKeychainTests-iOS.xctest";
-			remoteRef = 217676171D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2176761A1D174F1400003D89 /* SSKeychain.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SSKeychain.framework;
-			remoteRef = 217676191D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2176761C1D174F1400003D89 /* SSKeychainTests-OSX.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "SSKeychainTests-OSX.xctest";
-			remoteRef = 2176761B1D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2176761E1D174F1400003D89 /* SSKeychain.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SSKeychain.framework;
-			remoteRef = 2176761D1D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217676201D174F1400003D89 /* SSKeychainTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = SSKeychainTests.xctest;
-			remoteRef = 2176761F1D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217676221D174F1400003D89 /* SSKeychain.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SSKeychain.framework;
-			remoteRef = 217676211D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2176762A1D174F1400003D89 /* Starscream.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Starscream.framework;
-			remoteRef = 217676291D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2176762C1D174F1400003D89 /* Starscream iOSTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Starscream iOSTests.xctest";
-			remoteRef = 2176762B1D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2176762E1D174F1400003D89 /* Starscream.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Starscream.framework;
-			remoteRef = 2176762D1D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217676301D174F1400003D89 /* Starscream OSXTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Starscream OSXTests.xctest";
-			remoteRef = 2176762F1D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217676321D174F1400003D89 /* Starscream.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Starscream.framework;
-			remoteRef = 217676311D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217676341D174F1400003D89 /* Starscream tvOSTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Starscream tvOSTests.xctest";
-			remoteRef = 217676331D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2176763B1D174F1400003D89 /* X.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = X.framework;
-			remoteRef = 2176763A1D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2176763D1D174F1400003D89 /* X.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = X.framework;
-			remoteRef = 2176763C1D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2176763F1D174F1400003D89 /* X.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = X.framework;
-			remoteRef = 2176763E1D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217676411D174F1400003D89 /* X.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = X.framework;
-			remoteRef = 217676401D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		217676431D174F1400003D89 /* XTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = XTests.xctest;
-			remoteRef = 217676421D174F1400003D89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		21501D931CCAA2B900B02FC5 /* Resources */ = {
@@ -2265,20 +946,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		212EE7C51D41F13B008AF81F /* Strip Intercom */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Strip Intercom";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Intercom.framework/strip-frameworks.sh\"";
-		};
 		212EE7C71D41F152008AF81F /* Strip Intercom */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2347,12 +1014,27 @@
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Cache.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CanvasCore.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CanvasKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CanvasNative.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CanvasText.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CommonCrypto.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Crypto.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Diff.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/GradientView.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ISO8601.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/KSCrash.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Mixpanel.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/OnePasswordExtension.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Static.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/KSCrash.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/OperationalTransformation.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/PullToRefresh.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SentrySwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/GradientView.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SSKeychain.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Starscream.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Static.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/X.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Intercom.framework",
 			);
 			name = "Embed Carthage Frameworks";
 			outputPaths = (
@@ -2564,26 +1246,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		21025A491D3AAE0600A74753 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = PullToRefresh;
-			targetProxy = 21025A481D3AAE0600A74753 /* PBXContainerItemProxy */;
-		};
-		21025A4D1D3AAE2300A74753 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = PullToRefresh;
-			targetProxy = 21025A4C1D3AAE2300A74753 /* PBXContainerItemProxy */;
-		};
-		21173CC51D1742510050D524 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "CanvasCore-iOS";
-			targetProxy = 21173CC41D1742510050D524 /* PBXContainerItemProxy */;
-		};
-		217676751D17503700003D89 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "CanvasCore-iOS";
-			targetProxy = 217676741D17503700003D89 /* PBXContainerItemProxy */;
-		};
 		219F67A11D3D3C7C00FB17E2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 21F10F491BF138750035057D /* Canvas */;

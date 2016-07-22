@@ -1,6 +1,0 @@
-[submodule "Vendor/CanvasCore"]
-	path = Vendor/CanvasCore
-	url = https://github.com/usecanvas/CanvasCore
-[submodule "Vendor/PullToRefresh"]
-	path = Vendor/PullToRefresh
-	url = https://github.com/soffes/SSPullToRefresh
