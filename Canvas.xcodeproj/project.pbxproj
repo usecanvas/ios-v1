@@ -88,6 +88,8 @@
 		212D8EC71CE62AE00039A3EE /* IndicatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212D8EC51CE62AE00039A3EE /* IndicatorButton.swift */; };
 		212EE7631D41E30B008AF81F /* Intercom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212EE7621D41E30B008AF81F /* Intercom.framework */; };
 		212EE7641D41E310008AF81F /* Intercom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212EE7621D41E30B008AF81F /* Intercom.framework */; };
+		212EE7C41D41F135008AF81F /* Intercom.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 212EE7621D41E30B008AF81F /* Intercom.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		212EE7C61D41F14F008AF81F /* Intercom.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 212EE7621D41E30B008AF81F /* Intercom.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2147A2E31CDA586E008A2709 /* CanvasTextView+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147A2E21CDA586E008A2709 /* CanvasTextView+Gestures.swift */; };
 		2147A2FA1CDA5908008A2709 /* CanvasTextView+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147A2E21CDA586E008A2709 /* CanvasTextView+Gestures.swift */; };
 		2147A2FC1CDA7B2E008A2709 /* DragContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147A2FB1CDA7B2E008A2709 /* DragContext.swift */; };
@@ -799,6 +801,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				212EE7C61D41F14F008AF81F /* Intercom.framework in Embed Frameworks */,
 				21025A4F1D3AAE2D00A74753 /* PullToRefresh.framework in Embed Frameworks */,
 				217676BB1D17505E00003D89 /* Crypto.framework in Embed Frameworks */,
 				217676BC1D17505E00003D89 /* CommonCrypto.framework in Embed Frameworks */,
@@ -837,6 +840,7 @@
 				21173CCB1D1742800050D524 /* CanvasCore.framework in Embed Frameworks */,
 				217676511D174F4000003D89 /* Crypto.framework in Embed Frameworks */,
 				217676521D174F4000003D89 /* CommonCrypto.framework in Embed Frameworks */,
+				212EE7C41D41F135008AF81F /* Intercom.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1528,8 +1532,8 @@
 				21501D931CCAA2B900B02FC5 /* Resources */,
 				21501D991CCAA2B900B02FC5 /* Embed Frameworks */,
 				21F7EF311CD91DDB004E80E2 /* Embed Carthage Frameworks */,
+				212EE7C71D41F152008AF81F /* Strip Intercom */,
 				21501DA51CCAA2B900B02FC5 /* Set Version */,
-				21501DA61CCAA2B900B02FC5 /* Swift Lint */,
 			);
 			buildRules = (
 			);
@@ -1569,6 +1573,7 @@
 				21F10F481BF138750035057D /* Resources */,
 				2164599E1CC1468F00033B7F /* Embed Frameworks */,
 				21F7EF321CD91E74004E80E2 /* Embed Carthage Frameworks */,
+				212EE7C51D41F13B008AF81F /* Strip Intercom */,
 				21A8FA601BFD3D160097FCC6 /* Set Version */,
 			);
 			buildRules = (
@@ -2260,6 +2265,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		212EE7C51D41F13B008AF81F /* Strip Intercom */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Strip Intercom";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Intercom.framework/strip-frameworks.sh\"";
+		};
+		212EE7C71D41F152008AF81F /* Strip Intercom */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Strip Intercom";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Intercom.framework/strip-frameworks.sh\"";
+		};
 		21501DA51CCAA2B900B02FC5 /* Set Version */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2273,20 +2306,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = "/usr/bin/env ruby";
 			shellScript = "git = `sh /etc/profile; which git`.chomp\napp_build = `#{git} rev-list HEAD --count`.chomp.to_i\n`/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion #{app_build}\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"`\nputs \"Updated #{ENV['TARGET_BUILD_DIR']}/#{ENV['INFOPLIST_PATH']}\"";
-		};
-		21501DA61CCAA2B900B02FC5 /* Swift Lint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Swift Lint";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		21A8FA601BFD3D160097FCC6 /* Set Version */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2314,7 +2333,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/KSCrash.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SentrySwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/GradientView.framework",
-				"$(SRCROOT)/Carthage/Checkouts/intercom-ios/Intercom.framework",
 			);
 			name = "Embed Carthage Frameworks";
 			outputPaths = (
@@ -2335,7 +2353,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/KSCrash.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SentrySwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/GradientView.framework",
-				"$(SRCROOT)/Carthage/Checkouts/intercom-ios/Intercom.framework",
 			);
 			name = "Embed Carthage Frameworks";
 			outputPaths = (
