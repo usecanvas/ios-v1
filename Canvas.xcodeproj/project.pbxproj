@@ -84,12 +84,10 @@
 		21298C701D26C95700E741EE /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21298C6E1D26C95700E741EE /* BannerView.swift */; };
 		21298CD11D26F11100E741EE /* ValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21298CD01D26F11100E741EE /* ValueCell.swift */; };
 		21298CD21D26F11100E741EE /* ValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21298CD01D26F11100E741EE /* ValueCell.swift */; };
-		21298D481D27349800E741EE /* Intercom.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21298D461D27349800E741EE /* Intercom.bundle */; };
-		21298D8F1D27349F00E741EE /* Intercom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21298D471D27349800E741EE /* Intercom.framework */; };
-		21298D901D2734A100E741EE /* Intercom.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21298D461D27349800E741EE /* Intercom.bundle */; };
-		21298D921D273AA500E741EE /* Intercom.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21298D471D27349800E741EE /* Intercom.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		212D8EC61CE62AE00039A3EE /* IndicatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212D8EC51CE62AE00039A3EE /* IndicatorButton.swift */; };
 		212D8EC71CE62AE00039A3EE /* IndicatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212D8EC51CE62AE00039A3EE /* IndicatorButton.swift */; };
+		212EE7631D41E30B008AF81F /* Intercom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212EE7621D41E30B008AF81F /* Intercom.framework */; };
+		212EE7641D41E310008AF81F /* Intercom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212EE7621D41E30B008AF81F /* Intercom.framework */; };
 		2147A2E31CDA586E008A2709 /* CanvasTextView+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147A2E21CDA586E008A2709 /* CanvasTextView+Gestures.swift */; };
 		2147A2FA1CDA5908008A2709 /* CanvasTextView+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147A2E21CDA586E008A2709 /* CanvasTextView+Gestures.swift */; };
 		2147A2FC1CDA7B2E008A2709 /* DragContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147A2FB1CDA7B2E008A2709 /* DragContext.swift */; };
@@ -217,7 +215,6 @@
 		21D91E7E1D36A7DA00BADD0B /* PrefaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D91E7C1D36A7DA00BADD0B /* PrefaceButton.swift */; };
 		21D91E801D36AA0600BADD0B /* FooterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D91E7F1D36AA0600BADD0B /* FooterButton.swift */; };
 		21D91E811D36AA0600BADD0B /* FooterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D91E7F1D36AA0600BADD0B /* FooterButton.swift */; };
-		21DF11F11D273D8F0018AFD7 /* Intercom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21298D471D27349800E741EE /* Intercom.framework */; };
 		21F0C1331D3DB997001D77E7 /* CanvasActivitySource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F0C1321D3DB997001D77E7 /* CanvasActivitySource.swift */; };
 		21F0C1341D3DB997001D77E7 /* CanvasActivitySource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F0C1321D3DB997001D77E7 /* CanvasActivitySource.swift */; };
 		21F2D75D1D3DEBB100ADA4D5 /* RefreshContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F2D75C1D3DEBB100ADA4D5 /* RefreshContentView.swift */; };
@@ -805,7 +802,6 @@
 				21025A4F1D3AAE2D00A74753 /* PullToRefresh.framework in Embed Frameworks */,
 				217676BB1D17505E00003D89 /* Crypto.framework in Embed Frameworks */,
 				217676BC1D17505E00003D89 /* CommonCrypto.framework in Embed Frameworks */,
-				21298D921D273AA500E741EE /* Intercom.framework in Embed Frameworks */,
 				217676BD1D17505E00003D89 /* Cache.framework in Embed Frameworks */,
 				217676BE1D17505E00003D89 /* Diff.framework in Embed Frameworks */,
 				217676BF1D17505E00003D89 /* CanvasNative.framework in Embed Frameworks */,
@@ -909,9 +905,8 @@
 		212392921CEBAE0300F8D26B /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		21298C6E1D26C95700E741EE /* BannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		21298CD01D26F11100E741EE /* ValueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueCell.swift; sourceTree = "<group>"; };
-		21298D461D27349800E741EE /* Intercom.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Intercom.bundle; path = Vendor/Intercom/Intercom.bundle; sourceTree = "<group>"; };
-		21298D471D27349800E741EE /* Intercom.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intercom.framework; path = Vendor/Intercom/Intercom.framework; sourceTree = "<group>"; };
 		212D8EC51CE62AE00039A3EE /* IndicatorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorButton.swift; sourceTree = "<group>"; };
+		212EE7621D41E30B008AF81F /* Intercom.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intercom.framework; path = "Carthage/Checkouts/intercom-ios/Intercom.framework"; sourceTree = "<group>"; };
 		2147A2E21CDA586E008A2709 /* CanvasTextView+Gestures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CanvasTextView+Gestures.swift"; sourceTree = "<group>"; };
 		2147A2FB1CDA7B2E008A2709 /* DragContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragContext.swift; sourceTree = "<group>"; };
 		214F9FF61CC6DE4600927A07 /* CanvasTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasTextView.swift; sourceTree = "<group>"; };
@@ -978,6 +973,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				212EE7641D41E310008AF81F /* Intercom.framework in Frameworks */,
 				21025A4E1D3AAE2600A74753 /* PullToRefresh.framework in Frameworks */,
 				21F7EF301CD91D70004E80E2 /* Static.framework in Frameworks */,
 				21213AB51CDC2F930044D6BE /* Crypto.framework in Frameworks */,
@@ -986,7 +982,6 @@
 				21F7EF2E1CD91D70004E80E2 /* OnePasswordExtension.framework in Frameworks */,
 				218A75D11CECD06500459BC9 /* GradientView.framework in Frameworks */,
 				21F7EF381CD91F75004E80E2 /* SentrySwift.framework in Frameworks */,
-				21298D8F1D27349F00E741EE /* Intercom.framework in Frameworks */,
 				21F7EF361CD91F75004E80E2 /* KSCrash.framework in Frameworks */,
 				21F7EF2C1CD91D70004E80E2 /* Mixpanel.framework in Frameworks */,
 			);
@@ -1003,8 +998,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				212EE7631D41E30B008AF81F /* Intercom.framework in Frameworks */,
 				21025A4A1D3AAE0800A74753 /* PullToRefresh.framework in Frameworks */,
-				21DF11F11D273D8F0018AFD7 /* Intercom.framework in Frameworks */,
 				21F7EF2F1CD91D70004E80E2 /* Static.framework in Frameworks */,
 				21213A9D1CDC2F8A0044D6BE /* Crypto.framework in Frameworks */,
 				21A77E091D07E53200340243 /* Starscream.framework in Frameworks */,
@@ -1494,8 +1489,7 @@
 		21F7EF271CD91D58004E80E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				21298D461D27349800E741EE /* Intercom.bundle */,
-				21298D471D27349800E741EE /* Intercom.framework */,
+				212EE7621D41E30B008AF81F /* Intercom.framework */,
 				21A77E081D07E53200340243 /* Starscream.framework */,
 				218A75B71CECD02F00459BC9 /* GradientView.framework */,
 				21213A9A1CDC2F8A0044D6BE /* CommonCrypto.framework */,
@@ -2241,7 +2235,6 @@
 				21501D941CCAA2B900B02FC5 /* Settings.bundle in Resources */,
 				21501D961CCAA2B900B02FC5 /* Main.storyboard in Resources */,
 				21501D971CCAA2B900B02FC5 /* Assets.xcassets in Resources */,
-				21298D901D2734A100E741EE /* Intercom.bundle in Resources */,
 				21501D981CCAA2B900B02FC5 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2260,7 +2253,6 @@
 				2107D3341CC58F7B001963B7 /* Settings.bundle in Resources */,
 				2107D32F1CC58F7B001963B7 /* Main.storyboard in Resources */,
 				2107D32D1CC58F7B001963B7 /* Assets.xcassets in Resources */,
-				21298D481D27349800E741EE /* Intercom.bundle in Resources */,
 				2107D32E1CC58F7B001963B7 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2322,6 +2314,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/KSCrash.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SentrySwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/GradientView.framework",
+				"$(SRCROOT)/Carthage/Checkouts/intercom-ios/Intercom.framework",
 			);
 			name = "Embed Carthage Frameworks";
 			outputPaths = (
@@ -2342,6 +2335,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/KSCrash.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SentrySwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/GradientView.framework",
+				"$(SRCROOT)/Carthage/Checkouts/intercom-ios/Intercom.framework",
 			);
 			name = "Embed Carthage Frameworks";
 			outputPaths = (
@@ -2614,6 +2608,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Vendor/Intercom",
+					"$(PROJECT_DIR)/Carthage/Checkouts/intercom-ios",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2639,6 +2634,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Vendor/Intercom",
+					"$(PROJECT_DIR)/Carthage/Checkouts/intercom-ios",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2775,6 +2771,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Vendor/Intercom",
+					"$(PROJECT_DIR)/Carthage/Checkouts/intercom-ios",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2800,6 +2797,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Vendor/Intercom",
+					"$(PROJECT_DIR)/Carthage/Checkouts/intercom-ios",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
