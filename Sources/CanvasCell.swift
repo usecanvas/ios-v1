@@ -68,7 +68,7 @@ final class CanvasCell: UITableViewCell {
 
 			if canvas.archivedAt == nil {
 				titleLabel.textColor = Swatch.black
-				summaryLabel.textColor = Swatch.black
+				summaryLabel.textColor = canvas.isEmpty ? Swatch.darkGray : Swatch.black
 			} else {
 				titleLabel.textColor = Swatch.darkGray
 				summaryLabel.textColor = Swatch.darkGray
@@ -77,6 +77,8 @@ final class CanvasCell: UITableViewCell {
 			timeLabel.date = canvas.updatedAt
 		}
 	}
+
+	private var noContent = false
 	
 
 	// MARK: - Initializers
@@ -161,15 +163,7 @@ final class CanvasCell: UITableViewCell {
 	@objc private func updateFonts() {
 		titleLabel.font = TextStyle.body.font(weight: .medium)
 		timeLabel.font = TextStyle.footnote.font().fontWithMonospaceNumbers
-		updateSummaryFont()
-	}
-	
-	private func updateSummaryFont() {
-		if summaryLabel.text?.isEmpty ?? false {
-			summaryLabel.font = TextStyle.subheadline.font(traits: .TraitItalic)
-		} else {
-			summaryLabel.font = TextStyle.subheadline.font()
-		}
+		summaryLabel.font = TextStyle.subheadline.font()
 	}
 }
 
@@ -184,8 +178,6 @@ extension CanvasCell: CellType {
 			summaryLabel.text = "No Content" // TODO: Localize
 		}
 		
-		updateSummaryFont()
-
 		canvas = row.context?["canvas"] as? Canvas
 	}
 }
