@@ -86,7 +86,9 @@ struct DragContext {
 	private func rectForBackgroundView() -> CGRect {
 		var rect = self.rect
 		rect.origin.x = 0
+		rect.origin.y -= 4
 		rect.size.width = contentView.bounds.size.width
+		rect.size.height += 8
 		return rect
 	}
 
