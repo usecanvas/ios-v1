@@ -11,12 +11,34 @@ import CanvasCore
 
 final class DragProgressView: UIView {
 
+	// MARK: - Properties
+
+	private let imageView: UIImageView = {
+		let view = UIImageView()
+		view.translatesAutoresizingMaskIntoConstraints = false
+		view.tintColor = Swatch.gray
+		view.contentMode = .Center
+		return view
+	}()
+
+
 	// MARK: - Initializers
 
-	override init(frame: CGRect) {
-		super.init(frame: frame)
-		backgroundColor = Swatch.lightGray
+	init(icon: UIImage?, isLeading: Bool) {
+		super.init(frame: .zero)
+		backgroundColor = Swatch.extraLightGray
 		userInteractionEnabled = false
+
+		imageView.image = icon
+		addSubview(imageView)
+
+		imageView.centerYAnchor.constraintEqualToAnchor(centerYAnchor).active = true
+
+		if isLeading {
+			imageView.trailingAnchor.constraintEqualToAnchor(trailingAnchor, constant: -8).active = true
+		} else {
+			imageView.leadingAnchor.constraintEqualToAnchor(leadingAnchor, constant: 8).active = true
+		}
 	}
 	
 	required init?(coder aDecoder: NSCoder) {

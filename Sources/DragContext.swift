@@ -18,6 +18,8 @@ struct DragContext {
 
 	// MARK: - Properties
 
+	static let threshold: CGFloat = 60
+
 	let block: BlockNode
 	let rect: CGRect
 	let yContentOffset: CGFloat
@@ -31,21 +33,11 @@ struct DragContext {
 		return view
 	}()
 
-	private let leadingProgressView: DragProgressView = {
-		let view = DragProgressView()
-		view.translatesAutoresizingMaskIntoConstraints = false
-		return view
-	}()
-
-	private let trailingProgressView: DragProgressView = {
-		let view = DragProgressView()
-		view.translatesAutoresizingMaskIntoConstraints = false
-		return view
-	}()
+	let leadingProgressView: UIView
+	let trailingProgressView: UIView
 	
 	private let snapshotView: UIView
 	private let snapshotLeadingConstraint: NSLayoutConstraint
-	private let dragThreshold: CGFloat = 60
 	
 
 	// MARK: - Initializers
@@ -55,18 +47,25 @@ struct DragContext {
 		self.snapshotView = snapshotView
 		self.rect = rect
 		self.yContentOffset = yContentOffset
-		snapshotLeadingConstraint = snapshotView.leadingAnchor.constraintEqualToAnchor(contentView.leadingAnchor)
+
+		contentView.addSubview(backgroundView)
+
+		let leading = DragProgressView(icon: DragContext.leadingIcon(block: block), isLeading: true)
+		leading.translatesAutoresizingMaskIntoConstraints = false
+		leadingProgressView = leading
+		contentView.addSubview(leadingProgressView)
+
+		let trailing = DragProgressView(icon: DragContext.trailingIcon(block: block), isLeading: false)
+		trailing.translatesAutoresizingMaskIntoConstraints = false
+		trailingProgressView = trailing
+		contentView.addSubview(trailingProgressView)
 
 		let snapshotSize = snapshotView.bounds.size
 		snapshotView.userInteractionEnabled = false
 		snapshotView.translatesAutoresizingMaskIntoConstraints = false
-
-		contentView.backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.5)
-
-		contentView.addSubview(backgroundView)
-		contentView.addSubview(leadingProgressView)
-		contentView.addSubview(trailingProgressView)
 		contentView.addSubview(snapshotView)
+
+		snapshotLeadingConstraint = snapshotView.leadingAnchor.constraintEqualToAnchor(contentView.leadingAnchor)
 
 		NSLayoutConstraint.activateConstraints([
 			backgroundView.leadingAnchor.constraintEqualToAnchor(contentView.leadingAnchor),
@@ -118,5 +117,65 @@ struct DragContext {
 		rect.origin.y -= yContentOffset
 		rect.size.width = snapshotView.bounds.size.width
 		return rect
+	}
+
+	private static func leadingIcon(block block: BlockNode) -> UIImage? {
+		if block is Paragraph {
+			return UIImage(named: "CheckList")
+		}
+
+		if block is ChecklistItem {
+			return UIImage(named: "OrderedList")
+		}
+
+		if let block = block as? Listable {
+			if block.indentation.isMaximum {
+				return nil
+			}
+			
+			return UIImage(named: "Indent")!
+		}
+
+		if let block = block as? Heading {
+			if block.level == .three {
+				return UIImage(named: "Paragraph")
+			}
+
+			switch block.level.successor {
+			case .two: return UIImage(named: "Heading2")
+			case .three: return UIImage(named: "Heading3")
+			default: return nil
+			}
+		}
+
+		return nil
+	}
+
+	private static func trailingIcon(block block: BlockNode) -> UIImage? {
+		if let block = block as? Listable {
+			if block is ChecklistItem {
+				return UIImage(named: "Paragraph")
+			}
+
+			if block.indentation.isMinimum {
+				return UIImage(named: "CheckList")
+			}
+
+			return UIImage(named: "Outdent")
+		}
+
+		if block is Paragraph {
+			return UIImage(named: "Heading3")
+		}
+
+		if let block = block as? Heading where block.level != .one {
+			switch block.level.predecessor {
+			case .two: return UIImage(named: "Heading2")
+			case .three: return UIImage(named: "Heading3")
+			default: return nil
+			}
+		}
+
+		return nil
 	}
 }

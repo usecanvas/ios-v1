@@ -48,11 +48,11 @@ extension CanvasTextView {
 		var translation = dragGestureRecognizer.translationInView(self).x
 
 		// Prevent dragging h1s left
-		if let heading = context.block as? Heading where heading.level.isMinimum {
+		if let heading = context.block as? Heading where heading.level == .two {
 			translation = max(0, translation)
 		}
 
-			// Prevent dragging lists right at the end
+		// Prevent dragging lists right at the end
 		else if let listItem = context.block as? Listable where listItem.indentation.isMaximum {
 			translation = min(0, translation)
 		}
@@ -127,6 +127,11 @@ extension CanvasTextView: UIGestureRecognizerDelegate {
 
 		// Disable dragging if unsupported
 		if !(block is Paragraph) && !(block is Heading) && !(block is Listable) {
+			return false
+		}
+
+		// Dragging is only supported for h2 & h3
+		if let block = block as? Heading where block.level != .two && block.level != .three {
 			return false
 		}
 
