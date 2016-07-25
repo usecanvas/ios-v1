@@ -15,6 +15,7 @@ final class DragBackgroundView: UIView {
 		super.init(frame: frame)
 
 		backgroundColor = .whiteColor()
+		userInteractionEnabled = false
 
 		let topBorder = LineView()
 		topBorder.translatesAutoresizingMaskIntoConstraints = false

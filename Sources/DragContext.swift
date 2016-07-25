@@ -19,84 +19,103 @@ struct DragContext {
 	// MARK: - Properties
 
 	let block: BlockNode
-	let contentView: UIView
 	let rect: CGRect
 	let yContentOffset: CGFloat
 	var dragAction: DragAction? = nil
 
-	var subviews: [UIView] {
-		return [backgroundView, progressView, contentView]
-	}
+	let contentView = UIView()
 
+	private let backgroundView: UIView = {
+		let view = DragBackgroundView()
+		view.translatesAutoresizingMaskIntoConstraints = false
+		return view
+	}()
+
+	private let leadingProgressView: DragProgressView = {
+		let view = DragProgressView()
+		view.translatesAutoresizingMaskIntoConstraints = false
+		return view
+	}()
+
+	private let trailingProgressView: DragProgressView = {
+		let view = DragProgressView()
+		view.translatesAutoresizingMaskIntoConstraints = false
+		return view
+	}()
+	
+	private let snapshotView: UIView
+	private let snapshotLeadingConstraint: NSLayoutConstraint
 	private let dragThreshold: CGFloat = 60
-	private let backgroundView = DragBackgroundView()
-	private let progressView = DragProgressView()
 	
 
 	// MARK: - Initializers
 
-	init(block: BlockNode, contentView: UIView, rect: CGRect, yContentOffset: CGFloat) {
+	init(block: BlockNode, snapshotView: UIView, rect: CGRect, yContentOffset: CGFloat) {
 		self.block = block
-		self.contentView = contentView
+		self.snapshotView = snapshotView
 		self.rect = rect
 		self.yContentOffset = yContentOffset
+		snapshotLeadingConstraint = snapshotView.leadingAnchor.constraintEqualToAnchor(contentView.leadingAnchor)
 
-		contentView.userInteractionEnabled = false
-		backgroundView.userInteractionEnabled = false
-		progressView.userInteractionEnabled = false
+		let snapshotSize = snapshotView.bounds.size
+		snapshotView.userInteractionEnabled = false
+		snapshotView.translatesAutoresizingMaskIntoConstraints = false
 
-		layoutViews()
-		setupContentViewMask()
+		contentView.backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.5)
+
+		contentView.addSubview(backgroundView)
+		contentView.addSubview(leadingProgressView)
+		contentView.addSubview(trailingProgressView)
+		contentView.addSubview(snapshotView)
+
+		NSLayoutConstraint.activateConstraints([
+			backgroundView.leadingAnchor.constraintEqualToAnchor(contentView.leadingAnchor),
+			backgroundView.trailingAnchor.constraintEqualToAnchor(contentView.trailingAnchor),
+			backgroundView.topAnchor.constraintEqualToAnchor(contentView.topAnchor, constant: -4),
+			backgroundView.bottomAnchor.constraintEqualToAnchor(contentView.bottomAnchor, constant: 4),
+
+			leadingProgressView.leadingAnchor.constraintEqualToAnchor(contentView.leadingAnchor),
+			leadingProgressView.trailingAnchor.constraintEqualToAnchor(snapshotView.leadingAnchor),
+			leadingProgressView.topAnchor.constraintEqualToAnchor(backgroundView.topAnchor),
+			leadingProgressView.bottomAnchor.constraintEqualToAnchor(backgroundView.bottomAnchor),
+
+			trailingProgressView.leadingAnchor.constraintEqualToAnchor(snapshotView.trailingAnchor),
+			trailingProgressView.trailingAnchor.constraintGreaterThanOrEqualToAnchor(contentView.trailingAnchor),
+			trailingProgressView.topAnchor.constraintEqualToAnchor(backgroundView.topAnchor),
+			trailingProgressView.bottomAnchor.constraintEqualToAnchor(backgroundView.bottomAnchor),
+
+			snapshotLeadingConstraint,
+			snapshotView.topAnchor.constraintEqualToAnchor(contentView.topAnchor, constant: -rect.minY + yContentOffset),
+			snapshotView.widthAnchor.constraintEqualToConstant(snapshotSize.width),
+			snapshotView.heightAnchor.constraintEqualToConstant(snapshotSize.height)
+		])
+
+		// Setup snapshot mask
+		let mask = CAShapeLayer()
+		mask.frame = snapshotView.layer.bounds
+		mask.path = UIBezierPath(rect: rectForContentViewMask()).CGPath
+		snapshotView.layer.mask = mask
 	}
 
 
 	// MARK: - Manipulation
 
 	func translate(x x: CGFloat) {
-		contentView.frame = rectForContentView(x: x)
+		snapshotLeadingConstraint.constant = x
 	}
 
 	func tearDown() {
-		backgroundView.removeFromSuperview()
 		contentView.removeFromSuperview()
 	}
 
 
 	// MARK: - Private
 
-	private func layoutViews() {
-		contentView.frame = rectForContentView(x: 0)
-		backgroundView.frame = rectForBackgroundView()
-	}
-
-	private func setupContentViewMask() {
-		let mask = CAShapeLayer()
-		mask.frame = contentView.layer.bounds
-		mask.path = UIBezierPath(rect: rectForContentViewMask()).CGPath
-		contentView.layer.mask = mask
-	}
-
-	private func rectForContentView(x x: CGFloat) -> CGRect {
-		var rect = contentView.bounds
-		rect.origin.x = x
-		rect.origin.y += yContentOffset
-		return rect
-	}
-
-	private func rectForBackgroundView() -> CGRect {
-		var rect = self.rect
-		rect.origin.x = 0
-		rect.origin.y -= 4
-		rect.size.width = contentView.bounds.size.width
-		rect.size.height += 8
-		return rect
-	}
-
 	private func rectForContentViewMask() -> CGRect {
 		var rect = self.rect
 		rect.origin.x = 0
 		rect.origin.y -= yContentOffset
-		rect.size.width = contentView.bounds.size.width
+		rect.size.width = snapshotView.bounds.size.width
 		return rect
 	}
 }
