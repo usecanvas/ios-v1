@@ -40,10 +40,6 @@ extension CanvasTextView {
 			contentView.topAnchor.constraintEqualToAnchor(topAnchor, constant: context.rect.minY - context.yContentOffset),
 			contentView.heightAnchor.constraintEqualToConstant(ceil(context.rect.height))
 		])
-
-		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC)), dispatch_get_main_queue()) {
-			print("hi")
-		}
 	}
 
 	private func dragChanged() {
@@ -80,18 +76,18 @@ extension CanvasTextView {
 
 		UIView.animateWithDuration(0.2, delay: 0, options: [], animations: {
 			context.translate(x: 0)
-			}, completion: { [weak self] _ in
-				context.tearDown()
+		}, completion: { [weak self] _ in
+			context.tearDown()
 
-				if applyAction, let action = self?.dragContext?.dragAction, textController = self?.textController {
-					switch action {
-					case .Increase: textController.increaseBlockLevel(block: context.block)
-					case .Decrease: textController.decreaseBlockLevel(block: context.block)
-					}
+			if applyAction, let action = self?.dragContext?.dragAction, textController = self?.textController {
+				switch action {
+				case .Increase: textController.increaseBlockLevel(block: context.block)
+				case .Decrease: textController.decreaseBlockLevel(block: context.block)
 				}
+			}
 
-				self?.dragContext = nil
-			})
+			self?.dragContext = nil
+		})
 	}
 
 	private func blockAt(point point: CGPoint) -> BlockNode? {

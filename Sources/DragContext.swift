@@ -74,7 +74,7 @@ struct DragContext {
 			backgroundView.topAnchor.constraintEqualToAnchor(contentView.topAnchor, constant: -4),
 			backgroundView.bottomAnchor.constraintEqualToAnchor(contentView.bottomAnchor, constant: 4),
 
-			leadingProgressView.leadingAnchor.constraintEqualToAnchor(contentView.leadingAnchor),
+			leadingProgressView.leadingAnchor.constraintLessThanOrEqualToAnchor(contentView.leadingAnchor),
 			leadingProgressView.trailingAnchor.constraintEqualToAnchor(snapshotView.leadingAnchor),
 			leadingProgressView.topAnchor.constraintEqualToAnchor(backgroundView.topAnchor),
 			leadingProgressView.bottomAnchor.constraintEqualToAnchor(backgroundView.bottomAnchor),
@@ -102,6 +102,7 @@ struct DragContext {
 
 	func translate(x x: CGFloat) {
 		snapshotLeadingConstraint.constant = x
+		contentView.layoutIfNeeded()
 	}
 
 	func tearDown() {
