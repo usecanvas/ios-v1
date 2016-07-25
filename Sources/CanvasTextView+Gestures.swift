@@ -80,9 +80,15 @@ extension CanvasTextView {
 	}
 
 	private func blockAt(point point: CGPoint) -> BlockNode? {
-		guard let textController = textController else { return nil }
+		guard let document = textController?.currentDocument else { return nil }
 		let location = layoutManager.characterIndexForPoint(point, inTextContainer: textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
-		return textController.currentDocument.blockAt(presentationLocation: location, direction: .trailing)
+
+		// Special case the last block
+		if location > (document.presentationString as NSString).length - 2 {
+			return document.blocks.last
+		}
+
+		return document.blockAt(presentationLocation: location, direction: .leading)
 	}
 }
 
