@@ -30,14 +30,14 @@ end
 desc 'Build the project’s dependencies'
 task :bootstrap do
   Rake::Task['check_tools'].invoke unless ENV['SKIP_TOOLS_CHECK']
-  puts "Getting Carthage dependencies…".bold.blue
+  info "Getting Carthage dependencies…"
   system 'carthage bootstrap'
-  puts "\nYou're ready to go! Open Canvas.xcodeproj and click ▶".bold.green
+  success "You're ready to go! Open Canvas.xcodeproj and click ▶"
 end
 
 desc 'Update the project’s dependencies.'
 task :update => :check_tools do
-  puts "Updating Carthage dependencies…".bold.blue
+  info "Updating Carthage dependencies…"
   system 'carthage update'
   Rake::Task['bootstrap'].invoke
 end
@@ -49,41 +49,89 @@ task :check_tools do
 
   # Check for Xcode
   unless path = `xcode-select -p`.chomp
-    abort "Xcode is not installed. Please install Xcode #{XCODE_SHORT_VERSION} from #{XCODE_URL}".bold.red
+    fail "Xcode is not installed. Please install Xcode #{XCODE_SHORT_VERSION} from #{XCODE_URL}"
   end
 
   # Check Xcode version
   info_path = File.expand_path path + '/../Info'
   unless (version = `defaults read #{info_path} CFBundleVersion`.chomp) == XCODE_VERSION
-    abort "Xcode #{version} is installed. Xcode #{XCODE_VERSION} was expected. Please install Xcode #{XCODE_SHORT_VERSION} from #{XCODE_URL}".bold.red
+    fail "Xcode #{version} is installed. Xcode #{XCODE_VERSION} was expected. Please install Xcode #{XCODE_SHORT_VERSION} from #{XCODE_URL}"
   end
 
   # Check Carthage
   unless (version = `carthage version`.chomp) == CARTHAGE_VERSION
-    abort "Carthage #{CARTHAGE_VERSION} isnt’t installed. You can install with `brew install carthage`. You may need to update Homebrew with `brew update` first.".bold.red
+    fail "Carthage #{CARTHAGE_VERSION} isnt’t installed. You can install with `brew install carthage`. You may need to update Homebrew with `brew update` first."
   end
 end
 
 desc 'Clean Carthage and submodules'
 task :clean do
-  puts "Cleaning Carthage dependencies…".bold.blue
+  info "Cleaning Carthage dependencies…"
   system 'rm -rf Carthage'
-  puts "Clean!".bold.green
+  success "Clean!"
+end
+
+desc 'Put a first-party dependency into development mode'
+task :develop, [:name] do |t, args|
+  name = args[:name]
+
+  source_dir = "../#{name}"
+  checkout_dir = "Carthage/Checkouts/#{name}"
+
+  # Setup symlink
+  info "Creating symlink for #{name}…"
+  system "rm -f #{checkout_dir}"
+
+  unless File.exists?(source_dir)
+    fail "#{name} is missing at `#{source_dir}`"
+  end
+
+  # Get ref
+  begin
+    resolved = File.read('Cartfile.resolved')
+  rescue
+    fail 'Failed to read Cartfile.resolved.'
+  end
+
+  unless matches = resolved.match(/git(?:hub)? ".*\/#{name}" "(.*)"/) and ref = matches[1]
+    fail "Failed to find #{name} in Cartfile.resolved."
+  end
+
+  system "ln -s #{source_dir} #{checkout_dir}"
+
+  # Update git
+  info "Checkout #{name} at #{ref}…"
+  system "cd #{source_dir} && git fetch --quiet && git checkout --quiet #{ref}"
+
+  # Setup workspace
+  info 'Creating `Canvas.xcworkspace`…'
+  system 'rm -rf Canvas.xcworkspace'
+  system 'mkdir Canvas.xcworkspace'
+
+  dependencies = [name]
+  dependencies_xml = %Q{    <FileRef location="group:Canvas.xcodeproj"></FileRef>\n}
+  dependencies_xml += dependencies.map { |name| %Q{    <FileRef location="group:Carthage/Checkouts/#{name}/#{name}.xcodeproj"></FileRef>\n} }.join('')
+
+  File.open 'Canvas.xcworkspace/contents.xcworkspacedata', 'w' do |file|
+    file.write %Q{<?xml version="1.0" encoding="UTF-8"?>\n<Workspace version="1.0">\n#{dependencies_xml}</Workspace>\n}
+  end
+
+  success "Setup `Canvas.xcworkspace` for developming #{name}!"
 end
 
 namespace :sentry do
   desc 'Upload dSYM files to Sentry'
   task :upload do
     unless path = `which sentry-cli`.chomp
-      abort "sentry-cli is not installed. Please install from https://github.com/getsentry/sentry-cli"
+      fail "sentry-cli is not installed. Please install from https://github.com/getsentry/sentry-cli"
     end
 
     unless directory = ENV['DSYM_DIRECTORY']
-      abort "Usage: DSYM_DIRECTORY=some_path rake sentry:upload"
+      fail "Usage: DSYM_DIRECTORY=some_path rake sentry:upload"
     end
 
     dsym_paths = Dir["#{directory}/*.dSYM"]
-    abort "No dSYM files found." if dsym_paths.length == 0
+    fail "No dSYM files found." if dsym_paths.length == 0
 
     dsym_paths.each do |path|
       system %(sentry-cli --api-key #{SENTRY_API_KEY} upload-dsym "#{path}" --org #{SENTRY_ORG} --project #{SENTRY_PROJECT})
@@ -91,3 +139,16 @@ namespace :sentry do
   end
 end
 
+private
+
+def info(s)
+  puts s.bold.blue
+end
+
+def success(s)
+  puts s.bold.green
+end
+
+def fail(s)
+  abort s.bold.red
+end
