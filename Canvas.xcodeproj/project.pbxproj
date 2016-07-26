@@ -131,6 +131,8 @@
 		215D1AE11D426CE20030D804 /* APIClient+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D1ADF1D426CE20030D804 /* APIClient+Canvas.swift */; };
 		217309FD1D46E7E5001B63D7 /* Interpolate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217309FC1D46E7E5001B63D7 /* Interpolate.swift */; };
 		217309FE1D46E7E5001B63D7 /* Interpolate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217309FC1D46E7E5001B63D7 /* Interpolate.swift */; };
+		21730A061D46F603001B63D7 /* SAMKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21730A051D46F603001B63D7 /* SAMKeychain.framework */; };
+		21730A071D46F609001B63D7 /* SAMKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21730A051D46F603001B63D7 /* SAMKeychain.framework */; };
 		2178CBB91CEA891100E9A4B2 /* SessionFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178CBB81CEA891100E9A4B2 /* SessionFormViewController.swift */; };
 		2178CBBA1CEA891100E9A4B2 /* SessionFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178CBB81CEA891100E9A4B2 /* SessionFormViewController.swift */; };
 		217C55C21D42D4F70064A2AD /* Cache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55AD1D42D4F70064A2AD /* Cache.framework */; };
@@ -167,8 +169,6 @@
 		217C55E11D42D4F70064A2AD /* PullToRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55BC1D42D4F70064A2AD /* PullToRefresh.framework */; };
 		217C55E21D42D4F70064A2AD /* SentrySwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55BD1D42D4F70064A2AD /* SentrySwift.framework */; };
 		217C55E31D42D4F70064A2AD /* SentrySwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55BD1D42D4F70064A2AD /* SentrySwift.framework */; };
-		217C55E41D42D4F70064A2AD /* SSKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55BE1D42D4F70064A2AD /* SSKeychain.framework */; };
-		217C55E51D42D4F70064A2AD /* SSKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55BE1D42D4F70064A2AD /* SSKeychain.framework */; };
 		217C55E61D42D4F70064A2AD /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55BF1D42D4F70064A2AD /* Starscream.framework */; };
 		217C55E71D42D4F70064A2AD /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55BF1D42D4F70064A2AD /* Starscream.framework */; };
 		217C55E81D42D4F70064A2AD /* Static.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55C01D42D4F70064A2AD /* Static.framework */; };
@@ -326,6 +326,7 @@
 		215CD8611CE293FF0093C545 /* PlaceholderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderViewController.swift; sourceTree = "<group>"; };
 		215D1ADF1D426CE20030D804 /* APIClient+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIClient+Canvas.swift"; sourceTree = "<group>"; };
 		217309FC1D46E7E5001B63D7 /* Interpolate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interpolate.swift; sourceTree = "<group>"; };
+		21730A051D46F603001B63D7 /* SAMKeychain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SAMKeychain.framework; path = Carthage/Build/iOS/SAMKeychain.framework; sourceTree = "<group>"; };
 		2178CBB81CEA891100E9A4B2 /* SessionFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionFormViewController.swift; sourceTree = "<group>"; };
 		217C55AD1D42D4F70064A2AD /* Cache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cache.framework; path = Carthage/Build/iOS/Cache.framework; sourceTree = "<group>"; };
 		217C55AE1D42D4F70064A2AD /* CanvasCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CanvasCore.framework; path = Carthage/Build/iOS/CanvasCore.framework; sourceTree = "<group>"; };
@@ -344,7 +345,6 @@
 		217C55BB1D42D4F70064A2AD /* OperationalTransformation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OperationalTransformation.framework; path = Carthage/Build/iOS/OperationalTransformation.framework; sourceTree = "<group>"; };
 		217C55BC1D42D4F70064A2AD /* PullToRefresh.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PullToRefresh.framework; path = Carthage/Build/iOS/PullToRefresh.framework; sourceTree = "<group>"; };
 		217C55BD1D42D4F70064A2AD /* SentrySwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SentrySwift.framework; path = Carthage/Build/iOS/SentrySwift.framework; sourceTree = "<group>"; };
-		217C55BE1D42D4F70064A2AD /* SSKeychain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SSKeychain.framework; path = Carthage/Build/iOS/SSKeychain.framework; sourceTree = "<group>"; };
 		217C55BF1D42D4F70064A2AD /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
 		217C55C01D42D4F70064A2AD /* Static.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Static.framework; path = Carthage/Build/iOS/Static.framework; sourceTree = "<group>"; };
 		217C55C11D42D4F70064A2AD /* X.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = X.framework; path = Carthage/Build/iOS/X.framework; sourceTree = "<group>"; };
@@ -390,6 +390,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				217C55D91D42D4F70064A2AD /* KSCrash.framework in Frameworks */,
+				21730A071D46F609001B63D7 /* SAMKeychain.framework in Frameworks */,
 				217C55CF1D42D4F70064A2AD /* Crypto.framework in Frameworks */,
 				217C55E11D42D4F70064A2AD /* PullToRefresh.framework in Frameworks */,
 				217C55E71D42D4F70064A2AD /* Starscream.framework in Frameworks */,
@@ -408,7 +409,6 @@
 				217C55CD1D42D4F70064A2AD /* CommonCrypto.framework in Frameworks */,
 				217C55DF1D42D4F70064A2AD /* OperationalTransformation.framework in Frameworks */,
 				217C55DB1D42D4F70064A2AD /* Mixpanel.framework in Frameworks */,
-				217C55E51D42D4F70064A2AD /* SSKeychain.framework in Frameworks */,
 				217C55CB1D42D4F70064A2AD /* CanvasText.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				217C55D81D42D4F70064A2AD /* KSCrash.framework in Frameworks */,
+				21730A061D46F603001B63D7 /* SAMKeychain.framework in Frameworks */,
 				217C55CE1D42D4F70064A2AD /* Crypto.framework in Frameworks */,
 				217C55E01D42D4F70064A2AD /* PullToRefresh.framework in Frameworks */,
 				217C55E61D42D4F70064A2AD /* Starscream.framework in Frameworks */,
@@ -443,7 +444,6 @@
 				217C55CC1D42D4F70064A2AD /* CommonCrypto.framework in Frameworks */,
 				217C55DE1D42D4F70064A2AD /* OperationalTransformation.framework in Frameworks */,
 				217C55DA1D42D4F70064A2AD /* Mixpanel.framework in Frameworks */,
-				217C55E41D42D4F70064A2AD /* SSKeychain.framework in Frameworks */,
 				217C55CA1D42D4F70064A2AD /* CanvasText.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -741,6 +741,7 @@
 		21F7EF271CD91D58004E80E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				21730A051D46F603001B63D7 /* SAMKeychain.framework */,
 				217C55AD1D42D4F70064A2AD /* Cache.framework */,
 				217C55AE1D42D4F70064A2AD /* CanvasCore.framework */,
 				217C55AF1D42D4F70064A2AD /* CanvasKit.framework */,
@@ -758,7 +759,6 @@
 				217C55BB1D42D4F70064A2AD /* OperationalTransformation.framework */,
 				217C55BC1D42D4F70064A2AD /* PullToRefresh.framework */,
 				217C55BD1D42D4F70064A2AD /* SentrySwift.framework */,
-				217C55BE1D42D4F70064A2AD /* SSKeychain.framework */,
 				217C55BF1D42D4F70064A2AD /* Starscream.framework */,
 				217C55C01D42D4F70064A2AD /* Static.framework */,
 				217C55C11D42D4F70064A2AD /* X.framework */,
@@ -998,12 +998,27 @@
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SAMKeychain.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Cache.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CanvasCore.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CanvasKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CanvasNative.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CanvasText.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CommonCrypto.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Crypto.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Diff.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/GradientView.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Intercom.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ISO8601.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/KSCrash.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Mixpanel.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/OnePasswordExtension.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Static.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/KSCrash.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/OperationalTransformation.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/PullToRefresh.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SentrySwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/GradientView.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Starscream.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Static.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/X.framework",
 			);
 			name = "Embed Carthage Frameworks";
 			outputPaths = (
@@ -1034,7 +1049,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/OperationalTransformation.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PullToRefresh.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SentrySwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SSKeychain.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SAMKeychain.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Starscream.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Static.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/X.framework",
