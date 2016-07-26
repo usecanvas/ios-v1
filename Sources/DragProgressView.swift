@@ -35,13 +35,33 @@ final class DragProgressView: UIView {
 		imageView.centerYAnchor.constraintEqualToAnchor(centerYAnchor).active = true
 
 		if isLeading {
-			imageView.trailingAnchor.constraintEqualToAnchor(trailingAnchor, constant: -8).active = true
+			let x = imageView.trailingAnchor.constraintEqualToAnchor(trailingAnchor, constant: -8)
+			x.priority = UILayoutPriorityDefaultLow
+
+			NSLayoutConstraint.activateConstraints([
+				x,
+				imageView.trailingAnchor.constraintLessThanOrEqualToAnchor(leadingAnchor, constant: DragContext.threshold)
+			])
 		} else {
-			imageView.leadingAnchor.constraintEqualToAnchor(leadingAnchor, constant: 8).active = true
+			let x = imageView.leadingAnchor.constraintEqualToAnchor(leadingAnchor, constant: 8)
+			x.priority = UILayoutPriorityDefaultLow
+
+			NSLayoutConstraint.activateConstraints([
+				x,
+				imageView.leadingAnchor.constraintGreaterThanOrEqualToAnchor(trailingAnchor, constant: -DragContext.threshold)
+			])
 		}
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+
+
+	// MARK: - Translation
+
+	func translate(x x: CGFloat) {
+		let progress = min(abs(x) / DragContext.threshold, 1)
+		imageView.tintColor = Swatch.extraLightGray.interpolateTo(color: Swatch.darkGray, progress: progress)
 	}
 }

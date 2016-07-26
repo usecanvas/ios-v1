@@ -77,8 +77,6 @@ extension CanvasTextView {
 		UIView.animateWithDuration(0.2, delay: 0, options: [], animations: {
 			context.translate(x: 0)
 		}, completion: { [weak self] _ in
-			context.tearDown()
-
 			if applyAction, let action = self?.dragContext?.dragAction, textController = self?.textController {
 				switch action {
 				case .Increase: textController.increaseBlockLevel(block: context.block)
@@ -86,7 +84,12 @@ extension CanvasTextView {
 				}
 			}
 
-			self?.dragContext = nil
+			UIView.animateWithDuration(0.15, animations: {
+				context.contentView.alpha = 0
+			}, completion: { _ in
+				context.tearDown()
+				self?.dragContext = nil
+			})
 		})
 	}
 

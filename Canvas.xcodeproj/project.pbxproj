@@ -129,6 +129,8 @@
 		215CD89D1CE2A26F0093C545 /* EditorViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B28BF51CDC6049009B9D8F /* EditorViewController+Actions.swift */; };
 		215D1AE01D426CE20030D804 /* APIClient+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D1ADF1D426CE20030D804 /* APIClient+Canvas.swift */; };
 		215D1AE11D426CE20030D804 /* APIClient+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D1ADF1D426CE20030D804 /* APIClient+Canvas.swift */; };
+		217309FD1D46E7E5001B63D7 /* Interpolate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217309FC1D46E7E5001B63D7 /* Interpolate.swift */; };
+		217309FE1D46E7E5001B63D7 /* Interpolate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217309FC1D46E7E5001B63D7 /* Interpolate.swift */; };
 		2178CBB91CEA891100E9A4B2 /* SessionFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178CBB81CEA891100E9A4B2 /* SessionFormViewController.swift */; };
 		2178CBBA1CEA891100E9A4B2 /* SessionFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178CBB81CEA891100E9A4B2 /* SessionFormViewController.swift */; };
 		217C55C21D42D4F70064A2AD /* Cache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217C55AD1D42D4F70064A2AD /* Cache.framework */; };
@@ -323,6 +325,7 @@
 		215485FF1D3D4007000D7E77 /* NSProcessInfo+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSProcessInfo+Canvas.swift"; sourceTree = "<group>"; };
 		215CD8611CE293FF0093C545 /* PlaceholderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderViewController.swift; sourceTree = "<group>"; };
 		215D1ADF1D426CE20030D804 /* APIClient+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIClient+Canvas.swift"; sourceTree = "<group>"; };
+		217309FC1D46E7E5001B63D7 /* Interpolate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interpolate.swift; sourceTree = "<group>"; };
 		2178CBB81CEA891100E9A4B2 /* SessionFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionFormViewController.swift; sourceTree = "<group>"; };
 		217C55AD1D42D4F70064A2AD /* Cache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cache.framework; path = Carthage/Build/iOS/Cache.framework; sourceTree = "<group>"; };
 		217C55AE1D42D4F70064A2AD /* CanvasCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CanvasCore.framework; path = Carthage/Build/iOS/CanvasCore.framework; sourceTree = "<group>"; };
@@ -513,6 +516,7 @@
 				2107D2CB1CC58F7A001963B7 /* Analytics.swift */,
 				211F9A3D1D3F42FE00E0A519 /* AuthorizationClient.swift */,
 				210B1C961D0B14A600B08A81 /* SharedWebCredentials.swift */,
+				217309FC1D46E7E5001B63D7 /* Interpolate.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -1085,6 +1089,7 @@
 				21501D661CCAA2B900B02FC5 /* CanvasTextView.swift in Sources */,
 				21501D671CCAA2B900B02FC5 /* CanvasesViewController.swift in Sources */,
 				21501D681CCAA2B900B02FC5 /* Configuration.swift in Sources */,
+				217309FE1D46E7E5001B63D7 /* Interpolate.swift in Sources */,
 				21F95DC61D2EC902006B4100 /* OnboardingWelcomeViewController.swift in Sources */,
 				2122BFF11CFE4FF900A038DE /* LoadCanvasViewController.swift in Sources */,
 				21D6BC281D3DB4AC002B92C8 /* DestructiveValueCell.swift in Sources */,
@@ -1188,6 +1193,7 @@
 				214F9FF71CC6DE4600927A07 /* CanvasTextView.swift in Sources */,
 				2107D3091CC58F7B001963B7 /* CanvasesViewController.swift in Sources */,
 				2107D30F1CC58F7B001963B7 /* Configuration.swift in Sources */,
+				217309FD1D46E7E5001B63D7 /* Interpolate.swift in Sources */,
 				21F95DC51D2EC902006B4100 /* OnboardingWelcomeViewController.swift in Sources */,
 				2122BFF01CFE4FF900A038DE /* LoadCanvasViewController.swift in Sources */,
 				21D6BC271D3DB4AC002B92C8 /* DestructiveValueCell.swift in Sources */,

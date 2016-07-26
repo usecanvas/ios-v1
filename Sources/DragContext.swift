@@ -33,8 +33,8 @@ struct DragContext {
 		return view
 	}()
 
-	let leadingProgressView: UIView
-	let trailingProgressView: UIView
+	let leadingProgressView: DragProgressView
+	let trailingProgressView: DragProgressView
 	
 	private let snapshotView: UIView
 	private let snapshotLeadingConstraint: NSLayoutConstraint
@@ -101,6 +101,8 @@ struct DragContext {
 
 	func translate(x x: CGFloat) {
 		snapshotLeadingConstraint.constant = x
+		leadingProgressView.translate(x: x)
+		trailingProgressView.translate(x: x)
 		contentView.layoutIfNeeded()
 	}
 
