@@ -305,6 +305,15 @@ final class EditorViewController: UIViewController, Accountable {
 	private func updateAutoCompletion() {
 		autocompleteEnabled = !textController.isCodeFocused
 	}
+
+	private func updatePresenceCursor() {
+		let document = textController.currentDocument
+		let backingSelection: NSRange? = textController.presentationSelectedRange.flatMap { presentationSelection in
+			let ranges = document.backingRanges(presentationRange: presentationSelection)
+			return ranges.reduce(ranges[0]) { NSUnionRange($0, $1) }
+		}
+		presenceController.updateSelection(backingSelection, document: document, canvasID: canvas.id)
+	}
 }
 
 
@@ -387,6 +396,8 @@ extension EditorViewController: UITextViewDelegate {
 		if NSEqualRanges(textView.selectedRange, NSRange(location: 0, length: 0)) {
 			textView.typingAttributes = textController.theme.titleAttributes
 		}
+
+		updatePresenceCursor()
 	}
 
 	func textViewDidBeginEditing(textView: UITextView) {
@@ -420,6 +431,7 @@ extension EditorViewController: TextControllerDisplayDelegate {
 
 			if !NSEqualRanges(textView.selectedRange, selectedRange) {
 				textView.selectedRange = selectedRange
+				self?.updatePresenceCursor()
 			}
 
 			if let previousPositionY = self?.scrollOffset, let position = textView.positionFromPosition(textView.beginningOfDocument, offset: textView.selectedRange.location) {
