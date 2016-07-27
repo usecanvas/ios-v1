@@ -97,7 +97,8 @@ task :develop, [:name] do |t, args|
     fail "Failed to find #{name} in Cartfile.resolved."
   end
 
-  system "ln -s #{source_dir} #{checkout_dir}"
+  system 'mkdir -p Carthage/Checkouts'
+  system "ln -s ../../#{source_dir} #{checkout_dir}"
 
   # Update git
   info "Checkout #{name} at #{ref}…"
@@ -117,6 +118,16 @@ task :develop, [:name] do |t, args|
   end
 
   success "Setup `Canvas.xcworkspace` for developming #{name}!"
+end
+
+namespace :develop do
+  desc 'Reset development dependencies'
+  task :reset do
+    system 'rm -rf Canvas.xcworkspace'
+    system 'rm -rf Carthage/Checkouts'
+    Rake::Task['clean'].invoke
+    Rake::Task['bootstrap'].invoke
+  end
 end
 
 namespace :sentry do
