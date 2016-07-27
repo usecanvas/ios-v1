@@ -117,7 +117,7 @@ task :develop, [:name] do |t, args|
     file.write %Q{<?xml version="1.0" encoding="UTF-8"?>\n<Workspace version="1.0">\n#{dependencies_xml}</Workspace>\n}
   end
 
-  success "Setup `Canvas.xcworkspace` for developming #{name}!"
+  success "Setup `Canvas.xcworkspace` for developing #{name}!"
 end
 
 namespace :develop do
