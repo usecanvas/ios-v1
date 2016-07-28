@@ -308,11 +308,8 @@ final class EditorViewController: UIViewController, Accountable {
 
 	private func updatePresenceCursor() {
 		let document = textController.currentDocument
-		let backingSelection: NSRange? = textController.presentationSelectedRange.flatMap { presentationSelection in
-			let ranges = document.backingRanges(presentationRange: presentationSelection)
-			return ranges.reduce(ranges[0]) { NSUnionRange($0, $1) }
-		}
-		presenceController.updateSelection(backingSelection, document: document, canvasID: canvas.id)
+		let selection = textController.presentationSelectedRange
+		presenceController.update(selection: selection, withDocument: document, canvasID: canvas.id)
 	}
 }
 
