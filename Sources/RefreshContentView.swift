@@ -151,7 +151,7 @@ final class RefreshContentView: UIView, ContentView {
 		var rect = CGRect(x: 14, y: 10, width: 36, height: fullHeight)
 
 		if (state == .Closing ? 1 : progress) < 1 {
-			rect.size.height *= min(1, progress)
+			rect.size.height *= min(1, progress * 0.9)
 			rect.origin.y += fullHeight - rect.height
 		}
 
