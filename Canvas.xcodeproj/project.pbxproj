@@ -219,6 +219,12 @@
 		21D91E7E1D36A7DA00BADD0B /* PrefaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D91E7C1D36A7DA00BADD0B /* PrefaceButton.swift */; };
 		21D91E801D36AA0600BADD0B /* FooterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D91E7F1D36AA0600BADD0B /* FooterButton.swift */; };
 		21D91E811D36AA0600BADD0B /* FooterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D91E7F1D36AA0600BADD0B /* FooterButton.swift */; };
+		21DC57781D4B884D000240B1 /* RemoteCursorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DC57771D4B884D000240B1 /* RemoteCursorsView.swift */; };
+		21DC57791D4B884D000240B1 /* RemoteCursorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DC57771D4B884D000240B1 /* RemoteCursorsView.swift */; };
+		21DC577B1D4B95D3000240B1 /* RemoteCursorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DC577A1D4B95D3000240B1 /* RemoteCursorView.swift */; };
+		21DC577C1D4B95D3000240B1 /* RemoteCursorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DC577A1D4B95D3000240B1 /* RemoteCursorView.swift */; };
+		21DC577E1D4B95FD000240B1 /* RemoteCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DC577D1D4B95FD000240B1 /* RemoteCursor.swift */; };
+		21DC577F1D4B95FD000240B1 /* RemoteCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DC577D1D4B95FD000240B1 /* RemoteCursor.swift */; };
 		21F0C1331D3DB997001D77E7 /* CanvasActivitySource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F0C1321D3DB997001D77E7 /* CanvasActivitySource.swift */; };
 		21F0C1341D3DB997001D77E7 /* CanvasActivitySource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F0C1321D3DB997001D77E7 /* CanvasActivitySource.swift */; };
 		21F2D75D1D3DEBB100ADA4D5 /* RefreshContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F2D75C1D3DEBB100ADA4D5 /* RefreshContentView.swift */; };
@@ -373,6 +379,9 @@
 		21D91E791D36A39700BADD0B /* VerifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyViewController.swift; sourceTree = "<group>"; };
 		21D91E7C1D36A7DA00BADD0B /* PrefaceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefaceButton.swift; sourceTree = "<group>"; };
 		21D91E7F1D36AA0600BADD0B /* FooterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooterButton.swift; sourceTree = "<group>"; };
+		21DC57771D4B884D000240B1 /* RemoteCursorsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteCursorsView.swift; sourceTree = "<group>"; };
+		21DC577A1D4B95D3000240B1 /* RemoteCursorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteCursorView.swift; sourceTree = "<group>"; };
+		21DC577D1D4B95FD000240B1 /* RemoteCursor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteCursor.swift; sourceTree = "<group>"; };
 		21F0C1321D3DB997001D77E7 /* CanvasActivitySource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasActivitySource.swift; sourceTree = "<group>"; };
 		21F10F4A1BF138750035057D /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F2D75C1D3DEBB100ADA4D5 /* RefreshContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshContentView.swift; sourceTree = "<group>"; };
@@ -583,6 +592,7 @@
 			children = (
 				2147A2FB1CDA7B2E008A2709 /* DragContext.swift */,
 				21BF511F1D233514001801A5 /* SleepPrevention.swift */,
+				21DC577D1D4B95FD000240B1 /* RemoteCursor.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -701,6 +711,8 @@
 				2147A2E21CDA586E008A2709 /* CanvasTextView+Gestures.swift */,
 				21D5C9591D4081A300155B93 /* DragBackgroundView.swift */,
 				21D5C95C1D40833700155B93 /* DragProgressView.swift */,
+				21DC57771D4B884D000240B1 /* RemoteCursorsView.swift */,
+				21DC577A1D4B95D3000240B1 /* RemoteCursorView.swift */,
 			);
 			name = "Text View";
 			sourceTree = "<group>";
@@ -1075,6 +1087,7 @@
 				21298C701D26C95700E741EE /* BannerView.swift in Sources */,
 				2117A0971D0642A400E60821 /* UIColor+Canvas.swift in Sources */,
 				2122BFF41CFE645100A038DE /* EditorViewController+Connection.swift in Sources */,
+				21DC577C1D4B95D3000240B1 /* RemoteCursorView.swift in Sources */,
 				21501D5D1CCAA2B900B02FC5 /* Canvas+Canvas.swift in Sources */,
 				21BD176A1D1EEBFD00C11CB9 /* SignUpViewController.swift in Sources */,
 				21D91E7E1D36A7DA00BADD0B /* PrefaceButton.swift in Sources */,
@@ -1083,6 +1096,7 @@
 				21501D5F1CCAA2B900B02FC5 /* CanvasesResultsViewController.swift in Sources */,
 				21BF511E1D233357001801A5 /* SleepPickerViewController.swift in Sources */,
 				212D8EC71CE62AE00039A3EE /* IndicatorButton.swift in Sources */,
+				21DC57791D4B884D000240B1 /* RemoteCursorsView.swift in Sources */,
 				21D5C95B1D4081A300155B93 /* DragBackgroundView.swift in Sources */,
 				21A6CB551D3974670004F739 /* CopyRepresentationActivity.swift in Sources */,
 				21F95DC91D2ECB75006B4100 /* OnboardingGesturesViewController.swift in Sources */,
@@ -1142,6 +1156,7 @@
 				215D1AE11D426CE20030D804 /* APIClient+Canvas.swift in Sources */,
 				2147A2FA1CDA5908008A2709 /* CanvasTextView+Gestures.swift in Sources */,
 				21501D7D1CCAA2B900B02FC5 /* SafariActivity.swift in Sources */,
+				21DC577F1D4B95FD000240B1 /* RemoteCursor.swift in Sources */,
 				212299CF1CE3E7F200033D94 /* UIViewController+Canvas.swift in Sources */,
 				21501D7F1CCAA2B900B02FC5 /* ChromeActivity.swift in Sources */,
 				21C58DD61D023947005AEFE1 /* SectionHeaderView.swift in Sources */,
@@ -1179,6 +1194,7 @@
 				21298C6F1D26C95700E741EE /* BannerView.swift in Sources */,
 				2117A0961D0642A400E60821 /* UIColor+Canvas.swift in Sources */,
 				2122BFF31CFE645100A038DE /* EditorViewController+Connection.swift in Sources */,
+				21DC577B1D4B95D3000240B1 /* RemoteCursorView.swift in Sources */,
 				2107D3061CC58F7B001963B7 /* Canvas+Canvas.swift in Sources */,
 				21BD17691D1EEBFD00C11CB9 /* SignUpViewController.swift in Sources */,
 				21D91E7D1D36A7DA00BADD0B /* PrefaceButton.swift in Sources */,
@@ -1187,6 +1203,7 @@
 				2107D3081CC58F7B001963B7 /* CanvasesResultsViewController.swift in Sources */,
 				21BF511D1D233357001801A5 /* SleepPickerViewController.swift in Sources */,
 				212D8EC61CE62AE00039A3EE /* IndicatorButton.swift in Sources */,
+				21DC57781D4B884D000240B1 /* RemoteCursorsView.swift in Sources */,
 				21D5C95A1D4081A300155B93 /* DragBackgroundView.swift in Sources */,
 				21A6CB541D3974670004F739 /* CopyRepresentationActivity.swift in Sources */,
 				21F95DC81D2ECB75006B4100 /* OnboardingGesturesViewController.swift in Sources */,
@@ -1246,6 +1263,7 @@
 				215D1AE01D426CE20030D804 /* APIClient+Canvas.swift in Sources */,
 				2147A2E31CDA586E008A2709 /* CanvasTextView+Gestures.swift in Sources */,
 				2107D3211CC58F7B001963B7 /* SafariActivity.swift in Sources */,
+				21DC577E1D4B95FD000240B1 /* RemoteCursor.swift in Sources */,
 				212299B81CE3E79C00033D94 /* UIViewController+Canvas.swift in Sources */,
 				2107D30C1CC58F7B001963B7 /* ChromeActivity.swift in Sources */,
 				21C58DD51D023947005AEFE1 /* SectionHeaderView.swift in Sources */,
