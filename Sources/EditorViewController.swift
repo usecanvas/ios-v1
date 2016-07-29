@@ -88,7 +88,9 @@ final class EditorViewController: UIViewController, Accountable {
 		presenceController = PresenceController(account: account, serverURL: config.environment.presenceURL)
 		
 		super.init(nibName: nil, bundle: nil)
-		
+
+		presenceController.add(observer: self)
+
 		titleView.showsLock = !canvas.isWritable
 		
 		textController.connectionDelegate = self

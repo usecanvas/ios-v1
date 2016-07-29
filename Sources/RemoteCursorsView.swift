@@ -70,59 +70,55 @@ final class RemoteCursorsView: UIView {
 
 	// MARK: - Updating
 
-	func updateUser(username username: String, range: NSRange?) {
+	func change(username username: String, range: NSRange) {
 		let key = username.lowercaseString
-
-		// If there's not a range, remove it from view
-		guard let range = range else {
-			if let cursor = cursors.removeValueForKey(key) {
-				remove(cursor: cursor)
-			}
-			return
-		}
 
 		// Track this username
 		usernames.insert(key)
 
-		// Update an existing cursor
 		let cursor: RemoteCursor
-		if var cur = cursors[key] {
-			if NSEqualRanges(cur.range, range) {
+
+		if var current = cursors[key] {
+			if NSEqualRanges(current.range, range) {
+				cursors[key] = layoutLayers(cursor: current)
 				return
 			}
-
-			cur.range = range
-			cursor = cur
-		}
-
-		// Create a new cursor
-		else {
+			current.range = range
+			cursor = current
+		} else {
 			cursor = RemoteCursor(username: username, color: colors[usernames.count % colors.count], range: range)
 		}
 
 		// Layout updated cursor
-		cursors[key] = cursor
-		layout(cursor: cursor)
+		cursors[key] = layoutLayers(cursor: cursor)
+	}
+
+	func leave(username username: String) {
+		guard let cursor = cursors.removeValueForKey(username.lowercaseString) else { return }
+		removeLayers(cursor: cursor)
 	}
 
 	func layoutCursors() {
-		cursors.values.forEach(layout)
+		for (key, cursor) in cursors {
+			cursors[key] = layoutLayers(cursor: cursor)
+		}
 	}
 
 
 	// MARK: - Private
 
-	private func remove(cursor cursor: RemoteCursor) {
+	private func removeLayers(cursor cursor: RemoteCursor) {
 		cursor.layers.forEach({ $0.removeFromSuperlayer() })
 	}
 
-	private func layout(cursor cursor: RemoteCursor) {
+	private func layoutLayers(cursor cursor: RemoteCursor) -> RemoteCursor {
 		var cursor = cursor
 		cursor.lineLayers.forEach { $0.removeFromSuperlayer() }
+		cursor.lineLayers = []
 
 		guard let textView = textView, rects = textView.rectsForRange(cursor.range) else {
 			cursor.labelLayer.removeFromSuperlayer()
-			return
+			return cursor
 		}
 
 		// Setup line layers
@@ -162,5 +158,7 @@ final class RemoteCursorsView: UIView {
 			width: size.width,
 			height: size.height
 		)
+
+		return cursor
 	}
 }

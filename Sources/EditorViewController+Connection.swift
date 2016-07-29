@@ -11,6 +11,7 @@ import WebKit
 import SentrySwift
 import CanvasCore
 import CanvasText
+import CanvasKit
 
 extension EditorViewController: TextControllerConnectionDelegate {
 	func textController(textController: TextController, willConnectWithWebView webView: WKWebView) {
@@ -29,10 +30,6 @@ extension EditorViewController: TextControllerConnectionDelegate {
 
 		if textView.editable && (usingKeyboard || textView.text.isEmpty) {
 			textView.becomeFirstResponder()
-		}
-
-		dispatch_async(dispatch_get_main_queue()) { [weak self] in
-			self?.remoteCursorsView.updateUser(username: "soffes", range: NSRange(location: 6, length: 0))
 		}
 	}
 
@@ -116,5 +113,23 @@ extension EditorViewController: TextControllerConnectionDelegate {
 		alert.addAction(UIAlertAction(title: LocalizedString.CloseCanvas.string, style: .Destructive, handler: close))
 		alert.addAction(UIAlertAction(title: LocalizedString.Retry.string, style: .Default, handler: reload))
 		presentViewController(alert, animated: true, completion: nil)
+	}
+}
+
+
+extension EditorViewController: PresenceObserver {
+	func presenceController(controller: PresenceController, canvasID: String, userJoined user: CanvasKit.User, cursor: Cursor?) {
+		presenceController(controller, canvasID: canvasID, user: user, updatedCursor: cursor)
+	}
+
+	func presenceController(controller: PresenceController, canvasID: String, user: CanvasKit.User, updatedCursor cursor: Cursor?) {
+		guard let username = user.username, cursor = cursor else { return }
+		let document = textController.currentDocument
+		remoteCursorsView.change(username: username, range: cursor.presentationRange(with: document))
+	}
+
+	func presenceController(controller: PresenceController, canvasID: String, userLeft user: CanvasKit.User) {
+		guard let username = user.username else { return }
+		remoteCursorsView.leave(username: username)
 	}
 }
