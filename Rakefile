@@ -31,14 +31,14 @@ desc 'Build the project’s dependencies'
 task :bootstrap do
   Rake::Task['check_tools'].invoke unless ENV['SKIP_TOOLS_CHECK']
   info "Getting Carthage dependencies…"
-  system 'carthage bootstrap'
+  system 'carthage bootstrap --platform iOS'
   success "You're ready to go! Open Canvas.xcodeproj and click ▶"
 end
 
 desc 'Update the project’s dependencies.'
 task :update => :check_tools do
   info "Updating Carthage dependencies…"
-  system 'carthage update'
+  system 'carthage update --platform iOS'
   Rake::Task['bootstrap'].invoke
 end
 
