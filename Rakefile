@@ -79,7 +79,7 @@ task :develop, [:name] do |t, args|
 
   # Setup symlink
   info "Creating symlink for #{name}…"
-  system "rm -f #{checkout_dir}"
+  system "rm -rf #{checkout_dir}"
 
   unless File.exists?(source_dir)
     fail "#{name} is missing at `#{source_dir}`"
