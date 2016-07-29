@@ -49,7 +49,7 @@ final class RemoteCursorsView: UIView {
 
 	// MARK: - Properties
 
-	weak var textView: UITextView?
+	weak var textView: TextView?
 
 	// TODO: Get colors from theme
 	private let colors = [
@@ -120,41 +120,20 @@ final class RemoteCursorsView: UIView {
 		var cursor = cursor
 		cursor.lineLayers.forEach { $0.removeFromSuperlayer() }
 
-		guard let textView = textView else {
+		guard let textView = textView, rects = textView.rectsForRange(cursor.range) else {
 			cursor.labelLayer.removeFromSuperlayer()
 			return
-		}
-
-		let wasFirstResponder = textView.isFirstResponder()
-		if !wasFirstResponder {
-			textView.becomeFirstResponder()
-		}
-
-		guard let start = textView.positionFromPosition(textView.beginningOfDocument, offset: cursor.range.location),
-			end = textView.positionFromPosition(start, offset: cursor.range.length),
-			textRange = textView.textRangeFromPosition(start, toPosition: end),
-			selectionRects = textView.selectionRectsForRange(textRange) as? [UITextSelectionRect]
-		where !selectionRects.isEmpty
-		else {
-			if !wasFirstResponder {
-				textView.resignFirstResponder()
-			}
-			cursor.labelLayer.removeFromSuperlayer()
-			return
-		}
-
-		if !wasFirstResponder {
-			textView.resignFirstResponder()
 		}
 
 		// Setup line layers
-		cursor.lineLayers = selectionRects.map {
+		cursor.lineLayers = rects.map {
 			let layer = CALayer()
 			layer.backgroundColor = cursor.color.CGColor
 
-			var rect = $0.rect
+			var rect = $0
 			rect.origin.x += textView.contentInset.left
 			rect.origin.y += textView.contentInset.top
+			rect.size.width = max(2, rect.size.width)
 			layer.frame = rect
 
 			return layer

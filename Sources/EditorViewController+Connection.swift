@@ -32,7 +32,7 @@ extension EditorViewController: TextControllerConnectionDelegate {
 		}
 
 		dispatch_async(dispatch_get_main_queue()) { [weak self] in
-			self?.remoteCursorsView.updateUser(username: "soffes", range: NSRange(location: 0, length: 4))
+			self?.remoteCursorsView.updateUser(username: "soffes", range: NSRange(location: 6, length: 0))
 		}
 	}
 
