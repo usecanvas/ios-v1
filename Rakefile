@@ -39,7 +39,6 @@ desc 'Update the project’s dependencies.'
 task :update => :check_tools do
   info "Updating Carthage dependencies…"
   system 'carthage update --platform iOS'
-  Rake::Task['bootstrap'].invoke
 end
 
 # TODO: This could be a lot more robust, but should at least help for now.
