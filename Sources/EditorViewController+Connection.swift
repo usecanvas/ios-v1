@@ -30,6 +30,10 @@ extension EditorViewController: TextControllerConnectionDelegate {
 		if textView.editable && (usingKeyboard || textView.text.isEmpty) {
 			textView.becomeFirstResponder()
 		}
+
+		dispatch_async(dispatch_get_main_queue()) { [weak self] in
+			self?.remoteCursorsView.updateUser(username: "soffes", range: NSRange(location: 0, length: 4))
+		}
 	}
 
 	func textController(textController: TextController, didReceiveWebErrorMessage errorMessage: String?, lineNumber: UInt?, columnNumber: UInt?) {

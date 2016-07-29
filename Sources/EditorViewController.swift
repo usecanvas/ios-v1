@@ -37,6 +37,14 @@ final class EditorViewController: UIViewController, Accountable {
 		view.hidden = true
 		return view
 	}()
+
+	let remoteCursorsView: RemoteCursorsView = {
+		let view = RemoteCursorsView()
+		view.translatesAutoresizingMaskIntoConstraints = false
+		return view
+	}()
+
+	var remoteCursorsViewTopConstraint: NSLayoutConstraint!
 	
 	private var autocompleteEnabled = false {
 		didSet {
@@ -174,17 +182,27 @@ final class EditorViewController: UIViewController, Accountable {
 		UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 		title = LocalizedString.Connecting.string
 		view.backgroundColor = Swatch.white
-		
+
+		remoteCursorsView.textView = textView
+		view.addSubview(remoteCursorsView)
+
 		textView.delegate = self
 		view.addSubview(textView)
 
 		textController.connect()
-		
+
+		remoteCursorsViewTopConstraint = remoteCursorsView.topAnchor.constraintEqualToAnchor(textView.topAnchor)
+
 		NSLayoutConstraint.activateConstraints([
 			textView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
 			textView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor),
 			textView.topAnchor.constraintEqualToAnchor(view.topAnchor),
-			textView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor)
+			textView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor),
+
+			remoteCursorsView.leadingAnchor.constraintEqualToAnchor(textView.leadingAnchor),
+			remoteCursorsView.trailingAnchor.constraintEqualToAnchor(textView.trailingAnchor),
+			remoteCursorsViewTopConstraint,
+			remoteCursorsView.bottomAnchor.constraintEqualToAnchor(textView.bottomAnchor)
 		])
 
 		if traitCollection.forceTouchCapability == .Available {
@@ -226,6 +244,8 @@ final class EditorViewController: UIViewController, Accountable {
 			textView.becomeFirstResponder()
 			ignoreLocalSelectionChange = false
 		}
+
+		remoteCursorsView.layoutCursors()
 	}
 
 	override func viewWillAppear(animated: Bool) {
@@ -416,6 +436,10 @@ extension EditorViewController: UITextViewDelegate {
 
 	func scrollViewWillBeginDragging(scrollView: UIScrollView) {
 		scrollOffset = nil
+	}
+
+	func scrollViewDidScroll(scrollView: UIScrollView) {
+		remoteCursorsViewTopConstraint.constant = -scrollView.contentOffset.y
 	}
 }
 

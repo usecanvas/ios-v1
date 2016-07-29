@@ -7,13 +7,51 @@
 //
 
 import UIKit
+import CanvasCore
 
 final class RemoteCursorsView: UIView {
+
+	// MARK: - Types
+
+	struct RemoteCursor {
+		let username: String
+		let color: UIColor
+		var range: NSRange
+		var lineLayers = [CALayer]()
+
+		let usernameLabel: UILabel = {
+			let label = UILabel()
+			label.font = .boldSystemFontOfSize(8)
+			label.textColor = Swatch.black
+			label.textAlignment = .Center
+			return label
+		}()
+
+		var labelLayer: CALayer {
+			return usernameLabel.layer
+		}
+
+		var layers: [CALayer] {
+			return lineLayers + [labelLayer]
+		}
+
+		init(username: String, color: UIColor, range: NSRange) {
+			self.username = username
+			self.color = color
+			self.range = range
+
+			usernameLabel.backgroundColor = color
+			usernameLabel.text = username
+		}
+
+	}
+
 
 	// MARK: - Properties
 
 	weak var textView: UITextView?
 
+	// TODO: Get colors from theme
 	private let colors = [
 		UIColor(red: 250 / 255, green: 227 / 255, blue: 224 / 255, alpha: 1),
 		UIColor(red: 250 / 255, green: 242 / 255, blue: 178 / 255, alpha: 1),
@@ -29,8 +67,6 @@ final class RemoteCursorsView: UIView {
 	// Mapping of lowercased usernames to a remote cursor model.
 	private var cursors = [String: RemoteCursor]()
 
-	private var cursorViews = [RemoteCursor: RemoteCursorView]()
-
 
 	// MARK: - Updating
 
@@ -39,7 +75,9 @@ final class RemoteCursorsView: UIView {
 
 		// If there's not a range, remove it from view
 		guard let range = range else {
-			cursors.removeValueForKey(key)
+			if let cursor = cursors.removeValueForKey(key) {
+				remove(cursor: cursor)
+			}
 			return
 		}
 
@@ -47,36 +85,103 @@ final class RemoteCursorsView: UIView {
 		usernames.insert(key)
 
 		// Update an existing cursor
-		if var cursor = cursors[key] {
-			if !NSEqualRanges(cursor.range, range) {
-				cursor.range = range
-				cursors[key] = cursor
+		let cursor: RemoteCursor
+		if var cur = cursors[key] {
+			if NSEqualRanges(cur.range, range) {
+				return
 			}
+
+			cur.range = range
+			cursor = cur
 		}
 
 		// Create a new cursor
 		else {
-			let cursor = RemoteCursor(username: username, range: range, color: colors[usernames.count % colors.count])
-			cursors[key] = cursor
+			cursor = RemoteCursor(username: username, color: colors[usernames.count % colors.count], range: range)
 		}
+
+		// Layout updated cursor
+		cursors[key] = cursor
+		layout(cursor: cursor)
 	}
 
-	func layout() {
-		cursors.values.forEach(layoutCursorView)
+	func layoutCursors() {
+		cursors.values.forEach(layout)
 	}
 
 
 	// MARK: - Private
 
-	private func addCursorView(cursor cursor: RemoteCursor) {
-
+	private func remove(cursor cursor: RemoteCursor) {
+		cursor.layers.forEach({ $0.removeFromSuperlayer() })
 	}
 
-	private func removeCursorView(cursor cursor: RemoteCursor) {
+	private func layout(cursor cursor: RemoteCursor) {
+		var cursor = cursor
+		cursor.lineLayers.forEach { $0.removeFromSuperlayer() }
 
-	}
+		guard let textView = textView else {
+			cursor.labelLayer.removeFromSuperlayer()
+			return
+		}
 
-	private func layoutCursorView(cursor cursor: RemoteCursor) {
+		let wasFirstResponder = textView.isFirstResponder()
+		if !wasFirstResponder {
+			textView.becomeFirstResponder()
+		}
 
+		guard let start = textView.positionFromPosition(textView.beginningOfDocument, offset: cursor.range.location),
+			end = textView.positionFromPosition(start, offset: cursor.range.length),
+			textRange = textView.textRangeFromPosition(start, toPosition: end),
+			selectionRects = textView.selectionRectsForRange(textRange) as? [UITextSelectionRect]
+		where !selectionRects.isEmpty
+		else {
+			if !wasFirstResponder {
+				textView.resignFirstResponder()
+			}
+			cursor.labelLayer.removeFromSuperlayer()
+			return
+		}
+
+		if !wasFirstResponder {
+			textView.resignFirstResponder()
+		}
+
+		// Setup line layers
+		cursor.lineLayers = selectionRects.map {
+			let layer = CALayer()
+			layer.backgroundColor = cursor.color.CGColor
+
+			var rect = $0.rect
+			rect.origin.x += textView.contentInset.left
+			rect.origin.y += textView.contentInset.top
+			layer.frame = rect
+
+			return layer
+		}
+
+		// Add the line layers to the view
+		cursor.lineLayers.forEach(layer.addSublayer)
+
+		// Add the label layer if needed
+		if cursor.labelLayer.superlayer == nil {
+			layer.addSublayer(cursor.labelLayer)
+		}
+
+		// Layout the label layer
+		let firstLine = cursor.lineLayers[0]
+
+		cursor.usernameLabel.sizeToFit()
+
+		var size = cursor.usernameLabel.frame.size
+		size.width += 4
+		size.height += 4
+
+		cursor.labelLayer.frame = CGRect(
+			x: firstLine.frame.minX,
+			y: firstLine.frame.minY - size.height,
+			width: size.width,
+			height: size.height
+		)
 	}
 }
