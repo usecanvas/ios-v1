@@ -103,6 +103,12 @@ task :develop, [:name] do |t, args|
   info "Checkout #{name} at #{ref}…"
   system "cd #{source_dir} && git fetch --quiet && git checkout --quiet #{ref}"
 
+  # Symlink build directory
+  system "mkdir -p #{checkout_dir}/Carthage/Build/"
+  build_dir = "#{checkout_dir}/Carthage/Build"
+  system "rm -rf #{build_dir}"
+  system "ln -s `pwd`/Carthage/Build #{build_dir}"
+
   # Setup workspace
   info 'Creating `Canvas.xcworkspace`…'
   system 'rm -rf Canvas.xcworkspace'
