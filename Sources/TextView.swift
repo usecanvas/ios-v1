@@ -71,16 +71,25 @@ class TextView: UITextView {
 	}
 
 	func rectsForRange(range: NSRange) -> [CGRect]? {
+		var range = range
 		let wasFirstResponder = isFirstResponder()
 		if !wasFirstResponder {
 			becomeFirstResponder()
 		}
 
+		let blank: Bool
+		if range.length == 0 {
+			range.length += 1
+			blank = true
+		} else {
+			blank = false
+		}
+
 		guard let start = positionFromPosition(beginningOfDocument, offset: range.location),
 			end = positionFromPosition(start, offset: range.length),
 			textRange = textRangeFromPosition(start, toPosition: end),
-			selectionRects = super.selectionRectsForRange(textRange) as? [UITextSelectionRect],
-			firstRect = selectionRects.first?.rect
+			selectionRects = (super.selectionRectsForRange(textRange) as? [UITextSelectionRect])?.map({ $0.rect }),
+			firstRect = selectionRects.first
 		else {
 			if !wasFirstResponder {
 				resignFirstResponder()
@@ -88,7 +97,13 @@ class TextView: UITextView {
 			return nil
 		}
 
-		let filtered = selectionRects.map { $0.rect }.filter { $0.width > 0 }
+		if blank {
+			var rect = firstRect
+			rect.size.width = 2
+			return [rect]
+		}
+
+		let filtered = selectionRects.filter { $0.width > 0 }
 
 		if filtered.isEmpty {
 			return [firstRect]
