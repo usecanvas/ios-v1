@@ -66,7 +66,7 @@ end
 desc 'Clean Carthage and submodules'
 task :clean do
   info "Cleaning Carthage dependencies…"
-  system 'rm -rf Carthage'
+  system 'rm -rf Carthage Canvas.xcworkspace'
   success "Clean!"
 end
 
