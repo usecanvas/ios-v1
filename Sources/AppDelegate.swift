@@ -52,12 +52,10 @@ import Intercom
 	private func open(canvasURL canvasURL: NSURL) -> Bool {
 		// For now require an account
 		guard let account = AccountController.sharedController.currentAccount,
-			splitViewController = (window?.rootViewController as? RootViewController)?.viewController as? SplitViewController
+			splitViewController = (window?.rootViewController as? RootViewController)?.viewController as? SplitViewController,
+			canvasID = URLHelper.canvasID(url: canvasURL)
 		else { return false }
-		
-		guard let components = canvasURL.pathComponents where components.count == 4 else { return false }
-		
-		let canvasID = components[3]
+
 		let viewController = NavigationController(rootViewController: LoadCanvasViewController(account: account, canvasID: canvasID))
 		
 		let show = {
