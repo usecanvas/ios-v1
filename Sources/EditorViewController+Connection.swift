@@ -124,12 +124,19 @@ extension EditorViewController: PresenceObserver {
 
 	func presenceController(controller: PresenceController, canvasID: String, user: CanvasKit.User, updatedCursor cursor: Cursor?) {
 		guard let username = user.username, cursor = cursor else { return }
-		let document = textController.currentDocument
-		remoteCursorsView.change(username: username, range: cursor.presentationRange(with: document))
+		remoteCursorsController.change(username: username, cursor: cursor)
 	}
 
 	func presenceController(controller: PresenceController, canvasID: String, userLeft user: CanvasKit.User) {
 		guard let username = user.username else { return }
-		remoteCursorsView.leave(username: username)
+		remoteCursorsController.leave(username: username)
+	}
+}
+
+
+extension EditorViewController: RemoteCursorsControllerDelegate {
+	func remoteCursorsController(controller: RemoteCursorsController, rectsForCursor cursor: Cursor) -> [CGRect]? {
+		let range = cursor.presentationRange(with: textController.currentDocument)
+		return textView.rectsForRange(range)
 	}
 }

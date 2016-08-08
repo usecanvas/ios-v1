@@ -38,13 +38,14 @@ final class EditorViewController: UIViewController, Accountable {
 		return view
 	}()
 
-	let remoteCursorsView: RemoteCursorsView = {
-		let view = RemoteCursorsView()
-		view.translatesAutoresizingMaskIntoConstraints = false
-		return view
+	let remoteCursorsController: RemoteCursorsController = {
+		let controller = RemoteCursorsController()
+		controller.backgroundView.translatesAutoresizingMaskIntoConstraints = false
+		controller.foregroundView.translatesAutoresizingMaskIntoConstraints = false
+		return controller
 	}()
 
-	var remoteCursorsViewTopConstraint: NSLayoutConstraint!
+	var remoteCursorsTopConstraint: NSLayoutConstraint!
 	
 	private var autocompleteEnabled = false {
 		didSet {
@@ -100,7 +101,8 @@ final class EditorViewController: UIViewController, Accountable {
 		textView.delegate = self
 		textView.formattingDelegate = self
 		textView.editable = false
-		
+		textView.addObserver(self, forKeyPath: "contentInset", options: [.Initial, .New], context: nil)
+
 		navigationItem.titleView = titleView
 		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "More"), style: .Plain, target: self, action: #selector(more))
 
@@ -117,6 +119,7 @@ final class EditorViewController: UIViewController, Accountable {
 	}
 
 	deinit {
+		textView.removeObserver(self, forKeyPath: "contentInset")
 		textController.disconnect(withReason: nil)
 		presenceController.disconnect()
 	}
@@ -185,15 +188,16 @@ final class EditorViewController: UIViewController, Accountable {
 		title = LocalizedString.Connecting.string
 		view.backgroundColor = Swatch.white
 
-		remoteCursorsView.textView = textView
-		view.addSubview(remoteCursorsView)
+		remoteCursorsController.delegate = self
+		view.addSubview(remoteCursorsController.backgroundView)
 
 		textView.delegate = self
 		view.addSubview(textView)
+		view.addSubview(remoteCursorsController.foregroundView)
 
 		textController.connect()
 
-		remoteCursorsViewTopConstraint = remoteCursorsView.topAnchor.constraintEqualToAnchor(textView.topAnchor)
+		remoteCursorsTopConstraint = remoteCursorsController.backgroundView.topAnchor.constraintEqualToAnchor(textView.topAnchor)
 
 		NSLayoutConstraint.activateConstraints([
 			textView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
@@ -201,10 +205,15 @@ final class EditorViewController: UIViewController, Accountable {
 			textView.topAnchor.constraintEqualToAnchor(view.topAnchor),
 			textView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor),
 
-			remoteCursorsView.leadingAnchor.constraintEqualToAnchor(textView.leadingAnchor),
-			remoteCursorsView.trailingAnchor.constraintEqualToAnchor(textView.trailingAnchor),
-			remoteCursorsViewTopConstraint,
-			remoteCursorsView.bottomAnchor.constraintEqualToAnchor(textView.bottomAnchor)
+			remoteCursorsController.backgroundView.leadingAnchor.constraintEqualToAnchor(textView.leadingAnchor),
+			remoteCursorsController.backgroundView.trailingAnchor.constraintEqualToAnchor(textView.trailingAnchor),
+			remoteCursorsTopConstraint,
+			remoteCursorsController.backgroundView.bottomAnchor.constraintEqualToAnchor(textView.bottomAnchor),
+
+			remoteCursorsController.foregroundView.leadingAnchor.constraintEqualToAnchor(remoteCursorsController.backgroundView.leadingAnchor),
+			remoteCursorsController.foregroundView.trailingAnchor.constraintEqualToAnchor(remoteCursorsController.backgroundView.trailingAnchor),
+			remoteCursorsController.foregroundView.topAnchor.constraintEqualToAnchor(remoteCursorsController.backgroundView.topAnchor),
+			remoteCursorsController.foregroundView.bottomAnchor.constraintEqualToAnchor(remoteCursorsController.backgroundView.bottomAnchor)
 		])
 
 		if traitCollection.forceTouchCapability == .Available {
@@ -247,7 +256,7 @@ final class EditorViewController: UIViewController, Accountable {
 			ignoreLocalSelectionChange = false
 		}
 
-		remoteCursorsView.layoutCursors()
+		remoteCursorsController.updateLayout()
 	}
 
 	override func viewWillAppear(animated: Bool) {
@@ -441,7 +450,7 @@ extension EditorViewController: UITextViewDelegate {
 	}
 
 	func scrollViewDidScroll(scrollView: UIScrollView) {
-		remoteCursorsViewTopConstraint.constant = -scrollView.contentOffset.y
+		remoteCursorsTopConstraint.constant = -scrollView.contentOffset.y
 	}
 }
 
@@ -497,5 +506,17 @@ extension EditorViewController: CanvasTextViewFormattingDelegate {
 
 	func textViewDidToggleItalics(textView: CanvasTextView, sender: AnyObject?) {
 		italic()
+	}
+}
+
+
+extension EditorViewController {
+	override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+		if keyPath != "contentInset" {
+			super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
+			return
+		}
+
+		remoteCursorsController.contentInset = textView.contentInset
 	}
 }
