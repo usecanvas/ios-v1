@@ -499,7 +499,7 @@ extension EditorViewController: TextControllerDisplayDelegate {
 	}
 	
 	func textController(textController: TextController, URLForImage block: Image) -> NSURL? {
-		return imgix(block.url)
+		return block.url.flatMap { imgix($0) }
 	}
 	
 	func textControllerDidUpdateFolding(textController: TextController) {}

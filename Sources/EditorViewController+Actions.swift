@@ -123,7 +123,7 @@ extension EditorViewController {
 
 	func showParticipants(sender: AnyObject?) {
 		showingParticipants = true
-		let viewController = PresenceViewController(canvasID: canvas.id, presenceController: presenceController)
+		let viewController = PresenceViewController(canvas: canvas, presenceController: presenceController)
 		let navigationController = NavigationController(rootViewController: viewController)
 		navigationController.modalPresentationStyle = .FormSheet
 		presentViewController(navigationController, animated: true, completion: nil)

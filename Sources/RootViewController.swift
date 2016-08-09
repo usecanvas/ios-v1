@@ -133,6 +133,14 @@ final class RootViewController: UIViewController {
 	// MARK: - Internal
 
 	func _showBanner(text text: String, style: BannerView.Style = .success, inViewController viewController: UIViewController) {
+		var top = viewController
+
+		while let parent = top.parentViewController {
+			top = parent
+		}
+
+		let container = top.view
+
 		let banner = BannerView(style: style)
 		banner.translatesAutoresizingMaskIntoConstraints = false
 		banner.textLabel.text = text
@@ -140,7 +148,7 @@ final class RootViewController: UIViewController {
 		let mask = UIView()
 		mask.translatesAutoresizingMaskIntoConstraints = false
 		mask.clipsToBounds = true
-		view.addSubview(mask)
+		container.addSubview(mask)
 		mask.addSubview(banner)
 
 		// Split view makes this super annoying
