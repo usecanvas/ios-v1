@@ -123,13 +123,15 @@ extension EditorViewController: PresenceObserver {
 	}
 
 	func presenceController(controller: PresenceController, canvasID: String, user: CanvasKit.User, updatedCursor cursor: Cursor?) {
-		guard let username = user.username, cursor = cursor else { return }
-		remoteCursorsController.change(username: username, cursor: cursor)
+		if let cursor = cursor {
+			remoteCursorsController.change(user: user, cursor: cursor)
+		} else {
+			remoteCursorsController.leave(user: user)
+		}
 	}
 
 	func presenceController(controller: PresenceController, canvasID: String, userLeft user: CanvasKit.User) {
-		guard let username = user.username else { return }
-		remoteCursorsController.leave(username: username)
+		presenceController(controller, canvasID: canvasID, user: user, updatedCursor: nil)
 	}
 }
 
