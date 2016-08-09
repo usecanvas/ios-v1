@@ -21,11 +21,23 @@ final class PresenceViewController: TableViewController {
 
 	private var users = [User]() {
 		didSet {
+			billboardView.hidden = !users.isEmpty
+
 			dataSource.sections = [
 				Section(rows: users.map(row))
 			]
 		}
 	}
+
+	private let billboardView: BillboardView = {
+		let view = BillboardView()
+		view.translatesAutoresizingMaskIntoConstraints = false
+		view.illustrationView.image = UIImage(named: "No Participants")
+		view.titleLabel.text = "No one’s here yet"
+		view.titleLabel.textColor = Swatch.darkGray
+		view.hidden = true
+		return view
+	}()
 
 
 	// MARK: - Initializers
@@ -58,6 +70,13 @@ final class PresenceViewController: TableViewController {
 
 		tableView.estimatedRowHeight = 50
 		reloadUsers()
+
+		view.addSubview(billboardView)
+
+		NSLayoutConstraint.activateConstraints([
+			billboardView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor),
+			billboardView.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor)
+		])
 	}
 
 
