@@ -140,16 +140,6 @@ task :develop, [:name] do |t, args|
   success "Setup `Canvas.xcworkspace` for developing #{name}!"
 end
 
-namespace :develop do
-  desc 'Reset development dependencies'
-  task :reset do
-    system 'rm -rf Canvas.xcworkspace'
-    system 'rm -rf Carthage/Checkouts'
-    Rake::Task['clean'].invoke
-    Rake::Task['bootstrap'].invoke
-  end
-end
-
 namespace :sentry do
   desc 'Upload dSYM files to Sentry'
   task :upload do
