@@ -11,6 +11,7 @@ import WebKit
 import SentrySwift
 import CanvasCore
 import CanvasText
+import CanvasKit
 
 extension EditorViewController: TextControllerConnectionDelegate {
 	func textController(textController: TextController, willConnectWithWebView webView: WKWebView) {
@@ -112,5 +113,32 @@ extension EditorViewController: TextControllerConnectionDelegate {
 		alert.addAction(UIAlertAction(title: LocalizedString.CloseCanvas.string, style: .Destructive, handler: close))
 		alert.addAction(UIAlertAction(title: LocalizedString.Retry.string, style: .Default, handler: reload))
 		presentViewController(alert, animated: true, completion: nil)
+	}
+}
+
+
+extension EditorViewController: PresenceObserver {
+	func presenceController(controller: PresenceController, canvasID: String, userJoined user: CanvasKit.User, cursor: Cursor?) {
+		presenceController(controller, canvasID: canvasID, user: user, updatedCursor: cursor)
+	}
+
+	func presenceController(controller: PresenceController, canvasID: String, user: CanvasKit.User, updatedCursor cursor: Cursor?) {
+		if let cursor = cursor {
+			remoteCursorsController.change(user: user, cursor: cursor)
+		} else {
+			remoteCursorsController.leave(user: user)
+		}
+	}
+
+	func presenceController(controller: PresenceController, canvasID: String, userLeft user: CanvasKit.User) {
+		presenceController(controller, canvasID: canvasID, user: user, updatedCursor: nil)
+	}
+}
+
+
+extension EditorViewController: RemoteCursorsControllerDelegate {
+	func remoteCursorsController(controller: RemoteCursorsController, rectsForCursor cursor: Cursor) -> [CGRect]? {
+		let range = cursor.presentationRange(with: textController.currentDocument)
+		return textView.rectsForRange(range)
 	}
 }

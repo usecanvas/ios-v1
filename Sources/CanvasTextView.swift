@@ -58,6 +58,7 @@ final class CanvasTextView: TextView {
 //		allowsEditingTextAttributes = true
 		alwaysBounceVertical = true
 		keyboardDismissMode = .Interactive
+		backgroundColor = .clearColor()
 
 		registerGestureRecognizers()
 
@@ -119,6 +120,7 @@ final class CanvasTextView: TextView {
 
 extension CanvasTextView: TextControllerAnnotationDelegate {
 	func textController(textController: TextController, willAddAnnotation annotation: Annotation) {
+		annotation.view.backgroundColor = .clearColor()
 		managedSubviews.insert(annotation.view)
 		insertSubview(annotation.view, atIndex: 0)
 	}
