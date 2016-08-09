@@ -131,6 +131,10 @@
 		215CDF521D5A23C200A45635 /* PresenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CDF501D5A23C200A45635 /* PresenceViewController.swift */; };
 		215CDF541D5A2DA100A45635 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CDF531D5A2DA100A45635 /* UserCell.swift */; };
 		215CDF551D5A2DA100A45635 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CDF531D5A2DA100A45635 /* UserCell.swift */; };
+		215CDF571D5A796900A45635 /* CopyLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CDF561D5A796900A45635 /* CopyLinkView.swift */; };
+		215CDF581D5A796900A45635 /* CopyLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CDF561D5A796900A45635 /* CopyLinkView.swift */; };
+		215CDF5A1D5A79DB00A45635 /* GrayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CDF591D5A79DB00A45635 /* GrayButton.swift */; };
+		215CDF5B1D5A79DB00A45635 /* GrayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CDF591D5A79DB00A45635 /* GrayButton.swift */; };
 		215D1AE01D426CE20030D804 /* APIClient+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D1ADF1D426CE20030D804 /* APIClient+Canvas.swift */; };
 		215D1AE11D426CE20030D804 /* APIClient+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D1ADF1D426CE20030D804 /* APIClient+Canvas.swift */; };
 		217309FD1D46E7E5001B63D7 /* Interpolate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217309FC1D46E7E5001B63D7 /* Interpolate.swift */; };
@@ -330,6 +334,8 @@
 		215CD8611CE293FF0093C545 /* PlaceholderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderViewController.swift; sourceTree = "<group>"; };
 		215CDF501D5A23C200A45635 /* PresenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresenceViewController.swift; sourceTree = "<group>"; };
 		215CDF531D5A2DA100A45635 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		215CDF561D5A796900A45635 /* CopyLinkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyLinkView.swift; sourceTree = "<group>"; };
+		215CDF591D5A79DB00A45635 /* GrayButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrayButton.swift; sourceTree = "<group>"; };
 		215D1ADF1D426CE20030D804 /* APIClient+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIClient+Canvas.swift"; sourceTree = "<group>"; };
 		217309FC1D46E7E5001B63D7 /* Interpolate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interpolate.swift; sourceTree = "<group>"; };
 		21730A051D46F603001B63D7 /* SAMKeychain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SAMKeychain.framework; path = Carthage/Build/iOS/SAMKeychain.framework; sourceTree = "<group>"; };
@@ -567,6 +573,7 @@
 				2112CBBF1D24DB8800B214F7 /* TitleView.swift */,
 				21298C6E1D26C95700E741EE /* BannerView.swift */,
 				21C650031D2C7FB100EA3127 /* BillboardView.swift */,
+				215CDF561D5A796900A45635 /* CopyLinkView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -678,6 +685,7 @@
 				21D91E7C1D36A7DA00BADD0B /* PrefaceButton.swift */,
 				212D8EC51CE62AE00039A3EE /* IndicatorButton.swift */,
 				21D91E7F1D36AA0600BADD0B /* FooterButton.swift */,
+				215CDF591D5A79DB00A45635 /* GrayButton.swift */,
 			);
 			name = Buttons;
 			sourceTree = "<group>";
@@ -1139,6 +1147,7 @@
 				215CD8631CE293FF0093C545 /* PlaceholderViewController.swift in Sources */,
 				21501D751CCAA2B900B02FC5 /* WebActivity.swift in Sources */,
 				2117A0301D06338C00E60821 /* GroupedSectionHeaderView.swift in Sources */,
+				215CDF5B1D5A79DB00A45635 /* GrayButton.swift in Sources */,
 				21501D761CCAA2B900B02FC5 /* EditorViewController.swift in Sources */,
 				21501D771CCAA2B900B02FC5 /* NavigationController.swift in Sources */,
 				212392941CEBAE0300F8D26B /* SplitViewController.swift in Sources */,
@@ -1161,6 +1170,7 @@
 				215486011D3D4007000D7E77 /* NSProcessInfo+Canvas.swift in Sources */,
 				211F9A3F1D3F42FE00E0A519 /* AuthorizationClient.swift in Sources */,
 				21501D831CCAA2B900B02FC5 /* SearchBarContainer.swift in Sources */,
+				215CDF581D5A796900A45635 /* CopyLinkView.swift in Sources */,
 				2112CBC11D24DB8800B214F7 /* TitleView.swift in Sources */,
 				21501D851CCAA2B900B02FC5 /* UIFont+Canvas.swift in Sources */,
 				21880C061D1ED73000C144DB /* StackViewController.swift in Sources */,
@@ -1245,6 +1255,7 @@
 				215CD8621CE293FF0093C545 /* PlaceholderViewController.swift in Sources */,
 				2107D32B1CC58F7B001963B7 /* WebActivity.swift in Sources */,
 				2117A02F1D06338C00E60821 /* GroupedSectionHeaderView.swift in Sources */,
+				215CDF5A1D5A79DB00A45635 /* GrayButton.swift in Sources */,
 				2107D3101CC58F7B001963B7 /* EditorViewController.swift in Sources */,
 				2107D3171CC58F7B001963B7 /* NavigationController.swift in Sources */,
 				212392931CEBAE0300F8D26B /* SplitViewController.swift in Sources */,
@@ -1267,6 +1278,7 @@
 				215486001D3D4007000D7E77 /* NSProcessInfo+Canvas.swift in Sources */,
 				211F9A3E1D3F42FE00E0A519 /* AuthorizationClient.swift in Sources */,
 				2107D3221CC58F7B001963B7 /* SearchBarContainer.swift in Sources */,
+				215CDF571D5A796900A45635 /* CopyLinkView.swift in Sources */,
 				2112CBC01D24DB8800B214F7 /* TitleView.swift in Sources */,
 				2107D32A1CC58F7B001963B7 /* UIFont+Canvas.swift in Sources */,
 				21880C051D1ED73000C144DB /* StackViewController.swift in Sources */,

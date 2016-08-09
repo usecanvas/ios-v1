@@ -16,40 +16,42 @@ final class PresenceViewController: TableViewController {
 
 	// MARK: - Properties
 
-	let canvasID: String
+	let canvas: Canvas
 	let presenceController: PresenceController
 
-	private var users = [User]() {
-		didSet {
-			billboardView.hidden = !users.isEmpty
+	private var users = [User]()
 
-			dataSource.sections = [
-				Section(rows: users.map(row))
-			]
-		}
-	}
-
-	private let billboardView: BillboardView = {
-		let view = BillboardView()
+	private let noContentView: UIStackView = {
+		let view = UIStackView()
 		view.translatesAutoresizingMaskIntoConstraints = false
-		view.illustrationView.image = UIImage(named: "No Participants")
-		view.titleLabel.text = "No one’s here yet"
-		view.titleLabel.textColor = Swatch.darkGray
+		view.axis = .Vertical
 		view.hidden = true
+
+		let billboard = BillboardView()
+		billboard.illustrationView.image = UIImage(named: "No Participants")
+		billboard.titleLabel.text = "No one’s here yet"
+		billboard.titleLabel.textColor = Swatch.darkGray
+		view.addArrangedSubview(billboard)
+
 		return view
 	}()
+
+	private let copyLinkView = CopyLinkView()
 
 
 	// MARK: - Initializers
 
-	init(canvasID: String, presenceController: PresenceController) {
-		self.canvasID = canvasID
+	init(canvas: Canvas, presenceController: PresenceController) {
+		self.canvas = canvas
 		self.presenceController = presenceController
 
 		super.init(style: .Grouped)
 
 		title = "Participants"
 		presenceController.add(observer: self)
+
+		copyLinkView.button.addTarget(self, action: #selector(copyLink), forControlEvents: .TouchUpInside)
+		noContentView.addArrangedSubview(copyLinkView)
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -69,14 +71,22 @@ final class PresenceViewController: TableViewController {
 		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Close"), style: .Plain, target: self, action: #selector(close))
 
 		tableView.estimatedRowHeight = 50
-		reloadUsers()
 
-		view.addSubview(billboardView)
+		let copy = CopyLinkView()
+		let size = copy.systemLayoutSizeFittingSize(tableView.bounds.size)
+		copy.frame = CGRect(origin: .zero, size: size)
+		copy.button.addTarget(self, action: #selector(copyLink), forControlEvents: .TouchUpInside)
+		copy.hidden = true
+		tableView.tableFooterView = copy
+
+		view.addSubview(noContentView)
 
 		NSLayoutConstraint.activateConstraints([
-			billboardView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor),
-			billboardView.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor)
+			noContentView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor),
+			noContentView.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor)
 		])
+
+		reloadUsers()
 	}
 
 
@@ -84,6 +94,11 @@ final class PresenceViewController: TableViewController {
 
 	@objc private func close() {
 		dismissViewControllerAnimated(true, completion: nil)
+	}
+
+	@objc private func copyLink() {
+		UIPasteboard.generalPasteboard().URL = canvas.url
+		showBanner(text: "Copied Link!", style: .success)
 	}
 
 
@@ -94,14 +109,21 @@ final class PresenceViewController: TableViewController {
 	}
 
 	private func reloadUsers() {
-		users = presenceController.users(canvasID: canvasID)
+		users = presenceController.users(canvasID: canvas.id)
+
+		noContentView.hidden = !users.isEmpty
+		tableView.tableFooterView?.hidden = users.isEmpty
+
+		dataSource.sections = [
+			Section(rows: users.map(row))
+		]
 	}
 }
 
 
 extension PresenceViewController: PresenceObserver {
 	func presenceController(controller: PresenceController, canvasID: String, userJoined user: User, cursor: Cursor?) {
-		if canvasID == self.canvasID {
+		if canvasID == canvas.id {
 			reloadUsers()
 		}
 	}
@@ -111,7 +133,7 @@ extension PresenceViewController: PresenceObserver {
 	}
 
 	func presenceController(controller: PresenceController, canvasID: String, userLeft user: User) {
-		if canvasID == self.canvasID {
+		if canvasID == canvas.id {
 			reloadUsers()
 		}
 	}
