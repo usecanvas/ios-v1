@@ -127,6 +127,10 @@
 		215CD8631CE293FF0093C545 /* PlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CD8611CE293FF0093C545 /* PlaceholderViewController.swift */; };
 		215CD89C1CE2A26F0093C545 /* EditorViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B28BF51CDC6049009B9D8F /* EditorViewController+Actions.swift */; };
 		215CD89D1CE2A26F0093C545 /* EditorViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B28BF51CDC6049009B9D8F /* EditorViewController+Actions.swift */; };
+		215CDF511D5A23C200A45635 /* PresenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CDF501D5A23C200A45635 /* PresenceViewController.swift */; };
+		215CDF521D5A23C200A45635 /* PresenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CDF501D5A23C200A45635 /* PresenceViewController.swift */; };
+		215CDF541D5A2DA100A45635 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CDF531D5A2DA100A45635 /* UserCell.swift */; };
+		215CDF551D5A2DA100A45635 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CDF531D5A2DA100A45635 /* UserCell.swift */; };
 		215D1AE01D426CE20030D804 /* APIClient+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D1ADF1D426CE20030D804 /* APIClient+Canvas.swift */; };
 		215D1AE11D426CE20030D804 /* APIClient+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D1ADF1D426CE20030D804 /* APIClient+Canvas.swift */; };
 		217309FD1D46E7E5001B63D7 /* Interpolate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217309FC1D46E7E5001B63D7 /* Interpolate.swift */; };
@@ -324,6 +328,8 @@
 		21501DAA1CCAA2B900B02FC5 /* Canvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Canvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		215485FF1D3D4007000D7E77 /* NSProcessInfo+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSProcessInfo+Canvas.swift"; sourceTree = "<group>"; };
 		215CD8611CE293FF0093C545 /* PlaceholderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderViewController.swift; sourceTree = "<group>"; };
+		215CDF501D5A23C200A45635 /* PresenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresenceViewController.swift; sourceTree = "<group>"; };
+		215CDF531D5A2DA100A45635 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		215D1ADF1D426CE20030D804 /* APIClient+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIClient+Canvas.swift"; sourceTree = "<group>"; };
 		217309FC1D46E7E5001B63D7 /* Interpolate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interpolate.swift; sourceTree = "<group>"; };
 		21730A051D46F603001B63D7 /* SAMKeychain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SAMKeychain.framework; path = Carthage/Build/iOS/SAMKeychain.framework; sourceTree = "<group>"; };
@@ -638,6 +644,7 @@
 				2122BFF21CFE645100A038DE /* EditorViewController+Connection.swift */,
 				21B28BF51CDC6049009B9D8F /* EditorViewController+Actions.swift */,
 				2122BFEF1CFE4FF900A038DE /* LoadCanvasViewController.swift */,
+				215CDF501D5A23C200A45635 /* PresenceViewController.swift */,
 			);
 			name = Editor;
 			sourceTree = "<group>";
@@ -659,6 +666,7 @@
 				2107D2E71CC58F7B001963B7 /* OrganizationCell.swift */,
 				21298CD01D26F11100E741EE /* ValueCell.swift */,
 				21D6BC261D3DB4AC002B92C8 /* DestructiveValueCell.swift */,
+				215CDF531D5A2DA100A45635 /* UserCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -1102,6 +1110,7 @@
 				21F95DCF1D2ECBBE006B4100 /* OnboardingSharingViewController.swift in Sources */,
 				21298CD21D26F11100E741EE /* ValueCell.swift in Sources */,
 				21501D661CCAA2B900B02FC5 /* CanvasTextView.swift in Sources */,
+				215CDF521D5A23C200A45635 /* PresenceViewController.swift in Sources */,
 				21501D671CCAA2B900B02FC5 /* CanvasesViewController.swift in Sources */,
 				21501D681CCAA2B900B02FC5 /* Configuration.swift in Sources */,
 				217309FE1D46E7E5001B63D7 /* Interpolate.swift in Sources */,
@@ -1136,6 +1145,7 @@
 				21501D781CCAA2B900B02FC5 /* ModelsViewController.swift in Sources */,
 				21501D791CCAA2B900B02FC5 /* RootViewController.swift in Sources */,
 				21501D7A1CCAA2B900B02FC5 /* TintableView.swift in Sources */,
+				215CDF551D5A2DA100A45635 /* UserCell.swift in Sources */,
 				215CD89C1CE2A26F0093C545 /* EditorViewController+Actions.swift in Sources */,
 				21A77E161D08053A00340243 /* AvatarView.swift in Sources */,
 				21501D7C1CCAA2B900B02FC5 /* AlertController.swift in Sources */,
@@ -1206,6 +1216,7 @@
 				21F95DCE1D2ECBBE006B4100 /* OnboardingSharingViewController.swift in Sources */,
 				21298CD11D26F11100E741EE /* ValueCell.swift in Sources */,
 				214F9FF71CC6DE4600927A07 /* CanvasTextView.swift in Sources */,
+				215CDF511D5A23C200A45635 /* PresenceViewController.swift in Sources */,
 				2107D3091CC58F7B001963B7 /* CanvasesViewController.swift in Sources */,
 				2107D30F1CC58F7B001963B7 /* Configuration.swift in Sources */,
 				217309FD1D46E7E5001B63D7 /* Interpolate.swift in Sources */,
@@ -1240,6 +1251,7 @@
 				2107D3151CC58F7B001963B7 /* ModelsViewController.swift in Sources */,
 				2107D3201CC58F7B001963B7 /* RootViewController.swift in Sources */,
 				2107D3281CC58F7B001963B7 /* TintableView.swift in Sources */,
+				215CDF541D5A2DA100A45635 /* UserCell.swift in Sources */,
 				215CD89D1CE2A26F0093C545 /* EditorViewController+Actions.swift in Sources */,
 				21A77E151D08053A00340243 /* AvatarView.swift in Sources */,
 				2107D3021CC58F7B001963B7 /* AlertController.swift in Sources */,

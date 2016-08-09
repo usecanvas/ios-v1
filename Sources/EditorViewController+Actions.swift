@@ -49,11 +49,16 @@ extension EditorViewController {
 			actionSheet.addAction(UIAlertAction(title: LocalizedString.EnablePublicEditsButton.string, style: .Default, handler: enablePublicEdits))
 		}
 
+		// Participants
+		// TODO: Localize
+		actionSheet.addAction(UIAlertAction(title: "Participants…", style: .Default, handler: showParticipants))
+
 		// Share
 		actionSheet.addAction(UIAlertAction(title: LocalizedString.ShareButton.string, style: .Default) { [weak self] _ in
 			self?.share(sender)
 		})
 
+		// Cancel
 		actionSheet.addAction(UIAlertAction(title: LocalizedString.Cancel.string, style: .Cancel, handler: nil))
 
 		present(actionSheet: actionSheet, sender: sender)
@@ -114,6 +119,14 @@ extension EditorViewController {
 				}
 			}
 		}
+	}
+
+	func showParticipants(sender: AnyObject?) {
+		showingParticipants = true
+		let viewController = PresenceViewController(canvasID: canvas.id, presenceController: presenceController)
+		let navigationController = NavigationController(rootViewController: viewController)
+		navigationController.modalPresentationStyle = .FormSheet
+		presentViewController(navigationController, animated: true, completion: nil)
 	}
 	
 	func share(sender: AnyObject?) {

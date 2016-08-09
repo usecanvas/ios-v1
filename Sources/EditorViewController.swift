@@ -67,6 +67,8 @@ final class EditorViewController: UIViewController, Accountable {
 		}
 	}
 
+	var showingParticipants = false
+
 
 	// MARK: - Initializers
 
@@ -274,7 +276,12 @@ final class EditorViewController: UIViewController, Accountable {
 		super.viewWillDisappear(animated)
 		UIApplication.sharedApplication().idleTimerDisabled = false
 		textView.resignFirstResponder()
-		presenceController.leave(canvasID: canvas.id)
+
+		if !showingParticipants {
+			presenceController.leave(canvasID: canvas.id)
+		}
+
+		showingParticipants = false
 	}
 	
 	override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
