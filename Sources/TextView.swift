@@ -70,7 +70,7 @@ class TextView: UITextView {
 		})
 	}
 
-	func rectsForRange(range: NSRange) -> [CGRect]? {
+	func rectsForRange(range: NSRange) -> [CGRect] {
 		var range = range
 		let wasFirstResponder = isFirstResponder()
 		if !wasFirstResponder {
@@ -94,7 +94,17 @@ class TextView: UITextView {
 			if !wasFirstResponder {
 				resignFirstResponder()
 			}
-			return nil
+
+			// Use extra line if there aren't any rects
+			var rect = layoutManager.extraLineFragmentUsedRect
+			rect.origin.x += textContainerInset.left
+			rect.origin.y += textContainerInset.top
+
+			if blank {
+				rect.size.width = 2
+			}
+
+			return [rect]
 		}
 
 		if blank {

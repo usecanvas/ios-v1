@@ -137,7 +137,7 @@ extension EditorViewController: PresenceObserver {
 
 
 extension EditorViewController: RemoteCursorsControllerDelegate {
-	func remoteCursorsController(controller: RemoteCursorsController, rectsForCursor cursor: Cursor) -> [CGRect]? {
+	func remoteCursorsController(controller: RemoteCursorsController, rectsForCursor cursor: Cursor) -> [CGRect] {
 		let range = cursor.presentationRange(with: textController.currentDocument)
 		return textView.rectsForRange(range)
 	}
