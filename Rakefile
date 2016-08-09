@@ -63,10 +63,25 @@ task :check_tools do
   end
 end
 
-desc 'Clean Carthage and submodules'
+desc 'Clean Carthage dependencies'
 task :clean do
+  info "Cleaning development dependencies…"
+
+  # Remove build directory symlinks
+  Dir['Carthage/Checkouts/*'].each do |path|
+    next unless File.symlink?(path)
+    build_dir = "#{path}/Carthage/Build"
+    if File.symlink?(build_dir)
+      system "rm -f #{build_dir}"
+    end
+  end
+
+  # Remove workspace
+  system 'rm -rf Canvas.xcworkspace'
+
   info "Cleaning Carthage dependencies…"
-  system 'rm -rf Carthage Canvas.xcworkspace'
+  system 'rm -rf Carthage'
+
   success "Clean!"
 end
 
