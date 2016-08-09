@@ -95,6 +95,14 @@ extension CanvasTextView {
 
 	private func blockAt(point point: CGPoint) -> BlockNode? {
 		guard let document = textController?.currentDocument else { return nil }
+
+		// Adjust point into layout manager's coordinates
+		var point = point
+		point.x -= contentInset.left
+		point.x -= textContainerInset.left
+		point.y -= contentInset.top
+		point.y -= textContainerInset.top
+
 		let location = layoutManager.characterIndexForPoint(point, inTextContainer: textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
 
 		// Special case the last block
