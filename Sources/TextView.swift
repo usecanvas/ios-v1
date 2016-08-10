@@ -71,46 +71,49 @@ class TextView: UITextView {
 	}
 
 	func rectsForRange(range: NSRange) -> [CGRect] {
-		var range = range
+		// Become first responder if we aren't already. The text view has to be first responder for any of the position
+		// or text range APIs to work. Annoying :(
 		let wasFirstResponder = isFirstResponder()
 		if !wasFirstResponder {
 			becomeFirstResponder()
 		}
 
-		let blank: Bool
-		if range.length == 0 {
-			range.length += 1
-			blank = true
-		} else {
-			blank = false
+		// Get starting position
+		guard let start = positionFromPosition(beginningOfDocument, offset: range.location) else {
+			if !wasFirstResponder {
+				resignFirstResponder()
+			}
+			return []
 		}
 
-		guard let start = positionFromPosition(beginningOfDocument, offset: range.location),
-			end = positionFromPosition(start, offset: range.length),
+		// Empty selection
+		if range.length == 0 {
+			if !wasFirstResponder {
+				resignFirstResponder()
+			}
+			return [caretRectForPosition(start)]
+		}
+
+		// Selection
+		guard let end = positionFromPosition(start, offset: range.length),
 			textRange = textRangeFromPosition(start, toPosition: end),
 			selectionRects = (super.selectionRectsForRange(textRange) as? [UITextSelectionRect])?.map({ $0.rect }),
 			firstRect = selectionRects.first
 		else {
-			if !wasFirstResponder {
-				resignFirstResponder()
-			}
-
 			// Use extra line if there aren't any rects
 			var rect = layoutManager.extraLineFragmentUsedRect
 			rect.origin.x += textContainerInset.left
 			rect.origin.y += textContainerInset.top
 
-			if blank {
-				rect.size.width = 2
+			if !wasFirstResponder {
+				resignFirstResponder()
 			}
 
 			return [rect]
 		}
 
-		if blank {
-			var rect = firstRect
-			rect.size.width = 2
-			return [rect]
+		if !wasFirstResponder {
+			resignFirstResponder()
 		}
 
 		let filtered = selectionRects.filter { $0.width > 0 }

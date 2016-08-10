@@ -103,7 +103,6 @@ final class EditorViewController: UIViewController, Accountable {
 		textView.delegate = self
 		textView.formattingDelegate = self
 		textView.editable = false
-		textView.addObserver(self, forKeyPath: "contentInset", options: [.Initial, .New], context: nil)
 
 		navigationItem.titleView = titleView
 		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "More"), style: .Plain, target: self, action: #selector(more))
@@ -121,7 +120,6 @@ final class EditorViewController: UIViewController, Accountable {
 	}
 
 	deinit {
-		textView.removeObserver(self, forKeyPath: "contentInset")
 		textController.disconnect(withReason: nil)
 		presenceController.disconnect()
 	}
@@ -513,17 +511,5 @@ extension EditorViewController: CanvasTextViewFormattingDelegate {
 
 	func textViewDidToggleItalics(textView: CanvasTextView, sender: AnyObject?) {
 		italic()
-	}
-}
-
-
-extension EditorViewController {
-	override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-		if keyPath != "contentInset" {
-			super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
-			return
-		}
-
-		remoteCursorsController.contentInset = textView.contentInset
 	}
 }
