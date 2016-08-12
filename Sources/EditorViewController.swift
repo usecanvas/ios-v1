@@ -38,10 +38,19 @@ final class EditorViewController: UIViewController, Accountable {
 		return view
 	}()
 
+	private var laidOutRemoteCursors = false {
+		didSet {
+			remoteCursorsController.backgroundView.hidden = !laidOutRemoteCursors
+			remoteCursorsController.foregroundView.hidden = !laidOutRemoteCursors
+		}
+	}
+
 	let remoteCursorsController: RemoteCursorsController = {
 		let controller = RemoteCursorsController()
 		controller.backgroundView.translatesAutoresizingMaskIntoConstraints = false
+		controller.backgroundView.hidden = true
 		controller.foregroundView.translatesAutoresizingMaskIntoConstraints = false
+		controller.foregroundView.hidden = true
 		return controller
 	}()
 
@@ -501,6 +510,17 @@ extension EditorViewController: TextControllerDisplayDelegate {
 	}
 	
 	func textControllerDidUpdateFolding(textController: TextController) {}
+
+	func textControllerDidLayoutText(textController: TextController) {
+		if laidOutRemoteCursors {
+			return
+		}
+
+		dispatch_async(dispatch_get_main_queue()) { [weak self] in
+			self?.remoteCursorsController.updateLayout()
+			self?.laidOutRemoteCursors = true
+		}
+	}
 }
 
 
