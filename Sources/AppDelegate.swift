@@ -72,8 +72,6 @@ import Intercom
 	}
 	
 	private func verifyAccount(url url: NSURL) -> Bool {
-		guard let components = url.pathComponents where components.count == 2 && components[1] == "verify" else { return false }
-
 		guard let items = NSURLComponents(URL: url, resolvingAgainstBaseURL: false)?.queryItems,
 			index = items.indexOf({ $0.name == "token" }),
 			token = items[index].value
@@ -173,8 +171,8 @@ extension AppDelegate: UIApplicationDelegate {
 		}
 		
 		// Verify account
-		if verifyAccount(url: url) {
-			return true
+		if let components = url.pathComponents where components.count == 2 && components[1] == "verify" {
+			return verifyAccount(url: url)
 		}
 		
 		// Fallback
@@ -188,6 +186,11 @@ extension AppDelegate: UIApplicationDelegate {
 
 	func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
 		guard url.scheme == "canvas" else { return false }
+
+		// Verify
+		if url.host == "verify" {
+			return verifyAccount(url: url)
+		}
 
 		// Login
 		if url.host == "login" {

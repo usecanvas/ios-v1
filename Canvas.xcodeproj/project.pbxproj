@@ -59,8 +59,8 @@
 		2117A07C1D0641CE00E60821 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117A07A1D0641CE00E60821 /* TableView.swift */; };
 		2117A0961D0642A400E60821 /* UIColor+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117A0951D0642A400E60821 /* UIColor+Canvas.swift */; };
 		2117A0971D0642A400E60821 /* UIColor+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117A0951D0642A400E60821 /* UIColor+Canvas.swift */; };
-		211F9A3E1D3F42FE00E0A519 /* AuthorizationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F9A3D1D3F42FE00E0A519 /* AuthorizationClient.swift */; };
-		211F9A3F1D3F42FE00E0A519 /* AuthorizationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F9A3D1D3F42FE00E0A519 /* AuthorizationClient.swift */; };
+		211F9A3E1D3F42FE00E0A519 /* AuthorizationClient+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F9A3D1D3F42FE00E0A519 /* AuthorizationClient+Canvas.swift */; };
+		211F9A3F1D3F42FE00E0A519 /* AuthorizationClient+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F9A3D1D3F42FE00E0A519 /* AuthorizationClient+Canvas.swift */; };
 		212299B81CE3E79C00033D94 /* UIViewController+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212299B71CE3E79C00033D94 /* UIViewController+Canvas.swift */; };
 		212299CF1CE3E7F200033D94 /* UIViewController+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212299B71CE3E79C00033D94 /* UIViewController+Canvas.swift */; };
 		2122BFF01CFE4FF900A038DE /* LoadCanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122BFEF1CFE4FF900A038DE /* LoadCanvasViewController.swift */; };
@@ -197,6 +197,8 @@
 		21A77E131D0803C600340243 /* AvatarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A77E111D0803C600340243 /* AvatarsView.swift */; };
 		21A77E151D08053A00340243 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A77E141D08053A00340243 /* AvatarView.swift */; };
 		21A77E161D08053A00340243 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A77E141D08053A00340243 /* AvatarView.swift */; };
+		21AE40411D5E5F290057B4E9 /* OAuthClient+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AE40401D5E5F290057B4E9 /* OAuthClient+Canvas.swift */; };
+		21AE40421D5E5F290057B4E9 /* OAuthClient+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AE40401D5E5F290057B4E9 /* OAuthClient+Canvas.swift */; };
 		21BD17691D1EEBFD00C11CB9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BD17681D1EEBFD00C11CB9 /* SignUpViewController.swift */; };
 		21BD176A1D1EEBFD00C11CB9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BD17681D1EEBFD00C11CB9 /* SignUpViewController.swift */; };
 		21BF50D51D232B19001801A5 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -318,7 +320,7 @@
 		2117A02E1D06338C00E60821 /* GroupedSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupedSectionHeaderView.swift; sourceTree = "<group>"; };
 		2117A07A1D0641CE00E60821 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		2117A0951D0642A400E60821 /* UIColor+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Canvas.swift"; sourceTree = "<group>"; };
-		211F9A3D1D3F42FE00E0A519 /* AuthorizationClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationClient.swift; sourceTree = "<group>"; };
+		211F9A3D1D3F42FE00E0A519 /* AuthorizationClient+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AuthorizationClient+Canvas.swift"; sourceTree = "<group>"; };
 		212299B71CE3E79C00033D94 /* UIViewController+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Canvas.swift"; sourceTree = "<group>"; };
 		2122BFEF1CFE4FF900A038DE /* LoadCanvasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadCanvasViewController.swift; sourceTree = "<group>"; };
 		2122BFF21CFE645100A038DE /* EditorViewController+Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EditorViewController+Connection.swift"; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 		21A6CB531D3974670004F739 /* CopyRepresentationActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyRepresentationActivity.swift; sourceTree = "<group>"; };
 		21A77E111D0803C600340243 /* AvatarsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarsView.swift; sourceTree = "<group>"; };
 		21A77E141D08053A00340243 /* AvatarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		21AE40401D5E5F290057B4E9 /* OAuthClient+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OAuthClient+Canvas.swift"; sourceTree = "<group>"; };
 		21B28BF51CDC6049009B9D8F /* EditorViewController+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EditorViewController+Actions.swift"; sourceTree = "<group>"; };
 		21BD17681D1EEBFD00C11CB9 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		21BF511C1D233357001801A5 /* SleepPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepPickerViewController.swift; sourceTree = "<group>"; };
@@ -509,6 +512,8 @@
 				218B6BA91D08D23400A170E5 /* UISplitViewController+Canvas.swift */,
 				215485FF1D3D4007000D7E77 /* NSProcessInfo+Canvas.swift */,
 				215D1ADF1D426CE20030D804 /* APIClient+Canvas.swift */,
+				211F9A3D1D3F42FE00E0A519 /* AuthorizationClient+Canvas.swift */,
+				21AE40401D5E5F290057B4E9 /* OAuthClient+Canvas.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -526,7 +531,6 @@
 			isa = PBXGroup;
 			children = (
 				2107D2CB1CC58F7A001963B7 /* Analytics.swift */,
-				211F9A3D1D3F42FE00E0A519 /* AuthorizationClient.swift */,
 				210B1C961D0B14A600B08A81 /* SharedWebCredentials.swift */,
 				217309FC1D46E7E5001B63D7 /* Interpolate.swift */,
 			);
@@ -1164,11 +1168,12 @@
 				212299CF1CE3E7F200033D94 /* UIViewController+Canvas.swift in Sources */,
 				21501D7F1CCAA2B900B02FC5 /* ChromeActivity.swift in Sources */,
 				21C58DD61D023947005AEFE1 /* SectionHeaderView.swift in Sources */,
+				21AE40421D5E5F290057B4E9 /* OAuthClient+Canvas.swift in Sources */,
 				21501D801CCAA2B900B02FC5 /* Analytics.swift in Sources */,
 				21501D811CCAA2B900B02FC5 /* TextField.swift in Sources */,
 				21D326601D258F8F00EB7D74 /* LogInViewController.swift in Sources */,
 				215486011D3D4007000D7E77 /* NSProcessInfo+Canvas.swift in Sources */,
-				211F9A3F1D3F42FE00E0A519 /* AuthorizationClient.swift in Sources */,
+				211F9A3F1D3F42FE00E0A519 /* AuthorizationClient+Canvas.swift in Sources */,
 				21501D831CCAA2B900B02FC5 /* SearchBarContainer.swift in Sources */,
 				215CDF581D5A796900A45635 /* CopyLinkView.swift in Sources */,
 				2112CBC11D24DB8800B214F7 /* TitleView.swift in Sources */,
@@ -1272,11 +1277,12 @@
 				212299B81CE3E79C00033D94 /* UIViewController+Canvas.swift in Sources */,
 				2107D30C1CC58F7B001963B7 /* ChromeActivity.swift in Sources */,
 				21C58DD51D023947005AEFE1 /* SectionHeaderView.swift in Sources */,
+				21AE40411D5E5F290057B4E9 /* OAuthClient+Canvas.swift in Sources */,
 				2107D3031CC58F7B001963B7 /* Analytics.swift in Sources */,
 				2107D3131CC58F7B001963B7 /* TextField.swift in Sources */,
 				21D3265F1D258F8F00EB7D74 /* LogInViewController.swift in Sources */,
 				215486001D3D4007000D7E77 /* NSProcessInfo+Canvas.swift in Sources */,
-				211F9A3E1D3F42FE00E0A519 /* AuthorizationClient.swift in Sources */,
+				211F9A3E1D3F42FE00E0A519 /* AuthorizationClient+Canvas.swift in Sources */,
 				2107D3221CC58F7B001963B7 /* SearchBarContainer.swift in Sources */,
 				215CDF571D5A796900A45635 /* CopyLinkView.swift in Sources */,
 				2112CBC01D24DB8800B214F7 /* TitleView.swift in Sources */,
@@ -1331,8 +1337,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Vendor/Intercom",
-					"$(PROJECT_DIR)/Carthage/Checkouts/intercom-ios",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1357,8 +1361,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Vendor/Intercom",
-					"$(PROJECT_DIR)/Carthage/Checkouts/intercom-ios",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1494,8 +1496,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Vendor/Intercom",
-					"$(PROJECT_DIR)/Carthage/Checkouts/intercom-ios",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1520,8 +1520,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Vendor/Intercom",
-					"$(PROJECT_DIR)/Carthage/Checkouts/intercom-ios",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

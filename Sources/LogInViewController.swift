@@ -96,7 +96,7 @@ final class LogInViewController: SessionFormViewController {
 
 		loading = true
 
-		let client = AuthorizationClient()
+		let client = OAuthClient()
 		client.createAccessToken(username: username, password: password) { [weak self] in
 			switch $0 {
 			case .Success(let account):
