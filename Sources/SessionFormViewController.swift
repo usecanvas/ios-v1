@@ -40,6 +40,7 @@ class SessionFormViewController: StackViewController {
 		textField.returnKeyType = .Next
 		textField.autocapitalizationType = .None
 		textField.autocorrectionType = .No
+		textField.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, forAxis: .Horizontal)
 		return textField
 	}()
 
@@ -48,6 +49,7 @@ class SessionFormViewController: StackViewController {
 		textField.secureTextEntry = true
 		textField.placeholder = LocalizedString.PasswordPlaceholder.string
 		textField.returnKeyType = .Go
+		textField.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, forAxis: .Horizontal)
 		return textField
 	}()
 

@@ -23,6 +23,7 @@ final class SignUpViewController: SessionFormViewController {
 		textField.returnKeyType = .Next
 		textField.autocapitalizationType = .None
 		textField.autocorrectionType = .No
+		textField.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, forAxis: .Horizontal)
 		return textField
 	}()
 	
