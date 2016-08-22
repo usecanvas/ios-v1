@@ -30,16 +30,13 @@ extension CanvasTextView {
 		guard let context = dragContext else { return }
 
 		let contentView = context.contentView
-
-		contentView.translatesAutoresizingMaskIntoConstraints = false
+		contentView.frame = CGRect(
+			x: 0,
+			y: context.rect.origin.y,
+			width: bounds.width,
+			height: context.rect.height
+		)
 		addSubview(contentView)
-
-		NSLayoutConstraint.activateConstraints([
-			contentView.leadingAnchor.constraintEqualToAnchor(leadingAnchor),
-			contentView.widthAnchor.constraintEqualToAnchor(widthAnchor),
-			contentView.topAnchor.constraintEqualToAnchor(topAnchor, constant: context.rect.minY - context.yContentOffset),
-			contentView.heightAnchor.constraintEqualToConstant(ceil(context.rect.height))
-		])
 	}
 
 	private func dragChanged() {
@@ -160,7 +157,7 @@ extension CanvasTextView: UIGestureRecognizerDelegate {
 		let context = DragContext(
 			block: block,
 			snapshotView: snapshotView,
-			rect: rect,
+			rect: rect.integral,
 			yContentOffset: contentOffset.y
 		)
 		
