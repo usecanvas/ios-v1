@@ -81,6 +81,19 @@ final class SignUpViewController: SessionFormViewController {
 			}
 		}
 	}
+
+	override func onePassword(sender: AnyObject?) {
+		let details = [
+			AppExtensionTitleKey: "Canvas"
+		]
+
+		let passwordOptions = [
+			AppExtensionGeneratedPasswordMinLengthKey: 8,
+			AppExtensionGeneratedPasswordMaxLengthKey: 128
+		]
+
+		OnePasswordExtension.sharedExtension().storeLoginForURLString("https://usecanvas.com", loginDetails: details, passwordGenerationOptions: passwordOptions, forViewController: self, sender: sender, completion: signUp)
+	}
 	
 
 	// MARK: - Private
@@ -88,6 +101,22 @@ final class SignUpViewController: SessionFormViewController {
 	private func showVerify() {
 		guard let rootViewController = UIApplication.sharedApplication().delegate?.window??.rootViewController as? RootViewController else { return }
 		rootViewController.viewController = VerifyViewController()
+	}
+
+	private func signUp(onePassword loginDictionary: [NSObject: AnyObject]?, error: NSError?) {
+		if let username = loginDictionary?[AppExtensionUsernameKey] as? String {
+			if username.containsString("@") {
+				emailTextField.text = username
+				usernameTextField.becomeFirstResponder()
+			} else {
+				usernameTextField.text = username
+				emailTextField.becomeFirstResponder()
+			}
+		}
+
+		if let password = loginDictionary?[AppExtensionPasswordKey] as? String {
+			passwordTextField.text = password
+		}
 	}
 }
 

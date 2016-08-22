@@ -10,6 +10,7 @@ import UIKit
 import CanvasCore
 import CanvasKit
 import CanvasText
+import OnePasswordExtension
 
 class SessionFormViewController: StackViewController {
 
@@ -51,6 +52,14 @@ class SessionFormViewController: StackViewController {
 		textField.returnKeyType = .Go
 		textField.setContentCompressionResistancePriority(UILayoutPriorityDefaultLow, forAxis: .Horizontal)
 		return textField
+	}()
+
+	let onePasswordButton: UIButton = {
+		let button = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 44))
+		button.setImage(UIImage(named: "1Password"), forState: .Normal)
+		button.imageView?.tintColor = Swatch.darkGray
+		button.adjustsImageWhenHighlighted = true
+		return button
 	}()
 
 	let submitButton: IndicatorButton = {
@@ -117,6 +126,13 @@ class SessionFormViewController: StackViewController {
 			stackView.addArrangedSubview(textField)
 			textField.delegate = self
 			textField.addTarget(self, action: #selector(updateSubmitButton), forControlEvents: .EditingChanged)
+		}
+
+		// Add 1Password button
+		if OnePasswordExtension.sharedExtension().isAppExtensionAvailable() {
+			onePasswordButton.addTarget(self, action: #selector(onePassword), forControlEvents: .TouchUpInside)
+			passwordTextField.rightView = onePasswordButton
+			passwordTextField.rightViewMode = .Always
 		}
 
 		stackView.addSpace(unit * 4)

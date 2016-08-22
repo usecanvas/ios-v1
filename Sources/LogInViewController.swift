@@ -39,17 +39,6 @@ final class LogInViewController: SessionFormViewController {
 		forgotButton.addTarget(self, action: #selector(forgotPassword), forControlEvents: .TouchUpInside)
 		stackView.addSpace(unit * 4)
 		stackView.addArrangedSubview(forgotButton)
-
-		// 1Password
-		if OnePasswordExtension.sharedExtension().isAppExtensionAvailable() {
-			let button = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 44))
-			button.setImage(UIImage(named: "1Password"), forState: .Normal)
-			button.imageView?.tintColor = Swatch.darkGray
-			button.addTarget(self, action: #selector(onePassword), forControlEvents: .TouchUpInside)
-			button.adjustsImageWhenHighlighted = true
-			passwordTextField.rightView = button
-			passwordTextField.rightViewMode = .Always
-		}
 	}
 
 	override func viewDidAppear(animated: Bool) {
@@ -85,9 +74,7 @@ final class LogInViewController: SessionFormViewController {
 	// MARK: - Actions
 
 	override func onePassword(sender: AnyObject?) {
-		OnePasswordExtension.sharedExtension().findLoginForURLString("https://usecanvas.com", forViewController: self, sender: sender) { [weak self] loginDictionary, _ in
-			self?.login(onePassword: loginDictionary)
-		}
+		OnePasswordExtension.sharedExtension().findLoginForURLString("https://usecanvas.com", forViewController: self, sender: sender, completion: login)
 	}
 
 	override func submit() {
@@ -131,7 +118,7 @@ final class LogInViewController: SessionFormViewController {
 
 	// MARK: - Private
 	
-	private func login(onePassword loginDictionary: [NSObject: AnyObject]?) {
+	private func login(onePassword loginDictionary: [NSObject: AnyObject]?, error: NSError?) {
 		if let username = loginDictionary?[AppExtensionUsernameKey] as? String {
 			emailTextField.text = username
 		}
