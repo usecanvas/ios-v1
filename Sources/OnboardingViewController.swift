@@ -101,7 +101,6 @@ final class OnboardingViewController: UIViewController {
 		view.backgroundColor = Swatch.white
 		
 		viewControllers.forEach { viewController in
-			addChildViewController(viewController)
 			scrollView.addSubview(viewController.view)
 		}
 		
