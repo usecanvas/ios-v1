@@ -87,57 +87,60 @@ end
 
 desc 'Put a first-party dependency into development mode'
 task :develop, [:name] do |t, args|
-  name = args[:name]
+  names = [args[:name]] + args.extras
 
-  source_dir = "../#{name}"
-  checkout_dir = "Carthage/Checkouts/#{name}"
+  dependencies_xml = %Q{    <FileRef location="group:Canvas.xcodeproj"></FileRef>\n}
 
-  # Setup symlink
-  info "Creating symlink for #{name}…"
-  system "rm -rf #{checkout_dir}"
+  names.each do |name|
+    source_dir = "../#{name}"
+    checkout_dir = "Carthage/Checkouts/#{name}"
 
-  unless File.exists?(source_dir)
-    fail "#{name} is missing at `#{source_dir}`"
+    # Setup symlink
+    info "Creating symlink for #{name}…"
+    system "rm -rf #{checkout_dir}"
+
+    unless File.exists?(source_dir)
+      fail "#{name} is missing at `#{source_dir}`"
+    end
+
+    # Get ref
+    begin
+      resolved = File.read('Cartfile.resolved')
+    rescue
+      fail 'Failed to read Cartfile.resolved.'
+    end
+
+
+    unless matches = resolved.match(/git(?:hub)? ".*\/#{name}" "(.*)"/) and ref = matches[1]
+      fail "Failed to find #{name} in Cartfile.resolved."
+    end
+
+    system 'mkdir -p Carthage/Checkouts'
+    system "ln -s ../../#{source_dir} #{checkout_dir}"
+
+    # Update git
+    info "Checking out #{name} at #{ref}…"
+    system "cd #{source_dir} && git fetch --quiet && git checkout --quiet #{ref}"
+
+    # Symlink build directory
+    system "mkdir -p #{checkout_dir}/Carthage/Build/"
+    build_dir = "#{checkout_dir}/Carthage/Build"
+    system "rm -rf #{build_dir}"
+    system "ln -s `pwd`/Carthage/Build #{build_dir}"
+
+    dependencies_xml += %Q{    <FileRef location="group:Carthage/Checkouts/#{name}/#{name}.xcodeproj"></FileRef>\n}
   end
-
-  # Get ref
-  begin
-    resolved = File.read('Cartfile.resolved')
-  rescue
-    fail 'Failed to read Cartfile.resolved.'
-  end
-
-  unless matches = resolved.match(/git(?:hub)? ".*\/#{name}" "(.*)"/) and ref = matches[1]
-    fail "Failed to find #{name} in Cartfile.resolved."
-  end
-
-  system 'mkdir -p Carthage/Checkouts'
-  system "ln -s ../../#{source_dir} #{checkout_dir}"
-
-  # Update git
-  info "Checkout #{name} at #{ref}…"
-  system "cd #{source_dir} && git fetch --quiet && git checkout --quiet #{ref}"
-
-  # Symlink build directory
-  system "mkdir -p #{checkout_dir}/Carthage/Build/"
-  build_dir = "#{checkout_dir}/Carthage/Build"
-  system "rm -rf #{build_dir}"
-  system "ln -s `pwd`/Carthage/Build #{build_dir}"
 
   # Setup workspace
   info 'Creating `Canvas.xcworkspace`…'
   system 'rm -rf Canvas.xcworkspace'
   system 'mkdir Canvas.xcworkspace'
 
-  dependencies = [name]
-  dependencies_xml = %Q{    <FileRef location="group:Canvas.xcodeproj"></FileRef>\n}
-  dependencies_xml += dependencies.map { |name| %Q{    <FileRef location="group:Carthage/Checkouts/#{name}/#{name}.xcodeproj"></FileRef>\n} }.join('')
-
   File.open 'Canvas.xcworkspace/contents.xcworkspacedata', 'w' do |file|
     file.write %Q{<?xml version="1.0" encoding="UTF-8"?>\n<Workspace version="1.0">\n#{dependencies_xml}</Workspace>\n}
   end
 
-  success "Setup `Canvas.xcworkspace` for developing #{name}!"
+  success "Setup `Canvas.xcworkspace` for developing #{names.join(', ')}!"
 end
 
 namespace :sentry do
