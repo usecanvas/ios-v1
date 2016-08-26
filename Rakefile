@@ -4,6 +4,7 @@ CARTHAGE_VERSION = '0.17.2'
 XCODE_VERSION = '10188.1'
 XCODE_SHORT_VERSION = '7.3.1 (7D1014)'
 XCODE_URL = 'https://itunes.apple.com/app/xcode/id497799835'
+PLATFORM = 'ios'
 
 SENTRY_API_KEY = '3c95c860602c4859984fa75d63b3dc83'
 SENTRY_ORG = 'usecanvas'
@@ -31,14 +32,14 @@ desc 'Build the project’s dependencies'
 task :bootstrap do
   Rake::Task['check_tools'].invoke unless ENV['SKIP_TOOLS_CHECK']
   info "Getting Carthage dependencies…"
-  system 'carthage bootstrap --platform iOS'
+  system "carthage bootstrap --platform #{PLATFORM}"
   success "You're ready to go! Open Canvas.xcodeproj and click ▶"
 end
 
 desc 'Update the project’s dependencies.'
 task :update => :check_tools do
   info "Updating Carthage dependencies…"
-  system 'carthage update --platform iOS'
+  system "carthage update --platform #{PLATFORM}"
 end
 
 # TODO: This could be a lot more robust, but should at least help for now.
