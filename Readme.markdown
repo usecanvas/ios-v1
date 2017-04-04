@@ -11,7 +11,7 @@ You will need [Xcode](https://itunes.apple.com/app/xcode/id497799835) 7.3.1 and 
 
 1. Clone the code.
 
-        $ git clone https://github.com/usecanvas/ios
+        $ git clone https://github.com/usecanvas/ios-v1
         $ cd ios
 
 2. Now, simply run the following command:
