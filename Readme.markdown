@@ -1,6 +1,8 @@
 # Canvas for iOS
 
-Canvas client for iOS.
+Canvas client for iOS V1.
+
+*Note:* This app was designed to work against V1 of Canvas, which is not released. There is no iOS client for V2. This repo is open sourced for reference only.
 
 
 ## Building
