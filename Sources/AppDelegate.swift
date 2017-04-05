@@ -111,7 +111,7 @@ extension AppDelegate: UIApplicationDelegate {
 		}
 
 		// Intercom
-		Intercom.setApiKey("ios_sdk-23875f0968eab5b49e236e42b70aed9548312a77", forAppId: "zv4qksyq")
+		Intercom.setApiKey("__INTERCOM_API_KEY__", forAppId: "__INTERCOM_APP_ID__")
 		Intercom.setBottomPadding(16)
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(promptForRemoteNotifications), name: IntercomDidStartNewConversationNotification, object: nil)
 
